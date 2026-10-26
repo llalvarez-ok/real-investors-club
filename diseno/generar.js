@@ -1,8 +1,11 @@
 /* Láminas de clase RIC (1920x1080): lee spec-<clave>.json y escribe un HTML por lámina en out/<modulo>/<leccion>/NN.html,
    más un índice (laminas.json) con rutas, títulos y notas. render.js las captura con Chrome headless. */
 const fs = require("fs"), path = require("path");
-const DIR = __dirname, OUT = path.join(DIR, "out");
-const logo = fs.readFileSync("C:/ric/assets/logo.svg", "utf8").replace(/<\?xml[^>]*>/, "");
+const DIR = __dirname, OUT = process.env.RIC_OUT || path.join(DIR, "out");
+/* RIC_VIDEO=1: pie para video ("Realy · Real Investors Club") y esquina inferior derecha libre */
+const VIDEO = !!process.env.RIC_VIDEO;
+const LOGO = [path.join(DIR, "..", "marca", "logo.svg"), "C:/ric/assets/logo.svg"].find((f) => fs.existsSync(f));
+const logo = fs.readFileSync(LOGO, "utf8").replace(/<\?xml[^>]*>/, "");
 const G = "#c7a35e", G2 = "#e2c68c", GD = "#8e7140", V = "#3dd68c", R = "#ff6b6b", M = "#a3b5d1", AZ = "#5b9bd8", LN = "#274a80";
 
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -271,14 +274,14 @@ function html(l, ctx, n, total) {
   return `<!doctype html><html lang="es"><head><meta charset="utf-8"><style>${css}</style></head><body><div class="bg"></div><div class="grid"></div><div class="wrap">
 <div class="top"><div class="logo">${logo}</div><div class="pill">N${ctx.nivel} · M${ctx.modulo} · L${ctx.numero} &nbsp;—&nbsp; ${String(n).padStart(2, "0")}/${String(total).padStart(2, "0")}</div></div>
 <div class="main"><div class="fit">${cuerpo}</div></div>
-<div class="pie"><span><b>realinvestors.club</b></span><span>${esc(ctx.moduloNombre)}</span></div>
+<div class="pie">${VIDEO ? `<span><b>Realy</b> · Real Investors Club &nbsp;—&nbsp; realinvestors.club</span>` : `<span><b>realinvestors.club</b></span><span>${esc(ctx.moduloNombre)}</span>`}</div>
 </div>${AJUSTE}</body></html>`;
 }
 
 const specs = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync(DIR).filter((f) => /^spec-.*\.json$/.test(f));
 const indice = [];
 for (const f of specs) {
-  const S = JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8"));
+  const S = JSON.parse(fs.readFileSync(path.resolve(DIR, f), "utf8"));
   const dm = `M${S.modulo}-${slug(S.moduloNombre)}`;
   for (const lec of S.lecciones) {
     const dl = path.join(OUT, dm, `L${lec.numero}-${slug(lec.titulo)}`); fs.mkdirSync(dl, { recursive: true });
@@ -292,5 +295,5 @@ for (const f of specs) {
     });
   }
 }
-fs.writeFileSync(path.join(DIR, "laminas.json"), JSON.stringify(indice, null, 1));
+fs.writeFileSync(path.join(OUT, "laminas.json"), JSON.stringify(indice, null, 1));
 console.log("láminas:", indice.length, "en", new Set(indice.map((x) => x.id)).size, "lecciones");

@@ -35,14 +35,16 @@ Captar alumnos para el club y llegar a la monetización de YouTube. El Nivel 0 e
 Fondo azul noche (#071426 a #0d2142) con grilla tenue. Oro (#e2c68c, #c7a35e, #8e7140) para la palabra clave. Texto #ecf1f9 y #a3b5d1. Verde #3dd68c y rojo #ff6b6b solo para subir y bajar. Bordes #274a80. Tipografías Archivo (títulos), IBM Plex Sans (texto) e IBM Plex Mono (etiquetas). Barra inferior "Realy · Real Investors Club" y la esquina inferior derecha libre (680 px).
 
 ## Flujo por lección
-1. Guion en `guiones/RIC-N{n}-M{m}-L{l}.md`, con cada escena marcada como L (lámina), C (gráfico), A (animación) o P (solo voz). Lean lo aprueba antes de seguir.
+1. Guion en `produccion/<id>/spec.json`: una lámina por escena con el formato de `diseno/ESQUEMA.md`, más `escena` (L lámina, C gráfico, A animación, P solo voz) y `voz` (el texto que se locuta). Lean lo aprueba antes de seguir.
+   Producción completa: `python herramientas/producir_leccion.py produccion/<id>/spec.json <dir de trabajo>` (con `--maqueta`, sin voz). La miniatura sale de `produccion/<id>/miniatura.html`.
 2. Láminas y hoja de contacto para aprobar.
 3. Video final `RIC-N{n}-M{m}-L{l}.mp4` y miniatura de 1280x720. Los MP4 y PNG pesados no van a git: se entregan en Google Drive.
 4. Verificar duración, cortes de audio, huecos de más de 0,5 s y textos tapados. Reportar qué se verificó y qué no.
 5. Lean sube el video a mano hasta que haya credenciales de la API de YouTube para la cuenta de RIC.
 
 ## Estado
-- Publicadas: 0-0-0, 0-0-1, 0-0-2, 0-0-3 y 0-1-0 (públicas). La próxima es 0-1-1. La última subida fue el 17/09/2026.
+- Publicadas: 0-0-0, 0-0-1, 0-0-2, 0-0-3 y 0-1-0 (públicas). La última subida fue el 17/09/2026.
+- 0-1-1: guion, láminas, animación, miniatura y maqueta sin voz hechos el 26/10/2026, sin aprobar todavía. Falta la voz (red bloqueada).
 - Los videos publicados no tienen cargadas las etiquetas de `youtube/metadatos.json`.
 - Programa: 215 lecciones (Nivel 0: 21, incluido el módulo de la CNV agregado en septiembre de 2026). El `.docx` de títulos es anterior y cubre 170: faltan fichas para 45 lecciones, entre ellas 0-5-0 a 0-5-2.
 - En `curriculum-data.js` el módulo de la CNV está antes de "Tu primer contacto con el mercado", pero en `nivel-0.js` tiene el ID 0-5-x. Confirmar con Lean el orden de publicación.

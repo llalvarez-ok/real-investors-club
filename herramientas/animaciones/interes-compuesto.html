@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Animación "interés compuesto" (1920x1080). La controla herramientas/animar.js llamando a window.cuadro(t), t entre 0 y 1.
+     Parámetros por query string: capital, tasa, periodos, unidad, marcas (fracciones de t donde llega a los periodos 1, 10 y final). -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#071426;color:#ecf1f9;font-family:'IBM Plex Sans',sans-serif}
+.bg{position:absolute;inset:0;background:linear-gradient(160deg,#071426 0%,#0d2142 100%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(91,155,216,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(91,155,216,.06) 1px,transparent 1px);background-size:60px 60px}
+.wrap{position:absolute;inset:0;padding:56px 90px 40px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo svg{height:62px;width:auto}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:26px;letter-spacing:.22em;text-transform:uppercase;color:#e2c68c}
+.main{flex:1;display:flex;gap:70px;align-items:center}
+.izq{width:640px;display:flex;flex-direction:column;gap:26px}
+h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:64px;line-height:1.05}
+.oro{background:linear-gradient(180deg,#e2c68c,#c7a35e 46%,#8e7140);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sem{font-family:'IBM Plex Mono',monospace;font-size:34px;color:#a3b5d1}
+.monto{font-family:'Archivo',sans-serif;font-weight:900;font-size:104px;white-space:nowrap;line-height:1;font-variant-numeric:tabular-nums}
+.pct{display:inline-block;font-family:'Archivo',sans-serif;font-weight:800;font-size:54px;color:#3dd68c;border:2px solid #3dd68c;background:rgba(61,214,140,.1);border-radius:18px;padding:10px 26px;opacity:0;transform:scale(.8);transition:none}
+.nota{font-size:32px;color:#a3b5d1;opacity:0}
+.der{flex:1}
+.pie{display:flex;justify-content:space-between;border-top:1.5px solid #274a80;padding-top:18px;font-family:'IBM Plex Mono',monospace;font-size:22px;color:#6f88ad}
+.pie b{color:#e2c68c}
+</style></head>
+<body><div class="bg"></div><div class="grid"></div>
+<div class="wrap">
+  <div class="top"><div class="logo" id="logo"></div><div class="kicker">Hagamos la cuenta</div></div>
+  <div class="main">
+    <div class="izq">
+      <div class="kicker">«10 % semanal garantizado»</div>
+      <h2>Lo que la promesa dice <span class="oro">sin decirlo</span></h2>
+      <div class="sem" id="sem">Semana 0</div>
+      <div class="monto" id="monto">US$ 1.000</div>
+      <div><span class="pct" id="pct">+14.105 % en un año</span></div>
+      <div class="nota" id="nota">Nadie en la historia lo sostuvo.</div>
+    </div>
+    <div class="der"><svg id="g" viewBox="0 0 1000 640" width="1000" height="640"></svg></div>
+  </div>
+  <div class="pie"><span><b>Realy</b> · Real Investors Club &nbsp;—&nbsp; realinvestors.club</span><span></span></div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+const C = +(q.get("capital") || 1000), r = +(q.get("tasa") || 0.1), N = +(q.get("periodos") || 52), U = q.get("unidad") || "semana";
+const M = (q.get("marcas") || "0.12,0.30,0.50").split(",").map(Number);
+const valor = (w) => C * Math.pow(1 + r, w);
+const fmt = (v) => "US$ " + Math.round(v).toLocaleString("es-AR");
+const total = (valor(N) / C - 1) * 100;
+document.getElementById("pct").textContent = "+" + Math.round(total).toLocaleString("es-AR") + " % en un año";
+const Uc = U[0].toUpperCase() + U.slice(1);
+const g = document.getElementById("g"), X0 = 110, Y0 = 30, W = 820, H = 540;
+const paso = Math.pow(10, Math.floor(Math.log10(valor(N) / 4))) * ([1, 2, 2.5, 4, 5, 10].find((f) => f * Math.pow(10, Math.floor(Math.log10(valor(N) / 4))) * 4 >= valor(N))), vmax = paso * 4;
+const X = (w) => X0 + (W * w) / N, Y = (v) => Y0 + H - (H * v) / vmax;
+let ejes = "";
+for (let i = 0; i <= 4; i++) { const v = (vmax * i) / 4, y = Y(v);
+  ejes += `<line x1="${X0}" y1="${y}" x2="${X0 + W}" y2="${y}" stroke="#274a80" stroke-width="1.5" stroke-dasharray="${i ? "6 8" : "0"}"/><text x="${X0 - 14}" y="${y + 8}" text-anchor="end" font-size="22" fill="#a3b5d1" font-family="IBM Plex Sans">${Math.round(v / 1000).toLocaleString("es-AR")} mil</text>`; }
+for (const w of [1, 10, 26, 39, 52]) ejes += `<text x="${X(w)}" y="${Y0 + H + 40}" text-anchor="middle" font-size="22" fill="#a3b5d1" font-family="IBM Plex Sans">${Uc.slice(0, 3)}. ${w}</text>`;
+const defs = `<defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7a35e" stop-opacity=".35"/><stop offset="1" stop-color="#c7a35e" stop-opacity="0"/></linearGradient></defs>`;
+// t (0..1) -> periodo: lento al principio (semana 1 y 10 se escuchan en la voz), después se acelera hasta el final
+function periodo(t) {
+  const [a, b, c] = M;
+  if (t <= a) return t / a;
+  if (t <= b) return 1 + (9 * (t - a)) / (b - a);
+  if (t <= c) { const k = (t - b) / (c - b); return 10 + (N - 10) * (k * k * (3 - 2 * k)); }
+  return N;
+}
+window.cuadro = function (t) {
+  const w = periodo(t), v = valor(w);
+  let pts = []; for (let i = 0; i <= w; i += 0.25) pts.push([X(i), Y(valor(i))]); pts.push([X(w), Y(v)]);
+  const line = pts.map((p) => p.join(",")).join(" ");
+  g.innerHTML = defs + ejes + `<polygon points="${X0},${Y0 + H} ${line} ${X(w)},${Y0 + H}" fill="url(#area)"/>` +
+    `<polyline points="${line}" fill="none" stroke="#e2c68c" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>` +
+    `<circle cx="${X(w)}" cy="${Y(v)}" r="11" fill="#071426" stroke="#e2c68c" stroke-width="5"/>`;
+  document.getElementById("sem").textContent = Uc + " " + Math.floor(w);
+  document.getElementById("monto").textContent = fmt(valor(Math.floor(w)));
+  const k = Math.max(0, Math.min(1, (t - M[2]) / 0.06));
+  const p = document.getElementById("pct"); p.style.opacity = k; p.style.transform = `scale(${0.8 + 0.2 * k})`;
+  document.getElementById("nota").style.opacity = Math.max(0, Math.min(1, (t - M[2] - 0.12) / 0.06));
+};
+window.cuadro(0);
+document.fonts.ready.then(() => (document.title = "listo"));
+</script>
+</body></html>

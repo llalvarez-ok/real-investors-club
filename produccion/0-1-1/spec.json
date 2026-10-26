@@ -1,0 +1,135 @@
+{
+  "nivel": 0, "nivelNombre": "DESPERTAR",
+  "modulo": 1, "moduloNombre": "Tu relación con el dinero",
+  "lecciones": [
+    {
+      "id": "0-1-1", "numero": 6,
+      "titulo": "Expectativas realistas: qué rendimiento es posible y cuál es humo",
+      "laminas": [
+        {
+          "tipo": "portada", "escena": "L", "icono": "diana",
+          "titulo": "¿Cuánto se puede **ganar** de verdad?",
+          "subtitulo": "Expectativas realistas: qué rendimiento es posible y cuál es humo",
+          "voz": "Si alguien te promete un diez por ciento por semana, ¿le crees? Antes de contestar, te hago otra pregunta. ¿Sabes cuánto gana por año el mejor inversor del mundo? Si no tienes ese número en la cabeza, cualquier promesa te va a sonar creíble. Hoy vamos a calibrar tu detector de humo."
+        },
+        {
+          "tipo": "agenda", "escena": "L",
+          "titulo": "Hoy vas a aprender",
+          "puntos": [
+            "Los rendimientos de **referencia** del mundo real",
+            "Cómo detectar una promesa de humo en segundos",
+            "Por qué con una cuenta chica no se vive del trading",
+            "Cuál es tu verdadera **meta** del primer año"
+          ],
+          "voz": "En los próximos minutos vas a ver tres números que cambian cómo miras cualquier anuncio de inversión. Después vamos a hacer cuentas. Pocas y fáciles, te lo prometo. Y al final vas a saber qué meta ponerte para tu primer año."
+        },
+        {
+          "tipo": "tabla", "escena": "L",
+          "titulo": "Tres números de **referencia**",
+          "columnas": ["Quién", "Rendimiento", "Con qué"],
+          "filas": [
+            ["Índices como el S&P 500", "8–10 % anual (histórico)", "Con años de caídas fuertes"],
+            ["Los mejores gestores", "15–25 % anual", "Equipos enormes, décadas"],
+            ["Trader particular consistente", "2–5 % mensual en meses buenos", "Años de formación"]
+          ],
+          "voz": "Primer número. Los grandes índices de acciones, como el S&P quinientos, promediaron históricamente entre un ocho y un diez por ciento anual. Ojo: es un promedio, con años muy malos en el medio. Segundo número. Los mejores gestores del planeta sostuvieron entre un quince y un veinticinco por ciento anual durante décadas. Son la élite absoluta, con equipos enormes. Y tercero. Un trader particular, después de años de formación, que logra entre un dos y un cinco por ciento en sus meses buenos, ya tiene un desempeño serio. Con meses negativos incluidos."
+        },
+        {
+          "tipo": "grafico", "escena": "C", "zoom": { "destacar": 4, "factor": 1.7 },
+          "titulo": "El S&P 500 **no** sube en línea recta",
+          "grafico": {
+            "tipo": "barras",
+            "etiquetas": ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+            "valores": [-6.2, 28.9, 16.3, 26.9, -19.4, 24.2, 23.3],
+            "unidad": "%",
+            "destacar": 4,
+            "fuente": "^GSPC, variación anual del precio de cierre (sin dividendos)"
+          },
+          "lectura": "Un promedio de 8–10 % incluye años como **2022**",
+          "voz": "Mira cómo se ve ese promedio en la realidad. Estos son los últimos años del S&P quinientos. Hay años de más de veinte por ciento. Y fíjate en dos mil veintidós: cayó casi un veinte por ciento. Quien invirtió ese año no hizo nada mal. Así funciona el mercado. Por eso, cuando escuches promedio, piensa siempre en el camino con baches, no en una escalera mecánica."
+        },
+        {
+          "tipo": "pregunta", "escena": "L",
+          "texto": "«**10 %** semanal garantizado»",
+          "detalle": "¿Cuánto es eso en un año?",
+          "voz": "Ahora sí, volvamos a la promesa del principio. Camila ve un anuncio en redes: diez por ciento semanal, garantizado. Suena modesto, ¿no? Diez por ciento. Hagamos la cuenta juntos."
+        },
+        {
+          "tipo": "animacion", "escena": "A",
+          "animacion": { "tipo": "interes-compuesto", "capital": 1000, "tasa": 0.10, "periodos": 52, "unidad": "semana" },
+          "voz": "Camila empieza con mil dólares. Semana uno, mil cien. Semana diez, ya son más de dos mil quinientos. Y al terminar el año, con cincuenta y dos semanas, tendría más de ciento cuarenta mil dólares. Eso es más de catorce mil por ciento anual. Si alguien pudiera hacer eso, en pocos años sería la persona más rica del planeta. Y no necesitaría venderte un curso, ni pedirte que deposites."
+        },
+        {
+          "tipo": "concepto", "escena": "L", "icono": "alerta",
+          "titulo": "Tu detector de **humo**",
+          "puntos": [
+            "«Garantizado» junto a un rendimiento: alarma inmediata",
+            "Compara siempre contra el 8–10 % anual de los índices",
+            "Si gana tanto, ¿para qué necesita tu dinero?",
+            "Las capturas de pantalla no se auditan"
+          ],
+          "voz": "Con esos números, tu detector funciona solo. Primera señal: la palabra garantizado junto a un rendimiento. Los mercados no le garantizan nada a nadie. Segunda: compara cualquier promesa con el ocho o diez por ciento anual de los índices. Si es mucho más, alguien te tiene que explicar de dónde sale ese riesgo extra. Y tercera: si de verdad gana tanto, pregúntate para qué necesita tu dinero."
+        },
+        {
+          "tipo": "ejemplo", "escena": "L",
+          "titulo": "¿Se puede vivir del trading con **1.000** dólares?",
+          "persona": "Julián",
+          "situacion": "Julián tiene 1.000 dólares y una meta: dejar su trabajo y vivir del trading.",
+          "desarrollo": [
+            "Supón que logra un 3 % mensual, un resultado ya muy exigente",
+            "Eso son unos 30 dólares al mes",
+            "Con 500 dólares de cuenta, la cuenta da todavía peor"
+          ],
+          "conclusion": "Primero se construye la **habilidad**; el capital viene después.",
+          "voz": "Vamos con otro caso. Julián tiene mil dólares y un plan: renunciar a su trabajo y vivir del trading. Supón que le va muy bien y logra un tres por ciento mensual, que ya es un resultado muy exigente. ¿Cuánto es? Unos treinta dólares al mes. Con eso no paga ni el internet que usa para operar. Por eso los traders profesionales operan cuentas grandes, propias o de terceros. Y por eso, vivir del trading con quinientos dólares es matemáticamente imposible. Quien te diga lo contrario necesita que deposites, no que aprendas."
+        },
+        {
+          "tipo": "error", "escena": "L",
+          "titulo": "El error que más **frustra**",
+          "errores": [
+            { "mal": "Comparar tu mes 3 con capturas de un desconocido", "bien": "Comparar tu mes 3 con tu mes 1" },
+            { "mal": "Ponerte como meta un porcentaje", "bien": "Ponerte como meta una **habilidad**" }
+          ],
+          "voz": "Y ahora, el error más común. Diego lleva tres meses aprendiendo. Abre las redes y ve a un desconocido mostrando una ganancia enorme en una captura de pantalla. Se compara, se frustra, y piensa en abandonar. Pero esa captura no se puede auditar. Su progreso real, sí. La comparación que sirve es otra: tu mes tres contra tu mes uno."
+        },
+        {
+          "tipo": "ric", "escena": "L",
+          "puntos": [
+            "Primer año: la meta es gestionar riesgo, no un porcentaje",
+            "El stop se pone siempre **antes** de entrar",
+            "Beneficio/riesgo mínimo de 1,5 a 1",
+            "Sin operaciones nuevas 45 minutos antes de un dato fuerte"
+          ],
+          "voz": "Así lo hacemos en Real Investors Club. En el primer año, la meta no es un porcentaje: es aprender a gestionar riesgo. Eso se ve en reglas concretas. El stop se pone siempre antes de entrar, nunca después. Cada operación tiene que poder ganar al menos uno coma cinco veces lo que arriesga. Y no se abren operaciones nuevas cuarenta y cinco minutos antes de un dato económico de alto impacto: primero se revisa el calendario."
+        },
+        {
+          "tipo": "actividad", "escena": "L",
+          "titulo": "Pon a prueba tu **detector**",
+          "consigna": "En tu cuenta demo y en un cuaderno:",
+          "pasos": [
+            "Anota qué rendimiento esperabas antes de esta lección",
+            "Busca una promesa de rendimiento en redes y pásala a anual",
+            "Abre tu diario de demo: fecha, riesgo y motivo de cada operación"
+          ],
+          "voz": "Tu actividad para esta semana tiene tres pasos. Uno: anota qué rendimiento esperabas antes de ver esta lección. Sé honesto, nadie te está mirando. Dos: busca una promesa de rendimiento en redes y pásala a número anual. Vas a ver lo rápido que se desarma. Y tres: abre tu diario de operaciones en la cuenta demo. Por cada operación, anota la fecha, cuánto arriesgaste y por qué entraste."
+        },
+        {
+          "tipo": "resumen", "escena": "L",
+          "puntos": [
+            "Los índices rinden 8–10 % anual histórico, con años malos",
+            "«Garantizado» junto a un rendimiento es señal de estafa",
+            "Con cuentas chicas no se vive del trading",
+            "Tu meta del primer año es gestionar riesgo, no un porcentaje"
+          ],
+          "voz": "Repasemos. Los índices rinden entre ocho y diez por ciento anual en promedio, con años malos incluidos. La palabra garantizado junto a un rendimiento es una señal de alarma. Con una cuenta chica no se vive del trading: primero la habilidad, después el capital. Y tu meta del primer año no es un número, es aprender a gestionar riesgo."
+        },
+        {
+          "tipo": "cierre", "escena": "L",
+          "frase": "Tu meta del primer año no es un número: es una **habilidad**.",
+          "siguiente": "El costo emocional de aprender: lo que nadie cuenta del primer año",
+          "voz": "En la próxima lección vamos a hablar de algo que casi nadie cuenta: el costo emocional del primer año. Te espero en realinvestors punto club. Recuerda: este contenido es educativo y no constituye una recomendación de inversión."
+        }
+      ]
+    }
+  ]
+}
