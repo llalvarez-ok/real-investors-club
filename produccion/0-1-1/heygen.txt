@@ -1,0 +1,135 @@
+RIC · Lección 0-1-1 · Expectativas realistas
+GUION PARA HEYGEN, ESCENA POR ESCENA
+
+=====================================================================
+CÓMO GENERARLO (leelo antes de empezar)
+=====================================================================
+1. Un video por escena: 13 clips, de 01 a 13. No lo hagas en un solo video:
+   así puedo pegar cada clip con su lámina y, si una escena sale mal,
+   rehacés solo esa.
+2. Pegá en HeyGen SOLO el texto que está entre las líneas >>> y <<<.
+   Ya está escrito como se tiene que pronunciar (por ejemplo "ese ande pi"
+   en lugar de "S&P"). No lo corrijas.
+3. Idioma español, velocidad de voz 1.0 (normal). Tono de charla, cercano,
+   como si le explicaras a un amigo. Nada de tono de locutor.
+4. Encuadre: plano medio (cabeza y hombros), avatar centrado en el cuadro.
+   Va a ir en la esquina inferior derecha del video, en un recuadro
+   de 680 px de ancho.
+5. Fondo: verde liso (#00FF00), o fondo transparente (WebM) si tu plan
+   lo permite. Nada de fondos con oficina o decorados: yo lo recorto.
+6. Exportá en 1080p, 16:9. Nombrá los archivos 01.mp4, 02.mp4 ... 13.mp4.
+7. Si HeyGen te deja descargar los subtítulos (.srt) de cada clip,
+   bajalos también: me sirven para sincronizar la animación y los
+   subtítulos.
+8. Pasámelos por Drive o subilos acá, en el chat.
+
+SOBRE LOS TIEMPOS
+Los tiempos que siguen son los del video actual (5:39). HeyGen no deja
+fijar la duración exacta, y no hace falta: yo adapto cada lámina a la
+duración real de tu clip. Usalos como referencia. Si un clip sale más
+de 20 % más largo o más corto que el objetivo, avisame o rehacelo.
+
+Duración total objetivo: 5:30 a 5:50 · 808 palabras · 13 escenas.
+
+=====================================================================
+ESCENA 01 · Gancho  [L]
+En el video: 0:00,0 a 0:20,1  ·  voz objetivo: 19,9 s  ·  52 palabras  ·  archivo: 01.mp4
+>>>
+Si alguien te promete un diez por ciento por semana, ¿le crees? Antes de contestar, te hago otra pregunta. ¿Sabes cuánto gana por año el mejor inversor del mundo? Si no tienes ese número en la cabeza, cualquier promesa te va a sonar creíble. Hoy vamos a calibrar tu detector de humo.
+<<<
+
+=====================================================================
+ESCENA 02 · Qué vas a aprender  [L]
+En el video: 0:20,1 a 0:35,6  ·  voz objetivo: 15,3 s  ·  41 palabras  ·  archivo: 02.mp4
+>>>
+En los próximos minutos vas a ver tres números que cambian cómo miras cualquier anuncio de inversión. Después vamos a hacer cuentas. Pocas y fáciles, te lo prometo. Y al final vas a saber qué meta ponerte para tu primer año.
+<<<
+
+=====================================================================
+ESCENA 03 · Tres números de referencia  [L]
+En el video: 0:35,6 a 1:16,4  ·  voz objetivo: 40,6 s  ·  92 palabras  ·  archivo: 03.mp4
+>>>
+Primer número. Los grandes índices de acciones, como el ese ande pi quinientos, promediaron históricamente entre un ocho y un diez por ciento anual. Ojo: es un promedio, con años muy malos en el medio. Segundo número. Los mejores gestores del planeta sostuvieron entre un quince y un veinticinco por ciento anual durante décadas. Son la élite absoluta, con equipos enormes. Y tercero. Un trader particular, después de años de formación, que logra entre un dos y un cinco por ciento en sus meses buenos, ya tiene un desempeño serio. Con meses negativos incluidos.
+<<<
+
+=====================================================================
+ESCENA 04 · Gráfico del S&P 500  [C]
+En el video: 1:16,4 a 1:43,7  ·  voz objetivo: 27,0 s  ·  66 palabras  ·  archivo: 04.mp4
+Nota: Mientras hablás, la cámara se acerca a la barra de 2022. Decí "dos mil veintidós" sin apuro.
+>>>
+Mira cómo se ve ese promedio en la realidad. Estos son los últimos años del ese ande pi quinientos. Hay años de más de veinte por ciento. Y fíjate en dos mil veintidós: cayó casi un veinte por ciento. Quien invirtió ese año no hizo nada mal. Así funciona el mercado. Por eso, cuando escuches promedio, piensa siempre en el camino con baches, no en una escalera mecánica.
+<<<
+
+=====================================================================
+ESCENA 05 · La promesa de Camila  [L]
+En el video: 1:43,7 a 1:59,3  ·  voz objetivo: 15,4 s  ·  29 palabras  ·  archivo: 05.mp4
+>>>
+Ahora sí, volvamos a la promesa del principio. Camila ve un anuncio en redes: diez por ciento semanal, garantizado. Suena modesto, ¿no? Diez por ciento. Hagamos la cuenta juntos.
+<<<
+
+=====================================================================
+ESCENA 06 · Hagamos la cuenta (animación)  [A]
+En el video: 1:59,3 a 2:29,2  ·  voz objetivo: 29,7 s  ·  69 palabras  ·  archivo: 06.mp4
+Nota: Es la escena más sincronizada: el contador avanza con tu voz. Hacé una pausa corta después de "mil cien" y después de "dos mil quinientos". Yo ajusto la animación a tu audio.
+>>>
+Camila empieza con mil dólares. Semana uno, mil cien. Semana diez, ya son más de dos mil quinientos. Y al terminar el año, con cincuenta y dos semanas, tendría más de ciento cuarenta mil dólares. Eso es más de catorce mil por ciento anual. Si alguien pudiera hacer eso, en pocos años sería la persona más rica del planeta. Y no necesitaría venderte un curso, ni pedirte que deposites.
+<<<
+
+=====================================================================
+ESCENA 07 · Tu detector de humo  [L]
+En el video: 2:29,2 a 2:57,8  ·  voz objetivo: 28,4 s  ·  67 palabras  ·  archivo: 07.mp4
+>>>
+Con esos números, tu detector funciona solo. Primera señal: la palabra garantizado junto a un rendimiento. Los mercados no le garantizan nada a nadie. Segunda: compara cualquier promesa con el ocho o diez por ciento anual de los índices. Si es mucho más, alguien te tiene que explicar de dónde sale ese riesgo extra. Y tercera: si de verdad gana tanto, pregúntate para qué necesita tu dinero.
+<<<
+
+=====================================================================
+ESCENA 08 · Julián y los 1.000 dólares  [L]
+En el video: 2:57,8 a 3:36,6  ·  voz objetivo: 38,6 s  ·  92 palabras  ·  archivo: 08.mp4
+>>>
+Vamos con otro caso. Julián tiene mil dólares y un plan: renunciar a su trabajo y vivir del trading. Supón que le va muy bien y logra un tres por ciento mensual, que ya es un resultado muy exigente. ¿Cuánto es? Unos treinta dólares al mes. Con eso no paga ni el internet que usa para operar. Por eso los traders profesionales operan cuentas grandes, propias o de terceros. Y por eso, vivir del trading con quinientos dólares es matemáticamente imposible. Quien te diga lo contrario necesita que deposites, no que aprendas.
+<<<
+
+=====================================================================
+ESCENA 09 · El error de Diego  [L]
+En el video: 3:36,6 a 4:02,7  ·  voz objetivo: 25,8 s  ·  60 palabras  ·  archivo: 09.mp4
+>>>
+Y ahora, el error más común. Diego lleva tres meses aprendiendo. Abre las redes y ve a un desconocido mostrando una ganancia enorme en una captura de pantalla. Se compara, se frustra, y piensa en abandonar. Pero esa captura no se puede auditar. Su progreso real, sí. La comparación que sirve es otra: tu mes tres contra tu mes uno.
+<<<
+
+=====================================================================
+ESCENA 10 · Así lo hacemos en RIC  [L]
+En el video: 4:02,7 a 4:31,8  ·  voz objetivo: 29,0 s  ·  76 palabras  ·  archivo: 10.mp4
+Nota: Tono firme, de regla del club. Es la única escena que nombra las reglas de riesgo.
+>>>
+Así lo hacemos en Real Investors Club. En el primer año, la meta no es un porcentaje: es aprender a gestionar riesgo. Eso se ve en reglas concretas. El stop se pone siempre antes de entrar, nunca después. Cada operación tiene que poder ganar al menos uno coma cinco veces lo que arriesga. Y no se abren operaciones nuevas cuarenta y cinco minutos antes de un dato económico de alto impacto: primero se revisa el calendario.
+<<<
+
+=====================================================================
+ESCENA 11 · Actividad en demo  [L]
+En el video: 4:31,8 a 5:00,5  ·  voz objetivo: 28,5 s  ·  68 palabras  ·  archivo: 11.mp4
+>>>
+Tu actividad para esta semana tiene tres pasos. Uno: anota qué rendimiento esperabas antes de ver esta lección. Sé honesto, nadie te está mirando. Dos: busca una promesa de rendimiento en redes y pásala a número anual. Vas a ver lo rápido que se desarma. Y tres: abre tu diario de operaciones en la cuenta demo. Por cada operación, anota la fecha, cuánto arriesgaste y por qué entraste.
+<<<
+
+=====================================================================
+ESCENA 12 · Resumen  [L]
+En el video: 5:00,5 a 5:24,1  ·  voz objetivo: 23,3 s  ·  59 palabras  ·  archivo: 12.mp4
+>>>
+Repasemos. Los índices rinden entre ocho y diez por ciento anual en promedio, con años malos incluidos. La palabra garantizado junto a un rendimiento es una señal de alarma. Con una cuenta chica no se vive del trading: primero la habilidad, después el capital. Y tu meta del primer año no es un número, es aprender a gestionar riesgo.
+<<<
+
+=====================================================================
+ESCENA 13 · Cierre  [L]
+En el video: 5:24,1 a 5:39,2  ·  voz objetivo: 15,0 s  ·  37 palabras  ·  archivo: 13.mp4
+Nota: Termina en el aviso legal: decilo completo y sin apurarte, que es obligatorio.
+>>>
+En la próxima lección vamos a hablar de algo que casi nadie cuenta: el costo emocional del primer año. Te espero en real investors punto club. Recuerda: este contenido es educativo y no constituye una recomendación de inversión.
+<<<
+
+=====================================================================
+PRONUNCIACIÓN: CAMBIOS RESPECTO DEL GUION APROBADO
+=====================================================================
+- Escenas 03 y 04: "S&P quinientos" -> "ese ande pi quinientos". Si el avatar
+  lo dice raro, probá "ese y pe quinientos".
+- Escena 13: "realinvestors punto club" -> "real investors punto club".
+- El resto va igual que el guion aprobado.
