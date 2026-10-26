@@ -44,10 +44,11 @@ Fondo azul noche (#071426 a #0d2142) con grilla tenue. Oro (#e2c68c, #c7a35e, #8
 
 ## Estado
 - Publicadas: 0-0-0, 0-0-1, 0-0-2, 0-0-3 y 0-1-0 (públicas). La última subida fue el 17/09/2026.
-- 0-1-1: guion, láminas, animación, miniatura y maqueta sin voz hechos el 26/10/2026, sin aprobar todavía. Falta la voz (red bloqueada).
+- 0-1-1: video final con voz (5:39), miniatura, .srt y guion hechos el 26/10/2026 y entregados a Lean por la sesión. Sin aprobar ni subir todavía. Datos del gráfico verificados con yfinance (^GSPC).
+- Pipeline: los subtítulos y las marcas de la animación salen de los tiempos por palabra de edge-tts (WordBoundary, `audio/NN.json`); la animación se sincroniza con `animacion.marcas_voz` en el spec. Se recorta el ~1 s de silencio que edge-tts deja al final de cada audio (aire de 0,2 s, ~0,45 s entre escenas). El zoom de los gráficos se encuadra para no cortar el título ni la lectura.
 - Los videos publicados no tienen cargadas las etiquetas de `youtube/metadatos.json`.
 - Programa: 215 lecciones (Nivel 0: 21, incluido el módulo de la CNV agregado en septiembre de 2026). El `.docx` de títulos es anterior y cubre 170: faltan fichas para 45 lecciones, entre ellas 0-5-0 a 0-5-2.
 - En `curriculum-data.js` el módulo de la CNV está antes de "Tu primer contacto con el mercado", pero en `nivel-0.js` tiene el ID 0-5-x. Confirmar con Lean el orden de publicación.
-- Red de la nube: hay que habilitar en el entorno `speech.platform.bing.com` (voz), `query1.finance.yahoo.com` y `query2.finance.yahoo.com` (gráficos), `huggingface.co` (whisper), y Pexels y Pixabay (stock).
+- Red de la nube: voz (`speech.platform.bing.com`, con el CA del proxy vía `SSL_CERT_FILE`) y Yahoo Finance funcionan. Whisper no: `huggingface.co` responde pero los pesos del modelo vienen de `us.aws.cdn.hf.co` y `cas-server.xethub.hf.co`, que el proxy rechaza (403); hay que sumarlos a los dominios permitidos. Pexels y Pixabay sin probar.
 - Pendiente: decidir con Lean si se suman videos públicos fuera del programa y Shorts, y si los títulos se ajustan o se usan tal cual el `.docx`.
 - Pendiente: credenciales de la API de YouTube para la cuenta de RIC (separadas de las de Atajos IA).

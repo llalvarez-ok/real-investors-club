@@ -21,7 +21,7 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FPS = 30
-AIRE = 0.4
+AIRE = 0.2  # más la cola y el arranque de la voz: ~0,45 s de silencio real entre escenas (límite: 0,5 s)
 VOZ = dict(voice="es-AR-TomasNeural", rate="-8%", pitch="-10Hz")
 
 
@@ -42,16 +42,74 @@ def texto_voz(t):
 
 async def sintetizar(texto, destino):
     import edge_tts
-    await edge_tts.Communicate(texto_voz(texto), **VOZ).save(destino)
+    if os.environ.get("SSL_CERT_FILE"):
+        # edge-tts usa el bundle de certifi; detrás de un proxy con CA propia (la nube) hay que usar SSL_CERT_FILE.
+        import ssl
+        import edge_tts.communicate
+        edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
+    # Además del audio guarda el tiempo real de cada palabra (WordBoundary, en unidades de 100 ns),
+    # para los subtítulos y para sincronizar las animaciones con la voz.
+    palabras = []
+    with open(destino, "wb") as fh:
+        async for m in edge_tts.Communicate(texto_voz(texto), boundary="WordBoundary", **VOZ).stream():
+            if m["type"] == "audio":
+                fh.write(m["data"])
+            elif m["type"] == "WordBoundary":
+                palabras.append({"texto": m["text"], "ini": m["offset"] / 1e7, "fin": (m["offset"] + m["duration"]) / 1e7})
+    json.dump(palabras, open(destino[:-4] + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+
+
+def recortar_cola(audio, destino):
+    """edge-tts deja ~1 s de silencio al final de cada audio, que sumado al aire pasa el límite de 0,5 s entre escenas.
+    Corta donde empieza ese silencio final (debajo de -50 dB), con 30 ms de margen y un fundido corto."""
+    dur = duracion(audio)
+    sil = subprocess.run(["ffmpeg", "-i", audio, "-af", "silencedetect=noise=-50dB:d=0.3", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    inicios = [float(x) for x in re.findall(r"silence_start: ([\d.]+)", sil)]
+    finales = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", sil)]
+    corte = dur
+    if inicios and finales and finales[-1] >= dur - 0.05:  # el último silencio llega hasta el final del archivo
+        corte = min(dur, inicios[-1] + 0.03)
+    sh("ffmpeg", "-loglevel", "error", "-y", "-i", audio, "-af", f"atrim=0:{corte:.3f},afade=t=out:st={corte - 0.03:.3f}:d=0.03",
+       "-c:a", "aac", "-b:a", "192k", "-ar", "48000", destino)
+
+
+def letras(t):
+    return re.sub(r"[^0-9a-záéíóúüñ]", "", t.lower())
+
+
+def marcas_voz(palabras, claves, dur):
+    """Fracción del clip en la que la voz empieza cada palabra clave (en orden de aparición)."""
+    marcas, i = [], 0
+    for c in claves:
+        while letras(palabras[i]["texto"]) != letras(c):
+            i += 1
+        marcas.append(round(palabras[i]["ini"] / dur, 4))
+        i += 1
+    return marcas
 
 
 def suave(p):
     return f"({p})*({p})*(3-2*({p}))"
 
 
-def clip_grafico(png, audio, dur, foco, factor, destino):
+def centro_zoom(foco, factor, evitar=()):
+    """Centro y factor del acercamiento (en px de la lámina de 1920x1080). El cuadro no corta textos por la mitad:
+    se encuadra en el espacio libre entre el texto de arriba y el de abajo del foco; si ese espacio es más bajo
+    que el cuadro, se acerca un poco más (hasta 1,9x) y, si aun así no entra, deja afuera el texto de arriba."""
+    cx, cy = foco["x"] + foco["w"] / 2, foco["y"] + foco["h"] / 2
+    techo = max([e["y"] + e["h"] + 12 for e in evitar if e["y"] + e["h"] <= foco["y"]], default=0)
+    piso = min([e["y"] - 12 for e in evitar if e["y"] >= foco["y"] + foco["h"]], default=1080)
+    factor = max(factor, min(1.9, 1080 / (piso - techo)))
+    mitad = 1080 / factor / 2
+    cy = min(max(cy, techo + mitad), piso - mitad)
+    return cx, min(max(cy, mitad), 1080 - mitad), factor
+
+
+def clip_grafico(png, audio, dur, foco, factor, destino, evitar=()):
     """Plano general, acercamiento a la zona destacada mientras habla la voz y vuelta al plano general."""
-    cx, cy = (foco["x"] + foco["w"] / 2) * 2, (foco["y"] + foco["h"] / 2) * 2  # la lámina se escala a 3840 px
+    cx, cy, factor = centro_zoom(foco, factor, evitar)
+    cx, cy = cx * 2, cy * 2  # la lámina se escala a 3840 px
     n = round(dur * FPS)
     p = f"(on/{n})"
     s = (f"if(lt({p},0.25),0,if(lt({p},0.40),{suave(f'({p}-0.25)/0.15')},"
@@ -77,7 +135,9 @@ def clip_animacion(spec, audio, dur, trabajo, destino):
     html = os.path.join(RAIZ, "herramientas", "animaciones", a["tipo"] + ".html")
     cuadros = os.path.join(trabajo, "cuadros")
     shutil.rmtree(cuadros, ignore_errors=True)
-    qs = "&".join(f"{k}={v}" for k, v in a.items() if k != "tipo")
+    if a.get("marcas_voz") and spec.get("palabras"):
+        a = {**a, "marcas": ",".join(map(str, marcas_voz(spec["palabras"], a["marcas_voz"], dur)))}
+    qs = "&".join(f"{k}={v}" for k, v in a.items() if k not in ("tipo", "marcas_voz"))
     sh("node", os.path.join(RAIZ, "herramientas", "animar.js"), html, f"{dur:.3f}", cuadros, qs)
     sh("ffmpeg", "-loglevel", "error", "-y", "-framerate", str(FPS), "-i", os.path.join(cuadros, "%05d.png"),
        "-i", audio, "-filter_complex", "[0:v]format=yuv420p[v];[1:a]apad[a]", "-map", "[v]", "-map", "[a]",
@@ -85,21 +145,53 @@ def clip_animacion(spec, audio, dur, trabajo, destino):
        "-c:a", "aac", "-b:a", "192k", "-ar", "48000", destino)
 
 
+def frases(texto, largo=84):
+    """Corta en oraciones y, si una oración es larga para un subtítulo, también en las comas."""
+    salida = []
+    for f in (f.strip() for f in re.split(r"(?<=[.?!:])\s+", texto)):
+        if not f:
+            continue
+        actual = ""
+        for parte in re.split(r"(?<=,)\s+", f):
+            if actual and len(actual) + len(parte) + 1 > largo:
+                salida.append(actual)
+                actual = parte
+            else:
+                actual = f"{actual} {parte}".strip()
+        salida.append(actual)
+    return salida
+
+
 def srt(escenas, destino):
-    """Subtítulos por frase, con tiempos repartidos según el largo de cada frase dentro de su escena."""
+    """Subtítulos con el texto del guion. Con los tiempos de palabra de la voz, cada frase va de su primera
+    a su última palabra; sin ellos (maqueta), se reparte la escena según el largo de cada frase."""
     def ts(t):
         h, r = divmod(t, 3600)
         m, s = divmod(r, 60)
         return f"{int(h):02}:{int(m):02}:{s:06.3f}".replace(".", ",")
     filas, t0 = [], 0.0
     for e in escenas:
-        frases = [f.strip() for f in re.split(r"(?<=[.?!:])\s+", e["voz"]) if f.strip()]
-        total = sum(len(f) for f in frases)
-        t = t0
-        for f in frases:
-            d = e["dur_voz"] * len(f) / total
-            filas.append((t, t + d, f))
-            t += d
+        fs = frases(e["voz"])
+        pal = e.get("palabras")
+        if pal:
+            # Se alinea por cantidad de letras: las palabras de la voz salen del mismo texto ("Reali" = "Realy").
+            acum, n = [], 0
+            for p in pal:
+                n += len(letras(p["texto"]))
+                acum.append(n)
+            hecho = 0
+            for f in fs:
+                ini = next(i for i, a in enumerate(acum) if a > hecho)
+                hecho += len(letras(f))
+                fin = next((i for i, a in enumerate(acum) if a >= hecho), len(pal) - 1)
+                filas.append((t0 + pal[ini]["ini"], t0 + pal[fin]["fin"], f))
+        else:
+            total = sum(len(f) for f in fs)
+            t = t0
+            for f in fs:
+                d = e["dur_voz"] * len(f) / total
+                filas.append((t, t + d, f))
+                t += d
         t0 += e["dur"]
     with open(destino, "w", encoding="utf-8") as fh:
         for i, (a, b, f) in enumerate(filas, 1):
@@ -136,11 +228,16 @@ def main():
             seg = len(l["voz"].split()) / 2.4  # ritmo aproximado de la voz con rate -8 %
             sh("ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo",
                "-t", f"{seg:.2f}", "-c:a", "aac", audio)
-        elif not os.path.exists(audio):
+        elif not (os.path.exists(audio) and os.path.exists(audio[:-4] + ".json")):
             asyncio.run(sintetizar(l["voz"], audio))
+        palabras = None if maqueta else json.load(open(audio[:-4] + ".json", encoding="utf-8"))
+        if not maqueta:
+            recortado = audio[:-4] + "-recortado.m4a"
+            recortar_cola(audio, recortado)
+            audio = recortado
         dv = duracion(audio)
-        escenas.append({**l, "n": i, "png": ix["png"], "foco": ix.get("foco"), "audio": audio,
-                        "dur_voz": dv, "dur": dv + AIRE})
+        escenas.append({**l, "n": i, "png": ix["png"], "foco": ix.get("foco"), "evitar": ix.get("evitar"),
+                        "audio": audio, "palabras": palabras, "dur_voz": dv, "dur": dv + AIRE})
         print(f"voz {i:02} {dv:5.1f} s")
 
     # 3. Clips por escena
@@ -151,7 +248,8 @@ def main():
         if e["tipo"] == "animacion":
             clip_animacion(e, e["audio"], e["dur"], trabajo, destino)
         elif e["tipo"] == "grafico" and e.get("zoom") and e.get("foco"):
-            clip_grafico(e["png"], e["audio"], e["dur"], e["foco"], e["zoom"].get("factor", 1.7), destino)
+            clip_grafico(e["png"], e["audio"], e["dur"], e["foco"], e["zoom"].get("factor", 1.7), destino,
+                         e.get("evitar") or ())
         else:
             clip_fijo(e["png"], e["audio"], e["dur"], destino)
         e["clip"] = destino
@@ -187,6 +285,10 @@ def main():
         "video": video, "duracion_s": round(total, 2), "duracion_esperada_s": round(esperado, 2),
         "escenas": [{"n": e["n"], "tipo": e["tipo"], "voz_s": round(e["dur_voz"], 2)} for e in escenas],
         "silencios_de_mas_de_0_5_s": [round(float(h), 2) for h in huecos],
+        # De la última palabra de una escena a la primera de la siguiente (sin contar las pausas entre frases).
+        "huecos_entre_escenas_s": [round(a["dur"] - a["palabras"][-1]["fin"] + b["palabras"][0]["ini"], 2)
+                                   for a, b in zip(escenas, escenas[1:])]
+        if not maqueta else None,
         "palabras_guion": sum(len(e["voz"].split()) for e in escenas),
     }
     json.dump(informe, open(os.path.join(entrega, "verificacion.json"), "w"), ensure_ascii=False, indent=1)

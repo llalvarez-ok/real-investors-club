@@ -21,6 +21,10 @@ const { chromium } = require("playwright");
         const e = document.querySelector('.graf rect[fill="url(#oro)"]') || document.querySelector(".graf svg");
         const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height };
       });
+      // textos que el borde del zoom no tiene que cortar por la mitad
+      l.evitar = await page.evaluate(() => [...document.querySelectorAll("h2, .lectura")].map((e) => {
+        const r = e.getBoundingClientRect(); return { y: r.y, h: r.height };
+      }));
     }
     console.log("ok", path.relative(dir, l.png));
   }

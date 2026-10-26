@@ -56,7 +56,7 @@
         },
         {
           "tipo": "animacion", "escena": "A",
-          "animacion": { "tipo": "interes-compuesto", "capital": 1000, "tasa": 0.10, "periodos": 52, "unidad": "semana" },
+          "animacion": { "tipo": "interes-compuesto", "capital": 1000, "tasa": 0.10, "periodos": 52, "unidad": "semana", "marcas_voz": ["uno", "diez", "ciento"] },
           "voz": "Camila empieza con mil dólares. Semana uno, mil cien. Semana diez, ya son más de dos mil quinientos. Y al terminar el año, con cincuenta y dos semanas, tendría más de ciento cuarenta mil dólares. Eso es más de catorce mil por ciento anual. Si alguien pudiera hacer eso, en pocos años sería la persona más rica del planeta. Y no necesitaría venderte un curso, ni pedirte que deposites."
         },
         {
