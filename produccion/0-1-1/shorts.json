@@ -1,0 +1,43 @@
+{
+  "_nota": "Shorts sacados de la lección 0-1-1 con los clips de HeyGen de Lean. Tiempos en segundos del clip original (los de whisper). panel: lamina (la lámina de esa escena) o clip (el clip ya montado de la escena: animación o zoom).",
+  "leccion": "0-1-1",
+  "cta": "Mira la lección completa en el canal",
+  "shorts": [
+    {
+      "id": "S1-10-semanal",
+      "gancho": "¿10 % semanal **garantizado**?",
+      "titulo_youtube": "¿10 % semanal garantizado? Haz la cuenta y vas a ver el humo #Shorts",
+      "tramos": [
+        { "escena": "05", "desde": 2.74, "hasta": 10.05, "panel": "lamina" },
+        { "escena": "06", "desde": null, "hasta": 23.3, "panel": "clip" }
+      ]
+    },
+    {
+      "id": "S2-vivir-del-trading",
+      "gancho": "¿Vivir del trading con **1.000** dólares?",
+      "titulo_youtube": "¿Se puede vivir del trading con 1.000 dólares? La cuenta que nadie te hace #Shorts",
+      "tramos": [ { "escena": "08", "desde": 1.4, "hasta": 30.95, "panel": "lamina" } ]
+    },
+    {
+      "id": "S3-detector-de-humo",
+      "gancho": "3 señales de que es **humo**",
+      "titulo_youtube": "3 señales de que una inversión es humo #Shorts",
+      "tramos": [ { "escena": "07", "desde": 3.14, "hasta": 24.7, "panel": "lamina" } ]
+    },
+    {
+      "id": "S4-el-error-que-frustra",
+      "gancho": "El error que más **frustra**",
+      "titulo_youtube": "El error que hace abandonar a los que empiezan a invertir #Shorts",
+      "tramos": [ { "escena": "09", "desde": 2.24, "hasta": 26.05, "panel": "lamina" } ]
+    },
+    {
+      "id": "S5-cuanto-rinde-el-mercado",
+      "gancho": "¿Cuánto rinde **de verdad**?",
+      "titulo_youtube": "¿Cuánto rinde de verdad invertir? Tres números que todo inversor debe conocer #Shorts",
+      "tramos": [
+        { "escena": "01", "desde": 6.15, "hasta": 13.4, "panel": "lamina" },
+        { "escena": "03", "desde": null, "hasta": 35.35, "panel": "lamina" }
+      ]
+    }
+  ]
+}

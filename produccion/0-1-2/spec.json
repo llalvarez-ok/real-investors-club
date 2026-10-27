@@ -1,0 +1,140 @@
+{
+  "nivel": 0, "nivelNombre": "DESPERTAR",
+  "modulo": 1, "moduloNombre": "Tu relación con el dinero",
+  "lecciones": [
+    {
+      "id": "0-1-2", "numero": 7,
+      "titulo": "El costo emocional de aprender: lo que nadie cuenta del primer año",
+      "laminas": [
+        {
+          "tipo": "portada", "escena": "L", "icono": "cerebro",
+          "titulo": "Lo que **nadie** te cuenta del primer año",
+          "subtitulo": "El costo emocional de aprender a invertir",
+          "voz": "Casi todos los cursos te dicen cuánto vas a ganar. Ninguno te dice cuánto vas a dudar. Y la mayoría de la gente no abandona por falta de talento. Abandona porque nadie le avisó lo que iba a sentir. Hoy te lo cuento por adelantado."
+        },
+        {
+          "tipo": "agenda", "escena": "L",
+          "titulo": "Hoy vas a aprender",
+          "puntos": [
+            "Las cuatro **etapas** emocionales del primer año",
+            "Por qué el mes cinco es el más peligroso",
+            "La cuenta de las 150 horas",
+            "Cuatro hábitos que te protegen de **abandonar**"
+          ],
+          "voz": "Vamos a ver las cuatro etapas por las que pasa casi todo el que aprende a invertir. Vas a entender por qué hay un momento, alrededor del mes cinco, en el que casi todos tiran la toalla. Y te llevas cuatro hábitos concretos para no ser uno de ellos."
+        },
+        {
+          "tipo": "grafico", "escena": "C",
+          "titulo": "La curva **emocional** del primer año",
+          "grafico": {
+            "tipo": "linea",
+            "etiquetas": ["Mes 1", "Mes 2", "Mes 3", "Mes 4", "Mes 5", "Mes 6", "Mes 7", "Mes 8", "Mes 9", "Mes 10", "Mes 11", "Mes 12"],
+            "valores": [88, 92, 70, 52, 38, 34, 40, 48, 55, 61, 66, 71],
+            "unidad": "",
+            "marcas": [
+              { "i": 1, "texto": "Entusiasmo" },
+              { "i": 5, "texto": "Valle de la duda" },
+              { "i": 11, "texto": "Consolidación" }
+            ]
+          },
+          "lectura": "Curva ilustrativa: el ánimo cae justo cuando **más** estás aprendiendo",
+          "voz": "Mira esta curva. No es un gráfico de precios: es cómo se siente aprender. Arriba, el entusiasmo del principio. Después, una caída. Y abajo de todo, entre el mes cuatro y el ocho, el valle de la duda. Lo curioso es que en ese valle estás aprendiendo más que nunca. Solo que todavía no lo ves. Y después, despacio, la curva vuelve a subir."
+        },
+        {
+          "tipo": "pasos", "escena": "L",
+          "titulo": "Las cuatro **etapas**",
+          "pasos": [
+            { "titulo": "Entusiasmo", "texto": "Semanas 1 a 4. Todo fascina. El riesgo: querer pasar a dinero real ya." },
+            { "titulo": "Choque", "texto": "Meses 2 a 4. Entender un concepto no es ejecutarlo bajo presión." },
+            { "titulo": "Valle de la duda", "texto": "Meses 4 a 8. Progresas, pero no lo ves. Aquí abandona la mayoría." },
+            { "titulo": "Consolidación", "texto": "Desde el mes 8. Empiezas a ver patrones en tus propios errores." }
+          ],
+          "voz": "Primera etapa: entusiasmo. Las primeras semanas todo es fascinante y sientes que ya entendiste. Cuidado: es cuando más ganas dan de poner dinero real. Segunda: el choque. Tus operaciones en demo no salen como esperabas, y descubres que entender algo y hacerlo bajo presión son cosas distintas. Tercera: el valle de la duda. Avanzas, pero no lo notas, y aparece la pregunta: ¿esto es para mí? Y cuarta: la consolidación. Con práctica y registro, empiezas a reconocer tus propios errores. Todavía no eres rentable, pero ya operas distinto."
+        },
+        {
+          "tipo": "pregunta", "escena": "L", "icono": "reloj",
+          "texto": "¿Por qué el **mes cinco** duele tanto?",
+          "detalle": "Pista: no es la dificultad",
+          "voz": "Piensa en el gimnasio. El primer mes vas feliz. Hacia el mes cinco ya no ves cambios en el espejo y te preguntas para qué vas. Con el trading pasa lo mismo, pero con un agravante: hay números en pantalla desde el primer día."
+        },
+        {
+          "tipo": "dato", "escena": "L",
+          "numero": "150 horas",
+          "etiqueta": "Seis horas por semana durante seis meses",
+          "detalle": "Para cualquier oficio, apenas el comienzo",
+          "voz": "Hagamos la cuenta. Si estudias seis horas por semana durante seis meses, son unas ciento cincuenta horas. Nadie espera ser electricista con ciento cincuenta horas de práctica. Ni tocar bien la guitarra. Pero como el trading te muestra ganancias y pérdidas desde el día uno, sientes que ya deberías estar ganando. Lo que duele no es la dificultad. Es esa expectativa desalineada."
+        },
+        {
+          "tipo": "ejemplo", "escena": "L",
+          "titulo": "Marta y el **mes cinco**",
+          "persona": "Marta",
+          "situacion": "Marta estudia seis horas por semana desde hace cinco meses, siempre en cuenta demo.",
+          "desarrollo": [
+            "Supón que su demo está en −4 % en esos cinco meses",
+            "En redes ve a alguien que dice ganar 30 % al mes",
+            "Piensa: «esto no es para mí» y quiere dejar"
+          ],
+          "conclusion": "Su diario muestra otra cosa: hoy repite **la mitad** de errores que en el mes uno.",
+          "voz": "Te presento a Marta. Estudia seis horas por semana desde hace cinco meses, siempre en demo. Supón que su cuenta está en menos cuatro por ciento. Una noche ve en redes a alguien que dice ganar treinta por ciento al mes. Y piensa: esto no es para mí. Pero Marta lleva un diario. Lo abre y compara. En el mes uno operaba sin plan y movía el stop. Hoy comete la mitad de esos errores. Su resultado todavía no lo muestra. Su diario, sí."
+        },
+        {
+          "tipo": "concepto", "escena": "L", "icono": "escudo",
+          "titulo": "Cómo **protegerte**",
+          "puntos": [
+            "Horario fijo de estudio, como una clase presencial",
+            "Diario de aprendizaje: qué entendiste y cómo te sentiste",
+            "Aprende acompañado: la comunidad reduce el abandono",
+            "Presupuesta la frustración desde **hoy**"
+          ],
+          "voz": "Cuatro hábitos te protegen. Uno: un horario fijo, como si fuera una clase presencial, con día, hora y duración. Dos: un diario de aprendizaje, no solo de operaciones. Qué entendiste, qué te costó y cómo te sentiste. Tres: aprende acompañado. Solo es mucho más fácil abandonar. Y cuatro, el más raro: presupuesta la frustración. Dite desde hoy: voy a dudar de mí cerca del mes cinco, y es parte del proceso."
+        },
+        {
+          "tipo": "error", "escena": "L",
+          "titulo": "El error que te **saca** del camino",
+          "errores": [
+            { "mal": "Leer el valle de la duda como prueba de que no sirves", "bien": "Saber que es una etapa que todos atraviesan" },
+            { "mal": "Pasar a dinero real para sentir que avanzas", "bien": "Medir el avance en errores que ya no repites" }
+          ],
+          "voz": "El error más común es interpretar el valle de la duda como una señal de que no sirves para esto. Julián lo hizo al revés: en el mes cinco, para sentir que avanzaba, pasó a dinero real antes de tiempo. La frustración no se fue. Se hizo más cara. El avance real no se mide en el saldo: se mide en los errores que dejaste de repetir."
+        },
+        {
+          "tipo": "ric", "escena": "L",
+          "puntos": [
+            "Las reglas deciden, no el ánimo del día",
+            "El stop se pone siempre **antes** de entrar",
+            "Beneficio/riesgo mínimo de 1,5 a 1",
+            "Sin operaciones nuevas 45 minutos antes de un dato fuerte"
+          ],
+          "voz": "Así lo hacemos en Real Investors Club. En los días malos, las emociones quieren tomar el control. Por eso las decisiones las toman reglas fijas, no el ánimo del día. El stop se pone siempre antes de entrar. Cada operación tiene que poder ganar al menos uno coma cinco veces lo que arriesga. Y no se abren operaciones nuevas cuarenta y cinco minutos antes de un dato económico de alto impacto: primero se revisa el calendario."
+        },
+        {
+          "tipo": "actividad", "escena": "L",
+          "titulo": "Tu **plan** contra el abandono",
+          "consigna": "Esta semana, en tu cuaderno y en tu cuenta demo:",
+          "pasos": [
+            "Agenda tu estudio: día, hora y duración",
+            "Empieza un diario de aprendizaje, no solo de operaciones",
+            "Escribe una nota para tu yo del mes cinco"
+          ],
+          "voz": "Tu actividad de esta semana. Uno: agenda tu estudio, con día, hora y duración, y respétalo como una clase. Dos: empieza tu diario de aprendizaje. Después de cada sesión en demo, tres líneas: qué entendiste, qué te costó y cómo te sentiste. Y tres: escribe una nota para tu yo del mes cinco. Qué te dirías el día que quieras dejar. Guárdala. Ese día la vas a necesitar."
+        },
+        {
+          "tipo": "resumen", "escena": "L",
+          "puntos": [
+            "El primer año duele, y eso es normal",
+            "El valle de la duda, entre los meses 4 y 8, es donde abandona la mayoría",
+            "Horario fijo y diario de aprendizaje reducen el abandono",
+            "No te compares con resultados ajenos que no puedes auditar"
+          ],
+          "voz": "Repasemos. El primer año duele, y eso no es una señal de fracaso. El valle de la duda, entre el mes cuatro y el ocho, es donde abandona la mayoría. Un horario fijo y un diario de aprendizaje te ayudan a cruzarlo. Y no te compares con resultados ajenos que no puedes auditar."
+        },
+        {
+          "tipo": "cierre", "escena": "L",
+          "frase": "Dudar en el mes cinco no es fracasar: es **parte** del camino.",
+          "siguiente": "Qué se puede operar: acciones, forex, cripto, futuros, índices",
+          "voz": "Con esta lección cerramos el módulo sobre tu relación con el dinero. En la próxima entramos a los mercados: qué se puede operar y qué riesgo tiene cada uno. Te espero en realinvestors punto club. Recuerda: este contenido es educativo y no constituye una recomendación de inversión."
+        }
+      ]
+    }
+  ]
+}

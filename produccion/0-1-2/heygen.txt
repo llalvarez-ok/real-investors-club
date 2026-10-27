@@ -1,0 +1,93 @@
+RIC · Lección 0-1-2 · El costo emocional de aprender: lo que nadie cuenta del primer año
+GUION PARA HEYGEN, ESCENA POR ESCENA
+
+=====================================================================
+CÓMO GENERARLO
+=====================================================================
+1. Un clip por escena: 13 clips, 01.mp4 a 13.mp4, en la carpeta RIC/videos/0-1-2 de Drive.
+2. Pega SOLO el texto entre >>> y <<<. Ya está escrito como se pronuncia. No lo corrijas.
+3. Si improvisas o agregas algo, que sea con "tú" (nada de "podés", "preguntate" ni "recordad"):
+   las lecciones van en español neutro.
+4. Mismo avatar y encuadre que en la 0-1-1 (vertical 1080x1920 está bien). Fondo como quieras.
+5. Revisa que no haya saltos o cuadros borrosos (en la 0-1-1 los hubo en la escena 07).
+
+Duración total esperada: ~4:52 · 818 palabras · 13 escenas.
+Las duraciones son orientativas: el montaje se adapta a lo que dure cada clip.
+
+=====================================================================
+ESCENA 01 · Gancho  [L]  ·  ~16 s  ·  45 palabras  ·  archivo: 01.mp4
+>>>
+Casi todos los cursos te dicen cuánto vas a ganar. Ninguno te dice cuánto vas a dudar. Y la mayoría de la gente no abandona por falta de talento. Abandona porque nadie le avisó lo que iba a sentir. Hoy te lo cuento por adelantado.
+<<<
+
+=====================================================================
+ESCENA 02 · Qué vas a aprender  [L]  ·  ~18 s  ·  49 palabras  ·  archivo: 02.mp4
+>>>
+Vamos a ver las cuatro etapas por las que pasa casi todo el que aprende a invertir. Vas a entender por qué hay un momento, alrededor del mes cinco, en el que casi todos tiran la toalla. Y te llevas cuatro hábitos concretos para no ser uno de ellos.
+<<<
+
+=====================================================================
+ESCENA 03 · Gráfico  [C]  ·  ~23 s  ·  64 palabras  ·  archivo: 03.mp4
+>>>
+Mira esta curva. No es un gráfico de precios: es cómo se siente aprender. Arriba, el entusiasmo del principio. Después, una caída. Y abajo de todo, entre el mes cuatro y el ocho, el valle de la duda. Lo curioso es que en ese valle estás aprendiendo más que nunca. Solo que todavía no lo ves. Y después, despacio, la curva vuelve a subir.
+<<<
+
+=====================================================================
+ESCENA 04 · Pasos  [L]  ·  ~31 s  ·  88 palabras  ·  archivo: 04.mp4
+>>>
+Primera etapa: entusiasmo. Las primeras semanas todo es fascinante y sientes que ya entendiste. Cuidado: es cuando más ganas dan de poner dinero real. Segunda: el choque. Tus operaciones en demo no salen como esperabas, y descubres que entender algo y hacerlo bajo presión son cosas distintas. Tercera: el valle de la duda. Avanzas, pero no lo notas, y aparece la pregunta: ¿esto es para mí? Y cuarta: la consolidación. Con práctica y registro, empiezas a reconocer tus propios errores. Todavía no eres rentable, pero ya operas distinto.
+<<<
+
+=====================================================================
+ESCENA 05 · Pregunta  [L]  ·  ~16 s  ·  44 palabras  ·  archivo: 05.mp4
+>>>
+Piensa en el gimnasio. El primer mes vas feliz. Hacia el mes cinco ya no ves cambios en el espejo y te preguntas para qué vas. Con el trading pasa lo mismo, pero con un agravante: hay números en pantalla desde el primer día.
+<<<
+
+=====================================================================
+ESCENA 06 · Dato  [L]  ·  ~22 s  ·  62 palabras  ·  archivo: 06.mp4
+>>>
+Hagamos la cuenta. Si estudias seis horas por semana durante seis meses, son unas ciento cincuenta horas. Nadie espera ser electricista con ciento cincuenta horas de práctica. Ni tocar bien la guitarra. Pero como el trading te muestra ganancias y pérdidas desde el día uno, sientes que ya deberías estar ganando. Lo que duele no es la dificultad. Es esa expectativa desalineada.
+<<<
+
+=====================================================================
+ESCENA 07 · Ejemplo  [L]  ·  ~30 s  ·  84 palabras  ·  archivo: 07.mp4
+>>>
+Te presento a Marta. Estudia seis horas por semana desde hace cinco meses, siempre en demo. Supón que su cuenta está en menos cuatro por ciento. Una noche ve en redes a alguien que dice ganar treinta por ciento al mes. Y piensa: esto no es para mí. Pero Marta lleva un diario. Lo abre y compara. En el mes uno operaba sin plan y movía el stop. Hoy comete la mitad de esos errores. Su resultado todavía no lo muestra. Su diario, sí.
+<<<
+
+=====================================================================
+ESCENA 08 · Concepto  [L]  ·  ~25 s  ·  71 palabras  ·  archivo: 08.mp4
+>>>
+Cuatro hábitos te protegen. Uno: un horario fijo, como si fuera una clase presencial, con día, hora y duración. Dos: un diario de aprendizaje, no solo de operaciones. Qué entendiste, qué te costó y cómo te sentiste. Tres: aprende acompañado. Solo es mucho más fácil abandonar. Y cuatro, el más raro: presupuesta la frustración. Dite desde hoy: voy a dudar de mí cerca del mes cinco, y es parte del proceso.
+<<<
+
+=====================================================================
+ESCENA 09 · Error común  [L]  ·  ~24 s  ·  67 palabras  ·  archivo: 09.mp4
+>>>
+El error más común es interpretar el valle de la duda como una señal de que no sirves para esto. Julián lo hizo al revés: en el mes cinco, para sentir que avanzaba, pasó a dinero real antes de tiempo. La frustración no se fue. Se hizo más cara. El avance real no se mide en el saldo: se mide en los errores que dejaste de repetir.
+<<<
+
+=====================================================================
+ESCENA 10 · Así lo hacemos en RIC  [L]  ·  ~27 s  ·  76 palabras  ·  archivo: 10.mp4
+>>>
+Así lo hacemos en Real Investors Club. En los días malos, las emociones quieren tomar el control. Por eso las decisiones las toman reglas fijas, no el ánimo del día. El stop se pone siempre antes de entrar. Cada operación tiene que poder ganar al menos uno coma cinco veces lo que arriesga. Y no se abren operaciones nuevas cuarenta y cinco minutos antes de un dato económico de alto impacto: primero se revisa el calendario.
+<<<
+
+=====================================================================
+ESCENA 11 · Actividad  [L]  ·  ~24 s  ·  68 palabras  ·  archivo: 11.mp4
+>>>
+Tu actividad de esta semana. Uno: agenda tu estudio, con día, hora y duración, y respétalo como una clase. Dos: empieza tu diario de aprendizaje. Después de cada sesión en demo, tres líneas: qué entendiste, qué te costó y cómo te sentiste. Y tres: escribe una nota para tu yo del mes cinco. Qué te dirías el día que quieras dejar. Guárdala. Ese día la vas a necesitar.
+<<<
+
+=====================================================================
+ESCENA 12 · Resumen  [L]  ·  ~19 s  ·  53 palabras  ·  archivo: 12.mp4
+>>>
+Repasemos. El primer año duele, y eso no es una señal de fracaso. El valle de la duda, entre el mes cuatro y el ocho, es donde abandona la mayoría. Un horario fijo y un diario de aprendizaje te ayudan a cruzarlo. Y no te compares con resultados ajenos que no puedes auditar.
+<<<
+
+=====================================================================
+ESCENA 13 · Cierre  [L]  ·  ~17 s  ·  47 palabras  ·  archivo: 13.mp4
+>>>
+Con esta lección cerramos el módulo sobre tu relación con el dinero. En la próxima entramos a los mercados: qué se puede operar y qué riesgo tiene cada uno. Te espero en real investors punto club. Recuerda: este contenido es educativo y no constituye una recomendación de inversión.
+<<<
