@@ -1,0 +1,251 @@
+{
+ "nivel": null,
+ "nivelNombre": "PILAR",
+ "modulo": null,
+ "moduloNombre": "Anti-humo y estafas",
+ "lecciones": [
+  {
+   "id": "p01-estafas",
+   "archivo": "RIC-P01-estafas",
+   "numero": null,
+   "titulo": "Cómo saber si una inversión es una estafa: 7 señales",
+   "laminas": [
+    {
+     "tipo": "portada",
+     "escena": "L",
+     "icono": "alerta",
+     "titulo": "¿Es una **estafa**? 7 señales",
+     "subtitulo": "Cómo saber si una inversión es humo antes de poner un solo dólar",
+     "voz": "Si alguien te ofreció una inversión y una parte de ti dice que suena demasiado bien, este video es para ti. Te voy a dar siete señales para detectar una estafa antes de poner un solo dólar. Y quédate hasta la séptima, porque es la que hace caer a médicos, ingenieros y contadores. Gente que se creía demasiado lista para caer."
+    },
+    {
+     "tipo": "pregunta",
+     "escena": "L",
+     "icono": "lupa",
+     "texto": "¿Caerías **tú**?",
+     "detalle": "Al final: un test de 5 preguntas para usar siempre",
+     "voz": "Antes de empezar, una pregunta honesta. ¿Crees que tú podrías caer en una estafa? Casi todo el mundo contesta que no. Y justamente por eso funcionan. Las estafas modernas no las arma un improvisado. Las diseñan profesionales de la persuasión. Así que vamos señal por señal, y al final te llevas un test de cinco preguntas para usar cada vez que alguien te ofrezca algo."
+    },
+    {
+     "tipo": "dato",
+     "escena": "L",
+     "numero": "1",
+     "etiqueta": "Rendimiento fijo o **garantizado**",
+     "detalle": "«10 % mensual asegurado»",
+     "voz": "Señal número uno: te prometen un rendimiento fijo o garantizado. Diez por ciento mensual asegurado. Dos por ciento por semana. Lo que sea, pero fijo. Y aquí está el problema: los mercados no garantizan nada a nadie. Ni a los bancos, ni a los mejores fondos del mundo. Si alguien te garantiza un rendimiento, o no sabe de lo que habla, o te está mintiendo."
+    },
+    {
+     "tipo": "animacion",
+     "escena": "A",
+     "animacion": {
+      "tipo": "interes-compuesto",
+      "capital": 1000,
+      "tasa": 0.1,
+      "periodos": 12,
+      "unidad": "mes",
+      "marcas_voz": [
+       "uno",
+       "diez",
+       "doce"
+      ]
+     },
+     "voz": "Hagamos la cuenta con un diez por ciento mensual. Empiezas con mil dólares. Mes uno, mil cien. Mes diez, casi dos mil seiscientos. Y en el mes doce, más de tres mil cien dólares. Triplicaste tu dinero en un año. Para tener una referencia, los grandes índices de acciones rindieron en promedio entre ocho y diez por ciento, pero por año, no por mes, y con años de caídas fuertes en el medio."
+    },
+    {
+     "tipo": "pregunta",
+     "escena": "L",
+     "icono": "calculadora",
+     "texto": "Si gana **tanto**, ¿para qué necesita tu dinero?",
+     "voz": "Entonces, hazte esta pregunta. Si esa persona de verdad triplica el dinero cada año, ¿para qué necesita el tuyo? Con mil dólares propios, en pocos años tendría millones. No necesitaría venderte nada, ni convencerte por WhatsApp. Cuando alguien que dice ganar tanto necesita tu dinero, la cuenta no cierra."
+    },
+    {
+     "tipo": "pasos",
+     "escena": "L",
+     "titulo": "Señal 2: ganan más por **reclutar**",
+     "pasos": [
+      {
+       "titulo": "Entra Ana",
+       "texto": "Deposita 1.000 y le prometen 10 % al mes"
+      },
+      {
+       "titulo": "Entran Bruno y Carla",
+       "texto": "Con su dinero se le paga a Ana"
+      },
+      {
+       "titulo": "Entran diez más",
+       "texto": "Con su dinero se les paga a Bruno y Carla"
+      },
+      {
+       "titulo": "Deja de entrar gente",
+       "texto": "No hay con qué pagar: se cae"
+      }
+     ],
+     "voz": "Señal número dos: el negocio gana más por reclutar gente que por invertir. Así funciona un esquema Ponzi. Ana deposita mil dólares y cobra su diez por ciento. Pero ese dinero no sale de ninguna inversión: sale de lo que depositaron Bruno y Carla, que entraron después. Y a ellos les pagan con lo de los diez siguientes. Mientras entra gente, parece funcionar. El día que deja de entrar gente, se cae. Siempre. Y fíjate en un detalle: los primeros que entran sí cobran. Son los que mejor hablan del negocio, los que muestran las capturas y traen a sus conocidos. Sin saberlo, son la publicidad del esquema. Por eso, si te ofrecen comisiones por traer a tus amigos, prende la alarma."
+    },
+    {
+     "tipo": "concepto",
+     "escena": "L",
+     "icono": "engranaje",
+     "titulo": "Señal 3: no puedes explicar de dónde sale la **ganancia**",
+     "puntos": [
+      "«Bots de arbitraje» que nadie puede auditar",
+      "«Minería en la nube» sin datos verificables",
+      "«Traders expertos» sin nombre ni registro",
+      "Si no puedes explicarlo, no deposites"
+     ],
+     "voz": "Señal número tres: no puedes explicar de dónde sale la ganancia. Te hablan de un robot de arbitraje, de minería en la nube, de un equipo de traders expertos. Suena técnico, pero cuando preguntas cómo funciona exactamente, la respuesta es vaga. Te dicen que es secreto o que es muy complicado. Supón que a Julián le ofrecen un robot que opera solo y gana un cinco por ciento por semana. Julián pregunta qué hace el robot. Le dicen que compra barato en un lugar y vende caro en otro, en milisegundos. ¿En qué mercado? Secreto. ¿Quién lo audita? Nadie. ¿Puede ver una operación real? No. Eso no es tecnología: es una caja negra con tu dinero adentro. Regla simple: si no puedes explicarle a otra persona cómo se genera la ganancia, no pongas tu dinero."
+    },
+    {
+     "tipo": "pregunta",
+     "escena": "L",
+     "icono": "megafono",
+     "texto": "Vamos por la **mitad**",
+     "detalle": "Si te está sirviendo, suscríbete: cada semana desarmamos una promesa de humo",
+     "voz": "Vamos por la mitad, y las que vienen son las más difíciles de ver. Si este video te está sirviendo, suscríbete. Cada semana en este canal tomamos una promesa de redes y le hacemos la cuenta. Sin vender humo. Y si conoces a alguien que está por poner dinero en algo raro, mándale este video. Puede ser lo más útil que hagas hoy."
+    },
+    {
+     "tipo": "comparacion",
+     "escena": "L",
+     "titulo": "Señal 4: urgencia y **cupos**",
+     "izquierda": {
+      "titulo": "Presión",
+      "puntos": [
+       "«Solo por hoy»",
+       "«Quedan 3 cupos»",
+       "«Mañana sube el precio»"
+      ],
+      "tono": "rojo"
+     },
+     "derecha": {
+      "titulo": "Inversión seria",
+      "puntos": [
+       "Te da tiempo para pensar",
+       "Te deja consultar a otros",
+       "Te muestra los riesgos"
+      ],
+      "tono": "verde"
+     },
+     "voz": "Señal número cuatro: te apuran. Solo por hoy. Quedan tres cupos. Mañana sube el precio. Eso no es información, es una técnica de presión. Busca que decidas antes de pensar. Una inversión seria no se va a ir en veinticuatro horas. Te da tiempo, te deja consultar con quien quieras y te explica los riesgos. Supón que a Diego le escriben un viernes a la noche: el grupo cierra el domingo y, si no entra ahora, pierde su lugar. Diego no consulta con nadie porque no hay tiempo. Ese es justamente el objetivo: que no haya tiempo. Cuanto más te apuran, más despacio tienes que ir."
+    },
+    {
+     "tipo": "pasos",
+     "escena": "L",
+     "titulo": "Señal 5: no está **registrado**",
+     "pasos": [
+      {
+       "titulo": "Pide el nombre legal",
+       "texto": "De la empresa o la persona, no la marca"
+      },
+      {
+       "titulo": "Entra al sitio del regulador",
+       "texto": "Tú mismo, nunca desde un enlace que te pasen"
+      },
+      {
+       "titulo": "Búscalo en el registro",
+       "texto": "En Argentina, el de la CNV"
+      },
+      {
+       "titulo": "Revisa las alertas",
+       "texto": "Los reguladores publican a quienes no están autorizados"
+      }
+     ],
+     "voz": "Señal número cinco: no está registrado. En casi todos los países, para ofrecer inversiones al público hace falta una autorización previa del regulador. En Argentina, ese regulador es la Comisión Nacional de Valores. Y fíjate en esto: invitar a invertir por un grupo de WhatsApp o por redes ya cuenta como oferta al público. Verificarlo te lleva dos minutos. Pide el nombre legal, entra tú mismo al sitio oficial del regulador, nunca desde un enlace que te pasen, y búscalo en el registro. Si estás en otro país, busca cuál es el regulador de valores de tu país y haz lo mismo. Si no aparece, no hay nada más que pensar."
+    },
+    {
+     "tipo": "ejemplo",
+     "escena": "L",
+     "titulo": "Señal 6: el primer retiro **sale bien**",
+     "persona": "Marta",
+     "situacion": "Supón que Marta deposita 500 dólares en una plataforma que promete 10 % mensual.",
+     "desarrollo": [
+      "Tres meses cobra 50 dólares por mes y los retira sin problema",
+      "Confiada, deposita 5.000 dólares más",
+      "Cuando quiere retirar, le piden pagar un 20 % de «impuestos» primero"
+     ],
+     "conclusion": "El retiro chico era la carnada. Si te piden pagar para retirar, ya es tarde.",
+     "voz": "Señal número seis, y esta es tramposa: el primer retiro sale bien. Supón que Marta deposita quinientos dólares en una plataforma que promete un diez por ciento mensual. Durante tres meses cobra cincuenta dólares por mes, y los retira sin problema. Ya está convencida. Entonces deposita cinco mil dólares más. Y cuando quiere sacar su dinero, le dicen que primero tiene que pagar un veinte por ciento de impuestos. Marta paga. Y el dinero nunca llega. Ese primer retiro chico no era una prueba de que funcionaba. Era la carnada. Que te paguen una vez no demuestra nada. Y si te piden pagar para poder retirar, ya es tarde."
+    },
+    {
+     "tipo": "concepto",
+     "escena": "L",
+     "icono": "personas",
+     "titulo": "Señal 7: te llega por alguien de **confianza**",
+     "puntos": [
+      "Un amigo, un familiar, alguien de tu iglesia o tu club",
+      "Un famoso en un video (que puede ser falso)",
+      "La confianza reemplaza a la verificación",
+      "El que te invita suele ser víctima también"
+     ],
+     "voz": "Y llegamos a la séptima, la que te prometí. La estafa te llega por alguien de confianza. Un amigo, un primo, alguien de tu club o de tu grupo de la iglesia. O un famoso en un video, que hoy puede estar fabricado. Esta señal es la más peligrosa porque apaga todas las demás. Si te lo dice tu cuñado, no verificas nada. Y casi siempre, el que te invita no es un estafador: es otra víctima, que todavía está cobrando y cree que te está haciendo un favor. Por eso caen médicos, ingenieros y contadores. No por falta de inteligencia, sino porque confiaron en la persona y no revisaron el negocio."
+    },
+    {
+     "tipo": "error",
+     "escena": "L",
+     "titulo": "El error que más **cuesta**",
+     "errores": [
+      {
+       "mal": "«A mí no me pasaría»",
+       "bien": "Aplicar el checklist siempre, sin excepciones"
+      },
+      {
+       "mal": "«Pongo poquito para probar»",
+       "bien": "Verificar antes de poner el primer dólar"
+      }
+     ],
+     "voz": "Ahora, los dos errores que más dinero cuestan. El primero es pensar que a ti no te pasaría. La defensa no es sentirte listo, es revisar siempre, aunque te lo ofrezca tu mejor amigo. El segundo es poner poquito para probar. Ya viste el caso de Marta: la prueba chica es exactamente lo que la estafa necesita para ganarse tu confianza."
+    },
+    {
+     "tipo": "tabla",
+     "escena": "L",
+     "titulo": "Tu test de **5 preguntas**",
+     "columnas": [
+      "Pregunta",
+      "Si la respuesta es…"
+     ],
+     "filas": [
+      [
+       "¿Prometen un rendimiento fijo o garantizado?",
+       "Sí: estafa casi segura"
+      ],
+      [
+       "¿Ganan más por reclutar que por invertir?",
+       "Sí: pirámide"
+      ],
+      [
+       "¿Puedo explicar de dónde sale la ganancia?",
+       "No: no deposites"
+      ],
+      [
+       "¿Me apuran con cupos o plazos?",
+       "Sí: es presión, no inversión"
+      ],
+      [
+       "¿Aparece en el registro del regulador?",
+       "No: no hay nada que pensar"
+      ]
+     ],
+     "voz": "Y aquí está el test que te prometí. Cinco preguntas. ¿Te prometen un rendimiento fijo o garantizado? ¿Ganan más por reclutar gente que por invertir? ¿Puedes explicar de dónde sale la ganancia? ¿Te apuran con cupos o plazos? ¿Aparece en el registro del regulador? Con una sola respuesta mal, no deposites. Sácale una captura a esta pantalla y guárdala."
+    },
+    {
+     "tipo": "ric",
+     "escena": "L",
+     "titulo": "Si quieres ir más a **fondo**",
+     "puntos": [
+      "El Nivel 0 de Real Investors Club es gratis",
+      "Un módulo entero para protegerte de estafas",
+      "Cómo verificar un bróker y dónde queda tu dinero",
+      "Practicas en demo, sin arriesgar un peso"
+     ],
+     "voz": "Si quieres ir más a fondo, en Real Investors Club tenemos un curso inicial gratuito, el Nivel cero, con un módulo entero para protegerte. Cómo verificar si un bróker está regulado, dónde queda tu dinero cuando depositas y qué preguntar antes de poner un peso. Todo practicando en una cuenta demo, sin arriesgar nada. El enlace está en la descripción."
+    },
+    {
+     "tipo": "cierre",
+     "escena": "L",
+     "frase": "El mejor rendimiento posible es **no ser estafado**.",
+     "siguiente": "Qué es un esquema Ponzi y por qué siempre termina igual",
+     "voz": "Recuerda: el mejor rendimiento posible es no ser estafado. Cuéntame en los comentarios cuál es la promesa más exagerada que viste en redes, y en un próximo video le hacemos la cuenta. Si no estás suscrito, suscríbete para no perderte el próximo, donde desarmamos un esquema Ponzi paso a paso. Te espero en realinvestors punto club. Este contenido es educativo y no constituye una recomendación de inversión."
+    }
+   ]
+  }
+ ]
+}

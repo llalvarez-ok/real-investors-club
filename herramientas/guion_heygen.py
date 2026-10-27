@@ -35,7 +35,6 @@ def mmss(s):
 def main():
     spec_path, destino = sys.argv[1:3]
     lec = json.load(open(spec_path, encoding="utf-8"))["lecciones"][0]
-    n_, m_, l_ = lec["id"].split("-")
     palabras = [len(l["voz"].split()) for l in lec["laminas"]]
     total = sum(palabras) / PALABRAS_POR_SEGUNDO
     out = [f"RIC · Lección {lec['id']} · {lec['titulo']}", "GUION PARA HEYGEN, ESCENA POR ESCENA", "",

@@ -168,8 +168,7 @@ def main():
     spec = json.load(open(spec_path, encoding="utf-8"))
     cfg = json.load(open(cfg_path, encoding="utf-8"))
     lec = spec["lecciones"][0]
-    n_, m_, l_ = lec["id"].split("-")
-    nombre = f"RIC-N{n_}-M{m_}-L{l_}"
+    nombre = lec.get("archivo") or "RIC-N{}-M{}-L{}".format(*lec["id"].split("-"))  # "archivo": videos fuera del programa
     os.makedirs(trabajo, exist_ok=True)
     entrega = os.path.join(trabajo, "entrega")
     os.makedirs(os.path.join(entrega, "laminas"), exist_ok=True)
