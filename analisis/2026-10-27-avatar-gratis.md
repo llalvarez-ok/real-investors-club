@@ -13,6 +13,10 @@ La evaluación la hizo un agente investigador. Las pruebas de voz se corrieron e
 
 **Descartados por licencia no comercial:** XTTS-v2, F5-TTS (pesos CC-BY-NC), Higgs Audio, Sonic, Wav2Lip y CodeFormer.
 
+## Veredicto de Lean (27/10/2026)
+
+La voz de Chatterbox tiene su timbre, pero habla con acento latino neutro o mexicano y Lean es argentino. Queda descartada. Chatterbox solo tiene "es" genérico (y un pack latinoamericano), sin variante rioplatense. Se sigue con la voz de HeyGen.
+
 ## Ruta gratuita posible
 
 1. **Voz:** Chatterbox en el contenedor, con 10 a 20 s limpios de Lean como referencia. Después de generar:
