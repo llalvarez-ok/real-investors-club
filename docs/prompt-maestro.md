@@ -53,7 +53,15 @@ Hoy no hay avatar gratuito de calidad aceptable. Producí las lecciones **sin av
 
 ### 6. Títulos y descripciones de YouTube
 
-Te adjunto el documento con el título, la descripción y las etiquetas de cada lección (`RIC-YouTube-titulos-y-descripciones.docx`). Usalo tal cual. Nivel 0 va PÚBLICO; niveles 1 a 5 van NO LISTADOS. Una lista de reproducción por nivel: "RIC · Nivel 0 · Despertar", etc.
+Te adjunto el documento con el título, la descripción y las etiquetas de cada lección (`RIC-YouTube-titulos-y-descripciones.docx`). Es la base, pero se ajusta con este criterio (vigente desde el 27/10/2026):
+
+- **Título:** primero el problema o la pregunta del espectador, con "tú", y al final " · Lección N" (número dentro del nivel). Unos 60 a 75 caracteres, sin "| Nivel 0 |" ni la marca. Ningún número ni promesa que la lectura no respalde. Ejemplo: "Cómo aprender trading desde cero: el mapa completo · Lección 4".
+- **Descripción:** la del documento, siempre con "tú" (nada de "Inscribite" ni "hacé"), con el total real de lecciones del nivel ("Lección N de 21") y con enlaces a la lección siguiente y a la playlist del nivel. Antes del aviso legal, la línea "🤖 Este video usa un presentador digital generado con inteligencia artificial."
+- **Etiquetas:** de 3 a 5 propias del tema primero y después las comunes del curso ("curso de trading gratis", "trading desde cero", "trading para principiantes", "aprender trading", "educación financiera", "trading en español", "inversiones", "real investors club"). Sin etiquetas vacías como "qué es".
+- **Configuración:** categoría Educación (27), título y audio en español, no es para niños y **contenido alterado o sintético marcado siempre** (todas las lecciones usan presentador generado con IA).
+- **Shorts:** título de problema con "#shorts", enlace directo a la lección completa en la descripción, la misma línea de IA y contenido sintético marcado.
+
+Nivel 0 va PÚBLICO; niveles 1 a 5 van NO LISTADOS. Una lista de reproducción por nivel: "RIC · Nivel 0 · Despertar: curso de trading gratis desde cero", "RIC · Nivel 1 · Fundamentos", etc.
 
 ### 7. Cómo trabajamos
 

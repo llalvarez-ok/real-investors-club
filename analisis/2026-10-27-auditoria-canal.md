@@ -134,7 +134,7 @@ Con el visto bueno de Lean ("todos los arreglos necesarios"), por la API. El est
 - Comentarios con una pregunta en cada lección, la sección del Nivel 0 en la página del canal y la playlist no listada del Nivel 1: el entorno bloqueó esas escrituras. Los textos están abajo.
 - Fijar comentarios, pantallas finales, el video relacionado de los Shorts y las miniaturas: la API no lo permite o no se puede ver desde la nube.
 - Subtítulos propios: los automáticos están; los propios de la L6 requieren los tiempos del montaje, que no están en este entorno.
-- Contenido sintético en L1 a L5: no se sabe si usan avatar. Si lo usan, hay que marcarlas.
+- (Resuelto después: Lean confirmó que todas las lecciones usan presentador generado con IA; L1 a L5 y la 1-2-0 quedaron marcadas como contenido sintético y con la línea de IA en la descripción.)
 
 **Comentarios para publicar y fijar (uno por lección):**
 - L1: Pregunta rápida: antes de ver este video, ¿qué creías que era el trading? Respóndelo en una línea 👇
