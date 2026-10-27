@@ -103,3 +103,43 @@ La única búsqueda con datos es "aprender trading desde cero" (1 vista). La web
 - Las miniaturas, las pantallas finales, las tarjetas y el video relacionado de los Shorts.
 - El contenido del video de L6 que está subido.
 - Las vistas de abril a junio (20 vistas y 2 suscriptores): no hay videos de esa época en el canal; puede que se hayan borrado.
+
+## Arreglos aplicados el 27/10/2026
+
+Con el visto bueno de Lean ("todos los arreglos necesarios"), por la API. El estado anterior y lo enviado están en `youtube/cambios-2026-10-27.json`, para revertir si hace falta.
+
+**Hecho y verificado leyendo de nuevo por la API:**
+- Los 12 videos (6 lecciones del Nivel 0, la 1-2-0 y los 5 Shorts, incluidos los 3 programados, que siguen programados para el 28, 29 y 30/10) están en la categoría Educación, con el título y el audio en español.
+- Etiquetas: de 8 a 18 por video. Cada una lleva primero las específicas y después las comunes; se descartaron las del `.docx` que no sirven ("qué es", "el mapa completo" y la que estaba en voseo).
+- Títulos de las 6 lecciones del Nivel 0: primero el problema, con "· Lección N" al final. No se usaron números que la lectura no respalda: la L2 ya no dice "90 %", porque la lectura habla de 70 a 85 %. La 1-2-0 (no listada) quedó con su título.
+
+| Antes | Ahora |
+|---|---|
+| Qué es (y qué NO es) el trading: mitos vs realidad \| Nivel 0 · Lección 1 \| Real Investors Club | Qué es el trading y qué no: mitos que te hacen perder dinero · Lección 1 |
+| Historias reales: por qué el 90% pierde y cómo estar en el 10% \| … | Por qué la mayoría pierde en el trading y cómo no ser parte · Lección 2 |
+| Trading vs Inversión: dos caminos, un mismo club \| … | Trading o inversión: cuál encaja con tu tiempo y tu riesgo · Lección 3 |
+| El mapa completo: qué aprenderás en RIC nivel por nivel \| … | Cómo aprender trading desde cero: el mapa completo · Lección 4 |
+| Las creencias sobre el dinero que traés de casa (y cómo te operan) \| … | Las creencias sobre el dinero que heredaste y te sabotean · Lección 5 |
+| Expectativas realistas: qué rendimiento es posible y cuál es humo \| … | ¿Cuánto se puede ganar con trading? Lo realista y lo que es humo · Lección 6 |
+
+- Descripciones de las lecciones: la llamada a la acción con "tú", "de 21" en vez de "de 18" y enlaces a la lección siguiente y a la playlist. Examen y certificado siguen mencionados.
+- Shorts: enlace directo a la L6 en vez de "Lección completa en el canal".
+- La L6 y los 5 Shorts dicen en la descripción que el presentador es un avatar digital de Lean generado con IA.
+- Canal: descripción nueva con "tú" (975 caracteres; el límite es 1.000) que aclara el uso de avatar, palabras clave, país Argentina, idioma español y tráiler para no suscriptos (L2, la que más suscriptores trajo).
+- Playlist: "RIC · Nivel 0 · Despertar: curso de trading gratis desde cero", con descripción.
+
+**Enviado sin poder verificar:** la declaración de contenido sintético en la L6 y los 5 Shorts. La API la acepta y la devuelve al escribir, pero no la muestra al leer. Hay que confirmarla en YouTube Studio (Detalles → Contenido alterado).
+
+**No se hizo:**
+- Comentarios con una pregunta en cada lección, la sección del Nivel 0 en la página del canal y la playlist no listada del Nivel 1: el entorno bloqueó esas escrituras. Los textos están abajo.
+- Fijar comentarios, pantallas finales, el video relacionado de los Shorts y las miniaturas: la API no lo permite o no se puede ver desde la nube.
+- Subtítulos propios: los automáticos están; los propios de la L6 requieren los tiempos del montaje, que no están en este entorno.
+- Contenido sintético en L1 a L5: no se sabe si usan avatar. Si lo usan, hay que marcarlas.
+
+**Comentarios para publicar y fijar (uno por lección):**
+- L1: Pregunta rápida: antes de ver este video, ¿qué creías que era el trading? Respóndelo en una línea 👇
+- L2: ¿Cuánto de tu cuenta arriesgarías hoy en una sola operación? Responde con un número y sé honesto 👇
+- L3: ¿Te ves más como trader o como inversor? Responde con una palabra 👇
+- L4: ¿En qué parte del mapa estás hoy y a cuál te gustaría llegar en un año? 👇
+- L5: ¿Qué frase sobre el dinero escuchabas en tu casa cuando eras chico? Escríbela abajo 👇
+- L6: ¿Cuál es la promesa de rendimiento más exagerada que viste en redes? Escríbela abajo y hacemos la cuenta 👇
