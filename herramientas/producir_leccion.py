@@ -159,6 +159,12 @@ def frases(texto, largo=84):
             else:
                 actual = f"{actual} {parte}".strip()
         salida.append(actual)
+    # lo que siga largo (oraciones sin comas) se parte en el espacio más cercano a la mitad
+    while any(len(f) > largo for f in salida):
+        i = next(i for i, f in enumerate(salida) if len(f) > largo)
+        f = salida[i]
+        corte = min((j for j, ch in enumerate(f) if ch == " "), key=lambda j: abs(j - len(f) / 2))
+        salida[i:i + 1] = [f[:corte], f[corte + 1:]]
     return salida
 
 

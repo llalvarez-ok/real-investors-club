@@ -1,0 +1,35 @@
+{
+  "_nota": "Montaje con los clips de HeyGen de Lean (verticales 1080x1920). modo: pip (lámina + avatar abajo a la derecha), dividida (avatar a la izquierda + lámina achicada), lamina (solo la lámina, con la voz del clip). Tiempos en segundos del clip original.",
+  "escenas": {
+    "01": { "modo": "dividida" },
+    "02": { "modo": "lamina", "voz_edge": { "voice": "es-US-AlonsoNeural", "rate": "+4%", "pitch": "-2Hz" } },
+    "03": { "modo": "dividida" },
+    "04": { "modo": "lamina" },
+    "05": { "modo": "dividida" },
+    "06": { "modo": "lamina", "marcas_voz": ["uno", "diez", "140"] },
+    "07": { "modo": "pip", "ocultar_avatar": [[1.9, 3.6]] },
+    "08": { "modo": "dividida" },
+    "09": { "modo": "dividida" },
+    "10": { "modo": "pip" },
+    "11": { "modo": "pip" },
+    "12": { "modo": "dividida" },
+    "13": { "modo": "lamina", "cortar": [[6.1, 11.95]] }
+  },
+  "_cortar_13": "Saca el agregado en voseo \"Si estás viendo este vídeo desde nuestro canal de YouTube, recordad que podés seguir aprendiendo desde nuestra web,\" y deja \"…del primer año. Así que te espero en realinvestors.club\".",
+  "correcciones_subtitulos": [
+    ["01", ["le", "crees?"], "¿le crees?"],
+    ["03", ["ESAN", "P500,"], "S&P 500,"],
+    ["04", ["de", "lesa", "en", "piquinientos,"], "del S&P 500,"],
+    ["07", ["ganan"], "gana"],
+    ["07", ["preguntate"], "pregúntate"],
+    ["08", ["Supong"], "Supón"],
+    ["08", ["pagan", "y"], "paga ni"],
+    ["09", ["vea"], "ve a"],
+    ["09", ["piensen"], "piensa en"],
+    ["10", ["ven"], "ve en"],
+    ["10", ["1", ",5"], "1,5"],
+    ["10", ["revise"], "revisa"],
+    ["13", ["así", "que"], "Así que"],
+    ["13", ["realinvestors", ".club."], "realinvestors.club."]
+  ]
+}
