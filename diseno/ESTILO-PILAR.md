@@ -2,11 +2,42 @@
 
 Pedido de Lean del 28/10/2026: los videos por fuera del programa llevan un estilo distinto al de las lecciones.
 
-**Referencia:** "Educación Financiera para Principiantes – Cómo funcionan las Finanzas", de Aprendiz Financiero (https://www.youtube.com/watch?v=X38MGyuc0ds).
-- Datos del video: 1,67 M de suscriptores en el canal, 877.000 vistas, 4:04. Según la descripción, explica las finanzas personales "con huevos y gallinas".
-- **No pude ver el video:** YouTube está bloqueado en la nube. Lo de abajo sale de los datos de la API y de lo que se sabe del formato del canal. Lean tiene que confirmarlo con la escena de prueba.
+**Referencia (segunda versión, la que vale):** animación de pizarra como la de Aprendiz Financiero. Lean pasó "Como hacer Videos Animados de pizarra [Videoscribe]" (https://www.youtube.com/watch?v=YQd1jrYjnzo): ese video cuenta cómo hacen los suyos con VideoScribe y dice que les lleva de 15 a 20 h un video de 10 minutos. La primera referencia fue "Educación Financiera para Principiantes" (https://www.youtube.com/watch?v=X38MGyuc0ds). No pude ver ninguno de los dos: YouTube está bloqueado en la nube. Lo de abajo sale de los datos de la API y de lo que se sabe del formato.
+
+Pedidos de Lean sobre la primera prueba:
+- Dibujos de más calidad, más realistas y más "interactivos".
+- Más presencia de la marca, con una marca de agua de Real Investors Club.
 
 Las lecciones siguen con el estilo de siempre (láminas, avatar y esquema de clase). Esto aplica solo a los videos pilar (`produccion/pNN-*`).
+
+## Pizarra: cómo se ve
+
+- **Fondo:** pizarra blanca (#fdfdfb) con grano muy tenue y una viñeta suave en los bordes.
+- **La mano dibuja:** una mano con lápiz (Fluent Emoji) traza primero el contorno de cada ilustración y después aparece el color. El texto se escribe a mano (Caveat) con la mano siguiendo la escritura. Las flechas, los subrayados, las tachaduras y los círculos también se trazan.
+- **Ilustraciones de calidad, no dibujadas por mí:**
+  - Personajes de Open Peeps (dibujados a mano, CC0) con la ropa en colores de RIC y dos caras cada uno (feliz y preocupada).
+  - Objetos de Fluent Emoji de Microsoft (MIT), con volumen y degradés.
+  - Están en `herramientas/animaciones/recursos/` (licencias en `LICENCIAS.md`) y se generan con `herramientas/recursos_pizarra.jsx`.
+- **Interacción:**
+  - Los personajes respiran y cambian de cara cuando la historia cambia.
+  - El dinero viaja de un personaje a otro en arco.
+  - Al final las cosas tiemblan, se caen con gravedad y se desvanecen.
+- **Cámara:** un lienzo más grande que la pantalla. La cámara se desplaza y se aleja a medida que la historia crece, como en VideoScribe.
+- **Marca, siempre en pantalla:**
+  - El logo oficial en una cápsula azul noche, arriba a la izquierda.
+  - La **marca de agua con el logo oficial** abajo a la derecha (20 % de opacidad) y "realinvestors.club" debajo.
+  - Los acentos en oro de RIC (subrayados, dinero). Verde (#1f9d63) para lo que parece bien y rojo (#d93a3f) para lo que sale mal.
+
+## Cómo se produce
+
+- **Motor:** `herramientas/animaciones/pizarra.js`. Cada escena es un HTML corto que lista los elementos (`img`, `texto`, `trazo`, `viaje`, `fantasma`), los movimientos de cámara y los temblores, con el segundo en que aparece cada uno, tomado de los tiempos de cada palabra de la voz. Ejemplo: `herramientas/animaciones/ponzi-pizarra.html`.
+- **Render:** lo hace `herramientas/animar.js`. Los dibujos complejos lo hacen lento: más de 10 minutos para 28 segundos en un solo proceso. Para un video de 8 minutos hay que repartir el render en varios procesos, como ya se hace con las animaciones de las lecciones.
+
+---
+
+## Primera versión (papel crema), reemplazada
+
+Lo que sigue era la primera propuesta. Vale todavía para el guion, la voz, el título y la miniatura. Lo visual queda reemplazado por la pizarra.
 
 ## Qué cambia
 

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Escena de pizarra "esquema Ponzi" (P01, señal 2). Motor: pizarra.js. Los tiempos son los segundos de cada palabra de la voz. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fdfdfb}
+#logo svg{width:190px;height:auto;display:block}
+</style>
+<script src="recursos/recursos.js"></script>
+<script src="pizarra.js"></script>
+</head><body>
+<script>
+const VERDE = "#1f9d63", ROJO = "#d93a3f", ORO = "#b8913f";
+const CAE = 26.05;
+const e = [];
+const caer = (o, i = 0) => ({ ...o, cae: { t: CAE + (i % 7) * 0.03, giro: (i % 2 ? 1 : -1) * (14 + (i * 7) % 20) } });
+// Arriba: título y Ana
+e.push({ tipo: "texto", texto: "El esquema Ponzi", x: 1700, y: 250, tam: 120, ancla: "middle", t: 0.1, d: 1.5, desaparece: 11.2 });
+e.push({ tipo: "trazo", d: "M1360 290 Q1700 312 2040 284", color: ORO, grosor: 12, t: 1.65, dur: 0.5 });
+e.push(caer({ tipo: "img", src: "peep-ana-feliz", x: 1700, y: 560, w: 330, t: 3.0, d: 1.5, respira: true, cambios: [{ t: 24.4, src: "peep-ana-preocupada" }] }, 0));
+e.push(caer({ tipo: "texto", texto: "Ana", x: 1700, y: 845, tam: 64, ancla: "middle", t: 4.3, d: 0.4 }, 1));
+e.push(caer({ tipo: "img", src: "obj-money-bag", x: 1370, y: 600, w: 180, t: 3.55, d: 0.9 }, 2));
+e.push(caer({ tipo: "texto", texto: "US$ 1.000", x: 1370, y: 740, tam: 56, ancla: "middle", t: 3.9, d: 0.6 }, 3));
+e.push(caer({ tipo: "texto", texto: "+10 % al mes", x: 2040, y: 470, tam: 84, color: VERDE, t: 4.95, d: 1.0 }, 4));
+e.push(caer({ tipo: "trazo", d: "M2010 445 C2010 352 2500 352 2500 445 C2500 538 2010 538 2014 450", color: VERDE, grosor: 7, t: 6.0, dur: 0.7 }, 5));
+e.push(caer({ tipo: "texto", texto: "«prometido»", x: 2255, y: 585, tam: 48, ancla: "middle", t: 6.6, d: 0.6, giro: -3 }, 6));
+// La inversión que no existe
+e.push({ tipo: "img", src: "obj-chart-increasing", x: 2300, y: 790, w: 230, t: 8.2, d: 1.0, desaparece: 12.6 });
+e.push({ tipo: "texto", texto: "inversión real", x: 2300, y: 965, tam: 52, ancla: "middle", t: 9.0, d: 0.6, desaparece: 12.6 });
+e.push({ tipo: "trazo", d: "M2170 660 L2430 910", color: ROJO, grosor: 18, t: 9.75, dur: 0.3, desaparece: 12.6 });
+e.push({ tipo: "trazo", d: "M2430 660 L2170 910", color: ROJO, grosor: 18, t: 10.1, dur: 0.3, desaparece: 12.6 });
+// Segundo nivel: Bruno y Carla, y su dinero sube a Ana
+e.push(caer({ tipo: "img", src: "peep-bruno-feliz", x: 1240, y: 1160, w: 300, t: 11.75, d: 1.1, respira: true, cambios: [{ t: 24.5, src: "peep-bruno-preocupada" }] }, 7));
+e.push(caer({ tipo: "texto", texto: "Bruno", x: 1240, y: 1405, tam: 60, ancla: "middle", t: 12.3, d: 0.4 }, 8));
+e.push(caer({ tipo: "img", src: "peep-carla-feliz", x: 2160, y: 1160, w: 300, t: 12.4, d: 1.1, respira: true, cambios: [{ t: 24.55, src: "peep-carla-preocupada" }] }, 9));
+e.push(caer({ tipo: "texto", texto: "Carla", x: 2160, y: 1405, tam: 60, ancla: "middle", t: 13.0, d: 0.4 }, 10));
+e.push(caer({ tipo: "trazo", d: "M1330 990 Q1430 820 1570 740", grosor: 7, t: 13.2, dur: 0.45 }, 11));
+e.push(caer({ tipo: "trazo", d: "M1545 728 L1575 738 L1560 768", grosor: 7, t: 13.65, dur: 0.2 }, 12));
+e.push(caer({ tipo: "trazo", d: "M2070 990 Q1970 820 1830 740", grosor: 7, t: 13.7, dur: 0.45 }, 13));
+e.push(caer({ tipo: "trazo", d: "M1855 728 L1825 738 L1840 768", grosor: 7, t: 14.15, dur: 0.2 }, 14));
+for (let i = 0; i < 3; i++) {
+  e.push({ tipo: "viaje", src: "obj-coin", desde: [1240, 1060], hasta: [1640, 650], w: 80, t: 13.5 + i * 0.4, dur: 0.9 });
+  e.push({ tipo: "viaje", src: "obj-coin", desde: [2160, 1060], hasta: [1760, 650], w: 80, t: 13.7 + i * 0.4, dur: 0.9 });
+}
+// Tercer nivel: cuatro más
+const cuatro = [["diego", 640], ["marta", 1240], ["julian", 2160], ["camila", 2760]];
+cuatro.forEach(([n, x], i) => {
+  e.push(caer({ tipo: "img", src: `peep-${n}-feliz`, x, y: 1620, w: 270, t: 16.7 + i * 0.28, d: 0.8, respira: true, cambios: [{ t: 24.6 + i * 0.05, src: `peep-${n}-preocupada` }] }, 15 + i));
+  for (let k = 0; k < 2; k++) e.push({ tipo: "viaje", src: "obj-dollar-banknote", desde: [x, 1520], hasta: [i < 2 ? 1240 : 2160, 1130], w: 90, t: 18.1 + i * 0.15 + k * 0.45, dur: 0.85, arco: 80 });
+});
+// "Todo parece funcionar"
+e.push(caer({ tipo: "trazo", d: "M2470 880 L2530 940 L2660 800", color: VERDE, grosor: 18, t: 20.4, dur: 0.45 }, 19));
+e.push(caer({ tipo: "texto", texto: "¡funciona!", x: 2690, y: 900, tam: 80, color: VERDE, t: 20.8, d: 0.8, giro: -4 }, 20));
+// Deja de entrar gente
+["peep-diego-feliz", "peep-carla-feliz", "peep-bruno-feliz", "peep-camila-feliz", "peep-julian-feliz", "peep-marta-feliz"].forEach((src, i) => {
+  e.push({ tipo: "fantasma", src, x: 400 + i * 520, y: 2020, w: 230, t: 24.15 + i * 0.12, d: 0.55, desaparece: 25.9 });
+});
+// Se cae
+e.push({ tipo: "trazo", d: "M260 1470 L760 1400 L1150 1500 L1640 1380 L2120 1505 L2600 1395 L3150 1480", color: ROJO, grosor: 10, t: 25.6, dur: 0.4, desaparece: 26.6 });
+e.push({ tipo: "texto", texto: "Siempre.", x: 1700, y: 1330, tam: 330, color: ROJO, ancla: "middle", t: 27.1, d: 0.9, giro: -5 });
+
+Pizarra.escena({
+  dur: 28.6,
+  elementos: e,
+  camara: [
+    { t: 0, x: 1880, y: 560, zoom: 1.0 },
+    { t: 12.2, x: 1700, y: 900, zoom: 0.84, dur: 1.2 },
+    { t: 16.6, x: 1700, y: 1160, zoom: 0.66, dur: 1.3 },
+    { t: 24.3, x: 1700, y: 1330, zoom: 0.58, dur: 0.9 },
+  ],
+  temblor: [{ t: 25.58, dur: 0.47 }],
+});
+</script>
+</body></html>
