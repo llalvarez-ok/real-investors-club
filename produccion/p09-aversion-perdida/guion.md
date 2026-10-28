@@ -1,0 +1,104 @@
+# P09 · Por qué vendes justo cuando baja (y cómo evitarlo)
+
+Estilo pizarra · voz Brian (en-US-BrianMultilingualNeural) · 972 palabras, ~6.4 min · 16 escenas
+
+**Datos y fuentes:**
+- S&P 500 (^GSPC, yfinance): máximo 3.386,15 el 19/02/2020, mínimo 2.237,40 el 23/03/2020 (−33,9 %), vuelve a 3.389,78 el 18/08/2020
+- Aversión a la pérdida: Kahneman y Tversky; Kahneman, Nobel de Economía 2002. «Perder 100 duele el doble de lo que alegra ganar 100» está en la lectura del Nivel 1
+- Revisar seguido empuja a vender en pánico: lectura del Nivel 1
+
+## 01. Gancho: la moneda
+
+Te propongo una apuesta. Tiro una moneda. Si sale cara, ganas ciento cincuenta dólares. Si sale cruz, pierdes cien. ¿Aceptas? Piénsalo un segundo. La mayoría de la gente dice que no, aunque la cuenta, en promedio, la favorece. Y esa misma reacción, ese no instintivo, es la que hace que tanta gente venda justo cuando el mercado baja.
+
+*En pantalla:* La mano dibuja una moneda grande (Fluent). Escribe a la izquierda «cara: +150» en verde y a la derecha «cruz: −100» en rojo. La moneda gira. Aparece una persona (Diego) con cara de duda y un globo con «¿…no?».
+
+## 02. Qué vas a ver
+
+En este video vas a ver por qué tu cerebro reacciona así, cuánto le costó a mucha gente en marzo de dos mil veinte, y tres hábitos simples para que el miedo no decida por ti.
+
+*En pantalla:* Tres casilleros escritos a mano que se tildan de a uno: «por qué», «2020», «3 hábitos».
+
+## 03. La balanza trucada
+
+Imagina que dentro de tu cabeza hay una balanza. En un plato pones lo que puedes ganar. En el otro, lo que puedes perder. Pero esta balanza está trucada. Las pérdidas pesan, más o menos, el doble. Perder cien dólares duele lo mismo que alegra ganar doscientos. Por eso la apuesta de la moneda te parecía mala: tu balanza veía ciento cincuenta contra doscientos.
+
+*En pantalla:* La metáfora central. Se dibuja un cerebro (Fluent) y adentro una balanza (Fluent ⚖️). En el plato izquierdo cae una bolsa de 100 dólares de ganancia; en el derecho, una de 100 de pérdida, y la balanza se inclina fuerte hacia la pérdida. Se escribe «×2» en rojo sobre el plato de la pérdida.
+
+## 04. Tiene nombre
+
+Esto no es una opinión. Lo estudiaron dos psicólogos, Daniel Kahneman y Amos Tversky, y lo llamaron aversión a la pérdida. Kahneman ganó el premio Nobel de Economía en parte por ese trabajo. Y una explicación muy aceptada es que viene de muy atrás. Para nuestros antepasados, perder la comida del invierno podía ser mortal. Encontrar un poco más, no cambiaba tanto. El cerebro aprendió a cuidar primero lo que tiene.
+
+*En pantalla:* Se escribe «aversión a la pérdida» subrayado en oro. Al lado, una cueva simple con un fuego (Fluent 🔥) y una persona que protege un pedazo de carne (Fluent 🍖) mientras se acerca un mamut (Fluent 🦣). Flecha a la balanza: «el mismo cerebro».
+
+## 05. En tu día a día
+
+Y no pasa solo con inversiones. Fíjate en los anuncios. Casi nunca te dicen: gana veinte dólares. Te dicen: no te pierdas este descuento. Últimas unidades. Se termina hoy. Quien escribe esos mensajes sabe que perder algo te mueve mucho más que ganarlo. Tu balanza no solo decide cuándo vendes. También la usan para que compres.
+
+*En pantalla:* Un celular (📱) con una notificación dibujada a mano: «¡NO TE LO PIERDAS! Termina hoy», un reloj de arena (⏳) y un carrito. La balanza aparece chiquita en una esquina y se inclina. Se escribe «perder > ganar».
+
+## 06. Pedido de suscripción
+
+Si alguna vez vendiste algo por miedo y después te arrepentiste, este canal es para ti. Suscríbete: cada semana explicamos cómo funciona el dinero, sin vender humo. Y ahora, vamos a ver qué pasa cuando esta balanza se encuentra con el mercado de verdad.
+
+*En pantalla:* El logo de RIC se dibuja en el centro de la pizarra con un botón de «Suscribirme» dibujado a mano y una campanita (Fluent 🔔).
+
+## 07. Diego en 2020 (datos reales)
+
+Supón que Diego tenía diez mil dólares en un fondo que replica el índice S&P quinientos, a mediados de febrero de dos mil veinte. Llega la pandemia. En apenas cinco semanas, entre el diecinueve de febrero y el veintitrés de marzo, el índice cae casi treinta y cuatro por ciento. Los diez mil de Diego pasan a ser unos seis mil seiscientos.
+
+*En pantalla:* Gráfico de línea del S&P 500 trazado a mano con datos reales semanales (yfinance, ^GSPC, 2020): máximo 3.386 el 19/02 y mínimo 2.237 el 23/03 (−33,9 %). La mano dibuja la línea que baja. Diego (Open Peeps) al lado con su bolsa: «US$ 10.000» se tacha y se escribe «US$ 6.600».
+
+## 08. Diego mira la app
+
+Diego abre la aplicación tres veces por día. Y cada vez que mira, su balanza vuelve a pesar la pérdida. Una y otra vez. El veintitrés de marzo no aguanta más, y vende todo. Ese día fue exactamente el punto más bajo de la caída. En agosto, menos de cinco meses después, el índice ya había vuelto a su máximo anterior.
+
+*En pantalla:* Diego con un celular (Fluent 📱) y cara preocupada. Cada vez que lo mira, aparece un «−» rojo y la balanza se inclina más. Se escribe «VENDO» con un sello. La línea del gráfico sigue y sube hasta el 18/08/2020 (3.390), y se marca con una estrella «de vuelta al máximo».
+
+## 09. La aclaración honesta
+
+Ahora, ojo con la conclusión fácil. En marzo nadie sabía que ese era el piso. Podía seguir bajando, como pasó en otras crisis. El problema de Diego no fue vender. Fue vender sin un plan, empujado por el dolor. Si hubiera tenido una regla escrita de antemano, la decisión habría sido de él, y no de su balanza.
+
+*En pantalla:* Se escribe «nadie sabía» con un signo de pregunta grande sobre el punto más bajo. Debajo, dos caminos: «vender por dolor» (rojo, tachado) y «decidir con un plan» (verde, con una libreta Fluent 📝).
+
+## 10. La otra cara: Camila
+
+La aversión a la pérdida tiene otra cara, y es igual de cara. Supón que Camila tiene dos inversiones. Una sube un diez por ciento, y la vende enseguida, para asegurar. La otra cae un treinta por ciento, y la mantiene, esperando que vuelva, porque venderla sería aceptar la pérdida. Corta lo que va bien y se aferra a lo que va mal. Es la misma balanza, trabajando al revés.
+
+*En pantalla:* Camila (Open Peeps) en el centro. A la izquierda una planta que crece (Fluent 🌱) con «+10 %» y una tijera que la corta. A la derecha una caja que se hunde con «−30 %» y Camila abrazándola. Arriba, la balanza de nuevo.
+
+## 11. La cuenta que asusta
+
+Y hay una cuenta que explica por qué el miedo no es tonto. Si pierdes la mitad de tu dinero, para volver al punto de partida no alcanza con ganar la mitad. Necesitas ganar el cien por ciento. Por eso las pérdidas grandes hay que evitarlas antes de que pasen, no después, cuando la balanza ya está gritando.
+
+*En pantalla:* Escalera dibujada a mano: «100 → −50 % → 50». Para volver: «50 → +100 % → 100», con la segunda escalera mucho más alta. Se marca «+100 %» en rojo.
+
+## 12. El error común
+
+El error más común es creer que esto se arregla con fuerza de voluntad. Diciéndote: la próxima vez no me va a pasar. Pero la balanza no se apaga. Lo que sí puedes hacer es tomar las decisiones importantes cuando no está funcionando. Es decir, antes.
+
+*En pantalla:* Una persona tirando de una soga contra la balanza, con «fuerza de voluntad» tachado. Se escribe grande «decide ANTES».
+
+## 13. Tres hábitos
+
+Tres hábitos. Uno: decide en frío. Antes de invertir, escribe cuánto estás dispuesto a perder y qué vas a hacer si cae diez, veinte o treinta por ciento. Dos: mira menos. Si tu plan es de años, revisar el precio todos los días solo le da más trabajo a tu balanza. Elige un día fijo, una vez por semana o por mes. Y tres: usa un tamaño que te deje dormir. Si una caída del treinta por ciento te quitaría el sueño, el monto es demasiado grande para ti.
+
+*En pantalla:* Tres viñetas que se dibujan de a una, cada una con su ícono: libreta (📝) con «decide en frío», celular con un candado o reloj (⏰) con «mira menos», cama o cara dormida (😴) con «un tamaño que te deje dormir». Se numeran 1, 2 y 3 en oro.
+
+## 14. Diego, con un plan
+
+Volvamos a Diego. Supón que en enero, con la cabeza fría, hubiera escrito en una hoja: esta plata es para dentro de diez años; reviso una vez por mes; y si cae un treinta por ciento, me tomo una semana antes de decidir y leo esta hoja. No sabemos qué habría hecho. Pero sí sabemos que la decisión la habría tomado el Diego de enero, tranquilo, y no el Diego de marzo, con la balanza gritando.
+
+*En pantalla:* Diego en enero, sereno, escribe en una libreta (📝) tres renglones que se ven escritos a mano. Flecha a Diego en marzo, preocupado con el celular, que abre la libreta y respira. Se escribe «el Diego de enero decide».
+
+## 15. Resumen
+
+Resumiendo. Tu cerebro pesa las pérdidas el doble. Eso te empuja a vender cuando baja, y a aferrarte a lo que pierde. No se arregla con voluntad, sino con decisiones tomadas antes: un plan escrito, mirar menos, y un tamaño que puedas tolerar.
+
+*En pantalla:* La cámara se aleja y muestra toda la pizarra: la moneda, la balanza, el gráfico de 2020, Camila y los tres hábitos. Se escribe una línea final: «La balanza no se apaga: se planifica».
+
+## 16. Cierre
+
+Si quieres seguir entrenando tu relación con el dinero, en Real Investors Club tenemos un curso inicial gratuito, el Nivel cero, con un módulo entero sobre esto. El enlace está en la descripción. En el próximo video hablamos del primo de este sesgo: el FOMO, el miedo a quedarte afuera, que te hace comprar justo en el peor momento. Cuéntame en los comentarios: ¿alguna vez vendiste algo por miedo? Este contenido es educativo y no constituye una recomendación de inversión.
+
+*En pantalla:* El logo de RIC grande, «realinvestors.club» escrito a mano y una flecha a «Próximo: FOMO». Abajo, el aviso legal.

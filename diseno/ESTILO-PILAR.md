@@ -28,6 +28,13 @@ Las lecciones siguen con el estilo de siempre (láminas, avatar y esquema de cla
   - La **marca de agua con el logo oficial** abajo a la derecha (20 % de opacidad) y "realinvestors.club" debajo.
   - Los acentos en oro de RIC (subrayados, dinero). Verde (#1f9d63) para lo que parece bien y rojo (#d93a3f) para lo que sale mal.
 
+## Voz y música (elegidas el 28/10/2026)
+
+- **Voz:** Brian (`en-US-BrianMultilingualNeural` de edge-tts), con rate y pitch neutros (+0 %, +0 Hz). La eligió Lean entre 7 muestras. Es una voz multilingüe y lee mejor los números escritos en palabras.
+- **Procesamiento de la voz** (ffmpeg): `highpass=f=70,equalizer=f=180:t=q:w=1:g=2.5,equalizer=f=3200:t=q:w=1.2:g=1.5,equalizer=f=7000:t=q:w=2:g=-3,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=7`. Da más calidez en los graves, menos sibilancia, compresión suave y volumen al estándar de YouTube.
+- **Contenido sintético:** la voz es generada, así que los videos pilar se declaran como contenido sintético, igual que las lecciones.
+- **Música:** una base instrumental tranquila que Lean genera en otra app o baja de la Biblioteca de audio de YouTube y sube a Drive. Va 20 a 24 dB por debajo de la voz, con fundido al principio y al final. Se puede sumar una segunda base, más tensa, para los momentos de "se cae".
+
 ## Cómo se produce
 
 - **Motor:** `herramientas/animaciones/pizarra.js`. Cada escena es un HTML corto que lista los elementos (`img`, `texto`, `trazo`, `viaje`, `fantasma`), los movimientos de cámara y los temblores, con el segundo en que aparece cada uno, tomado de los tiempos de cada palabra de la voz. Ejemplo: `herramientas/animaciones/ponzi-pizarra.html`.
