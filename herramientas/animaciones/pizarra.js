@@ -10,6 +10,12 @@
      { tipo: "trazo", d: "M…", color, grosor, t, dur }                                   flecha, subrayado, tachadura
      { tipo: "viaje", src, desde: [x, y], hasta: [x, y], w, t, dur, arco }               un objeto que viaja en arco
      { tipo: "fantasma", src, x, y, w, t, d }                                           solo el contorno, punteado
+   Campos opcionales de cualquier elemento:
+     efecto: "pop"            aparece con un rebote, sin que la mano lo dibuje (sellos, íconos chicos)
+     mueve: [{ t, dur, dx, dy, giro, esc }]   desplazamientos que se acumulan (la balanza que se inclina)
+     vibra: { t, dur }        se sacude (una campana que suena)       gira: { t, dur }   da vueltas como una moneda
+     respira: { hasta }       sube y baja apenas hasta ese segundo     desaparece: t      se desvanece en 0,4 s
+   Un elemento terminado no se vuelve a calcular: el render de un video largo no se hace más lento con cada escena.
    Cámara: [{ t, x, y, zoom }] (centro de la pantalla en el lienzo), con transición suave entre puntos.
    Temblor: [{ t, dur }]. */
 (function () {
@@ -80,6 +86,7 @@
   window.Pizarra = {
     escena(conf) {
       const dur = +(new URLSearchParams(location.search).get("dur") || conf.dur);
+      window.DURACION = dur;
       document.body.innerHTML = `
         <svg id="pantalla" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="position:absolute;inset:0">
           <defs>
@@ -132,6 +139,17 @@
           if (it.tx) { const b = it.tx.getBBox(); it.caja = b; it.recorte.setAttribute("y", b.y - 20); it.recorte.setAttribute("height", b.height + 40); it.recorte.setAttribute("x", b.x - 10); }
           if (it.p) { it.largo = it.p.getTotalLength(); it.p.setAttribute("stroke-dasharray", it.largo + " " + it.largo); }
         }
+        for (const it of items) {
+          let f = it.t + (it.tipo === "trazo" ? (it.dur || 0.5) : it.tipo === "viaje" ? (it.dur || 1) : (it.d || 1.2));
+          for (const c of it.cambios || []) f = Math.max(f, c.t + 0.1);
+          for (const m of it.mueve || []) f = Math.max(f, m.t + (m.dur || 0.6));
+          if (it.cae) f = Math.max(f, it.cae.t + 1.6);
+          if (it.desaparece) f = Math.max(f, it.desaparece + 0.5);
+          if (it.vibra) f = Math.max(f, it.vibra.t + it.vibra.dur);
+          if (it.gira) f = Math.max(f, it.gira.t + it.gira.dur);
+          if (it.respira) f = Math.max(f, it.respira.hasta || Infinity);
+          it.fin = f + 0.05;
+        }
         listo = true;
       }
 
@@ -158,16 +176,24 @@
         mundo.setAttribute("transform", `translate(${W / 2 + tx} ${H / 2 + ty}) scale(${cam.zoom}) translate(${-cam.x} ${-cam.y})`);
         let punta = null;
         for (const it of items) {
-          const p = lim((t - it.t) / (it.d || 1.2));
+          if (t < it.t - 0.02) { if (it._estado !== "oculto") { it.g.setAttribute("opacity", 0); it._estado = "oculto"; } continue; }
+          if (t > it.fin) { if (it._estado === "fin") continue; it._estado = "fin"; } else it._estado = "activo";
+          const pop = it.efecto === "pop";
+          const p = pop ? 1 : lim((t - it.t) / (it.d || 1.2));
           const visible = t >= it.t;
           it.g.setAttribute("opacity", visible ? 1 : 0);
-          let x = it.x || 0, y = it.y || 0, giro = it.giro || 0, esc = 1;
-          if (it.respira && visible) { esc = 1 + Math.sin((t - it.t) * 2.4) * 0.012; y += Math.sin((t - it.t) * 2.4) * 3; }
+          let x = it.x || 0, y = it.y || 0, giro = it.giro || 0, esc = 1, escX = 1;
+          if (pop) esc *= rebote(lim((t - it.t) / (it.d || 0.45)));
+          if (it.respira && visible && t < (it.respira.hasta || Infinity)) { esc *= 1 + Math.sin((t - it.t) * 2.4) * 0.012; y += Math.sin((t - it.t) * 2.4) * 3; }
+          for (const m of it.mueve || []) { const k = suave((t - m.t) / (m.dur || 0.6)); x += (m.dx || 0) * k; y += (m.dy || 0) * k; giro += (m.giro || 0) * k; esc *= 1 + ((m.esc || 1) - 1) * k; }
+          if (it.vibra && t > it.vibra.t && t < it.vibra.t + it.vibra.dur) giro += Math.sin((t - it.vibra.t) * 40) * 12 * (1 - (t - it.vibra.t) / it.vibra.dur);
+          if (it.gira && t > it.gira.t && t < it.gira.t + it.gira.dur) escX = Math.cos((t - it.gira.t) / it.gira.dur * Math.PI * 4);
           if (it.cae && t > it.cae.t) { const c = t - it.cae.t; y += 1100 * c * c; giro += (it.cae.giro || 25) * c; }
           if (it.tipo === "img" || it.tipo === "fantasma") {
             const capa = it.capas[0];
-            const pl = lim(p / 0.72), pc = suave((p - 0.5) / 0.5);
-            const q = dibujar(capa, pl); if (q && p < 1) punta = q;
+            const pl = pop ? 1 : lim(p / 0.72), pc = pop ? 1 : suave((p - 0.5) / 0.5);
+            const q = pop ? null : dibujar(capa, pl); if (q && p < 1) punta = q;
+            if (pop && !it._sinLinea) { capa.linea.setAttribute("opacity", 0); it._sinLinea = true; }
             if (it.tipo === "img") {
               capa.color.setAttribute("opacity", pc);
               capa.linea.setAttribute("opacity", 1 - suave((p - 0.75) / 0.25));
@@ -178,6 +204,7 @@
             }
           } else if (it.tipo === "texto") {
             const b = it.caja, ancho = (b.width + 20) * p;
+            if (pop) { it.recorte.setAttribute("width", b.width + 40); }
             it.recorte.setAttribute("width", ancho);
             if (p > 0 && p < 1) { const m = it.tx.getScreenCTM(), px = b.x - 10 + ancho, py = b.y + b.height * (0.62 + 0.18 * Math.sin(t * 40)); punta = [px * m.a + py * m.c + m.e, px * m.b + py * m.d + m.f]; }
           } else if (it.tipo === "trazo") {
@@ -198,7 +225,7 @@
             if (it.cae) o *= 1 - lim((t - it.cae.t - 0.35) / 0.5);
             it.g.setAttribute("opacity", o);
           }
-          it.g.setAttribute("transform", `translate(${x} ${y}) rotate(${giro}) scale(${esc})`);
+          it.g.setAttribute("transform", `translate(${x} ${y}) rotate(${giro}) scale(${esc * escX} ${esc})`);
         }
         // La mano sigue la punta; si no dibuja nada, sale por abajo a la derecha
         if (punta) { manoRaiz._x = punta[0]; manoRaiz._y = punta[1]; manoRaiz._fuera = t; }

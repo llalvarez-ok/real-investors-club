@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- P09 "Por qué vendes justo cuando baja (y cómo evitarlo)" en pizarra. Motor: herramientas/animaciones/pizarra.js.
+     Los tiempos salen de tiempos.js (herramientas/tiempos_pizarra.py): cada elemento aparece cuando la voz dice su palabra.
+     Cada escena ocupa una zona del lienzo; las coordenadas de los elementos son relativas al centro de su zona. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fdfdfb}
+#logo svg{width:190px;height:auto;display:block}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+<script src="../../herramientas/animaciones/pizarra.js"></script>
+<script src="tiempos.js"></script>
+<script src="sp500-2020.js"></script>
+</head><body>
+<script>
+const VERDE = "#1f9d63", ROJO = "#d93a3f", ORO = "#b8913f", GRIS = "#7d8597";
+const T = window.TIEMPOS, FALTAN = (window.FALTAN = []);
+// Zona de cada escena (la 7 y la 8 comparten el gráfico)
+const ZONA = [0, 0, 1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const centro = (z) => { const fila = Math.floor(z / 4); let col = z % 4; if (fila % 2) col = 3 - col; return [col * 2600, fila * 1500]; };
+let S = 1, B = [0, 0];
+const en = (s) => { S = s; B = centro(ZONA[s]); };
+const ini = (s = S) => T.escenas[s - 1].ini, fin = (s = S) => T.escenas[s - 1].ini + T.escenas[s - 1].dur;
+const norm = (x) => x.toLowerCase().replace(/[^\wáéíóúüñ]/g, "");
+function w(palabra, n = 1, desfase = 0) {
+  const ps = T.escenas[S - 1].palabras, q = norm(palabra);
+  let k = 0;
+  for (const p of ps) if (p.p === q && ++k === n) return p.t + desfase;
+  FALTAN.push(`${S}:${palabra}#${n}`);
+  return ini() + 1;
+}
+const E = [];
+// add: coordenadas relativas a la zona; respira hasta el final de la escena
+function add(o) {
+  const r = { ...o, x: B[0] + (o.x || 0), y: B[1] + (o.y || 0) };
+  if (o.respira) r.respira = { hasta: fin() };
+  if (o.desde) { r.desde = [B[0] + o.desde[0], B[1] + o.desde[1]]; r.hasta = [B[0] + o.hasta[0], B[1] + o.hasta[1]]; r.x = 0; r.y = 0; }
+  E.push(r);
+  return r;
+}
+const txt = (texto, x, y, t, o = {}) => add({ tipo: "texto", texto, x, y, t, tam: 64, ancla: "middle", d: Math.min(1.4, 0.25 + texto.length * 0.045), ...o });
+const img = (src, x, y, w_, t, o = {}) => add({ tipo: "img", src, x, y, w: w_, t, d: 1.2, ...o });
+const trazo = (d, t, o = {}) => add({ tipo: "trazo", d, t, dur: 0.5, ...o });
+const tilde = (x, y, t) => trazo(`M${x - 22} ${y} L${x - 4} ${y + 20} L${x + 30} ${y - 26}`, t, { color: VERDE, grosor: 11, dur: 0.35 });
+const tacha = (x1, y1, x2, y2, t) => trazo(`M${x1} ${y1} L${x2} ${y2}`, t, { color: ROJO, grosor: 12, dur: 0.3 });
+const subraya = (x1, x2, y, t, color = ORO) => trazo(`M${x1} ${y} Q${(x1 + x2) / 2} ${y + 16} ${x2} ${y - 4}`, t, { color, grosor: 10, dur: 0.45 });
+
+// 1 · Gancho: la moneda
+en(1);
+txt("¿Aceptas la apuesta?", 0, -360, w("apuesta", 1, -0.4), { tam: 104 });
+img("obj-coin", 0, -70, 270, w("moneda"), { d: 1.0, gira: { t: w("moneda", 1, 1.0), dur: 1.4 } });
+txt("cara: +150", -520, -50, w("cara"), { tam: 84, color: VERDE });
+txt("cruz: −100", 520, -50, w("cruz"), { tam: 84, color: ROJO });
+img("peep-diego-feliz", 0, 300, 270, w("aceptas"), { respira: true, cambios: [{ t: w("no"), src: "peep-diego-preocupada" }] });
+txt("¿…no?", 230, 180, w("no", 1, 0.2), { tam: 72, giro: -6 });
+txt("en promedio: +25", -560, 250, w("promedio"), { tam: 60, color: VERDE });
+img("obj-chart-decreasing", 560, 250, 190, w("mercado", 1, -0.3), { efecto: "pop" });
+
+// 2 · Qué vas a ver
+en(2);
+txt("En este video:", 0, -330, ini() + 0.15, { tam: 92 });
+[["por qué tu cerebro reacciona así", "cerebro"], ["qué pasó en marzo de 2020", "marzo"], ["3 hábitos para que el miedo no decida", "hábitos"]].forEach(([t_, p], i) => {
+  const y = -150 + i * 170, t0 = w(p, 1, -0.5);
+  trazo(`M-640 ${y - 40} L-570 ${y - 40} L-570 ${y + 30} L-640 ${y + 30} Z`, t0, { grosor: 7, dur: 0.35 });
+  txt(t_, -520, y + 18, t0 + 0.3, { tam: 66, ancla: "start" });
+  tilde(-605, y - 10, t0 + 1.4);
+});
+
+// 3 · La balanza trucada
+en(3);
+img("obj-brain", -560, -10, 400, w("cabeza", 1, -0.3), { respira: true });
+trazo("M-330 -10 Q-250 -60 -170 -20", w("cabeza", 1, 0.9), { grosor: 8 });
+img("obj-balance-scale", 170, -20, 540, w("balanza"), { d: 1.6, mueve: [{ t: w("trucada"), dur: 0.8, giro: 11 }], vibra: { t: w("trucada", 1, 0.8), dur: 0.6 } });
+txt("ganar", -30, 300, w("ganar"), { color: VERDE, tam: 72 });
+txt("perder", 390, 300, w("perder"), { color: ROJO, tam: 72 });
+txt("×2", 420, -330, w("doble", 1, -0.2), { tam: 150, color: ROJO, efecto: "pop" });
+txt("perder 100 ≈ ganar 200", -60, -390, w("duele"), { tam: 72 });
+txt("tu balanza veía: 150 contra 200", 0, 410, w("veía", 1, -0.3), { tam: 58, color: GRIS });
+
+// 4 · Tiene nombre
+en(4);
+txt("Aversión a la pérdida", 0, -370, w("llamaron", 1, 0.3), { tam: 108 });
+subraya(-430, 430, -335, w("llamaron", 1, 1.6));
+txt("Kahneman y Tversky", -470, -210, w("kahneman", 1, -0.2), { tam: 64 });
+img("obj-glowing-star", -810, -110, 90, w("nobel"), { efecto: "pop" });
+txt("Nobel de Economía 2002", -470, -95, w("nobel"), { tam: 56, color: ORO });
+img("peep-bruno-feliz", 160, 160, 280, w("antepasados", 1, -0.2), { respira: true, cambios: [{ t: w("mortal"), src: "peep-bruno-preocupada" }] });
+img("obj-fire", 420, 250, 150, w("antepasados", 1, 1.0), { d: 0.8 });
+img("obj-meat-on-bone", -60, 260, 140, w("comida"), { d: 0.8 });
+img("obj-mammoth", 700, 90, 300, w("mortal", 1, -0.4), { d: 1.0, mueve: [{ t: w("mortal", 1, 0.6), dur: 1.2, dx: -60 }] });
+txt("el mismo cerebro", -520, 250, w("cuidar"), { tam: 60, color: ORO });
+trazo("M-380 210 Q-240 120 -110 150", w("cuidar", 1, 0.8), { grosor: 7 });
+
+// 5 · En tu día a día
+en(5);
+img("obj-mobile-phone", -470, 20, 430, w("anuncios", 1, -0.3), { d: 1.1 });
+const tGana = w("gana");
+txt("gana US$ 20", 250, -270, tGana, { tam: 70 });
+tacha(70, -290, 430, -260, w("dicen", 2));
+txt("¡No te lo pierdas!", 250, -130, w("pierdas", 1, -0.3), { tam: 84, color: ROJO, giro: -3 });
+txt("últimas unidades", 250, -10, w("últimas"), { tam: 64 });
+txt("se termina hoy", 210, 100, w("termina"), { tam: 64 });
+img("obj-hourglass-not-done", 530, 85, 110, w("termina", 1, 0.5), { efecto: "pop" });
+txt("perder > ganar", 250, 260, w("mueve"), { tam: 84, color: ORO });
+img("obj-shopping-cart", -120, 320, 150, w("compres"), { efecto: "pop" });
+
+// 6 · Suscripción
+en(6);
+img("marca-logo", 0, -150, 640, ini() + 0.2, { d: 2.2 });
+trazo("M-240 80 L240 80 L240 190 L-240 190 Z", w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9, dur: 0.5 });
+txt("SUSCRIBIRME", 0, 158, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
+img("obj-bell", 340, 135, 130, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
+txt("cada semana, sin humo", 0, 330, w("semana"), { tam: 66 });
+
+// 7 y 8 · Diego en 2020, con datos reales del S&P 500 (^GSPC)
+en(7);
+const D0 = new Date("2020-01-02"), DIAS = 272, X0 = -770, X1 = 430, PY = (v) => 300 - (v - 2200) / 1300 * 600;
+const PX = (f) => X0 + ((new Date(f) - D0) / 864e5) / DIAS * (X1 - X0);
+const linea = (a, b) => window.SP500.filter(([f]) => f >= a && f <= b).map(([f, v], i) => `${i ? "L" : "M"}${PX(f).toFixed(1)} ${PY(v).toFixed(1)}`).join(" ");
+txt("S&P 500 · 2020", -470, -390, w("índice", 1, -0.3), { tam: 70 });
+trazo(`M${X0 - 30} -320 L${X0 - 30} 330 L${X1 + 40} 330`, w("índice", 1, 0.6), { grosor: 6, color: GRIS, dur: 0.6 });
+trazo(linea("2020-01-01", "2020-02-19"), w("febrero", 1), { grosor: 9, dur: 1.0 });
+img("peep-diego-feliz", 720, -130, 260, w("diego", 1, -0.2), { respira: { hasta: fin(8) }, cambios: [{ t: w("cae"), src: "peep-diego-preocupada" }] });
+txt("US$ 10.000", 720, 110, w("diez", 1), { tam: 68, color: VERDE });
+txt("19/02: 3.386", PX("2020-02-19"), PY(3386.15) - 40, w("diecinueve"), { tam: 46 });
+trazo(linea("2020-02-19", "2020-03-23"), w("pandemia"), { grosor: 10, color: ROJO, dur: w("ciento") - w("pandemia") });
+txt("23/03: 2.237  (−33,9 %)", PX("2020-03-23") + 45, PY(2237.4) - 5, w("ciento", 1, 0.2), { tam: 48, color: ROJO, ancla: "start" });
+tacha(600, 95, 840, 120, w("seis"));
+txt("US$ 6.600", 720, 215, w("seis", 1, 0.3), { tam: 68, color: ROJO });
+en(8);
+img("obj-mobile-phone", 520, 40, 140, w("aplicación"), { efecto: "pop", vibra: { t: w("aplicación", 1, 0.3), dur: 0.8 } });
+[["mira", 1], ["una", 1], ["vez", 2]].forEach(([p, n], i) => txt("−", 470 + i * 45, -190 - i * 35, w(p, n), { tam: 90, color: ROJO, efecto: "pop" }));
+txt("VENDO", PX("2020-03-23") + 20, 170, w("vende"), { tam: 120, color: ROJO, efecto: "pop", giro: -8 });
+trazo(`M${PX("2020-03-23") - 120} 70 Q${PX("2020-03-23") - 90} 200 ${PX("2020-03-23") - 8} ${PY(2237.4) - 14}`, w("bajo", 1, -0.4), { grosor: 7 });
+txt("el punto más bajo", PX("2020-03-23") - 160, 40, w("bajo", 1, -0.2), { tam: 50 });
+trazo(linea("2020-03-23", "2020-08-18"), w("agosto"), { grosor: 10, color: VERDE, dur: 2.2 });
+img("obj-glowing-star", PX("2020-08-18"), PY(3389.78) - 10, 80, w("máximo"), { efecto: "pop" });
+txt("18/08: de vuelta al máximo", PX("2020-08-18") - 40, PY(3389.78) - 70, w("máximo", 1, 0.2), { tam: 48, color: VERDE });
+trazo(linea("2020-08-18", "2020-09-30"), w("anterior", 1, 0.3), { grosor: 9, dur: 0.6 });
+
+// 9 · La aclaración honesta
+en(9);
+txt("En marzo, nadie sabía", 0, -340, w("nadie", 1, -0.3), { tam: 100 });
+txt("?", -720, 30, w("piso"), { tam: 340, color: GRIS, efecto: "pop" });
+img("obj-anxious-face-with-sweat", -270, -30, 190, w("dolor", 1, -0.6), { efecto: "pop" });
+txt("vender por dolor", -270, 150, w("dolor", 1, -0.3), { tam: 64, color: ROJO });
+tacha(-460, 130, -80, 170, w("dolor", 1, 0.9));
+img("obj-memo", 370, -30, 200, w("regla", 1, -0.3), { d: 0.9 });
+txt("decidir con un plan", 370, 150, w("regla"), { tam: 64, color: VERDE });
+txt("la decisión, de él; no de su balanza", 0, 340, w("decisión", 1, 0.2), { tam: 60, color: ORO });
+
+// 10 · La otra cara: Camila
+en(10);
+txt("corta lo que va bien · se aferra a lo que va mal", 0, -390, w("corta", 1, -0.3), { tam: 60 });
+img("peep-camila-feliz", 0, -10, 300, w("camila", 1, -0.3), { respira: true, cambios: [{ t: w("aceptar"), src: "peep-camila-preocupada" }] });
+img("obj-seedling", -560, -80, 210, w("sube", 1, -0.3), { d: 0.9, desaparece: w("enseguida", 1, 0.8) });
+txt("+10 %", -560, 90, w("sube", 1, 0.3), { tam: 80, color: VERDE });
+img("obj-scissors", -380, -200, 120, w("vende"), { efecto: "pop", mueve: [{ t: w("vende", 1, 0.4), dur: 0.6, dx: -120, dy: 90 }] });
+img("obj-package", 560, -70, 210, w("cae", 1, -0.3), { d: 0.9, mueve: [{ t: w("mantiene"), dur: 2.0, dy: 70 }] });
+txt("−30 %", 560, 205, w("cae", 1, 0.4), { tam: 80, color: ROJO });
+img("obj-balance-scale", 0, 320, 170, w("misma"), { efecto: "pop", mueve: [{ t: w("revés"), dur: 0.6, giro: -14 }] });
+
+// 11 · La cuenta que asusta
+en(11);
+txt("US$ 100", -600, -270, w("pierdes", 1, -0.3), { tam: 84 });
+trazo("M-600 -220 Q-560 -40 -420 90", w("mitad", 1, -0.3), { color: ROJO, grosor: 9, dur: 0.6 });
+txt("−50 %", -680, -40, w("mitad", 1, 0.1), { tam: 70, color: ROJO });
+txt("US$ 50", -380, 160, w("mitad", 1, 0.5), { tam: 84 });
+txt("+50 % = US$ 75", 0, -110, w("alcanza"), { tam: 66, color: GRIS });
+tacha(-190, -120, 190, -95, w("alcanza", 1, 1.0));
+img("obj-ladder", 470, -40, 300, w("necesitas", 1, -0.2), { d: 1.0 });
+txt("+100 %", 470, -330, w("cien"), { tam: 120, color: ROJO, efecto: "pop" });
+txt("evitar las pérdidas grandes ANTES", 0, 330, w("evitarlas", 1, -0.2), { tam: 66, color: ORO });
+
+// 12 · El error común
+en(12);
+img("peep-diego-feliz", -520, 40, 280, w("error", 1, -0.3), { respira: true, cambios: [{ t: w("apaga"), src: "peep-diego-preocupada" }] });
+txt("fuerza de voluntad", -520, -260, w("voluntad", 1, -0.4), { tam: 72 });
+tacha(-760, -270, -280, -240, w("apaga"));
+img("obj-balance-scale", 330, -40, 380, w("balanza", 1, -0.4), { d: 1.1, vibra: { t: w("apaga", 1, 0.2), dur: 1.0 } });
+txt("DECIDE ANTES", 0, 330, w("antes", 1, -0.4), { tam: 140, color: ORO, efecto: "pop" });
+
+// 13 · Tres hábitos
+en(13);
+txt("3 hábitos", 0, -390, w("tres", 1, -0.2), { tam: 104 });
+[
+  ["1", "obj-memo", "decide en frío", "escribe cuánto puedes perder", "uno", "escribe"],
+  ["2", "obj-spiral-calendar", "mira menos", "un día fijo: semana o mes", "dos", "fijo"],
+  ["3", "obj-bed", "un tamaño que", "te deje dormir", "tres", "dormir"],
+].forEach(([n, ico, a, b, p1, p2], i) => {
+  const x = -600 + i * 600, t0 = w(p1, p1 === "tres" ? 2 : 1, -0.2);
+  txt(n, x - 170, -230, t0, { tam: 110, color: ORO, efecto: "pop" });
+  img(ico, x, -110, 220, t0 + 0.2, { d: 1.0 });
+  txt(a, x, 100, t0 + 0.9, { tam: 62 });
+  txt(b, x, i === 2 ? 175 : 190, i === 2 ? t0 + 1.6 : w(p2), { tam: i === 2 ? 62 : 46, color: i === 2 ? "#14213d" : GRIS });
+});
+
+// 14 · Diego, con un plan
+en(14);
+img("peep-diego-feliz", -640, 10, 270, w("diego", 1, -0.3), { respira: true });
+txt("enero", -640, -260, w("enero"), { tam: 70, color: VERDE });
+img("obj-memo", -230, -60, 250, w("hoja", 1, -0.4), { d: 1.0 });
+txt("· dinero para 10 años", -60, -220, w("dinero"), { tam: 52, ancla: "start" });
+txt("· reviso 1 vez por mes", -60, -140, w("reviso"), { tam: 52, ancla: "start" });
+txt("· si cae 30 %: espero 1 semana", -60, -60, w("semana"), { tam: 52, ancla: "start" });
+img("peep-diego-preocupada", 680, 40, 250, w("marzo", 1, -0.2), { d: 1.0 });
+txt("marzo", 680, -220, w("marzo"), { tam: 70, color: ROJO });
+trazo("M-160 80 Q240 230 540 110", w("tomado", 1, -0.6), { grosor: 8, dur: 0.6 });
+txt("decide el Diego de enero", 0, 340, w("tomado"), { tam: 76, color: ORO });
+
+// 15 · Resumen (antes, la cámara muestra toda la pizarra)
+en(15);
+const R0 = ini() + 3.7;
+[["las pérdidas pesan ×2", "pesa"], ["vender en la baja · aferrarse a lo que pierde", "aferrarte"], ["no es voluntad: decide antes", "voluntad"], ["plan escrito · mirar menos · tamaño tolerable", "plan"]].forEach(([t_, p], i) => {
+  const t0 = Math.max(R0 + i * 0.6, w(p, 1, -0.5)), y = -300 + i * 140;
+  tilde(-700, y - 14, t0);
+  txt(t_, -640, y + 6, t0 + 0.3, { tam: 66, ancla: "start" });
+});
+txt("La balanza no se apaga: se planifica.", 0, 330, Math.max(R0 + 3, w("tolerar", 1, 0.3)), { tam: 76, color: ORO });
+
+// 16 · Cierre
+en(16);
+img("marca-logo", 0, -230, 600, ini() + 0.2, { d: 2.0 });
+txt("realinvestors.club", 0, 0, w("club", 1, 0.2), { tam: 80, color: ORO });
+txt("Nivel 0 gratis", -420, 130, w("gratuito"), { tam: 66, color: VERDE });
+img("obj-check-mark-button", -650, 110, 80, w("gratuito", 1, 0.6), { efecto: "pop" });
+txt("Próximo: FOMO", 420, 130, w("fomo"), { tam: 66 });
+trazo("M560 150 L700 150 M670 125 L700 150 L670 175", w("fomo", 1, 0.8), { grosor: 8, dur: 0.4 });
+txt("¿Alguna vez vendiste por miedo?", 0, 270, w("cuéntame"), { tam: 62 });
+txt("Contenido educativo. No constituye recomendación de inversión.", 0, 390, w("educativo", 1, -0.6), { tam: 40, color: GRIS });
+
+// Cámara: llega a cada zona apenas empieza su escena; en el resumen, primero se aleja para mostrar toda la pizarra
+const cam = [{ t: 0, x: centro(0)[0], y: centro(0)[1], zoom: 1 }];
+for (let s = 2; s <= 16; s++) {
+  if (s === 8) {
+    en(8);
+    cam.push({ t: ini() + 0.5, x: B[0] - 120, y: B[1] + 40, zoom: 1.12, dur: 1.2 });
+    cam.push({ t: w("agosto", 1, 0.6), x: B[0], y: B[1], zoom: 1, dur: 1.0 });
+    continue;
+  }
+  if (s === 15) {
+    en(15);
+    cam.push({ t: ini() + 1.2, x: 3900, y: 2250, zoom: 0.17, dur: 1.4 });
+    cam.push({ t: ini() + 3.6, x: B[0], y: B[1], zoom: 1, dur: 1.4 });
+    continue;
+  }
+  en(s);
+  cam.push({ t: ini() + 0.35, x: B[0], y: B[1], zoom: 1, dur: 1.1 });
+}
+
+Pizarra.escena({ dur: T.total, elementos: E, camara: cam });
+</script>
+</body></html>

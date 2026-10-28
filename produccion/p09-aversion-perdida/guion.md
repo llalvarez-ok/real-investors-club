@@ -87,7 +87,7 @@ Tres hábitos. Uno: decide en frío. Antes de invertir, escribe cuánto estás d
 
 ## 14. Diego, con un plan
 
-Volvamos a Diego. Supón que en enero, con la cabeza fría, hubiera escrito en una hoja: esta plata es para dentro de diez años; reviso una vez por mes; y si cae un treinta por ciento, me tomo una semana antes de decidir y leo esta hoja. No sabemos qué habría hecho. Pero sí sabemos que la decisión la habría tomado el Diego de enero, tranquilo, y no el Diego de marzo, con la balanza gritando.
+Volvamos a Diego. Supón que en enero, con la cabeza fría, hubiera escrito en una hoja: este dinero es para dentro de diez años; reviso una vez por mes; y si cae un treinta por ciento, me tomo una semana antes de decidir y leo esta hoja. No sabemos qué habría hecho. Pero sí sabemos que la decisión la habría tomado el Diego de enero, tranquilo, y no el Diego de marzo, con la balanza gritando.
 
 *En pantalla:* Diego en enero, sereno, escribe en una libreta (📝) tres renglones que se ven escritos a mano. Flecha a Diego en marzo, preocupado con el celular, que abre la libreta y respira. Se escribe «el Diego de enero decide».
 

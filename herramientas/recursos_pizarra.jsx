@@ -42,12 +42,18 @@ for (const [nombre, [cuerpo, pelo, col, acc]] of Object.entries(PERSONAJES)) {
 }
 const OBJETOS = ["money-bag", "coin", "dollar-banknote", "money-with-wings", "chart-increasing", "chart-decreasing", "cross-mark",
   "check-mark-button", "warning", "chicken", "egg", "nest-with-eggs", "mobile-phone", "robot", "hourglass-not-done", "bank",
-  "magnifying-glass-tilted-left", "house", "writing-hand-light", "stop-sign", "alarm-clock"];
+  "magnifying-glass-tilted-left", "house", "writing-hand-light", "stop-sign", "alarm-clock",
+  // P09
+  "balance-scale", "brain", "fire", "meat-on-bone", "mammoth", "bell", "memo", "seedling", "scissors", "package", "shopping-cart",
+  "sleeping-face", "bed", "glowing-star", "ladder", "hourglass-done", "thinking-face", "anxious-face-with-sweat", "relieved-face",
+  "light-bulb", "spiral-calendar", "collision"];
 for (const n of OBJETOS) {
   const i = fluent.icons[n];
   const w = i.width || fluent.width, h = i.height || fluent.height;
   fs.writeFileSync(path.join(SALIDA, `obj-${n}.svg`), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}">${i.body}</svg>`);
 }
+// El logo oficial, tal cual (nunca redibujarlo), para que la mano lo trace en las escenas
+fs.copyFileSync(path.join(path.dirname(SALIDA), "..", "..", "marca", "logo.svg"), path.join(SALIDA, "marca-logo.svg"));
 // Todo junto en recursos.js (window.RECURSOS), para que las escenas lo carguen con <script> desde file://
 const todos = {};
 for (const f of fs.readdirSync(SALIDA).filter((f) => f.endsWith(".svg")).sort()) todos[f.slice(0, -4)] = fs.readFileSync(path.join(SALIDA, f), "utf8");
