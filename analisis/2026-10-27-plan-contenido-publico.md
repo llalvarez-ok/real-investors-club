@@ -35,20 +35,48 @@ Se apoya en la auditoría (`2026-10-27-auditoria-canal.md`) y en el estudio de c
 
 **Formato recurrente [J]:** "Le hago la cuenta". En cada video se toma una promesa típica de redes y se le hace la cuenta en pantalla. Nunca se nombran empresas o personas sin una alerta oficial (CNV, CNMV, etc.) que lo respalde. Un formato fijo baja el costo de producción y le da identidad al canal.
 
-## 4. Primeros 8 videos largos
+## 4. Índice de videos pilar (actualizado el 28/10/2026)
 
-| # | Título tentativo | Pilar | Por qué | Material |
+Todos en estilo pizarra (`diseno/ESTILO-PILAR.md`), de 6 a 9 minutos, con una metáfora central. **B** quiere decir búsqueda (temas que la gente escribe en YouTube) y **D** descubrimiento (temas que YouTube recomienda o que se comparten). La escena del esquema Ponzi que se hizo como prueba es parte de P02.
+
+**Estafas y promesas imposibles** (el nicho propio de RIC):
+
+| # | Título tentativo | Metáfora o hilo | Tipo | Base |
 |---|---|---|---|---|
-| P01 | Cómo saber si una inversión es una estafa: 7 señales | 1 | Búsqueda alta y para compartir | 0-3-0, 0-5-1. **Guion hecho** |
-| P02 | Qué es un esquema Ponzi y por qué siempre termina igual | 1 | Búsqueda; la animación muestra el colapso | 0-3-0 + animación nueva |
-| P03 | ¿Se puede vivir del trading? La cuenta con 1.000, 10.000 y 100.000 dólares | 4 | Búsqueda y debate en comentarios | 0-1-1 |
-| P04 | Cómo verificar si una empresa está autorizada por la CNV (en 2 minutos) | 1 | Búsqueda muy específica de Argentina, poca competencia | 0-5-1 |
-| P05 | Señales de trading por Telegram: por qué casi nunca funcionan | 1 | Búsqueda | 0-3-0 |
-| P06 | Interés compuesto sin humo: 100 dólares por mes durante 20 años | 3 | Búsqueda permanente; datos reales del S&P 500 | animación existente + yfinance |
-| P07 | Por qué vendes justo cuando baja: la aversión a la pérdida con números | 2 | Descubrimiento | 0-1-x |
-| P08 | Le hago la cuenta a 5 promesas de redes | 4 | Descubrimiento; arranca el formato recurrente | 0-1-1 |
+| P01 | ¿Es una estafa? 7 señales para detectar una inversión trucha | La gallina de los huevos de oro: ¿te la venderían? | B | 0-3-0, 0-5-1 (guion de láminas hecho, hay que adaptarlo) |
+| P02 | Qué es un esquema Ponzi y por qué siempre termina igual | La pirámide de personas (escena ya hecha) y la historia de Charles Ponzi en 1920 | B y D | 0-3-0 |
+| P03 | Señales de Telegram y copy trading: lo que nadie te cuenta | El vendedor de mapas del tesoro que no va a buscar el tesoro | B | 0-3-0 |
+| P04 | Cómo saber en 2 minutos si una empresa está autorizada por la CNV | El carnet de conducir del que te ofrece invertir | B (Argentina) | 0-5-1 |
+| P05 | Videos falsos de famosos que te invitan a invertir: cómo reconocerlos | La máscara | D | alertas de la CNV |
 
-Cada uno lleva entre 3 y 5 Shorts, sacados con `herramientas/crear_shorts.py` y con enlace al video largo.
+**Expectativas reales:**
+
+| # | Título tentativo | Metáfora o hilo | Tipo | Base |
+|---|---|---|---|---|
+| P06 | ¿Se puede vivir del trading con 1.000 dólares? La cuenta honesta | La alcancía y el sueldo | B y D | 0-1-1 |
+| P07 | Le hago la cuenta a 5 promesas de redes | La calculadora contra el anuncio (formato recurrente) | D | 0-1-1 |
+| P08 | Cuánto rinde de verdad invertir: lo que dicen 100 años de datos | La montaña rusa que igual sube | B | datos reales del S&P 500 |
+
+**Psicología del dinero:**
+
+| # | Título tentativo | Metáfora o hilo | Tipo | Base |
+|---|---|---|---|---|
+| P09 | Por qué vendes justo cuando baja (y cómo evitarlo) | La balanza que pesa doble las pérdidas | D | 0-1-x |
+| P10 | FOMO: el error que te hace comprar en el peor momento | La fila del boliche que todos quieren | D | 0-1-x |
+| P11 | Las 3 frases sobre el dinero que heredaste de tu familia | La mochila que cargas desde chico | D | 0-1-0 (la lección más vista del canal) |
+
+**Conceptos esenciales** (los que más se buscan; es el terreno de Aprendiz Financiero):
+
+| # | Título tentativo | Metáfora o hilo | Tipo | Base |
+|---|---|---|---|---|
+| P12 | Activos y pasivos: la diferencia que te hace rico o pobre | Gallinas que ponen huevos y gallinas que comen | B | conocimiento general |
+| P13 | El interés compuesto explicado con una bola de nieve | La bola de nieve | B | animación existente |
+| P14 | Inflación: por qué tu dinero guardado vale menos cada año | El changuito del súper que se achica | B | conocimiento general |
+| P15 | Diversificar: no pongas todos los huevos en la misma canasta | La canasta, literal | B | conocimiento general |
+
+**Recomendación [J]:**
+- **Arrancar por P02 (Ponzi):** ya hay 30 segundos hechos, entra en el nicho de RIC y engancha.
+- **Seguir con P12 o P13:** son los que más búsqueda tienen y atraen a gente que todavía no sabe nada. Ese es el público que después entra al Nivel 0 gratis.
 
 ## 5. Cadencia [J]
 
