@@ -48,7 +48,7 @@ Datos: S&P 500 (^GSPC), cierre diario. Máximo de 3.386 el 19/02/2020, mínimo d
 ```
 Ganas 150 o pierdes 100 con una moneda. Casi todos dicen que no, y no es casualidad: tu cerebro pesa las pérdidas el doble.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/5sWw1BRWDCk
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -63,7 +63,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 S&P 500, 2020: cayó 33,9 % entre el 19/02 y el 23/03 y en agosto ya estaba de vuelta en su máximo. Pero en marzo nadie sabía que ese era el piso: el problema no fue vender, fue vender sin plan.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/5sWw1BRWDCk
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -78,7 +78,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 La aversión a la pérdida tiene otra cara: vender rápido lo que sube y aferrarse a lo que baja.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/5sWw1BRWDCk
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -93,7 +93,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 Perder la mitad exige ganar el 100 % para volver al punto de partida.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/5sWw1BRWDCk
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -108,7 +108,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 Decide en frío, mira menos y usa un tamaño que te deje dormir.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/5sWw1BRWDCk
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -137,4 +137,4 @@ Contenido educativo. No constituye recomendación de inversión.
 #educacionfinanciera #inversiones #finanzaspersonales #psicologiadeldinero #trading #ahorro #dinero #realinvestorsclub
 ```
 
-En los Shorts, reemplazar [enlace al video] por el enlace del video largo una vez publicado, y marcarlo como video relacionado en YouTube Studio. Los Shorts también llevan contenido sintético: sí.
+En los Shorts, marcar el video largo como video relacionado en YouTube Studio. Los Shorts también llevan contenido sintético: sí.
