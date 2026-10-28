@@ -32,6 +32,10 @@ Las lecciones siguen con el estilo de siempre (láminas, avatar y esquema de cla
 
 - **Voz:** Brian (`en-US-BrianMultilingualNeural` de edge-tts), con rate y pitch neutros (+0 %, +0 Hz). La eligió Lean entre 7 muestras. Es una voz multilingüe y lee mejor los números escritos en palabras.
 - **Procesamiento de la voz** (ffmpeg): `highpass=f=70,equalizer=f=180:t=q:w=1:g=2.5,equalizer=f=3200:t=q:w=1.2:g=1.5,equalizer=f=7000:t=q:w=2:g=-3,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=7`. Da más calidez en los graves, menos sibilancia, compresión suave y volumen al estándar de YouTube.
+- **Pronunciación de Brian (aviso de Lean, 28/10/2026):** es una voz multilingüe y, si una frase trae palabras en inglés, la lee entera con acento inglés.
+  - No poner frases en inglés en la voz: "FOMO es una sigla que viene del inglés", no "fear of missing out".
+  - Evitar "Resumiendo", que la confunde con el inglés: usar "Repasemos".
+  - Ante la duda, escuchar la escena sola antes de producir.
 - **Contenido sintético:** la voz es generada, así que los videos pilar se declaran como contenido sintético, igual que las lecciones.
 - **Música:** "Futile" (The Grey Room / Golden Palms), de la Biblioteca de audio de YouTube, que Lean subió el 28/10/2026 a Drive en RIC/audios (ID `1SR4fHBNlOmS3UI_-PAcRW5Kd78OSGl71`, se baja con `drive.usercontent.google.com/download?id=…&export=download&confirm=t`). Dura 3:12: intro suave hasta el segundo 35 y después una energía pareja (~−9 LUFS). La mezcla la hace `herramientas/musica_fondo.py`: intro y después loop de 35 a 185 s con fundido cruzado, música a −32 LUFS y ducking cuando habla la voz. Licencia de la Biblioteca de audio de YouTube (ícono de YouTube, no de Creative Commons): no pide atribución. Va 20 a 24 dB por debajo de la voz, con fundido al principio y al final. Se puede sumar una segunda base, más tensa, para los momentos de "se cae".
 

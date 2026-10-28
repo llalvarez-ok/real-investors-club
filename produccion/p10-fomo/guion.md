@@ -27,7 +27,7 @@ Imagina que caminas por una calle y ves dos restaurantes. Uno está vacío. El o
 
 ## 04. Qué es el FOMO
 
-FOMO viene del inglés: fear of missing out. En español, el miedo a quedarte afuera. Es la mezcla de tres cosas. Primero, la aversión a la pérdida: lo que no ganaste te duele como si lo hubieras perdido. Segundo, la prueba social: si tanta gente lo hace, debe estar bien. Y tercero, la urgencia: la sensación de que es ahora o nunca.
+FOMO es una sigla que viene del inglés. En español quiere decir: el miedo a quedarte afuera. Es la mezcla de tres cosas. Primero, la aversión a la pérdida: lo que no ganaste te duele como si lo hubieras perdido. Segundo, la prueba social: si tanta gente lo hace, debe estar bien. Y tercero, la urgencia: la sensación de que es ahora o nunca.
 
 *En pantalla:* Se escribe «FOMO = miedo a quedarte afuera». Debajo, tres ingredientes que se dibujan de a uno: una balanza (⚖️) «lo que no ganaste duele», un grupo de personas «si todos lo hacen…» y un reloj de arena (⏳) «ahora o nunca».
 
@@ -93,7 +93,7 @@ Y recuerda algo que alivia mucho. Las oportunidades no se terminan. Se renuevan.
 
 ## 15. Resumen
 
-Resumiendo. El FOMO es el miedo a quedarte afuera, y mezcla aversión a la pérdida, prueba social y urgencia. Casi siempre llega cuando gran parte de la subida ya pasó. No confundas popular con oportunidad. Y antes de entrar, hazte las tres preguntas, o espera cuarenta y ocho horas.
+Repasemos. El FOMO es el miedo a quedarte afuera, y mezcla aversión a la pérdida, prueba social y urgencia. Casi siempre llega cuando gran parte de la subida ya pasó. No confundas popular con oportunidad. Y antes de entrar, hazte las tres preguntas, o espera cuarenta y ocho horas.
 
 *En pantalla:* La cámara se aleja y muestra toda la pizarra; después, cuatro renglones con tildes que resumen el video.
 

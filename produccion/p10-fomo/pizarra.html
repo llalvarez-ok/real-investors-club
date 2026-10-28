@@ -84,10 +84,14 @@ txt("¿dónde entras?", -80, -220, w("entras", 1, 0.2), { tam: 70 });
 txt("no probamos la comida", 0, -350, w("probamos", 1, -0.2), { tam: 58, color: GRIS });
 txt("la fila te convence", 300, 360, w("convenció", 1, -0.2), { tam: 80, color: ORO });
 txt("…o solo mucha gente vio la fila", -350, 360, w("vio", 1, -0.4), { tam: 54, color: ROJO });
+txt("en las inversiones: igual", -500, -330, w("inversiones", 1, -0.2), { tam: 56, color: GRIS });
+trazo("M120 -130 Q300 -260 480 -150", w("gente", 1, -0.2), { grosor: 7, dur: 0.5 });
+txt("+ gente → + ganas", 330, -250, w("gente", 1, 0.3), { tam: 54 });
+txt("a veces, la comida es buenísima ✓", -350, 440, w("buenísima", 1, -0.4), { tam: 50, color: VERDE });
 
 // 4 · Qué es el FOMO
 en(4);
-txt("FOMO = miedo a quedarte afuera", 0, -360, w("fear", 1, -0.2), { tam: 92 });
+txt("FOMO = miedo a quedarte afuera", 0, -360, w("sigla", 1, -0.2), { tam: 92 });
 subraya(-560, 560, -320, w("español", 1, 0.6));
 [["obj-balance-scale", "lo que no ganaste duele", "aversión"], ["obj-busts-in-silhouette", "si todos lo hacen…", "social"], ["obj-hourglass-not-done", "ahora o nunca", "urgencia"]].forEach(([ico, t_, p], i) => {
   const x = -560 + i * 560, t0 = w(p, 1, -0.4);
@@ -107,7 +111,9 @@ pasos.forEach(([t_, p], i) => {
 });
 img("obj-newspaper", -25, -100, 120, w("medios", 1, 0.4), { efecto: "pop" });
 img("obj-speech-balloon", 330, -250, 110, w("primo", 1, 0.4), { efecto: "pop" });
-txt("la subida ya pasó", -420, -330, w("pasó", 1, -0.3), { tam: 76, color: ROJO });
+txt("la subida ya pasó", 330, 330, w("pasó", 1, -0.3), { tam: 76, color: ROJO });
+txt("¿Por qué el FOMO llega tarde?", 0, -430, ini() + 0.2, { tam: 80 });
+txt("se mueve como una noticia", 0, -350, w("noticia", 1, -0.3), { tam: 54, color: GRIS });
 
 // 6 · Suscripción
 en(6);
@@ -132,7 +138,8 @@ img("obj-mobile-phone", PX("2021-11-08") + 70, -350, 90, w("familiares"), { efec
 txt("08/11/2021: 67.567", PX("2021-11-08") + 30, PY(67567) + 10, w("sesenta", 1, -0.2), { tam: 46, ancla: "start" });
 en(8);
 img("peep-julian-feliz", 720, -110, 250, w("julián", 1, -0.2), { respira: { hasta: fin(9) }, cambios: [{ t: w("caído"), src: "peep-julian-preocupada" }] });
-txt("US$ 1.000", 720, 120, w("mil", 1), { tam: 66, color: VERDE });
+txt("US$ 1.000", 720, 120, w("mil", 2), { tam: 66, color: VERDE });
+txt("sin plan", 720, -310, w("plan"), { tam: 58, color: ROJO, efecto: "pop" });
 trazo(`M${PX("2021-11-08") + 40} -205 L${PX("2021-11-08") + 6} ${PY(67567) + 14}`, w("ahí"), { grosor: 6, color: ORO, dur: 0.3 });
 txt("Julián entra aquí", PX("2021-11-08") + 50, -185, w("ahí", 1, 0.2), { tam: 46, color: ORO, ancla: "start" });
 trazo(linea("2021-11-08", "2022-11-21"), w("después"), { grosor: 10, color: ROJO, dur: w("ciento") - w("después") });
@@ -144,6 +151,7 @@ trazo(linea("2022-11-21", "2024-04-01"), w("marzo", 1, -0.3), { grosor: 9, color
 img("obj-glowing-star", PX("2024-03-04"), PY(68330) - 10, 70, w("máximo"), { efecto: "pop" });
 trazo(`M${PX("2021-11-08")} -400 L${PX("2021-11-08")} -420 L${PX("2024-03-04")} -420 L${PX("2024-03-04")} -400`, w("tardó"), { grosor: 6, color: ORO, dur: 0.6 });
 txt("casi 2 años y medio", 160, -375, w("tardó", 1, 0.4), { tam: 52, color: ORO });
+txt("decidiendo con el estómago", -500, 292, w("estómago", 1, -0.4), { tam: 50, color: ROJO });
 txt("el problema: el momento y el motivo", 0, 400, w("momento", 1, -0.4), { tam: 60, color: ROJO });
 
 // 10 · El FOMO también se vende
@@ -155,6 +163,8 @@ txt("captura: +300 %", 250, -40, w("capturas"), { tam: 64, color: VERDE });
 img("obj-hourglass-not-done", 540, 70, 110, w("regresiva"), { efecto: "pop", vibra: { t: w("regresiva", 1, 0.3), dur: 0.8 } });
 txt("cuenta regresiva", 230, 85, w("regresiva", 1, -0.2), { tam: 60 });
 txt("te lo fabrican", 250, 260, w("diseñado"), { tam: 88, color: ROJO });
+txt("el FOMO no aparece solo", 0, -410, ini() + 0.2, { tam: 70 });
+txt("cuanto más te apuran, más despacio", 250, 380, w("despacio", 1, -0.8), { tam: 54, color: VERDE });
 
 // 11 · El error común
 en(11);
@@ -164,7 +174,11 @@ txt("buena oportunidad", 430, -260, w("oportunidad"), { tam: 84 });
 img("peep-diego-feliz", -480, 160, 260, w("diego", 1, -0.2), { respira: true, cambios: [{ t: w("frenar"), src: "peep-diego-preocupada" }] });
 txt("+80 % en un mes", 0, 70, w("ochenta", 1, -0.2), { tam: 70, color: VERDE });
 img("obj-busts-in-silhouette", 0, 210, 150, w("amigos"), { efecto: "pop" });
-txt("?", 430, 150, w("sabe"), { tam: 260, color: GRIS, efecto: "pop" });
+txt("?", 430, 240, w("sabe"), { tam: 260, color: GRIS, efecto: "pop" });
+img("obj-speech-balloon", -760, -110, 110, w("hablen", 1, -0.2), { efecto: "pop" });
+txt("todos hablan…", -520, -110, w("hablen", 1, 0.1), { tam: 58, color: GRIS });
+txt("¿precio razonable?", 430, -150, w("razonable", 1, -0.4), { tam: 58, color: GRIS });
+txt("a veces: ya está caro", 430, -70, w("caro", 1, -0.4), { tam: 58, color: ROJO });
 txt("señal para frenar, no para correr", 0, 400, w("frenar", 1, -0.2), { tam: 60, color: ORO });
 
 // 12 · El FOMO al revés: Camila
@@ -174,17 +188,19 @@ img("obj-rocket", 300, -60, 200, w("subir", 1, -0.4), { d: 0.8, mueve: [{ t: w("
 img("obj-rocket", 380, 120, 200, w("moda"), { d: 0.8 });
 trazo("M-250 110 Q50 40 250 110", w("entra", 1, -0.3), { grosor: 8, dur: 0.6 });
 txt("la siguiente moda", 380, 290, w("moda", 1, 0.3), { tam: 58 });
+txt("otra trampa, igual de peligrosa", 0, -450, ini() + 0.2, { tam: 62, color: GRIS });
+txt("para no perderse otra", 380, 360, w("perderse", 1, -0.3), { tam: 54 });
 txt("no es invertir: es reparar el pasado", 0, -360, w("reparar", 1, -0.4), { tam: 70, color: ROJO });
 
 // 13 · Tres preguntas antes de entrar
 en(13);
-txt("Antes de entrar:", 0, -390, w("preguntas", 1, -0.4), { tam: 96 });
+txt("Antes de entrar:", 0, -390, w("antes", 1, -0.2), { tam: 96 });
 [
   ["1", "obj-busts-in-silhouette", "¿lo compraría", "si nadie hablara?", "uno"],
   ["2", "obj-memo", "¿por qué entro", "y cuándo salgo?", "dos"],
   ["3", "obj-shield", "¿cuánto puedo perder", "y lo tolero?", "tres"],
 ].forEach(([n, ico, a, b, p], i) => {
-  const x = -600 + i * 600, t0 = w(p, 1, -0.2);
+  const x = -600 + i * 600, t0 = w(p, p === "tres" ? 2 : 1, -0.2);
   txt(n, x - 170, -240, t0, { tam: 110, color: ORO, efecto: "pop" });
   img(ico, x, -110, 210, t0 + 0.2, { d: 1.0 });
   txt(a, x, 90, t0 + 0.9, { tam: 56 });
@@ -192,6 +208,8 @@ txt("Antes de entrar:", 0, -390, w("preguntas", 1, -0.4), { tam: 96 });
 });
 img("obj-alarm-clock", -150, 330, 120, w("cuarenta", 1, -0.3), { efecto: "pop" });
 txt("espera 48 horas", 120, 350, w("cuarenta", 1, 0.2), { tam: 76, color: ORO });
+txt("si alguna no te convence:", 0, 260, w("respuesta", 1, -0.4), { tam: 50, color: GRIS });
+txt("si era buena, el viernes también lo va a ser", 0, 440, w("viernes", 1, -0.4), { tam: 46, color: VERDE });
 
 // 14 · Siempre hay otro tren
 en(14);
