@@ -5,7 +5,7 @@
 
 <dir de trabajo> es el de la voz (audio/NN.json, audio/pNN.wav), para los tiempos de cada palabra.
 Cada pieza de shorts.json toma uno o más tramos de escenas completas ("tramos": [[desde, hasta], ...], números de
-escena del guion) y arma: arriba el logo y el gancho; en el medio el video (recortado a 1680x1080 y achicado);
+escena del guion) y arma: arriba el logo y el gancho; en el medio el centro del video (1600x1080, achicado);
 abajo los subtítulos grandes palabra por palabra (la palabra que se dice va en rojo); el aviso legal fijo; y en los
 últimos segundos la invitación al video completo ("cta" de la pieza, o el de su formato).
 "formato": "youtube" (Short) o "instagram" (reel). Los dos dejan libres los 380 px de abajo y el costado derecho,
@@ -19,7 +19,7 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H, FPS = 1080, 1920, 30
-PANEL_Y, PANEL_H = 470, 694  # 1680x1080 achicado a 1080 de ancho
+PANEL_Y, PANEL_H, RECORTE = 470, 729, 1600  # el centro de 1600x1080 del video, achicado a 1080 de ancho
 AIRE = 0.15                  # el de unir_voz.sh
 CTA_SEG = 2.8
 ROJO, TINTA = "&H003F3AD9&", "&H003D2114&"  # #d93a3f y #14213d en BGR de ASS
@@ -58,7 +58,7 @@ body{{width:{W}px;height:{H}px;overflow:hidden;background:#fdfdfb}}
 .vin{{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,transparent 62%,rgba(0,0,0,.08))}}
 #logo{{position:absolute;left:44px;top:56px;background:#0d2142;border-radius:16px;padding:12px 16px}} #logo svg{{width:170px;height:auto;display:block}}
 .url{{position:absolute;right:48px;top:84px;font:600 26px 'IBM Plex Mono',monospace;color:#8e7140}}
-h1{{position:absolute;left:48px;right:48px;top:170px;height:270px;display:flex;align-items:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:{"84" if cta else "80"}px;line-height:1.04;color:#14213d}}
+h1{{position:absolute;left:48px;right:48px;top:170px;height:270px;display:flex;align-items:center;font-family:'Archivo',sans-serif;font-weight:900;font-size:{"72" if len(cta or texto) > 38 else "84"}px;line-height:1.04;color:#14213d}}
 em{{font-style:normal;color:#d93a3f}}
 .panel{{position:absolute;left:0;top:{PANEL_Y - 6}px;width:{W}px;height:{PANEL_H + 12}px;border-top:4px solid #e3dccd;border-bottom:4px solid #e3dccd}}
 </style></head><body><div class="vin"></div><div id="logo"></div><div class="url">realinvestors.club</div>
@@ -75,11 +75,14 @@ def ts(t):
 
 
 def ass(palabras, dur, destino):
-    """Subtítulos de 1 a 3 palabras, con la que se dice en rojo, y el aviso legal fijo."""
+    """Subtítulos de 1 a 3 palabras, con la que se dice en rojo, y el aviso legal fijo.
+    Los grupos se cortan también en las pausas de la voz: los tiempos de edge-tts no traen la puntuación."""
     grupos, actual = [], []
     for p in palabras:
         actual.append(p)
-        if len(actual) == 3 or sum(len(q["texto"]) + 1 for q in actual) > 17 or re.search(r"[.,:;?!]$", p["texto"]):
+        siguiente = palabras[palabras.index(p) + 1] if p is not palabras[-1] else None
+        pausa = siguiente is not None and siguiente["ini"] - p["fin"] > 0.18
+        if len(actual) == 3 or sum(len(q["texto"]) + 1 for q in actual) > 17 or pausa or re.search(r"[.,:;?!]$", p["texto"]):
             grupos.append(actual)
             actual = []
     if actual:
@@ -101,8 +104,8 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,Archivo Black,84,{TINTA},{TINTA},&H00FBFDFD&,&H00FBFDFD&,0,0,0,0,100,100,0,0,1,6,0,8,70,110,{PANEL_Y + PANEL_H + 70},1
-Style: Aviso,IBM Plex Sans SemiBold,28,&H00977D7D&,&H00977D7D&,&H00FBFDFD&,&H00FBFDFD&,0,0,0,0,100,100,0,0,1,0,0,8,60,110,{H - 470},1
+Style: Sub,Archivo Black,80,{TINTA},{TINTA},&H00FBFDFD&,&H00FBFDFD&,0,0,0,0,100,100,0,0,1,6,0,8,70,110,{PANEL_Y + PANEL_H + 45},1
+Style: Aviso,IBM Plex Sans SemiBold,28,&H00977D7D&,&H00977D7D&,&H00FBFDFD&,&H00FBFDFD&,0,0,0,0,100,100,0,0,1,0,0,8,60,110,{H - 440},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -133,16 +136,19 @@ def main():
             t0 += fin - ini
         ass(palabras, t0, os.path.join(trabajo, "subs.ass"))
         k = len(cortes)
-        partes = "".join(f"[0:v]trim={a:.3f}:{b:.3f},setpts=PTS-STARTPTS,crop=1680:1080:120:0,scale={W}:{PANEL_H}[v{i}];"
-                         f"[0:a]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.08,afade=t=out:st={b - a - 0.25:.3f}:d=0.25[a{i}];"
+        # Cada tramo es una entrada aparte, buscada con -ss: varios trim del mismo video agotan la memoria
+        partes = "".join(f"[{i}:v]setpts=PTS-STARTPTS,crop={RECORTE}:1080:{(1920 - RECORTE) // 2}:0,"
+                         f"drawbox=x=0:y=0:w=150:h=210:color=0xf8f8f5:t=fill,scale={W}:{PANEL_H}[v{i}];"  # tapa el borde del logo del video con el color de la pizarra (arriba ya está el de la plantilla)
+                         f"[{i}:a]asetpts=PTS-STARTPTS,afade=t=in:d=0.08,afade=t=out:st={b - a - 0.25:.3f}:d=0.25[a{i}];"
                          for i, (a, b) in enumerate(cortes))
         filtro = (partes + "".join(f"[v{i}][a{i}]" for i in range(k)) + f"concat=n={k}:v=1:a=1[vid][aud];"
-                  f"[1:v][vid]overlay=0:{PANEL_Y}[c1];"
-                  f"[2:v]crop={W}:{PANEL_Y - 20}:0:0[cta];"
+                  f"[{k}:v][vid]overlay=0:{PANEL_Y}[c1];"
+                  f"[{k + 1}:v]crop={W}:{PANEL_Y - 20}:0:0[cta];"
                   f"[c1][cta]overlay=0:0:enable='gte(t,{t0 - CTA_SEG:.3f})',"
                   f"subtitles='{os.path.join(trabajo, 'subs.ass')}',format=yuv420p[v]")
         destino = os.path.join(salida, s["id"] + ".mp4")
-        sh("ffmpeg", "-loglevel", "error", "-y", "-i", video, "-loop", "1", "-i", base, "-loop", "1", "-i", cta,
+        entradas = sum((["-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", video] for a, b in cortes), [])
+        sh("ffmpeg", "-loglevel", "error", "-y", *entradas, "-loop", "1", "-i", base, "-loop", "1", "-i", cta,
            "-filter_complex", filtro, "-map", "[v]", "-map", "[aud]", "-t", f"{t0:.3f}", "-r", str(FPS),
            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", destino)
