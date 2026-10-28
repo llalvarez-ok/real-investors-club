@@ -46,7 +46,9 @@ const OBJETOS = ["money-bag", "coin", "dollar-banknote", "money-with-wings", "ch
   // P09
   "balance-scale", "brain", "fire", "meat-on-bone", "mammoth", "bell", "memo", "seedling", "scissors", "package", "shopping-cart",
   "sleeping-face", "bed", "glowing-star", "ladder", "hourglass-done", "thinking-face", "anxious-face-with-sweat", "relieved-face",
-  "light-bulb", "spiral-calendar", "collision"];
+  "light-bulb", "spiral-calendar", "collision",
+  // P10
+  "rocket", "newspaper", "speech-balloon", "high-speed-train", "station", "shield", "loudspeaker", "busts-in-silhouette", "fork-and-knife", "party-popper"];
 for (const n of OBJETOS) {
   const i = fluent.icons[n];
   const w = i.width || fluent.width, h = i.height || fluent.height;

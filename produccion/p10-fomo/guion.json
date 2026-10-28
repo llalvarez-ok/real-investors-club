@@ -1,0 +1,114 @@
+{
+ "id": "p10-fomo",
+ "archivo": "RIC-P10-fomo",
+ "titulo": "FOMO: el error que te hace comprar en el peor momento",
+ "estilo": "pizarra",
+ "voz": {
+  "voice": "en-US-BrianMultilingualNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz"
+ },
+ "fuentes": [
+  "BTC-USD (yfinance): ~10.619 el 01/10/2020; cierre máximo 67.567 el 08/11/2021; mínimo 15.787 el 21/11/2022 (−76,6 %); vuelve a superar el máximo el 04/03/2024 (68.330)",
+  "FOMO = aversión a la pérdida + prueba social + urgencia: lectura del Nivel 2 (sesgos del FOMO)",
+  "Nombres y montos de Julián y Camila: ejemplos ('Supón que…')"
+ ],
+ "escenas": [
+  {
+   "n": 1,
+   "titulo": "Gancho: todos ganaron",
+   "voz": "Tu primo te cuenta que ganó dinero con algo. Tu compañero de trabajo, también. Y en redes ves a un desconocido mostrando ganancias con lo mismo. De repente sientes una urgencia en el pecho: si no entras ahora, te quedas afuera. Esa sensación tiene nombre. Y casi siempre aparece en el peor momento posible.",
+   "visual": "Tres personas dibujadas (Bruno, Carla, Julián) con globos «¡gané!» y billetes. Una persona en el centro (Diego) con un reloj de alarma que vibra y el texto «¿y yo?»."
+  },
+  {
+   "n": 2,
+   "titulo": "Qué vas a ver",
+   "voz": "En este video vas a ver qué es el FOMO, por qué casi siempre llega tarde, qué le pasó a mucha gente con Bitcoin en dos mil veintiuno, y tres preguntas para hacerte antes de entrar en cualquier cosa de la que todo el mundo habla.",
+   "visual": "Lista escrita a mano con casilleros que se tildan: «qué es el FOMO», «por qué llega tarde», «Bitcoin 2021», «3 preguntas»."
+  },
+  {
+   "n": 3,
+   "titulo": "La fila del restaurante",
+   "voz": "Imagina que caminas por una calle y ves dos restaurantes. Uno está vacío. El otro tiene una fila larguísima en la puerta. ¿Dónde entras? Casi todos elegimos el de la fila. No probamos la comida. No leímos el menú. La fila nos convenció. En las inversiones pasa exactamente lo mismo: cuanta más gente entra, más ganas tenemos de entrar. Y a veces la comida es buenísima. Pero otras veces, la fila solo significa que mucha gente vio la fila.",
+   "visual": "Metáfora central: dos casitas (Fluent 🏠) en una calle dibujada. Una vacía; la otra con una fila de personas (Open Peeps) que crece. Se escribe «la fila te convence» con una flecha."
+  },
+  {
+   "n": 4,
+   "titulo": "Qué es el FOMO",
+   "voz": "FOMO viene del inglés: fear of missing out. En español, el miedo a quedarte afuera. Es la mezcla de tres cosas. Primero, la aversión a la pérdida: lo que no ganaste te duele como si lo hubieras perdido. Segundo, la prueba social: si tanta gente lo hace, debe estar bien. Y tercero, la urgencia: la sensación de que es ahora o nunca.",
+   "visual": "Se escribe «FOMO = miedo a quedarte afuera». Debajo, tres ingredientes que se dibujan de a uno: una balanza (⚖️) «lo que no ganaste duele», un grupo de personas «si todos lo hacen…» y un reloj de arena (⏳) «ahora o nunca»."
+  },
+  {
+   "n": 5,
+   "titulo": "Por qué llega tarde",
+   "voz": "Ahora, el problema de fondo: el FOMO casi nunca llega al principio. Piensa en cómo se mueve una noticia. Primero compran unos pocos, sin ruido. El precio sube. Después aparece en los medios. Después lo comenta tu primo. Y recién cuando lo escuchas en todos lados, sientes la urgencia. Para ese momento, gran parte de la subida ya pasó.",
+   "visual": "Una escalera de etapas dibujada a mano que sube: «unos pocos compran», «el precio sube», «sale en las noticias», «lo comenta tu primo», «¡TÚ!». Una flecha marca que el último escalón está arriba de todo, en rojo."
+  },
+  {
+   "n": 6,
+   "titulo": "Pedido de suscripción",
+   "voz": "Si alguna vez entraste en algo porque todo el mundo hablaba de eso, este canal es para ti. Suscríbete: cada semana explicamos cómo funciona el dinero, sin vender humo. Y ahora, vamos a un caso real.",
+   "visual": "El logo de RIC dibujado con el botón «SUSCRIBIRME» y la campanita."
+  },
+  {
+   "n": 7,
+   "titulo": "Bitcoin 2021 (datos reales)",
+   "voz": "En octubre de dos mil veinte, un Bitcoin costaba unos diez mil seiscientos dólares. Un año después, todo el mundo hablaba de eso. Noticias, redes, reuniones familiares. El ocho de noviembre de dos mil veintiuno cerró en sesenta y siete mil quinientos sesenta y siete dólares. Su precio más alto hasta ese momento.",
+   "visual": "Gráfico de línea trazado a mano con datos reales de BTC-USD (yfinance): de ~10.600 (oct-2020) a 67.567 (08/11/2021). Alrededor del pico aparecen globos de diálogo, un celular y un diario dibujados: «todos hablan»."
+  },
+  {
+   "n": 8,
+   "titulo": "Julián entra en el pico",
+   "voz": "Supón que Julián se convence justo ahí, en noviembre de dos mil veintiuno, y pone mil dólares. No tiene un plan. Entra porque todos entran. Un año después, el veintiuno de noviembre de dos mil veintidós, el precio había caído casi setenta y siete por ciento. Sus mil dólares valían unos doscientos treinta.",
+   "visual": "Julián (Open Peeps) aparece en el pico con su bolsa «US$ 1.000». La línea baja en rojo hasta 15.787 (21/11/2022), «−76,6 %». La bolsa se tacha y se escribe «US$ 230». Julián cambia a cara preocupada."
+  },
+  {
+   "n": 9,
+   "titulo": "La aclaración honesta",
+   "voz": "Ojo: esto no dice si Bitcoin es bueno o malo. De hecho, en marzo de dos mil veinticuatro volvió a superar ese máximo. Pero tardó casi dos años y medio. Y durante todo ese tiempo, Julián estuvo en pérdida, sin un plan, decidiendo con el estómago. El problema no fue el activo. Fue el momento y el motivo: entró porque todos entraban.",
+   "visual": "La línea sigue y sube hasta superar el máximo el 04/03/2024. Se marca con una llave la distancia entre noviembre de 2021 y marzo de 2024: «casi 2 años y medio». Se escribe «el problema: el momento y el motivo»."
+  },
+  {
+   "n": 10,
+   "titulo": "El FOMO también se vende",
+   "voz": "Y fíjate que el FOMO no aparece solo. Muchas veces te lo fabrican. Últimos cupos. Solo por hoy. Capturas de ganancias en un grupo de Telegram. Cuenta regresiva en un anuncio. Todo eso está diseñado para que decidas rápido, antes de pensar. Cuanto más te apuran, más motivos tienes para ir despacio.",
+   "visual": "Un celular (📱) con notificaciones dibujadas a mano: «¡ÚLTIMOS CUPOS!», «solo hoy», una captura con «+300 %» y un reloj de arena. Se escribe «te lo fabrican» en rojo."
+  },
+  {
+   "n": 11,
+   "titulo": "El error común",
+   "voz": "El error más común es confundir popularidad con oportunidad. Que todos hablen de algo no te dice si es bueno, ni si el precio es razonable. Solo te dice que es popular. Y a veces, cuando algo se vuelve popular, es justo cuando ya está caro. Supón que Diego ve que una acción subió un ochenta por ciento en un mes. Todo su grupo de amigos la recomienda. Diego no sabe qué hace esa empresa. Solo sabe que subió. Esa es exactamente la señal para frenar y hacerse preguntas, no para correr.",
+   "visual": "Una balanza con «popular» en un plato y «buena oportunidad» en el otro, y un signo «≠» grande en rojo entre las dos palabras. Al lado, Diego (Open Peeps) con un celular y «+80 % en un mes» en verde, y un signo de pregunta grande."
+  },
+  {
+   "n": 12,
+   "titulo": "El FOMO al revés: Camila",
+   "voz": "Hay otra trampa, y es igual de peligrosa. Supón que Camila no entró en Bitcoin y lo vio subir. Se quedó con la espina. Entonces, cuando aparece la siguiente moda, entra sin pensar, para no perderse otra. No está invirtiendo en lo nuevo. Está intentando reparar el pasado.",
+   "visual": "Camila (Open Peeps) mira un cohete (🚀) que se va. Después aparece un segundo cohete y Camila corre hacia él. Se escribe «no es invertir: es reparar el pasado»."
+  },
+  {
+   "n": 13,
+   "titulo": "Tres preguntas antes de entrar",
+   "voz": "Por eso, antes de entrar en algo de lo que todo el mundo habla, hazte tres preguntas. Uno: ¿lo compraría si nadie estuviera hablando de esto? Dos: ¿puedo explicar en una frase por qué entro y cuándo saldría? Y tres: si me equivoco, ¿cuánto puedo perder, y lo puedo tolerar? Si alguna respuesta no te convence, espera cuarenta y ocho horas. Si la oportunidad era buena, el viernes también lo va a ser.",
+   "visual": "Tres columnas numeradas en oro con íconos: un grupo tachado (1, «¿y si nadie hablara?»), una libreta (📝, 2, «por qué entro y cuándo salgo») y un escudo o balanza (3, «¿cuánto puedo perder?»). Abajo, un reloj de 48 horas."
+  },
+  {
+   "n": 14,
+   "titulo": "Siempre hay otro tren",
+   "voz": "Y recuerda algo que alivia mucho. Las oportunidades no se terminan. Se renuevan. Quedarte afuera de una no es una tragedia. Entrar mal en todas, sí.",
+   "visual": "Una estación de tren dibujada: un tren que se va y otro que llega. Se escribe «siempre hay otro tren» en oro."
+  },
+  {
+   "n": 15,
+   "titulo": "Resumen",
+   "voz": "Resumiendo. El FOMO es el miedo a quedarte afuera, y mezcla aversión a la pérdida, prueba social y urgencia. Casi siempre llega cuando gran parte de la subida ya pasó. No confundas popular con oportunidad. Y antes de entrar, hazte las tres preguntas, o espera cuarenta y ocho horas.",
+   "visual": "La cámara se aleja y muestra toda la pizarra; después, cuatro renglones con tildes que resumen el video."
+  },
+  {
+   "n": 16,
+   "titulo": "Cierre",
+   "voz": "Si quieres seguir entrenando tu relación con el dinero, en Real Investors Club tenemos un curso inicial gratuito, el Nivel cero. El enlace está en la descripción. En el próximo video hablamos de las frases sobre el dinero que heredaste de tu familia, y de cómo deciden por ti sin que lo notes. Cuéntame en los comentarios: ¿en qué entraste alguna vez solo porque todos hablaban de eso? Este contenido es educativo y no constituye una recomendación de inversión.",
+   "visual": "El logo de RIC, «realinvestors.club», «Nivel 0 gratis», «Próximo: las frases que heredaste» y el aviso legal."
+  }
+ ]
+}

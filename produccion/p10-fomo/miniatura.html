@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Archivo:wght@900&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;background:#fdfdfb}
+.vineta{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,transparent 60%,rgba(0,0,0,.09))}
+.logo{position:absolute;left:36px;top:30px;background:#0d2142;border-radius:14px;padding:10px 14px}
+.logo svg{width:150px;height:auto;display:block}
+h1{position:absolute;left:44px;top:150px;width:640px;font-family:'Archivo',sans-serif;font-weight:900;font-size:92px;line-height:.98;color:#14213d}
+h1 em{font-style:normal;color:#d93a3f}
+.mano{position:absolute;left:48px;top:530px;font-family:'Caveat',cursive;font-size:54px;color:#b8913f;transform:rotate(-3deg)}
+#balanza{position:absolute;right:60px;top:150px;width:300px;transform:rotate(-20deg)}
+#diego{position:absolute;right:230px;top:360px;width:280px}
+.x2{position:absolute;right:300px;top:40px;font-family:'Caveat',cursive;font-size:150px;color:#d93a3f;transform:rotate(-8deg)}
+.url{position:absolute;right:36px;bottom:24px;font:600 22px 'IBM Plex Mono',monospace;color:#8e7140}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+</head><body><div class="vineta"></div>
+<div class="logo" id="logo"></div>
+<h1>¿Compras cuando <em>todos</em> compran?</h1>
+<div class="mano">el miedo a quedarte afuera</div>
+<div id="balanza"></div><div id="diego"></div>
+<div class="x2">FOMO</div>
+<div class="url">realinvestors.club</div>
+<script>
+document.getElementById("balanza").innerHTML = RECURSOS["obj-rocket"];
+document.getElementById("diego").innerHTML = RECURSOS["peep-diego-preocupada"];
+for (const s of document.querySelectorAll("#balanza svg, #diego svg")) { s.removeAttribute("width"); s.removeAttribute("height"); s.style.width = "100%"; s.style.height = "auto"; }
+</script>
+</body></html>
