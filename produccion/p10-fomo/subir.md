@@ -50,7 +50,7 @@ Datos: BTC-USD, cierre diario. ~10.619 el 01/10/2020; máximo de 67.567 el 08/11
 ```
 Elegimos el restaurante con fila sin probar la comida. Con las inversiones pasa lo mismo: eso es el FOMO.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/SbO7TcPcg7M
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -65,7 +65,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 BTC-USD: 67.567 el 08/11/2021, 15.787 el 21/11/2022 (−76,6 %), y recién superó ese máximo en marzo de 2024. El problema no fue el activo: fue el momento y el motivo.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/SbO7TcPcg7M
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -80,7 +80,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 Cuando lo escuchas en todos lados, gran parte de la subida ya pasó.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/SbO7TcPcg7M
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -95,7 +95,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 Últimos cupos, solo por hoy, capturas de ganancias: todo diseñado para que decidas antes de pensar.
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/SbO7TcPcg7M
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -110,7 +110,7 @@ Contenido educativo. No constituye recomendación de inversión.
 ```
 ¿Lo comprarías si nadie hablara de esto? ¿Puedes explicar por qué entras y cuándo saldrías? ¿Cuánto puedes perder?
 
-▶️ Video completo: [enlace al video]
+▶️ Video completo: https://youtu.be/SbO7TcPcg7M
 realinvestors.club
 
 Contenido educativo. No constituye recomendación de inversión.
@@ -140,4 +140,4 @@ Contenido educativo. No constituye recomendación de inversión.
 #fomo #educacionfinanciera #inversiones #finanzaspersonales #psicologiadeldinero #bitcoin #dinero #realinvestorsclub
 ```
 
-En los Shorts, reemplazar [enlace al video] por el enlace del video largo cuando esté publicado (o pedirme que lo haga por la API) y marcarlo como video relacionado en YouTube Studio. Los Shorts también llevan contenido sintético: sí.
+En los Shorts, reemplazar https://youtu.be/SbO7TcPcg7M por el enlace del video largo cuando esté publicado (o pedirme que lo haga por la API) y marcarlo como video relacionado en YouTube Studio. Los Shorts también llevan contenido sintético: sí.

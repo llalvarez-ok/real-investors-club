@@ -1,0 +1,33 @@
+{
+ "largo": {
+  "id": "SbO7TcPcg7M",
+  "publishAt": "2026-11-04T22:00:00Z"
+ },
+ "shorts": [
+  {
+   "id": "MaLhm9-0AZY",
+   "pieza": "S2-entro-en-el-pico",
+   "publishAt": "2026-11-06T22:00:00Z"
+  },
+  {
+   "id": "SPvuO-ppHm8",
+   "pieza": "S1-todos-compran",
+   "publishAt": "2026-11-07T22:00:00Z"
+  },
+  {
+   "id": "wX-T6YetVO4",
+   "pieza": "S5-tres-preguntas",
+   "publishAt": "2026-11-08T22:00:00Z"
+  },
+  {
+   "id": "3CucxdZ-ODw",
+   "pieza": "S4-te-lo-fabrican",
+   "publishAt": "2026-11-09T22:00:00Z"
+  },
+  {
+   "id": "gFUF0uoI9fY",
+   "pieza": "S3-llega-tarde",
+   "publishAt": "2026-11-10T22:00:00Z"
+  }
+ ]
+}
