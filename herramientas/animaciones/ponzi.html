@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Escena ilustrada "esquema Ponzi" (1920x1080), estilo de los videos pilar (diseno/ESTILO-PILAR.md).
+     La controla herramientas/animar.js llamando a window.cuadro(t), t entre 0 y 1.
+     Parámetros por query string: dur (segundos de la escena) y m (segundos de cada momento, separados por coma):
+     titulo, ana, promesa, inversion, bruno, carla, cuatro, funciona, deja, cae, siempre. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=Caveat:wght@600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#f4efe3}
+svg{position:absolute;inset:0}
+.logo{position:absolute;left:60px;top:44px;background:#0d2142;border-radius:16px;padding:12px 18px}
+.logo svg{position:static;width:190px;height:auto;display:block;overflow:visible}
+</style></head>
+<body>
+<svg id="s" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="mano" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence id="ruido" type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="1"/>
+      <feDisplacementMap in="SourceGraphic" scale="5"/>
+    </filter>
+    <pattern id="papel" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".6" fill="#e6dcc6"/></pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#papel)"/>
+  <g id="tinta" filter="url(#mano)"></g>
+</svg>
+<div class="logo" id="logo"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const DUR = +(q.get("dur") || 28);
+const M = (q.get("m") || "0.1,3.0,4.9,7.85,11.8,12.46,17.47,19.54,24.2,25.58,27.17").split(",").map(Number);
+const [T_TIT, T_ANA, T_PROM, T_INV, T_BRU, T_CAR, T_CUA, T_FUN, T_DEJA, T_CAE, T_SIEM] = M;
+const NS = "http://www.w3.org/2000/svg", tinta = document.getElementById("tinta");
+const TINTA = "#0d2142", ORO = "#c7a35e", ORO2 = "#e2c68c", VERDE = "#2fb978", ROJO = "#e5484d";
+const el = (tag, at, padre = tinta) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); padre.appendChild(e); return e; };
+const lim = (x) => Math.max(0, Math.min(1, x));
+const prog = (t, ini, d) => lim((t - ini) / d);
+const suave = (x) => x * x * (3 - 2 * x);
+const rebote = (x) => { if (x <= 0) return 0; if (x >= 1) return 1; const c = 1.9; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+
+// Título y notas manuscritas
+const titulo = el("text", { x: 960, y: 140, "text-anchor": "middle", "font-family": "Archivo", "font-weight": 900, "font-size": 78, fill: TINTA });
+titulo.textContent = "El esquema Ponzi";
+const subr = el("path", { d: "M700 168 Q960 190 1220 166", stroke: ORO, "stroke-width": 10, fill: "none", "stroke-linecap": "round" });
+const largoSub = 540; subr.setAttribute("stroke-dasharray", largoSub);
+
+// Personaje: cabeza, cuerpo, ojos y boca que cambia de sonrisa a preocupación
+function persona(x, y, color, nombre, esc = 1, fantasma = false) {
+  const g = el("g", {});
+  const cuerpo = el("path", { d: "M-46 120 Q-46 52 0 52 Q46 52 46 120 Z", fill: fantasma ? "none" : color, stroke: TINTA, "stroke-width": 5, "stroke-dasharray": fantasma ? "10 9" : "none" }, g);
+  const cabeza = el("circle", { cx: 0, cy: 18, r: 32, fill: fantasma ? "none" : "#f1c9a5", stroke: TINTA, "stroke-width": 5, "stroke-dasharray": fantasma ? "10 9" : "none" }, g);
+  let boca = null;
+  if (!fantasma) {
+    el("circle", { cx: -11, cy: 12, r: 4, fill: TINTA }, g); el("circle", { cx: 11, cy: 12, r: 4, fill: TINTA }, g);
+    boca = el("path", { d: "", stroke: TINTA, "stroke-width": 4, fill: "none", "stroke-linecap": "round" }, g);
+  } else {
+    const qm = el("text", { x: 0, y: 32, "text-anchor": "middle", "font-family": "Caveat", "font-weight": 700, "font-size": 46, fill: TINTA }, g); qm.textContent = "?";
+  }
+  let etq = null;
+  if (nombre) { etq = el("text", { x: 0, y: 160, "text-anchor": "middle", "font-family": "Caveat", "font-weight": 700, "font-size": 40, fill: TINTA }, g); etq.textContent = nombre; }
+  return { g, x, y, esc, boca, cuerpo, ponerBoca(h) { if (boca) boca.setAttribute("d", `M-13 ${30 - h} Q0 ${30 + h * 1.4} 13 ${30 - h}`); } };
+}
+
+// Niveles de la pirámide
+const ana = persona(960, 250, ORO2, "Ana", 1.3);
+const bruno = persona(740, 485, "#7fb2e5", "Bruno", 1.3), carla = persona(1180, 485, "#e59ab8", "Carla", 1.3);
+const cuatro = [480, 800, 1120, 1440].map((x, i) => persona(x, 725, ["#9ad1a9", "#f0b67f", "#b7a6e8", "#8fd3d6"][i], "", 1.2));
+const fantasmas = [330, 590, 850, 1070, 1330, 1590].map((x) => persona(x, 925, "", "", 0.95, true));
+const todos = [ana, bruno, carla, ...cuatro];
+
+// Bolsa de Ana y promesa
+const bolsa = el("g", {});
+el("path", { d: "M-34 0 Q-44 60 0 62 Q44 60 34 0 Q20 -14 0 -12 Q-20 -14 -34 0Z", fill: ORO, stroke: TINTA, "stroke-width": 5 }, bolsa);
+const bt = el("text", { x: 0, y: 42, "text-anchor": "middle", "font-family": "Archivo", "font-weight": 900, "font-size": 34, fill: TINTA }, bolsa); bt.textContent = "$";
+const montoAna = el("text", { x: 0, y: 100, "text-anchor": "middle", "font-family": "Caveat", "font-weight": 700, "font-size": 42, fill: TINTA }, bolsa); montoAna.textContent = "US$ 1.000";
+const promesa = el("g", {});
+el("rect", { x: -190, y: -46, width: 380, height: 92, rx: 46, fill: "#dff5e9", stroke: VERDE, "stroke-width": 5 }, promesa);
+const pt = el("text", { x: 0, y: 16, "text-anchor": "middle", "font-family": "Archivo", "font-weight": 900, "font-size": 44, fill: VERDE }, promesa); pt.textContent = "+10 % al mes";
+const nota = el("text", { "font-family": "Caveat", "font-weight": 700, "font-size": 40, fill: TINTA, x: 1330, y: 370 }); nota.textContent = "«prometido»";
+
+// Caja "inversión" tachada
+const inv = el("g", {});
+el("rect", { x: -130, y: -90, width: 260, height: 180, rx: 18, fill: "#ffffff", stroke: TINTA, "stroke-width": 5 }, inv);
+el("polyline", { points: "-90,40 -40,0 0,20 60,-50", fill: "none", stroke: VERDE, "stroke-width": 9, "stroke-linecap": "round", "stroke-linejoin": "round" }, inv);
+const invT = el("text", { x: 0, y: 140, "text-anchor": "middle", "font-family": "Caveat", "font-weight": 700, "font-size": 44, fill: TINTA }, inv); invT.textContent = "inversión real";
+const tacha1 = el("path", { d: "M-120 -80 L120 80", stroke: ROJO, "stroke-width": 14, "stroke-linecap": "round" }, inv);
+const tacha2 = el("path", { d: "M120 -80 L-120 80", stroke: ROJO, "stroke-width": 14, "stroke-linecap": "round" }, inv);
+[tacha1, tacha2].forEach((p) => p.setAttribute("stroke-dasharray", 290));
+
+// Monedas que suben de un nivel al de arriba
+function moneda() { const g = el("g", {}); el("circle", { r: 20, fill: ORO2, stroke: TINTA, "stroke-width": 4 }, g); const t = el("text", { y: 9, "text-anchor": "middle", "font-family": "Archivo", "font-weight": 900, "font-size": 24, fill: TINTA }, g); t.textContent = "$"; return g; }
+const flujos = [];
+function flujo(desde, hasta, ini, n = 3) { for (let i = 0; i < n; i++) flujos.push({ g: moneda(), desde, hasta, ini: ini + i * 0.35 }); }
+flujo(bruno, ana, T_CAR + 0.5); flujo(carla, ana, T_CAR + 0.7);
+cuatro.forEach((p, i) => flujo(p, i < 2 ? bruno : carla, T_CUA + 0.6 + i * 0.12, 2));
+
+const okv = el("g", {});
+el("path", { d: "M-30 0 L-8 24 L36 -26", stroke: VERDE, "stroke-width": 14, fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round" }, okv);
+const okT = el("text", { x: 60, y: 14, "font-family": "Caveat", "font-weight": 700, "font-size": 52, fill: VERDE }, okv); okT.textContent = "«¡funciona!»";
+const siempre = el("text", { x: 960, y: 620, "text-anchor": "middle", "font-family": "Caveat", "font-weight": 700, "font-size": 170, fill: ROJO });
+siempre.textContent = "Siempre.";
+
+const ruido = document.getElementById("ruido");
+function ubicar(e, x, y, s = 1, r = 0, o = 1) { e.setAttribute("transform", `translate(${x} ${y}) rotate(${r}) scale(${s})`); e.setAttribute("opacity", o); }
+
+window.cuadro = function (u) {
+  const t = u * DUR;
+  ruido.setAttribute("seed", 1 + Math.floor(t * 8) % 4); // "hervor" del trazo, como en la animación hecha a mano
+  const pt0 = prog(t, T_TIT, 0.6);
+  titulo.setAttribute("opacity", pt0); subr.setAttribute("stroke-dashoffset", largoSub * (1 - prog(t, T_TIT + 0.3, 0.8)));
+  // Caída final
+  const caida = suave(prog(t, T_CAE + 0.35, 1.1)), tiembla = t > T_CAE && t < T_CAE + 0.45 ? Math.sin(t * 90) * 7 : 0;
+  const preocupa = prog(t, T_DEJA + 0.2, 0.6);
+  const aparecer = (p, ini, i = 0) => {
+    const s = rebote(prog(t, ini, 0.55)) * p.esc;
+    const dy = caida * (760 + i * 45), rot = caida * ((i % 2 ? 1 : -1) * (12 + i * 5));
+    ubicar(p.g, p.x + tiembla + caida * (i - 3) * 14, p.y + dy, s, rot, 1 - caida * 0.15);
+    p.ponerBoca(t < T_DEJA ? 8 : 8 - 16 * preocupa);
+    if (p.cuerpo && caida > 0) p.cuerpo.setAttribute("stroke", ROJO);
+  };
+  aparecer(ana, T_ANA, 0); aparecer(bruno, T_BRU, 1); aparecer(carla, T_CAR, 2);
+  cuatro.forEach((p, i) => aparecer(p, T_CUA - 0.45 + i * 0.22, 3 + i));
+  fantasmas.forEach((p, i) => ubicar(p.g, p.x, p.y, p.esc * rebote(prog(t, T_DEJA + i * 0.1, 0.5)), 0, 0.85 * (1 - caida)));
+  // Bolsa de Ana: entra con ella y queda a su izquierda
+  const pb = rebote(prog(t, T_ANA + 0.35, 0.6));
+  ubicar(bolsa, 770 + caida * -120, 285 + caida * 760, pb * 1.3, caida * -30, 1 - caida * 0.3);
+  ubicar(promesa, 1300, 290, rebote(prog(t, T_PROM, 0.6)), -4, prog(t, T_PROM, 0.2) * (1 - caida * 0.6));
+  nota.setAttribute("opacity", prog(t, T_PROM + 0.8, 0.5) * (1 - caida)); nota.setAttribute("transform", "rotate(-4 1330 370)");
+  // Inversión que no existe: aparece y se tacha
+  const pi = rebote(prog(t, T_INV, 0.6)), sale = suave(prog(t, T_BRU - 0.6, 0.5));
+  ubicar(inv, 1580 + sale * 500, 520, pi, 3, 1 - sale);
+  tacha1.setAttribute("stroke-dashoffset", 290 * (1 - prog(t, T_INV + 1.5, 0.35)));
+  tacha2.setAttribute("stroke-dashoffset", 290 * (1 - prog(t, T_INV + 1.85, 0.35)));
+  // Monedas: suben en arco del que entra al de arriba y se apagan antes de la caída
+  for (const f of flujos) {
+    const p = prog(t, f.ini, 0.9);
+    if (p <= 0 || p >= 1 || t > T_DEJA) { f.g.setAttribute("opacity", 0); continue; }
+    const x0 = f.desde.x, y0 = f.desde.y + 50, x1 = f.hasta.x, y1 = f.hasta.y + 80, e = suave(p);
+    const x = x0 + (x1 - x0) * e, y = y0 + (y1 - y0) * e - Math.sin(Math.PI * e) * 90;
+    ubicar(f.g, x, y, 1.3, 0, Math.sin(Math.PI * p) * 1.4 > 1 ? 1 : Math.sin(Math.PI * p) * 1.4);
+  }
+  ubicar(okv, 1400, 520, rebote(prog(t, T_FUN + 0.6, 0.6)), -3, prog(t, T_FUN + 0.6, 0.2) * (1 - prog(t, T_DEJA, 0.4)));
+  const ps = rebote(prog(t, T_SIEM, 0.5));
+  siempre.setAttribute("opacity", prog(t, T_SIEM, 0.15)); siempre.setAttribute("transform", `translate(960 560) rotate(-6) scale(${ps}) translate(-960 -560)`);
+};
+document.fonts.ready.then(() => { window.cuadro(0); document.title = "listo"; });
+</script>
+</body></html>

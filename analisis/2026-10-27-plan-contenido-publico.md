@@ -60,6 +60,8 @@ Cada uno lleva entre 3 y 5 Shorts, sacados con `herramientas/crear_shorts.py` y 
 
 ## 6. Cómo es un video pilar (distinto de una lección)
 
+> Actualizado el 28/10/2026: Lean pidió otro estilo visual, en la línea de Aprendiz Financiero. Animación ilustrada con una metáfora central y narración en off, sin láminas ni avatar. Ver `diseno/ESTILO-PILAR.md`. Lo de abajo sigue valiendo para el guion. El guion de P01 hay que adaptarlo a ese estilo.
+
 - **Gancho de 5 segundos** con una promesa concreta y un bucle abierto ("quédate hasta la séptima").
 - **Sin "Hoy vas a aprender"**, sin actividad en demo y sin "Así lo hacemos en RIC" como bloque de clase. Al final, una mención breve del Nivel 0 gratis como paso siguiente.
 - **Cambio de escena cada 30 a 60 segundos** (lámina, animación, ejemplo, tabla) para sostener la retención.
