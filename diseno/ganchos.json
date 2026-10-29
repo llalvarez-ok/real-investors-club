@@ -1,0 +1,280 @@
+{
+ "version": 1,
+ "nota": "Fórmulas de gancho de RIC, para los primeros 5 a 15 segundos de un video y para títulos. La idea de un catálogo de fórmulas con patrones viene de youtube-agent-skill (MIT, Jake Schincariol); el contenido es propio, en español y para el nicho de finanzas. Los patrones se aplican sobre el texto en minúsculas y sin tildes. Que una frase encaje en una fórmula describe las palabras, no garantiza resultados.",
+ "reglas": [
+  "Nunca empezar con «hola, bienvenidos» ni con el nombre del canal.",
+  "Un número, un nombre o una fecha valen más que un adjetivo.",
+  "Prometer algo que el video cumple: si el gancho anuncia 7 señales, el video tiene 7.",
+  "En finanzas, el gancho nunca promete ganancias: promete entender, evitar o hacer la cuenta.",
+  "El gancho abre una pregunta; el video la cierra, no el gancho."
+ ],
+ "formulas": [
+  {
+   "id": "estadistica",
+   "nombre": "La estadística",
+   "forma": "Un número que el espectador no conocía, dicho seco, y la consecuencia.",
+   "ejemplo": "Entre el 70 y el 85 % de las cuentas de trading minoristas pierden dinero. Esto es lo que hace distinto el resto.",
+   "falla": "Si el número es vago o no tiene fuente. Poner la fuente en la descripción.",
+   "patrones": [
+    "\\b\\d+([.,]\\d+)?\\s?%",
+    "\\b\\d+ de cada \\d+\\b"
+   ]
+  },
+  {
+   "id": "la-cuenta",
+   "nombre": "Hagamos la cuenta",
+   "forma": "Una promesa de redes y la cuenta que la desarma.",
+   "ejemplo": "10 % por semana suena poco. Hice la cuenta: son más de 14.000 % al año.",
+   "falla": "Si la cuenta es difícil de seguir en voz alta. Una sola operación.",
+   "patrones": [
+    "\\bhaz(amos)? la cuenta\\b",
+    "\\bhice la cuenta\\b",
+    "\\bla cuenta\\b",
+    "\\bsemanal\\b.*\\bal ano\\b"
+   ]
+  },
+  {
+   "id": "el-error",
+   "nombre": "El error",
+   "forma": "El error que el espectador probablemente está cometiendo y lo que le cuesta.",
+   "ejemplo": "El error que hace que vendas justo el peor día.",
+   "falla": "Si el error es obvio o el espectador no se reconoce en él.",
+   "patrones": [
+    "\\berror\\w*\\b",
+    "\\bequivoc\\w+\\b",
+    "\\bestas haciendo mal\\b"
+   ]
+  },
+  {
+   "id": "la-advertencia",
+   "nombre": "La advertencia",
+   "forma": "Un costo que el espectador está por pagar.",
+   "ejemplo": "Antes de poner un solo dólar en algo que viste en redes, revisa estas 3 cosas.",
+   "falla": "Si el costo es chico, el gancho miente. Usarla poco.",
+   "patrones": [
+    "\\bantes de\\b",
+    "\\bno (inviertas|pongas|compres|deposites)\\b",
+    "\\bcuidado\\b",
+    "\\bdeja de\\b",
+    "\\bsi no\\b.*\\bnunca\\b",
+    "\\bnunca seras\\b",
+    "\\bdeja de\\b"
+   ]
+  },
+  {
+   "id": "la-pregunta",
+   "nombre": "La pregunta incómoda",
+   "forma": "Una pregunta que el espectador se contesta mal en la cabeza.",
+   "ejemplo": "¿Aceptarías una apuesta en la que ganas 150 o pierdes 100? La mayoría dice que no.",
+   "falla": "Si la respuesta es obvia. Tiene que doler un poco contestarla.",
+   "patrones": [
+    "\\?$",
+    "^¿",
+    "\\baceptarias\\b",
+    "\\bcaerias\\b",
+    "\\bque harias\\b"
+   ]
+  },
+  {
+   "id": "la-historia",
+   "nombre": "La historia de alguien",
+   "forma": "Una persona con nombre, una decisión y lo que pasó.",
+   "ejemplo": "Diego vendió todo el 23 de marzo de 2020. Fue exactamente el peor día.",
+   "falla": "Si el personaje es genérico o el final se adivina. Marcar «Supón que…» si es un ejemplo.",
+   "patrones": [
+    "\\b(diego|julian|camila|marta|ana|bruno|carla)\\b",
+    "\\bsupon que\\b",
+    "\\bvendio\\b",
+    "\\bentro\\b",
+    "\\bempezo con\\b",
+    "\\bdejo su trabajo\\b",
+    "\\baprendio\\b",
+    "\\bhistoria\\b"
+   ]
+  },
+  {
+   "id": "el-contrario",
+   "nombre": "Lo contrario",
+   "forma": "Lo que todos creen, dado vuelta con una razón.",
+   "ejemplo": "Que todo el mundo hable de una inversión no es una señal para entrar. Es una señal para frenar.",
+   "falla": "Si es contrario solo por llamar la atención y el video no lo sostiene.",
+   "patrones": [
+    "\\bno es\\b.*\\bes\\b",
+    "\\ben realidad\\b",
+    "\\bla verdad\\b",
+    "\\bal reves\\b",
+    "\\bmito\\w*\\b"
+   ]
+  },
+  {
+   "id": "la-revelacion",
+   "nombre": "Lo que nadie te cuenta",
+   "forma": "Una parte del tema que suele quedar afuera.",
+   "ejemplo": "Lo que nadie te cuenta del primer año invirtiendo.",
+   "falla": "Si después el video cuenta lo mismo que todos.",
+   "patrones": [
+    "\\bnadie (te )?(cuenta|dice|explica)\\b",
+    "\\blo que no (te )?(dicen|cuentan)\\b"
+   ]
+  },
+  {
+   "id": "la-señal",
+   "nombre": "La señal",
+   "forma": "Cómo darse cuenta de algo antes de que sea tarde.",
+   "ejemplo": "3 señales de que una inversión es humo.",
+   "falla": "Si las señales no son verificables por el espectador.",
+   "patrones": [
+    "\\bsenal\\w*\\b",
+    "\\bcomo (saber|darte cuenta|detectar|reconocer)\\b"
+   ]
+  },
+  {
+   "id": "la-lista",
+   "nombre": "La lista corta",
+   "forma": "Un número chico de cosas concretas.",
+   "ejemplo": "3 preguntas antes de entrar en algo de lo que todos hablan.",
+   "falla": "Si la lista es larga o los puntos se repiten.",
+   "patrones": [
+    "^\\d+\\s",
+    "\\b(3|tres|5|cinco|7|siete) (preguntas|habitos|senales|errores|reglas|pasos)\\b",
+    "\\b\\d+\\s+(cosas|habitos|errores|reglas|pasos|senales|consejos|lecciones|claves|formas|maneras|lujos|libros)\\b",
+    "\\b(las|los)\\s+\\d+\\b"
+   ]
+  },
+  {
+   "id": "antes-despues",
+   "nombre": "Antes y después",
+   "forma": "El mismo caso con y sin hacer lo que enseña el video.",
+   "ejemplo": "Ana arriesga 2 % por operación; Bruno, 25 %. Cuatro pérdidas seguidas después, uno sigue y el otro no.",
+   "falla": "Si la diferencia no se ve en números.",
+   "patrones": [
+    "\\bantes y despues\\b",
+    "\\bmientras que\\b",
+    "\\bel otro\\b",
+    "\\buno\\b.*\\botro\\b"
+   ]
+  },
+  {
+   "id": "la-comparacion",
+   "nombre": "La comparación",
+   "forma": "Dos opciones que el espectador confunde, puestas una al lado de la otra.",
+   "ejemplo": "Trading o inversión: cuál encaja con tu tiempo y tu riesgo.",
+   "falla": "Si la respuesta es «depende» y el video no ayuda a decidir.",
+   "patrones": [
+    "\\bvs\\.?\\b",
+    "\\bo\\b.*:\\s*cual\\b",
+    "\\bdiferencia entre\\b",
+    "\\bcual (te )?conviene\\b"
+   ]
+  },
+  {
+   "id": "el-dato-real",
+   "nombre": "El dato real con fecha",
+   "forma": "Algo que pasó de verdad, con fecha y cifra, y la lección.",
+   "ejemplo": "El 8 de noviembre de 2021 Bitcoin cerró en 67.567 dólares. Un año después valía 77 % menos.",
+   "falla": "Si el dato no se puede verificar o se recorta para engañar (contar el final también).",
+   "patrones": [
+    "\\b(19|20)\\d{2}\\b",
+    "\\b(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\\b"
+   ]
+  },
+  {
+   "id": "el-reloj",
+   "nombre": "El reloj",
+   "forma": "Algo que se entiende en poco tiempo.",
+   "ejemplo": "El interés compuesto en 60 segundos, sin promesas.",
+   "falla": "Si el video dura mucho más de lo prometido.",
+   "patrones": [
+    "\\ben \\d+ (segundos|minutos)\\b",
+    "\\ben 2 minutos\\b"
+   ]
+  },
+  {
+   "id": "el-espejo",
+   "nombre": "El espejo",
+   "forma": "Describir lo que siente el espectador para que diga «ese soy yo».",
+   "ejemplo": "Tu primo ganó, tu compañero ganó, y sientes que si no entras ahora te quedas afuera.",
+   "falla": "Si la emoción descrita es demasiado general.",
+   "patrones": [
+    "\\bsientes\\b",
+    "\\bte pasa\\b",
+    "\\balguna vez\\b",
+    "\\bsi alguna vez\\b"
+   ]
+  },
+  {
+   "id": "la-promesa-imposible",
+   "nombre": "La promesa imposible (como crítica)",
+   "forma": "Citar una promesa de redes para desarmarla.",
+   "ejemplo": "«10 % semanal garantizado». ¿Cuánto es eso en un año?",
+   "falla": "Si se lee como si RIC prometiera eso: siempre entre comillas, con signo de pregunta o tachado.",
+   "patrones": [
+    "\\bgarantizad\\w*\\b",
+    "\\basegurad\\w*\\b",
+    "\\bhazte rico\\b",
+    "\\bsin riesgo\\b"
+   ]
+  },
+  {
+   "id": "el-por-que",
+   "nombre": "El porqué",
+   "forma": "La causa de algo que el espectador hace sin saber por qué.",
+   "ejemplo": "Por qué vendes justo cuando baja (y cómo evitarlo).",
+   "falla": "Si el gancho ya da la respuesta y no queda pregunta.",
+   "patrones": [
+    "^por que\\b",
+    "\\bpor que\\b"
+   ]
+  },
+  {
+   "id": "el-como",
+   "nombre": "El cómo concreto",
+   "forma": "Cómo hacer una cosa puntual, en pocos pasos.",
+   "ejemplo": "Cómo saber en 2 minutos si una empresa está autorizada por la CNV.",
+   "falla": "Si el cómo es vago («cómo invertir mejor»).",
+   "patrones": [
+    "^como\\b",
+    "\\bcomo (saber|verificar|calcular|armar|empezar)\\b"
+   ]
+  },
+  {
+   "id": "la-metafora",
+   "nombre": "La metáfora",
+   "forma": "Explicar el tema con algo cotidiano que todos entienden.",
+   "ejemplo": "Imagina que dentro de tu cabeza hay una balanza trucada.",
+   "falla": "Si la metáfora necesita explicación propia.",
+   "patrones": [
+    "\\bimagina\\b",
+    "\\bes como\\b",
+    "\\bpiensa en\\b"
+   ]
+  },
+  {
+   "id": "el-reto",
+   "nombre": "El reto",
+   "forma": "Invitar al espectador a ponerse a prueba.",
+   "ejemplo": "Responde estas 3 preguntas y vas a saber si estás listo para invertir.",
+   "falla": "Si la prueba no tiene resultado claro.",
+   "patrones": [
+    "\\bresponde\\b",
+    "\\bprueba\\b",
+    "\\btest\\b",
+    "\\bestas listo\\b"
+   ]
+  },
+  {
+   "id": "el-libro",
+   "nombre": "El libro en pocos minutos",
+   "forma": "Las ideas de un libro de dinero conocido, resumidas y llevadas a la vida del espectador.",
+   "ejemplo": "Padre rico, padre pobre en 10 minutos: lo que sirve y lo que no.",
+   "falla": "Si se lee el libro en lugar de resumirlo y opinar (además de flojo, es un problema de derechos de autor).",
+   "patrones": [
+    "\\bresumen\\b",
+    "\\baudiolibro\\b",
+    "\\bpadre rico\\b",
+    "\\bhombre mas rico de babilonia\\b",
+    "\\blibro\\w*\\b"
+   ]
+  }
+ ]
+}
