@@ -63,4 +63,5 @@ Fondo azul noche (#071426 a #0d2142) con grilla tenue. Oro (#e2c68c, #c7a35e, #8
   - `ric-pizarra`: el pipeline completo de los pilar.
 
   Texto en español compartido: `herramientas/es_texto.py`. Primer informe del nicho: `analisis/2026-10-29-nicho.md` (funcionan las listas con número y los libros de dinero resumidos; propuesta de P16 a P20).
+- Pendiente (para más adelante, decisión de Lean del 29/10/2026): probar la voz clonada de Lean con VoxCPM2 y CosyVoice 3 (licencias comerciales; VoiceStudio descartado como app porque su motor por defecto, OmniVoice, es CC-BY-NC). Fuente: un vivo de ~40 min de Lean que él va a descargar de YouTube Studio y subir a Drive, RIC/audios, con link público (el link de YouTube no sirve: está bloqueado en la nube y la API no ve el video).
 - API de YouTube: hay credenciales de la cuenta de RIC en el entorno (`RIC_YT_CLIENT_ID`, `RIC_YT_CLIENT_SECRET`, `RIC_YT_REFRESH_TOKEN`), con permiso de escritura (`youtube.force-ssl`) y de lectura de Analytics. Cambiar algo en el canal requiere el visto bueno de Lean. `i.ytimg.com` y `www.youtube.com` están bloqueados en la nube: no se ven miniaturas ni páginas.
