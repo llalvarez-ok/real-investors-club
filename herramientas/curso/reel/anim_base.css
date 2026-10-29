@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Sans:wght@500;600&family=IBM+Plex+Mono:wght@600&display=swap");
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:linear-gradient(165deg,#071426,#0d2142);color:#ecf1f9;font-family:"IBM Plex Sans",sans-serif;position:relative}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,220,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,220,.06) 1px,transparent 1px);background-size:48px 48px;animation:deriva 8s linear both}
+.glow{position:absolute;width:1300px;height:1300px;left:-110px;top:300px;background:radial-gradient(circle,rgba(199,163,94,.17),transparent 62%);animation:late 3s ease-in-out infinite alternate both}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 70px}
+.w{display:inline-block;opacity:0}
+.sube{animation:sube .45s cubic-bezier(.2,1.4,.4,1) both}
+.pop{animation:pop .55s cubic-bezier(.2,1.6,.4,1) both}
+.golpe{animation:golpe .5s cubic-bezier(.3,1.5,.5,1) both}
+.cae{animation:cae .5s cubic-bezier(.2,1.3,.4,1) both}
+.late{animation:pulso 1s ease-in-out infinite}
+@keyframes sube{from{opacity:0;transform:translateY(70px) scale(.9);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.2) rotate(-6deg)}60%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes golpe{0%{opacity:0;transform:scale(2.4)}55%{opacity:1;transform:scale(.94)}100%{opacity:1;transform:none}}
+@keyframes cae{from{opacity:0;transform:translateY(-120px)}to{opacity:1;transform:none}}
+@keyframes deriva{from{background-position:0 0}to{background-position:0 96px}}
+@keyframes late{from{opacity:.7;transform:scale(.95)}to{opacity:1;transform:scale(1.05)}}
+@keyframes pulso{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes brillo{from{left:-40%}to{left:140%}}
+@keyframes raya{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.brillo{position:relative;overflow:hidden}
+.brillo::after{content:"";position:absolute;top:0;bottom:0;width:30%;left:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);animation:brillo .8s ease-in-out both}

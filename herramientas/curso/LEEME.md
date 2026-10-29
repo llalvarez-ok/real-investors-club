@@ -16,3 +16,10 @@ Plan de cortes de ejemplo: `produccion/curso-clase14/cortes.json`.
    apertura de 3 s y cierre de 4,5 s con el aviso legal. Las láminas salen de los `.html` con `foto.js` / `foto2.js` (marco transparente).
 
 Tiempos de máquina del piloto (4:35 finales): transcripción ~6 min, corte 1 min, fondo de la cámara 4 min, render 5 min.
+
+## Reel vertical de una clase (1080x1920)
+En `reel/`: tramo de ~40 s del cuerpo editado; gráfico recortado (800x465 en 40,40 → 998x580) arriba, subtítulos grandes
+en mayúsculas al medio (`subs_reel.py`, palabras clave en oro) y cámara con fondo cambiado abajo (RVM a 900x506).
+Apertura y cierre animados: `render_anim.js <html> <dir> <segundos>` saca los cuadros a 30 fps (cada elemento entra
+en su `data-t`) y `eventos.json`; `sonidos.py eventos.json <segundos> sfx.wav` sintetiza los efectos (`data-s`: whoosh,
+impacto, golpe, pop, ding, brillo). Música de fondo baja bajo la voz y más alta en apertura y cierre; loudnorm −14 LUFS.
