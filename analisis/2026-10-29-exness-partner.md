@@ -1,6 +1,8 @@
 # Exness Partner: anuncios, herramientas y público objetivo (29/10/2026)
 
-Plan para captar clientes como Partner de Exness. Los números del programa salen de fuentes de terceros: confirmarlos en el panel de partner antes de usarlos en cálculos.
+Plan para captar clientes como Partner de Exness.
+
+> **Actualización (29/10/2026):** el contrato es **solo revenue share**, se promueve Exness directamente sin marca propia y el presupuesto es bajo. El país y el canal salen de `analisis/2026-10-29-exness-estudio-mercado.md` (México primero; Asia, Argentina y Chile descartados). Donde este documento habla de CPA o de marca propia, manda el estudio. Los números del programa salen de fuentes de terceros: confirmarlos en el panel de partner antes de usarlos en cálculos.
 
 ## 0. Lo primero: dos alertas de reguladores que cambian el plan
 

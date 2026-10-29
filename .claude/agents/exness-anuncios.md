@@ -21,5 +21,6 @@ Contexto: lee `analisis/2026-10-29-exness-partner.md` y el último `analisis/*-e
 - Solo condiciones verificables de Exness (spreads, tipos de cuenta, retiros) y con la salvedad "según condiciones vigentes".
 - Advertencia de riesgo en cada pieza: "Los CFD son instrumentos complejos y conllevan un alto riesgo de perder dinero rápidamente debido al apalancamiento. Opera solo con dinero que puedas permitirte perder."
 - Aviso de relación comercial: "Soy partner de Exness y recibo una comisión si abres una cuenta."
-- No usar la marca Real Investors Club ni a Realy. El negocio de partner va separado de la academia.
+- No usar la marca Real Investors Club ni a Realy. Se promueve Exness directamente, como "partner independiente de Exness": nunca hacerse pasar por Exness ni usar su nombre como nombre de cuenta o dominio.
+- Público prioritario: traders con capital y experiencia de México (ver el estudio de mercado). El mensaje es confianza y condiciones verificables, no captar principiantes.
 - Guarda en `marketing/exness/anuncios/AAAA-MM-DD-<segmento>.md` y pásalo a exness-cumplimiento antes de publicarlo.
