@@ -42,6 +42,11 @@ Fondo azul noche (#071426 a #0d2142) con grilla tenue. Oro (#e2c68c, #c7a35e, #8
 4. Verificar duración, cortes de audio, huecos de más de 0,5 s y textos tapados. Reportar qué se verificó y qué no.
 5. Lean sube el video a mano hasta que haya credenciales de la API de YouTube para la cuenta de RIC.
 
+## Herramientas externas
+- **ViMax** (github.com/HKUDS/ViMax, MIT): solo para **B-roll cinematográfico** (tomas de apoyo para Reels y Shorts, por ejemplo "laptop hackeada en una oficina de noche"). No sirve para el presentador: no tiene voz, ni clonación, ni lip-sync. El presentador sigue siendo el avatar de HeyGen.
+  - Requisitos: claves de API pagas de RIC (nunca las de Atajos IA), cargadas en el entorno "RIC" como `VIMAX_LLM_API_KEY`, `VIMAX_IMAGE_API_KEY` y `VIMAX_VIDEO_API_KEY`. El video sale de Veo, Seedance u Omni y se cobra por segundo: pedir el OK de Lean antes de generar.
+  - Reglas para el B-roll: nada de personas reales reconocibles, logos o marcas reales, ni datos inventados presentados como reales (capturas on-chain, gráficos de precios). Siempre etiquetado como contenido generado con IA. Si alcanza con tomas simples, usar la API de video directa en lugar de todo el sistema de agentes de ViMax.
+
 ## Estado
 - Publicadas: 0-0-0, 0-0-1, 0-0-2, 0-0-3 y 0-1-0 (públicas). La última subida fue el 17/09/2026.
 - 0-1-1: versión con el avatar de HeyGen de Lean (5:00) entregada el 27/10/2026, sin aprobar ni subir. Clips en Drive, RIC/videos (01, 03 a 13, verticales 1080x1920); la escena 02 va con voz de edge-tts es-US-AlonsoNeural porque no hubo créditos. Montaje: `python herramientas/montar_avatar.py produccion/0-1-1/spec.json produccion/0-1-1/avatar.json <dir clips> <dir de trabajo>`; `avatar.json` define por escena pip (avatar en la esquina), dividida (avatar a la izquierda y lámina achicada) o lamina, más cortes y correcciones de subtítulos. Se cortó en la 13 un agregado en voseo; en la 07 y la 09 quedaron agregados de Lean que no están en el guion. La versión anterior, solo con voz de edge-tts (5:39), se descartó por robótica.
