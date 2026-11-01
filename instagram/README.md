@@ -1,7 +1,7 @@
 # Instagram
 
-Todo lo de Instagram en un solo lugar. Desde la nube **no hay acceso a Instagram** (está bloqueado y no hay API conectada):
-lo que sigue sale de lo que Lean contó en los chats. Actualizar a mano cuando se publique algo.
+Todo lo de Instagram en un solo lugar. **Hay acceso por la API de Meta desde el 01/11/2026** (ver CLAUDE.md: `RIC_IG_TOKEN`,
+`RIC_IG_USER_ID`, `graph.facebook.com`): las publicaciones y los números se leen de ahí. Instagram.com sigue bloqueado.
 
 ## Cuenta
 Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club. Las cuentas nuevas de RIC se las eliminaron, así que el proyecto se muestra desde la suya. Por eso acá vale el voseo y el tono personal.
@@ -10,15 +10,16 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 |---|---|
 | Usuario | **@leanalvarez.ok** (verificada) |
 | Nombre | Lean Alvarez \| Trading & Finanzas |
-| Seguidores | 3.734 al 31/10/2026 (actualizar en la tarjeta de cierre de cada Reel) |
+| Seguidores | 3.736 al 01/11/2026, leído por la API (actualizar en la tarjeta de cierre de cada Reel) |
+| ID en la API | 17841458469793556 |
 | Bio | Trader en XAUUSD y Cripto · Opera de la forma correcta · ⚠️ Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. |
 | Link | realinvestors.club |
 
 ## Reels hechos
 | Reel | Estado | Video y textos |
 |---|---|---|
-| P09 «Por qué vendes justo cuando baja» | Publicado (28/10) | `produccion/p09-aversion-perdida/subir.md`, sección R1-instagram |
-| P10 «FOMO» | Entregado; Lean no confirmó si lo publicó | `produccion/p10-fomo/subir.md`, sección R1-instagram |
+| P09 «Por qué vendes justo cuando baja» | **No figura en Instagram** según la API (01/11) | `produccion/p09-aversion-perdida/subir.md`, sección R1-instagram |
+| P10 «FOMO» | **No figura en Instagram** según la API (01/11) | `produccion/p10-fomo/subir.md`, sección R1-instagram |
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
 | «¿Por qué Corea del Norte robó Binance?» (expediente) | Borrador con fotos pendientes (01/11) | `produccion/reel-corea/subir.md` |
