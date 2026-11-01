@@ -43,3 +43,14 @@ La voz de Chatterbox tiene su timbre, pero habla con acento latino neutro o mexi
 - https://huggingface.co/coqui/XTTS-v2
 - https://github.com/SWivid/F5-TTS
 - https://blog.youtube/news-and-events/disclosing-ai-generated-content
+
+## ViMax (HKUDS/ViMax), revisado el 30/10/2026
+
+- **Qué es:** un orquestador de agentes (código MIT, v1.2.0) que escribe el guion, arma el storyboard y genera imágenes y clips cinematográficos por toma, y después los une.
+- **No reemplaza a HeyGen:**
+  - No tiene voz (TTS) ni clonación, ni lip-sync, ni presentador a cámara.
+  - "AutoCameo" mete a una persona de una foto dentro de una historia, pero no la hace hablar con su voz.
+- **No es gratis:**
+  - Todo lo genera con APIs pagas: un LLM (OpenRouter o MiniMax), imágenes (Nano Banana o GPT Image 2) y video (Veo, Seedance u Omni).
+  - La configuración de ejemplo limita a 10 videos por día.
+- **Uso posible:** B-roll cinematográfico para Reels (por ejemplo, la escena del ataque en el Reel de Binance), pagando la API de video.

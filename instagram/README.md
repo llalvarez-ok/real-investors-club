@@ -4,6 +4,8 @@ Todo lo de Instagram en un solo lugar. Desde la nube **no hay acceso a Instagram
 lo que sigue sale de lo que Lean contó en los chats. Actualizar a mano cuando se publique algo.
 
 ## Cuenta
+Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club. Las cuentas nuevas de RIC se las eliminaron, así que el proyecto se muestra desde la suya. Por eso acá vale el voseo y el tono personal.
+
 | Campo | Valor |
 |---|---|
 | Usuario | **@leanalvarez.ok** (verificada) |
@@ -23,6 +25,10 @@ lo que sigue sale de lo que Lean contó en los chats. Actualizar a mano cuando s
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
 Los MP4 no van a git: se entregaron por el chat.
+
+## Desempeño y cambios propuestos
+El análisis del Reel «Perfil de volumen» (curva de retención, origen de las vistas y diagnóstico) está en
+`analisis/2026-11-01-reporte-reels-particulas.md`, sección 8. Los cambios que salieron de ahí son las reglas de abajo.
 
 ## Reglas para los próximos Reels
 Las de la sección 9 del reporte de partículas, que valen para todos los estilos:

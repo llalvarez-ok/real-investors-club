@@ -1,0 +1,72 @@
+REEL BINANCE · TEXTO PARA GENERAR LA VOZ EN OFF
+
+=== PROMPT / INDICACIONES DE VOZ (pegar en el campo de estilo o descripción de la voz) ===
+Locutor masculino argentino, de Buenos Aires, de 35 a 45 años. Acento rioplatense natural, con voseo ("tenés", "mirá", "frená").
+Tono de noticiero de finanzas: serio, seguro y urgente, pero calmo; sin dramatizar ni sonar alarmista.
+Ritmo ágil de Reel (unas 170 palabras por minuto), frases cortas y pausas breves entre ideas.
+Enfatizá las cifras y las palabras clave: "ya no es un rumor", "seis mil trescientos millones", "clave privada", "nunca", "frená".
+En la alerta de estafas, más firme y cercano, como quien advierte a un amigo. En el cierre, más cálido.
+"Binance" se pronuncia "báinans". "DevOps" se pronuncia "dev ops". "SAFU" se pronuncia "safu".
+La frase "Not your keys, not your coins" va en inglés, bien pronunciada y con un leve énfasis.
+
+=== CÓMO EXPORTAR ===
+- Un archivo por bloque, con el nombre que figura en cada uno (por ejemplo 01-hook.mp3). Los bloques 10 y 11 pueden ir juntos en un solo archivo. Si la herramienta solo genera un archivo, dejá 1 segundo de silencio entre bloques.
+- MP3 o WAV de 44,1 o 48 kHz, sin música ni efectos (los agrego yo).
+- Duración total esperada: unos 2:35. No hace falta clavar los tiempos: las animaciones se resincronizan con tu audio.
+- Subilo a Drive en RIC/videos/reel-binance/voz.
+
+============================================================
+BLOQUE 01 · 01-hook.mp3 · ~6,9 s
+Ya no es un rumor. Binance lo confirmó: el hackeo tiene un impacto estimado de seis mil trescientos millones de dólares.
+
+============================================================
+BLOQUE 02 · 02-intro.mp3 · ~7,4 s
+Te explico en dos minutos qué pasó, qué está en riesgo y qué tenés que hacer vos. Sin pánico, y con los datos del comunicado oficial.
+
+============================================================
+BLOQUE 03 · 03-ataque.mp3 · ~13,7 s
+Según la investigación inicial de Binance, todo habría empezado por la laptop de un ingeniero de DevOps, la persona que mantiene los servidores. El atacante la comprometió, entró a un contenedor de servicio, y desde ahí mandó órdenes de retiro no autorizadas.
+
+============================================================
+BLOQUE 04 · 04-claves.mp3 · ~19,1 s
+Ahora, el dato clave: Binance dice que no hay pruebas de que se haya filtrado ninguna clave privada. ¿Por qué importa? Pensalo así: el ladrón no se robó la llave de la bóveda. Se metió en la oficina que pide los retiros, y firmó órdenes como si fuera de adentro. Cerrás esa puerta, y la bóveda sigue cerrada.
+
+============================================================
+BLOQUE 05 · 05-fondos.mp3 · ~15,6 s
+¿Y la plata? De los seis mil trescientos millones, Binance dice que ya congeló en la cadena cerca de tres mil millones, trabajando con socios de blockchain. Casi la mitad. El resto lo cubre con su fondo de emergencia, el SAFU, y con fondos de la empresa.
+
+============================================================
+BLOQUE 06 · 06-reservas.mp3 · ~11,1 s
+Binance afirma que los fondos de los usuarios están seguros, y promete publicar una nueva Prueba de Reservas cuando termine la remediación. Esa prueba es la que te va a permitir verificarlo. No un tuit.
+
+============================================================
+BLOQUE 07 · 07-estado.mp3 · ~9,1 s
+Hoy, los depósitos y retiros están pausados mientras terminan los controles. Revocaron la dirección afectada, y trabajan con las fuerzas de la ley para rastrear los fondos.
+
+============================================================
+BLOQUE 08 · 08-alerta.mp3 · ~21,5 s
+Y acá viene el peligro real para vos. Después de cada hackeo, llegan los estafadores. Mensajes de falso soporte. Links para verificar tu cuenta, o para recuperar tus fondos. Mirá bien: nadie de Binance te va a escribir por privado, ni te va a pedir tu frase semilla. Nunca. Informate solo por los canales oficiales.
+
+============================================================
+BLOQUE 09 · 09-accion.mp3 · ~11,5 s
+¿Qué hacés vos? Primero, frená. Ninguna decisión con tu plata se toma en caliente, ni por miedo. Revisá que tengas activado el doble factor, y la lista blanca de direcciones de retiro.
+
+============================================================
+BLOQUE 10 · 10-regla.mp3 · ~1,4 s
+Y la regla de oro de cripto:
+
+============================================================
+BLOQUE 11 · 11-slogan.mp3 · ~2,0 s
+Not your keys, not your coins.
+
+============================================================
+BLOQUE 12 · 12-custodia.mp3 · ~16,3 s
+Si no tenés tus llaves, no tenés tus monedas. Cuando se reanuden los retiros, evaluá qué parte querés tener en autocustodia, en una billetera fría. Eso sí: ahí, la responsabilidad es toda tuya. Tu frase semilla, en papel. Nunca en una foto.
+
+============================================================
+BLOQUE 13 · 13-cta.mp3 · ~9,9 s
+Te pregunto: ¿vos dejás tus cripto en un exchange, o ya tenés autocustodia? Te leo en los comentarios. Y compartile este video a ese amigo que tiene todo en Binance.
+
+============================================================
+BLOQUE 14 · 14-cierre.mp3 · ~4,6 s
+Esto es información, no una recomendación de inversión. Seguinos para más.

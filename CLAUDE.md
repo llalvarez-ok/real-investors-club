@@ -6,6 +6,14 @@ Este proyecto es independiente del canal Atajos IA: no mezclar contenido, creden
 
 Claude trabaja como productor de video de RIC. Las reglas completas están en `docs/prompt-maestro.md` y mandan sobre este resumen.
 
+## Cómo trabajamos (desde el 01/11/2026)
+- **Un solo lugar:** este repo, rama `main`. Todo chat empieza leyendo este archivo y termina guardando y subiendo sus cambios a `main` (no a ramas sueltas). Si un chat trabajó en otra rama, se junta en `main` antes de cerrar.
+- **Chats por canal, todos sobre este mismo repo:**
+  - **YOUTUBE RIC:** canal oficial Real Investors Club (@REALinvestorsc). Ficha con todos los videos, IDs, playlists y calendario: `youtube/README.md`.
+  - **INSTAGRAM RIC:** la cuenta personal de Lean, @leanalvarez.ok, donde muestra RIC (las cuentas nuevas de RIC se las eliminaron, así que se usa la suya). Ficha: `instagram/README.md`.
+- **Al terminar algo, actualizar la ficha del canal** (qué se hizo, dónde se publicó, IDs, números) y la sección «Estado» de abajo. Lo que no quede escrito acá, el próximo chat no lo sabe.
+- Los análisis van con fecha en `analisis/`, los cambios hechos por la API en `youtube/cambios-AAAA-MM-DD.json`, y los MP4 no van a git.
+
 ## Objetivo del canal
 Captar alumnos para el club y llegar a la monetización de YouTube. El Nivel 0 es público. Los niveles 1 a 5 son material del club y van **no listados**.
 
@@ -41,6 +49,11 @@ Fondo azul noche (#071426 a #0d2142) con grilla tenue. Oro (#e2c68c, #c7a35e, #8
 3. Video final `RIC-N{n}-M{m}-L{l}.mp4` y miniatura de 1280x720. Los MP4 y PNG pesados no van a git: se entregan en Google Drive.
 4. Verificar duración, cortes de audio, huecos de más de 0,5 s y textos tapados. Reportar qué se verificó y qué no.
 5. Lean sube el video a mano. Después, por la API y con su visto bueno, se ajustan título, descripción, etiquetas y configuración con el criterio de `docs/prompt-maestro.md`, sección 6: título con el problema primero y " · Lección N" al final, "tú" en la descripción, categoría Educación, idioma español y contenido sintético marcado siempre (todas las lecciones usan presentador generado con IA, confirmado por Lean el 27/10/2026).
+
+## Herramientas externas
+- **ViMax** (github.com/HKUDS/ViMax, MIT): solo para **B-roll cinematográfico** (tomas de apoyo para Reels y Shorts, por ejemplo "laptop hackeada en una oficina de noche"). No sirve para el presentador: no tiene voz, ni clonación, ni lip-sync. El presentador sigue siendo el avatar de HeyGen.
+  - Requisitos: claves de API pagas de RIC (nunca las de Atajos IA), cargadas en el entorno "RIC" como `VIMAX_LLM_API_KEY`, `VIMAX_IMAGE_API_KEY` y `VIMAX_VIDEO_API_KEY`. El video sale de Veo, Seedance u Omni y se cobra por segundo: pedir el OK de Lean antes de generar.
+  - Reglas para el B-roll: nada de personas reales reconocibles, logos o marcas reales, ni datos inventados presentados como reales (capturas on-chain, gráficos de precios). Siempre etiquetado como contenido generado con IA. Si alcanza con tomas simples, usar la API de video directa en lugar de todo el sistema de agentes de ViMax.
 
 ## Estado
 - Publicadas: 0-0-0, 0-0-1, 0-0-2, 0-0-3, 0-1-0 y 0-1-1 (públicas), más la 1-2-0 "Velas japonesas" (no listada, 08/09/2026). La 0-1-1 la subió Lean el 27/10/2026.

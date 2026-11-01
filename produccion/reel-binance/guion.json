@@ -1,0 +1,269 @@
+{
+  "_nota": "Reel vertical sin avatar sobre el incidente de seguridad de Binance (comunicado del 29/10/2026). Guion: guiones/reel-binance-incidente-2026-10-29.md. voz: texto que se locuta (con ajustes de pronunciación); pantalla: lo que se escribe en los subtítulos si difiere.",
+  "voz_default": {
+    "voice": "es-AR-TomasNeural",
+    "rate": "+8%",
+    "pitch": "-4Hz"
+  },
+  "pausa": 0.28,
+  "segmentos": [
+    {
+      "id": "hook",
+      "voz": "Ya no es un rumor. Báinans lo confirmó: el hackeo tiene un impacto estimado de seis mil trescientos millones de dólares.",
+      "pantalla": "Ya no es un rumor. Binance lo confirmó: el hackeo tiene un impacto estimado de 6.300 millones de dólares."
+    },
+    {
+      "id": "intro",
+      "voz": "Te explico en dos minutos qué pasó, qué está en riesgo y qué tenés que hacer vos. Sin pánico, y con los datos del comunicado oficial."
+    },
+    {
+      "id": "ataque",
+      "voz": "Según la investigación inicial de Báinans, todo habría empezado por la laptop de un ingeniero de dev ops, la persona que mantiene los servidores. El atacante la comprometió, entró a un contenedor de servicio, y desde ahí mandó órdenes de retiro no autorizadas.",
+      "pantalla": "Según la investigación inicial de Binance, todo habría empezado por la laptop de un ingeniero de DevOps, la persona que mantiene los servidores. El atacante la comprometió, entró a un contenedor de servicio, y desde ahí mandó órdenes de retiro no autorizadas."
+    },
+    {
+      "id": "claves",
+      "voz": "Ahora, el dato clave: Báinans dice que no hay pruebas de que se haya filtrado ninguna clave privada. ¿Por qué importa? Pensalo así: el ladrón no se robó la llave de la bóveda. Se metió en la oficina que pide los retiros, y firmó órdenes como si fuera de adentro. Cerrás esa puerta, y la bóveda sigue cerrada.",
+      "pantalla": "Ahora, el dato clave: Binance dice que no hay pruebas de que se haya filtrado ninguna clave privada. ¿Por qué importa? Pensalo así: el ladrón no se robó la llave de la bóveda. Se metió en la oficina que pide los retiros, y firmó órdenes como si fuera de adentro. Cerrás esa puerta, y la bóveda sigue cerrada."
+    },
+    {
+      "id": "fondos",
+      "voz": "¿Y la plata? De los seis mil trescientos millones, Báinans dice que ya congeló en la cadena cerca de tres mil millones, trabajando con socios de blockchain. Casi la mitad. El resto lo cubre con su fondo de emergencia, el safu, y con fondos de la empresa.",
+      "pantalla": "¿Y la plata? De los 6.300 millones, Binance dice que ya congeló en la cadena cerca de 3.000 millones, trabajando con socios de blockchain. Casi la mitad. El resto lo cubre con su fondo de emergencia, el SAFU, y con fondos de la empresa."
+    },
+    {
+      "id": "reservas",
+      "voz": "Báinans afirma que los fondos de los usuarios están seguros, y promete publicar una nueva Prueba de Reservas cuando termine la remediación. Esa prueba es la que te va a permitir verificarlo. No un tuit.",
+      "pantalla": "Binance afirma que los fondos de los usuarios están seguros, y promete publicar una nueva Prueba de Reservas cuando termine la remediación. Esa prueba es la que te va a permitir verificarlo. No un tuit."
+    },
+    {
+      "id": "estado",
+      "voz": "Hoy, los depósitos y retiros están pausados mientras terminan los controles. Revocaron la dirección afectada, y trabajan con las fuerzas de la ley para rastrear los fondos."
+    },
+    {
+      "id": "alerta",
+      "voz": "Y acá viene el peligro real para vos. Después de cada hackeo, llegan los estafadores. Mensajes de falso soporte. Links para verificar tu cuenta, o para recuperar tus fondos. Mirá bien: nadie de Báinans te va a escribir por privado, ni te va a pedir tu frase semilla. Nunca. Informate solo por los canales oficiales.",
+      "pantalla": "Y acá viene el peligro real para vos. Después de cada hackeo, llegan los estafadores. Mensajes de falso soporte. Links para verificar tu cuenta, o para recuperar tus fondos. Mirá bien: nadie de Binance te va a escribir por privado, ni te va a pedir tu frase semilla. Nunca. Informate solo por los canales oficiales."
+    },
+    {
+      "id": "accion",
+      "voz": "¿Qué hacés vos? Primero, frená. Ninguna decisión con tu plata se toma en caliente, ni por miedo. Revisá que tengas activado el doble factor, y la lista blanca de direcciones de retiro."
+    },
+    {
+      "id": "regla",
+      "voz": "Y la regla de oro de cripto:"
+    },
+    {
+      "id": "slogan",
+      "voz": "Not your keys, not your coins.",
+      "voice": "en-US-GuyNeural",
+      "rate": "-4%",
+      "pitch": "-6Hz"
+    },
+    {
+      "id": "custodia",
+      "voz": "Si no tenés tus llaves, no tenés tus monedas. Cuando se reanuden los retiros, evaluá qué parte querés tener en autocustodia, en una billetera fría. Eso sí: ahí, la responsabilidad es toda tuya. Tu frase semilla, en papel. Nunca en una foto."
+    },
+    {
+      "id": "cta",
+      "voz": "Te pregunto: ¿vos dejás tus cripto en un exchange, o ya tenés autocustodia? Te leo en los comentarios. Y compartile este video a ese amigo que tiene todo en Báinans.",
+      "pantalla": "Te pregunto: ¿vos dejás tus cripto en un exchange, o ya tenés autocustodia? Te leo en los comentarios. Y compartile este video a ese amigo que tiene todo en Binance."
+    },
+    {
+      "id": "cierre",
+      "voz": "Esto es información, no una recomendación de inversión. Seguinos para más."
+    }
+  ],
+  "musica": {
+    "calma": "accion",
+    "alerta": "alerta"
+  },
+  "sfx": [
+    {
+      "tipo": "glitch",
+      "segmento": "hook",
+      "desde": 0,
+      "volumen": 0.5
+    },
+    {
+      "tipo": "golpe",
+      "segmento": "hook",
+      "palabra": "millones",
+      "volumen": 0.7
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "intro",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "ataque",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "claves",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "fondos",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "reservas",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "estado",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "alerta",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "accion",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "regla",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "cta",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "swoosh",
+      "segmento": "cierre",
+      "desde": -0.25,
+      "volumen": 0.35
+    },
+    {
+      "tipo": "tic",
+      "segmento": "ataque",
+      "palabra": "laptop",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "tic",
+      "segmento": "ataque",
+      "palabra": "contenedor",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "tic",
+      "segmento": "ataque",
+      "palabra": "retiro",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "clic",
+      "segmento": "claves",
+      "palabra": "cerrada",
+      "volumen": 0.6
+    },
+    {
+      "tipo": "pop",
+      "segmento": "fondos",
+      "palabra": "mitad",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "pop",
+      "segmento": "reservas",
+      "palabra": "prueba",
+      "volumen": 0.35
+    },
+    {
+      "tipo": "clic",
+      "segmento": "estado",
+      "palabra": "pausados",
+      "volumen": 0.5
+    },
+    {
+      "tipo": "tic",
+      "segmento": "estado",
+      "palabra": "revocaron",
+      "volumen": 0.35
+    },
+    {
+      "tipo": "tic",
+      "segmento": "estado",
+      "palabra": "fuerzas",
+      "volumen": 0.35
+    },
+    {
+      "tipo": "tic",
+      "segmento": "estado",
+      "palabra": "rastrear",
+      "volumen": 0.35
+    },
+    {
+      "tipo": "alarma",
+      "segmento": "alerta",
+      "desde": 0,
+      "volumen": 0.3
+    },
+    {
+      "tipo": "glitch",
+      "segmento": "alerta",
+      "palabra": "mira",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "tic",
+      "segmento": "accion",
+      "palabra": "frena",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "tic",
+      "segmento": "accion",
+      "palabra": "doble",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "tic",
+      "segmento": "accion",
+      "palabra": "lista",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "golpe",
+      "segmento": "slogan",
+      "desde": 0,
+      "volumen": 0.45
+    },
+    {
+      "tipo": "pop",
+      "segmento": "cta",
+      "palabra": "comentarios",
+      "volumen": 0.4
+    },
+    {
+      "tipo": "pop",
+      "segmento": "cta",
+      "palabra": "compartile",
+      "volumen": 0.4
+    }
+  ]
+}
