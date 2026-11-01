@@ -58,7 +58,7 @@ def main():
     for m in media:
         mets = "views,reach,saved,shares,total_interactions,likes,comments"
         if m["media_product_type"] == "REELS":
-            mets += ",ig_reels_avg_watch_time"
+            mets += ",ig_reels_avg_watch_time,reels_skip_rate,reposts"
         r = get(m["id"] + "/insights", metric=mets)
         m["ins"] = {x["name"]: x["values"][0]["value"] for x in r.get("data", [])}
     datos["publicaciones"] = media
@@ -89,7 +89,7 @@ def main():
     print(f"Público activo de Argentina: {act.get('AR', 0) * 100 // ta} % ({ta} cuentas)")
     for s in historias:
         print("Historia", s["timestamp"][:16], s["ins"])
-    print("\nfecha       tipo   alcance vistas interac. %inter. guard. comp. coment. seg.vistos  texto")
+    print("\nfecha       tipo   alcance vistas interac. %inter. guard. comp. coment. seg.vistos %saltan  texto")
     for m in media:
         i = m["ins"]
         alc = i.get("reach", 0)
@@ -97,7 +97,7 @@ def main():
         w = i.get("ig_reels_avg_watch_time")
         print(f"{m['timestamp'][:10]}  {m['media_type'][:5]:5}  {alc:7} {i.get('views', 0):6} {ti:8} "
               f"{ti * 100 / max(alc, 1):6.1f} {i.get('saved', 0):6} {i.get('shares', 0):5} {i.get('comments', 0):7} "
-              f"{(w / 1000 if w else 0):9.1f}  {(m.get('caption') or '')[:50].replace(chr(10), ' ')}")
+              f"{(w / 1000 if w else 0):9.1f} {str(i.get('reels_skip_rate', '')):>7}  {(m.get('caption') or '')[:50].replace(chr(10), ' ')}")
 
     if len(sys.argv) > 1:
         with open(sys.argv[1], "w", encoding="utf-8") as f:

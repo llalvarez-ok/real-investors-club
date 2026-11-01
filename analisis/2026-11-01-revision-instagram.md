@@ -57,6 +57,19 @@ Ciudades del público activo: CABA, Quequén, Necochea, Mar del Plata, Córdoba 
 | 31/10 | Robo a Binance (partículas) | 817 | 4,0 | 1 | **9** | 17 |
 | 31/10 | Perfil de volumen (partículas) | 255 | 4,7 | 0 | 0 | 12 |
 
+### Cuántos se van en los primeros 3 segundos (`reels_skip_rate` de la API)
+| Reel | Se van antes de 3 s | Seg. vistos en promedio | Duración |
+|---|---|---|---|
+| Clase 14 «Order blocks» | **67 %** | 15,7 | 0:53 |
+| Perfil de volumen | 60 % | 12,1 | 1:45 |
+| Robo a Binance | 59 % | 16,9 | 1:43 |
+| Messi «pecho frío» | 49 % | 15,7 | — |
+| Índices y gestores | **46 %** | 16,0 | — |
+| Oro 01/04 (el mejor de la cuenta) | 53 % | 29,3 | — |
+| JP225 en vivo | **46 %** | 16,9 | — |
+
+Más de la mitad se va antes de los 3 s en casi todos. La clase 14 tuvo buena interacción de los que se quedaron, pero su arranque («Si fuiste parte del curso…») le habla solo a los ex alumnos y espanta al resto. Objetivo: menos del 40 %. La API no da la curva completa: para ver en qué segundo exacto se van hace falta la captura de la app.
+
 Además hubo **5 meses sin publicar** (del 11/04 al 10/09).
 
 ## 3. Diagnóstico

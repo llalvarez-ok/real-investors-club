@@ -79,6 +79,10 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - «Se fueron» incluye cuentas borradas o desactivadas: Instagram no deja distinguirlas.
 - **Las listas no van a git** (el repo es público; `instagram/seguidores/` está en `.gitignore`). El informe se entrega por el chat o en Drive.
 - Las cantidades de la semana salen de `python herramientas/revisar_instagram.py`.
+
+## Qué se ve por la API y qué no (probado el 01/11/2026)
+- **Sí, sin que Lean haga nada:** por Reel: vistas, alcance, me gusta, comentarios, compartidos, guardados, reposts, segundos vistos en promedio, tiempo total y **% que se va antes de los 3 s** (`reels_skip_rate`). Por cuenta: alcance de seguidores y no seguidores, cuentas que interactuaron, altas y bajas (cantidades), países, ciudades, edades y género. Historias: alcance y respuestas, pero **solo durante las 24 h en que están activas**.
+- **No:** la curva de retención segundo a segundo, las visitas al perfil y los seguidores ganados por Reel, y los nombres de los seguidores. Los videos tampoco se pueden bajar (`cdninstagram.com` está bloqueado en la red de la nube y en los Reels con música con licencia la API no da el link); para analizar un video se usan los archivos de producción y los tiempos de la voz.
 - No usar apps de terceros que muestran «quién te dejó de seguir»: piden la contraseña y Instagram puede restringir la cuenta.
 
 ## Pendiente
