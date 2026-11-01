@@ -20,6 +20,13 @@ las partículas doradas del Short de Binance (`herramientas/particulas/`), con t
 - **Voz:** `es-AR-TomasNeural` (edge-tts, masculina argentina). Reemplaza a Daniela (Piper), que pronunciaba mal muchas
   palabras (ver abajo).
 
+## Nitidez (pedido de Lean del 01/11/2026: «el video se ve borroso»)
+- Nada de desenfoque para que el texto se lea: se oscurece la foto (`oscuro: [a, b]` en el plano).
+- Sin desenfoque de entrada en los cortes (solo el golpe de zoom). Grano fino a resolución completa, `soft-light` al 10 %.
+- Fotos de al menos 2.500-3.000 px de ancho (miniatura de 3840 px o el original de Wikimedia) y zoom de cámara de hasta 1,2.
+  Una foto chica (por ejemplo, 960 px) va en un recuadro de vigilancia (`caja` + `marco`), nunca ampliada a pantalla completa.
+- Codificar a CRF 19 con tope de 12 Mbps (sale ~110 MB por 70 s); con menos bitrate el grano se empasta.
+
 ## Pasos
 1. Guion en `produccion/<id>/guion.json`: `voz` ({voice, rate}), `pantalla` (palabras de la voz → texto en pantalla) y
    `bloques` (id `NN-nombre`, `etiqueta`, `voz`, `pausa`, `solo: ig|yt`).
