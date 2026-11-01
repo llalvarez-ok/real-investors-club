@@ -15,8 +15,14 @@ según la documentación de terceros es un problema de permisos del token (ver i
 """
 import argparse, json, os, time, urllib.parse, urllib.request
 
-G = "https://graph.facebook.com/v21.0/"
-TOK, IGU = os.environ["RIC_IG_TOKEN"], os.environ["RIC_IG_USER_ID"]
+# Con RIC_IG_TOKEN_IG (inicio de sesión con Instagram, permiso instagram_business_content_publish) publica por
+# graph.instagram.com, que es lo que funciona para @leanalvarez.ok; RIC_IG_TOKEN (inicio de sesión con Facebook) da
+# «Fatal» 2207085 al publicar porque la cuenta no está vinculada a una página de Facebook.
+if os.environ.get("RIC_IG_TOKEN_IG"):
+    G, TOK = "https://graph.instagram.com/v21.0/", os.environ["RIC_IG_TOKEN_IG"]
+    IGU = json.load(urllib.request.urlopen(G + "me?fields=user_id&access_token=" + TOK))["user_id"]
+else:
+    G, TOK, IGU = "https://graph.facebook.com/v21.0/", os.environ["RIC_IG_TOKEN"], os.environ["RIC_IG_USER_ID"]
 
 
 def api(metodo, ruta, **p):
