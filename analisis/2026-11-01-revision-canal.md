@@ -66,3 +66,7 @@ Lo que está bien: categoría Educación en todos, idioma español, ninguno marc
 - **La retención de P09 (35 %) y de la Lección 6 (39 %) todavía no se puede leer:** tienen 21 y 50 vistas en Analytics. Se revisa con `ric-retencion` cuando pasen las 100.
 - **Países (octubre):** Argentina 378 y España 98; el resto no figura.
 - **El contenido sintético sigue sin poder confirmarse por la API** (devuelve vacío en los 26). Hay que mirarlo en Studio.
+
+## Control de las 19:15 de Argentina: primer Short programado
+- «¿Aceptarías esta apuesta?» (WKZJ9gdU68A) salió **público** a las 19:00 y a los 15 minutos tenía 59 vistas.
+- **Los comentarios están habilitados**: la API ya no da 403. El «desactivados» de los programados era solo porque todavía son privados (el siguiente, D--gVTPPVPc, sigue dando 403 hasta que sale). No hay que tocar nada en Studio.
