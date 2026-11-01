@@ -2,9 +2,9 @@
 
 Canal oficial: **Real Investors Club** (@REALinvestorsc). Se maneja por la API con las credenciales `RIC_YT_*` del entorno.
 Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `python herramientas/revisar_canal.py`
-(y a mano esta tabla); los números son del 01/11/2026.
+(y a mano esta tabla); los números son del 01/11/2026 a las 16:00 de Argentina.
 
-**Canal:** 55 suscriptores · 2408 vistas · 14 videos públicos.
+**Canal:** 62 suscriptores · 2408 vistas · 14 videos públicos.
 
 ## Qué se publica acá
 - **Lecciones del programa** (Nivel 0 público; Niveles 1 a 5 no listados), con «tú» y avatar de Lean (HeyGen).
@@ -37,8 +37,8 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-10-28 | Short | 3 señales de que una inversión es humo #shorts | `_olHq7c9EeY` | public | 308 | — |
 | 2026-10-29 | Short | El error que hace abandonar a los que empiezan a invertir #shorts | `an_hMeK6cQg` | public | 106 | — |
 | 2026-10-30 | Short | ¿Cuánto rinde de verdad invertir? Tres números que todo inversor debe conocer #shorts | `6yh_31WWOew` | public | 291 | — |
-| 2026-10-31 | Short | Le robaron US$ 6.300 M a Binance en 4 horas 🚨 El mayor hackeo cripto de la historia #shorts | `i6VBQSvIZng` | public | 683 | Noticias y conceptos de trading en 1 minuto |
-| 2026-10-31 | Short | Perfil de volumen: lo que las velas NO te muestran 📊 POC y área de valor #shorts | `MFnMqDKPk-w` | public | 24 | Noticias y conceptos de trading en 1 minuto |
+| 2026-10-31 | Short | Le robaron US$ 6.300 M a Binance en 4 horas 🚨 El mayor hackeo cripto de la historia #shorts | `i6VBQSvIZng` | public | 690 | Noticias y conceptos de trading en 1 minuto |
+| 2026-10-31 | Short | Perfil de volumen: lo que las velas NO te muestran 📊 POC y área de valor #shorts | `MFnMqDKPk-w` | public | 171 | Noticias y conceptos de trading en 1 minuto |
 | 2026-11-01 | Short | ¿Aceptarías esta apuesta? Tu cerebro dice que no #Shorts | `WKZJ9gdU68A` | programado | 1 | — |
 | 2026-11-02 | Short | Vendió todo el peor día de 2020: lo que nadie te cuenta #Shorts | `D--gVTPPVPc` | programado | 0 | — |
 | 2026-11-03 | Short | Si pierdes 50 %, ¿cuánto necesitas para recuperarte? #Shorts | `vLfesRlG_Dk` | programado | 0 | — |

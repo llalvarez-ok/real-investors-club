@@ -55,3 +55,14 @@ los videos del 30 y 31/10 todavía figuran con 0 en Analytics, aunque el contado
 8. Los Shorts programados figuran con los comentarios desactivados. Puede ser solo porque todavía son privados. Hay que revisarlo cuando se publique el primero (hoy a las 19:00).
 
 Lo que está bien: categoría Educación en todos, idioma español, ninguno marcado como para niños, miniaturas cargadas, web en todas las descripciones y los dos pilar en su playlist.
+
+## Actualización: 01/11/2026, 16:00 de Argentina
+- **62 suscriptores** (eran 54 a la mañana). Analytics llega solo hasta el 29/10: el 28/10 sumó +21 y el 29/10 +6.
+- **El arreglo del título del Short de perfil de volumen funcionó:** pasó de 24 a **171 vistas** en el día. El de Binance: 690 vistas, 41 me gusta y 4 comentarios.
+- **Comentarios:** los 3 comentarios del canal (2 en Binance y 1 en la Lección 6) ya tienen respuesta y no hay ninguno retenido para revisión.
+- **Descripciones:** en los 26 videos la categoría es Educación, la web está en la descripción y el aviso legal también. Ninguno está marcado como para niños.
+- **Los 11 Shorts programados siguen con los comentarios desactivados** (la API devuelve 403 «has disabled comments»). Se confirma a las 19:00, cuando sale el primero (WKZJ9gdU68A).
+- **Shorts que no están en ninguna playlist:** los 5 de la 0-1-1 y P09 que ya son públicos (BUJwplULfj0, 8ehRdk3q7NA, _olHq7c9EeY, an_hMeK6cQg, 6yh_31WWOew) y los 10 programados de P09 y P10. Propuesta: una playlist «Psicología del dinero en 1 minuto» o sumarlos a la de los pilar. Necesita el OK de Lean.
+- **La retención de P09 (35 %) y de la Lección 6 (39 %) todavía no se puede leer:** tienen 21 y 50 vistas en Analytics. Se revisa con `ric-retencion` cuando pasen las 100.
+- **Países (octubre):** Argentina 378 y España 98; el resto no figura.
+- **El contenido sintético sigue sin poder confirmarse por la API** (devuelve vacío en los 26). Hay que mirarlo en Studio.
