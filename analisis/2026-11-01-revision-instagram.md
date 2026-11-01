@@ -68,7 +68,9 @@ Además hubo **5 meses sin publicar** (del 11/04 al 10/09).
 5. **Los primeros segundos.** El promedio que la gente mira un Reel es de 12 a 17 s. Los dos que más retuvieron (29 y 24 s) fueron los del oro, por el tema y no por la producción. El de perfil de volumen perdió a la mitad en 3 s (reporte de partículas, sección 8).
 6. **Casi nunca hay un motivo para comentar.** De los 9 comentarios del mes, 8 son del Reel de la clase 14, el único con palabra clave (CURSO). La palabra clave funciona.
 
-**Algo que no cierra:** las 2 historias del 31/10 llegaron a 1.599 y 1.428 cuentas (~40 % de la base), mientras que en todo el mes el contenido alcanzó solo a 632 seguidores. O esas historias se mostraron a no seguidores (¿eran un Reel compartido, se publicaron también en Facebook o tenían promoción?) o la API cuenta distinto. Mirá en la app, en la estadística de esa historia, cuántos eran seguidores. Si casi todos lo eran, tu base está bastante más viva de lo que muestran los Reels, y **las historias son el canal para reactivarla**.
+**Lo de las historias:** las 2 del 31/10 (avisos de que había un Reel nuevo; Lean no publica en Facebook ni promociona) llegaron a 1.599 y 1.428 cuentas, ~40 % de la base. Pero en los últimos 2 días la API cuenta 2.803 cuentas alcanzadas por historias y solo 298 seguidores alcanzados en total, o sea que según la API la mayoría de quienes vieron las historias **no te sigue** (la API no deja separar seguidores y no seguidores de una historia sola). Puede ser gente que entra al perfil desde los Reels y mira la historia, o una diferencia de cómo cuenta la API. Para salir de la duda: en la app, abrí la historia → Estadísticas → mirá «Seguidores / No seguidores». Si la mayoría son seguidores, la base está más viva de lo que muestran los Reels, y **las historias son el canal para reactivarla**.
+
+La bio ya menciona el oro (XAUUSD); la propuesta de abajo lo mantiene y suma qué gana quien te sigue y qué hacer después.
 
 ## 4. Plan de 4 semanas
 
@@ -128,6 +130,7 @@ Los Reels de noticias (partículas o expediente) siguen, pero **uno por semana**
 | Retención a los 3 s (en la app) | 45 % (perfil de volumen) | 60 % |
 
 ## 7. Lo que falta de Lean
-1. Qué eran las 2 historias del 31/10 y cuántos de los que las vieron eran seguidores (en la app).
+1. En la app: cuántos de los que vieron las 2 historias del 31/10 eran seguidores.
+4. La primera descarga de «Seguidores y seguidos» (instrucciones en `instagram/README.md`) para arrancar el informe semanal con nombres.
 2. Si tenés un video o vivo reciente analizando el oro para recortar el primer Reel de la semana.
 3. Si aprobás la bio y la palabra clave ORO.

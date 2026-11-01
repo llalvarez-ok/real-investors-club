@@ -72,7 +72,17 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - A las cuentas que no siguen a @leanalvarez.ok el mensaje les llega a «Solicitudes de mensajes».
 - En YouTube no existen los mensajes privados: el link va en el comentario fijado y en la descripción.
 
+## Seguidores: quién llega y quién se va (con nombres)
+- **La API de Meta no da la lista de seguidores**, solo cantidades (probado el 01/11/2026). Los nombres salen de la **descarga de datos** de Instagram.
+- **Cada semana (domingo):** Instagram → Configuración → Centro de cuentas → Tu información y permisos → Descargar tu información → Descargar o transferir información → @leanalvarez.ok → **Algunos de tus datos → «Seguidores y seguidos»** → Descargar en el dispositivo → Período: **Desde el principio**, Formato: **JSON**, Calidad: baja. Instagram manda un mail con el link (tarda de minutos a horas). Subir el .zip a Drive, carpeta RIC/instagram, con el nombre `seguidores-AAAA-MM-DD.zip` y link público. Pesa poco: lo baja el conector de Drive.
+- **Informe:** `python herramientas/seguidores_instagram.py <zip anterior> <zip nuevo> <informe.md>` → quién llegó, quién se fue (con la fecha en que te había seguido) y si lo seguís de vuelta. Con un solo zip (`--dias 7`) da los que llegaron, pero no los que se fueron.
+- «Se fueron» incluye cuentas borradas o desactivadas: Instagram no deja distinguirlas.
+- **Las listas no van a git** (el repo es público; `instagram/seguidores/` está en `.gitignore`). El informe se entrega por el chat o en Drive.
+- Las cantidades de la semana salen de `python herramientas/revisar_instagram.py`.
+- No usar apps de terceros que muestran «quién te dejó de seguir»: piden la contraseña y Instagram puede restringir la cuenta.
+
 ## Pendiente
-- Revisión del 01/11 (sección 7): qué eran las 2 historias del 31/10 (alcance de ~1.600, no cierra con el resto), si hay un video de Lean con el oro para el primer Reel, y aprobar la bio y la palabra clave ORO. Elegir un solo estilo para las noticias (partículas o expediente).
+- Primera descarga de «Seguidores y seguidos» (punto de partida del informe semanal).
+- Revisión del 01/11 (sección 7): ver en la app cuántos de los que vieron las 2 historias del 31/10 (aviso del Reel nuevo) eran seguidores; si hay un video de Lean con el oro para el primer Reel, y aprobar la bio y la palabra clave ORO. Elegir un solo estilo para las noticias (partículas o expediente).
 - Confirmar si el Reel de P10 está publicado.
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
