@@ -1,5 +1,7 @@
 # Reel / Short: ¿Por qué Corea del Norte robó Binance?
 
+**YouTube: publicado el 01/11/2026** (Lean lo subió; por la API se cargaron título, descripción, etiquetas, categoría, idioma y playlist, y se publicó como público): https://youtube.com/shorts/GqQtH6HIbHE. La descripción final agrega el link al Short de Binance y la pregunta para comentar. Comentario publicado por la API (no se puede fijar por la API: fijarlo en Studio).
+
 Estado: **versión «expediente cine» del 01/11/2026 con la voz de Lean** (grabada por él, procesada con sonido de estudio
 por `herramientas/cine/voz_grabada.py`). Duración: 70 s (IG) y 69,8 s (YT). Hay una versión con la voz sintética Tomás
 (57 s, `escena.html?voz=tomas`), que queda de respaldo.

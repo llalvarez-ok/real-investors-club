@@ -39,6 +39,7 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-10-30 | Short | ¿Cuánto rinde de verdad invertir? Tres números que todo inversor debe conocer #shorts | `6yh_31WWOew` | public | 291 | — |
 | 2026-10-31 | Short | Le robaron US$ 6.300 M a Binance en 4 horas 🚨 El mayor hackeo cripto de la historia #shorts | `i6VBQSvIZng` | public | 690 | Noticias y conceptos de trading en 1 minuto |
 | 2026-10-31 | Short | Perfil de volumen: lo que las velas NO te muestran 📊 POC y área de valor #shorts | `MFnMqDKPk-w` | public | 171 | Noticias y conceptos de trading en 1 minuto |
+| 2026-11-01 | Short | ¿Por qué Corea del Norte robó Binance? 🇰🇵 El FBI lo confirmó #shorts | `GqQtH6HIbHE` | public | 0 | Noticias y conceptos de trading en 1 minuto |
 | 2026-11-01 | Short | ¿Aceptarías esta apuesta? Tu cerebro dice que no #Shorts | `WKZJ9gdU68A` | programado | 1 | — |
 | 2026-11-02 | Short | Vendió todo el peor día de 2020: lo que nadie te cuenta #Shorts | `D--gVTPPVPc` | programado | 0 | — |
 | 2026-11-03 | Short | Si pierdes 50 %, ¿cuánto necesitas para recuperarte? #Shorts | `vLfesRlG_Dk` | programado | 0 | — |
@@ -53,5 +54,5 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 
 ## Historial de cambios por la API
 - `youtube/cambios-2026-10-27.json`: auditoría inicial.
-- `youtube/cambios-2026-11-01.json`: títulos, avisos, voz sintética, horarios y playlists nuevas.
+- `youtube/cambios-2026-11-01.json`: títulos, avisos, voz sintética, horarios y playlists nuevas; y (clave `corea_publicacion`) la carga y publicación del Short de Corea.
 - Análisis: `analisis/2026-10-27-auditoria-canal.md`, `analisis/2026-10-29-nicho.md`, `analisis/2026-11-01-revision-canal.md`.

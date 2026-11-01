@@ -1445,5 +1445,122 @@
     "rwdPG7eF-_E"
    ]
   }
- ]
+ ],
+ "corea_publicacion": {
+  "GqQtH6HIbHE": {
+   "fecha": "2026-11-01T21:42:15.395439Z",
+   "antes": {
+    "kind": "youtube#video",
+    "etag": "cOieUkMoruOfMlN88uYp96B4bMk",
+    "id": "GqQtH6HIbHE",
+    "snippet": {
+     "publishedAt": "2026-11-01T21:39:58Z",
+     "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
+     "title": "RIC Corea Binance voz Lean yt",
+     "description": "",
+     "thumbnails": {
+      "default": {
+       "url": "https://i9.ytimg.com/vi/GqQtH6HIbHE/default.jpg?sqp=CLDjntcG&rs=AOn4CLCnZVplHtHNZ1eeBSLjpmc7h0EFCw",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i9.ytimg.com/vi/GqQtH6HIbHE/mqdefault.jpg?sqp=CLDjntcG&rs=AOn4CLBGK3BK8b0e8W9BWdXoGtUcuwdQeA",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i9.ytimg.com/vi/GqQtH6HIbHE/hqdefault.jpg?sqp=CLDjntcG&rs=AOn4CLB5_trej8QbRx99Lp6EJkw1LRL0zg",
+       "width": 480,
+       "height": 360
+      },
+      "standard": {
+       "url": "https://i9.ytimg.com/vi/GqQtH6HIbHE/sddefault.jpg?sqp=CLDjntcG&rs=AOn4CLBjnZmf_4OHTR7-EVn3fuqLTKPd-Q",
+       "width": 640,
+       "height": 480
+      },
+      "maxres": {
+       "url": "https://i9.ytimg.com/vi/GqQtH6HIbHE/maxresdefault.jpg?sqp=CLDjntcG&rs=AOn4CLAn1_mQ7lhSJtzZkLTONnENbJR0Aw",
+       "width": 1280,
+       "height": 720
+      }
+     },
+     "channelTitle": "Real Investors Club",
+     "categoryId": "27",
+     "liveBroadcastContent": "none",
+     "localized": {
+      "title": "RIC Corea Binance voz Lean yt",
+      "description": ""
+     }
+    },
+    "status": {
+     "uploadStatus": "processed",
+     "privacyStatus": "private",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "despues": {
+    "kind": "youtube#video",
+    "etag": "rpb34SvfvPKx-Eyiu8c-C81FD3A",
+    "id": "GqQtH6HIbHE",
+    "snippet": {
+     "publishedAt": "2026-11-01T21:42:13Z",
+     "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
+     "title": "¿Por qué Corea del Norte robó Binance? 🇰🇵 El FBI lo confirmó #shorts",
+     "description": "El FBI confirmó que Corea del Norte está detrás del robo de US$ 6.300 millones a Binance. ¿Por qué un país roba cripto? 🇰🇵\n\n📁 Según un informe de la ONU, cerca del 40 % de su programa de armas se financia con ciberataques\n🏦 2016: US$ 81 M del Banco Central de Bangladesh\n📈 2025: más de US$ 2.000 M robados en cripto (récord)\n🤝 Drift (2026): 6 meses ganándose la confianza del equipo y US$ 285 M robados\n\nUn clic en el enlace equivocado puede terminar financiando un misil. ¿Tenés tus cripto en un exchange o en una wallet propia? Contame en los comentarios 👇\n\n▶️ Cómo fue el robo a Binance, minuto a minuto: https://youtube.com/shorts/i6VBQSvIZng\n🔔 Suscribite y activá la campanita para entender el mercado antes que el resto.\n🌐 https://realinvestors.club\n📲 Instagram: @leanalvarez.ok\n\n—\nDatos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (marzo de 2024) y Drift.\n📷 Fotos: Michael Day (CC BY 2.0), John Pavelka (CC BY 2.0), Patrick Gruban (CC BY-SA 2.0), Abu Nayeem (CC BY 3.0), David Whelan (CC0) y US Navy (dominio público), vía Wikimedia Commons. Las del hacker y el misil son ilustrativas.\n⚠️ Contenido educativo. No constituye recomendación de inversión.\n\n#Binance #CoreaDelNorte #Cripto #Bitcoin #Shorts",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/GqQtH6HIbHE/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/GqQtH6HIbHE/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/GqQtH6HIbHE/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      },
+      "standard": {
+       "url": "https://i.ytimg.com/vi/GqQtH6HIbHE/sddefault.jpg",
+       "width": 640,
+       "height": 480
+      },
+      "maxres": {
+       "url": "https://i.ytimg.com/vi/GqQtH6HIbHE/maxresdefault.jpg",
+       "width": 1280,
+       "height": 720
+      }
+     },
+     "channelTitle": "Real Investors Club",
+     "categoryId": "27",
+     "liveBroadcastContent": "none",
+     "defaultLanguage": "es",
+     "localized": {
+      "title": "¿Por qué Corea del Norte robó Binance? 🇰🇵 El FBI lo confirmó #shorts",
+      "description": "El FBI confirmó que Corea del Norte está detrás del robo de US$ 6.300 millones a Binance. ¿Por qué un país roba cripto? 🇰🇵\n\n📁 Según un informe de la ONU, cerca del 40 % de su programa de armas se financia con ciberataques\n🏦 2016: US$ 81 M del Banco Central de Bangladesh\n📈 2025: más de US$ 2.000 M robados en cripto (récord)\n🤝 Drift (2026): 6 meses ganándose la confianza del equipo y US$ 285 M robados\n\nUn clic en el enlace equivocado puede terminar financiando un misil. ¿Tenés tus cripto en un exchange o en una wallet propia? Contame en los comentarios 👇\n\n▶️ Cómo fue el robo a Binance, minuto a minuto: https://youtube.com/shorts/i6VBQSvIZng\n🔔 Suscribite y activá la campanita para entender el mercado antes que el resto.\n🌐 https://realinvestors.club\n📲 Instagram: @leanalvarez.ok\n\n—\nDatos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (marzo de 2024) y Drift.\n📷 Fotos: Michael Day (CC BY 2.0), John Pavelka (CC BY 2.0), Patrick Gruban (CC BY-SA 2.0), Abu Nayeem (CC BY 3.0), David Whelan (CC0) y US Navy (dominio público), vía Wikimedia Commons. Las del hacker y el misil son ilustrativas.\n⚠️ Contenido educativo. No constituye recomendación de inversión.\n\n#Binance #CoreaDelNorte #Cripto #Bitcoin #Shorts"
+     },
+     "defaultAudioLanguage": "es"
+    },
+    "status": {
+     "uploadStatus": "processed",
+     "privacyStatus": "public",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "playlist": "PLQNFhTbDHaU0",
+   "comentario": "publicado"
+  }
+ }
 }
