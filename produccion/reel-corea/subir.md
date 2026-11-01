@@ -1,7 +1,8 @@
 # Reel / Short: ¿Por qué Corea del Norte robó Binance?
 
-Estado: **versión «expediente cine» del 01/11/2026** (rehecha por pedido de Lean: voz nueva y estilo nuevo, ver
-`herramientas/cine/LEEME.md`). Duración: 57 s. Voz es-AR-TomasNeural (edge-tts), revisada con whisper.
+Estado: **versión «expediente cine» del 01/11/2026 con la voz de Lean** (grabada por él, procesada con sonido de estudio
+por `herramientas/cine/voz_grabada.py`). Duración: 70 s (IG) y 69,8 s (YT). Hay una versión con la voz sintética Tomás
+(57 s, `escena.html?voz=tomas`), que queda de respaldo.
 Fotos reales de Wikimedia Commons (créditos en pantalla y abajo). La versión anterior (estilo «expediente» con voz Daniela)
 quedó descartada: la voz pronunciaba mal muchas palabras.
 
@@ -28,7 +29,7 @@ Un clic en el enlace equivocado puede terminar financiando un misil. El próximo
 📲 Mandáselo a alguien que tenga cripto en un exchange.
 
 —
-Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (2024) y Drift. Fotos: Wikimedia Commons (autores y licencias en el video). Voz generada con IA. Contenido educativo, no es recomendación de inversión.
+Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (2024) y Drift. Fotos: Wikimedia Commons (autores y licencias en el video). Contenido educativo, no es recomendación de inversión.
 
 #Binance #CoreaDelNorte #Cripto #Bitcoin #Hackeo #Ciberseguridad #Criptomonedas #Trading #TradingArgentina #Noticias
 ```
@@ -51,7 +52,6 @@ El FBI confirmó que Corea del Norte está detrás del robo de US$ 6.300 millone
 
 —
 Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (marzo de 2024) y Drift.
-🤖 La voz de este video es sintética, generada con inteligencia artificial (Microsoft, voz es-AR «Tomás»).
 📷 Fotos: Michael Day (CC BY 2.0), John Pavelka (CC BY 2.0), Patrick Gruban (CC BY-SA 2.0), Abu Nayeem (CC BY 3.0), David Whelan (CC0) y US Navy (dominio público), vía Wikimedia Commons. Las del hacker y el misil son ilustrativas.
 ⚠️ Contenido educativo. No constituye recomendación de inversión.
 
@@ -59,5 +59,5 @@ Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de l
 ```
 **Etiquetas:** corea del norte, binance, hackeo binance, robo binance, fbi binance, lazarus, tradertraitor, hackers norcoreanos, drift hack, bybit hack, criptomonedas, cripto, bitcoin, ciberseguridad, noticias cripto, real investors club
 
-**Configuración:** categoría Educación, idioma español, no es para niños, contenido sintético: sí, playlist «Noticias y conceptos de trading en 1 minuto» (`PLQNFhTbDHaU0`).
+**Configuración:** categoría Educación, idioma español, no es para niños, contenido sintético: no (voz real de Lean, fotos reales; las animaciones no imitan hechos reales), playlist «Noticias y conceptos de trading en 1 minuto» (`PLQNFhTbDHaU0`).
 **Comentario fijado:** `¿Tenés tus cripto en un exchange o en una wallet propia? 👇`

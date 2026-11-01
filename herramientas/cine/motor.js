@@ -7,7 +7,8 @@
 // La escena define antes de cargar este archivo:
 //   window.T   tiempos de la voz (herramientas/cine/voz.py): {total, bloques: [{id, ini, dur, palabras, subs}]}
 //   window.ESC = {fotos: {nombre: 'fotos/x.jpg'}, planos: [...], particulas: [...], clave: /regex/}
-//     plano:     {b, w | o, hasta: {b, w | o} | dur, foto, kb: [cx0, cy0, z0, cx1, cy1, z1], look, blur: [a, b], caja}
+//     plano:     {b, w | o, hasta: {b, w | o} | dur, foto, kb: [cx0, cy0, z0, cx1, cy1, z1], look, oscuro: [a, b], blur: [a, b], caja, marco}
+//     (para que el texto se lea, oscurecer con «oscuro» en vez de desenfocar; «caja» + «marco» para fotos chicas, sin ampliarlas)
 //     partícula: {b, w | o, forma, x, y, s, color, txt, alfa}
 //   y en el DOM elementos con data-b + data-w | data-o, data-e (efecto), data-s (sonido), data-hb/data-hw (hasta).
 (function () {
@@ -62,10 +63,13 @@
       bg.save(); bg.globalAlpha = a * (p.alfa || 1); bg.beginPath(); bg.rect(c[0], c[1], c[2], c[3]); bg.clip();
       bg.filter = L[0] + (bl > .2 ? ` blur(${bl.toFixed(1)}px)` : ''); bg.drawImage(IMG[p.foto], x, y, w, h); bg.filter = 'none';
       bg.fillStyle = L[1]; bg.fillRect(c[0], c[1], c[2], c[3]);
+      if (p.oscuro) { bg.fillStyle = `rgba(5,7,12,${lerp(p.oscuro[0], p.oscuro[1], eio(cl((t - p.t0) / Math.max(.1, p.t1 - p.t0)))).toFixed(3)})`; bg.fillRect(c[0], c[1], c[2], c[3]); }
       // degradé abajo y arriba para que el texto se lea
       const g = bg.createLinearGradient(0, c[1], 0, c[1] + c[3]);
       g.addColorStop(0, 'rgba(5,7,12,.75)'); g.addColorStop(.22, 'rgba(5,7,12,0)'); g.addColorStop(.6, 'rgba(5,7,12,.15)'); g.addColorStop(1, 'rgba(5,7,12,.95)');
       bg.fillStyle = g; bg.fillRect(c[0], c[1], c[2], c[3]); bg.restore();
+      if (p.marco) { bg.save(); bg.globalAlpha = a; bg.strokeStyle = 'rgba(226,183,74,.7)'; bg.lineWidth = 3; bg.strokeRect(c[0] + 1.5, c[1] + 1.5, c[2] - 3, c[3] - 3);
+        bg.fillStyle = 'rgba(226,183,74,.9)'; [[0, 0], [1, 0], [0, 1], [1, 1]].forEach(([u, v]) => { bg.fillRect(c[0] + u * (c[2] - 40) - 4 + u * 8, c[1] + v * (c[3] - 8) - 4 + v * 8, 40, 8); bg.fillRect(c[0] + u * (c[2] - 8) - 4 + u * 8, c[1] + v * (c[3] - 40) - 4 + v * 8, 8, 40); }); bg.restore(); }
     }
   }
 
@@ -151,7 +155,7 @@
   // ---------- polvo dorado en el aire (profundidad) ----------
   const POLVO = []; sem = 21; for (let i = 0; i < 46; i++) POLVO.push([rnd() * W, rnd() * H, 2 + rnd() * 9, rnd() * 6.28, .2 + rnd() * .8]);
   // ---------- grano de película: 6 texturas de ruido que se alternan ----------
-  const GR = [...Array(6)].map(() => { const c = document.createElement('canvas'); c.width = 540; c.height = 960; const x = c.getContext('2d'), d = x.createImageData(540, 960);
+  const GR = [...Array(6)].map(() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d'), d = x.createImageData(W, H);
     for (let i = 0; i < d.data.length; i += 4) { const v = 128 + (rnd() - .5) * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); return c; });
   let flash = []; // destellos en los cambios de bloque y los golpes
   function efectos(t) {
@@ -174,7 +178,7 @@
     const vg = fx.createRadialGradient(W / 2, H * .47, H * .28, W / 2, H * .5, H * .78); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.62)');
     fx.fillStyle = vg; fx.fillRect(0, 0, W, H);
     // grano
-    fx.globalCompositeOperation = 'overlay'; fx.globalAlpha = .16; fx.drawImage(GR[Math.floor(t * 30) % 6], 0, 0, W, H); fx.globalAlpha = 1; fx.globalCompositeOperation = 'source-over';
+    fx.globalCompositeOperation = 'soft-light'; fx.globalAlpha = .1; fx.drawImage(GR[Math.floor(t * 30) % 6], 0, 0, W, H); fx.globalAlpha = 1; fx.globalCompositeOperation = 'source-over';
   }
 
   // ---------- expediente (DOM) ----------
@@ -208,7 +212,6 @@
     let z = 1 + .03 * pb + .07 * (1 - eo(entra)), sx = 0, sy = 0, rot = 0;
     for (const g of golpes) { const d = t - g; if (d >= 0 && d < .35) { const a = (1 - d / .35) * 14; sx += Math.sin(d * 90) * a; sy += Math.cos(d * 75) * a * .7; rot += Math.sin(d * 60) * a * .02; } }
     $('#cam').style.transform = `translate(${sx}px,${sy}px) rotate(${rot}deg) scale(${z})`;
-    const desen = 1 - eo(entra); $('#cam').style.filter = desen > .05 ? `blur(${(desen * 10).toFixed(1)}px)` : 'none';
     dibujaPlanos(t); particulas(t); efectos(t);
     for (const x of els) {
       const el = x.el, p = cl((t - x.t0) / x.d), e = eo(p); let op = t < x.t0 && !el.dataset.fijo && x.e !== 'tacha' ? 0 : 1, tr = '';
@@ -235,7 +238,7 @@
     }
     const g = subs.find(g => t >= g[0][0] - .06 && t < g[g.length - 1][1] + .22);
     sub.innerHTML = g ? g.map(w => { const on = t >= w[0] - .03, k = CLAVE.test(w[2]);
-      return `<span class="${on ? (k ? 'k on' : 'on') : ''}" style="${on && t < w[0] + .12 ? 'transform:scale(1.12)' : ''}">${w[2]}</span>`; }).join(' ') : '';
+      return `<span class="${on ? (k ? 'k on' : 'on') : ''}" style="${on && t < w[0] + .12 ? 'transform:scale(1.05)' : ''}">${w[2]}</span>`; }).join(' ') : '';
   };
   window.listo = Promise.all(Object.values(IMG).map(i => i.decode().catch(() => 0))).then(() => document.fonts.ready).then(preparar);
 })();

@@ -3,8 +3,9 @@
 <title>¿Por qué Corea del Norte robó Binance? · expediente cine</title>
 <!-- Estilo «expediente cine» (herramientas/cine/LEEME.md). Versión con ?v=ig (Instagram) o ?v=yt (YouTube). -->
 <script>
-  const V = new URLSearchParams(location.search).get('v') || 'ig';
-  document.write(`<script src="tiempos-${V}.js"><\/script>`);
+  // ?v=ig|yt (versión) y ?voz=tomas para la versión con la voz sintética; por defecto, la voz grabada por Lean
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig', VOZ = Q.get('voz') === 'tomas' ? 'tomas-' : '';
+  document.write(`<script src="tiempos-${VOZ}${V}.js"><\/script>`);
 </script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -143,7 +144,7 @@
     <div class="abs titulo" style="top:300px" data-b="07" data-w="0" data-e="glitch" data-s="impacto" data-hb="07" data-hw="5">No siempre <span class="rojo">hackean</span></div>
     <div class="abs tag" style="left:50px;top:220px;color:#9fd0ff" data-b="07" data-w="5" data-e="izq">Bloque 005 · Drift · abril 2026</div>
     <div class="abs titulo" style="top:300px;font-size:80px" data-b="07" data-w="7" data-e="sube" data-hb="07" data-hw="17">6 meses ganándose<br>la <span class="oro">confianza</span></div>
-    <div class="abs dias" style="top:1210px" data-b="07" data-w="9" data-e="aparece" data-hb="07" data-hw="17">
+    <div class="abs dias" style="top:1250px" data-b="07" data-w="9" data-e="aparece" data-hb="07" data-hw="17">
       <div data-b="07" data-w="9" data-e="pop" data-s="pop">MES 1</div><div data-b="07" data-w="9" data-o="0.15" data-e="pop">MES 2</div><div data-b="07" data-w="9" data-o="0.3" data-e="pop">MES 3</div>
       <div data-b="07" data-w="9" data-o="0.45" data-e="pop">MES 4</div><div data-b="07" data-w="9" data-o="0.6" data-e="pop">MES 5</div><div data-b="07" data-w="9" data-o="0.75" data-e="pop" data-s="pop">MES 6</div>
     </div>
@@ -180,6 +181,7 @@
 <script>
   // los bloques se nombran por su número (01…09); el cierre es "09" en las dos versiones
   T.bloques.forEach(b => { b.id = b.id.slice(0, 2); });
+  if (T.voz_grabada) document.getElementById('pie').textContent = 'Datos al 01/11/2026 · Fuentes: FBI, Chainalysis, Elliptic, ONU, Drift · No es recomendación de inversión';
   const IG = V === 'ig';
   document.getElementById('cierre-tit').innerHTML = IG ? 'Seguí <span class="oro">esta cuenta</span>' : 'Suscribite <span class="oro">al canal</span>';
   document.getElementById('tarjeta').innerHTML = IG ? `
@@ -197,14 +199,14 @@
     clave: /(binance|fbi|corea|norte|ellos|vos|misiles|plata|40|armas|ciberataques|81|cripto|2\.000|récord|tres|drift|6 meses|confianza|285|clic|misil|cuenta|canal|mercado|bancos)/i,
     fotos: { noche: 'fotos/pyongyang-noche.jpg', oeste: 'fotos/pyongyang-oeste.jpg', onu: 'fotos/onu.jpg', bangla: 'fotos/bangladesh.jpg', hacker: 'fotos/hacker.jpg', misil: 'fotos/misil.jpg' },
     planos: [
-      { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'noche', kb: [.52, .56, 1.15, .5, .5, 1.42], look: 'noche', blur: [0, 3] },
-      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'hacker', kb: [.5, .45, 1.05, .5, .4, 1.25], look: 'rojo', blur: [10, 5], alfa: .8 },
-      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'oeste', kb: [.3, .55, 1.1, .7, .5, 1.2], look: 'frio' },
-      { b: '04', o: 0, hasta: { b: '05', o: 0 }, foto: 'onu', kb: [.5, .55, 1.0, .52, .5, 1.25], look: 'doc', blur: [0, 7] },
-      { b: '05', o: 0, hasta: { b: '05', w: 11, o: .5 }, foto: 'bangla', kb: [.5, .5, 1.05, .5, .45, 1.22], look: 'noche', sale: 'disuelve' },
-      { b: '07', o: 0, hasta: { b: '08', o: 0 }, foto: 'hacker', kb: [.5, .5, 1.0, .55, .45, 1.2], look: 'frio', blur: [0, 6] },
+      { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'noche', kb: [.52, .56, 1.05, .5, .52, 1.22], look: 'noche', oscuro: [0, .15] },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'hacker', caja: [100, 600, 880, 660], marco: 1, kb: [.5, .5, 1.0, .5, .45, 1.08], look: 'rojo', oscuro: [.15, .1] },
+      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'oeste', kb: [.32, .55, 1.0, .66, .5, 1.12], look: 'frio' },
+      { b: '04', o: 0, hasta: { b: '05', o: 0 }, foto: 'onu', kb: [.5, .55, 1.0, .52, .5, 1.15], look: 'doc', oscuro: [.15, .4] },
+      { b: '05', o: 0, hasta: { b: '05', w: 11, o: .5 }, foto: 'bangla', kb: [.5, .5, 1.0, .5, .46, 1.12], look: 'noche', sale: 'disuelve' },
+      { b: '07', o: 0, hasta: { b: '08', o: 0 }, foto: 'hacker', caja: [100, 560, 880, 660], marco: 1, kb: [.5, .5, 1.0, .52, .45, 1.08], look: 'frio', oscuro: [0, .25] },
       { b: '08', w: 10, hasta: { b: '09', o: 0.2 }, foto: 'misil', kb: [.5, .55, 1.0, .5, .3, 1.15], look: 'rojo' },
-      { b: '09', o: 0, dur: 6, foto: 'noche', kb: [.5, .5, 1.3, .5, .5, 1.4], look: 'noche', blur: [12, 14], alfa: .7 },
+      { b: '09', o: 0, dur: 6, foto: 'noche', kb: [.5, .5, 1.1, .5, .5, 1.18], look: 'noche', oscuro: [.45, .5], alfa: .8 },
     ],
     particulas: [
       { b: '01', o: -5, forma: 'disperso', y: 950, alfa: .55 },

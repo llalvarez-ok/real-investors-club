@@ -42,6 +42,17 @@ las partículas doradas del Short de Binance (`herramientas/particulas/`), con t
 Necesita las fuentes Inter (Inter Display Black) en `/usr/share/fonts/opentype/inter/` (de las releases de rsms/inter en
 GitHub, `Inter-4.1.zip`, carpeta `extras/otf`), JetBrains Mono y Liberation Serif (ya vienen en la imagen de la nube).
 
+## Con la voz de Lean (grabada)
+Lean graba el texto de corrido (un bloque tras otro, con una pausa entre bloques) y lo manda por el chat o por Drive.
+`HF_HUB_DISABLE_XET=1 SSL_CERT_FILE=/root/.ccr/ca-bundle.crt python herramientas/cine/voz_grabada.py produccion/<id>/guion.json <audio> <trabajo> produccion/<id>/correcciones-lean.json`
+- Sonido de estudio, estilo stream: reducción de ruido, graves, compuerta suave, ecualización (cuerpo, menos «caja»,
+  presencia y aire), de-esser, compresión, reverb de sala corta y oscura (11 %) y limitador.
+- Whisper alinea lo que dijo con el guion: si cambió palabras, el video no se toca; los subtítulos muestran lo que dice.
+  Los silencios de más de 0,34 s quedan en 0,22 s (sin acelerar la voz).
+- `correcciones-lean.json` arregla lo que whisper escribe mal en los subtítulos («quédate» → «quedate», «puede» → «podés»).
+- Escribe `tiempos-ig/yt` con `"voz_grabada": true`: la mezcla no le suma otra reverb y el pie no dice «voz generada con IA».
+  La versión con voz sintética se guarda como `tiempos-tomas-*` y se ve con `escena.html?voz=tomas`.
+
 ## Fotos
 Los bancos de imágenes libres están bloqueados en la nube, pero `upload.wikimedia.org` funciona: con el nombre exacto del
 archivo (buscado con WebSearch en `commons.wikimedia.org`) la ruta es `thumb/<md5[0]>/<md5[0:2]>/<archivo>/1280px-<archivo>`,

@@ -70,7 +70,7 @@ def main():
     fx = reverb(fx, 1.6, .3)
     hab = lp(np.abs(voz), int(.25 * R)); duck = 1 - .7 * np.clip(hab / .04, 0, 1)
     mez_c = cama * .5 * duck
-    vozr = reverb(voz, .5, .06)
+    vozr = voz if T.get("voz_grabada") else reverb(voz, .5, .06)  # la voz grabada ya trae su sala
     # estéreo: la cama y los efectos un poco abiertos, la voz al centro
     izq = mez_c + vozr + fx * .6
     der = np.roll(mez_c, int(.012 * R)) + vozr + np.roll(fx, int(.008 * R)) * .6
