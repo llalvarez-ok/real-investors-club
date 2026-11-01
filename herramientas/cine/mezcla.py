@@ -10,7 +10,7 @@
   más un golpe grave con cola de reverberación en cada impacto y sello.
 Sale en estéreo a 48 kHz; el loudnorm a −14 LUFS lo hace ffmpeg al unir con el video.
 """
-import json, os, sys, wave
+import json, os, subprocess, sys, wave
 import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "expediente"))
@@ -74,6 +74,17 @@ def main():
     # estéreo: la cama y los efectos un poco abiertos, la voz al centro
     izq = mez_c + vozr + fx * .6
     der = np.roll(mez_c, int(.012 * R)) + vozr + np.roll(fx, int(.008 * R)) * .6
+    if os.environ.get("MUSICA"):
+        # música real en lugar de la cama sintetizada: MUSICA=<archivo> MUSICA_DESDE=<segundo del tema> MUSICA_DB=<nivel>
+        # Queda ~MUSICA_DB dB por debajo de la voz mientras se habla y sube 6 dB en las pausas; los efectos bajan un poco.
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", os.environ.get("MUSICA_DESDE", "0"), "-i", os.environ["MUSICA"],
+                              "-t", f"{total:.2f}", "-ac", "2", "-ar", str(R), "-f", "f32le", "-"], capture_output=True, check=True).stdout
+        mu = np.frombuffer(raw, np.float32).reshape(-1, 2); mu = np.pad(mu, ((0, max(0, n - len(mu))), (0, 0)))[:n]
+        rv = np.sqrt(np.mean(voz[np.abs(voz) > .02] ** 2)); rm = np.sqrt(np.mean(mu ** 2)) + 1e-9
+        mu = mu * rv / rm * 10 ** (-float(os.environ.get("MUSICA_DB", "20")) / 20)
+        abre = 1 + np.clip(1 - hab / .03, 0, 1) * (10 ** (6 / 20) - 1)  # en las pausas sube 6 dB
+        g = lp(abre, int(.2 * R)) * np.minimum(1, t / .4)
+        izq = vozr + fx * .45 + mu[:, 0] * g; der = vozr + np.roll(fx, int(.008 * R)) * .45 + mu[:, 1] * g
     for c in (izq, der):
         c[:int(.05 * R)] *= np.linspace(0, 1, int(.05 * R)); c[-int(.8 * R):] *= np.linspace(1, 0, int(.8 * R))
     y = np.stack([izq, der], 1); y = y / max(1, np.abs(y).max() / .97)

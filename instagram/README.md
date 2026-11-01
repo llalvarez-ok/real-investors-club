@@ -22,7 +22,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | P10 «FOMO» | **No figura en Instagram** según la API (01/11) | `produccion/p10-fomo/subir.md`, sección R1-instagram |
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
-| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz Tomás) | Rehecho y entregado por el chat el 01/11, falta publicar | `produccion/reel-corea/subir.md` |
+| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | Listo para publicar (01/11): falta que Instagram pueda recibir el video (ver «Publicar por la API») | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
@@ -90,3 +90,8 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - Revisión del 01/11 (sección 7): ver en la app cuántos de los que vieron las 2 historias del 31/10 (aviso del Reel nuevo) eran seguidores; si hay un video de Lean con el oro para el primer Reel, y aprobar la bio y la palabra clave ORO. Elegir un solo estilo para las noticias (partículas o expediente).
 - Confirmar si el Reel de P10 está publicado.
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
+
+## Publicar por la API
+- `python herramientas/publicar_reel_ig.py <video.mp4 | URL> <caption.txt> --portada <seg> --audio "<nombre>"` (permiso `instagram_content_publish`, cupo de 100 publicaciones por día). Cada publicación necesita el OK de Lean.
+- Desde la nube, la subida directa usa `rupload.facebook.com`, que está **bloqueado** en la red del entorno (01/11/2026): hay que agregarlo en la configuración del entorno (Network access → Allowed domains).
+- Alternativa: un MP4 de menos de 100 MB en Drive con «Cualquier persona con el enlace» y pasar la URL `https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t` (sin probar todavía).

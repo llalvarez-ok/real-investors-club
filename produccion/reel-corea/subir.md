@@ -14,6 +14,7 @@ Consejo de Seguridad de la ONU · Patrick Gruban · CC BY-SA 2.0 — Banco de Ba
 Hacker (ilustrativa) · David Whelan · CC0 — Prueba de misil Trident (ilustrativa) · US Navy · dominio público. Todas de Wikimedia Commons.
 
 ## Instagram (@leanalvarez.ok)
+**Texto final optimizado: `caption-ig.txt`** (gancho en la primera línea, pregunta con palabra para comentar EXCHANGE/WALLET, pedido de compartir y 5 hashtags). Video con música («Futile», The Grey Room / Golden Palms, Biblioteca de audio de YouTube, 20 dB por debajo de la voz), portada en el segundo 4,5 («US$ 6.300 M»), compartido también en el feed. Se publica con `python herramientas/publicar_reel_ig.py`. El texto de abajo es el borrador anterior.
 ```
 ¿Por qué Corea del Norte robó Binance? 🇰🇵💸
 

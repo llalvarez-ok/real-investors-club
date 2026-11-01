@@ -44,6 +44,8 @@ las partículas doradas del Short de Binance (`herramientas/particulas/`), con t
    La versión de YouTube cambia solo el cierre: se renderiza desde el inicio del bloque 09 y se reusan los cuadros de Instagram.
 7. Audio: `python herramientas/cine/mezcla.py <tiempos.json> <trabajo>/voz <dir>/eventos.json audio.wav` (cama de suspenso
    con latido, subida antes de cada bloque, golpes con reverberación y ducking).
+   Con música real en lugar de la cama sintetizada: `MUSICA=<mp3> MUSICA_DESDE=<seg> MUSICA_DB=20 python herramientas/cine/mezcla.py …`
+   (queda 20 dB por debajo de la voz mientras se habla y sube 6 dB en las pausas; los efectos bajan un poco).
 8. ffmpeg: cuadros a 30 fps + audio, H.264 CRF 17, AAC 192k, `loudnorm=I=-14:TP=-1.5:LRA=9`.
 
 Necesita las fuentes Inter (Inter Display Black) en `/usr/share/fonts/opentype/inter/` (de las releases de rsms/inter en
