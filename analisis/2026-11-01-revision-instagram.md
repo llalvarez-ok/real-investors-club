@@ -2,101 +2,132 @@
 
 Pedido de Lean: «revisión completa de Instagram para lograr mejores resultados; muchos seguidores no interactúan, ni sé si están activos».
 
-**Límite de esta revisión:** desde la nube no hay acceso a Instagram. Esto sale de lo que hay en el repo (datos del perfil al 31/10, copys, la curva del Reel «Perfil de volumen» y las reglas de la sección 9 del reporte de partículas) y de cómo funciona Instagram en general. Los números que faltan están en la sección 6: con esas capturas se cierra el diagnóstico.
+Datos leídos por la API de Meta el 01/11/2026 (`python herramientas/revisar_instagram.py`, se repite igual). Las 30 publicaciones de la cuenta, los últimos 30 días de la cuenta y las 2 historias activas. La API no da la curva de retención de cada Reel ni las historias de más de 24 h: eso solo se ve en la app.
 
 ---
 
-## 1. Lo que se sabe
+## 1. Respuesta corta
 
-| Dato | Valor | Lectura |
+- **Activos hay, pero pocos:** en 30 días interactuaron **132 cuentas** (3,5 % de los 3.736 seguidores). El 86 % de esa gente activa es de Argentina.
+- **Una parte de los seguidores no va a interactuar nunca:** 1 de cada 3 seguidores es de un país donde no se habla español (Brasil, India, Indonesia, Filipinas, Egipto, Pakistán, Bangladesh, Turquía…). De esos países sale casi nadie del público activo. Son seguidores de otra época de la cuenta, de sorteos o bots.
+- **Los Reels nuevos llegan a gente nueva, no a tus seguidores:** en 30 días el contenido alcanzó a **4.203 personas que no te siguen** y solo a **632 seguidores** (16 % de la base).
+- **Lo que tus seguidores quieren es a vos operando:** los posts con más comentarios son tu análisis del oro, los vivos (JP225, «operamos en vivo») y los personales. Los Reels de lecciones y noticias con voz generada tienen entre 3 y 4 veces menos interacción.
+- **En 30 días entraron 15 seguidores y se fueron 35.**
+
+## 2. Los números
+
+### La cuenta (últimos 30 días)
+| Dato | Valor |
+|---|---|
+| Seguidores | 3.736 (29 publicaciones, 18 seguidos) |
+| Alcance | 4.203 no seguidores · 632 seguidores |
+| Alcance por formato | Historias 3.131 · Reels 2.184 · carruseles 36 · fotos 30 |
+| Cuentas que interactuaron | 132 |
+| Interacciones | 404: 312 me gusta, 22 compartidos, 20 guardados, 15 respuestas a historias, 9 comentarios |
+| Seguidores nuevos / que se fueron | 15 / 35 |
+
+### Quiénes son los seguidores
+| | Seguidores | Público activo |
 |---|---|---|
-| Seguidores | 3.734 | Cuenta chica: cada Reel se prueba primero con una parte de los seguidores. Si ellos no interactúan, el Reel no sale de ahí. |
-| Publicaciones | 27 | Pocas. El historial no le da a Instagram mucha información de a quién mostrarle la cuenta. |
-| Seguidos | 19 | Bien, no parece una cuenta de follow/unfollow. |
-| Bio | «Trader en XAUUSD y Cripto · Opera de la forma correcta» + aviso de CFDs | Dice qué hace Lean, pero no qué gana quien lo sigue ni qué hacer después. «Opera de la forma correcta» no promete nada concreto. |
-| Reel «Perfil de volumen» | 45 % sigue a los 3 s; ~15–20 % a los 8 s; 1:45 de largo | El gancho pierde a más de la mitad. Quien pasa los 8 s se queda: el contenido sirve, la entrada no. |
-| Origen de las vistas (ese Reel) | Feed 55 %, pestaña Reels 36 %, Explorar 8 % | La mayoría lo ve sin sonido. Explorar casi no aporta: todavía no llega a gente nueva. |
-| Comentarios y compartidos (ese Reel) | 0 % | Nadie tuvo un motivo para comentar ni para mandarlo. |
+| Argentina | 42 % | **86 %** |
+| Países de habla hispana (incluye EE. UU.) | 67 % | 98 % |
+| Brasil y Portugal | 8 % | 1 % |
+| Resto (India, Indonesia, Filipinas, Egipto, Pakistán…) | **24 %** | ~0 % |
+| Edad principal | 25–34 (40 %) y 35–44 (27 %) | 25–44 |
+| Hombres / mujeres | 61 % / 19 % (20 % sin dato) | 76 % / 17 % |
 
-En una semana (28/10 al 01/11) la cuenta publicó cuatro estilos distintos: pizarra con voz de Brian, la clase con la cara de Lean, partículas con voz de Daniela y expediente. Los cuatro son buenos por separado, pero el seguidor no sabe qué esperar de la cuenta.
+Ciudades del público activo: CABA, Quequén, Necochea, Mar del Plata, Córdoba y el conurbano. Es gente que te conoce.
 
-## 2. Diagnóstico: por qué los seguidores no interactúan
+### Qué funcionó (interacciones cada 100 personas alcanzadas)
+| Fecha | Publicación | Alcance | % interacción | Comentarios | Seg. vistos |
+|---|---|---|---|---|---|
+| 01/04 | Análisis del oro (XAU/USD), tu primer video con IA | 759 | **20,9** | 27 | 29 |
+| 10/01 | «Hay magia en los nuevos comienzos» (personal) | 801 | **18,5** | 29 | 13 |
+| 13/02 | «La luz atrae a todos…» (foto con frase) | 319 | 15,4 | 1 | — |
+| 29/10 | Clase 14 «Order blocks» (vos, CURSO) | 229 | 13,1 | 8 | 16 |
+| 08/04 | «¿Por qué cae el oro?» | 675 | 11,1 | 9 | 24 |
+| 09/02 | JP225 en vivo | 714 | 10,8 | 11 | 17 |
+| 09/03 | «Operamos en vivo con los miembros» | 692 | 9,5 | 9 | 17 |
 
-Ordenado de más a menos probable. Las capturas de la sección 6 confirman o descartan cada punto.
+### Lo reciente (octubre)
+| Fecha | Publicación | Alcance | % interacción | Comentarios | Compartidos | Seg. vistos |
+|---|---|---|---|---|---|---|
+| 07/10 | Messi «pecho frío» | 820 | 4,8 | 0 | 5 | 16 |
+| 27/10 | Índices y gestores (recorte de la lección 6) | 711 | 5,3 | 0 | 3 | 16 |
+| 31/10 | Robo a Binance (partículas) | 817 | 4,0 | 1 | **9** | 17 |
+| 31/10 | Perfil de volumen (partículas) | 255 | 4,7 | 0 | 0 | 12 |
 
-1. **Los seguidores no vinieron por esto.** La cuenta creció como «trader en XAUUSD y cripto». Si mucha gente llegó por operaciones, señales, sorteos o por un vivo, ahora ve noticias y conceptos con voz sintética y no se siente llamada. Un seguidor que no interactúa le dice a Instagram «a este no le interesa», y en los próximos Reels le muestra menos a todos.
-2. **La cuenta es personal, pero Lean casi no aparece.** En una cuenta personal la gente sigue a una persona. Los Reels con voz generada (Daniela, Brian) y sin cara pueden atraer gente nueva, pero generan menos vínculo con quien ya sigue. El único Reel con Lean en cámara (clase 14) es también el único con una palabra para comentar.
-3. **Los primeros 3 segundos pierden a la mitad.** Ya diagnosticado en el Reel de perfil de volumen (arranque oscuro, título chico, sin subtítulos, 1:45 de largo). Las reglas de la sección 9 ya lo corrigen para los próximos.
-4. **No hay un motivo para interactuar.** «Seguí esta cuenta» no da un motivo para comentar. La pregunta del copy («¿Vos tenés tus cripto en un exchange…?») queda abajo del todo, y casi nadie abre el texto. La palabra clave con ManyChat (CURSO) es lo único que da algo a cambio, y falló al menos una vez.
-5. **Falta constancia.** 27 publicaciones y una semana con cuatro estilos: no hay un día ni un formato que la gente reconozca.
-6. **Puede haber seguidores inactivos o falsos** (bots, cuentas abandonadas, gente que llegó por un sorteo). Pasa en casi todas las cuentas, pero se mide antes de suponerlo (sección 3).
+Además hubo **5 meses sin publicar** (del 11/04 al 10/09).
 
-## 3. Cómo saber si los seguidores están activos (5 minutos en la app)
+## 3. Diagnóstico
 
-1. **Panel profesional → Total de seguidores → Momentos de mayor actividad.** Si el gráfico por hora tiene picos claros (por ejemplo, de 19 a 23 h), hay gente activa. Si es plano y bajo, hay muchos inactivos.
-2. **Alcance de los últimos 30 días → «Seguidores» vs. «No seguidores».** Si los seguidores alcanzados son menos del 20 % de 3.734 (unas 750 cuentas), muchos no ven nada o no están activos.
-3. **Vistas de las historias.** Dividí las vistas de una historia por 3.734. Como referencia aproximada: menos del 3 % es una base muy dormida; del 5 al 10 %, normal para una cuenta de este tamaño.
-4. **Prueba directa:** una historia con una encuesta simple («¿Operás hoy? Sí / Todavía no»). Quien vota está activo, y además Instagram le vuelve a mostrar tus cosas.
-5. **Ubicación de los seguidores** (en el mismo panel): si mucha gente es de países donde no vas a vender el club o de lugares raros para la cuenta, es señal de seguidores comprados o de sorteo.
+1. **La cuenta creció como «Lean, trader de oro», y ahora publica otra cosa.** Lo que más comentarios tuvo en la historia de la cuenta es vos analizando XAU/USD, operando en vivo o contando algo personal. Octubre fue casi todo lecciones, noticias y conceptos con voz generada. Al seguidor que te sigue por vos eso no le habla, así que no comenta. Instagram lee eso como desinterés y se lo muestra a menos seguidores (solo el 16 % de la base vio algo en 30 días).
+2. **Los Reels nuevos sirven para llegar a gente nueva, no para la comunidad.** Binance, índices y Messi llegaron a 700–800 cuentas, casi todas que no te siguen, y el de Binance fue el más compartido del mes. Están bien para crecer, pero solos no despiertan a la base.
+3. **Una cuarta parte de los seguidores no existe para la cuenta.** Unas 830 cuentas son de países sin habla hispana que no interactúan nunca. Bajan el porcentaje de todo, pero no se pueden «despertar». Tampoco conviene borrarlas en masa (ver sección 5).
+4. **El pozo de 5 meses cortó la costumbre.** Desde septiembre volviste a publicar, pero con estilos muy distintos en pocas semanas (Realy, pizarra, lecciones, partículas, clase). El seguidor no sabe qué esperar.
+5. **Los primeros segundos.** El promedio que la gente mira un Reel es de 12 a 17 s. Los dos que más retuvieron (29 y 24 s) fueron los del oro, por el tema y no por la producción. El de perfil de volumen perdió a la mitad en 3 s (reporte de partículas, sección 8).
+6. **Casi nunca hay un motivo para comentar.** De los 9 comentarios del mes, 8 son del Reel de la clase 14, el único con palabra clave (CURSO). La palabra clave funciona.
 
-**Sobre borrar seguidores fantasma:** no usar apps de terceros que «limpian» la cuenta, porque piden la contraseña y Instagram puede restringirla. Borrar a mano los bots evidentes (sin foto, sin publicaciones, nombre con números) no hace daño, pero no es lo que más mueve los números. Lo que mueve es que los Reels lleguen a gente nueva que sí interactúe.
+**Algo que no cierra:** las 2 historias del 31/10 llegaron a 1.599 y 1.428 cuentas (~40 % de la base), mientras que en todo el mes el contenido alcanzó solo a 632 seguidores. O esas historias se mostraron a no seguidores (¿eran un Reel compartido, se publicaron también en Facebook o tenían promoción?) o la API cuenta distinto. Mirá en la app, en la estadística de esa historia, cuántos eran seguidores. Si casi todos lo eran, tu base está bastante más viva de lo que muestran los Reels, y **las historias son el canal para reactivarla**.
 
 ## 4. Plan de 4 semanas
 
-### Perfil (una sola vez, esta semana)
-- **Bio propuesta** (voseo; el aviso de CFDs se mantiene tal cual):
-  ```
-  Te enseño trading y cripto sin humo 📈
-  Fundador de Real Investors Club · +X alumnos
-  👇 Comentá CURSO en cualquier Reel y te mando el acceso
-  ⚠️ Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero.
-  ```
-  «+X alumnos» solo si el número es real; si no, se saca la línea.
-- **Historias destacadas:** «Empezá acá» (quién es Lean y qué es RIC), «Curso», «Alumnos» (opiniones reales, sin mostrar ganancias) y «Preguntas».
-- **Fijar 3 publicaciones:** el Reel de la clase 14 (tiene la palabra CURSO), uno de presentación de Lean y el que más vistas tenga.
+### Lo principal: volver a poner a Lean adelante
+La cuenta es tuya y la gente te sigue a vos. De cada 3 publicaciones, 2 tienen que ser con tu cara o tu voz:
+- **Análisis del oro y de lo que pasa en el mercado** (lo que mejor anduvo siempre): 30–45 s, pantalla de TradingView y vos en la esquina o en voz. Explicás lo que ves, sin dar señales de compra o venta.
+- **Recortes de vivos y de clases** (como la clase 14), siempre con palabra clave.
+- **Algo personal una vez por semana:** cómo es tu día, un error que cometiste o por qué armaste RIC.
+
+Los Reels de noticias (partículas o expediente) siguen, pero **uno por semana** y siempre con el mismo estilo, porque traen gente nueva.
 
 ### Ritmo semanal
 | Día | Qué | Para qué |
 |---|---|---|
-| Lunes | Reel con Lean en cámara (30–45 s; una idea; puede ser un recorte de una clase) | Vínculo con quien ya sigue |
-| Miércoles | Carrusel educativo (7–8 láminas, estilo RIC) | Guardados y compartidos |
-| Viernes | Reel de noticia (partículas o expediente, reglas de la sección 9) | Gente nueva |
-| Todos los días | 2–4 historias, al menos una con encuesta, pregunta o cuestionario | Despertar a los seguidores |
-
-Elegir **un solo estilo** para los Reels de noticias (partículas o expediente) y sostenerlo un mes, para que la gente lo reconozca.
+| Lunes | Vos analizando el oro o el mercado de la semana (Reel) | Comunidad |
+| Miércoles | Carrusel educativo o recorte de clase con palabra clave | Guardados y comentarios |
+| Viernes | Reel de noticia (un solo estilo, reglas de la sección 9 del reporte de partículas) | Gente nueva |
+| Todos los días | 2–4 historias, al menos una con encuesta, pregunta o cuestionario | Despertar a la base |
 
 ### Interacción
-- **Cada Reel con una palabra clave y algo a cambio**, dicha en la voz y escrita en pantalla al final: «Comentá ORO y te mando el gráfico con las zonas» o «Comentá CURSO…». Necesita que ManyChat funcione (ver la ficha de Instagram).
-- **La pregunta va arriba en el copy**, en la primera línea, no al final.
-- **Responder todos los comentarios en la primera hora**, con una pregunta de vuelta para que la charla siga.
-- **Pedir que lo manden, no solo que lo compartan:** «Mandáselo a alguien que…». Los envíos por mensaje directo ayudan mucho a que un Reel llegue a gente que no te sigue.
-- **Reels de prueba** (opción «Prueba» al publicar un Reel): se muestran primero solo a gente que no te sigue. Sirve para probar un estilo nuevo sin que los seguidores dormidos lo frenen.
+- **Palabra clave en cada publicación**, con algo a cambio: «Comentá ORO y te mando las zonas que estoy mirando», «Comentá CURSO…». Es lo único que generó comentarios este mes. Necesita que ManyChat funcione bien (ver la ficha de Instagram).
+- **La pregunta va en la primera línea del texto**, no al final.
+- **Responder todos los comentarios en la primera hora**, con una pregunta de vuelta.
+- **«Mandáselo a alguien que…»** en los Reels de noticias: el de Binance fue el más compartido del mes y los envíos son lo que más ayuda a llegar a gente nueva.
+- **Reels de prueba** (opción «Prueba» al publicar): se muestran primero solo a gente que no te sigue. Sirven para probar un estilo nuevo sin gastar a la base.
+
+### Perfil (una vez, esta semana)
+- **Bio propuesta** (el aviso de CFDs queda igual):
+  ```
+  🚀 Trader en XAUUSD y Cripto · fundador de Real Investors Club
+  📈 Te muestro cómo leo el mercado, sin humo
+  💬 Comentá CURSO en cualquier Reel y te mando el acceso
+  ⚠️ Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero.
+  ```
+- **Historias destacadas:** «Empezá acá» (quién sos y qué es RIC), «Curso», «Oro» y «Preguntas».
+- **Fijar 3 publicaciones:** el análisis del oro del 01/04, la clase 14 y una presentación tuya nueva.
 
 ### Semana 1: reactivar la base
-1. Historia: «Estoy armando el curso de Intermedios y avanzados. ¿Qué te cuesta más?» (encuesta: Entradas / Gestión del riesgo / Psicología / Encontrar zonas).
-2. Historia con caja de preguntas: «Preguntame lo que quieras de trading». Las respuestas sirven de temas para los Reels.
-3. Reel con Lean contando en 30 s qué es RIC y qué va a publicar en la cuenta («Empezá acá»).
-4. Escribir por mensaje directo a quien comente o vote. A esos seguidores Instagram les va a mostrar más tus cosas.
+1. Historia con encuesta: «Volví a analizar el oro todas las semanas. ¿Lo querés en Reel o en vivo?».
+2. Historia con caja de preguntas: «Preguntame lo que quieras de trading». Las respuestas se usan como temas.
+3. Reel tuyo de 30 s: «Volví. Esto es lo que vas a ver acá» (oro, vivos, el curso de noviembre).
+4. Escribirle por mensaje directo a quien vote o responda: a esa gente Instagram le muestra más tus cosas después.
 
-## 5. Cómo se mide (cada domingo)
+## 5. Sobre los seguidores que no existen
+- **No comprar seguidores ni usar apps que «limpian» la cuenta:** piden la contraseña y Instagram puede restringirla.
+- Borrar a mano los bots evidentes (sin foto, sin publicaciones, nombre con números, de países que no tienen nada que ver) no hace daño, pero lleva tiempo y no es lo que más mueve. Si lo hacés, que sea de a poco (unas decenas por día).
+- Lo que mejora los porcentajes es sumar seguidores argentinos y latinos que sí interactúen.
 
-| Métrica | Dónde | Objetivo a 4 semanas |
+## 6. Cómo se mide (cada domingo, `python herramientas/revisar_instagram.py`)
+| Métrica | Hoy (30 días) | Objetivo a 4 semanas |
 |---|---|---|
-| Retención a los 3 s de cada Reel | Estadísticas del Reel | Más del 60 % |
-| Retención a la mitad | Estadísticas del Reel | Más del 30 % |
-| Alcance de no seguidores | Panel profesional | Que crezca cada semana |
-| Vistas de historias / seguidores | Historias | Pasar del valor de hoy al 5–8 % |
-| Comentarios + envíos por Reel | Estadísticas del Reel | Al menos 10 |
-| Seguidores ganados por semana | Panel profesional | Anotarlo para tener una base |
+| Cuentas que interactuaron | 132 | 250 |
+| Seguidores alcanzados | 632 (16 %) | 1.100 (30 %) |
+| Comentarios | 9 | 60 |
+| Seguidores nuevos − los que se fueron | −20 | positivo |
+| % de interacción de los Reels | 4–5 % (octubre) | 8 % |
+| Retención a los 3 s (en la app) | 45 % (perfil de volumen) | 60 % |
 
-Los números van a la ficha `instagram/README.md`, en «Reels hechos».
-
-## 6. Lo que falta de Lean para cerrar el diagnóstico
-
-Capturas del panel profesional (últimos 30 días):
-1. **Resumen**: cuentas alcanzadas, cuentas que interactuaron, seguidores totales.
-2. **Cuentas alcanzadas**: separado en seguidores y no seguidores, y por tipo de contenido.
-3. **Total de seguidores**: países, edades y **momentos de mayor actividad**.
-4. **Estadísticas de cada Reel publicado** (P09, P10 si salió, clase 14, Binance y perfil de volumen): vistas, retención a los 3 s, de dónde vienen las vistas, comentarios, compartidos, guardados y seguidores ganados.
-5. **Vistas de las últimas 3 historias.**
-6. Respuesta a: ¿cómo llegaron la mayoría de los 3.734 (sorteos, vivos, señales, publicidad, otra cuenta)?
+## 7. Lo que falta de Lean
+1. Qué eran las 2 historias del 31/10 y cuántos de los que las vieron eran seguidores (en la app).
+2. Si tenés un video o vivo reciente analizando el oro para recortar el primer Reel de la semana.
+3. Si aprobás la bio y la palabra clave ORO.
