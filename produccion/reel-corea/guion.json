@@ -1,0 +1,73 @@
+{
+ "titulo": "¿Por qué Corea del Norte robó Binance?",
+ "estilo": "expediente (referencia: Reel de ARQV sobre Corea del Norte, en Drive como corea.mp4)",
+ "datos_al": "2026-11-01",
+ "bloques": [
+  {
+   "id": "01-gancho",
+   "etiqueta": "EXPEDIENTE · BINANCE",
+   "voz": "¿Por qué Corea del Norte le robó seis mil trescientos millones a Báinans? El FBI ya lo confirmó: fueron ellos."
+  },
+  {
+   "id": "02-bucle",
+   "etiqueta": "EXPEDIENTE · BINANCE",
+   "voz": "Quedate hasta el final, porque el próximo objetivo podés ser vos."
+  },
+  {
+   "id": "03-aislada",
+   "etiqueta": "BLOQUE 001 · COREA DEL NORTE",
+   "voz": "Corea del Norte vive aislada, con sanciones de las Naciones Unidas. Y aun así, sigue fabricando misiles. ¿Con qué plata?"
+  },
+  {
+   "id": "04-onu",
+   "etiqueta": "BLOQUE 002 · INFORME ONU",
+   "voz": "Según un informe de las Naciones Unidas, cerca del cuarenta por ciento de su programa de armas se paga con ciberataques."
+  },
+  {
+   "id": "05-bancos",
+   "etiqueta": "BLOQUE 003 · BANGLADESH 2016",
+   "voz": "Antes robaban bancos. En dos mil dieciséis, ochenta y un millones del Banco Central de Bangladesh. Después encontraron algo mejor: la cripto."
+  },
+  {
+   "id": "06-record",
+   "etiqueta": "BLOQUE 004 · RÉCORD",
+   "voz": "En dos mil veinticinco robaron más de dos mil millones. Récord. Y en una sola noche, Báinans: tres veces más."
+  },
+  {
+   "id": "07-drift",
+   "etiqueta": "BLOQUE 005 · LOS INFILTRADOS",
+   "voz": "Y no siempre jáquean. En Dríft, sus enviados se ganaron la confianza del equipo durante seis meses. Y se llevaron doscientos ochenta y cinco millones."
+  },
+  {
+   "id": "08-costo",
+   "etiqueta": "BLOQUE 006 · EL COSTO",
+   "voz": "Por eso, un clic en el enlace equivocado puede terminar financiando un misil."
+  },
+  {
+   "id": "09-cierre-ig",
+   "etiqueta": "EXPEDIENTE CERRADO",
+   "voz": "Seguí esta cuenta, y entendé el mercado antes que el resto.",
+   "solo": "ig"
+  },
+  {
+   "id": "09-cierre-yt",
+   "etiqueta": "EXPEDIENTE CERRADO",
+   "voz": "Suscribite al canal, y entendé el mercado antes que el resto.",
+   "solo": "yt"
+  }
+ ],
+ "fuentes": [
+  "FBI: atribución a Corea del Norte (TraderTraitor), 31/10/2026 — Cointelegraph, Fox Business",
+  "Chainalysis y Elliptic: US$ 6.400 M; Binance: US$ 6.300 M",
+  "Panel de expertos de la ONU, marzo de 2024: ~40 % de los programas de armas de destrucción masiva financiados por ciberataques (estimación de un Estado miembro citada por el panel); Rusia vetó la renovación del panel en marzo de 2024",
+  "Banco Central de Bangladesh, 2016: US$ 81 M",
+  "Chainalysis: más de US$ 2.000 M robados por Corea del Norte en 2025 (récord)",
+  "Drift, abril de 2026: US$ 285 M, operación de seis meses con reuniones en persona por intermediarios (atribución de Drift con confianza media-alta)"
+ ],
+ "pronunciacion": {
+  "Binance": "Báinans",
+  "ONU": "Naciones Unidas (la voz deletrea mal «ONU»)",
+  "hackean": "jáquean",
+  "Drift": "Dríft"
+ }
+}

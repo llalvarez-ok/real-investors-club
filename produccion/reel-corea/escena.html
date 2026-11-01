@@ -1,0 +1,189 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:#06090f;color:#ecf1f9;font-family:"IBM Plex Sans",sans-serif;position:relative}
+#fondo{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 42%,#13233f 0%,#0a1220 55%,#05070c 100%)}
+#fondo::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,220,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,220,.05) 1px,transparent 1px);background-size:60px 60px}
+.papel{position:absolute;background:#1a2233;opacity:.35;border:1px solid #27324a;box-shadow:0 10px 30px #0008}
+#cab{position:absolute;top:70px;left:60px;right:60px;display:flex;justify-content:space-between;align-items:center;font-family:"IBM Plex Mono",monospace;font-weight:600}
+#marca{font-size:26px;letter-spacing:.32em;color:#e2c68c}
+#etiqueta{font-size:22px;letter-spacing:.14em;color:#a3b5d1;border:1px solid #274a80;padding:8px 14px;background:#0b1424cc}
+#barra{position:absolute;top:0;left:0;right:0;height:10px;background:#111a2b}
+#progreso{height:10px;background:linear-gradient(90deg,#8e7140,#e2c68c);width:0}
+#pie{position:absolute;bottom:200px;left:0;right:0;text-align:center;font-family:"IBM Plex Mono",monospace;font-size:20px;color:#5d7396;letter-spacing:.06em}
+#sub{position:absolute;top:1360px;left:50px;right:50px;text-align:center;font-family:Archivo,sans-serif;font-weight:900;font-size:68px;line-height:1.1;text-transform:uppercase;color:#ffffff55;
+  paint-order:stroke fill;-webkit-text-stroke:10px #05070c}
+#sub span.on{color:#fff}#sub span.k{color:#e2c68c}
+.blq{position:absolute;inset:0;transform-origin:50% 45%}
+.tit,.num,.sello{transform-origin:50% 50%}
+.abs{position:absolute}
+.cen{left:0;right:0;text-align:center}
+.tit{font-family:Archivo,sans-serif;font-weight:900;line-height:.98;letter-spacing:-.01em}
+.oro{color:#e2c68c}.rojo{color:#ff6b6b}.gris{color:#a3b5d1}
+.num{font-family:Archivo,sans-serif;font-weight:900;color:#ffd77a;text-shadow:0 0 40px #e2c68c55}
+.mono{font-family:"IBM Plex Mono",monospace;font-weight:600;letter-spacing:.1em}
+.sello{font-family:Archivo,sans-serif;font-weight:900;border:8px solid currentColor;padding:6px 26px;border-radius:10px;letter-spacing:.06em;background:#05070caa}
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:30px;letter-spacing:.08em;padding:12px 22px;border:2px solid #274a80;background:#0b1424e6;border-radius:8px}
+.foto{position:absolute;background:#e9e4d8;padding:16px 16px 54px;box-shadow:0 24px 50px #000a}
+.foto .img{width:100%;height:100%;background:repeating-linear-gradient(135deg,#2a3346 0 18px,#232b3c 18px 36px);display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:"IBM Plex Mono",monospace;font-size:26px;color:#a3b5d1;padding:20px;background-size:cover;background-position:center}
+.foto .pie{position:absolute;bottom:12px;left:18px;right:18px;font-family:"IBM Plex Mono",monospace;font-size:20px;color:#3a3a3a;letter-spacing:.06em}
+.foto::before,.foto::after{content:"";position:absolute;width:150px;height:44px;background:#e8d9a8cc;top:-20px}
+.foto::before{left:-30px;transform:rotate(-24deg)}.foto::after{right:-30px;transform:rotate(22deg)}
+.recorte{position:absolute;background:#efe9dc;color:#161616;padding:28px 34px;box-shadow:0 24px 50px #000a;font-family:"IBM Plex Serif",serif}
+.recorte .sec{font-family:"IBM Plex Mono",monospace;font-size:20px;letter-spacing:.14em;color:#8a1c1c;border-bottom:2px solid #161616;padding-bottom:8px;margin-bottom:12px}
+.recorte .h{font-size:46px;font-weight:700;line-height:1.08}
+.recorte .f{font-family:"IBM Plex Mono",monospace;font-size:18px;color:#555;margin-top:12px}
+.barraH{height:64px;border-radius:6px}
+.card{position:absolute;left:90px;right:90px;background:#0e1626;border:2px solid #8e7140;border-radius:28px;padding:36px;box-shadow:0 24px 60px #000c}
+.btn{display:inline-block;font-family:"IBM Plex Sans",sans-serif;font-weight:700;font-size:38px;padding:16px 0;width:100%;text-align:center;border-radius:14px}
+</style></head><body>
+<div id="fondo"></div>
+<div class="papel" style="left:-60px;top:360px;width:300px;height:380px;transform:rotate(-9deg)"></div>
+<div class="papel" style="right:-80px;top:900px;width:320px;height:420px;transform:rotate(7deg)"></div>
+<div id="barra"><div id="progreso"></div></div>
+<div id="cab"><div id="marca">REAL INVESTORS CLUB</div><div id="etiqueta"></div></div>
+
+<!-- 01 · gancho: visible desde el cuadro 0 -->
+<div class="blq" data-b="01">
+  <div class="abs sello rojo mono" style="left:70px;top:250px;font-size:34px;transform:rotate(-6deg)">EXPEDIENTE · 29.10.26</div>
+  <div class="abs cen tit" style="top:390px;font-size:116px">¿POR QUÉ<br><span class="oro">COREA DEL<br>NORTE</span><br>ROBÓ BINANCE?</div>
+  <div class="abs cen num" style="top:930px;font-size:150px" data-b="01" data-w="6" data-e="cuenta" data-v="6300" data-pre="US$ " data-suf=" M" data-s="tics">US$ 0 M</div>
+  <div class="abs cen" style="top:1150px"><span class="sello rojo" style="font-size:64px;display:inline-block" data-b="01" data-w="12" data-e="sello" data-s="impacto">FBI: FUERON ELLOS</span></div>
+</div>
+
+<!-- 02 · bucle abierto -->
+<div class="blq" data-b="02">
+  <div class="abs cen tit" style="top:460px;font-size:120px" data-b="02" data-w="5" data-e="sube">EL PRÓXIMO<br>OBJETIVO</div>
+  <svg class="abs" style="left:390px;top:760px;width:300px;height:300px" viewBox="0 0 100 100" data-b="02" data-w="7" data-e="pop" data-s="pop">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#ff6b6b" stroke-width="4"/><circle cx="50" cy="50" r="22" fill="none" stroke="#ff6b6b" stroke-width="4"/>
+    <circle cx="50" cy="50" r="5" fill="#ff6b6b"/><path d="M50 2v20M50 78v20M2 50h20M78 50h20" stroke="#ff6b6b" stroke-width="4"/></svg>
+  <div class="abs cen" style="top:1110px"><span class="sello oro" style="font-size:86px;display:inline-block" data-b="02" data-w="8" data-e="sello" data-s="impacto">PODÉS SER VOS</span></div>
+</div>
+
+<!-- 03 · aislada -->
+<div class="blq" data-b="03">
+  <div class="foto" style="left:120px;top:250px;width:620px;height:470px" data-b="03" data-o="0" data-e="foto" data-r="-4" data-s="cinta">
+    <div class="img" data-foto="pyongyang">FOTO PENDIENTE<br>Pyongyang</div><div class="pie">PYONGYANG · COREA DEL NORTE</div></div>
+  <svg class="abs" style="left:700px;top:600px;width:300px;height:200px;box-shadow:0 16px 40px #000a" viewBox="0 0 30 20" data-b="03" data-w="2" data-e="pop" data-s="pop" data-extra=" rotate(6deg)">
+    <rect width="30" height="20" fill="#024FA2"/><rect y="3.4" width="30" height="13.2" fill="#fff"/><rect y="4" width="30" height="12" fill="#ED1C27"/>
+    <circle cx="10" cy="10" r="4" fill="#fff"/><path fill="#ED1C27" d="M10 6.4l.85 2.6h2.75l-2.2 1.6.85 2.6-2.25-1.6-2.2 1.6.84-2.6-2.2-1.6h2.72z"/></svg>
+  <div class="abs" style="left:110px;top:840px" data-b="03" data-w="6" data-e="izq"><span class="chip">SANCIONES · NACIONES UNIDAS</span></div>
+  <svg class="abs" style="left:930px;top:800px;width:100px;height:240px" viewBox="0 0 40 100" data-b="03" data-w="15" data-e="sube" data-s="cohete">
+    <path d="M20 2c7 9 10 22 10 38v34H10V40C10 24 13 11 20 2z" fill="#cfd6e3"/><path d="M10 60L2 80v6l8-4zM30 60l8 20v6l-8-4z" fill="#8e98ab"/>
+    <rect x="12" y="74" width="16" height="6" fill="#8e98ab"/><path d="M14 80h12l-3 16h-6z" fill="#ffb347"/><circle cx="20" cy="30" r="4" fill="#274a80"/></svg>
+  <div class="abs cen tit" style="top:960px;font-size:110px" data-b="03" data-w="17" data-e="golpe" data-s="impacto">¿CON QUÉ<br><span class="oro">PLATA?</span></div>
+</div>
+
+<!-- 04 · Naciones Unidas -->
+<div class="blq" data-b="04">
+  <div class="foto" style="left:300px;top:240px;width:640px;height:440px" data-b="04" data-o="0" data-e="foto" data-r="3" data-s="cinta">
+    <div class="img" data-foto="onu">FOTO PENDIENTE<br>Consejo de Seguridad de la ONU</div><div class="pie">PANEL DE EXPERTOS ONU · MARZO 2024</div></div>
+  <div class="abs num" style="left:90px;top:760px;font-size:250px" data-b="04" data-w="8" data-e="cuenta" data-v="40" data-pre="~" data-suf=" %" data-s="tics">~0 %</div>
+  <div class="abs tit" style="left:100px;top:1040px;font-size:62px" data-b="04" data-w="12" data-e="sube">de su programa de armas</div>
+  <div class="abs" style="left:100px;top:1140px"><span class="sello rojo" style="font-size:66px;display:inline-block" data-b="04" data-w="18" data-e="sello" data-s="impacto">CIBERATAQUES</span></div>
+</div>
+
+<!-- 05 · bancos y cripto -->
+<div class="blq" data-b="05">
+  <div class="foto" style="left:110px;top:250px;width:560px;height:520px" data-b="05" data-o="0" data-e="foto" data-r="-3" data-s="cinta" data-fin="12">
+    <div class="img" data-foto="bangladesh">FOTO PENDIENTE<br>Banco Central de Bangladesh</div><div class="pie">BANCO CENTRAL · BANGLADESH</div></div>
+  <div class="abs mono gris" style="left:700px;top:330px;font-size:64px" data-b="05" data-w="4" data-e="sube" data-fin="12">2016</div>
+  <div class="abs num" style="left:110px;top:840px;font-size:170px" data-b="05" data-w="5" data-e="cuenta" data-v="81" data-pre="US$ " data-suf=" M" data-s="tics" data-fin="12">US$ 0 M</div>
+  <div class="abs cen tit gris" style="top:560px;font-size:80px" data-b="05" data-w="14" data-e="escribe" data-s="maquina">ALGO MEJOR:</div>
+  <div class="abs cen tit oro" style="top:680px;font-size:170px" data-b="05" data-w="17" data-e="golpe" data-s="impacto">LA CRIPTO</div>
+  <svg class="abs" style="left:420px;top:880px;width:240px;height:240px" viewBox="0 0 100 100" data-b="05" data-w="18" data-e="pop" data-s="moneda">
+    <circle cx="50" cy="50" r="46" fill="#c7a35e"/><circle cx="50" cy="50" r="38" fill="#e2c68c"/>
+    <text x="50" y="68" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="52" fill="#6b5226">₿</text></svg>
+</div>
+
+<!-- 06 · récord -->
+<div class="blq" data-b="06">
+  <div class="recorte" style="left:110px;top:260px;width:860px;transform:rotate(-2deg)" data-b="06" data-o="0" data-e="foto" data-r="-2" data-s="cinta">
+    <div class="sec">CRIPTO · BALANCE 2025</div>
+    <div class="h">Corea del Norte rompe su récord: más de 2.000 millones de dólares robados en un año</div>
+    <div class="f">Fuente: Chainalysis</div></div>
+  <div class="abs num" style="left:110px;top:640px;font-size:140px" data-b="06" data-w="5" data-e="cuenta" data-v="2000" data-pre="US$ " data-suf=" M" data-s="tics">US$ 0 M</div>
+  <div class="abs" style="left:110px;top:840px"><span class="sello rojo" style="font-size:52px;display:inline-block" data-b="06" data-w="8" data-e="sello" data-s="impacto">RÉCORD</span></div>
+  <div class="abs mono gris" style="left:110px;top:990px;font-size:28px" data-b="06" data-w="9" data-e="aparece">TODO 2025</div>
+  <div class="abs barraH" style="left:110px;top:1030px;width:0;background:#8e98ab" data-b="06" data-w="9" data-e="barra" data-v="250"></div>
+  <div class="abs mono oro" style="left:110px;top:1120px;font-size:28px" data-b="06" data-w="13" data-e="aparece">BINANCE · UNA NOCHE</div>
+  <div class="abs barraH" style="left:110px;top:1160px;width:0;background:linear-gradient(90deg,#8e7140,#ffd77a)" data-b="06" data-w="14" data-e="barra" data-v="790" data-s="sube"></div>
+  <div class="abs num" style="left:720px;top:960px;font-size:130px;color:#ff6b6b;text-shadow:none" data-b="06" data-w="15" data-e="golpe" data-s="impacto">x3</div>
+</div>
+
+<!-- 07 · Drift -->
+<div class="blq" data-b="07">
+  <div class="abs tit" style="left:100px;top:250px;font-size:70px;white-space:nowrap" data-b="07" data-o="0" data-e="escribe" data-s="maquina">NO SIEMPRE HACKEAN.</div>
+  <div class="abs" style="left:100px;top:380px" data-b="07" data-w="5" data-e="izq"><span class="chip">DRIFT · ABRIL 2026</span></div>
+  <div class="foto" style="left:640px;top:480px;width:340px;height:380px" data-b="07" data-w="6" data-e="foto" data-r="4" data-s="cinta">
+    <div class="img" style="background:#dfe6f0"><img src="../../herramientas/animaciones/recursos/obj-busts-in-silhouette.svg" style="width:85%"></div><div class="pie">«SOCIOS» EN PERSONA</div></div>
+  <div class="abs num" style="left:100px;top:520px;font-size:190px" data-b="07" data-w="15" data-e="cuenta" data-v="6" data-s="tics">0</div>
+  <div class="abs tit" style="left:100px;top:730px;font-size:70px" data-b="07" data-w="15" data-e="sube">MESES<br><span class="gris" style="font-size:46px">ganando su confianza</span></div>
+  <div class="abs num" style="left:100px;top:1000px;font-size:170px;color:#ff6b6b;text-shadow:none" data-b="07" data-w="19" data-e="cuenta" data-v="285" data-pre="US$ " data-suf=" M" data-s="tics">US$ 0 M</div>
+</div>
+
+<!-- 08 · el costo -->
+<div class="blq" data-b="08">
+  <div class="abs cen tit" style="top:330px;font-size:150px" data-b="08" data-w="3" data-e="golpe" data-s="clic">UN CLIC</div>
+  <svg class="abs" style="left:640px;top:450px;width:130px;height:180px" viewBox="0 0 26 36" data-b="08" data-w="3" data-e="pop" data-extra=" rotate(-10deg)">
+    <path d="M2 2l20 18h-9l5 12-4 2-5-12-7 7z" fill="#fff" stroke="#05070c" stroke-width="1.5"/></svg>
+  <div class="abs cen tit gris" style="top:610px;font-size:110px" data-b="08" data-w="8" data-e="pop">=</div>
+  <div class="abs cen tit rojo" style="top:760px;font-size:150px" data-b="08" data-w="12" data-e="golpe" data-s="impacto">UN MISIL</div>
+  <svg class="abs" style="left:465px;top:940px;width:150px;height:330px" viewBox="0 0 40 100" data-b="08" data-w="12" data-e="sube">
+    <path d="M20 2c7 9 10 22 10 38v34H10V40C10 24 13 11 20 2z" fill="#cfd6e3"/><path d="M10 60L2 80v6l8-4zM30 60l8 20v6l-8-4z" fill="#8e98ab"/>
+    <rect x="12" y="74" width="16" height="6" fill="#8e98ab"/><path d="M14 80h12l-3 16h-6z" fill="#ffb347"/></svg>
+</div>
+
+<!-- 09 · cierre Instagram -->
+<div class="blq var-ig" data-b="09">
+  <div class="abs cen tit" style="top:270px;font-size:104px" data-b="09" data-o="0" data-e="golpe" data-s="impacto">SEGUÍ ESTA<br><span class="oro">CUENTA</span></div>
+  <div class="card" style="top:560px" data-b="09" data-w="1" data-e="sube" data-s="whoosh">
+    <div style="display:flex;align-items:center;gap:34px">
+      <img src="../../herramientas/particulas/avatar.png" style="width:170px;height:170px;border-radius:50%;border:4px solid #e2c68c">
+      <div style="display:flex;gap:30px;text-align:center;font-size:28px;color:#a3b5d1">
+        <div><b style="display:block;font-size:44px;color:#fff">27</b>publicaciones</div>
+        <div style="position:relative"><b style="display:block;font-size:44px;color:#fff" data-b="09" data-o="0" data-e="aparece" data-fin="5">3.734</b>
+          <b style="position:absolute;top:0;left:0;right:0;font-size:44px;color:#e2c68c" data-b="09" data-w="5" data-e="pop">3.735</b>seguidores</div>
+        <div><b style="display:block;font-size:44px;color:#fff">19</b>seguidos</div></div></div>
+    <div style="margin-top:26px;font-size:36px;font-weight:700">leanalvarez.ok <span style="color:#4c9bff">✓</span></div>
+    <div style="font-size:30px;color:#a3b5d1;margin-top:4px">Lean Alvarez | Trading & Finanzas</div>
+    <div style="font-size:26px;color:#a3b5d1;margin-top:10px">Trader en XAUUSD y Cripto · realinvestors.club</div>
+    <div style="position:relative;margin-top:28px;height:80px">
+      <span class="btn abs" style="background:#0095f6;color:#fff;left:0" data-b="09" data-o="0" data-e="aparece" data-fin="5">Seguir</span>
+      <span class="btn abs" style="background:#263247;color:#fff;left:0" data-b="09" data-w="5" data-e="aparece" data-s="clic">Siguiendo ✓</span></div>
+  </div>
+  <div class="abs num" style="left:700px;top:520px;font-size:90px" data-b="09" data-w="5" data-e="pop">+1</div>
+</div>
+
+<!-- 09 · cierre YouTube -->
+<div class="blq var-yt" data-b="09">
+  <div class="abs cen tit" style="top:270px;font-size:104px" data-b="09" data-o="0" data-e="golpe" data-s="impacto">SUSCRIBITE<br><span class="oro">AL CANAL</span></div>
+  <div class="card" style="top:580px;text-align:center" data-b="09" data-w="1" data-e="sube" data-s="whoosh">
+    <div style="width:220px;height:220px;border-radius:50%;background:#071426;border:4px solid #e2c68c;margin:0 auto;display:flex;align-items:center;justify-content:center">
+      <img src="../../marca/logo.svg" style="width:170px"></div>
+    <div style="margin-top:26px;font-size:46px;font-weight:700">Real Investors Club</div>
+    <div style="position:relative;margin-top:30px;height:80px">
+      <span class="btn abs" style="background:#ff0033;color:#fff;left:0" data-b="09" data-o="0" data-e="aparece" data-fin="2">Suscribirme</span>
+      <span class="btn abs" style="background:#263247;color:#fff;left:0" data-b="09" data-w="2" data-e="aparece" data-s="clic">Suscripto ✓</span></div>
+  </div>
+  <svg class="abs" style="left:470px;top:1120px;width:140px;height:140px" viewBox="0 0 24 24" data-b="09" data-w="6" data-e="pop" data-s="ding">
+    <path d="M12 22a2.5 2.5 0 0 0 2.4-2h-4.8A2.5 2.5 0 0 0 12 22zm7-6V11a7 7 0 0 0-5.5-6.8V3.5a1.5 1.5 0 0 0-3 0v.7A7 7 0 0 0 5 11v5l-2 2v1h18v-1z" fill="#e2c68c"/></svg>
+</div>
+
+<div id="sub"></div>
+<div id="pie">DATOS AL 01/11/2026 · FUENTES: FBI, CHAINALYSIS, ONU, DRIFT</div>
+<script>
+  const VAR = new URLSearchParams(location.search).get('v') || 'ig';
+  document.querySelectorAll(VAR === 'ig' ? '.var-yt' : '.var-ig').forEach(e => e.remove());
+  document.write('<script src="tiempos-' + VAR + '.js"><\/script><script src="../../herramientas/expediente/expediente.js"><\/script>');
+</script>
+<script>
+  // fotos: si existe fotos/<nombre>.jpg se usa; si no, queda el hueco marcado
+  document.querySelectorAll('[data-foto]').forEach(d => {
+    const i = new Image(); i.onload = () => { d.style.backgroundImage = `url(${i.src})`; d.textContent = ''; };
+    i.src = 'fotos/' + d.dataset.foto + '.jpg';
+  });
+</script>
+</body></html>
