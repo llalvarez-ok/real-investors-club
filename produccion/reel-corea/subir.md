@@ -1,8 +1,14 @@
 # Reel / Short: ¿Por qué Corea del Norte robó Binance?
 
-Estado: **borrador del 01/11/2026 con las 3 fotos pendientes** (Pyongyang, Consejo de Seguridad de la ONU y Banco Central de Bangladesh).
-Cuando estén, van en `produccion/reel-corea/fotos/<pyongyang|onu|bangladesh>.jpg` y se vuelve a renderizar.
-Duración: 53 s. Voz Piper es_AR «Daniela» (dataset OpenSLR 61, CC BY-SA 4.0).
+Estado: **versión «expediente cine» del 01/11/2026** (rehecha por pedido de Lean: voz nueva y estilo nuevo, ver
+`herramientas/cine/LEEME.md`). Duración: 57 s. Voz es-AR-TomasNeural (edge-tts), revisada con whisper.
+Fotos reales de Wikimedia Commons (créditos en pantalla y abajo). La versión anterior (estilo «expediente» con voz Daniela)
+quedó descartada: la voz pronunciaba mal muchas palabras.
+
+**Créditos de las fotos** (van en pantalla; si alguna plataforma pide más, pegar esto en la descripción):
+Pyongyang de noche · Michael Day · CC BY 2.0 — Pyongyang desde el hotel Yanggakdo · John Pavelka · CC BY 2.0 —
+Consejo de Seguridad de la ONU · Patrick Gruban · CC BY-SA 2.0 — Banco de Bangladesh, Daca · Abu Nayeem · CC BY 3.0 —
+Hacker (ilustrativa) · David Whelan · CC0 — Prueba de misil Trident (ilustrativa) · US Navy · dominio público. Todas de Wikimedia Commons.
 
 ## Instagram (@leanalvarez.ok)
 ```
@@ -22,7 +28,7 @@ Un clic en el enlace equivocado puede terminar financiando un misil. El próximo
 📲 Mandáselo a alguien que tenga cripto en un exchange.
 
 —
-Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (2024) y Drift. Voz generada con IA. Contenido educativo, no es recomendación de inversión.
+Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (2024) y Drift. Fotos: Wikimedia Commons (autores y licencias en el video). Voz generada con IA. Contenido educativo, no es recomendación de inversión.
 
 #Binance #CoreaDelNorte #Cripto #Bitcoin #Hackeo #Ciberseguridad #Criptomonedas #Trading #TradingArgentina #Noticias
 ```
@@ -45,7 +51,8 @@ El FBI confirmó que Corea del Norte está detrás del robo de US$ 6.300 millone
 
 —
 Datos al 01/11/2026. Fuentes: FBI, Chainalysis, Elliptic, Panel de expertos de la ONU (marzo de 2024) y Drift.
-🤖 La voz de este video es sintética, generada con inteligencia artificial (Piper, voz «Daniela», dataset OpenSLR 61, CC BY-SA 4.0).
+🤖 La voz de este video es sintética, generada con inteligencia artificial (Microsoft, voz es-AR «Tomás»).
+📷 Fotos: Michael Day (CC BY 2.0), John Pavelka (CC BY 2.0), Patrick Gruban (CC BY-SA 2.0), Abu Nayeem (CC BY 3.0), David Whelan (CC0) y US Navy (dominio público), vía Wikimedia Commons. Las del hacker y el misil son ilustrativas.
 ⚠️ Contenido educativo. No constituye recomendación de inversión.
 
 #Binance #CoreaDelNorte #Cripto #Shorts

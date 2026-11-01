@@ -22,7 +22,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | P10 «FOMO» | **No figura en Instagram** según la API (01/11) | `produccion/p10-fomo/subir.md`, sección R1-instagram |
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
-| «¿Por qué Corea del Norte robó Binance?» (expediente) | Borrador con fotos pendientes (01/11) | `produccion/reel-corea/subir.md` |
+| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz Tomás) | Rehecho y entregado por el chat el 01/11, falta publicar | `produccion/reel-corea/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
