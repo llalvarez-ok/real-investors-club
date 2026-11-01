@@ -7,7 +7,7 @@
 - Con una URL pública (por ejemplo, un MP4 de menos de 100 MB en Drive con «Cualquier persona con el enlace»:
   https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t), Instagram lo baja de ahí.
 - Opciones: portada en el segundo SEG del video (thumb_offset), nombre del audio original, y se comparte también en el feed.
-Usa RIC_IG_TOKEN y RIC_IG_USER_ID del entorno. Imprime el link del Reel publicado (nunca imprimir respuestas crudas de la API:
+Usa RIC_IG_TOKEN_IG (o RIC_IG_TOKEN) y RIC_IG_USER_ID del entorno. Imprime el link del Reel publicado (nunca imprimir respuestas crudas de la API:
 los links de paginación traen el token).
 Codificar el MP4 con bt709 y keyframe cada 2 s (ver herramientas/cine/LEEME.md); con color bt470bg Instagram no lo transcodificaba.
 Estado al 01/11/2026: la subida y el procesado funcionan, pero media_publish devuelve «Fatal» (subcódigo 2207085);
@@ -15,14 +15,15 @@ según la documentación de terceros es un problema de permisos del token (ver i
 """
 import argparse, json, os, time, urllib.parse, urllib.request
 
-# Con RIC_IG_TOKEN_IG (inicio de sesión con Instagram, permiso instagram_business_content_publish) publica por
-# graph.instagram.com, que es lo que funciona para @leanalvarez.ok; RIC_IG_TOKEN (inicio de sesión con Facebook) da
-# «Fatal» 2207085 al publicar porque la cuenta no está vinculada a una página de Facebook.
-if os.environ.get("RIC_IG_TOKEN_IG"):
-    G, TOK = "https://graph.instagram.com/v21.0/", os.environ["RIC_IG_TOKEN_IG"]
+# El endpoint sale del tipo de token, no del nombre de la variable: «IGAA…» (inicio de sesión con Instagram) va por
+# graph.instagram.com; «EAA…» (usuario del sistema, inicio de sesión con Facebook) va por graph.facebook.com.
+# Desde el 01/11/2026 RIC_IG_TOKEN_IG trae un token EAA de usuario del sistema con instagram_content_publish.
+TOK = os.environ.get("RIC_IG_TOKEN_IG") or os.environ["RIC_IG_TOKEN"]
+if TOK.startswith("IG"):
+    G = "https://graph.instagram.com/v21.0/"
     IGU = json.load(urllib.request.urlopen(G + "me?fields=user_id&access_token=" + TOK))["user_id"]
 else:
-    G, TOK, IGU = "https://graph.facebook.com/v21.0/", os.environ["RIC_IG_TOKEN"], os.environ["RIC_IG_USER_ID"]
+    G, IGU = "https://graph.facebook.com/v21.0/", os.environ["RIC_IG_USER_ID"]
 
 
 def api(metodo, ruta, **p):

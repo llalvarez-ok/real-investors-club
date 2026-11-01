@@ -1,7 +1,7 @@
 """Revisión de @leanalvarez.ok por la API de Meta (solo lectura).
 
 Uso: python herramientas/revisar_instagram.py [salida.json]
-Necesita RIC_IG_TOKEN y RIC_IG_USER_ID en el entorno (ver CLAUDE.md).
+Necesita RIC_IG_TOKEN_IG (o RIC_IG_TOKEN) y RIC_IG_USER_ID en el entorno (ver CLAUDE.md).
 Imprime un resumen de los últimos 30 días y la tabla de publicaciones; con un
 argumento, guarda además todos los datos crudos en ese JSON.
 """
@@ -14,7 +14,7 @@ import urllib.parse
 import urllib.request
 
 G = "https://graph.facebook.com/v21.0/"
-T = os.environ["RIC_IG_TOKEN"]
+T = os.environ.get("RIC_IG_TOKEN_IG") or os.environ["RIC_IG_TOKEN"]
 U = os.environ["RIC_IG_USER_ID"]
 HISPANOS = {"AR", "CO", "MX", "PE", "VE", "ES", "EC", "CL", "UY", "PY", "BO", "DO",
             "HN", "GT", "SV", "NI", "CR", "PA", "CU", "PR", "US"}
