@@ -29,6 +29,8 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 Los MP4 no van a git: se entregaron por el chat.
 
 ## Desempeño y cambios propuestos
+Revisión completa de la cuenta del 01/11/2026 (por qué los seguidores no interactúan, cómo medir si están activos, bio nueva, ritmo semanal y plan de 4 semanas): `analisis/2026-11-01-revision-instagram.md`. Falta que Lean mande las capturas del panel profesional (sección 6 de esa revisión) para cerrar el diagnóstico.
+
 El análisis del Reel «Perfil de volumen» (curva de retención, origen de las vistas y diagnóstico) está en
 `analisis/2026-11-01-reporte-reels-particulas.md`, sección 8. Los cambios que salieron de ahí son las reglas de abajo.
 
@@ -71,5 +73,6 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - En YouTube no existen los mensajes privados: el link va en el comentario fijado y en la descripción.
 
 ## Pendiente
+- Mandar las capturas del panel profesional que pide la sección 6 de `analisis/2026-11-01-revision-instagram.md` y decidir la bio nueva y el estilo único para los Reels de noticias.
 - Confirmar si el Reel de P10 está publicado.
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
