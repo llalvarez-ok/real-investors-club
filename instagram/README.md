@@ -22,7 +22,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | P10 «FOMO» | **No figura en Instagram** según la API (01/11) | `produccion/p10-fomo/subir.md`, sección R1-instagram |
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
-| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | Listo para publicar (01/11): falta que Instagram pueda recibir el video (ver «Publicar por la API») | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
+| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | Listo para publicar (01/11): la API no lo publica por un error de permisos del token (ver «Publicar por la API»); publicarlo a mano | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
@@ -94,4 +94,6 @@ Portada: «ORDER BLOCKS en 1 minuto».
 ## Publicar por la API
 - `python herramientas/publicar_reel_ig.py <video.mp4 | URL> <caption.txt> --portada <seg> --audio "<nombre>"` (permiso `instagram_content_publish`, cupo de 100 publicaciones por día). Cada publicación necesita el OK de Lean.
 - Desde la nube, la subida directa usa `rupload.facebook.com`, que está **bloqueado** en la red del entorno (01/11/2026): hay que agregarlo en la configuración del entorno (Network access → Allowed domains).
+- **01/11/2026:** con `rupload.facebook.com` habilitado, la subida y el procesado funcionan (estado FINISHED), pero `media_publish` devuelve siempre «Fatal», subcódigo 2207085 («Error interno genérico»), probado con 4 contenedores, con y sin portada y nombre de audio. Según la documentación de Ayrshare (un servicio que usa la misma API), ese subcódigo se arregla volviendo a autorizar la cuenta con todos los permisos: en el portfolio comercial, Configuración → Usuarios del sistema → asignar la cuenta de Instagram con **control total** (incluido «Contenido») y generar un token nuevo con `instagram_content_publish`; después cargarlo en `RIC_IG_TOKEN`.
+- Detalles de la subida: el primer intento a `rupload` puede devolver 400 aunque haya subido (el script lo detecta); el MP4 tiene que ir en bt709 (con bt470bg, que es lo que sale de cuadros JPEG, Instagram no lo transcodificaba).
 - Alternativa: un MP4 de menos de 100 MB en Drive con «Cualquier persona con el enlace» y pasar la URL `https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t` (sin probar todavía).

@@ -7,7 +7,11 @@
 - Con una URL pública (por ejemplo, un MP4 de menos de 100 MB en Drive con «Cualquier persona con el enlace»:
   https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t), Instagram lo baja de ahí.
 - Opciones: portada en el segundo SEG del video (thumb_offset), nombre del audio original, y se comparte también en el feed.
-Usa RIC_IG_TOKEN y RIC_IG_USER_ID del entorno. Imprime el link del Reel publicado.
+Usa RIC_IG_TOKEN y RIC_IG_USER_ID del entorno. Imprime el link del Reel publicado (nunca imprimir respuestas crudas de la API:
+los links de paginación traen el token).
+Codificar el MP4 con bt709 y keyframe cada 2 s (ver herramientas/cine/LEEME.md); con color bt470bg Instagram no lo transcodificaba.
+Estado al 01/11/2026: la subida y el procesado funcionan, pero media_publish devuelve «Fatal» (subcódigo 2207085);
+según la documentación de terceros es un problema de permisos del token (ver instagram/README.md).
 """
 import argparse, json, os, time, urllib.parse, urllib.request
 
@@ -40,17 +44,33 @@ def main():
     else: p["video_url"] = o.video
     c = api("POST", f"{IGU}/media", **p); cid = c["id"]; print("contenedor", cid, flush=True)
     if local:
-        n = os.path.getsize(o.video)
-        r = urllib.request.Request(c.get("uri") or f"https://rupload.facebook.com/ig-api-upload/v21.0/{cid}", data=open(o.video, "rb").read(), method="POST",
-                                   headers={"Authorization": f"OAuth {TOK}", "offset": "0", "file_size": str(n)})
-        print("subida", json.load(urllib.request.urlopen(r)), flush=True)
+        n = os.path.getsize(o.video); datos = open(o.video, "rb").read()
+        for intento in range(5):  # el primer intento suele dar 400 (el contenedor todavía no está listo): esperar y reintentar
+            time.sleep(5 + 10 * intento)
+            r = urllib.request.Request(f"https://rupload.facebook.com/ig-api-upload/v21.0/{cid}", data=datos, method="POST",
+                                       headers={"Authorization": f"OAuth {TOK}", "offset": "0", "file_size": str(n)})
+            try:
+                print("subida", json.load(urllib.request.urlopen(r)), flush=True); break
+            except urllib.error.HTTPError as e:
+                txt = e.read().decode()[:300]
+                if "not in the status to upload" in txt:  # el intento anterior sí subió (el proxy pierde la respuesta)
+                    print("subida: ya estaba subido", flush=True); break
+                print("subida falló", e.code, txt, flush=True)
+        else:
+            raise SystemExit("No se pudo subir el video")
     for _ in range(90):  # Instagram procesa el video (1 a 5 minutos)
         s = api("GET", cid, fields="status_code,status")
         print("estado", s.get("status_code"), s.get("status", ""), flush=True)
         if s.get("status_code") == "FINISHED": break
         if s.get("status_code") in ("ERROR", "EXPIRED"): raise SystemExit(f"Instagram no pudo procesar el video: {s}")
         time.sleep(10)
-    m = api("POST", f"{IGU}/media_publish", creation_id=cid)
+    for intento in range(4):  # a veces media_publish da «error interno genérico» (2207085): esperar y reintentar
+        try:
+            m = api("POST", f"{IGU}/media_publish", creation_id=cid); break
+        except SystemExit as e:
+            print("publicación falló:", e, flush=True); time.sleep(30)
+    else:
+        raise SystemExit(f"Instagram no publicó el contenedor {cid}")
     info = api("GET", m["id"], fields="permalink,timestamp")
     print("publicado", m["id"], info.get("permalink"))
 
