@@ -1,0 +1,11 @@
+Cada vez que alguien compra o vende, deja una huella en el precio. Si juntás todas esas huellas, ves algo que las velas no te muestran: dónde se puso de acuerdo el mercado.
+Se llama perfil de volumen. Son barras que miden cuánto se negoció en cada precio.
+La barra más larga es el pok: el precio más negociado. A su alrededor está el setenta por ciento del volumen. Eso es el área de valor: el precio que el mercado aceptó como justo.
+¿Cómo se lee? Con dos ideas. Primera: adentro del área de valor, compradores y vendedores están de acuerdo. El precio va de un borde al otro, sin ir a ninguna parte.
+Segunda: afuera, el volumen se seca. Donde casi no hay barras, el precio cruza rápido, hasta encontrar otro acuerdo.
+Por eso, la señal está en el borde. Si el precio sale y se queda afuera, hay movimiento. Si vuelve a entrar, era una trampa.
+Y esto sirve con cualquier estrategia.
+Con Bólinger: las bandas se aprietan adentro del valor. Y la ruptura que vale, es la que además sale de la zona.
+Con Uáicof: el rango es el área de valor. El esprín la perfora y vuelve. Y la entrada llega cuando rompe por arriba, y prueba el borde desde afuera.
+Y en el oro: marcá el área de valor del día anterior. Si Nueva York abre afuera y se sostiene, buscá continuidad. Si vuelve a entrar, muchas veces cruza hasta el otro borde.
+Adentro, se espera. En el borde, se decide. ¿Y vos? ¿Entrás adentro de la zona, o esperás a que salga? Te leo en los comentarios.
