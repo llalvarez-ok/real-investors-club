@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Dos traders · expediente cine</title>
+<!-- Estilo «expediente cine» (herramientas/cine/LEEME.md). Versión con ?v=ig (Instagram) o ?v=yt (YouTube). -->
+<script>
+  // ?v=ig|yt (versión) y ?voz=tomas para la versión con la voz sintética; por defecto, la voz grabada por Lean
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig', VOZ = Q.get('voz') === 'tomas' ? 'tomas-' : '';
+  document.write(`<script src="tiempos-${VOZ}${V}.js"><\/script>`);
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #05070c; }
+  body { font-family: Inter, sans-serif; color: #f5f5f2; }
+  canvas { position: absolute; left: 0; top: 0; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 48%; }
+  .blq { position: absolute; inset: 0; display: none; }
+  .abs { position: absolute; }
+  [data-e] { opacity: 0; will-change: transform, opacity; }
+  .titulo { font-family: "Inter Display", Inter; font-weight: 900; font-size: 92px; line-height: .98; text-transform: uppercase; letter-spacing: -1px;
+    text-align: center; left: 40px; right: 40px; text-shadow: 0 6px 30px rgba(0,0,0,.85); }
+  .oro { color: #e2b74a; } .oro2 { color: #ffde8c; } .rojo { color: #ff5a55; } .gris { color: #9aa0aa; }
+  .tag { font: 700 26px "JetBrains Mono", monospace; letter-spacing: 3px; padding: 10px 18px; border: 3px solid currentColor; text-transform: uppercase;
+    background: rgba(5,7,12,.7); }
+  .cifra { font-family: "Inter Display", Inter; font-weight: 900; font-size: 150px; letter-spacing: -3px; text-align: center; left: 0; right: 0;
+    color: #ffde8c; text-shadow: 0 0 40px rgba(226,183,74,.55), 0 0 90px rgba(226,183,74,.3), 0 8px 24px rgba(0,0,0,.8); }
+  .sello { font: 900 58px "Inter Display", Inter; color: #ff4d4a; border: 7px double #ff4d4a; padding: 10px 28px 6px; letter-spacing: 2px;
+    text-transform: uppercase; background: rgba(40,4,6,.35); box-shadow: 0 0 40px rgba(255,60,60,.25); }
+  .sello small { display: block; font: 700 22px "JetBrains Mono"; letter-spacing: 4px; text-align: center; }
+  .polaroid { background: #efe9dc; padding: 18px 18px 64px; box-shadow: 0 30px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.2); }
+  .polaroid img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.7) contrast(1.1) sepia(.12); }
+  .polaroid .pie { position: absolute; left: 22px; right: 22px; bottom: 16px; font: 700 21px "JetBrains Mono"; color: #2a2a2a; letter-spacing: 1px; }
+  .cinta { position: absolute; width: 150px; height: 46px; background: rgba(236,220,170,.72); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .recorte { background: #ece5d6; color: #1b1b1b; padding: 26px 34px 30px; font-family: "Liberation Serif", serif; box-shadow: 0 24px 50px rgba(0,0,0,.6);
+    clip-path: polygon(0 3%, 6% 0, 14% 2%, 25% 0, 40% 2%, 52% 0, 66% 2%, 80% 0, 92% 3%, 100% 1%, 99% 96%, 90% 100%, 75% 97%, 60% 100%, 45% 97%, 30% 100%, 15% 97%, 3% 100%, 1% 60%); }
+  .recorte .sec { font: 700 18px "JetBrains Mono"; color: #b3261e; letter-spacing: 2px; border-bottom: 2px solid #1b1b1b; padding-bottom: 8px; margin-bottom: 12px; }
+  .recorte h3 { font-size: 44px; line-height: 1.08; font-weight: 700; }
+  .recorte .fte { font: 16px "JetBrains Mono"; color: #555; margin-top: 12px; }
+  .tachado { position: relative; display: inline-block; }
+  .tachado::after { content: ''; position: absolute; left: -8px; top: 12%; height: 80%; width: calc(var(--tacha, 0%) + 16px); background: #c62828; z-index: -1; transform: skewX(-8deg); }
+  .tachado { z-index: 0; isolation: isolate; }
+  .credito { font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.55); letter-spacing: .5px; }
+  .bandera { width: 230px; height: 128px; background: linear-gradient(#024fa2 0 15%, #fff 15% 19%, #ed1c27 19% 81%, #fff 81% 85%, #024fa2 85%); position: relative;
+    box-shadow: 0 16px 34px rgba(0,0,0,.6); }
+  .bandera::before { content: ''; position: absolute; left: 30px; top: 30px; width: 68px; height: 68px; border-radius: 50%; background: #fff; }
+  .bandera::after { content: '★'; position: absolute; left: 36px; top: 21px; font-size: 62px; color: #ed1c27; }
+  .url { left: 80px; right: 80px; height: 104px; background: #f3f4f6; border-radius: 52px; box-shadow: 0 20px 60px rgba(0,0,0,.6); display: flex; align-items: center;
+    padding: 0 36px; gap: 18px; font: 600 33px Inter; color: #222; }
+  .url .cand { width: 30px; height: 30px; border-radius: 6px; background: #c9302c; }
+  .cursor { width: 70px; height: 92px; background: #fff; clip-path: polygon(0 0, 0 82%, 22% 64%, 38% 100%, 52% 94%, 36% 60%, 66% 60%); filter: drop-shadow(0 4px 8px rgba(0,0,0,.7)); }
+  .anillo-pista { left: 290px; top: 710px; width: 500px; height: 500px; border-radius: 50%; border: 46px solid rgba(140,144,152,.18); }
+  .dias { display: flex; gap: 14px; justify-content: center; left: 0; right: 0; }
+  .dias div { width: 112px; height: 112px; border: 3px solid #e2b74a; color: #e2b74a; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center;
+    background: rgba(226,183,74,.08); }
+  .tarjeta { left: 70px; right: 70px; background: rgba(14,16,22,.92); border: 2px solid rgba(226,183,74,.45); border-radius: 34px; padding: 40px; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+  .tarjeta .fila { display: flex; align-items: center; gap: 30px; }
+  .tarjeta img.av { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid #e2b74a; background: #fff; }
+  .tarjeta .nom { font: 800 44px Inter; } .tarjeta .sub2 { font: 500 28px Inter; color: #9aa0aa; margin-top: 6px; }
+  .tarjeta .nums { display: flex; justify-content: space-around; margin: 34px 0 30px; text-align: center; font: 500 26px Inter; color: #9aa0aa; }
+  .tarjeta .nums b { display: block; font: 800 46px Inter; color: #f5f5f2; }
+  .boton { height: 96px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font: 800 40px Inter; position: relative; overflow: hidden; }
+  .boton .b2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  /* HUD fijo */
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  #barra { position: absolute; left: 50px; right: 50px; top: 54px; height: 4px; background: rgba(255,255,255,.12); }
+  #progreso { height: 100%; width: 0; background: #e2b74a; box-shadow: 0 0 12px #e2b74a; }
+  #marca { position: absolute; left: 50px; top: 82px; font: 800 26px Inter; letter-spacing: 6px; color: #e2b74a; }
+  #etiqueta { position: absolute; right: 50px; top: 76px; font: 700 22px "JetBrains Mono"; letter-spacing: 2px; color: #f5f5f2; border: 2px solid rgba(245,245,242,.4);
+    padding: 6px 12px; background: rgba(5,7,12,.5); }
+  #rec { position: absolute; left: 50px; top: 128px; font: 600 20px "JetBrains Mono"; letter-spacing: 3px; color: rgba(245,245,242,.6); }
+  #rec i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #ff3b3b; margin-right: 10px; box-shadow: 0 0 10px #ff3b3b; }
+  #sub { position: absolute; left: 40px; right: 40px; top: 905px; text-align: center; font: 900 68px "Inter Display", Inter; line-height: 1.12; text-transform: uppercase;
+    letter-spacing: -.5px; }
+  #sub span { display: inline-block; margin: 0 .13em; color: rgba(245,245,242,.28); text-shadow: 0 4px 18px rgba(0,0,0,.9); transition: none; }
+  #sub span.on { color: #f5f5f2; } #sub span.k { color: #ffcf5a; text-shadow: 0 0 26px rgba(226,183,74,.6), 0 4px 18px rgba(0,0,0,.9); }
+  #pie { position: absolute; left: 50px; right: 50px; top: 1712px; text-align: center; font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.4); letter-spacing: .5px; }
+
+  .mitad { position: absolute; left: 0; right: 0; }
+  .nombre { font: 800 30px "JetBrains Mono", monospace; letter-spacing: 6px; padding: 8px 16px; border: 3px solid currentColor; background: rgba(5,7,12,.65); }
+  .banda { position: absolute; left: 0; right: 0; top: 860px; height: 200px; background: linear-gradient(rgba(5,7,12,.0), rgba(5,7,12,.92) 18%, rgba(5,7,12,.92) 82%, rgba(5,7,12,0)); }
+  .cuaderno { background: #ece5d6; color: #1b1b1b; padding: 18px 26px; font: 600 26px "JetBrains Mono", monospace; line-height: 1.5; box-shadow: 0 20px 40px rgba(0,0,0,.6); transform: rotate(-2deg); }
+  .cuaderno .t { font: 700 20px "JetBrains Mono"; color: #8e7140; border-bottom: 2px solid #1b1b1b; margin-bottom: 6px; letter-spacing: 2px; }
+  .verde { color: #3dd68c; }
+  .tarjeta-curso { left: 70px; right: 70px; background: rgba(10,16,30,.94); border: 2px solid rgba(226,198,140,.6); border-radius: 30px; padding: 40px 36px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+  .tarjeta-curso .e { font: 700 24px "JetBrains Mono"; letter-spacing: 6px; color: #c7a35e; }
+  .tarjeta-curso .h { font: 900 64px "Inter Display", Inter; line-height: 1.02; margin: 14px 0; text-transform: uppercase; }
+  .tarjeta-curso .d { font: 800 46px Inter; color: #e2b74a; } .tarjeta-curso .m { font: 600 30px Inter; color: #a3b5d1; margin-top: 8px; }
+</style></head>
+<body>
+<div id="cam">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <canvas id="pt" width="1080" height="1920"></canvas>
+
+  <!-- 01 · GANCHO: mismo comienzo (se ve desde el cuadro 0) -->
+  <div class="blq" data-b="01">
+    <div class="abs nombre rojo" style="left:50px;top:220px" data-b="01" data-o="ya" data-e="aparece">LUCAS</div>
+    <div class="abs nombre oro" style="left:50px;top:1080px" data-b="01" data-o="ya" data-e="aparece">VALENTINA</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="25">Dos traders</div>
+    <div class="abs titulo oro" style="top:1250px;font-size:84px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="21">Mismo comienzo</div>
+    <div class="abs tag" style="left:340px;top:770px;color:#ecf1f9" data-b="01" data-w="17" data-e="pop" data-s="pop">1 año después</div>
+    <div class="abs sello" style="left:600px;top:1150px;color:#3dd68c;border-color:#3dd68c;background:rgba(4,40,20,.4)" data-b="01" data-w="21" data-e="sello" data-r="-6" data-s="sello">Avanzó</div>
+    <div class="abs sello" style="left:250px;top:420px" data-b="01" data-w="25" data-e="sello" data-r="-6" data-s="sello">Cuenta perdida ×2</div>
+    <div class="abs titulo oro2" style="top:560px;font-size:120px" data-b="01" data-w="30" data-e="golpe" data-s="impacto">¿Por qué?</div>
+    <div class="abs credito" style="left:50px;top:1650px" data-b="01" data-o="ya" data-e="aparece">EJEMPLO ILUSTRATIVO · LUCAS Y VALENTINA NO SON LAS PERSONAS DE LAS FOTOS</div>
+  </div>
+
+  <!-- 02 · LUCAS -->
+  <div class="blq" data-b="02">
+    <div class="abs nombre rojo" style="left:50px;top:220px" data-b="02" data-o="0" data-e="izq">LUCAS</div>
+    <div class="abs tag rojo" style="left:50px;top:300px;font-size:34px" data-b="02" data-w="1" data-e="sube">Estrategia #<span data-b="02" data-w="1" data-e="cuenta" data-v="7" data-desde="1" data-fijo="1" data-d="2.2">1</span></div>
+    <div class="abs sello" style="left:40px;top:540px;font-size:42px" data-b="02" data-w="8" data-e="sello" data-r="-5" data-s="sello">10 % por<br>operación</div>
+    <div class="abs titulo rojo" style="top:380px;font-size:96px;letter-spacing:4px" data-b="02" data-w="17" data-e="glitch" data-s="impacto">Revancha</div>
+  </div>
+
+  <!-- 03 · VALENTINA -->
+  <div class="blq" data-b="03">
+    <div class="abs nombre oro" style="left:50px;top:1080px" data-b="03" data-o="0" data-e="izq">VALENTINA</div>
+    <div class="abs tag oro" style="left:50px;top:1160px;font-size:34px" data-b="03" data-w="1" data-e="sube">1 estrategia</div>
+    <div class="abs sello" style="left:40px;top:1470px;font-size:42px;color:#e2b74a;border-color:#e2b74a;background:rgba(40,30,4,.45)" data-b="03" data-w="7" data-e="sello" data-r="5" data-s="sello">1 % por<br>operación</div>
+    <div class="abs cuaderno" style="left:440px;top:1470px;width:600px" data-b="03" data-w="11" data-e="foto" data-r="-2" data-s="cinta">
+      <div class="t">CUADERNO DE OPERACIONES</div>
+      <div data-b="03" data-w="11" data-o="0.2" data-e="escribe" data-s="maquina" style="opacity:1">#1 · plan A · −1 %</div>
+      <div data-b="03" data-w="11" data-o="0.7" data-e="escribe" style="opacity:1">#2 · plan A · +2 %</div>
+      <div data-b="03" data-w="11" data-o="1.2" data-e="escribe" style="opacity:1">#3 · fuera del plan · no entro</div>
+    </div>
+  </div>
+
+  <!-- 04 · HAGAMOS LA CUENTA -->
+  <div class="blq" data-b="04">
+    <div class="abs titulo" style="top:240px" data-b="04" data-o="0" data-e="golpe" data-s="impacto">Hagamos <span class="oro">la cuenta</span></div>
+    <div class="abs tag" style="left:230px;top:420px;font-size:38px;color:#ff6b6b" data-b="04" data-w="3" data-e="sube">Pérdidas seguidas: <span data-b="04" data-w="3" data-e="cuenta" data-v="10" data-desde="0" data-fijo="1" data-d="2.4" data-s="tics">0</span></div>
+    <div class="abs credito" style="left:0;right:0;text-align:center;top:560px;font-size:30px;color:#cfd3da" data-b="04" data-w="17" data-e="aparece">0,90<sup>10</sup> ≈ 35 % &nbsp;·&nbsp; 0,99<sup>10</sup> ≈ 90 %</div>
+    <div class="abs cifra rojo" style="top:1130px;left:250px;right:auto;width:280px;font-size:84px;color:#ff6b6b;text-shadow:0 0 30px rgba(255,90,85,.5)" data-b="04" data-w="17" data-e="cuenta" data-v="35" data-desde="100" data-suf=" %" data-d="1.2">35 %</div>
+    <div class="abs cifra" style="top:1120px;left:550px;right:auto;width:280px;font-size:84px" data-b="04" data-w="27" data-e="cuenta" data-v="90" data-desde="100" data-suf=" %" data-d="1.0">90 %</div>
+    <div class="abs credito" style="left:300px;top:1615px;font:700 26px 'JetBrains Mono';color:#ff6b6b" data-b="04" data-w="3" data-e="aparece">LUCAS · 10 %</div>
+    <div class="abs credito" style="left:590px;top:1615px;font:700 26px 'JetBrains Mono';color:#e2c68c" data-b="04" data-w="3" data-e="aparece">VALENTINA · 1 %</div>
+  </div>
+
+  <!-- 05 · UN AÑO DESPUÉS -->
+  <div class="blq" data-b="05">
+    <div class="abs tag" style="left:340px;top:220px;color:#ecf1f9" data-b="05" data-o="0" data-e="pop" data-s="pop">1 año después</div>
+    <div class="abs titulo rojo" style="top:470px;font-size:92px" data-b="05" data-w="0" data-e="glitch" data-s="impacto">Cuenta nueva #3</div>
+    <div class="abs cuaderno" style="left:110px;top:1110px;width:560px" data-b="05" data-w="6" data-e="foto" data-r="-2" data-s="cinta">
+      <div class="t">CUADERNO DE OPERACIONES</div>
+      <div style="font:900 64px 'Inter Display',Inter;color:#1b1b1b"><span data-b="05" data-w="8" data-e="cuenta" data-v="100" data-desde="3" data-fijo="1" data-d="1.1">3</span> operaciones</div>
+    </div>
+    <div class="abs sello" style="left:640px;top:1360px;color:#3dd68c;border-color:#3dd68c;background:rgba(4,40,20,.4);font-size:44px" data-b="05" data-w="14" data-e="sello" data-r="-4" data-s="sello">✓ Esto sí</div>
+    <div class="abs sello" style="left:640px;top:1500px;font-size:44px" data-b="05" data-w="16" data-e="sello" data-r="4" data-s="sello">✗ Esto no</div>
+  </div>
+
+  <!-- 06 · REMATE -->
+  <div class="blq" data-b="06">
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="06" data-o="0" data-e="sube">El que avanza<br>no es el que<br><span class="gris">más sabe</span></div>
+    <div class="abs titulo oro" style="top:1150px;font-size:80px" data-b="06" data-w="12" data-e="golpe" data-s="impacto">Es el que sigue<br>en el juego</div>
+  </div>
+
+  <!-- 07 · CIERRE -->
+  <div class="blq" data-b="07">
+    <div class="abs tarjeta-curso" style="top:300px" data-b="07" data-o="0" data-e="sube" id="cierre"></div>
+    <div class="abs sello" style="left:200px;top:1140px;font-size:60px;color:#e2b74a;border-color:#e2b74a;background:rgba(40,30,4,.45)" data-b="07" data-w="5" data-e="sello" data-r="-5" data-s="sello" id="sello-cierre">Comentá «CURSO»</div>
+  </div>
+</div>
+<div class="banda"></div>
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="hud">
+  <div id="barra"><div id="progreso"></div></div>
+  <div id="marca">REAL INVESTORS CLUB</div>
+  <div id="etiqueta"></div>
+  <div id="rec"><i></i>EXP. N.º 0032 · DOS TRADERS</div>
+  <div id="sub"></div>
+  <div id="pie">Fotos: Hamilton60 (CC BY-SA 3.0), CIPHR Connect (CC BY 2.0) y CC0, vía Wikimedia Commons · Gráficos: oro GC=F, datos reales · Voz generada con IA · No es recomendación de inversión</div>
+</div>
+<script>
+  T.bloques.forEach(b => { b.id = b.id.slice(0, 2); });
+  if (T.voz_grabada) document.getElementById('pie').textContent = 'Fotos: Hamilton60 (CC BY-SA 3.0), CIPHR Connect (CC BY 2.0) y CC0, vía Wikimedia Commons · Gráficos: oro GC=F, datos reales · No es recomendación de inversión';
+  const IG = V === 'ig';
+  document.getElementById('cierre').innerHTML = IG
+    ? '<div class="e">NUEVO CURSO · EN VIVO</div><div class="h">Intermedio<br><span class="oro">&amp; Avanzado</span></div><div class="d">16 NOV · 21:00 HS</div><div class="m">En vivo por YouTube · 100 % gratis</div>'
+    : '<img src="../../marca/logo-oro.png" style="width:420px;margin:10px auto 20px;display:block"><div class="h" style="font-size:54px">Real Investors Club</div><div class="boton" style="background:#ff0033;color:#fff;margin-top:24px">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="0" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>';
+  if (!IG) document.getElementById('sello-cierre').remove();
+  const P = (b, w, extra) => Object.assign({ b, w }, extra);
+  const ARR = [0, 200, 1080, 660], ABA = [0, 1060, 1080, 640];
+  window.ESC = {
+    clave: /(lucas|valentina|10 %|1 %|35|90|cuenta|curso|estrategia|perdió|avanzó|aprender|juego|100|plata|recuperarse|anota|sabe)/i,
+    fotos: { sala: 'fotos/sala.jpg', lest: 'fotos/lucas-estresado.jpg', lago: 'fotos/lucas-agobiado.jpg', vcua: 'fotos/valentina-cuaderno.jpg',
+      vesc: 'fotos/valentina-escribe.jpg', lucas: 'fotos/lucas.jpg', vale: 'fotos/valentina.jpg' },
+    planos: [
+      // 01: la misma sala de trading arriba y abajo; después cada mitad toma su foto y su color
+      { b: '01', o: -0.4, hasta: { b: '01', w: 25 }, foto: 'sala', caja: ARR, kb: [.5, .55, 1.0, .5, .5, 1.12], look: 'noche' },
+      { b: '01', w: 25, hasta: { b: '02', o: 0 }, foto: 'lest', caja: ARR, kb: [.5, .35, 1.05, .5, .38, 1.15], look: 'rojo' },
+      { b: '01', o: -0.4, hasta: { b: '01', w: 21 }, foto: 'sala', caja: ABA, kb: [.5, .45, 1.12, .5, .5, 1.0], look: 'noche' },
+      { b: '01', w: 21, hasta: { b: '02', o: 0 }, foto: 'vcua', caja: ABA, kb: [.45, .5, 1.0, .5, .5, 1.12], look: 'oro' },
+      // 02: Lucas agobiado, con su pantalla (oro real del 30/10, con seis indicadores encima); Valentina apagada
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'lago', caja: ARR, kb: [.5, .38, 1.0, .5, .4, 1.12], look: 'rojo', oscuro: [.1, .25] },
+      { b: '02', w: 6, hasta: { b: '03', o: 0 }, foto: 'lucas', caja: [470, 470, 560, 350], marco: 1, kb: [.5, .5, 1.0, .6, .5, 1.15], look: 'doc' },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'vcua', caja: ABA, kb: [.5, .5, 1.12, .5, .5, 1.15], look: 'noche', oscuro: [.6, .65] },
+      // 03: Valentina escribe, con su pantalla (oro real del 08-09/10, una zona y un plan); Lucas apagado
+      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'lago', caja: ARR, kb: [.5, .4, 1.12, .5, .4, 1.15], look: 'rojo', oscuro: [.6, .7] },
+      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'vesc', caja: ABA, kb: [.55, .5, 1.0, .5, .5, 1.1], look: 'oro' },
+      { b: '03', w: 5, hasta: { b: '04', o: 0 }, foto: 'vale', caja: [470, 1090, 560, 350], marco: 1, kb: [.5, .5, 1.0, .55, .5, 1.12], look: 'oro' },
+      // 04: la cuenta, con la sala de trading de fondo muy oscura
+      { b: '04', o: 0, hasta: { b: '05', o: 0 }, foto: 'sala', kb: [.5, .5, 1.0, .5, .5, 1.08], look: 'noche', oscuro: [.72, .78] },
+      // 05: un año después
+      { b: '05', o: 0, hasta: { b: '06', o: 0 }, foto: 'lest', caja: ARR, kb: [.5, .38, 1.15, .5, .36, 1.05], look: 'rojo', oscuro: [.3, .45] },
+      { b: '05', o: 0, hasta: { b: '06', o: 0 }, foto: 'vcua', caja: ABA, kb: [.5, .5, 1.0, .45, .5, 1.12], look: 'oro', oscuro: [.25, .35] },
+      // 06 y 07: Valentina a pantalla completa
+      { b: '06', o: 0, hasta: { b: '07', o: 0.2 }, foto: 'vesc', kb: [.55, .5, 1.0, .5, .5, 1.1], look: 'oro', oscuro: [.3, .45] },
+      { b: '07', o: 0, dur: 6, foto: 'sala', kb: [.5, .5, 1.05, .5, .5, 1.1], look: 'noche', oscuro: [.6, .65] },
+    ],
+    particulas: [
+      { b: '01', o: -5, forma: 'disperso', y: 950, alfa: .45 },
+      P('04', 3, { forma: 'barras', v: [100, 100], max: 100, x: 540, y: 1600, color: 'oro2' }),
+      P('04', 17, { forma: 'barras', v: [35, 100], max: 100, x: 540, y: 1600, color: 'oro2', son: 'sube' }),
+      P('04', 27, { forma: 'barras', v: [35, 90], max: 100, x: 540, y: 1600, color: 'oro2' }),
+      { b: '05', o: 0, forma: 'disperso', y: 950, alfa: .3 },
+      P('06', 12, { forma: 'nube', y: 1300, r: 420, e: 1.0, alfa: .5, color: 'oro' }),
+      { b: '07', o: 0.3, forma: 'disperso', y: 900, alfa: .55 },
+    ],
+  };
+</script>
+<script src="../../herramientas/cine/motor.js"></script>
+</body></html>
