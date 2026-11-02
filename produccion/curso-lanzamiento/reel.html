@@ -67,7 +67,7 @@
     <div>
       <div class="eyebrow">Real Investors Club · Reel 9:16</div>
       <h1>Curso Intermedio &amp; Avanzado</h1>
-      <p class="bajada">Pieza de lanzamiento de 18 segundos en cuatro escenas, renderizada en vivo a 1080×1920.</p>
+      <p class="bajada">Pieza de lanzamiento de 18 segundos: cuatro escenas y tres tomas de cámara (escritorio del trader, macro de la pantalla y ciudad al atardecer), renderizadas en vivo a 1080×1920.</p>
     </div>
 
     <div class="controles">
@@ -97,7 +97,7 @@
       <dt>Formato</dt><dd>En vivo por YouTube</dd>
       <dt>Precio</dt><dd>100 % gratis</dd>
     </dl>
-    <p class="nota"><kbd>Espacio</kbd> reproduce o pausa · <kbd>←</kbd> <kbd>→</kbd> mueven medio segundo. El gráfico es ilustrativo: las velas se generan, no son datos de mercado.</p>
+    <p class="nota"><kbd>Espacio</kbd> reproduce o pausa · <kbd>←</kbd> <kbd>→</kbd> mueven medio segundo. Las tomas y los gráficos son ilustrativos: están dibujados en el navegador, no son filmaciones ni datos de mercado.</p>
   </div>
 </div>
 
@@ -221,25 +221,158 @@
     c.save(); c.globalAlpha = a; c.fillStyle = C.oro; c.fillRect(70, 172, 940 * cl(t / DUR), 2); c.restore();
   }
 
+  // ================= TOMAS CINEMATOGRÁFICAS (hechas en canvas) =================
+  // Pantallas fuera de cuadro: un gráfico y un libro de órdenes que se actualizan con el tiempo.
+  const mk = (w, h) => { const k = document.createElement('canvas'); k.width = w; k.height = h; return [k, k.getContext('2d')]; };
+  const [scrA, sa] = mk(900, 560), [scrB, sb] = mk(560, 560), [scrC, sc2] = mk(560, 560);
+  function pantallaGrafico(x, w, h, t, desde, n, tono) {
+    x.fillStyle = '#050c18'; x.fillRect(0, 0, w, h);
+    x.strokeStyle = 'rgba(163,181,209,.08)'; x.lineWidth = 1;
+    for (let i = 1; i < 8; i++) { x.beginPath(); x.moveTo(0, h * i / 8); x.lineTo(w, h * i / 8); x.stroke(); x.beginPath(); x.moveTo(w * i / 8, 0); x.lineTo(w * i / 8, h); x.stroke(); }
+    const vs = VELAS.slice(desde, desde + n), lo = Math.min(...vs.map(v => v.l)) - .5, hi = Math.max(...vs.map(v => v.h)) + .5;
+    const Y = v => h * .9 - (v - lo) / (hi - lo) * h * .8, cw = w / (n + 2);
+    const viva = (t * 1.3) % 1;
+    vs.forEach((v, i) => { const ult = i === vs.length - 1, cc = ult ? lerp(v.o, v.c, .3 + .7 * viva) : v.c, col = cc >= v.o ? C.sube : C.baja, xx = (i + 1) * cw;
+      x.strokeStyle = col; x.fillStyle = col; x.lineWidth = 2; x.beginPath(); x.moveTo(xx, Y(v.h)); x.lineTo(xx, Y(v.l)); x.stroke();
+      x.fillRect(xx - cw * .3, Math.min(Y(v.o), Y(cc)), cw * .6, Math.max(2, Math.abs(Y(cc) - Y(v.o)))); });
+    x.strokeStyle = tono || C.oro; x.lineWidth = 2.5; x.beginPath(); MM.slice(desde, desde + n).forEach((v, i) => i ? x.lineTo((i + 1) * cw, Y(v)) : x.moveTo(cw, Y(v))); x.stroke();
+    x.fillStyle = 'rgba(163,181,209,.55)'; x.font = `500 16px ${F.m}`; x.fillText('XAUUSD · M15', 14, 24);
+  }
+  function pantallaLibro(x, w, h, t) {
+    x.fillStyle = '#050c18'; x.fillRect(0, 0, w, h); x.font = `500 17px ${F.m}`;
+    const filas = 18, fh = h / filas, medio = filas / 2;
+    for (let i = 0; i < filas; i++) {
+      const pr = (2412.5 + (medio - i) * .25).toFixed(2), comp = i >= medio, vol = .25 + .75 * Math.abs(Math.sin(i * 1.7 + t * (1.5 + i % 3)));
+      x.fillStyle = comp ? 'rgba(61,214,140,.22)' : 'rgba(255,107,107,.22)'; x.fillRect(comp ? 0 : w - w * .45 * vol, i * fh + 2, w * .45 * vol, fh - 4);
+      x.fillStyle = comp ? C.sube : C.baja; x.textAlign = 'center'; x.fillText(pr, w / 2, i * fh + fh * .7);
+      x.textAlign = comp ? 'left' : 'right'; x.fillStyle = 'rgba(236,241,249,.7)'; x.fillText(String(Math.round(vol * 240)), comp ? 10 : w - 10, i * fh + fh * .7);
+    }
+    x.fillStyle = 'rgba(226,198,140,.9)'; x.fillRect(0, medio * fh - 1, w, 2);
+  }
+  // pantalla curva en perspectiva: la imagen se dibuja en franjas verticales (perspectiva y curvatura falsas)
+  function monitor(img, x0, x1, top0, bot0, top1, bot1, curva, brillo) {
+    const N = 48, iw = img.width;
+    c.save(); c.shadowColor = 'rgba(80,140,255,.35)'; c.shadowBlur = 60 * brillo;
+    for (let i = 0; i < N; i++) {
+      const u = i / N, u2 = (i + 1) / N, b = Math.sin(Math.PI * (u + .5 / N)) * curva;
+      const xa = lerp(x0, x1, u), xb = lerp(x0, x1, u2), ta = lerp(top0, top1, u) - b, ba = lerp(bot0, bot1, u) + b;
+      c.drawImage(img, u * iw, 0, iw / N + 1, img.height, xa, ta, xb - xa + 1, ba - ta);
+    }
+    c.restore();
+    // marco
+    c.save(); c.strokeStyle = '#0a0f18'; c.lineWidth = 14; c.beginPath();
+    for (let i = 0; i <= N; i++) { const u = i / N, b = Math.sin(Math.PI * u) * curva; const xx = lerp(x0, x1, u), yy = lerp(top0, top1, u) - b; i ? c.lineTo(xx, yy) : c.moveTo(xx, yy); }
+    for (let i = N; i >= 0; i--) { const u = i / N, b = Math.sin(Math.PI * u) * curva; c.lineTo(lerp(x0, x1, u), lerp(bot0, bot1, u) + b); }
+    c.closePath(); c.stroke(); c.restore();
+  }
+  const BOKEH = [...Array(26)].map(() => [rnd() * W, 200 + rnd() * 700, 20 + rnd() * 60, rnd() < .55 ? '255,190,110' : '110,160,255', .1 + rnd() * .25, rnd() * 6]);
+
+  // Toma 1: el trader frente a sus pantallas, de espaldas, con lámpara cálida, bokeh y acercamiento lento.
+  function toma1(t, a) {
+    if (a <= 0) return;
+    pantallaGrafico(sa, 900, 560, t, 6 + Math.floor(t * 3) % 8, 30); pantallaLibro(sb, 560, 560, t); pantallaGrafico(sc2, 560, 560, t, 20, 22, C.texto2);
+    c.save(); c.globalAlpha = a;
+    const z = 1 + .14 * io(p(t, -0.5, 3.6)); c.translate(540, 980); c.scale(z, z); c.translate(-540 + 15 * Math.sin(t * .6), -980);
+    // sala: fondo oscuro, luces desenfocadas
+    const g = c.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#04070d'); g.addColorStop(.55, '#0a1424'); g.addColorStop(1, '#03060b'); c.fillStyle = g; c.fillRect(-100, -100, W + 200, H + 200);
+    c.save(); c.globalCompositeOperation = 'lighter';
+    for (const [bx, by, br, col, ba, ph] of BOKEH) { const rr = br * (1 + .05 * Math.sin(t + ph)); const q = c.createRadialGradient(bx, by, rr * .6, bx, by, rr);
+      q.addColorStop(0, `rgba(${col},${ba})`); q.addColorStop(.85, `rgba(${col},${ba * .8})`); q.addColorStop(1, `rgba(${col},0)`); c.fillStyle = q; c.beginPath(); c.arc(bx, by, rr, 0, 7); c.fill(); }
+    c.restore();
+    // escritorio con reflejo
+    const d = c.createLinearGradient(0, 1240, 0, H); d.addColorStop(0, '#111a28'); d.addColorStop(1, '#05080d'); c.fillStyle = d; c.fillRect(-100, 1240, W + 200, 800);
+    c.save(); c.globalAlpha = .18; c.filter = 'blur(6px)'; c.translate(0, 2 * 1240); c.scale(1, -1);
+    monitor(scrA, 300, 780, 760, 1150, 760, 1150, 26, 0); c.restore(); c.filter = 'none';
+    // pantallas: izquierda, centro y derecha
+    monitor(scrB, 20, 300, 800, 1170, 760, 1200, 0, .6);
+    monitor(scrA, 300, 780, 740, 1160, 740, 1160, 26, 1);
+    monitor(scrC, 780, 1060, 760, 1200, 800, 1170, 0, .6);
+    // soportes
+    c.fillStyle = '#0a0f18'; c.fillRect(522, 1160, 36, 90); c.fillRect(460, 1236, 160, 14);
+    // lámpara cálida a la izquierda y su luz sobre la mesa
+    c.strokeStyle = '#151c28'; c.lineWidth = 12; c.beginPath(); c.moveTo(70, 1300); c.lineTo(140, 1040); c.lineTo(250, 980); c.stroke();
+    c.fillStyle = '#1b2433'; c.beginPath(); c.moveTo(220, 950); c.lineTo(300, 990); c.lineTo(270, 1030); c.lineTo(200, 995); c.closePath(); c.fill();
+    c.save(); c.globalCompositeOperation = 'lighter'; const l = c.createRadialGradient(270, 1080, 0, 270, 1220, 420);
+    l.addColorStop(0, 'rgba(255,190,110,.55)'); l.addColorStop(1, 'rgba(255,190,110,0)'); c.fillStyle = l; c.fillRect(-100, 900, 900, 700); c.restore();
+    // el trader de espaldas: silueta con luz de borde (sin rostro)
+    c.save(); c.translate(640, 1640); c.scale(.78, .78); const sil = c.createLinearGradient(0, -450, 0, 150); sil.addColorStop(0, '#060a12'); sil.addColorStop(1, '#010205'); c.fillStyle = sil;
+    c.beginPath(); c.ellipse(0, -330, 92, 112, 0, 0, 7); c.fill();
+    c.beginPath(); c.moveTo(-60, -250); c.lineTo(60, -250); c.quadraticCurveTo(300, -200, 330, 120); c.lineTo(-330, 120); c.quadraticCurveTo(-300, -200, -60, -250); c.fill();
+    c.globalCompositeOperation = 'lighter'; c.strokeStyle = 'rgba(255,190,110,.55)'; c.lineWidth = 5; c.filter = 'blur(2px)';
+    c.beginPath(); c.ellipse(0, -330, 92, 112, 0, Math.PI * .95, Math.PI * 1.45); c.stroke();
+    c.beginPath(); c.moveTo(-60, -250); c.quadraticCurveTo(-300, -200, -330, 120); c.stroke();
+    c.strokeStyle = 'rgba(110,160,255,.35)'; c.beginPath(); c.ellipse(0, -330, 92, 112, 0, Math.PI * 1.6, Math.PI * 2.05); c.stroke();
+    c.filter = 'none'; c.restore();
+    c.restore();
+  }
+
+  // Toma 2: macro de la pantalla, velas verdes que suben, reflejos y profundidad de campo corta.
+  const [macro, mc] = mk(W, H);
+  const SUBE = [...Array(60)].map((_, i) => { const o = 100 + i * .9 + Math.sin(i * 1.3) * 1.2; return { o, c: o + 1 + Math.abs(Math.sin(i * 2.1)) * 1.6, h: o + 3.2, l: o - .8 }; });
+  const [px3, p3] = mk(6, 6); p3.fillStyle = 'rgba(255,60,60,.5)'; p3.fillRect(0, 0, 2, 6); p3.fillStyle = 'rgba(60,255,120,.5)'; p3.fillRect(2, 0, 2, 6); p3.fillStyle = 'rgba(80,120,255,.5)'; p3.fillRect(4, 0, 2, 6);
+  function toma2(t, a) {
+    if (a <= 0) return;
+    const k = p(t, 2.9, 5.2), off = k * 6;
+    mc.fillStyle = '#03080f'; mc.fillRect(0, 0, W, H);
+    const cw = 150, base = Math.floor(off), fr = off - base, Y = v => 1500 - (v - 100 - base * .9) * 60;
+    for (let i = 0; i < 9; i++) { const v = SUBE[base + i]; if (!v) break; const xx = 140 + (i - fr) * cw;
+      mc.strokeStyle = C.sube; mc.fillStyle = C.sube; mc.shadowColor = C.sube; mc.shadowBlur = 30; mc.lineWidth = 8;
+      mc.beginPath(); mc.moveTo(xx, Y(v.h)); mc.lineTo(xx, Y(v.l)); mc.stroke(); mc.fillRect(xx - 45, Y(v.c), 90, Y(v.o) - Y(v.c)); }
+    mc.shadowBlur = 0; mc.font = `500 30px ${F.m}`;
+    for (let i = 0; i < 26; i++) { const y = ((i * 80 - t * 260) % 2080 + 2080) % 2080 - 80, up = Math.sin(i * 3.1) > -.3;
+      mc.fillStyle = up ? 'rgba(61,214,140,.75)' : 'rgba(255,107,107,.6)'; mc.textAlign = 'right'; mc.fillText((2412 + i * .37 + Math.sin(t * 3 + i)).toFixed(2), 1050, y); }
+    c.save(); c.globalAlpha = a; const z = lerp(1.25, 1.05, io(k)); c.translate(540, 960); c.scale(z, z); c.rotate(-.04); c.translate(-540, -960);
+    c.filter = 'blur(14px)'; c.drawImage(macro, 0, 0); c.filter = 'none';
+    // franja nítida (foco) que se desplaza levemente
+    const fy = 760 + 160 * Math.sin(t * .8), gm = c.createLinearGradient(0, fy - 420, 0, fy + 420);
+    c.save(); c.beginPath(); c.rect(0, fy - 330, W, 660); c.clip(); c.drawImage(macro, 0, 0); c.restore();
+    // trama de subpíxeles del panel
+    c.globalAlpha = a * .25; c.fillStyle = c.createPattern(px3, 'repeat'); c.fillRect(-200, -200, W + 400, H + 400); c.globalAlpha = a;
+    // reflejo de neón sobre el vidrio
+    c.globalCompositeOperation = 'lighter'; const rx = -400 + ((t - 2.9) / 2.3) * 1800, r = c.createLinearGradient(rx, 0, rx + 380, 300);
+    r.addColorStop(0, 'rgba(110,160,255,0)'); r.addColorStop(.5, 'rgba(160,200,255,.18)'); r.addColorStop(1, 'rgba(110,160,255,0)'); c.fillStyle = r; c.fillRect(-200, -200, W + 400, H + 400);
+    c.restore();
+  }
+
+  // Toma 3: oficina en lo alto frente a la ciudad al atardecer, cámara baja que se desliza.
+  const EDIF = [0, 1].map(capa => { const lista = []; let x = -200; while (x < W + 400) { const w = 60 + rnd() * (capa ? 140 : 90); lista.push({ x, w, h: (capa ? 380 : 260) + rnd() * (capa ? 620 : 420), luz: rnd() }); x += w + (capa ? 6 : 14); } return lista; });
+  function toma3(t, a) {
+    if (a <= 0) return;
+    const pan = io(p(t, 13.6, 18.4));
+    c.save(); c.globalAlpha = a;
+    const cielo = c.createLinearGradient(0, 0, 0, 1300); cielo.addColorStop(0, '#0b1733'); cielo.addColorStop(.55, '#3a2a4a'); cielo.addColorStop(.8, '#c46a3c'); cielo.addColorStop(1, '#f2b06a');
+    c.fillStyle = cielo; c.fillRect(0, 0, W, H);
+    const sol = c.createRadialGradient(700 - pan * 120, 1240, 0, 700 - pan * 120, 1240, 520); sol.addColorStop(0, 'rgba(255,214,150,.75)'); sol.addColorStop(1, 'rgba(255,214,150,0)'); c.fillStyle = sol; c.fillRect(0, 600, W, 900);
+    EDIF.forEach((capa, ci) => { const par = (ci ? 160 : 70) * pan;
+      capa.forEach((e, k) => { const x = e.x - par, y = 1320 - e.h; c.fillStyle = ci ? '#0a0f1c' : 'rgba(40,40,70,.85)'; c.fillRect(x, y, e.w, e.h + 700);
+        if (ci) for (let wy = y + 20; wy < 1300; wy += 28) for (let wx = x + 8; wx < x + e.w - 8; wx += 18) {
+          const on = Math.sin(wx * 12.9898 + wy * 78.233 + k) * 43758.5453 % 1; if (Math.abs(on) < .35 * e.luz + .08) { c.fillStyle = `rgba(255,${200 + (on * 50 | 0)},140,${.35 + .4 * Math.abs(Math.sin(t * .7 + wx))})`; c.fillRect(wx, wy, 7, 11); } } }); });
+    // reflejo del interior en el vidrio y parteluces de la ventana
+    c.fillStyle = 'rgba(7,20,38,.35)'; c.fillRect(0, 0, W, H);
+    c.fillStyle = '#05080e'; for (let x = -pan * 260; x < W + 300; x += 330) c.fillRect(x, 0, 26, H); c.fillRect(0, 1320, W, 18);
+    // escritorio en primer plano con dos pantallas que muestran la estructura del mercado (no ganancias)
+    const d = c.createLinearGradient(0, 1500, 0, H); d.addColorStop(0, '#0d1420'); d.addColorStop(1, '#030509'); c.fillStyle = d; c.fillRect(0, 1500, W, 420);
+    pantallaGrafico(sa, 900, 560, t, 10, 32);
+    c.save(); c.translate(-pan * 60, 0); monitor(scrA, 120, 620, 1250, 1540, 1270, 1520, 10, .8); monitor(scrA, 640, 1100, 1270, 1520, 1250, 1540, 10, .8); c.restore();
+    c.restore();
+  }
+
   // ---------- escenas ----------
-  function escena1(t) {  // 0–4 s: gancho
+  function escena1(t) {  // 0–4 s: gancho sobre el escritorio del trader; a los 3 s, macro de la pantalla
+    const a1 = vis(t, 0, 3.4, .01, .55), a2 = vis(t, 3.0, 4.6, .45, .6);
+    toma1(t, a1); toma2(t, a2);
     const a = vis(t, 0, 4.2, .01, .6);
     if (a <= 0) return;
-    const cuantas = lerp(4, 30, io(p(t, 0, 4.2)));
-    c.save(); const z = 1.06 - .06 * io(p(t, 0, 4.2)); c.translate(W / 2, H / 2); c.scale(z, z); c.translate(-W / 2, -H / 2);
-    grafico(t, cuantas, a * .95); lineaPrecio(t, cuantas, a); c.restore();
-    // velo para que el texto se lea
-    c.save(); c.globalAlpha = a * .55; const g = c.createLinearGradient(0, 230, 0, 760); g.addColorStop(0, C.noche); g.addColorStop(1, 'rgba(7,20,38,0)'); c.fillStyle = g; c.fillRect(0, 230, W, 530); c.restore();
+    c.save(); c.globalAlpha = a * .75; const g = c.createLinearGradient(0, 200, 0, 860); g.addColorStop(0, 'rgba(4,7,13,.95)'); g.addColorStop(1, 'rgba(4,7,13,0)'); c.fillStyle = g; c.fillRect(0, 200, W, 660); c.restore();
     texto('PARA QUIEN YA OPERA', 540, 300, { size: 26, peso: 600, fam: F.m, color: C.texto2, esp: 6, alfa: a * io(p(t, .1, .6)) });
-    palabra('¿Estancado', 540, 440, p(t, .15, .85), { size: 132, alfa: a });
-    palabra('en tu', 540, 570, p(t, .45, 1.15), { size: 132, alfa: a });
+    palabra('¿Estancado', 540, 440, p(t, .15, .85), { size: 132, alfa: a, sombra: 30 });
+    palabra('en tu', 540, 570, p(t, .45, 1.15), { size: 132, alfa: a, sombra: 30 });
     palabra('operativa?', 540, 700, p(t, .75, 1.45), { size: 132, color: C.oro, alfa: a, glow: 'rgba(226,198,140,.35)' });
-    // subrayado que se dibuja bajo «operativa»
     const u = io(p(t, 1.4, 2.1)); c.save(); c.globalAlpha = a; c.fillStyle = C.oro2; c.fillRect(540 - 330 * u, 726, 660 * u, 6); c.restore();
   }
 
   function escena2(t) {  // 4–9 s: título y lectura del mercado
-    const a = vis(t, 4, 9.2, .7, .6);
+    const a = vis(t, 4.2, 9.2, .8, .6);
     if (a <= 0) return;
     const k = p(t, 4, 9.2);
     c.save(); const z = 1 + .08 * io(k); c.translate(W / 2, 1050); c.scale(z, z); c.translate(-W / 2, -1050);
@@ -309,6 +442,8 @@
   function escena4(t) {  // 14–18 s: fecha y recordatorio
     const a = vis(t, 14, 18.5, .6, .01);
     if (a <= 0) return;
+    toma3(t, a);
+    c.save(); c.globalAlpha = a * .62; c.fillStyle = '#071426'; c.fillRect(0, 0, W, H); c.restore();
     texto('LANZAMIENTO', 540, 330, { size: 30, peso: 600, fam: F.m, color: C.oro2, esp: 10, alfa: a * io(p(t, 14.1, 14.6)) });
     // tarjeta de calendario
     const e = back(p(t, 14.15, 14.9)); c.save(); c.globalAlpha = a * cl(e * 2); c.translate(540, 640); c.scale(lerp(.8, 1, e), lerp(.8, 1, e)); c.rotate(lerp(.08, 0, e));
