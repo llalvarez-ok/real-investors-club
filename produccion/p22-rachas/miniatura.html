@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Archivo:wght@900&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;background:#fdfdfb}
+.vineta{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,transparent 60%,rgba(0,0,0,.09))}
+.logo{position:absolute;left:36px;top:30px;background:#0d2142;border-radius:14px;padding:10px 14px}
+.logo svg{width:150px;height:auto;display:block}
+h1{position:absolute;left:44px;top:150px;width:640px;font-family:'Archivo',sans-serif;font-weight:900;font-size:92px;line-height:.98;color:#14213d}
+h1 em{font-style:normal;color:#d93a3f}
+.mano{position:absolute;left:48px;top:530px;font-family:'Caveat',cursive;font-size:54px;color:#b8913f;transform:rotate(-3deg)}
+.cruces{position:absolute;right:40px;top:60px;width:520px;font-family:'Caveat',cursive;font-size:96px;line-height:.9;color:#d93a3f;letter-spacing:6px;text-align:right}
+.mas{position:absolute;right:70px;top:300px;font-family:'Archivo',sans-serif;font-weight:900;font-size:120px;color:#1f9d63;transform:rotate(-4deg)}
+.mes{position:absolute;right:90px;top:440px;font-family:'Caveat',cursive;font-size:62px;color:#14213d}
+#tomas{position:absolute;right:375px;top:360px;width:225px}
+.url{position:absolute;right:36px;bottom:24px;font:600 22px 'IBM Plex Mono',monospace;color:#8e7140}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+</head><body><div class="vineta"></div>
+<div class="logo" id="logo"></div>
+<h1>Perdió <em>8 veces</em> seguidas… y ganó el mes</h1>
+<div class="mano">no es suerte: es la cuenta</div>
+<div class="cruces">✗✗✗✗<br>✗✗✗✗</div>
+<div class="mas">+1 %</div>
+<div class="mes">a fin de mes</div>
+<div id="tomas"></div>
+<div class="url">realinvestors.club</div>
+<script>
+document.getElementById("tomas").innerHTML = RECURSOS["peep-julian-feliz"];
+for (const s of document.querySelectorAll("#tomas svg")) { s.removeAttribute("width"); s.removeAttribute("height"); s.style.width = "100%"; s.style.height = "auto"; }
+</script>
+</body></html>
