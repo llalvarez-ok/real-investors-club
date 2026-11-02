@@ -6,7 +6,8 @@
   "Un número, un nombre o una fecha valen más que un adjetivo.",
   "Prometer algo que el video cumple: si el gancho anuncia 7 señales, el video tiene 7.",
   "En finanzas, el gancho nunca promete ganancias: promete entender, evitar o hacer la cuenta.",
-  "El gancho abre una pregunta; el video la cierra, no el gancho."
+  "El gancho abre una pregunta; el video la cierra, no el gancho.",
+  "Pedir la suscripción tarde (o nunca) y un comentario con una palabra clave temprano (minuto 1 a 2): así abren los videos que más superan a su canal (análisis del 02/11/2026)."
  ],
  "formulas": [
   {
@@ -275,6 +276,37 @@
     "\\bhombre mas rico de babilonia\\b",
     "\\blibro\\w*\\b"
    ]
+  },
+  {
+   "id": "dos-vidas",
+   "nombre": "Dos vidas",
+   "forma": "Dos personas con el mismo punto de partida (sueldo, edad, oportunidad) y un final opuesto. Se nombra la diferencia que el video explica.",
+   "ejemplo": "Sofía y Martín ganan lo mismo desde hace 10 años. Ella tiene un fondo de emergencia de 6 meses; él vive con la tarjeta al límite. La diferencia no es el sueldo.",
+   "falla": "Si los personajes son genéricos o la moraleja es «ahorrá más». Con números y nombres; marcar «Supón que…» si es un ejemplo. Nunca «uno se hizo rico».",
+   "patrones": [
+    "\\bmismo sueldo\\b",
+    "\\bganan lo mismo\\b",
+    "\\bmientras (que )?(el|ella|otro|otra)\\b",
+    "\\bahora piensa en otra persona\\b",
+    "\\bal mismo tiempo\\b",
+    "\\bla diferencia no (es|esta)\\b"
+   ],
+   "fuente": "analisis/2026-11-02-ganchos-nicho.md (los dos videos de múltiplo más alto del nicho abren así)"
+  },
+  {
+   "id": "consejo-de-siempre",
+   "nombre": "El consejo de siempre",
+   "forma": "Se cita un consejo financiero que el espectador escuchó cien veces y se dice por qué es demasiado simple.",
+   "ejemplo": "«No te endeudes nunca.» Lo escuchaste mil veces. El problema es que es demasiado simple.",
+   "falla": "Si se contradice el consejo para vender algo o para empujar a endeudarse. Matizar, no invertir el mensaje.",
+   "patrones": [
+    "\\bprobablemente (hayas|has) escuchado\\b",
+    "\\blo escuchaste\\b",
+    "\\bte dijeron\\b",
+    "\\bdemasiado simple\\b",
+    "\\bel problema es que este consejo\\b"
+   ],
+   "fuente": "analisis/2026-11-02-ganchos-nicho.md"
   }
  ]
 }
