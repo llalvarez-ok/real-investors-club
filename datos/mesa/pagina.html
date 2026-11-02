@@ -1,0 +1,202 @@
+<title>Mesa de Lean</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Mesa de trabajo: una columna de pedidos, cada uno con el personaje que pregunta a la izquierda y la respuesta debajo. */
+:root {
+  --bg: #f6f3ec; --panel: #fffdf8; --fg: #14213d; --muted: #5d6a82; --line: #e2dccd;
+  --oro: #b8913f; --oro-suave: #f1e6cc; --ok: #1f8a57; --warn: #b26a00; --mal: #c23a3f; --noche: #0d2142;
+  --f-tit: "Archivo", "Helvetica Neue", Arial, sans-serif; --f-txt: "IBM Plex Sans", "Segoe UI", Roboto, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #071426; --panel: #0d2142; --fg: #ecf1f9; --muted: #a3b5d1; --line: #274a80; --oro: #e2c68c; --oro-suave: #2a3550; --ok: #3dd68c; --warn: #f2b45a; --mal: #ff6b6b; --noche: #0d2142; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #071426; --panel: #0d2142; --fg: #ecf1f9; --muted: #a3b5d1; --line: #274a80; --oro: #e2c68c; --oro-suave: #2a3550; --ok: #3dd68c; --warn: #f2b45a; --mal: #ff6b6b; --noche: #0d2142; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-txt); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 28px 120px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 20px; }
+header { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.logo { width: 104px; padding: 8px 12px; background: var(--noche); border-radius: 10px; flex: none; }
+.logo img { width: 100%; display: block; }
+.tit { flex: 1 1 18rem; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+h1 { margin: 0; font-family: var(--f-tit); font-weight: 800; font-size: 30px; letter-spacing: -.01em; }
+.sub { margin: 0; color: var(--muted); text-wrap: balance; }
+.sub a { color: var(--oro); }
+.filtros { display: flex; gap: 8px; flex-wrap: wrap; }
+.filtros button { font: 500 14px var(--f-txt); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.filtros button[aria-pressed="true"] { color: var(--fg); border-color: var(--oro); background: var(--oro-suave); }
+.lista { display: flex; flex-direction: column; gap: 14px; }
+.vacio { color: var(--muted); padding: 28px 18px; border: 1px dashed var(--line); border-radius: 14px; text-align: center; }
+.pedido { display: grid; grid-template-columns: 76px 1fr; gap: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.pedido.respondido { border-color: color-mix(in srgb, var(--oro) 60%, var(--line)); }
+.pedido.hecho { opacity: .78; }
+.av { width: 76px; height: 86px; display: flex; align-items: flex-end; justify-content: center; }
+.av img { width: 76px; height: 86px; object-fit: contain; object-position: bottom; }
+@media (prefers-reduced-motion: no-preference) { .pedido.abierto .av img { animation: hola 2.8s ease-in-out infinite; transform-origin: 50% 100%; } }
+@keyframes hola { 0%, 82%, 100% { transform: rotate(0); } 88% { transform: rotate(-4deg); } 94% { transform: rotate(3deg); } }
+.cuerpo { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.quien { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.quien strong { font-size: 15px; }
+.quien span { color: var(--muted); font-size: 13px; }
+.chip { font: 500 12px var(--f-mono); padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; }
+.chip.abierto { color: var(--warn); } .chip.respondido { color: var(--oro); } .chip.hecho { color: var(--ok); } .chip.en-curso { color: var(--oro); }
+.globo { position: relative; background: var(--oro-suave); border-radius: 4px 14px 14px 14px; padding: 10px 14px; font-size: 16px; font-weight: 500; }
+.contexto { color: var(--muted); font-size: 13.5px; }
+.opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+.opciones button { font: 500 14px var(--f-txt); padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); cursor: pointer; text-align: left; }
+.opciones button:hover { border-color: var(--oro); }
+.opciones button:focus-visible, .escribir textarea:focus-visible, .escribir button:focus-visible, .filtros button:focus-visible, .barra button:focus-visible { outline: 2px solid var(--oro); outline-offset: 2px; }
+.escribir { display: flex; gap: 8px; align-items: flex-end; }
+.escribir textarea { flex: 1; min-width: 0; font: 14px var(--f-txt); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; resize: vertical; min-height: 40px; }
+.escribir button { font: 600 14px var(--f-txt); padding: 9px 16px; border-radius: 10px; border: 0; background: var(--oro); color: #14213d; cursor: pointer; }
+.escribir button:disabled { opacity: .5; cursor: default; }
+.respuesta { border-left: 3px solid var(--oro); padding-left: 10px; display: flex; flex-direction: column; gap: 2px; }
+.respuesta .et, .resultado .et { font: 500 12px var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.resultado { display: flex; flex-direction: column; gap: 2px; border-left: 3px solid var(--ok); padding-left: 10px; }
+.acciones { display: flex; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+.acciones button { font: inherit; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+.barra { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: var(--panel); border-top: 1px solid var(--line); display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; box-shadow: 0 -6px 20px rgba(0,0,0,.08); }
+.barra p { margin: 0; }
+.barra button { font: 600 15px var(--f-txt); padding: 10px 18px; border-radius: 10px; border: 0; background: var(--oro); color: #14213d; cursor: pointer; }
+.barra button:disabled { opacity: .5; cursor: default; }
+.aviso { color: var(--muted); font-size: 13px; }
+@media (max-width: 520px) { .pedido { grid-template-columns: 52px 1fr; padding: 12px; } .av, .av img { width: 52px; height: 60px; } .escribir { flex-direction: column; align-items: stretch; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="logo" id="logo"></div>
+    <div class="tit">
+      <h1>Mesa de Lean</h1>
+      <p class="sub">Tus agentes te preguntan lo que necesitan para seguir. Tocá una opción o escribí tu respuesta, y cuando termines, mandásela al equipo. <a href="https://claude.ai/artifact/Q21K4SwkZ9arx72G6cqrjv" target="_blank" rel="noopener">Abrir la Central</a></p>
+    </div>
+  </header>
+  <div class="filtros" role="group" aria-label="Qué pedidos ver">
+    <button type="button" data-f="abierto" aria-pressed="true">Esperan tu respuesta <span id="n-abierto"></span></button>
+    <button type="button" data-f="respondido" aria-pressed="false">Respondidos <span id="n-respondido"></span></button>
+    <button type="button" data-f="hecho" aria-pressed="false">Hechos <span id="n-hecho"></span></button>
+  </div>
+  <p class="aviso" id="aviso" hidden></p>
+  <div class="lista" id="lista"><div class="vacio">Cargando los pedidos del equipo…</div></div>
+</div>
+<div class="barra" id="barra" hidden>
+  <p id="barra-txt"></p>
+  <button type="button" id="enviar">Mandar al equipo</button>
+</div>
+
+<script src="avatares-1.js"></script>
+<script src="avatares-2.js"></script>
+<script src="avatares-3.js"></script>
+<script src="avatares-4.js"></script>
+<script>
+(() => {
+  const DISPARO = "trig_0199bPxd6fZV6UEENy41B91f"; // tarea «RIC · Equipo · respuestas de Lean»
+  const EQUIPO = {
+    coordinadora: ["Elena", "Coordinadora de producción"], youtube: ["Julián", "Productor de YouTube"], instagram: ["Camila", "Productora de Instagram"],
+    pizarra: ["Diego", "Guionista y pizarra"], editor: ["Bruno", "Editor de video"], disenadora: ["Carla", "Diseñadora"], analista: ["Ana", "Analista"],
+    investigador: ["Pablo", "Investigador de tendencias"], comunidad: ["Lucía", "Community manager"], auditora: ["Marta", "Auditora de calidad"],
+  };
+  const PRIO = { alta: 0, media: 1, baja: 2 };
+  const $ = (s) => document.querySelector(s);
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  const svg = (k) => "data:image/svg+xml;charset=utf-8," + encodeURIComponent((window.AVATARES || {})[k] || "");
+  const ahora = () => new Date().toLocaleString("sv-SE", { timeZone: "America/Argentina/Buenos_Aires" }).slice(0, 16);
+  if (window.AVATARES && window.AVATARES.logo) { const i = new Image(); i.alt = "Real Investors Club"; i.src = svg("logo"); $("#logo").append(i); }
+
+  let filtro = "abierto", pedidos = [], db = null, puedo = false, mcp = null;
+  const avisar = (t) => { const a = $("#aviso"); a.textContent = t; a.hidden = !t; };
+
+  function render() {
+    const cuenta = { abierto: 0, respondido: 0, hecho: 0 };
+    for (const p of pedidos) cuenta[p.estado === "en curso" ? "respondido" : p.estado] = (cuenta[p.estado === "en curso" ? "respondido" : p.estado] || 0) + 1;
+    for (const k in cuenta) $("#n-" + k).textContent = cuenta[k] ? `(${cuenta[k]})` : "";
+    const lista = $("#lista"); lista.replaceChildren();
+    const ver = pedidos.filter((p) => (filtro === "respondido" ? p.estado === "respondido" || p.estado === "en curso" : p.estado === filtro))
+      .sort((a, b) => (PRIO[a.prioridad] ?? 3) - (PRIO[b.prioridad] ?? 3) || String(b.creado).localeCompare(String(a.creado)));
+    if (!ver.length) {
+      lista.append(el("div", "vacio", filtro === "abierto" ? "Nadie espera nada de vos por ahora. Cuando un agente necesite algo, aparece acá." : filtro === "respondido" ? "No hay respuestas tuyas esperando al equipo." : "Todavía no hay pedidos terminados."));
+    }
+    for (const p of ver) lista.append(tarjeta(p));
+    const sinEnviar = pedidos.filter((p) => p.estado === "respondido" && !p.enviado).length;
+    $("#barra").hidden = !sinEnviar;
+    $("#barra-txt").textContent = sinEnviar === 1 ? "Tenés 1 respuesta lista para el equipo." : `Tenés ${sinEnviar} respuestas listas para el equipo.`;
+  }
+
+  function tarjeta(p) {
+    const [nombre, rol] = EQUIPO[p.agente] || [p.agente || "Equipo", ""];
+    const estado = p.estado === "en curso" ? "en-curso" : p.estado;
+    const c = el("article", "pedido " + estado);
+    const av = el("div", "av"); const img = new Image(); img.alt = ""; img.src = svg(`${p.agente}-${p.estado === "abierto" && p.prioridad === "alta" ? "preocupada" : "feliz"}`); av.append(img);
+    const cu = el("div", "cuerpo");
+    const q = el("div", "quien"); q.append(el("strong", null, nombre), el("span", null, rol), el("span", "chip " + estado, { abierto: "espera tu respuesta", respondido: "respondido", "en-curso": "en curso", hecho: "hecho" }[estado] || estado));
+    if (p.prioridad === "alta" && p.estado === "abierto") q.append(el("span", "chip abierto", "urgente"));
+    cu.append(q, el("div", "globo", p.pregunta || ""));
+    if (p.contexto) cu.append(el("div", "contexto", p.contexto));
+    if (p.estado === "abierto") {
+      if (Array.isArray(p.opciones) && p.opciones.length) {
+        const ops = el("div", "opciones");
+        for (const o of p.opciones) { const b = el("button", null, String(o)); b.type = "button"; b.disabled = !puedo; b.addEventListener("click", () => responder(p, String(o))); ops.append(b); }
+        cu.append(ops);
+      }
+      const w = el("div", "escribir");
+      const ta = el("textarea"); ta.id = "r-" + p.id; ta.rows = 1; ta.placeholder = "O escribí tu respuesta…"; ta.setAttribute("aria-label", "Tu respuesta para " + nombre); ta.disabled = !puedo;
+      const b = el("button", null, "Responder"); b.type = "button"; b.disabled = true;
+      ta.addEventListener("input", () => { b.disabled = !ta.value.trim() || !puedo; });
+      b.addEventListener("click", () => responder(p, ta.value.trim()));
+      w.append(ta, b); cu.append(w);
+    } else {
+      const r = el("div", "respuesta"); r.append(el("span", "et", "Tu respuesta"), el("span", null, p.respuesta || "")); cu.append(r);
+      if (p.resultado) { const z = el("div", "resultado"); z.append(el("span", "et", "Qué hizo el equipo"), el("span", null, p.resultado)); cu.append(z); }
+      if (p.estado === "respondido" && !p.enviado && puedo) {
+        const ac = el("div", "acciones"); const d = el("button", null, "Cambiar mi respuesta"); d.type = "button";
+        d.addEventListener("click", () => guardar(p, { estado: "abierto", respuesta: null, por: null, respondido_en: null }));
+        ac.append(d); cu.append(ac);
+      }
+      if (p.estado === "respondido" && p.enviado) cu.append(el("div", "contexto", "Enviado al equipo: lo están haciendo."));
+    }
+    c.append(av, cu);
+    return c;
+  }
+
+  async function guardar(p, cambios) {
+    try { await db.doc("pedidos/" + p.id).update(cambios); }
+    catch (e) { avisar("No se pudo guardar: " + (e && e.message ? e.message : "probá de nuevo en un momento.")); }
+  }
+  async function responder(p, texto) {
+    if (!texto || !puedo) return;
+    const user = await claude.use("user");
+    const id = user ? await user.id() : null;
+    await guardar(p, { estado: "respondido", respuesta: texto, por: id, respondido_en: ahora(), enviado: false });
+  }
+
+  $("#enviar").addEventListener("click", async () => {
+    const listos = pedidos.filter((p) => p.estado === "respondido" && !p.enviado);
+    if (!listos.length) return;
+    const b = $("#enviar"); b.disabled = true; b.textContent = "Mandando…";
+    const resumen = listos.map((p) => `${(EQUIPO[p.agente] || [p.agente])[0]}: «${p.pregunta}» → ${p.respuesta}`).join("\n");
+    try {
+      if (!mcp) throw new Error("sin conector");
+      await mcp.callTool("Claude Code Remote", "fire_trigger", { trigger_id: DISPARO, text: "Respuestas nuevas de Lean en la Mesa:\n" + resumen });
+      for (const p of listos) await guardar(p, { enviado: true, enviado_en: ahora() });
+      avisar("Listo: el equipo ya está trabajando en tus respuestas. Te llega una notificación cuando terminen.");
+    } catch (e) {
+      avisar("No pude avisar al equipo ahora (" + (e && e.code ? e.code : "sin conexión") + "). Tus respuestas quedaron guardadas y Elena las toma mañana a las 08:40.");
+    } finally { b.disabled = false; b.textContent = "Mandar al equipo"; }
+  });
+
+  for (const b of document.querySelectorAll(".filtros button")) {
+    b.addEventListener("click", () => { filtro = b.dataset.f; for (const o of document.querySelectorAll(".filtros button")) o.setAttribute("aria-pressed", String(o === b)); render(); });
+  }
+
+  (async () => {
+    db = await claude.use("db");
+    const user = await claude.use("user");
+    puedo = !!(user && (await user.isOwner()));
+    mcp = await claude.use("mcp");
+    if (!db) { $("#lista").replaceChildren(el("div", "vacio", "Iniciá sesión en claude.ai para ver los pedidos del equipo.")); return; }
+    if (!puedo) avisar("Solo Lean puede responder los pedidos. Vos los ves en modo lectura.");
+    db.collection("pedidos").onSnapshot((snap) => {
+      pedidos = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+      render();
+    }, () => { $("#lista").replaceChildren(el("div", "vacio", "No pude leer los pedidos. Recargá la página.")); });
+  })();
+})();
+</script>

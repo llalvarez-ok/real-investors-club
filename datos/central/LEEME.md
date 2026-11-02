@@ -29,3 +29,7 @@ tocar a un personaje muestra su estado; botón «Pausar»; con «reducir movimie
 3. Con ArtifactData, `update` del documento `datasets/<id>` con la `url` nueva (`/_blob/...`), `name` y `updated: {at, by}`
    (leer antes el documento para pasar `if_version`).
 4. Subir los cambios del repo a `main`.
+
+## Cuando un agente necesita algo de Lean
+Además de sumarlo a `pendientes.json`, crear un pedido en la **Mesa de Lean** (ver `datos/mesa/LEEME.md`): pregunta corta,
+contexto y de 2 a 4 opciones. Lean responde ahí con un clic, y su respuesta dispara al equipo.
