@@ -52,6 +52,9 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-11-09 | Short | «Últimos cupos»: el FOMO que te fabrican #Shorts | `3CucxdZ-ODw` | programado | 0 | — |
 | 2026-11-10 | Short | Por qué el FOMO siempre llega tarde #Shorts | `gFUF0uoI9fY` | programado | 2 | — |
 
+## En producción
+- **P22 «Por qué un trader puede perder 8 veces seguidas y ganar el mes»** (02/11/2026, video largo L4 del plan de Fabio Valentini): pizarra, 17:24, metáfora de Ramón el pescador; 5 Shorts y un reel. Todo en `produccion/p22-rachas/` (textos en `subir.md`). Falta que Lean lo vea y lo suba.
+
 ## Historial de cambios por la API
 - `youtube/cambios-2026-10-27.json`: auditoría inicial.
 - `youtube/cambios-2026-11-01.json`: títulos, avisos, voz sintética, horarios y playlists nuevas; y (clave `corea_publicacion`) la carga y publicación del Short de Corea.
