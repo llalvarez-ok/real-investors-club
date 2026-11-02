@@ -74,6 +74,12 @@ Todos en estilo pizarra (`diseno/ESTILO-PILAR.md`), de 6 a 9 minutos, con una me
 | P14 | Inflación: por qué tu dinero guardado vale menos cada año | El changuito del súper que se achica | B | conocimiento general |
 | P15 | Diversificar: no pongas todos los huevos en la misma canasta | La canasta, literal | B | conocimiento general |
 
+**Idea de Lean del 02/11/2026 (para más adelante): formato tutorial «haz esto, paso a paso».** Referencia:
+«10 hábitos gratis que hacen tu vida mucho más lujosa aunque no ganes más dinero» (NicoFinanzas, https://youtu.be/5k8yTF6_fW0, ×44 sobre su canal, 368 mil vistas, 21 min).
+Lo que la gente más busca es un tutorial de cómo hacer las cosas bien: una lista numerada de pasos concretos y aplicables hoy.
+Cada paso sale además como un Short propio («Paso 3 de 10: …»). Candidatos: P18 «8 pasos para ordenar tu dinero (aunque no ganes más)»
+(ya propuesto en `analisis/2026-10-29-nicho.md`) y una versión de trading: «10 hábitos de los traders que duran» (riesgo, cuaderno, una sola estrategia…).
+
 **Recomendación [J]:**
 - **Arrancar por P02 (Ponzi):** ya hay 30 segundos hechos, entra en el nicho de RIC y engancha.
 - **Seguir con P12 o P13:** son los que más búsqueda tienen y atraen a gente que todavía no sabe nada. Ese es el público que después entra al Nivel 0 gratis.
