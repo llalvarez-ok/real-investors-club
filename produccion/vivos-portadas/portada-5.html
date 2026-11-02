@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Sans:wght@500;600&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;background:#071426}
+.foto{position:absolute;inset:0;background:url(fotos/rey2.jpg) 55% 60%/cover no-repeat;filter:saturate(.75) contrast(1.08)}
+.tinte{position:absolute;inset:0;background:linear-gradient(90deg,#071426 0%,rgba(7,20,38,.94) 34%,rgba(13,33,66,.55) 62%,rgba(13,33,66,.25) 100%),
+  linear-gradient(0deg,rgba(7,20,38,.9) 0%,rgba(7,20,38,0) 40%)}
+.grilla{position:absolute;inset:0;background-image:linear-gradient(rgba(39,74,128,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(39,74,128,.22) 1px,transparent 1px);background-size:64px 64px;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.4) 55%,transparent 80%)}
+.marco{position:absolute;inset:18px;border:1.5px solid rgba(199,163,94,.45);border-radius:6px}
+#logo{position:absolute;left:58px;top:46px;width:190px} #logo svg{width:100%;height:auto;display:block}
+.col{position:absolute;left:58px;top:168px;width:660px;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.pill{font:600 22px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#071426;background:linear-gradient(180deg,#e2c68c,#c7a35e);padding:9px 18px 8px;border-radius:6px}
+.pill.vivo{background:#e5383b;color:#fff;display:flex;align-items:center;gap:12px;box-shadow:0 0 30px rgba(229,56,59,.55)}
+.punto{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.3)}
+h1{font:900 84px/0.97 'Archivo',sans-serif;white-space:nowrap;color:#ecf1f9;letter-spacing:-.01em;text-transform:uppercase;text-shadow:0 4px 24px rgba(0,0,0,.45)}
+h1 em{font-style:normal;background:linear-gradient(180deg,#e2c68c,#c7a35e 60%,#8e7140);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bajada{width:600px;font:500 28px/1.28 'IBM Plex Sans',sans-serif;color:#a3b5d1}
+.dato{position:absolute;left:60px;bottom:58px;font:600 22px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#e2c68c;text-transform:uppercase;border-left:4px solid #c7a35e;padding-left:14px}
+.velas{position:absolute;right:44px;bottom:84px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.5))}
+.niv{font:600 15px 'IBM Plex Mono',monospace;fill:#e2c68c;letter-spacing:.08em;text-transform:uppercase}
+.fuente{position:absolute;right:48px;bottom:52px;font:600 13px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:rgba(163,181,209,.75)}
+.emo{position:absolute;right:56px;bottom:56px;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font:600 22px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+.emo span{color:rgba(163,181,209,.8);text-decoration:line-through;text-decoration-color:#ff6b6b;text-decoration-thickness:3px}
+.emo b{font:900 44px 'Archivo',sans-serif;letter-spacing:.02em;color:#e2c68c}
+.web{position:absolute;right:48px;top:52px;font:600 18px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:rgba(226,198,140,.9)}
+</style></head><body>
+<div class="foto"></div><div class="tinte"></div><div class="grilla"></div>
+
+<div class="marco"></div>
+<div id="logo"></div>
+<div class="web">realinvestors.club</div>
+<div class="col"><div class="pill vivo"><span class="punto"></span>EN VIVO</div>
+<h1><div>Psicología</div><div>del <em>trading</em></div></h1>
+<div class="bajada">Disciplina, rachas y control emocional</div></div>
+<div class="dato">La mente también se entrena</div>
+<div class="emo"><span>miedo</span><span>codicia</span><span>revancha</span><b>disciplina</b></div>
+</body></html>
