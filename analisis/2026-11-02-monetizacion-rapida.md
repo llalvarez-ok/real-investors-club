@@ -53,3 +53,8 @@ publicidad de esa herramienta. Las cifras de ingresos que muestra (4.000 €/mes
 4. **Un pilar por semana** con el formato tutorial («haz esto, paso a paso») y, a mediano plazo, con la voz de Lean.
 5. **`ric-nicho` en inglés** para encontrar ideas probadas, y **empaque aprobado antes de producir** cada video.
 6. Medir cada dos semanas: horas de reproducción de videos largos y suscriptores (`herramientas/revisar_canal.py`).
+
+## Decisiones de Lean (02/11/2026)
+- **Curso del 16/11:** en vivo por YouTube. Pendiente: confirmar que sea desde el canal de RIC y dejar el video público con capítulos.
+- **Nivel 0 completo:** todavía no (faltan muchas clases por grabar).
+- **Clases del curso anterior:** sí, reeditarlas para el canal, cambiando los sponsors de esa época por los actuales.
