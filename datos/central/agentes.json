@@ -3,11 +3,11 @@
   "id": "coordinadora",
   "nombre": "Elena",
   "rol": "Coordinadora de producción",
-  "estado": "nuevo",
-  "haciendo": "Arrancando: va a mantener la Central y el calendario al día",
-  "ultimo": "Recién llegada al equipo (02/11)",
-  "espera": "Tu OK para la tarea diaria de las 08:40",
-  "actualizado": "2026-11-02 19:30"
+  "estado": "trabajando",
+  "haciendo": "Tarea programada: parte del día a las 08:40 (calendario, decisiones y Central)",
+  "ultimo": "Organizó el equipo de 10 agentes",
+  "espera": "Leer su parte cada mañana",
+  "actualizado": "2026-11-02 18:50"
  },
  {
   "id": "youtube",
@@ -24,10 +24,10 @@
   "nombre": "Camila",
   "rol": "Productora de Instagram",
   "estado": "bloqueado",
-  "haciendo": "Sin poder leer números: la API de Instagram responde «API access blocked»",
+  "haciendo": "Tarea programada: revisión de Instagram los domingos a las 20:10; API bloqueada por ahora",
   "ultimo": "Reel de Corea publicado a mano con música (01/11)",
   "espera": "Revisar la app «RIC» en Meta y el token IGAA",
-  "actualizado": "2026-11-02 19:30"
+  "actualizado": "2026-11-02 18:50"
  },
  {
   "id": "pizarra",
@@ -73,11 +73,11 @@
   "id": "investigador",
   "nombre": "Pablo",
   "rol": "Investigador de tendencias",
-  "estado": "nuevo",
-  "haciendo": "Arrancando: nicho, noticias verificadas e ideas probadas en inglés",
+  "estado": "trabajando",
+  "haciendo": "Tarea programada: informe del nicho los lunes a las 16:20 (primero: 09/11)",
   "ultimo": "Recién llegado al equipo (02/11)",
-  "espera": "Tu OK para el informe de los lunes",
-  "actualizado": "2026-11-02 19:30"
+  "espera": "Elegir uno de sus 3 temas cada lunes",
+  "actualizado": "2026-11-02 18:50"
  },
  {
   "id": "comunidad",
