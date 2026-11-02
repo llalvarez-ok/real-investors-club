@@ -1,0 +1,79 @@
+[
+ {
+  "id": "p22-subir",
+  "decision": "Subir P22 y elegir fecha de estreno (con sus 5 Shorts)",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-02",
+  "prioridad": "alta"
+ },
+ {
+  "id": "vivo-vacio",
+  "decision": "Borrar u ocultar la transmisión vacía pública (-_PEUCxVXGw)",
+  "agente": "Analista",
+  "desde": "2026-11-02",
+  "prioridad": "alta"
+ },
+ {
+  "id": "fijar-comentarios",
+  "decision": "Fijar en Studio los comentarios de «Dos traders» y Corea",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-02",
+  "prioridad": "media"
+ },
+ {
+  "id": "ig-api",
+  "decision": "Revisar el bloqueo de la API de Instagram y cargar un token IGAA",
+  "agente": "Productora de Instagram",
+  "desde": "2026-11-02",
+  "prioridad": "alta"
+ },
+ {
+  "id": "p21-guion",
+  "decision": "Aprobar el guion de P21 «Mismo sueldo, vidas opuestas»",
+  "agente": "Guionista y pizarra",
+  "desde": "2026-11-02",
+  "prioridad": "media"
+ },
+ {
+  "id": "curso-vivo",
+  "decision": "Confirmar que el curso del 16/11 sale desde el canal de RIC y queda público",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-02",
+  "prioridad": "alta"
+ },
+ {
+  "id": "sponsors",
+  "decision": "Qué sponsors salen y cuáles entran en las clases reeditadas",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-02",
+  "prioridad": "media"
+ },
+ {
+  "id": "lanzamiento-reel",
+  "decision": "Aprobar el reel de lanzamiento del curso (falta voz o música y el MP4)",
+  "agente": "Productora de Instagram",
+  "desde": "2026-11-02",
+  "prioridad": "media"
+ },
+ {
+  "id": "stock",
+  "decision": "Habilitar Pexels y Pixabay (dominios y claves) para fotos y videos de stock",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-02",
+  "prioridad": "baja"
+ },
+ {
+  "id": "voseo",
+  "decision": "¿Voseo o «tú» en los Shorts del canal?",
+  "agente": "Guionista y pizarra",
+  "desde": "2026-11-01",
+  "prioridad": "baja"
+ },
+ {
+  "id": "playlist-shorts",
+  "decision": "Aprobar las playlists para los 15 Shorts sin lista",
+  "agente": "Analista",
+  "desde": "2026-11-01",
+  "prioridad": "baja"
+ }
+]

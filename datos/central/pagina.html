@@ -1,0 +1,333 @@
+<meta name="dash-one-writer">
+<style>
+.ric { --ric-oro: #b8913f; --ric-noche: #0d2142; display: flex; flex-direction: column; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; }
+.ric-head { display: flex; align-items: center; gap: var(--cds-gap-md); flex-wrap: wrap; }
+.ric-logo { width: 116px; padding: 8px 12px; background: var(--ric-noche); border-radius: var(--cds-radius); flex: none; }
+.ric-logo img { width: 100%; display: block; }
+.ric-titulo { display: flex; flex-direction: column; gap: var(--cds-gap-xs); min-width: 0; flex: 1 1 20rem; }
+.ric-titulo h1 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); }
+.ric-titulo p { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); text-wrap: balance; }
+.ric .ric-titulo b { color: var(--color-fg); font-weight: 600; }
+.ric-sec { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.ric-sec > h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); display: flex; align-items: baseline; gap: var(--cds-gap-sm); flex-wrap: wrap; }
+.ric-sec > h2 small { font-weight: 400; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ric-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.ric-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-md); }
+.kpi { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.kpi-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.kpi-valor { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.1; }
+.kpi-barra { height: 8px; border-radius: 4px; background: var(--cds-chart-grid); overflow: hidden; min-height: 8px; }
+.kpi-barra i { display: block; height: 100%; background: var(--ric-oro); border-radius: 4px; }
+.kpi-nota { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ric-agentes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md); }
+.ag { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.ag-top { display: flex; align-items: flex-end; gap: var(--cds-gap-sm); }
+.ag-av { width: 92px; height: 104px; flex: none; position: relative; display: flex; align-items: flex-end; justify-content: center; }
+.ag-av img { width: 92px; height: 104px; object-fit: contain; object-position: bottom; display: block; transform-origin: 50% 100%; }
+.ag-av .burbuja { position: absolute; top: -4px; right: -10px; background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: 12px; padding: 1px 7px; font-size: 13px; line-height: 18px; color: var(--color-fg-muted); }
+.ag-nombre { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ag-nombre strong { font-size: var(--cds-font-size-body); }
+.pill { align-self: flex-start; font-size: var(--cds-font-size-caption); padding: 2px 9px; border-radius: 999px; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); }
+.pill.trabajando { color: var(--color-ok); border-color: currentColor; }
+.pill.esperando { color: var(--color-warn); border-color: currentColor; }
+.pill.bloqueado { color: var(--color-bad); border-color: currentColor; }
+.pill.listo { color: var(--ric-oro); border-color: currentColor; }
+.ag dl { margin: 0; display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.ag dt { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ag dd { margin: 0; font-size: var(--cds-font-size-body); }
+.ag dd.espera { color: var(--color-fg); border-left: 3px solid var(--ric-oro); padding-left: 8px; }
+.ag-fecha { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: auto; }
+.ric-dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.ric-tabla { overflow-x: auto; max-height: 30rem; overflow-y: auto; }
+.ric-tabla table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); }
+.ric-tabla th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); position: sticky; top: 0; background: var(--color-panel); }
+.ric-tabla td { padding: 7px 8px; border-bottom: 1px solid var(--cds-chart-grid); vertical-align: top; }
+.ric-tabla td.num, .ric-tabla th.num { text-align: right; white-space: nowrap; }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--color-border-line); white-space: nowrap; }
+.chip.alta, .chip.programado { color: var(--ric-oro); border-color: currentColor; }
+.chip.media { color: var(--color-warn); border-color: currentColor; }
+.chip.publicado { color: var(--color-ok); border-color: currentColor; }
+.vbar { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+.vbar i { display: block; height: 8px; border-radius: 3px; background: var(--ric-oro); }
+.tabs { display: flex; gap: var(--cds-gap-xs); }
+.tabs button { font: inherit; font-size: var(--cds-font-size-caption); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: transparent; color: var(--color-fg-muted); cursor: pointer; }
+.tabs button[aria-pressed="true"] { color: var(--color-fg); border-color: var(--ric-oro); }
+.tabs button:focus-visible { outline: 2px solid var(--ric-oro); outline-offset: 2px; }
+.ric-pie { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+@media (prefers-reduced-motion: no-preference) {
+  .ag-av.trabajando img { animation: ric-teclea 1.1s var(--cds-ease-out) infinite alternate; }
+  .ag-av.esperando img { animation: ric-respira 2.6s ease-in-out infinite; }
+  .ag-av.bloqueado img { animation: ric-duda 3s ease-in-out infinite; }
+  .ag-av.listo img { animation: ric-salta 2.4s ease-in-out infinite; }
+  .ag-av .burbuja { animation: ric-burbuja 1.6s ease-in-out infinite; }
+}
+@keyframes ric-teclea { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-3px) rotate(1.5deg); } }
+@keyframes ric-respira { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025, 0.985); } }
+@keyframes ric-duda { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-4deg); } 84% { transform: rotate(4deg); } 92% { transform: rotate(-2deg); } }
+@keyframes ric-salta { 0%, 80%, 100% { transform: translateY(0); } 88% { transform: translateY(-9px); } }
+@keyframes ric-burbuja { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+</style>
+<script src="avatares.js"></script>
+
+<div class="ric">
+  <header class="ric-head">
+    <div class="ric-logo" data-draw="logo"></div>
+    <div class="ric-titulo">
+      <h1 id="central">Central RIC</h1>
+      <p>El canal tiene <b data-draw="celda" data-source="kpis" data-where="id=suscriptores" data-field="valor">—</b> suscriptores y <b data-draw="celda" data-source="kpis" data-where="id=horas" data-field="valor" data-fmt="dec">—</b> horas de videos largos. Hay <b data-draw="celda" data-source="cuentas" data-field="programados">—</b> publicaciones programadas y <b data-draw="celda" data-source="cuentas" data-field="pendientes">—</b> decisiones que esperan a Lean.</p>
+    </div>
+  </header>
+
+  <section class="ric-sec" id="numeros">
+    <h2>Camino a la monetización <small>YouTube pide 1.000 suscriptores y 4.000 horas de videos largos en 12 meses</small></h2>
+    <div class="ric-kpis">
+      <div class="ric-card kpi">
+        <span class="kpi-label">Suscriptores de YouTube</span>
+        <span class="kpi-valor" data-draw="celda" data-source="kpis" data-where="id=suscriptores" data-field="valor">—</span>
+        <div class="kpi-barra" data-draw="barra" data-source="kpis" data-kpi="suscriptores"></div>
+        <span class="kpi-nota">de 1.000 · <span data-draw="pct" data-source="kpis" data-kpi="suscriptores">—</span></span>
+      </div>
+      <div class="ric-card kpi">
+        <span class="kpi-label">Horas de videos largos (12 meses)</span>
+        <span class="kpi-valor" data-draw="celda" data-source="kpis" data-where="id=horas" data-field="valor" data-fmt="dec">—</span>
+        <div class="kpi-barra" data-draw="barra" data-source="kpis" data-kpi="horas"></div>
+        <span class="kpi-nota">de 4.000 · <span data-draw="pct" data-source="kpis" data-kpi="horas">—</span></span>
+      </div>
+      <div class="ric-card kpi">
+        <span class="kpi-label">Vistas totales de YouTube</span>
+        <span class="kpi-valor" data-draw="celda" data-source="kpis" data-where="id=vistas" data-field="valor">—</span>
+        <span class="kpi-nota">al <span data-draw="celda" data-source="kpis" data-where="id=vistas" data-field="fecha" data-fmt="fecha">—</span></span>
+      </div>
+      <div class="ric-card kpi">
+        <span class="kpi-label">Seguidores de Instagram (@leanalvarez.ok)</span>
+        <span class="kpi-valor" data-draw="celda" data-source="kpis" data-where="id=instagram" data-field="valor">—</span>
+        <span class="kpi-nota">último dato: <span data-draw="celda" data-source="kpis" data-where="id=instagram" data-field="fecha" data-fmt="fecha">—</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ric-sec" id="agentes">
+    <h2>El equipo <small>qué hace cada agente y qué espera de Lean</small></h2>
+    <div class="ric-agentes">
+      <article class="ric-card ag">
+        <div class="ag-top">
+          <div class="ag-av" data-draw="avatar" data-source="agentes" data-agente="youtube"></div>
+          <div class="ag-nombre"><strong>Productor de YouTube</strong><span class="pill" data-draw="estado" data-source="agentes" data-where="id=youtube" data-field="estado">—</span></div>
+        </div>
+        <dl>
+          <dt>En qué está</dt><dd data-draw="celda" data-source="agentes" data-where="id=youtube" data-field="haciendo">—</dd>
+          <dt>Lo último</dt><dd data-draw="celda" data-source="agentes" data-where="id=youtube" data-field="ultimo">—</dd>
+          <dt>Espera de vos</dt><dd class="espera" data-draw="celda" data-source="agentes" data-where="id=youtube" data-field="espera">—</dd>
+        </dl>
+        <span class="ag-fecha">Actualizado <span data-draw="celda" data-source="agentes" data-where="id=youtube" data-field="actualizado" data-fmt="fecha">—</span></span>
+      </article>
+      <article class="ric-card ag">
+        <div class="ag-top">
+          <div class="ag-av" data-draw="avatar" data-source="agentes" data-agente="instagram"></div>
+          <div class="ag-nombre"><strong>Productora de Instagram</strong><span class="pill" data-draw="estado" data-source="agentes" data-where="id=instagram" data-field="estado">—</span></div>
+        </div>
+        <dl>
+          <dt>En qué está</dt><dd data-draw="celda" data-source="agentes" data-where="id=instagram" data-field="haciendo">—</dd>
+          <dt>Lo último</dt><dd data-draw="celda" data-source="agentes" data-where="id=instagram" data-field="ultimo">—</dd>
+          <dt>Espera de vos</dt><dd class="espera" data-draw="celda" data-source="agentes" data-where="id=instagram" data-field="espera">—</dd>
+        </dl>
+        <span class="ag-fecha">Actualizado <span data-draw="celda" data-source="agentes" data-where="id=instagram" data-field="actualizado" data-fmt="fecha">—</span></span>
+      </article>
+      <article class="ric-card ag">
+        <div class="ag-top">
+          <div class="ag-av" data-draw="avatar" data-source="agentes" data-agente="analista"></div>
+          <div class="ag-nombre"><strong>Analista</strong><span class="pill" data-draw="estado" data-source="agentes" data-where="id=analista" data-field="estado">—</span></div>
+        </div>
+        <dl>
+          <dt>En qué está</dt><dd data-draw="celda" data-source="agentes" data-where="id=analista" data-field="haciendo">—</dd>
+          <dt>Lo último</dt><dd data-draw="celda" data-source="agentes" data-where="id=analista" data-field="ultimo">—</dd>
+          <dt>Espera de vos</dt><dd class="espera" data-draw="celda" data-source="agentes" data-where="id=analista" data-field="espera">—</dd>
+        </dl>
+        <span class="ag-fecha">Actualizado <span data-draw="celda" data-source="agentes" data-where="id=analista" data-field="actualizado" data-fmt="fecha">—</span></span>
+      </article>
+      <article class="ric-card ag">
+        <div class="ag-top">
+          <div class="ag-av" data-draw="avatar" data-source="agentes" data-agente="pizarra"></div>
+          <div class="ag-nombre"><strong>Guionista y pizarra</strong><span class="pill" data-draw="estado" data-source="agentes" data-where="id=pizarra" data-field="estado">—</span></div>
+        </div>
+        <dl>
+          <dt>En qué está</dt><dd data-draw="celda" data-source="agentes" data-where="id=pizarra" data-field="haciendo">—</dd>
+          <dt>Lo último</dt><dd data-draw="celda" data-source="agentes" data-where="id=pizarra" data-field="ultimo">—</dd>
+          <dt>Espera de vos</dt><dd class="espera" data-draw="celda" data-source="agentes" data-where="id=pizarra" data-field="espera">—</dd>
+        </dl>
+        <span class="ag-fecha">Actualizado <span data-draw="celda" data-source="agentes" data-where="id=pizarra" data-field="actualizado" data-fmt="fecha">—</span></span>
+      </article>
+    </div>
+  </section>
+
+  <div class="ric-dos">
+    <section class="ric-sec ric-card" id="calendario">
+      <h2>Calendario <small>hora de Argentina</small></h2>
+      <div class="tabs" role="group" aria-label="Qué mostrar">
+        <button type="button" data-vista="programado" aria-pressed="true">Programado</button>
+        <button type="button" data-vista="publicado" aria-pressed="false">Publicado (7 días)</button>
+      </div>
+      <div class="ric-tabla">
+        <table data-source="calendario" data-row-key="id">
+          <thead><tr><th data-field="fecha">Cuándo</th><th data-field="tipo">Qué</th><th data-field="titulo">Título</th><th data-field="plataforma">Dónde</th></tr></thead>
+          <tbody data-draw="calendario" data-source="calendario"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="ric-sec ric-card" id="decisiones">
+      <h2>Decisiones de Lean <small>de mayor a menor prioridad</small></h2>
+      <div class="ric-tabla">
+        <table data-source="pendientes" data-row-key="id">
+          <thead><tr><th data-field="prioridad">Prioridad</th><th data-field="decision">Qué hay que decidir</th><th data-field="agente">Quién lo pide</th></tr></thead>
+          <tbody data-draw="pendientes" data-source="pendientes"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="ric-sec ric-card" id="videos">
+    <h2>Lo que más se ve <small>videos públicos de YouTube, vistas al día de la última actualización</small></h2>
+    <div class="ric-tabla">
+      <table data-source="videos" data-row-key="id">
+        <thead><tr><th data-field="titulo">Título</th><th data-field="tipo">Tipo</th><th class="num" data-field="vistas">Vistas</th><th class="num" data-field="me_gusta">Me gusta</th><th class="num" data-field="comentarios">Comentarios</th></tr></thead>
+        <tbody data-draw="videos" data-source="videos"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="ric-pie">Los números salen de las API de YouTube e Instagram con <code>herramientas/central_ric.py</code>; los agentes y las decisiones los actualiza cada chat al terminar algo. Personajes: Open Peeps (CC0).</p>
+</div>
+
+<script>
+(() => {
+  const DIAS = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"];
+  const num = (v) => new Intl.NumberFormat("es-AR").format(v);
+  const dec = (v) => new Intl.NumberFormat("es-AR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(v);
+  const fecha = (s) => { const [d, h] = String(s).split(" "); const f = new Date(d + "T12:00:00"); return `${DIAS[f.getDay()]} ${d.slice(8, 10)}/${d.slice(5, 7)}${h ? " · " + h : ""}`; };
+  const filas = (id) => { const r = dash.data(id); return r.status === "ok" ? r.data : null; };
+  const porId = (id, clave) => (filas(id) || []).find((r) => String(r.id) === clave);
+  const donde = (el) => { const w = new URLSearchParams(el.dataset.where || ""); return w.get("id"); };
+  window.ricVista = "programado";
+
+  dash.calc("cuentas", {
+    inputs: ["calendario", "pendientes"],
+    title: "Programado y pendiente",
+    description: "Cuántas publicaciones están programadas y cuántas decisiones esperan a Lean.",
+    fn: (calendario, pendientes) => [{ programados: calendario.filter((r) => r.estado === "programado").length, pendientes: pendientes.length }],
+  });
+
+  dash.draw("logo", (el) => {
+    el.replaceChildren();
+    if (!window.AVATARES) return;
+    const img = new Image(); img.alt = "Real Investors Club";
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(window.AVATARES.logo);
+    el.append(img);
+  });
+
+  dash.draw("celda", (el) => {
+    const src = el.dataset.source, campo = el.dataset.field;
+    const datos = filas(src);
+    if (!datos) { el.textContent = "—"; return; }
+    const fila = el.dataset.where ? datos.find((r) => String(r.id) === donde(el)) : datos[0];
+    const v = fila ? fila[campo] : null;
+    if (v === null || v === undefined || v === "") { el.textContent = "—"; return; }
+    el.textContent = el.dataset.fmt === "dec" ? dec(v) : el.dataset.fmt === "fecha" ? fecha(v) : typeof v === "number" ? num(v) : String(v);
+  });
+
+  dash.draw("barra", (el) => {
+    el.replaceChildren();
+    const k = porId("kpis", el.dataset.kpi);
+    if (!k || !k.meta) return;
+    const i = document.createElement("i");
+    i.style.width = Math.max(1, Math.min(100, (k.valor / k.meta) * 100)) + "%";
+    el.append(i);
+  });
+
+  dash.draw("pct", (el) => {
+    const k = porId("kpis", el.dataset.kpi);
+    el.textContent = k && k.meta ? new Intl.NumberFormat("es-AR", { style: "percent", maximumFractionDigits: 1 }).format(k.valor / k.meta) : "—";
+  });
+
+  dash.draw("avatar", (el) => {
+    el.replaceChildren();
+    const a = porId("agentes", el.dataset.agente);
+    const estado = a ? a.estado : "esperando";
+    el.className = "ag-av " + estado;
+    if (!window.AVATARES) return;
+    const cara = estado === "bloqueado" || estado === "esperando" ? "preocupada" : "feliz";
+    const img = new Image(); img.alt = "";
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(window.AVATARES[`${el.dataset.agente}-${cara}`] || "");
+    el.append(img);
+    const globo = { trabajando: "···", esperando: "?", bloqueado: "!", listo: "✓" }[estado];
+    if (globo) { const b = document.createElement("span"); b.className = "burbuja"; b.textContent = globo; el.append(b); }
+  });
+
+  dash.draw("estado", (el) => {
+    const a = porId("agentes", donde(el));
+    el.className = "pill" + (a ? " " + a.estado : "");
+    el.textContent = a ? a.estado : "—";
+  });
+
+  const celda = (tr, texto, clase) => { const td = document.createElement("td"); if (clase) td.className = clase; td.textContent = texto; tr.append(td); return td; };
+
+  dash.draw("calendario", (el) => {
+    el.replaceChildren();
+    const datos = filas("calendario");
+    if (!datos) return;
+    const vista = window.ricVista;
+    let rows = datos.filter((r) => r.estado === vista);
+    if (vista === "publicado") rows = rows.slice().reverse();
+    for (const r of rows) {
+      const tr = document.createElement("tr"); tr.dataset.key = r.id;
+      celda(tr, fecha(r.fecha));
+      const td = celda(tr, ""); const c = document.createElement("span"); c.className = "chip " + r.estado; c.textContent = r.tipo; td.append(c);
+      celda(tr, r.titulo);
+      celda(tr, r.plataforma);
+      el.append(tr);
+    }
+  });
+
+  const ORDEN = { alta: 0, media: 1, baja: 2 };
+  dash.draw("pendientes", (el) => {
+    el.replaceChildren();
+    const datos = filas("pendientes");
+    if (!datos) return;
+    for (const r of datos.slice().sort((a, b) => (ORDEN[a.prioridad] ?? 3) - (ORDEN[b.prioridad] ?? 3))) {
+      const tr = document.createElement("tr"); tr.dataset.key = r.id;
+      const td = celda(tr, ""); const c = document.createElement("span"); c.className = "chip " + r.prioridad; c.textContent = r.prioridad; td.append(c);
+      celda(tr, r.decision);
+      celda(tr, r.agente);
+      el.append(tr);
+    }
+  });
+
+  dash.draw("videos", (el) => {
+    el.replaceChildren();
+    const datos = filas("videos");
+    if (!datos) return;
+    const max = Math.max(1, ...datos.map((r) => r.vistas));
+    for (const r of datos) {
+      const tr = document.createElement("tr"); tr.dataset.key = r.id;
+      celda(tr, r.titulo);
+      celda(tr, r.tipo);
+      const td = celda(tr, "", "num"); const box = document.createElement("span"); box.className = "vbar";
+      const bar = document.createElement("i"); bar.style.width = Math.round((r.vistas / max) * 80) + "px";
+      const n = document.createElement("span"); n.textContent = num(r.vistas);
+      box.append(bar, n); td.append(box);
+      celda(tr, num(r.me_gusta), "num");
+      celda(tr, num(r.comentarios), "num");
+      el.append(tr);
+    }
+  });
+
+  for (const b of document.querySelectorAll(".tabs button")) {
+    b.addEventListener("click", () => {
+      window.ricVista = b.dataset.vista;
+      for (const o of document.querySelectorAll(".tabs button")) o.setAttribute("aria-pressed", String(o === b));
+      dash.draw("calendario");
+    });
+  }
+})();
+</script>

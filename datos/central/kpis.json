@@ -1,0 +1,30 @@
+[
+ {
+  "id": "suscriptores",
+  "metrica": "Suscriptores de YouTube",
+  "valor": 71,
+  "meta": 1000,
+  "fecha": "2026-11-02 18:23"
+ },
+ {
+  "id": "horas",
+  "metrica": "Horas de videos largos (12 meses)",
+  "valor": 22.9,
+  "meta": 4000,
+  "fecha": "2026-11-02 18:23"
+ },
+ {
+  "id": "vistas",
+  "metrica": "Vistas totales de YouTube",
+  "valor": 5077,
+  "meta": null,
+  "fecha": "2026-11-02 18:23"
+ },
+ {
+  "id": "instagram",
+  "metrica": "Seguidores de Instagram",
+  "valor": 3736,
+  "meta": null,
+  "fecha": "2026-11-01 12:00"
+ }
+]
