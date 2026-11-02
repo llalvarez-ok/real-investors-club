@@ -80,10 +80,6 @@
   .cuaderno { background: #ece5d6; color: #1b1b1b; padding: 18px 26px; font: 600 26px "JetBrains Mono", monospace; line-height: 1.5; box-shadow: 0 20px 40px rgba(0,0,0,.6); transform: rotate(-2deg); }
   .cuaderno .t { font: 700 20px "JetBrains Mono"; color: #8e7140; border-bottom: 2px solid #1b1b1b; margin-bottom: 6px; letter-spacing: 2px; }
   .verde { color: #3dd68c; }
-  .tarjeta-curso { left: 70px; right: 70px; background: rgba(10,16,30,.94); border: 2px solid rgba(226,198,140,.6); border-radius: 30px; padding: 40px 36px; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
-  .tarjeta-curso .e { font: 700 24px "JetBrains Mono"; letter-spacing: 6px; color: #c7a35e; }
-  .tarjeta-curso .h { font: 900 64px "Inter Display", Inter; line-height: 1.02; margin: 14px 0; text-transform: uppercase; }
-  .tarjeta-curso .d { font: 800 46px Inter; color: #e2b74a; } .tarjeta-curso .m { font: 600 30px Inter; color: #a3b5d1; margin-top: 8px; }
 </style></head>
 <body>
 <div id="cam">
@@ -153,10 +149,11 @@
     <div class="abs titulo oro" style="top:1150px;font-size:80px" data-b="06" data-w="12" data-e="golpe" data-s="impacto">Es el que sigue<br>en el juego</div>
   </div>
 
-  <!-- 07 · CIERRE -->
+  <!-- 07 · CIERRE: tarjetas reales de Instagram (foto de Lean) o del canal de YouTube -->
   <div class="blq" data-b="07">
-    <div class="abs tarjeta-curso" style="top:300px" data-b="07" data-o="0" data-e="sube" id="cierre"></div>
-    <div class="abs sello" style="left:200px;top:1140px;font-size:60px;color:#e2b74a;border-color:#e2b74a;background:rgba(40,30,4,.45)" data-b="07" data-w="5" data-e="sello" data-r="-5" data-s="sello" id="sello-cierre">Comentá «CURSO»</div>
+    <div class="abs titulo" style="top:260px;font-size:84px" data-b="07" data-o="0" data-e="golpe" data-s="impacto" id="cierre-tit"></div>
+    <div class="abs tarjeta" style="top:420px" data-b="07" data-o="0.15" data-e="sube" id="tarjeta"></div>
+    <div class="abs titulo" style="top:1180px;font-size:58px;color:#ecf1f9" data-b="07" data-o="0.6" data-e="sube" id="pregunta"></div>
   </div>
 </div>
 <div class="banda"></div>
@@ -173,13 +170,22 @@
   T.bloques.forEach(b => { b.id = b.id.slice(0, 2); });
   if (T.voz_grabada) document.getElementById('pie').textContent = 'Fotos: Hamilton60 (CC BY-SA 3.0), CIPHR Connect (CC BY 2.0) y CC0, vía Wikimedia Commons · Gráficos: oro GC=F, datos reales · No es recomendación de inversión';
   const IG = V === 'ig';
-  document.getElementById('cierre').innerHTML = IG
-    ? '<div class="e">NUEVO CURSO · EN VIVO</div><div class="h">Intermedio<br><span class="oro">&amp; Avanzado</span></div><div class="d">16 NOV · 21:00 HS</div><div class="m">En vivo por YouTube · 100 % gratis</div>'
-    : '<img src="../../marca/logo-oro.png" style="width:420px;margin:10px auto 20px;display:block"><div class="h" style="font-size:54px">Real Investors Club</div><div class="boton" style="background:#ff0033;color:#fff;margin-top:24px">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="0" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>';
-  if (!IG) document.getElementById('sello-cierre').remove();
+  document.getElementById('cierre-tit').innerHTML = IG ? 'Seguí <span class="oro">esta cuenta</span>' : 'Suscribite <span class="oro">al canal</span>';
+  document.getElementById('pregunta').innerHTML = IG ? '¿Sos <span class="rojo">Lucas</span> o <span class="oro">Valentina</span>? Comentalo 👇' : '';
+  document.getElementById('tarjeta').innerHTML = IG ? `
+    <div class="fila"><img class="av" src="../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
+      <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
+    <div class="nums"><div><b>30</b>publicaciones</div><div><b data-b="07" data-w="1" data-e="cuenta" data-v="3737" data-desde="3736" data-fijo="1" data-o="0.9" data-d="0.4">3.736</b>seguidores</div><div><b>18</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="1" data-o="0.8" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
+  : `
+    <div class="fila"><img class="av" src="../../marca/logo-navy.png" style="object-fit:contain;padding:14px"><div><div class="nom">Real Investors Club</div>
+      <div class="sub2">@REALinvestorsc</div></div></div>
+    <div style="height:34px"></div>
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="0" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
   const P = (b, w, extra) => Object.assign({ b, w }, extra);
   const ARR = [0, 200, 1080, 660], ABA = [0, 1060, 1080, 640];
   window.ESC = {
+    grano: .05,  // grano suave: con más, la compresión de Instagram lo empasta
     clave: /(lucas|valentina|10 %|1 %|35|90|cuenta|curso|estrategia|perdió|avanzó|aprender|juego|100|plata|recuperarse|anota|sabe)/i,
     fotos: { sala: 'fotos/sala.jpg', lest: 'fotos/lucas-estresado.jpg', lago: 'fotos/lucas-agobiado.jpg', vcua: 'fotos/valentina-cuaderno.jpg',
       vesc: 'fotos/valentina-escribe.jpg', lucas: 'fotos/lucas.jpg', vale: 'fotos/valentina.jpg' },

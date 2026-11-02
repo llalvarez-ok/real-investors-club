@@ -20,7 +20,8 @@ const { chromium } = require('playwright'); const fs = require('fs');
     if (k === 0) fs.writeFileSync(out + '/eventos.json', JSON.stringify(await p.evaluate(() => window.EVENTOS)));
     for (let i = n0 + k; i < n1; i += P) {
       await p.evaluate(t => window.cuadro(t), i / 30);
-      await p.screenshot({ path: `${out}/${String(i).padStart(5, '0')}.jpg`, type: 'jpeg', quality: 93 });
+      const png = process.env.FORMATO === 'png', q = +(process.env.CALIDAD || 93);  // PNG sin pérdida (~4 MB por cuadro) o JPEG (CALIDAD=100 para el render final)
+      await p.screenshot(png ? { path: `${out}/${String(i).padStart(5, '0')}.png`, type: 'png' } : { path: `${out}/${String(i).padStart(5, '0')}.jpg`, type: 'jpeg', quality: q });
     }
     if (p.errs.length) console.log(p.errs.slice(0, 5).join('\n'));
   }));

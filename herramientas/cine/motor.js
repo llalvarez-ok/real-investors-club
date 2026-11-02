@@ -178,7 +178,7 @@
     const vg = fx.createRadialGradient(W / 2, H * .47, H * .28, W / 2, H * .5, H * .78); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.62)');
     fx.fillStyle = vg; fx.fillRect(0, 0, W, H);
     // grano
-    fx.globalCompositeOperation = 'soft-light'; fx.globalAlpha = .1; fx.drawImage(GR[Math.floor(t * 30) % 6], 0, 0, W, H); fx.globalAlpha = 1; fx.globalCompositeOperation = 'source-over';
+    fx.globalCompositeOperation = 'soft-light'; fx.globalAlpha = E.grano ?? .1; fx.drawImage(GR[Math.floor(t * 30) % 6], 0, 0, W, H); fx.globalAlpha = 1; fx.globalCompositeOperation = 'source-over';
   }
 
   // ---------- expediente (DOM) ----------

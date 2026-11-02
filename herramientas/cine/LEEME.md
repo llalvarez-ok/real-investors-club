@@ -27,6 +27,18 @@ las partículas doradas del Short de Binance (`herramientas/particulas/`), con t
   Una foto chica (por ejemplo, 960 px) va en un recuadro de vigilancia (`caja` + `marco`), nunca ampliada a pantalla completa.
 - Codificar a CRF 19 con tope de 12 Mbps (sale ~110 MB por 70 s); con menos bitrate el grano se empasta.
 
+## Reglas de Lean (02/11/2026, después del Reel «Dos traders»)
+1. **Calidad máxima siempre.** Fotos en su resolución original (3.000 px o más; nunca miniaturas de 1.280), cuadros con
+   `CALIDAD=100 node herramientas/cine/render.js …`, grano suave (`grano: .05` en `ESC`) y codificación CRF 16 con tope de
+   20 Mbps. Instagram y YouTube recomprimen: lo que sale de acá tiene que ser lo mejor posible.
+2. **No meter promociones que no se pidieron.** Un Reel de contenido no promociona el curso ni otra cosa: eso va en piezas aparte.
+3. **Cierres con las tarjetas reales.** Instagram: foto real de Lean (`herramientas/particulas/avatar.png`) y los números del
+   día sacados de la API (seguidores, publicaciones, seguidos), con «Seguí esta cuenta». YouTube: el logo oficial del canal
+   (`marca/logo-navy.png`), «Real Investors Club», @REALinvestorsc y el botón de suscripción.
+4. **Bancos de imágenes y video que prefiere Lean:** Pexels (fotos y videos 4K, también verticales), Pixabay, Mixkit y Coverr
+   (licencias de uso comercial sin atribución obligatoria). Al 02/11/2026 están bloqueados en la red de la nube: hacen falta
+   los dominios habilitados y las claves de API de Pexels (`RIC_PEXELS_KEY`) y Pixabay (`RIC_PIXABAY_KEY`). Mientras tanto, Wikimedia.
+
 ## Pasos
 1. Guion en `produccion/<id>/guion.json`: `voz` ({voice, rate}), `pantalla` (palabras de la voz → texto en pantalla) y
    `bloques` (id `NN-nombre`, `etiqueta`, `voz`, `pausa`, `solo: ig|yt`).
