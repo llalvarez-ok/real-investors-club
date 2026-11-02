@@ -70,6 +70,7 @@ Portada: «ORDER BLOCKS en 1 minuto».
   4. Refrescar permisos (*Help → Refresh Permissions*).
   5. Plan B: disparador por mensaje directo con la palabra CURSO.
 - A las cuentas que no siguen a @leanalvarez.ok el mensaje les llega a «Solicitudes de mensajes».
+- Alternativa abierta evaluada el 02/11/2026: OpenReply (`analisis/2026-11-02-openreply.md`). No migrar antes del lanzamiento del 16/11; reconsiderar si ManyChat cobra o si hace falta pedir que sigan antes del link o medir clics.
 - En YouTube no existen los mensajes privados: el link va en el comentario fijado y en la descripción.
 
 ## Seguidores: quién llega y quién se va (con nombres)
