@@ -1,5 +1,11 @@
 [
  {
+  "id": "c00",
+  "de": "coordinadora",
+  "a": "auditora",
+  "texto": "Lean aprobó las tareas: Ana, Lucía y vos arrancan hoy."
+ },
+ {
   "id": "c01",
   "de": "analista",
   "a": "youtube",

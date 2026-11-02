@@ -63,11 +63,11 @@
   "id": "analista",
   "nombre": "Ana",
   "rol": "Analista",
-  "estado": "listo",
-  "haciendo": "Revisión del contenido terminada",
+  "estado": "trabajando",
+  "haciendo": "Tarea programada: números del día, todos los días a las 09:10",
   "ultimo": "Lo mejor: noticias con tu voz; los largos no traen horas",
-  "espera": "Tu OK para la tarea diaria de números (09:10)",
-  "actualizado": "2026-11-02 19:30"
+  "espera": "Nada por ahora",
+  "actualizado": "2026-11-02 18:45"
  },
  {
   "id": "investigador",
@@ -83,20 +83,20 @@
   "id": "comunidad",
   "nombre": "Lucía",
   "rol": "Community manager",
-  "estado": "nuevo",
-  "haciendo": "Arrancando: comentarios de YouTube e Instagram",
+  "estado": "trabajando",
+  "haciendo": "Tarea programada: comentarios a las 10:20 y 19:20; deja borradores para aprobar",
   "ultimo": "Recién llegada al equipo (02/11)",
-  "espera": "Fijar los comentarios de «Dos traders» y Corea en Studio",
-  "actualizado": "2026-11-02 19:30"
+  "espera": "Aprobar los borradores de respuestas",
+  "actualizado": "2026-11-02 18:45"
  },
  {
   "id": "auditora",
   "nombre": "Marta",
   "rol": "Auditora de calidad",
-  "estado": "nuevo",
-  "haciendo": "Arrancando: revisa todo antes de que salga",
+  "estado": "trabajando",
+  "haciendo": "Tarea programada: auditoría del día a las 23:10",
   "ultimo": "Recién llegada al equipo (02/11)",
-  "espera": "Tu OK para la auditoría de cada noche (23:10)",
-  "actualizado": "2026-11-02 19:30"
+  "espera": "Leer su informe cada mañana",
+  "actualizado": "2026-11-02 18:45"
  }
 ]

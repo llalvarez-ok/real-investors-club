@@ -1,12 +1,5 @@
 [
  {
-  "id": "tareas-programadas",
-  "decision": "Aprobar las tareas programadas del equipo (Ana, Lucía y Marta para empezar)",
-  "agente": "Coordinadora de producción",
-  "desde": "2026-11-02",
-  "prioridad": "alta"
- },
- {
   "id": "p22-subir",
   "decision": "Subir P22 y elegir fecha de estreno (con sus 5 Shorts)",
   "agente": "Productor de YouTube",
