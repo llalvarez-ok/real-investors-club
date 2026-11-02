@@ -1,38 +1,102 @@
 [
  {
+  "id": "coordinadora",
+  "nombre": "Elena",
+  "rol": "Coordinadora de producción",
+  "estado": "nuevo",
+  "haciendo": "Arrancando: va a mantener la Central y el calendario al día",
+  "ultimo": "Recién llegada al equipo (02/11)",
+  "espera": "Tu OK para la tarea diaria de las 08:40",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
   "id": "youtube",
+  "nombre": "Julián",
   "rol": "Productor de YouTube",
   "estado": "trabajando",
-  "haciendo": "Armando la Central RIC (este tablero) y cuidando lo programado del canal",
-  "ultimo": "Short «Dos traders» publicado a las 12:30 con comentario; P22 entregado (17:24 + 5 Shorts + reel)",
+  "haciendo": "Cuidando lo programado: P10 sale el 04/11 y sus Shorts del 06 al 10",
+  "ultimo": "Short «Dos traders» publicado a las 12:30 con comentario",
   "espera": "Que subas P22 y elijas la fecha de estreno",
-  "actualizado": "2026-11-02 18:30"
+  "actualizado": "2026-11-02 19:30"
  },
  {
   "id": "instagram",
+  "nombre": "Camila",
   "rol": "Productora de Instagram",
   "estado": "bloqueado",
   "haciendo": "Sin poder leer números: la API de Instagram responde «API access blocked»",
   "ultimo": "Reel de Corea publicado a mano con música (01/11)",
-  "espera": "Revisar la app «RIC» en Meta for Developers y el token IGAA para publicar",
-  "actualizado": "2026-11-02 18:30"
- },
- {
-  "id": "analista",
-  "rol": "Analista",
-  "estado": "listo",
-  "haciendo": "Revisión del contenido terminada",
-  "ultimo": "Análisis del 02/11: lo mejor son las noticias con tu voz; los largos no traen horas",
-  "espera": "Decidir qué hacer con la transmisión vacía pública",
-  "actualizado": "2026-11-02 17:45"
+  "espera": "Revisar la app «RIC» en Meta y el token IGAA",
+  "actualizado": "2026-11-02 19:30"
  },
  {
   "id": "pizarra",
+  "nombre": "Diego",
   "rol": "Guionista y pizarra",
   "estado": "esperando",
-  "haciendo": "Guion de P21 «Mismo sueldo, vidas opuestas» listo para producir",
-  "ultimo": "P22 «Perder 8 veces y ganar el mes» producido (pizarra, 17:24)",
+  "haciendo": "Guion de P21 «Mismo sueldo, vidas opuestas» listo",
+  "ultimo": "P22 «Perder 8 veces y ganar el mes» (17:24)",
   "espera": "Tu OK al guion de P21",
-  "actualizado": "2026-11-02 18:30"
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "editor",
+  "nombre": "Bruno",
+  "rol": "Editor de video",
+  "estado": "listo",
+  "haciendo": "Libre para la próxima edición",
+  "ultimo": "Render de P22 y sus 5 Shorts y el reel",
+  "espera": "Las clases del curso anterior en Drive y los sponsors nuevos",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "disenadora",
+  "nombre": "Carla",
+  "rol": "Diseñadora",
+  "estado": "listo",
+  "haciendo": "Libre para miniaturas y portadas",
+  "ultimo": "Portadas de los vivos (Nueva York, Asia y psicología)",
+  "espera": "Si querés la hora de Argentina en las portadas",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "analista",
+  "nombre": "Ana",
+  "rol": "Analista",
+  "estado": "listo",
+  "haciendo": "Revisión del contenido terminada",
+  "ultimo": "Lo mejor: noticias con tu voz; los largos no traen horas",
+  "espera": "Tu OK para la tarea diaria de números (09:10)",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "investigador",
+  "nombre": "Pablo",
+  "rol": "Investigador de tendencias",
+  "estado": "nuevo",
+  "haciendo": "Arrancando: nicho, noticias verificadas e ideas probadas en inglés",
+  "ultimo": "Recién llegado al equipo (02/11)",
+  "espera": "Tu OK para el informe de los lunes",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "comunidad",
+  "nombre": "Lucía",
+  "rol": "Community manager",
+  "estado": "nuevo",
+  "haciendo": "Arrancando: comentarios de YouTube e Instagram",
+  "ultimo": "Recién llegada al equipo (02/11)",
+  "espera": "Fijar los comentarios de «Dos traders» y Corea en Studio",
+  "actualizado": "2026-11-02 19:30"
+ },
+ {
+  "id": "auditora",
+  "nombre": "Marta",
+  "rol": "Auditora de calidad",
+  "estado": "nuevo",
+  "haciendo": "Arrancando: revisa todo antes de que salga",
+  "ultimo": "Recién llegada al equipo (02/11)",
+  "espera": "Tu OK para la auditoría de cada noche (23:10)",
+  "actualizado": "2026-11-02 19:30"
  }
 ]

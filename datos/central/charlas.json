@@ -1,0 +1,86 @@
+[
+ {
+  "id": "c01",
+  "de": "analista",
+  "a": "youtube",
+  "texto": "Corea con la voz de Lean: 1.304 vistas en un día. ¡Rinde!"
+ },
+ {
+  "id": "c02",
+  "de": "auditora",
+  "a": "pizarra",
+  "texto": "Revisé P22: sin voseo y con avisos. El S1 dura 62 s."
+ },
+ {
+  "id": "c03",
+  "de": "youtube",
+  "a": "coordinadora",
+  "texto": "P22 está listo. Falta que Lean elija la fecha."
+ },
+ {
+  "id": "c04",
+  "de": "instagram",
+  "a": "coordinadora",
+  "texto": "Meta nos bloqueó la API. Necesito a Lean."
+ },
+ {
+  "id": "c05",
+  "de": "editor",
+  "a": "youtube",
+  "texto": "Render de P22: 18,5 minutos con 4 procesos."
+ },
+ {
+  "id": "c06",
+  "de": "disenadora",
+  "a": "youtube",
+  "texto": "Portadas de los vivos listas: NY, Asia y psicología."
+ },
+ {
+  "id": "c07",
+  "de": "investigador",
+  "a": "pizarra",
+  "texto": "Los videos «Dos vidas» superan 85 veces a su canal."
+ },
+ {
+  "id": "c08",
+  "de": "comunidad",
+  "a": "youtube",
+  "texto": "Faltan fijar los comentarios de Dos traders y Corea."
+ },
+ {
+  "id": "c09",
+  "de": "coordinadora",
+  "a": "analista",
+  "texto": "¿Cuántas horas sumó el vivo de Lean?"
+ },
+ {
+  "id": "c10",
+  "de": "analista",
+  "a": "coordinadora",
+  "texto": "Vamos 22,9 horas de 4.000. El vivo ayudó."
+ },
+ {
+  "id": "c11",
+  "de": "auditora",
+  "a": "editor",
+  "texto": "Recordá: los MP4 no van a git."
+ },
+ {
+  "id": "c12",
+  "de": "pizarra",
+  "a": "investigador",
+  "texto": "¿Qué tema sigue después de P21?"
+ },
+ {
+  "id": "c13",
+  "de": "coordinadora",
+  "a": "comunidad",
+  "texto": "El curso es el 16/11: preparemos respuestas."
+ },
+ {
+  "id": "c14",
+  "de": "auditora",
+  "a": "youtube",
+  "texto": "Hay una transmisión vacía pública. ¿La ocultamos?"
+ }
+]

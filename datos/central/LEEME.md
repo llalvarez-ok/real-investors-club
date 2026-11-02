@@ -13,10 +13,15 @@ pendientes y los videos más vistos.
 | `instagram.json` | último dato bueno de seguidores (si la API de Instagram no responde) | el script, o a mano |
 | `agentes.json` | estado de cada agente: `id` (youtube, instagram, analista, pizarra), `estado`, `haciendo`, `ultimo`, `espera`, `actualizado` | cada chat, al terminar algo |
 | `pendientes.json` | decisiones de Lean: `id`, `decision`, `agente`, `desde`, `prioridad` (alta, media, baja) | cada chat |
-| `pagina.html` | copia de la página (`files/index.html` en la Central) | a mano |
+| `charlas.json` | lo que se dicen los personajes en la oficina: `id`, `de`, `a` (ids de agentes), `texto` (≤ 60 caracteres) | cada chat |
+| `pagina.html`, `oficina.js` | copias de `files/index.html` y `files/oficina.js` de la Central | a mano |
 
-Personajes: Open Peeps (CC0) de `herramientas/animaciones/recursos/` (YouTube = julian, Instagram = camila, analista = ana,
-pizarra = diego), cara feliz o preocupada según el estado, en `files/avatares.js` de la Central.
+Equipo (10, análisis en `analisis/2026-11-02-equipo-agentes.md`), con su personaje de Open Peeps (CC0, `herramientas/animaciones/recursos/`):
+coordinadora = Elena, youtube = Julián, instagram = Camila, pizarra = Diego, editor = Bruno, disenadora = Carla, analista = Ana,
+investigador = Pablo, comunidad = Lucía, auditora = Marta. Estados: trabajando, esperando, bloqueado (cara preocupada), listo, nuevo.
+Los SVG van en `files/avatares-1.js` a `avatares-4.js` de la Central (cada archivo del store tiene que pesar menos de 256 KB).
+La oficina (`oficina.js`): cada escritorio con su personaje; cada pocos segundos uno camina hasta otro y le dice una frase de `charlas`;
+tocar a un personaje muestra su estado; botón «Pausar»; con «reducir movimiento» no caminan.
 
 ## Cómo actualizar (desde cualquier chat)
 1. `python herramientas/central_ric.py` y editar `agentes.json` / `pendientes.json`.

@@ -26,6 +26,10 @@ const PERSONAJES = {
   marta: ["Tee", "LongHair", { skinColor: "#F0C29B", topColor: "#F09A5B" }],
   julian: ["ButtonShirt", "ShortOne", { skinColor: "#E3AC85", topColor: "#8E7DD8" }, "Glasses"],
   camila: ["Tee", "LongCurly", { skinColor: "#C98B62", topColor: "#4CC3C9" }],
+  // Central RIC (02/11/2026): el equipo de agentes
+  pablo: ["Hoodie", "Pomp", { skinColor: "#E0A87E", hoodieColor: "#5A6B8C", topColor: "#5A6B8C" }, "GlassesTwo"],
+  lucia: ["Jacket", "BunTwo", { skinColor: "#F1C6A2", jacketColor: "#D96C6C", topColor: "#D96C6C" }],
+  elena: ["ButtonShirt", "MediumBangs", { skinColor: "#B8805A", shirtColor: "#2F8F83", topColor: "#2F8F83" }],
 };
 const CARAS = { feliz: "Smile", preocupada: "Concerned" };
 
