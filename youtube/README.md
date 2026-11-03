@@ -52,6 +52,11 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-11-09 | Short | «Últimos cupos»: el FOMO que te fabrican #Shorts | `3CucxdZ-ODw` | programado | 0 | — |
 | 2026-11-10 | Short | Por qué el FOMO siempre llega tarde #Shorts | `gFUF0uoI9fY` | programado | 2 | — |
 
+## Programados
+- 03/11 15:00 · Short · El lunes dije en vivo que buscaba una caída fuerte en el oro · `yfoWKKtnn3k`
+- 05/11 13:00 · Short · El error que cometí en vivo · `XWsOBQY8_Ak`
+- 06/11 13:00 · Short · Me comí un stop en vivo · `M96iCwjSeUA`
+
 ## Programados (02/11/2026)
 - 2026-11-02 12:30 (ARG) · Short · Dos traders, misma plata: uno avanzó y el otro volvió a cero #Shorts · `CVYZZyVTNuU` · playlist «Psicología del dinero y finanzas sin humo».
 
