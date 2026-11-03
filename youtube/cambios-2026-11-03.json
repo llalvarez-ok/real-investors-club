@@ -1,0 +1,101 @@
+{
+ "fecha": "2026-11-03",
+ "vivos": {
+  "DcZcgifTT2I": {
+   "antes": {
+    "title": "Operando en vivo el Mercado de Nueva York 02/11/2026",
+    "categoryId": "24",
+    "description": "",
+    "status": {
+     "uploadStatus": "processed",
+     "privacyStatus": "public",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "despues": {
+    "title": "Trading en vivo en la apertura de Nueva York: US30, oro y Bitcoin · 02/11/2026",
+    "description": "Trading en vivo en la apertura de Nueva York con Lean Alvarez: US30 (Dow Jones), oro (XAUUSD) y Bitcoin, leídos en tiempo real. Zonas de liquidez, imbalances, bloques de órdenes, el POC diario del perfil de volumen y una EMA de 13 con ATR para medir la fuerza. También verás un stop y por qué entrar contra la fuerza es un error común.\n\nCapítulos\n0:00 Previa del vivo\n10:00 US30: zona de venta y bloque de órdenes\n15:00 Oro y Bitcoin antes de la apertura: liquidez e imbalances\n26:00 Venta en el oro y stop manejado a mano\n30:00 Apertura de Nueva York\n36:00 US30: retesteo y un stop\n40:00 La EMA de 13 con ATR y el volumen\n47:00 Error común: entrar contra la fuerza\n51:00 POC diario y order block en el US30\n59:00 Entrada en el US30 con objetivo en el POC\n1:08:00 Microtendencias y cambio de estructura\n1:22:00 Oro: la venta y el POC diario roto\n1:31:00 Plan de salida y cierre\n\n🎓 Aprende trading desde cero gratis (Nivel 0): https://realinvestors.club\n▶️ Todos los vivos de Nueva York: https://www.youtube.com/playlist?list=PLONVwRrVFHYU\n🔔 Suscríbete y activa la campana para enterarte del próximo vivo.\n\nFoto de portada: «Manhattan skyline at night», Aromero085, CC BY-SA 4.0, vía Wikimedia Commons.\n\n⚠️ Contenido educativo. No constituye recomendación de inversión. Las operaciones que se ven en el vivo son personales y no son señales. Operar con apalancamiento implica un alto riesgo de pérdida de capital.\n\n#TradingEnVivo #NuevaYork #US30 #Oro #DayTrading",
+    "tags": [
+     "trading en vivo",
+     "trading en vivo español",
+     "apertura de nueva york",
+     "sesion de nueva york",
+     "us30",
+     "dow jones",
+     "nasdaq",
+     "oro",
+     "xauusd",
+     "bitcoin",
+     "day trading",
+     "scalping",
+     "liquidez",
+     "imbalance",
+     "order block",
+     "perfil de volumen",
+     "poc",
+     "gestion del riesgo",
+     "trading para principiantes",
+     "real investors club",
+     "lean alvarez"
+    ],
+    "categoryId": "27",
+    "playlist": "PLONVwRrVFHYU"
+   }
+  },
+  "UPs-mOKt928": {
+   "antes": {
+    "title": "Operando en Vivo en el Mercado de Nueva York 03/11/2026",
+    "categoryId": "24",
+    "description": "",
+    "status": {
+     "uploadStatus": "uploaded",
+     "privacyStatus": "public",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "despues": {
+    "title": "Trading en vivo en la apertura de Nueva York · 03/11/2026",
+    "description": "Trading en vivo en la apertura de Nueva York con Lean Alvarez: el mercado leído en tiempo real, con zonas de liquidez, imbalances, bloques de órdenes, perfil de volumen y gestión del riesgo en cada operación.\n\n🎓 Aprende trading desde cero gratis (Nivel 0): https://realinvestors.club\n▶️ Todos los vivos de Nueva York: https://www.youtube.com/playlist?list=PLONVwRrVFHYU\n🔔 Suscríbete y activa la campana para enterarte del próximo vivo.\n\nFoto de portada: «Manhattan skyline at night», Aromero085, CC BY-SA 4.0, vía Wikimedia Commons.\n\n⚠️ Contenido educativo. No constituye recomendación de inversión. Las operaciones que se ven en el vivo son personales y no son señales. Operar con apalancamiento implica un alto riesgo de pérdida de capital.\n\n#TradingEnVivo #NuevaYork #US30 #Oro #DayTrading",
+    "tags": [
+     "trading en vivo",
+     "trading en vivo español",
+     "apertura de nueva york",
+     "sesion de nueva york",
+     "us30",
+     "dow jones",
+     "nasdaq",
+     "oro",
+     "xauusd",
+     "bitcoin",
+     "day trading",
+     "scalping",
+     "liquidez",
+     "imbalance",
+     "order block",
+     "perfil de volumen",
+     "poc",
+     "gestion del riesgo",
+     "trading para principiantes",
+     "real investors club",
+     "lean alvarez"
+    ],
+    "categoryId": "27",
+    "playlist": "PLONVwRrVFHYU"
+   }
+  }
+ },
+ "playlists_nuevas": {
+  "Trading en vivo · Nueva York": "PLONVwRrVFHYU",
+  "Trading en vivo · Asia": "PLWs3bRvA1ccA",
+  "Trading en vivo · Londres": "PLdTl6DgxgW3k",
+  "Psicotrading · Psicología del trading": "PLLiFzVm-nZuk"
+ }
+}

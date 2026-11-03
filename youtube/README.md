@@ -55,11 +55,21 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 ## Programados (02/11/2026)
 - 2026-11-02 12:30 (ARG) · Short · Dos traders, misma plata: uno avanzó y el otro volvió a cero #Shorts · `CVYZZyVTNuU` · playlist «Psicología del dinero y finanzas sin humo».
 
+## Vivos
+| Fecha | Video | ID | Playlist |
+|---|---|---|---|
+| 02/11/2026 | Trading en vivo en la apertura de Nueva York: US30, oro y Bitcoin | `DcZcgifTT2I` | Trading en vivo · Nueva York |
+| 03/11/2026 | Trading en vivo en la apertura de Nueva York | `UPs-mOKt928` | Trading en vivo · Nueva York |
+
+## Playlists
+- Psicología del dinero y finanzas sin humo `PLEaK47BmSetA` (pública) · Noticias y conceptos de trading en 1 minuto `PLQNFhTbDHaU0` (pública) · Shorts de Real Investors Club `PLIpcK30CCatM` (pública, todos los Shorts) · Trading en vivo · Nueva York `PLONVwRrVFHYU` (pública) · Trading en vivo · Asia `PLWs3bRvA1ccA` (pública) · Trading en vivo · Londres `PLdTl6DgxgW3k` (privada) · Psicotrading · Psicología del trading `PLLiFzVm-nZuk` (pública) · Nivel 0 `PLfioI1HC__Ts` · Nivel 1 `PLUgrAixhdUy8` (no listada).
+
 ## En producción
 - **P22 «Por qué un trader puede perder 8 veces seguidas y ganar el mes»** (02/11/2026, video largo L4 del plan de Fabio Valentini): pizarra, 17:24, metáfora de Ramón el pescador; 5 Shorts y un reel. Todo en `produccion/p22-rachas/` (textos en `subir.md`). Falta que Lean lo vea y lo suba.
 
 ## Historial de cambios por la API
 - `youtube/cambios-2026-10-27.json`: auditoría inicial.
+- `youtube/cambios-2026-11-03.json`: vivos del 02 y 03/11 optimizados y 4 playlists nuevas.
 - `youtube/cambios-2026-11-02.json`: datos y horario del Short «Dos traders».
 - `youtube/cambios-2026-11-01.json`: títulos, avisos, voz sintética, horarios y playlists nuevas; y (clave `corea_publicacion`) la carga y publicación del Short de Corea.
 - Análisis: `analisis/2026-10-27-auditoria-canal.md`, `analisis/2026-10-29-nicho.md`, `analisis/2026-11-01-revision-canal.md`.
