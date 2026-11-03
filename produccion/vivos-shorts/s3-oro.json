@@ -1,0 +1,95 @@
+{
+ "gancho": "Mi plan para el **oro** en vivo",
+ "fecha": "02/11/2026",
+ "tramos": [
+  [
+   971.9,
+   974.4
+  ],
+  [
+   977.1,
+   982.25
+  ]
+ ],
+ "palabras": [
+  {
+   "a": 972.12,
+   "b": 972.6,
+   "p": "Para"
+  },
+  {
+   "a": 972.6,
+   "b": 972.78,
+   "p": "los"
+  },
+  {
+   "a": 972.78,
+   "b": 972.86,
+   "p": "que"
+  },
+  {
+   "a": 972.86,
+   "b": 973.02,
+   "p": "no"
+  },
+  {
+   "a": 973.02,
+   "b": 973.6,
+   "p": "estuvieron"
+  },
+  {
+   "a": 973.82,
+   "b": 974.38,
+   "p": "anoche,"
+  },
+  {
+   "a": 977.16,
+   "b": 977.54,
+   "p": "estoy"
+  },
+  {
+   "a": 977.54,
+   "b": 977.82,
+   "p": "buscando"
+  },
+  {
+   "a": 977.82,
+   "b": 978.08,
+   "p": "una"
+  },
+  {
+   "a": 978.08,
+   "b": 978.3,
+   "p": "caída"
+  },
+  {
+   "a": 978.3,
+   "b": 979.42,
+   "p": "bastante"
+  },
+  {
+   "a": 979.42,
+   "b": 979.78,
+   "p": "fuerte"
+  },
+  {
+   "a": 979.78,
+   "b": 981.92,
+   "p": "en"
+  },
+  {
+   "a": 981.92,
+   "b": 981.92,
+   "p": "el"
+  },
+  {
+   "a": 981.92,
+   "b": 982.26,
+   "p": "oro."
+  }
+ ],
+ "insertos": [
+  "/tmp/claude-0/-home-user-real-investors-club/eb5a9ff2-bfbf-55a4-b151-ea80bb73c4d7/scratchpad/vivos/inserto-oro.mp4"
+ ],
+ "nota_inserto": "gráfico real GC=F 15 min, 02/11 14:00 UTC a 03/11 10:00 UTC (herramientas: ver produccion/vivos-shorts/LEEME.md)"
+}
