@@ -98,5 +98,15 @@
   "ultimo": "Recién llegada al equipo (02/11)",
   "espera": "Leer su informe cada mañana",
   "actualizado": "2026-11-02 18:45"
+ },
+ {
+  "id": "critico",
+  "nombre": "Rocío",
+  "rol": "Crítica de guiones e impacto",
+  "estado": "trabajando",
+  "haciendo": "Revisa cada guion antes de que llegue a Lean, con la rúbrica de diseno/rubrica-guion.md (todo en 8 o más)",
+  "ultimo": "Revisó el guion v3 de Elecciones en EE. UU.: pidió gancho hacia el espectador, sacar una frase sin respaldo y acortar a ~57 s",
+  "espera": "El OK de Lean al guion v3 y su audio",
+  "actualizado": "2026-11-04 10:00"
  }
 ]

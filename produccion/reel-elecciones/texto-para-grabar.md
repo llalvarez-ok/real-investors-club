@@ -1,26 +1,26 @@
-# Texto para grabar (Lean) · Elecciones en EE. UU. v2
+# Texto para grabar (Lean) · Elecciones en EE. UU. v3
 
 Grabalo de corrido, con una pausa corta entre párrafos. Si cambiás palabras no pasa nada: el video se acomoda a lo que digas.
 
 **PARA VOS**
-Si anoche viste caer el mercado y te dieron ganas de vender todo, este video es para vos.
+Si anoche, con el triunfo demócrata en el Congreso, te dieron ganas de vender todo, frená un segundo.
 
 **LA NOCHE**
-Los demócratas ganaron el Congreso. Con los resultados, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El que vendió por miedo, vendió en el peor momento de la noche.
-
-**RUIDO**
-El mercado reacciona primero y piensa después. Las primeras horas después de una noticia son puro ruido.
+Con los resultados, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El oro saltó más de tres por ciento, arriba de los cuatro mil dólares. El que vendió por miedo, se perdió el rebote.
 
 **LA HISTORIA**
-Mirá esto. En las diecinueve elecciones de medio término desde mil novecientos cincuenta, la bolsa de Estados Unidos estaba más arriba un año después en todas. No es una promesa: en dos mil dos, tres meses después, estaba ocho por ciento abajo.
+Revisé las diecinueve elecciones de medio término desde mil novecientos cincuenta. Un mes después, la bolsa de Estados Unidos estaba arriba en quince. Tres meses después, en diecisiete. Y un año después, en las diecinueve.
+
+**OJO**
+Ojo: es estadística, no promesa. En dos mil dos, tres meses después, estaba ocho por ciento abajo. Pero el patrón es claro: el ruido de una noche se diluye con el tiempo.
 
 **QUÉ HACER**
-Entonces, tres cosas. Una: no operes el titular; esperá que pase la primera reacción. Dos: definí tu horizonte antes de entrar; si es de un año, el ruido de una noche no te tiene que mover. Tres: si operás de corto plazo, en días así bajá el tamaño de tu posición.
+Entonces: no operes el titular, esperá que pase la primera reacción. Definí tu horizonte antes de entrar. Y si operás de corto plazo, en días así achicá la posición.
 
 **CONTAME** (solo Instagram)
-¿Vos qué hiciste anoche? Contámelo en los comentarios, y seguime para entender el mercado sin humo.
+¿Y vos anoche? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios.
 
 **REAL INVESTORS CLUB** (solo YouTube)
-¿Vos qué hiciste anoche? Contámelo en los comentarios, y suscribite a Real Investors Club.
+¿Y vos anoche? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios, y suscribite a Real Investors Club.
 
-_183 palabras: con tu ritmo, unos 55 segundos._
+_174 palabras (versión de Instagram): con tu ritmo, unos 58 segundos._

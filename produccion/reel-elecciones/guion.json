@@ -1,5 +1,5 @@
 {
- "titulo": "Si anoche quisiste vender todo, mirá esto (elecciones en EE. UU.)",
+ "titulo": "Elecciones en EE. UU.: qué pasó anoche y qué dicen 19 elecciones desde 1950",
  "estilo": "expediente cine (herramientas/cine/), con zonas seguras para celulares altos",
  "fuentes": [
   "Resultados: proyecciones de CBS News, CNN, NBC News y The Washington Post del 03-04/11/2026 (AP: 51 bancas del Senado para los demócratas)",
@@ -21,46 +21,50 @@
   "quince": "15",
   "diecisiete": "17",
   "dos mil dos": "2002",
-  "ocho por ciento": "8 %"
+  "ocho por ciento": "8 %",
+  "más de tres por ciento": "+3 %"
  },
  "bloques": [
   {
    "id": "01-gancho",
    "etiqueta": "PARA VOS",
-   "voz": "Si anoche viste caer el mercado y te dieron ganas de vender todo, este video es para vos."
+   "voz": "Si anoche, con el triunfo demócrata en el Congreso, te dieron ganas de vender todo, frená un segundo."
   },
   {
    "id": "02-noche",
    "etiqueta": "LA NOCHE",
-   "voz": "Los demócratas ganaron el Congreso. Con los resultados, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El que vendió por miedo, vendió en el peor momento de la noche."
+   "voz": "Con los resultados, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El oro saltó más de tres por ciento, arriba de los cuatro mil dólares. El que vendió por miedo, se perdió el rebote."
   },
   {
-   "id": "03-ruido",
-   "etiqueta": "RUIDO",
-   "voz": "El mercado reacciona primero y piensa después. Las primeras horas después de una noticia son puro ruido."
-  },
-  {
-   "id": "04-historia",
+   "id": "03-historia",
    "etiqueta": "LA HISTORIA",
-   "voz": "Mirá esto. En las diecinueve elecciones de medio término desde mil novecientos cincuenta, la bolsa de Estados Unidos estaba más arriba un año después en todas. No es una promesa: en dos mil dos, tres meses después, estaba ocho por ciento abajo."
+   "voz": "Revisé las diecinueve elecciones de medio término desde mil novecientos cincuenta. Un mes después, la bolsa de Estados Unidos estaba arriba en quince. Tres meses después, en diecisiete. Y un año después, en las diecinueve."
+  },
+  {
+   "id": "04-ojo",
+   "etiqueta": "OJO",
+   "voz": "Ojo: es estadística, no promesa. En dos mil dos, tres meses después, estaba ocho por ciento abajo. Pero el patrón es claro: el ruido de una noche se diluye con el tiempo."
   },
   {
    "id": "05-que-hacer",
    "etiqueta": "QUÉ HACER",
-   "voz": "Entonces, tres cosas. Una: no operes el titular; esperá que pase la primera reacción. Dos: definí tu horizonte antes de entrar; si es de un año, el ruido de una noche no te tiene que mover. Tres: si operás de corto plazo, en días así bajá el tamaño de tu posición."
+   "voz": "Entonces: no operes el titular, esperá que pase la primera reacción. Definí tu horizonte antes de entrar. Y si operás de corto plazo, en días así achicá la posición."
   },
   {
    "id": "06-cierre-ig",
-   "solo": "ig",
    "etiqueta": "CONTAME",
-   "voz": "¿Vos qué hiciste anoche? Contámelo en los comentarios, y seguime para entender el mercado sin humo."
+   "solo": "ig",
+   "voz": "¿Y vos anoche? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios."
   },
   {
    "id": "06-cierre-yt",
-   "solo": "yt",
    "etiqueta": "REAL INVESTORS CLUB",
-   "voz": "¿Vos qué hiciste anoche? Contámelo en los comentarios, y suscribite a Real Investors Club."
+   "solo": "yt",
+   "voz": "¿Y vos anoche? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios, y suscribite a Real Investors Club."
   }
  ],
- "version": "v2 (04/11/2026, pedido de Lean: hablarle al espectador y dar algo para hacer; la graba Lean con su voz)"
+ "version": "v3 (04/11/2026): vuelven el resultado y la estadística de las 19 elecciones; revisado por el crítico de guiones (diseno/rubrica-guion.md)",
+ "pantalla_extra": {
+  "03-historia": "S&P 500 · 19 elecciones de medio término 1950-2022 · cálculo propio"
+ }
 }
