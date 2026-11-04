@@ -52,13 +52,21 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-11-09 | Short | «Últimos cupos»: el FOMO que te fabrican #Shorts | `3CucxdZ-ODw` | programado | 0 | — |
 | 2026-11-10 | Short | Por qué el FOMO siempre llega tarde #Shorts | `gFUF0uoI9fY` | programado | 2 | — |
 
-## Programados
-- 03/11 15:00 · Short · El lunes dije en vivo que buscaba una caída fuerte en el oro · `yfoWKKtnn3k`
-- 05/11 13:00 · Short · El error que cometí en vivo · `XWsOBQY8_Ak`
-- 06/11 13:00 · Short · Me comí un stop en vivo · `M96iCwjSeUA`
-
-## Programados (02/11/2026)
-- 2026-11-02 12:30 (ARG) · Short · Dos traders, misma plata: uno avanzó y el otro volvió a cero #Shorts · `CVYZZyVTNuU` · playlist «Psicología del dinero y finanzas sin humo».
+## Programados (calendario reordenado el 04/11/2026, hora de Argentina; registro en `cambios-2026-11-04.json`)
+Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora que un video largo.
+- 04/11 13:00 · Short · Demócratas ganan el Congreso: ¿vender todo? Lo que dicen 19 elecciones desde 1950 · `XG9VdqKMf8c` (voz de Lean, sin contenido sintético; playlists Shorts y Noticias)
+- 04/11 19:00 · Largo · P10 FOMO · `SbO7TcPcg7M`
+- 05/11 13:00 · Short · Por qué vendes lo que gana… (P09) · `vXMFiNvFgwg`
+- 05/11 19:00 · Short · El error que cometí en vivo · `XWsOBQY8_Ak`
+- 06/11 13:00 · Short · 3 hábitos para no vender por miedo (P09) · `VNjgXvAp5Ic`
+- 06/11 19:00 · Short · Me comí un stop en vivo · `M96iCwjSeUA`
+- 07/11 13:00 · Short · Entró en el pico de Bitcoin en 2021 (P10) · `MaLhm9-0AZY`
+- 07/11 19:00 · Largo · P22 (falta que Lean lo suba)
+- 08/11 19:00 · Short · ¿Compras porque todos compran? (P10) · `SPvuO-ppHm8`
+- 09/11 19:00 · Short · 3 preguntas antes de entrar… (P10) · `wX-T6YetVO4`
+- 10/11 19:00 · Short · «Últimos cupos» (P10) · `3CucxdZ-ODw`
+- 11/11 19:00 · Short · Por qué el FOMO siempre llega tarde (P10) · `gFUF0uoI9fY`
+- Los 5 Shorts de P22 van desde el 12/11.
 
 ## Vivos
 | Fecha | Video | ID | Playlist |

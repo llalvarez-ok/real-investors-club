@@ -1,0 +1,87 @@
+{
+ "fecha": "2026-11-04",
+ "cambios": [
+  {
+   "id": "gFUF0uoI9fY",
+   "titulo": "Por qué el FOMO siempre llega tarde #Shorts",
+   "publishAt_antes": "2026-11-10T22:00:00Z",
+   "publishAt_despues": "2026-11-11T22:00:00Z"
+  },
+  {
+   "id": "3CucxdZ-ODw",
+   "titulo": "«Últimos cupos»: el FOMO que te fabrican #Shorts",
+   "publishAt_antes": "2026-11-09T22:00:00Z",
+   "publishAt_despues": "2026-11-10T22:00:00Z"
+  },
+  {
+   "id": "wX-T6YetVO4",
+   "titulo": "3 preguntas antes de entrar en algo de lo que todos hablan #Shorts",
+   "publishAt_antes": "2026-11-08T22:00:00Z",
+   "publishAt_despues": "2026-11-09T22:00:00Z"
+  },
+  {
+   "id": "SPvuO-ppHm8",
+   "titulo": "¿Compras porque todos compran? El truco de la fila #Shorts",
+   "publishAt_antes": "2026-11-07T22:00:00Z",
+   "publishAt_despues": "2026-11-08T22:00:00Z"
+  },
+  {
+   "id": "MaLhm9-0AZY",
+   "titulo": "Entró en el pico de Bitcoin en 2021: lo que pasó después #Shorts",
+   "publishAt_antes": "2026-11-06T22:00:00Z",
+   "publishAt_despues": "2026-11-07T16:00:00Z"
+  },
+  {
+   "id": "M96iCwjSeUA",
+   "titulo": "Me comí un stop en vivo (y está bien) #Shorts",
+   "publishAt_antes": "2026-11-06T16:00:00Z",
+   "publishAt_despues": "2026-11-06T22:00:00Z"
+  },
+  {
+   "id": "VNjgXvAp5Ic",
+   "titulo": "3 hábitos para no vender por miedo #Shorts",
+   "publishAt_antes": "2026-11-05T22:00:00Z",
+   "publishAt_despues": "2026-11-06T16:00:00Z"
+  },
+  {
+   "id": "XWsOBQY8_Ak",
+   "titulo": "El error que cometí en vivo: entrar sin intención en la EMA #Shorts",
+   "publishAt_antes": "2026-11-05T16:00:00Z",
+   "publishAt_despues": "2026-11-05T22:00:00Z"
+  },
+  {
+   "id": "vXMFiNvFgwg",
+   "titulo": "Por qué vendes lo que gana y te quedas con lo que pierde #Shorts",
+   "publishAt_antes": "2026-11-04T16:00:00Z",
+   "publishAt_despues": "2026-11-05T16:00:00Z"
+  },
+  {
+   "id": "XG9VdqKMf8c",
+   "antes": {
+    "title": "RIC Elecciones voz Lean yt",
+    "status": {
+     "uploadStatus": "processed",
+     "privacyStatus": "private",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "despues": {
+    "title": "Demócratas ganan el Congreso: ¿vender todo? Lo que dicen 19 elecciones desde 1950 #Shorts",
+    "publishAt": "2026-11-04T16:00:00Z",
+    "categoryId": "27"
+   }
+  },
+  {
+   "id": "XG9VdqKMf8c",
+   "playlist": "PLIpcK30CCatM"
+  },
+  {
+   "id": "XG9VdqKMf8c",
+   "playlist": "PLQNFhTbDHaU0"
+  }
+ ]
+}
