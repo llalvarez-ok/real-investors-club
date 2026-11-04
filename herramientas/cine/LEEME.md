@@ -93,3 +93,5 @@ y además tapa: arriba la barra de estado, la flecha y la lupa (0 a ~250 px), ab
 Regla: **todo texto, cifra, sello o etiqueta va entre x 140 y 870 (o 940 por encima de y 1000) y entre y 250 y 1440**.
 El fondo (fotos, partículas) puede llenar todo el cuadro. Ejemplo aplicado: `produccion/reel-elecciones/escena.html`.
 Look `limpio` en `motor.js` para gráficos de datos (sin gradación, verde y rojo tal cual).
+
+- **Voz grabada sin «baño»** (04/11/2026, Lean: «suena como dentro de un baño»): `voz_grabada.py` ya no agrega reverb y le saca la de la habitación con WPE (`pip install nara_wpe scipy`), con compuerta más rápida y menos 420 Hz. Para corregir un video ya armado sin volver a renderizar: pasar los `voz/*.wav` por la misma cadena (mismo largo), volver a mezclar con `mezcla.py` y cambiar solo el audio del MP4 (`-c:v copy`).

@@ -41,21 +41,31 @@ def estudio(f, salida):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f, "-ac", "1", "-ar", str(R), "-af",
                     "adeclip,highpass=f=75,afftdn=nr=12:nf=-48:tn=1,deesser=i=0.35:m=0.5:f=0.5", tmp], check=True)
     x = leer(tmp); os.remove(tmp)
+    x = dereverb(x)  # 04/11/2026: Lean dijo que sonaba «como dentro de un baño»
     x = x / (np.abs(x).max() + 1e-9) * .7
     seco = Pedalboard([
-        NoiseGate(threshold_db=-48, ratio=2.5, attack_ms=2, release_ms=180),
+        NoiseGate(threshold_db=-42, ratio=4, attack_ms=1, release_ms=70),  # corta las colas de la sala entre palabras
         LowShelfFilter(cutoff_frequency_hz=140, gain_db=2.5),
         PeakFilter(cutoff_frequency_hz=320, gain_db=-3, q=1.1),
+        PeakFilter(cutoff_frequency_hz=420, gain_db=-3.5, q=1.2),  # menos «caja»
         PeakFilter(cutoff_frequency_hz=3400, gain_db=2.5, q=.8),
         HighShelfFilter(cutoff_frequency_hz=9500, gain_db=2.5),
         Compressor(threshold_db=-20, ratio=3.5, attack_ms=4, release_ms=90),
         Gain(gain_db=4),
     ])(x, R)
-    # reverb de sala chica (la de un estudio de stream): poca y oscura, para que no suene a baño
-    sala = Pedalboard([Reverb(room_size=.2, damping=.65, wet_level=1, dry_level=0, width=.6), PeakFilter(cutoff_frequency_hz=5000, gain_db=-4, q=.7)])(seco, R)
-    y = seco + sala * .11
-    y = Pedalboard([Limiter(threshold_db=-2, release_ms=80)])(y, R)
+    # sin reverb agregada (04/11/2026): las grabaciones de WhatsApp ya traen la sala
+    y = Pedalboard([Limiter(threshold_db=-2, release_ms=80)])(seco, R)
     return y
+
+
+def dereverb(x):
+    """Saca la reverberación de la habitación con WPE (nara_wpe; pip install nara_wpe scipy)."""
+    from nara_wpe.wpe import wpe
+    from nara_wpe.utils import stft, istft
+    pad = np.concatenate([x, np.zeros(R // 2, np.float32)])
+    Y = stft(pad[None], size=1536, shift=384).transpose(2, 0, 1)
+    z = istft(wpe(Y, taps=14, delay=3, iterations=3, statistics_mode="full").transpose(1, 2, 0), size=1536, shift=384)[0][:len(x)]
+    return (z / (np.abs(z).max() + 1e-9) * np.abs(x).max()).astype(np.float32)
 
 
 def silencios(x, a, b, umbral_db=None, minimo=.34, queda=.22):
