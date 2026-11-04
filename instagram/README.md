@@ -23,6 +23,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
 | «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | **Publicado a mano por Lean el 01/11/2026 a las 21:18 de Argentina** (https://www.instagram.com/reel/DfOABv1NrZD/, ID 18111823058184752): texto igual a `caption-ig.txt`, compartido en el feed (revisado por la API el 02/11) | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
+| «Elecciones en EE. UU.: ¿vender todo? Lo que dicen 19 elecciones desde 1950» (expediente cine, voz de Lean grabada en WhatsApp, con música, 77 s) | **Publicado a mano por Lean el 04/11/2026** con el primer audio entregado (el de la sala chica; las versiones sin eco no le gustaron) y el copy de `subir.md` | `produccion/reel-elecciones/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
@@ -35,6 +36,7 @@ El análisis del Reel «Perfil de volumen» (curva de retención, origen de las 
 `analisis/2026-11-01-reporte-reels-particulas.md`, sección 8. Los cambios que salieron de ahí son las reglas de abajo.
 
 ## Reglas para los próximos Reels
+- **Audio de Lean** (04/11/2026): las notas de voz de WhatsApp vienen a ~15 kbps y con la sala del lugar; ningún filtro las deja «profesionales» (se probaron WPE, supresión de cola y DeepFilterNet3, y no le gustaron). Para los próximos: grabar con Notas de voz del iPhone a un palmo de la boca, en un lugar con cosas blandas, y subir el archivo a Drive (RIC/audios); o pasar la grabación por Adobe Podcast «Enhance Speech» antes de mandarla.
 Las de la sección 9 del reporte de partículas, que valen para todos los estilos:
 - El gancho se ve desde el cuadro 0 y la voz arranca en el segundo 0.
 - Subtítulos palabra por palabra, con la palabra clave en dorado (el 55 % mira desde el Feed, sin sonido).
