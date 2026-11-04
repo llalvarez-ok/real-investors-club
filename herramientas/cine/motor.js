@@ -38,6 +38,7 @@
     rojo: ['saturate(.4) contrast(1.3) brightness(.55)', 'rgba(90,10,14,.38)'],
     oro: ['saturate(.6) contrast(1.15) brightness(.7)', 'rgba(70,48,8,.3)'],
     doc: ['saturate(.2) contrast(1.15) brightness(.75)', 'rgba(14,20,34,.3)'],
+    limpio: ['none', 'rgba(0,0,0,0)'],  // gráficos de datos: sin gradación, los colores verde y rojo tienen que verse tal cual
   };
   function rectFoto(p, t) {  // dónde queda la foto en el cuadro (cubre la caja con zoom y paneo)
     const im = IMG[p.foto], c = p.caja || [0, 0, W, H], k = p.kb || [.5, .5, 1.08, .5, .5, 1.18];

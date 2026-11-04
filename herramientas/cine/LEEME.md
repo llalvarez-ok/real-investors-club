@@ -85,3 +85,11 @@ Con whisper, Daniela (Piper es_AR) decía «LFB» por «FBI», «rellos» por «
 «misillas», «ogan» por «robaban», «finance» por «Báinans», «Seguir» por «Seguí» y «entene» por «entendé». Tomás leyó todo bien;
 solo «Báinans» después de una pausa sonaba «by Inance», y se arregló cambiando la frase («a Báinans le robaron…»).
 Escribir «Báinans» para Binance y «jaquean» para hackean; FBI, Naciones Unidas y Drift se leen bien escritos normal.
+
+## Zonas seguras (04/11/2026, captura de Lean en su iPhone)
+En celulares altos (19,5:9) la app llena la pantalla a lo alto y **recorta unos 100 px de cada costado** del video de 1080x1920,
+y además tapa: arriba la barra de estado, la flecha y la lupa (0 a ~250 px), abajo el nombre del canal, el título y la música
+(desde ~1450 px) y a la derecha la columna de botones (me gusta, comentarios, compartir: x > 870 entre y 1000 y 1720).
+Regla: **todo texto, cifra, sello o etiqueta va entre x 140 y 870 (o 940 por encima de y 1000) y entre y 250 y 1440**.
+El fondo (fotos, partículas) puede llenar todo el cuadro. Ejemplo aplicado: `produccion/reel-elecciones/escena.html`.
+Look `limpio` en `motor.js` para gráficos de datos (sin gradación, verde y rojo tal cual).

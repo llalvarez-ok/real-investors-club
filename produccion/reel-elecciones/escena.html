@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Elecciones en EE. UU. · expediente cine</title>
+<!-- Estilo «expediente cine» (herramientas/cine/LEEME.md) con ZONAS SEGURAS para celulares altos (04/11/2026, pedido de Lean):
+     en un iPhone la app recorta ~100 px de cada costado y tapa arriba (0-250), abajo (desde 1450) y la columna de botones
+     de la derecha (x > 870 entre y 1000 y 1720). Todo lo importante va entre x 140 y 870/940 y entre y 250 y 1440. -->
+<script>
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig';
+  document.write(`<script src="tiempos-${V}.js"><\/script>`);
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #05070c; }
+  body { font-family: Inter, sans-serif; color: #f5f5f2; }
+  canvas { position: absolute; left: 0; top: 0; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 48%; }
+  .blq { position: absolute; inset: 0; display: none; }
+  .abs { position: absolute; }
+  [data-e] { opacity: 0; will-change: transform, opacity; }
+  .titulo { font-family: "Inter Display", Inter; font-weight: 900; font-size: 84px; line-height: .98; text-transform: uppercase; letter-spacing: -1px;
+    text-align: center; left: 150px; right: 150px; text-shadow: 0 6px 30px rgba(0,0,0,.85); }
+  .oro { color: #e2b74a; } .oro2 { color: #ffde8c; } .rojo { color: #ff5a55; } .verde { color: #3dd68c; } .gris { color: #9aa0aa; }
+  .tag { font: 700 30px "JetBrains Mono", monospace; letter-spacing: 2px; padding: 10px 18px; border: 3px solid currentColor; text-transform: uppercase; background: rgba(5,7,12,.75); }
+  .cifra { font-family: "Inter Display", Inter; font-weight: 900; font-size: 130px; letter-spacing: -3px; text-align: center;
+    text-shadow: 0 0 40px rgba(0,0,0,.6), 0 8px 24px rgba(0,0,0,.8); }
+  .sello { font: 900 52px "Inter Display", Inter; color: #ff4d4a; border: 7px double #ff4d4a; padding: 10px 26px 6px; letter-spacing: 1px; text-align: center;
+    text-transform: uppercase; background: rgba(40,4,6,.45); box-shadow: 0 0 40px rgba(255,60,60,.25); }
+  .fila { font: 800 46px Inter; display: flex; gap: 20px; align-items: baseline; text-shadow: 0 4px 18px rgba(0,0,0,.9); }
+  .fila b { font: 900 70px "Inter Display", Inter; color: #3dd68c; }
+  .credito { font: 500 19px "JetBrains Mono"; color: rgba(245,245,242,.6); letter-spacing: .3px; line-height: 1.35; }
+  .tarjeta { left: 140px; right: 140px; background: rgba(14,16,22,.92); border: 2px solid rgba(226,183,74,.45); border-radius: 34px; padding: 36px; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+  .tarjeta .fil { display: flex; align-items: center; gap: 26px; }
+  .tarjeta img.av { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid #e2b74a; background: #fff; }
+  .tarjeta .nom { font: 800 40px Inter; } .tarjeta .sub2 { font: 500 26px Inter; color: #9aa0aa; margin-top: 6px; }
+  .tarjeta .nums { display: flex; justify-content: space-around; margin: 30px 0 26px; text-align: center; font: 500 24px Inter; color: #9aa0aa; }
+  .tarjeta .nums b { display: block; font: 800 42px Inter; color: #f5f5f2; }
+  .boton { height: 90px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font: 800 38px Inter; position: relative; overflow: hidden; }
+  .boton .b2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  #barra { position: absolute; left: 140px; right: 140px; top: 236px; height: 4px; background: rgba(255,255,255,.12); }
+  #progreso { height: 100%; width: 0; background: #e2b74a; box-shadow: 0 0 12px #e2b74a; }
+  #marca { position: absolute; left: 140px; top: 256px; font: 800 24px Inter; letter-spacing: 5px; color: #e2b74a; }
+  #etiqueta { position: absolute; right: 140px; top: 250px; font: 700 22px "JetBrains Mono"; letter-spacing: 2px; color: #f5f5f2; border: 2px solid rgba(245,245,242,.4);
+    padding: 5px 12px; background: rgba(5,7,12,.5); }
+  #sub { position: absolute; left: 140px; right: 210px; top: 900px; text-align: center; font: 900 62px "Inter Display", Inter; line-height: 1.1; text-transform: uppercase; letter-spacing: -.5px; }
+  #sub span { display: inline-block; margin: 0 .13em; color: rgba(245,245,242,.28); text-shadow: 0 4px 18px rgba(0,0,0,.95); }
+  #sub span.on { color: #f5f5f2; } #sub span.k { color: #ffcf5a; text-shadow: 0 0 26px rgba(226,183,74,.6), 0 4px 18px rgba(0,0,0,.9); }
+  .banda { position: absolute; left: 0; right: 0; top: 860px; height: 230px; background: linear-gradient(rgba(5,7,12,0), rgba(5,7,12,.9) 20%, rgba(5,7,12,.9) 80%, rgba(5,7,12,0)); }
+  #pie { position: absolute; left: 140px; right: 210px; top: 1385px; font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.5); letter-spacing: .3px; line-height: 1.35; }
+</style></head>
+<body>
+<div id="cam">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <canvas id="pt" width="1080" height="1920"></canvas>
+
+  <!-- 01 · GANCHO (visible desde el cuadro 0) -->
+  <div class="blq" data-b="01">
+    <div class="abs titulo" style="top:330px" data-b="01" data-o="ya" data-e="aparece">Elecciones<br><span class="oro">en EE. UU.</span></div>
+    <div class="abs sello" style="left:150px;right:210px;top:560px;font-size:46px" data-b="01" data-w="3" data-e="sello" data-r="-4" data-s="sello">Los demócratas<br>ganan el Congreso</div>
+    <div class="abs tag verde" style="left:200px;top:1120px" data-b="01" data-w="5" data-e="sube">Cámara ✓ · Senado ✓</div>
+    <div class="abs titulo oro2" style="top:1220px;font-size:66px" data-b="01" data-w="15" data-e="golpe" data-s="impacto">2 movimientos<br>en 1 noche</div>
+  </div>
+
+  <!-- 02 · LA NOCHE EN WALL STREET -->
+  <div class="blq" data-b="02">
+    <div class="abs cifra rojo" style="left:140px;width:360px;top:1110px;font-size:110px" data-b="02" data-w="11" data-e="golpe" data-s="impacto">−1,4 %</div>
+    <div class="abs credito" style="left:150px;top:1250px;font-size:24px" data-b="02" data-w="11" data-e="aparece">CAÍDA DE LA NOCHE</div>
+    <div class="abs cifra verde" style="left:510px;width:360px;top:1110px;font-size:110px" data-b="02" data-w="23" data-e="golpe" data-s="impacto">+1,0 %</div>
+    <div class="abs credito" style="left:530px;top:1250px;font-size:24px" data-b="02" data-w="23" data-e="aparece">ESTA MAÑANA</div>
+  </div>
+
+  <!-- 03 · ORO Y DÓLAR -->
+  <div class="blq" data-b="03">
+    <div class="abs cifra oro2" style="left:140px;width:400px;top:1110px;font-size:110px" data-b="03" data-w="6" data-e="golpe" data-s="impacto">+3,2 %</div>
+    <div class="abs tag oro" style="left:560px;top:1140px" data-b="03" data-w="14" data-e="pop" data-s="pop">US$ 4.057</div>
+    <div class="abs tag rojo" style="left:150px;top:1290px" data-b="03" data-w="18" data-e="sube">Dólar (DXY) −0,5 %</div>
+  </div>
+
+  <!-- 04 · ¿Y AHORA QUÉ? -->
+  <div class="blq" data-b="04">
+    <div class="abs titulo" style="top:380px;font-size:96px" data-b="04" data-o="0" data-e="golpe" data-s="impacto">¿Y ahora<br><span class="oro">qué?</span></div>
+    <div class="abs cifra oro2" style="left:150px;right:210px;top:620px;font-size:170px" data-b="04" data-w="5" data-e="cuenta" data-v="19" data-desde="0" data-fijo="1" data-d="1.2" data-s="tics">0</div>
+    <div class="abs tag" style="left:230px;top:1120px;color:#ecf1f9" data-b="04" data-w="6" data-e="sube">Elecciones de medio término</div>
+    <div class="abs tag oro" style="left:360px;top:1220px" data-b="04" data-w="11" data-e="pop" data-s="pop">1950 → 2022</div>
+  </div>
+
+  <!-- 05 · EL DATO -->
+  <div class="blq" data-b="05">
+    <div class="abs fila" style="left:150px;top:1100px" data-b="05" data-w="10" data-e="izq" data-s="pop">1 mes después: <b>15/19</b></div>
+    <div class="abs fila" style="left:150px;top:1200px" data-b="05" data-w="17" data-e="izq" data-s="pop">3 meses: <b>17/19</b></div>
+    <div class="abs fila" style="left:150px;top:1300px" data-b="05" data-w="24" data-e="golpe" data-s="impacto">1 año: <b style="color:#ffde8c">19/19</b></div>
+  </div>
+
+  <!-- 06 · OJO -->
+  <div class="blq" data-b="06">
+    <div class="abs sello" style="left:170px;right:230px;top:470px;font-size:56px" data-b="06" data-w="4" data-e="sello" data-r="-5" data-s="sello">No es una<br>promesa</div>
+    <div class="abs tag rojo" style="left:170px;top:1120px;font-size:34px" data-b="06" data-w="8" data-e="sube">2002 · 3 meses después</div>
+    <div class="abs cifra rojo" style="left:150px;right:210px;top:1200px;font-size:120px" data-b="06" data-w="15" data-e="golpe" data-s="impacto">−8,4 %</div>
+  </div>
+
+  <!-- 07 · CIERRE -->
+  <div class="blq" data-b="07">
+    <div class="abs titulo" style="top:330px;font-size:70px" data-b="07" data-o="0" data-e="golpe" data-s="impacto" id="cierre-tit"></div>
+    <div class="abs tarjeta" style="top:430px" data-b="07" data-o="0.15" data-e="sube" id="tarjeta"></div>
+  </div>
+</div>
+<div class="banda"></div>
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="hud">
+  <div id="barra"><div id="progreso"></div></div>
+  <div id="marca">REAL INVESTORS CLUB</div>
+  <div id="etiqueta"></div>
+  <div id="sub"></div>
+  <div id="pie">Proyecciones de CBS, CNN, NBC y The Washington Post (04/11) · Datos: Yahoo Finance (ES=F, GC=F, DXY, ^GSPC) · Fotos: Wikimedia Commons (dominio público, CC0 y Carlos Delgado, CC BY-SA) · Voz generada con IA · No es recomendación de inversión</div>
+</div>
+<script>
+  T.bloques.forEach(b => { b.id = b.id.slice(0, 2); });
+  const IG = V === 'ig';
+  document.getElementById('cierre-tit').innerHTML = IG ? 'Seguí <span class="oro">esta cuenta</span>' : 'Suscribite <span class="oro">al canal</span>';
+  document.getElementById('tarjeta').innerHTML = IG ? `
+    <div class="fil"><img class="av" src="../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
+      <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
+    <div class="nums"><div><b>30</b>publicaciones</div><div><b data-b="07" data-w="1" data-e="cuenta" data-v="3737" data-desde="3736" data-fijo="1" data-o="0.9" data-d="0.4">3.736</b>seguidores</div><div><b>18</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="1" data-o="0.8" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
+  : `
+    <div class="fil"><img class="av" src="../../marca/logo-navy.png" style="object-fit:contain;padding:12px"><div><div class="nom">Real Investors Club</div>
+      <div class="sub2">@REALinvestorsc</div></div></div>
+    <div style="height:30px"></div>
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="0" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
+  const P = (b, w, extra) => Object.assign({ b, w }, extra);
+  const GRAF = [140, 300, 800, 575];  // caja de los gráficos: dentro de la zona segura (1600x1150 a 800x575)
+  window.ESC = {
+    grano: .05,
+    clave: /(demócratas|congreso|trump|wall|uno|medio|verde|oro|tres|cuatro|dólar|diecinueve|quince|diecisiete|año|promesa|ocho|abajo|cuenta|humo)/i,
+    fotos: { cap: 'fotos/capitolio.jpg', ws: 'fotos/wallstreet.jpg', oro: 'fotos/oro.jpg', ges: 'fotos/graf-es.png', goro: 'fotos/graf-oro.png', ghis: 'fotos/graf-historia.png' },
+    planos: [
+      { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'cap', kb: [.5, .35, 1.0, .5, .4, 1.1], look: 'noche', oscuro: [.15, .35] },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'ws', kb: [.5, .4, 1.05, .45, .45, 1.15], look: 'frio', oscuro: [.55, .62] },
+      { b: '02', o: 0.1, hasta: { b: '03', o: 0 }, foto: 'ges', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
+      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'oro', kb: [.5, .5, 1.0, .5, .5, 1.12], look: 'oro', oscuro: [.5, .6] },
+      { b: '03', o: 0.1, hasta: { b: '04', o: 0 }, foto: 'goro', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
+      { b: '04', o: 0, hasta: { b: '05', o: 0 }, foto: 'cap', kb: [.5, .4, 1.12, .5, .35, 1.2], look: 'noche', oscuro: [.6, .7] },
+      { b: '05', o: 0, hasta: { b: '06', o: 0 }, foto: 'ws', kb: [.5, .5, 1.1, .5, .45, 1.18], look: 'noche', oscuro: [.7, .75] },
+      { b: '05', o: 0.1, hasta: { b: '06', o: 0 }, foto: 'ghis', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
+      { b: '06', o: 0, hasta: { b: '07', o: 0 }, foto: 'ws', kb: [.45, .5, 1.15, .5, .5, 1.05], look: 'rojo', oscuro: [.35, .5] },
+      { b: '07', o: 0, dur: 6, foto: 'cap', kb: [.5, .4, 1.05, .5, .4, 1.1], look: 'noche', oscuro: [.6, .65] },
+    ],
+    particulas: [
+      { b: '01', o: -5, forma: 'disperso', y: 950, alfa: .4 },
+      { b: '04', o: 0, forma: 'disperso', y: 900, alfa: .3 },
+      { b: '07', o: 0.3, forma: 'disperso', y: 900, alfa: .5 },
+    ],
+  };
+</script>
+<script src="../../herramientas/cine/motor.js"></script>
+</body></html>
