@@ -1,7 +1,7 @@
 # Rúbrica del crítico de guiones (antes de entregarle un guion a Lean)
 
 Desde el 04/11/2026 (pedido de Lean: «¿quién controla al guionista y analiza el impacto?»), todo guion pasa por un crítico
-que no lo escribió (un subagente con los ojos limpios) antes de llegar a Lean. Puntúa de 1 a 10 cada criterio y pide cambios
+que no lo escribió (un subagente con los ojos limpios) antes de llegar a Lean. Puntúa de 1 a 10 cada criterio (son 11) y pide cambios
 concretos hasta que todos lleguen a 8. Si el guion corrige uno anterior, el crítico revisa también que no se haya perdido lo
 que funcionaba.
 
@@ -17,3 +17,7 @@ que funcionaba.
 8. **Reglas de RIC:** voseo en Shorts y Reels (tú en lecciones y pilares), números en palabras para la voz, sin brókers,
    aviso cuando un dato es estadística y no promesa.
 9. **Potencial de impacto:** ¿alguien lo guardaría o se lo mandaría a un amigo? ¿Por qué?
+10. **Contexto del dato** (sumado el 04/11/2026): cada estadística se compara con algo (¿qué pasa en un período
+    cualquiera?) y, si existe, con los casos parecidos al de hoy. Un «19 de 19» sin base de comparación exagera.
+11. **Vigencia** (sumado el 04/11/2026): nada de «anoche» u «hoy» si el video se publica uno o más días después de
+    grabarse; el texto tiene que entenderse el día que sale.
