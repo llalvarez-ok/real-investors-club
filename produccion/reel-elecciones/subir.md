@@ -1,39 +1,46 @@
-# Reel / Short · Elecciones en EE. UU. (04/11/2026)
+# Reel / Short · Elecciones en EE. UU. (v4, voz de Lean, 04/11/2026)
 
-Datos al 04/11 07:15 de Argentina (futuros y oro) y estadística 1950-2022 (`datos-mercado.json`, guion y fuentes en `guion.json`).
-Voz generada con IA (Tomás): marcar contenido sintético en YouTube. Versiones: `RIC-elecciones-ig.mp4` (48 s) y `RIC-elecciones-yt.mp4` (48 s).
+Voz de Lean (toma de WhatsApp del 04/11, retomas cortadas): **no** marcar contenido sintético.
+Versiones: `RIC-elecciones-v4-ig.mp4` (~77 s, cierre «Seguime en esta cuenta») y `RIC-elecciones-v4-yt.mp4` (~79 s, cierre «suscribite»).
+Datos: futuros ES=F del 03-04/11 (Yahoo Finance) y S&P 500 (^GSPC) 1950-2026, cálculo propio (`guion.json`, `datos-mercado.json`).
 Ojo: los resultados son proyecciones de la noche electoral; si algún medio cambia la cuenta de bancas, avisar antes de publicar.
+La v1 (voz Tomás, 48 s) quedó en `guion-v1.json` y `escena-v1.html`.
 
 ## YouTube (Short)
-**Título:** Elecciones en EE. UU.: qué hizo el mercado y qué dice la historia #Shorts
+**Título:** Demócratas ganan el Congreso: ¿vender todo? Lo que dicen 19 elecciones desde 1950 #Shorts
 ```
-Los demócratas ganaron el Congreso de EE. UU. (proyecciones de CBS, CNN, NBC y The Washington Post). En la noche, los futuros del S&P 500 llegaron a caer 1,4 % y a la mañana subían 1,0 %. El oro subió 3,2 % y volvió a pasar los US$ 4.000; el dólar (DXY) bajó 0,5 %.
+Si viste que los demócratas le sacaron el Congreso a Trump y pensaste en vender todo, mirá esto antes.
 
-Historia: en las 19 elecciones de medio término desde 1950, el S&P 500 subió un mes después en 15, tres meses después en 17 y un año después en las 19 (mediana +13,6 %). En 2002, tres meses después estaba 8,4 % abajo. Es estadística, no una promesa.
+📉 La noche de la elección, los futuros del S&P 500 llegaron a caer 1,4 %; a la mañana subían 1,0 %.
+📊 En las 19 elecciones de medio término desde 1950, el S&P 500 estaba arriba un año después en las 19. En un año cualquiera sube 3 de cada 4 veces. Y en los 8 casos en que el partido del presidente perdió una cámara (1954, 1986, 1994, 2006, 2010, 2014, 2018 y 2022), también subió en todos.
+⚠️ El primer mes es otra historia: en 4 de las 19 estaba abajo (1974: −12 %).
 
-Datos: Yahoo Finance (ES=F, GC=F, DXY, ^GSPC). Fotos: Wikimedia Commons (dominio público, CC0 y Carlos Delgado, CC BY-SA).
-La voz de este video fue generada con inteligencia artificial.
+Qué hacer: no operes el titular, definí tu horizonte antes de entrar y, si operás de corto plazo, achicá el tamaño en semanas así.
+
+¿Y vos? Escribí QUIETO o TOQUÉ en los comentarios 👇
+
+Resultados: proyecciones de CBS, CNN, NBC y The Washington Post. Datos: Yahoo Finance (ES=F, ^GSPC), cálculo propio. Fotos: Wikimedia Commons (dominio público y Carlos Delgado, CC BY-SA).
 🎓 Aprendé desde cero gratis: https://realinvestors.club
 
 Contenido educativo. No es recomendación de inversión. Rendimientos pasados no garantizan resultados futuros.
 
-#Shorts #EleccionesEEUU #Mercados #Oro #SP500
+#Shorts #EleccionesEEUU #Mercados #SP500 #Trading
 ```
-**Comentario para fijar:** ¿Vos creés que esta vez se cumple la estadística? 👇
+**Comentario para fijar:** ¿QUIETO o TOQUÉ? 👇 Yo me quedé quieto.  _(Lean: cambiá la segunda frase por lo que hiciste de verdad.)_
 
 ## Instagram (Reel)
 ```
-Los demócratas le ganaron el Congreso a Trump 🇺🇸 y el mercado hizo dos cosas en una sola noche:
+Si viste que los demócratas le sacaron el Congreso a Trump 🇺🇸 y pensaste en vender todo, mirá esto antes 👇
 
-📉 Los futuros de Wall Street cayeron 1,4 %… y a la mañana subían 1 %
-🥇 El oro saltó 3,2 % y volvió a pasar los US$ 4.000
-💵 El dólar se debilitó
+📉 Esa noche los futuros de Wall Street cayeron 1,4 %… y a la mañana subían 1 %
+📊 19 de 19: en todas las elecciones de medio término desde 1950, la bolsa estaba arriba un año después
+⚠️ Pero el primer mes es otra historia: 4 de 19 veces estaba abajo
 
-¿Y ahora? En las 19 elecciones de medio término desde 1950, la bolsa de EE. UU. estaba arriba un año después en las 19. Ojo: es estadística, no una promesa (en 2002, tres meses después estaba −8,4 %).
+No operes el titular. Definí tu horizonte. Y si operás de corto plazo, achicá el lotaje.
 
-¿Vos qué pensás que pasa ahora? Contame en los comentarios 👇
+¿Y vos? Escribí QUIETO o TOQUÉ en los comentarios 👇
 
 Contenido educativo. No es recomendación de inversión.
 
-#eleccioneseeuu #trading #oro #bolsa #inversiones #wallstreet #finanzas #realinvestorsclub
+#eleccioneseeuu #trading #bolsa #inversiones #wallstreet #finanzas #realinvestorsclub
 ```

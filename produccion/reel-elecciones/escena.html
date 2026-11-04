@@ -36,6 +36,10 @@
   .tarjeta .nums b { display: block; font: 800 42px Inter; color: #f5f5f2; }
   .boton { height: 90px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font: 800 38px Inter; position: relative; overflow: hidden; }
   .boton .b2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .comp { left: 150px; width: 720px; display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: rgba(5,7,12,.72); border-left: 6px solid #e2b74a; }
+  .comp span { font: 800 34px/1.1 Inter; text-shadow: 0 4px 18px rgba(0,0,0,.9); }
+  .comp b { font: 900 66px "Inter Display", Inter; color: #3dd68c; white-space: nowrap; } .comp b.gris { color: #9aa0aa; }
+  .voto { width: 340px; height: 120px; display: flex; align-items: center; justify-content: center; font: 900 58px "Inter Display", Inter; border: 5px solid currentColor; border-radius: 24px; background: rgba(5,7,12,.8); }
   #hud { position: absolute; inset: 0; pointer-events: none; }
   #barra { position: absolute; left: 140px; right: 140px; top: 236px; height: 4px; background: rgba(255,255,255,.12); }
   #progreso { height: 100%; width: 0; background: #e2b74a; box-shadow: 0 0 12px #e2b74a; }
@@ -56,52 +60,69 @@
   <!-- 01 · GANCHO (visible desde el cuadro 0) -->
   <div class="blq" data-b="01">
     <div class="abs titulo" style="top:330px" data-b="01" data-o="ya" data-e="aparece">Elecciones<br><span class="oro">en EE. UU.</span></div>
-    <div class="abs sello" style="left:150px;right:210px;top:560px;font-size:46px" data-b="01" data-w="3" data-e="sello" data-r="-4" data-s="sello">Los demócratas<br>ganan el Congreso</div>
-    <div class="abs tag verde" style="left:200px;top:1120px" data-b="01" data-w="5" data-e="sube">Cámara ✓ · Senado ✓</div>
-    <div class="abs titulo oro2" style="top:1220px;font-size:66px" data-b="01" data-w="15" data-e="golpe" data-s="impacto">2 movimientos<br>en 1 noche</div>
+    <div class="abs sello" style="left:150px;right:210px;top:560px;font-size:46px" data-b="01" data-w="4" data-e="sello" data-r="-4" data-s="sello">Los demócratas<br>ganan el Congreso</div>
+    <div class="abs tag rojo" style="left:290px;top:1150px;font-size:40px" data-b="01" data-w="14" data-e="golpe" data-s="impacto">¿Vender todo?</div>
   </div>
 
-  <!-- 02 · LA NOCHE EN WALL STREET -->
+  <!-- 02 · QUÉ PASÓ -->
   <div class="blq" data-b="02">
-    <div class="abs cifra rojo" style="left:140px;width:360px;top:1110px;font-size:110px" data-b="02" data-w="11" data-e="golpe" data-s="impacto">−1,4 %</div>
-    <div class="abs credito" style="left:150px;top:1250px;font-size:24px" data-b="02" data-w="11" data-e="aparece">CAÍDA DE LA NOCHE</div>
-    <div class="abs cifra verde" style="left:510px;width:360px;top:1110px;font-size:110px" data-b="02" data-w="23" data-e="golpe" data-s="impacto">+1,0 %</div>
-    <div class="abs credito" style="left:530px;top:1250px;font-size:24px" data-b="02" data-w="23" data-e="aparece">ESTA MAÑANA</div>
+    <div class="abs titulo" style="top:360px;font-size:76px" data-b="02" data-o="0" data-e="golpe" data-s="impacto">Ganaron<br><span class="oro">las dos cámaras</span></div>
+    <div class="abs tag verde" style="left:200px;top:1115px" data-b="02" data-w="3" data-e="sube">Cámara ✓</div>
+    <div class="abs tag verde" style="left:520px;top:1115px" data-b="02" data-w="3" data-o="0.25" data-e="sube">Senado ✓</div>
+    <div class="abs cifra oro2" style="left:150px;right:210px;top:1190px;font-size:100px" data-b="02" data-w="7" data-e="golpe" data-s="impacto">+7 bancas</div>
+    <div class="abs credito" style="left:150px;right:210px;top:1310px;text-align:center;font-size:24px" data-b="02" data-w="11" data-e="aparece">EN EL SENADO</div>
   </div>
 
-  <!-- 03 · ORO Y DÓLAR -->
+  <!-- 03 · LA NOCHE (gráfico real de los futuros) -->
   <div class="blq" data-b="03">
-    <div class="abs cifra oro2" style="left:140px;width:400px;top:1110px;font-size:110px" data-b="03" data-w="6" data-e="golpe" data-s="impacto">+3,2 %</div>
-    <div class="abs tag oro" style="left:560px;top:1140px" data-b="03" data-w="14" data-e="pop" data-s="pop">US$ 4.057</div>
-    <div class="abs tag rojo" style="left:150px;top:1290px" data-b="03" data-w="18" data-e="sube">Dólar (DXY) −0,5 %</div>
+    <div class="abs cifra rojo" style="left:140px;width:360px;top:1100px;font-size:110px" data-b="03" data-w="10" data-e="golpe" data-s="impacto">−1,4 %</div>
+    <div class="abs credito" style="left:150px;top:1240px;font-size:24px" data-b="03" data-w="10" data-e="aparece">LA NOCHE</div>
+    <div class="abs cifra verde" style="left:510px;width:360px;top:1100px;font-size:110px" data-b="03" data-w="24" data-e="golpe" data-s="impacto">+1,0 %</div>
+    <div class="abs credito" style="left:530px;top:1240px;font-size:24px" data-b="03" data-w="24" data-e="aparece">A LA MAÑANA</div>
+    <div class="abs tag rojo" style="left:180px;top:1295px" data-b="03" data-w="30" data-e="sube">Vendió por miedo ✗</div>
   </div>
 
-  <!-- 04 · ¿Y AHORA QUÉ? -->
+  <!-- 04 · LA HISTORIA (19 de 19, datos reales) -->
   <div class="blq" data-b="04">
-    <div class="abs titulo" style="top:380px;font-size:96px" data-b="04" data-o="0" data-e="golpe" data-s="impacto">¿Y ahora<br><span class="oro">qué?</span></div>
-    <div class="abs cifra oro2" style="left:150px;right:210px;top:620px;font-size:170px" data-b="04" data-w="5" data-e="cuenta" data-v="19" data-desde="0" data-fijo="1" data-d="1.2" data-s="tics">0</div>
-    <div class="abs tag" style="left:230px;top:1120px;color:#ecf1f9" data-b="04" data-w="6" data-e="sube">Elecciones de medio término</div>
-    <div class="abs tag oro" style="left:360px;top:1220px" data-b="04" data-w="11" data-e="pop" data-s="pop">1950 → 2022</div>
+    <div class="abs tag" style="left:200px;top:1120px;color:#ecf1f9" data-b="04" data-w="3" data-e="sube">19 medio términos · 1950-2022</div>
+    <div class="abs cifra verde" style="left:150px;right:210px;top:1180px;font-size:120px" data-b="04" data-w="18" data-e="golpe" data-s="impacto">19 de 19</div>
   </div>
 
-  <!-- 05 · EL DATO -->
+  <!-- 05 · COMPARADO -->
   <div class="blq" data-b="05">
-    <div class="abs fila" style="left:150px;top:1100px" data-b="05" data-w="10" data-e="izq" data-s="pop">1 mes después: <b>15/19</b></div>
-    <div class="abs fila" style="left:150px;top:1200px" data-b="05" data-w="17" data-e="izq" data-s="pop">3 meses: <b>17/19</b></div>
-    <div class="abs fila" style="left:150px;top:1300px" data-b="05" data-w="24" data-e="golpe" data-s="impacto">1 año: <b style="color:#ffde8c">19/19</b></div>
+    <div class="abs comp" style="top:360px" data-b="05" data-o="0" data-e="izq" data-s="pop"><span>Año cualquiera</span><b class="gris">3 de 4</b></div>
+    <div class="abs comp" style="top:500px" data-b="05" data-o="0" data-e="izq" data-s="pop"><span>Después de un<br>medio término</span><b>19 de 19</b></div>
+    <div class="abs comp" style="top:660px" data-b="05" data-w="13" data-e="izq" data-s="pop"><span>El presidente perdió<br>una cámara</span><b>8 de 8</b></div>
+    <div class="abs tag oro" style="left:330px;top:1130px;font-size:40px" data-b="05" data-w="23" data-e="golpe" data-s="impacto">Como ahora</div>
+    <div class="abs credito" style="left:150px;right:210px;top:1230px;text-align:center;font-size:22px" data-b="05" data-w="18" data-e="aparece">1954 · 1986 · 1994 · 2006 · 2010 · 2014 · 2018 · 2022<br>S&amp;P 500 un año después · cálculo propio</div>
   </div>
 
   <!-- 06 · OJO -->
   <div class="blq" data-b="06">
-    <div class="abs sello" style="left:170px;right:230px;top:470px;font-size:56px" data-b="06" data-w="4" data-e="sello" data-r="-5" data-s="sello">No es una<br>promesa</div>
-    <div class="abs tag rojo" style="left:170px;top:1120px;font-size:34px" data-b="06" data-w="8" data-e="sube">2002 · 3 meses después</div>
-    <div class="abs cifra rojo" style="left:150px;right:210px;top:1200px;font-size:120px" data-b="06" data-w="15" data-e="golpe" data-s="impacto">−8,4 %</div>
+    <div class="abs sello" style="left:170px;right:230px;top:420px;font-size:56px" data-b="06" data-w="3" data-e="sello" data-r="-5" data-s="sello">Primer mes</div>
+    <div class="abs titulo" style="top:620px;font-size:80px" data-b="06" data-w="29" data-e="golpe" data-s="impacto">Ruido <span class="oro">≠</span> riesgo</div>
+    <div class="abs tag rojo" style="left:200px;top:1110px;font-size:36px" data-b="06" data-w="13" data-e="sube">4 de 19 abajo</div>
+    <div class="abs cifra rojo" style="left:150px;right:210px;top:1180px;font-size:100px" data-b="06" data-w="19" data-e="golpe" data-s="impacto">1974: −12 %</div>
   </div>
 
-  <!-- 07 · CIERRE -->
+  <!-- 07 · QUÉ HACER -->
   <div class="blq" data-b="07">
-    <div class="abs titulo" style="top:330px;font-size:70px" data-b="07" data-o="0" data-e="golpe" data-s="impacto" id="cierre-tit"></div>
-    <div class="abs tarjeta" style="top:430px" data-b="07" data-o="0.15" data-e="sube" id="tarjeta"></div>
+    <div class="abs fila" style="left:150px;top:380px" data-b="07" data-w="4" data-e="izq" data-s="pop"><b>✓</b>No operes el titular</div>
+    <div class="abs fila" style="left:150px;top:520px" data-b="07" data-w="7" data-e="izq" data-s="pop"><b>✓</b>Definí tu horizonte</div>
+    <div class="abs fila" style="left:150px;top:660px" data-b="07" data-w="16" data-e="izq" data-s="pop"><b>✓</b>Corto plazo: menos lotaje</div>
+  </div>
+
+  <!-- 08 · PREGUNTA -->
+  <div class="blq" data-b="08">
+    <div class="abs titulo" style="top:380px;font-size:110px" data-b="08" data-o="0" data-e="golpe" data-s="impacto">¿Y <span class="oro">vos?</span></div>
+    <div class="abs voto verde" style="left:150px;top:1130px" data-b="08" data-w="9" data-e="pop" data-s="pop">QUIETO</div>
+    <div class="abs voto rojo" style="left:520px;top:1130px" data-b="08" data-w="11" data-e="pop" data-s="pop">TOQUÉ</div>
+  </div>
+
+  <!-- 09 · CIERRE -->
+  <div class="blq" data-b="09">
+    <div class="abs titulo" style="top:330px;font-size:70px" data-b="09" data-o="0" data-e="golpe" data-s="impacto" id="cierre-tit"></div>
+    <div class="abs tarjeta" style="top:430px" data-b="09" data-o="0.15" data-e="sube" id="tarjeta"></div>
   </div>
 </div>
 <div class="banda"></div>
@@ -111,7 +132,7 @@
   <div id="marca">REAL INVESTORS CLUB</div>
   <div id="etiqueta"></div>
   <div id="sub"></div>
-  <div id="pie">Proyecciones de CBS, CNN, NBC y The Washington Post (04/11) · Datos: Yahoo Finance (ES=F, GC=F, DXY, ^GSPC) · Fotos: Wikimedia Commons (dominio público, CC0 y Carlos Delgado, CC BY-SA) · Voz generada con IA · No es recomendación de inversión</div>
+  <div id="pie">Proyecciones de CBS, CNN, NBC y The Washington Post (04/11) · Datos: Yahoo Finance (ES=F, ^GSPC) · Fotos: Wikimedia Commons (dominio público y Carlos Delgado, CC BY-SA) · Estadística: S&amp;P 500, cálculo propio · No es recomendación de inversión</div>
 </div>
 <script>
   T.bloques.forEach(b => { b.id = b.id.slice(0, 2); });
@@ -120,35 +141,36 @@
   document.getElementById('tarjeta').innerHTML = IG ? `
     <div class="fil"><img class="av" src="../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
       <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
-    <div class="nums"><div><b>30</b>publicaciones</div><div><b data-b="07" data-w="1" data-e="cuenta" data-v="3737" data-desde="3736" data-fijo="1" data-o="0.9" data-d="0.4">3.736</b>seguidores</div><div><b>18</b>seguidos</div></div>
-    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="1" data-o="0.8" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
+    <div class="nums"><div><b>30</b>publicaciones</div><div><b data-b="09" data-w="1" data-e="cuenta" data-v="3737" data-desde="3736" data-fijo="1" data-o="0.9" data-d="0.4">3.736</b>seguidores</div><div><b>18</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="09" data-w="1" data-o="0.8" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
   : `
     <div class="fil"><img class="av" src="../../marca/logo-navy.png" style="object-fit:contain;padding:12px"><div><div class="nom">Real Investors Club</div>
       <div class="sub2">@REALinvestorsc</div></div></div>
     <div style="height:30px"></div>
-    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="0" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="09" data-w="1" data-o="0.8" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
   const P = (b, w, extra) => Object.assign({ b, w }, extra);
   const GRAF = [140, 300, 800, 575];  // caja de los gráficos: dentro de la zona segura (1600x1150 a 800x575)
   window.ESC = {
     grano: .05,
-    clave: /(demócratas|congreso|trump|wall|uno|medio|verde|oro|tres|cuatro|dólar|diecinueve|quince|diecisiete|año|promesa|ocho|abajo|cuenta|humo)/i,
-    fotos: { cap: 'fotos/capitolio.jpg', ws: 'fotos/wallstreet.jpg', oro: 'fotos/oro.jpg', ges: 'fotos/graf-es.png', goro: 'fotos/graf-oro.png', ghis: 'fotos/graf-historia.png' },
+    clave: /(demócratas|congreso|trump|vender|cámaras|siete|wall|1,5|miedo|historia|19|1950|cualquiera|tres|cuatro|ocho|ahora|primer|1974|12|ruido|riesgo|titular|horizonte|lotaje|quieto|toqué|cuenta|suscribite)/i,
+    fotos: { cap: 'fotos/capitolio.jpg', ws: 'fotos/wallstreet.jpg', ges: 'fotos/graf-es.png', ghis: 'fotos/graf-historia.png' },
     planos: [
       { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'cap', kb: [.5, .35, 1.0, .5, .4, 1.1], look: 'noche', oscuro: [.15, .35] },
-      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'ws', kb: [.5, .4, 1.05, .45, .45, 1.15], look: 'frio', oscuro: [.55, .62] },
-      { b: '02', o: 0.1, hasta: { b: '03', o: 0 }, foto: 'ges', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
-      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'oro', kb: [.5, .5, 1.0, .5, .5, 1.12], look: 'oro', oscuro: [.5, .6] },
-      { b: '03', o: 0.1, hasta: { b: '04', o: 0 }, foto: 'goro', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'cap', kb: [.4, .45, 1.15, .55, .4, 1.25], look: 'frio', oscuro: [.5, .6] },
+      { b: '03', o: 0, hasta: { b: '04', o: 0 }, foto: 'ws', kb: [.5, .4, 1.05, .45, .45, 1.15], look: 'frio', oscuro: [.55, .62] },
+      { b: '03', o: 0.1, hasta: { b: '04', o: 0 }, foto: 'ges', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
       { b: '04', o: 0, hasta: { b: '05', o: 0 }, foto: 'cap', kb: [.5, .4, 1.12, .5, .35, 1.2], look: 'noche', oscuro: [.6, .7] },
-      { b: '05', o: 0, hasta: { b: '06', o: 0 }, foto: 'ws', kb: [.5, .5, 1.1, .5, .45, 1.18], look: 'noche', oscuro: [.7, .75] },
-      { b: '05', o: 0.1, hasta: { b: '06', o: 0 }, foto: 'ghis', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
-      { b: '06', o: 0, hasta: { b: '07', o: 0 }, foto: 'ws', kb: [.45, .5, 1.15, .5, .5, 1.05], look: 'rojo', oscuro: [.35, .5] },
-      { b: '07', o: 0, dur: 6, foto: 'cap', kb: [.5, .4, 1.05, .5, .4, 1.1], look: 'noche', oscuro: [.6, .65] },
+      { b: '04', o: 0.1, hasta: { b: '05', o: 0 }, foto: 'ghis', caja: GRAF, marco: 1, kb: [.5, .5, 1.0, .5, .5, 1.02], look: 'limpio' },
+      { b: '05', o: 0, hasta: { b: '06', o: 0 }, foto: 'ws', kb: [.5, .5, 1.1, .5, .45, 1.18], look: 'noche', oscuro: [.72, .78] },
+      { b: '06', o: 0, hasta: { b: '07', o: 0 }, foto: 'ws', kb: [.45, .5, 1.15, .5, .5, 1.05], look: 'rojo', oscuro: [.45, .6] },
+      { b: '07', o: 0, hasta: { b: '08', o: 0 }, foto: 'cap', kb: [.55, .4, 1.2, .45, .4, 1.1], look: 'noche', oscuro: [.68, .75] },
+      { b: '08', o: 0, hasta: { b: '09', o: 0 }, foto: 'ws', kb: [.5, .45, 1.05, .5, .5, 1.12], look: 'frio', oscuro: [.55, .65] },
+      { b: '09', o: 0, dur: 6, foto: 'cap', kb: [.5, .4, 1.05, .5, .4, 1.1], look: 'noche', oscuro: [.6, .65] },
     ],
     particulas: [
       { b: '01', o: -5, forma: 'disperso', y: 950, alfa: .4 },
       { b: '04', o: 0, forma: 'disperso', y: 900, alfa: .3 },
-      { b: '07', o: 0.3, forma: 'disperso', y: 900, alfa: .5 },
+      { b: '09', o: 0.3, forma: 'disperso', y: 900, alfa: .5 },
     ],
   };
 </script>

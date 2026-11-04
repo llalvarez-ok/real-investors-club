@@ -1,0 +1,70 @@
+{
+ "titulo": "Elecciones en EE. UU.: qué pasó anoche y qué dicen 19 elecciones desde 1950",
+ "estilo": "expediente cine (herramientas/cine/), con zonas seguras para celulares altos",
+ "fuentes": [
+  "Resultados: proyecciones de CBS News, CNN, NBC News y The Washington Post del 03-04/11/2026 (AP: 51 bancas del Senado para los demócratas)",
+  "Mercado: Yahoo Finance (yfinance) ES=F, GC=F, DX-Y.NYB, 15 min, 03/11 21:00 UTC a 04/11 10:15 UTC",
+  "Historia: ^GSPC desde 1950, cierre del día de la elección de medio término a +21, +63 y +252 ruedas (19 elecciones, 1950-2022)",
+  "Base de comparación: ^GSPC 1950-2026, todas las ventanas de 21 y 252 ruedas (arriba 61,8 % y 74,7 % de las veces). Casos en que el partido del presidente perdió al menos una cámara: 1954, 1986, 1994, 2006, 2010, 2014, 2018 y 2022 (8 de 8 arriba a 12 meses, mediana +9,3 %)"
+ ],
+ "voz": {
+  "voice": "es-AR-TomasNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz"
+ },
+ "pantalla": {
+  "siete": "7",
+  "diecinueve": "19",
+  "mil novecientos cincuenta": "1950",
+  "tres de cada cuatro": "3 de 4",
+  "ocho": "8",
+  "cuatro": "4",
+  "mil novecientos setenta y cuatro": "1974",
+  "doce por ciento": "−12 %",
+  "uno y medio por ciento": "−1,5 %",
+  "uno": "+1 %"
+ },
+ "bloques": [
+  {
+   "id": "01-gancho",
+   "etiqueta": "PARA VOS",
+   "voz": "Si viste que los demócratas le sacaron el Congreso a Trump y pensaste en vender todo, esperá un segundo."
+  },
+  {
+   "id": "02-eleccion",
+   "etiqueta": "QUÉ PASÓ",
+   "voz": "Ganaron las dos cámaras y dieron vuelta siete bancas en el Senado. La noche de la elección, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El que vendió por miedo, se perdió el rebote."
+  },
+  {
+   "id": "03-historia",
+   "etiqueta": "LA HISTORIA",
+   "voz": "Revisé las diecinueve elecciones de medio término desde mil novecientos cincuenta. Un año después, la bolsa estaba arriba en las diecinueve. En un año cualquiera sube tres de cada cuatro veces. Y en las ocho en que el presidente perdió el Congreso, como ahora, también."
+  },
+  {
+   "id": "04-ojo",
+   "etiqueta": "OJO",
+   "voz": "Pero el primer mes es otra historia: en cuatro de las diecinueve estaba abajo. En mil novecientos setenta y cuatro, doce por ciento. Lo que se diluye con el tiempo es el ruido, no el riesgo."
+  },
+  {
+   "id": "05-que-hacer",
+   "etiqueta": "QUÉ HACER",
+   "voz": "Entonces: no operes el titular. Definí tu horizonte antes de entrar. Y si operás de corto plazo, en semanas así achicá la posición."
+  },
+  {
+   "id": "06-cierre-ig",
+   "etiqueta": "CONTAME",
+   "solo": "ig",
+   "voz": "¿Y vos? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios."
+  },
+  {
+   "id": "06-cierre-yt",
+   "etiqueta": "REAL INVESTORS CLUB",
+   "solo": "yt",
+   "voz": "¿Y vos? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios, y suscribite a Real Investors Club."
+  }
+ ],
+ "version": "v4 (04/11/2026): más elección, la estadística comparada con un año cualquiera y con los casos como este, sin 'anoche' (se publica después) y sin el oro",
+ "pantalla_extra": {
+  "03-historia": "S&P 500 · 19 elecciones de medio término 1950-2022 · cálculo propio"
+ }
+}

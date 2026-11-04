@@ -8,9 +8,7 @@
   "Base de comparación: ^GSPC 1950-2026, todas las ventanas de 21 y 252 ruedas (arriba 61,8 % y 74,7 % de las veces). Casos en que el partido del presidente perdió al menos una cámara: 1954, 1986, 1994, 2006, 2010, 2014, 2018 y 2022 (8 de 8 arriba a 12 meses, mediana +9,3 %)"
  ],
  "voz": {
-  "voice": "es-AR-TomasNeural",
-  "rate": "+10%",
-  "pitch": "+0Hz"
+  "grabada": "Lean (WhatsApp, 04/11/2026)"
  },
  "pantalla": {
   "siete": "7",
@@ -28,42 +26,57 @@
   {
    "id": "01-gancho",
    "etiqueta": "PARA VOS",
-   "voz": "Si viste que los demócratas le sacaron el Congreso a Trump y pensaste en vender todo, esperá un segundo."
+   "voz": "Si viste que los demócratas le sacaron el Congreso a Trump y pensaste en vender todo, este video es para vos."
   },
   {
    "id": "02-eleccion",
    "etiqueta": "QUÉ PASÓ",
-   "voz": "Ganaron las dos cámaras y dieron vuelta siete bancas en el Senado. La noche de la elección, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya subían uno. El que vendió por miedo, se perdió el rebote."
+   "voz": "Ganaron las dos cámaras y dieron vuelta siete bancas en el Senado."
   },
   {
-   "id": "03-historia",
+   "id": "03-noche",
+   "etiqueta": "LA NOCHE",
+   "voz": "La noche de la elección, los futuros de Wall Street cayeron casi un 1 y medio por ciento, y en la mañana siguiente ya subían uno. El que vendió por miedo no conoce la historia."
+  },
+  {
+   "id": "04-historia",
    "etiqueta": "LA HISTORIA",
-   "voz": "Revisé las diecinueve elecciones de medio término desde mil novecientos cincuenta. Un año después, la bolsa estaba arriba en las diecinueve. En un año cualquiera sube tres de cada cuatro veces. Y en las ocho en que el presidente perdió el Congreso, como ahora, también."
+   "voz": "Revisé las 19 elecciones de medio término desde 1950. Un año después, la bolsa estaba arriba en las 19."
   },
   {
-   "id": "04-ojo",
+   "id": "05-comparar",
+   "etiqueta": "COMPARADO",
+   "voz": "En un año cualquiera sube tres de cada cuatro veces, y en las ocho en el que el presidente perdió el Congreso, como ahora, también."
+  },
+  {
+   "id": "06-ojo",
    "etiqueta": "OJO",
-   "voz": "Pero el primer mes es otra historia: en cuatro de las diecinueve estaba abajo. En mil novecientos setenta y cuatro, doce por ciento. Lo que se diluye con el tiempo es el ruido, no el riesgo."
+   "voz": "Pero el primer mes es otra historia. En cuatro de las 19 estaba abajo. En 1974, un 12 por ciento. Lo que se diluye con el tiempo es el ruido, no el riesgo."
   },
   {
-   "id": "05-que-hacer",
+   "id": "07-que-hacer",
    "etiqueta": "QUÉ HACER",
-   "voz": "Entonces: no operes el titular. Definí tu horizonte antes de entrar. Y si operás de corto plazo, en semanas así achicá la posición."
+   "voz": "Entonces, no operes el titular, definí tu horizonte antes de entrar y si operas el corto plazo en semanas así, achicalotaje."
   },
   {
-   "id": "06-cierre-ig",
+   "id": "08-pregunta",
    "etiqueta": "CONTAME",
-   "solo": "ig",
-   "voz": "¿Y vos? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios."
+   "voz": "Y vos, ¿tocaste algo o te quedaste quieto? Escribí quieto o toque en los comentarios."
   },
   {
-   "id": "06-cierre-yt",
+   "id": "09-yt",
    "etiqueta": "REAL INVESTORS CLUB",
    "solo": "yt",
-   "voz": "¿Y vos? ¿Tocaste algo o te quedaste quieto? Escribí QUIETO o TOQUÉ en los comentarios, y suscribite a Real Investors Club."
+   "voz": "Y suscribite a Real Investor Club."
+  },
+  {
+   "id": "09-ig",
+   "etiqueta": "SEGUIME",
+   "solo": "ig",
+   "voz": "Seguime en esta cuenta."
   }
  ],
- "version": "v4 (04/11/2026): más elección, la estadística comparada con un año cualquiera y con los casos como este, sin 'anoche' (se publica después) y sin el oro",
+ "version": "v4 grabada por Lean (04/11/2026): el texto es lo que dijo en la toma (cambió algunas frases); retomas cortadas",
  "pantalla_extra": {
   "03-historia": "S&P 500 · 19 elecciones de medio término 1950-2022 · cálculo propio"
  }
