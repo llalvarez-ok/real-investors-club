@@ -1,0 +1,22 @@
+{
+ "titulo": "Elecciones en EE. UU.: qué hizo el mercado y qué dice la historia",
+ "estilo": "expediente cine (herramientas/cine/), con zonas seguras para celulares altos",
+ "fuentes": ["Resultados: proyecciones de CBS News, CNN, NBC News y The Washington Post del 03-04/11/2026 (AP: 51 bancas del Senado para los demócratas)",
+   "Mercado: Yahoo Finance (yfinance) ES=F, GC=F, DX-Y.NYB, 15 min, 03/11 21:00 UTC a 04/11 10:15 UTC",
+   "Historia: ^GSPC desde 1950, cierre del día de la elección de medio término a +21, +63 y +252 ruedas (19 elecciones, 1950-2022)"],
+ "voz": {"voice": "es-AR-TomasNeural", "rate": "+10%", "pitch": "+0Hz"},
+ "pantalla": {
+  "uno y medio por ciento": "1,5 %", "uno por ciento": "1 %", "tres por ciento": "3 %", "cuatro mil dólares": "US$ 4.000",
+  "diecinueve": "19", "mil novecientos cincuenta": "1950", "quince": "15", "diecisiete": "17", "dos mil dos": "2002", "ocho por ciento": "8 %"
+ },
+ "bloques": [
+  {"id": "01-gancho", "etiqueta": "EE. UU. · ELECCIONES", "voz": "Los demócratas le ganaron el Congreso a Trump. Y en una sola noche, el mercado hizo dos cosas."},
+  {"id": "02-noche", "etiqueta": "WALL STREET", "voz": "Cuando llegaron los resultados, los futuros de Wall Street cayeron casi uno y medio por ciento. A la mañana ya estaban en verde: suben casi uno por ciento."},
+  {"id": "03-oro", "etiqueta": "ORO Y DÓLAR", "voz": "El oro se disparó más de tres por ciento y volvió a pasar los cuatro mil dólares. El dólar, en cambio, se debilitó."},
+  {"id": "04-historia", "etiqueta": "LO QUE DICE LA HISTORIA", "voz": "¿Y ahora qué? Revisé las diecinueve elecciones de medio término desde mil novecientos cincuenta."},
+  {"id": "05-dato", "etiqueta": "S&P 500 · 1950-2022", "voz": "Un mes después, la bolsa de Estados Unidos subió en quince de diecinueve. Tres meses después, en diecisiete. Y un año después, en las diecinueve."},
+  {"id": "06-ojo", "etiqueta": "OJO", "voz": "Ojo: esto es estadística, no una promesa. En dos mil dos, tres meses después, estaba ocho por ciento abajo."},
+  {"id": "07-cierre-ig", "solo": "ig", "etiqueta": "SEGUÍ ESTA CUENTA", "voz": "Seguí esta cuenta para entender el mercado sin humo."},
+  {"id": "07-cierre-yt", "solo": "yt", "etiqueta": "REAL INVESTORS CLUB", "voz": "Suscribite a Real Investors Club."}
+ ]
+}
