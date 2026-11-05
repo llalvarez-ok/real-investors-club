@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carrusel oro noviembre</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+:root{
+  --noche1:#071426; --noche2:#0d2142; --oro1:#e2c68c; --oro2:#c7a35e; --oro3:#8e7140;
+  --txt:#ecf1f9; --txt2:#a3b5d1; --verde:#3dd68c; --rojo:#ff6b6b; --borde:#274a80;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:'IBM Plex Sans',sans-serif;color:var(--txt)}
+.lamina{width:1080px;height:1350px;position:relative;overflow:hidden;margin:0 0 40px 0;
+  background:
+    linear-gradient(rgba(39,74,128,.13) 1px,transparent 1px) 0 0/54px 54px,
+    linear-gradient(90deg,rgba(39,74,128,.13) 1px,transparent 1px) 0 0/54px 54px,
+    radial-gradient(ellipse at 80% 0%,#12305c 0%,transparent 55%),
+    linear-gradient(160deg,var(--noche2),var(--noche1) 70%);
+  padding:84px 84px 0 84px}
+.marca{position:absolute;top:56px;left:84px;display:flex;align-items:center;gap:18px}
+.marca img{height:60px}
+.marca span{font-family:'IBM Plex Mono';font-size:22px;letter-spacing:.14em;color:var(--txt2)}
+.paso{position:absolute;top:58px;right:84px;font-family:'IBM Plex Mono';font-size:24px;color:var(--oro1);
+  border:2px solid var(--borde);border-radius:40px;padding:8px 20px;background:rgba(7,20,38,.6)}
+.pie{position:absolute;left:0;right:0;bottom:0;height:96px;border-top:2px solid var(--borde);
+  display:flex;align-items:center;justify-content:space-between;padding:0 84px;background:rgba(7,20,38,.75)}
+.pie b{font-family:'Archivo';font-weight:800;font-size:26px;color:var(--txt)}
+.pie b i{font-style:normal;color:var(--oro1)}
+.pie small{font-family:'IBM Plex Mono';font-size:20px;color:var(--txt2)}
+.oro{background:linear-gradient(180deg,var(--oro1),var(--oro2) 55%,var(--oro3));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.etiqueta{display:inline-block;font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.12em;
+  color:var(--noche1);background:var(--oro1);padding:10px 18px;border-radius:6px}
+/* Portada */
+.portada h1{font-size:104px;margin-top:150px}
+.portada .baja{margin-top:34px;font-size:38px;line-height:1.3;color:var(--txt2);max-width:880px}
+.portada .baja b{color:var(--txt);font-weight:600}
+.grafico{position:absolute;left:84px;right:84px;bottom:136px;height:300px;border:2px solid var(--borde);border-radius:22px;
+  background:rgba(7,20,38,.55);padding:26px 30px}
+.grafico .tit{display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:22px;color:var(--txt2)}
+.grafico .tit b{color:var(--txt);font-size:30px;font-family:'Archivo';font-weight:800}
+.grafico svg{position:absolute;left:30px;right:30px;bottom:24px;width:calc(100% - 60px);height:190px}
+.desliza{position:absolute;right:84px;bottom:500px;z-index:2;font-family:'Archivo';font-weight:800;font-size:30px;color:var(--oro1)}
+/* Regla */
+.regla h1{font-size:92px;margin-top:150px}
+.flujo{margin-top:60px;display:flex;flex-direction:column;gap:28px}
+.fila{display:flex;align-items:center;gap:12px;border:2px solid var(--borde);border-radius:22px;padding:28px 30px;background:rgba(7,20,38,.55)}
+.chip{font-family:'Archivo';font-weight:800;font-size:28px;padding:12px 16px;border-radius:12px;white-space:nowrap}
+.chip.r{background:rgba(255,107,107,.14);color:var(--rojo)} .chip.v{background:rgba(61,214,140,.14);color:var(--verde)}
+.chip.n{background:rgba(226,198,140,.12);color:var(--oro1)}
+.flecha{font-size:32px;color:var(--txt2)}
+.nota{margin-top:44px;font-size:32px;line-height:1.4;color:var(--txt2)}
+.nota b{color:var(--txt);font-weight:600}
+/* Fechas */
+.cab{margin-top:140px;display:flex;align-items:center;gap:34px}
+.cal{width:190px;height:200px;border-radius:26px;overflow:hidden;background:#eef2f8;flex:none;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.cal .mes{height:58px;background:var(--oro2);color:var(--noche1);font-family:'IBM Plex Mono';font-weight:600;font-size:28px;
+  display:flex;align-items:center;justify-content:center;letter-spacing:.1em}
+.cal .dia{height:142px;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:104px;color:var(--noche1)}
+.cuando .d{font-family:'Archivo';font-weight:900;font-size:58px;text-transform:uppercase}
+.cuando .h{margin-top:8px;font-family:'IBM Plex Mono';font-size:28px;color:var(--txt2)}
+.cuando .h b{color:var(--oro1)}
+.ico{margin-left:auto;width:150px;height:150px;border-radius:50%;border:3px solid var(--oro2);display:flex;align-items:center;justify-content:center;background:rgba(7,20,38,.7);flex:none}
+.ico svg{width:78px;height:78px;stroke:var(--oro1);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.fecha h1{margin-top:58px;font-size:84px}
+.fecha .sub{margin-top:22px;font-size:32px;line-height:1.35;color:var(--txt2)}
+.fecha .sub b{color:var(--txt);font-weight:600}
+.datos{margin-top:44px;display:grid;gap:20px}
+.datos.c2{grid-template-columns:1fr 1fr} .datos.c3{grid-template-columns:1fr 1fr 1fr}
+.dato{border:2px solid var(--borde);border-radius:20px;padding:24px 26px;background:rgba(7,20,38,.6)}
+.dato small{display:block;font-family:'IBM Plex Mono';font-size:20px;letter-spacing:.08em;color:var(--txt2);text-transform:uppercase}
+.dato b{display:block;margin-top:10px;font-family:'Archivo';font-weight:900;font-size:56px;line-height:1;white-space:nowrap}
+.datos.c3 .dato b{font-size:46px}
+.dato b.r{color:var(--rojo)} .dato b.o{color:var(--oro1)} .dato b.t{color:var(--txt)}
+.dato em{display:block;margin-top:8px;font-style:normal;font-size:20px;color:var(--txt2)}
+.oro-box{position:absolute;left:84px;right:84px;bottom:136px;border:2px solid var(--oro2);border-radius:22px;padding:28px 32px;
+  background:linear-gradient(160deg,rgba(226,198,140,.10),rgba(7,20,38,.7))}
+.oro-box small{font-family:'IBM Plex Mono';font-weight:600;font-size:22px;letter-spacing:.12em;color:var(--oro1)}
+.oro-box p{margin-top:12px;font-size:31px;line-height:1.38}
+.oro-box p .v{color:var(--verde);font-weight:600} .oro-box p .r{color:var(--rojo);font-weight:600}
+/* Resumen */
+.resumen h1{font-size:76px;margin-top:136px}
+.lista{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.item{display:grid;grid-template-columns:170px 1fr 120px;align-items:center;gap:20px;border:2px solid var(--borde);border-radius:16px;padding:14px 24px;background:rgba(7,20,38,.6)}
+.item .f{font-family:'Archivo';font-weight:900;font-size:34px;color:var(--oro1)}
+.item .q{font-size:29px;font-weight:600}
+.item .q span{display:block;font-size:20px;font-weight:400;color:var(--txt2);margin-top:2px}
+.item .hh{font-family:'IBM Plex Mono';font-size:24px;color:var(--txt2);text-align:right}
+/* Cierre */
+.cierre h1{font-size:96px;margin-top:150px}
+.tarjeta{margin-top:56px;display:flex;align-items:center;gap:30px;border:2px solid var(--borde);border-radius:26px;padding:30px 34px;background:rgba(7,20,38,.65)}
+.tarjeta img{width:150px;height:150px;border-radius:50%;border:4px solid var(--oro2);object-fit:cover}
+.tarjeta .n{font-family:'Archivo';font-weight:800;font-size:40px}
+.tarjeta .u{margin-top:6px;font-family:'IBM Plex Mono';font-size:24px;color:var(--oro1)}
+.tarjeta .b{margin-top:10px;font-size:24px;color:var(--txt2);line-height:1.35}
+.acciones{margin-top:40px;display:flex;flex-direction:column;gap:22px}
+.accion{display:flex;gap:22px;align-items:center;font-size:34px;line-height:1.3}
+.accion .k{flex:none;width:72px;height:72px;border-radius:18px;background:rgba(226,198,140,.14);border:2px solid var(--oro3);display:flex;align-items:center;justify-content:center;font-size:36px}
+.accion b{color:var(--oro1)}
+.aviso{position:absolute;left:84px;right:84px;bottom:124px;font-size:20px;line-height:1.4;color:var(--txt2)}
+</style>
+</head>
+<body>
+
+<!-- 1 · Portada -->
+<section class="lamina portada" id="l1">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>NOVIEMBRE 2026</span></div>
+  <div class="paso">1/11</div>
+  <h1><span class="oro">7 fechas</span> que pueden mover el <span class="oro">oro</span> en noviembre</h1>
+  <p class="baja">Con <b>hora de Argentina</b>, el último dato y qué mirar en cada una.</p>
+  <div class="desliza">Deslizá →</div>
+  <div class="grafico">
+    <div class="tit"><span>ORO (GC=F) · ÚLTIMOS 6 MESES</span><span><b>US$ __PRECIO__</b> &nbsp;<span style="color:var(--rojo)">__DESDEMAX__ desde el máximo de mayo</span></span></div>
+    <svg viewBox="0 0 1000 220" preserveAspectRatio="none">
+      <defs><linearGradient id="rel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7a35e" stop-opacity=".35"/><stop offset="1" stop-color="#c7a35e" stop-opacity="0"/></linearGradient></defs>
+      <path d="__AREA__" fill="url(#rel)"/>
+      <path d="__LINEA__" fill="none" stroke="#e2c68c" stroke-width="4" vector-effect="non-scaling-stroke"/>
+      <circle cx="__UX__" cy="__UY__" r="9" fill="#e2c68c"/>
+    </svg>
+  </div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 2 · Regla -->
+<section class="lamina regla" id="l2">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>ANTES DE EMPEZAR</span></div>
+  <div class="paso">2/11</div>
+  <h1>Una sola idea para <span class="oro">leer</span> todo el mes</h1>
+  <div class="flujo">
+    <div class="fila"><span class="chip r">Dato caliente</span><span class="flecha">→</span><span class="chip n">Fed más dura</span><span class="flecha">→</span><span class="chip r">Oro presionado</span></div>
+    <div class="fila"><span class="chip v">Dato frío</span><span class="flecha">→</span><span class="chip n">Fed más tranquila</span><span class="flecha">→</span><span class="chip v">Oro con aire</span></div>
+  </div>
+  <p class="nota">«Caliente» es inflación alta o empleo fuerte. «Frío», lo contrario. <b>No es una regla fija:</b> el mercado reacciona a la diferencia entre lo que esperaba y lo que salió.</p>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 3 · Empleo -->
+<section class="lamina fecha" id="l3">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 1 DE 7</span></div>
+  <div class="paso">3/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">6</div></div>
+    <div class="cuando"><div class="d">Viernes 6</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><rect x="6" y="15" width="36" height="25" rx="4"/><path d="M17 15v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M6 26h36"/></svg></div>
+  </div>
+  <h1>Empleo en <span class="oro">EE. UU.</span> (NFP)</h1>
+  <p class="sub">El informe de octubre. Es el dato que más mueve al dólar cada mes.</p>
+  <div class="datos c3">
+    <div class="dato"><small>Septiembre</small><b class="r">+29 mil</b><em>muy por debajo de lo esperado</em></div>
+    <div class="dato"><small>Se espera</small><b class="o">55–65 mil</b><em>según el consenso</em></div>
+    <div class="dato"><small>Desempleo</small><b class="t">4,2 %</b><em>en septiembre</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Empleo <span class="v">débil</span>: le saca presión a la Fed y suele darle aire al oro. Empleo <span class="r">fuerte</span>: lo contrario.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 4 · CPI -->
+<section class="lamina fecha" id="l4">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 2 DE 7</span></div>
+  <div class="paso">4/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">10</div></div>
+    <div class="cuando"><div class="d">Martes 10</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M8 12h4l5 20h20l4-14H15"/><circle cx="19" cy="38" r="2.5"/><circle cx="34" cy="38" r="2.5"/></svg></div>
+  </div>
+  <h1>Inflación <span class="oro">CPI</span></h1>
+  <p class="sub">Lo que subieron los precios en octubre. Es el último CPI antes de la reunión de la Fed de diciembre.</p>
+  <div class="datos c2">
+    <div class="dato"><small>Septiembre · anual</small><b class="r">3,7 %</b><em>empujada por la nafta</em></div>
+    <div class="dato"><small>Subyacente · anual</small><b class="t">2,6 %</b><em>sin alimentos ni energía</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Un dato <span class="r">caliente</span> acerca una suba de tasas en diciembre y puede pesar sobre el oro. Un dato <span class="v">frío</span> le da aire.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 5 · PPI -->
+<section class="lamina fecha" id="l5">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 3 DE 7</span></div>
+  <div class="paso">5/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">13</div></div>
+    <div class="cuando"><div class="d">Viernes 13</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M6 40V22l10 6v-6l10 6v-6l10 6V10h6v30z"/><path d="M6 40h36"/></svg></div>
+  </div>
+  <h1>Precios al <span class="oro">productor</span> (PPI)</h1>
+  <p class="sub">Lo que pagan las empresas. Si sube acá, <b>suele llegar después al consumidor</b>.</p>
+  <div class="datos c2">
+    <div class="dato"><small>Septiembre · mensual</small><b class="r">+1,3 %</b><em>la mayor suba desde 2022</em></div>
+    <div class="dato"><small>Septiembre · anual</small><b class="r">6,3 %</b><em>la más alta desde fines de 2022</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Si los costos <span class="r">siguen subiendo</span>, el mercado espera más inflación y una Fed más dura, y eso suele fortalecer al dólar.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 6 · Warsh -->
+<section class="lamina fecha" id="l6">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 4 DE 7</span></div>
+  <div class="paso">6/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">16</div></div>
+    <div class="cuando"><div class="d">Lunes 16</div><div class="h">Bahía de San Francisco</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 6a6 6 0 0 1 6 6v10a6 6 0 0 1-12 0V12a6 6 0 0 1 6-6z"/><path d="M12 22a12 12 0 0 0 24 0M24 34v8M17 42h14"/></svg></div>
+  </div>
+  <h1>Habla <span class="oro">Warsh</span></h1>
+  <p class="sub">El presidente de la Fed encabeza una audiencia sobre <b>IA, productividad y empleo</b>. No decide tasas, pero cualquier frase sobre diciembre se escucha.</p>
+  <div class="datos c2">
+    <div class="dato"><small>Tasa de la Fed</small><b class="o">3,75–4 %</b><em>sin cambios en octubre</em></div>
+    <div class="dato"><small>Próxima decisión</small><b class="t">9 dic</b><em>con proyecciones nuevas</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Un tono <span class="r">duro</span> fortalece al dólar y presiona al oro. Un tono <span class="v">prudente</span> le puede dar respiro.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 7 · Minutas -->
+<section class="lamina fecha" id="l7">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 5 DE 7</span></div>
+  <div class="paso">7/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">18</div></div>
+    <div class="cuando"><div class="d">Miércoles 18</div><div class="h"><b>16:00</b> hora de Argentina</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M6 18 24 8l18 10M9 18v18M17 18v18M31 18v18M39 18v18M6 40h36"/></svg></div>
+  </div>
+  <h1>Minutas de la <span class="oro">Fed</span></h1>
+  <p class="sub">Lo que se discutió a puertas cerradas el <b>27 y 28 de octubre</b>.</p>
+  <div class="datos c3">
+    <div class="dato"><small>Decisión</small><b class="t">Pausa</b><em>tasa sin cambios</em></div>
+    <div class="dato"><small>Votación</small><b class="o">10 a 2</b><em>dividida</em></div>
+    <div class="dato"><small>Querían subir</small><b class="r">2</b><em>Cook y Hammack</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Si las minutas muestran <span class="r">ganas de subir</span> en diciembre, el dólar gana fuerza y el oro sufre. Si muestran <span class="v">dudas</span>, al revés.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 8 · PCE -->
+<section class="lamina fecha" id="l8">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 6 DE 7</span></div>
+  <div class="paso">8/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">25</div></div>
+    <div class="cuando"><div class="d">Miércoles 25</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M8 40V8M8 40h32"/><path d="M14 32l8-9 6 5 10-13"/></svg></div>
+  </div>
+  <h1>Inflación <span class="oro">PCE</span></h1>
+  <p class="sub">La medida de inflación que más mira la Fed. <b>El jueves 26 es Acción de Gracias</b>: Wall Street cierra y el oro opera con poco volumen.</p>
+  <div class="datos c3">
+    <div class="dato"><small>PCE sept.</small><b class="r">3,6 %</b><em>anual</em></div>
+    <div class="dato"><small>Subyacente</small><b class="t">3,1 %</b><em>la más alta desde mayo</em></div>
+    <div class="dato"><small>PIB 3.er trim.</small><b class="o">3,4 %</b><em>primera lectura</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Es el último gran dato antes de la Fed de diciembre: puede <span class="r">confirmar</span> la suba de tasas o <span class="v">enfriarla</span>.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 9 · OPEP+ -->
+<section class="lamina fecha" id="l9">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 7 DE 7</span></div>
+  <div class="paso">9/11</div>
+  <div class="cab">
+    <div class="cal"><div class="mes">NOV</div><div class="dia">29</div></div>
+    <div class="cuando"><div class="d">Domingo 29</div><div class="h">El mercado reacciona el <b>lunes 30</b></div></div>
+    <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 6c7 10 12 16 12 23a12 12 0 0 1-24 0c0-7 5-13 12-23z"/></svg></div>
+  </div>
+  <h1>Reunión de la <span class="oro">OPEP+</span></h1>
+  <p class="sub">Los 21 países del grupo definen <b>cuánto petróleo producen en 2027</b>.</p>
+  <div class="datos c2">
+    <div class="dato"><small>Diciembre</small><b class="t">Sin cambios</b><em>decidido el 1/11</em></div>
+    <div class="dato"><small>Recortes vigentes</small><b class="o">~2 M bpd</b><em>barriles por día</em></div>
+  </div>
+  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p><span class="v">Más petróleo</span> enfría la inflación y le saca presión a la Fed. <span class="r">Menos petróleo</span> hace lo contrario.</p></div>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 10 · Resumen -->
+<section class="lamina resumen" id="l10">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>GUARDALO</span></div>
+  <div class="paso">10/11</div>
+  <h1>El mes en <span class="oro">una pantalla</span></h1>
+  <div class="lista">
+    <div class="item"><span class="f">Vie 6</span><span class="q">Empleo (NFP)<span>informe de octubre</span></span><span class="hh">10:30</span></div>
+    <div class="item"><span class="f">Mar 10</span><span class="q">Inflación CPI<span>octubre</span></span><span class="hh">10:30</span></div>
+    <div class="item"><span class="f">Vie 13</span><span class="q">Precios al productor (PPI)<span>octubre</span></span><span class="hh">10:30</span></div>
+    <div class="item"><span class="f">Lun 16</span><span class="q">Habla Warsh<span>audiencia sobre IA y empleo</span></span><span class="hh">—</span></div>
+    <div class="item"><span class="f">Mié 18</span><span class="q">Minutas de la Fed<span>reunión del 27-28/10</span></span><span class="hh">16:00</span></div>
+    <div class="item"><span class="f">Mié 25</span><span class="q">Inflación PCE<span>el 26, Acción de Gracias</span></span><span class="hh">10:30</span></div>
+    <div class="item"><span class="f">Dom 29</span><span class="q">Reunión OPEP+<span>reacción el lunes 30</span></span><span class="hh">—</span></div>
+  </div>
+  <p class="nota" style="margin-top:22px;font-size:22px">Horarios de Argentina. Las fechas pueden cambiar: confirmalas en el calendario económico el día anterior.</p>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
+</section>
+
+<!-- 11 · Cierre -->
+<section class="lamina cierre" id="l11">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>REAL INVESTORS CLUB</span></div>
+  <div class="paso">11/11</div>
+  <h1>Cada dato lo <span class="oro">miramos juntos</span></h1>
+  <div class="tarjeta">
+    <img src="../../herramientas/particulas/avatar.png" alt="">
+    <div><div class="n">Lean Alvarez</div><div class="u">@leanalvarez.ok</div><div class="b">Trader en XAUUSD y cripto.<br>Fundador de Real Investors Club.</div></div>
+  </div>
+  <div class="acciones">
+    <div class="accion"><span class="k">📌</span><span><b>Guardalo</b> para tener las fechas a mano.</span></div>
+    <div class="accion"><span class="k">💬</span><span>¿Cuál de las 7 te preocupa más? <b>Comentá la fecha.</b></span></div>
+    <div class="accion"><span class="k">➕</span><span><b>Seguime</b> para ver cómo reacciona el oro en cada una.</span></div>
+  </div>
+  <p class="aviso">Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. Datos al 05/11/2026.</p>
+  <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>realinvestors.club</small></div>
+</section>
+
+</body>
+</html>

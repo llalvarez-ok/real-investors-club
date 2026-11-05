@@ -24,6 +24,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
 | «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | **Publicado a mano por Lean el 01/11/2026 a las 21:18 de Argentina** (https://www.instagram.com/reel/DfOABv1NrZD/, ID 18111823058184752): texto igual a `caption-ig.txt`, compartido en el feed (revisado por la API el 02/11) | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
 | «Elecciones en EE. UU.: ¿vender todo? Lo que dicen 19 elecciones desde 1950» (expediente cine, voz de Lean grabada en WhatsApp, con música, 77 s) | **Publicado a mano por Lean el 04/11/2026** con el primer audio entregado (el de la sala chica; las versiones sin eco no le gustaron) y el copy de `subir.md` | `produccion/reel-elecciones/subir.md` |
+| Carrusel «7 fechas que pueden mover el oro en noviembre» (11 láminas, identidad RIC, datos verificados, hora de Argentina) | Entregado el 05/11/2026; falta que Lean lo publique | `produccion/carrusel-oro-noviembre/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
