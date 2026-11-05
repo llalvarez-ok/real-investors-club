@@ -94,6 +94,44 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - Confirmar si el Reel de P10 está publicado.
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
 
+## Configurar la API paso a paso (05/11/2026)
+**Cómo está:** desde el 02/11 Meta bloqueó la app «RIC»: todo responde «API access blocked» (código 200), incluso las
+estadísticas. Además el token «EAA…» nunca pudo publicar (2207085, falta página de Facebook). Probar cualquier token con
+`python herramientas/probar_token_ig.py` (solo lee y no muestra el token).
+
+**Parte A: por qué la bloquearon (5 min, Lean).**
+1. developers.facebook.com/apps → «RIC». Leer el cartel rojo o amarillo de arriba («App restringida», «Verificación»,
+   «Revisión del uso de datos», «Acción requerida»).
+2. En la misma app → Configuración de la app → Básica: tienen que estar la **URL de la política de privacidad**
+   (por ejemplo realinvestors.club/privacidad), el correo de contacto, la categoría y el ícono. Que falte la política
+   de privacidad es una causa habitual de restricción.
+3. business.facebook.com → **Calidad de la cuenta**: ver si el portfolio Real Investors Club o el perfil de Lean tienen
+   alguna restricción, y si la hay, pedir revisión desde ahí.
+
+**Parte B: el token que destraba todo («IGAA…», inicio de sesión con Instagram).** No necesita página de Facebook ni
+revisión de Meta, porque la app solo se usa con la cuenta de Lean (puede quedar en modo desarrollo).
+1. Si «RIC» sigue bloqueada, crear una app nueva: developers.facebook.com/apps → Crear app → caso de uso
+   «Administrar mensajes y contenido en Instagram» → portfolio Real Investors Club → nombre «RIC Instagram».
+2. En la app → Casos de uso → Personalizar → **«Configuración de la API con inicio de sesión de Instagram»**.
+3. Si lo pide: Roles de la app → Roles → **Evaluadores de Instagram** → agregar `leanalvarez.ok`; en Instagram (celular):
+   Configuración → Apps y sitios web → Invitaciones de evaluador → Aceptar.
+4. Volver a la configuración del paso 2 → «Generar tokens de acceso» → **Agregar cuenta** → iniciar sesión con
+   @leanalvarez.ok → permitir todo (básico, publicar contenido, comentarios, mensajes, estadísticas) → **Generar token**
+   → copiarlo (empieza con «IGAA»).
+5. **No pegarlo en el chat.** Cargarlo en el entorno: menú del entorno en la barra de título de la sesión → Editar →
+   variable `RIC_IG_TOKEN_IG` = el token nuevo (reemplaza al «EAA…»). Guardar.
+6. Abrir un chat nuevo (las variables llegan solo a sesiones nuevas) y pedir «probá el token de Instagram».
+7. El token vence a los **60 días**: unos días antes se genera otro igual (paso 4) y se reemplaza.
+
+**Con el token IGAA se puede:** estadísticas (como hoy), publicar Reels, carruseles, fotos e historias, responder y
+ocultar comentarios, y leer y responder mensajes directos (dentro de las 24 h del último mensaje de la persona).
+Cada publicación o respuesta sigue necesitando el OK de Lean. La red de la nube ya deja pasar `graph.instagram.com` y
+`rupload.facebook.com`.
+
+**Alternativa (no recomendada ahora):** crear una página de Facebook, vincularle @leanalvarez.ok y asignarla al usuario
+del sistema con `pages_show_list` y `pages_read_engagement`. Sirve para la publicidad más adelante, pero no arregla el bloqueo
+de la app.
+
 ## Publicar por la API
 - **Token para publicar: `RIC_IG_TOKEN_IG`** (recargado por Lean el 01/11/2026). Lo cargado es un token de **usuario del sistema** («EAA…», inicio de sesión con Facebook), no uno «IGAA…» de inicio de sesión con Instagram: no sirve con `graph.instagram.com` («Cannot parse access token») y se usa con `graph.facebook.com` y `RIC_IG_USER_ID`. Ya trae `instagram_content_publish` (más `instagram_basic`, `instagram_manage_insights`, `instagram_manage_comments`, `instagram_manage_messages`). `herramientas/publicar_reel_ig.py` y `herramientas/revisar_instagram.py` eligen el dominio según el prefijo del token. `RIC_IG_TOKEN` ya no está en el entorno. Si en algún momento se carga un token «IGAA…», vence a los 60 días y se renueva con `GET graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=…`. Las variables del entorno solo llegan a las sesiones que arrancan después de cargarlas.
 - Por qué: el token viejo (`RIC_IG_TOKEN`, inicio de sesión con Facebook) no tiene página de Facebook vinculada ni permisos de páginas, y `media_publish` da «Fatal» 2207085. Sirve para estadísticas y comentarios.
