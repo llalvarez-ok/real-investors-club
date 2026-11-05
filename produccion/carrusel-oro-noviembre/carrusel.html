@@ -89,6 +89,25 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
 .item .hh{font-family:'IBM Plex Mono';font-size:24px;color:var(--txt2);text-align:right}
 /* Cierre */
 .cierre h1{font-size:96px;margin-top:150px}
+.ig{margin-top:36px;border:2px solid var(--borde);border-radius:26px;padding:30px 34px;background:rgba(7,20,38,.75)}
+.ig-top{display:flex;align-items:center;gap:34px}
+.ig-top img{width:170px;height:170px;border-radius:50%;object-fit:cover;border:5px solid transparent;
+  background:linear-gradient(#071426,#071426) padding-box,linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7) border-box}
+.ig-der{flex:1}
+.ig-user{font-family:'IBM Plex Sans';font-weight:600;font-size:38px;display:flex;align-items:center;gap:10px}
+.ig-ok{width:34px;height:34px}
+.ig-stats{margin-top:14px;display:flex;justify-content:space-between}
+.ig-stats div{text-align:center}
+.ig-stats b{display:block;font-family:'IBM Plex Sans';font-weight:600;font-size:36px}
+.ig-stats span{font-size:22px;color:var(--txt2)}
+.ig-nombre{margin-top:22px;font-weight:600;font-size:28px}
+.ig-bio{margin-top:6px;font-size:24px;line-height:1.4;color:var(--txt)}
+.ig-link{margin-top:8px;font-size:24px;color:#8fb4ff;font-weight:500}
+.ig-botones{margin-top:22px;display:flex;gap:14px}
+.ig-botones span{flex:1;text-align:center;font-weight:600;font-size:26px;padding:14px 0;border-radius:12px}
+.ig-seguir{background:#0095f6;color:#fff} .ig-msj{background:rgba(236,241,249,.12);color:var(--txt)}
+.cierre .acciones{margin-top:30px;gap:14px} .cierre .accion{font-size:29px} .cierre .accion .k{width:60px;height:60px;font-size:30px}
+.cierre h1{font-size:80px !important;margin-top:132px !important}
 .tarjeta{margin-top:56px;display:flex;align-items:center;gap:30px;border:2px solid var(--borde);border-radius:26px;padding:30px 34px;background:rgba(7,20,38,.65)}
 .tarjeta img{width:150px;height:150px;border-radius:50%;border:4px solid var(--oro2);object-fit:cover}
 .tarjeta .n{font-family:'Archivo';font-weight:800;font-size:40px}
@@ -369,14 +388,22 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>REAL INVESTORS CLUB</span></div>
   <div class="paso">11/11</div>
   <h1>Cada dato lo <span class="oro">miramos juntos</span></h1>
-  <div class="tarjeta">
-    <img src="../../herramientas/particulas/avatar.png" alt="">
-    <div><div class="n">Lean Alvarez</div><div class="u">@leanalvarez.ok</div><div class="b">Trader en XAUUSD y cripto.<br>Fundador de Real Investors Club.</div></div>
+  <div class="ig">
+    <div class="ig-top">
+      <img src="../../herramientas/particulas/avatar.png" alt="">
+      <div class="ig-der">
+        <div class="ig-user">leanalvarez.ok <svg class="ig-ok" viewBox="0 0 40 40"><path fill="#0095f6" d="M20 1.7l4.6 3.4 5.7-.3 1.9 5.4 4.8 3.1-1.5 5.5 1.5 5.5-4.8 3.1-1.9 5.4-5.7-.3L20 38.3l-4.6-3.4-5.7.3-1.9-5.4-4.8-3.1 1.5-5.5-1.5-5.5 4.8-3.1 1.9-5.4 5.7.3z"/><path d="M13 20.5l4.8 4.8 9.4-9.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ig-stats"><div><b>31</b><span>publicaciones</span></div><div><b>3.736</b><span>seguidores</span></div><div><b>18</b><span>seguidos</span></div></div>
+      </div>
+    </div>
+    <div class="ig-nombre">Lean Alvarez | Trading &amp; Finanzas</div>
+    <div class="ig-bio">🚀 Trader en XAUUSD y Cripto<br>📈 Opera de la forma correcta<br>⚠️ Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero.</div>
+    <div class="ig-link">🔗 realinvestors.club</div>
+    <div class="ig-botones"><span class="ig-seguir">Seguir</span><span class="ig-msj">Mensaje</span></div>
   </div>
   <div class="acciones">
     <div class="accion"><span class="k">📌</span><span><b>Guardalo</b> para tener las fechas a mano.</span></div>
     <div class="accion"><span class="k">💬</span><span>¿Cuál de las 7 te preocupa más? <b>Comentá la fecha.</b></span></div>
-    <div class="accion"><span class="k">➕</span><span><b>Seguime</b> para ver cómo reacciona el oro en cada una.</span></div>
   </div>
   <p class="aviso">Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. Datos al 05/11/2026.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>realinvestors.club</small></div>

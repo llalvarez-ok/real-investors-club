@@ -46,6 +46,7 @@ Las de la sección 9 del reporte de partículas, que valen para todos los estilo
 - Un cambio visual cada 2 o 3 s.
 - Sin CTA en el medio. Cierre corto con «SEGUÍ ESTA CUENTA» y una palabra clave para comentar.
 - En Instagram vale el voseo, porque es la cuenta personal de Lean.
+- **Cierre de carruseles y Reels:** la tarjeta de perfil de Instagram completa (foto, @leanalvarez.ok con tilde azul, publicaciones, seguidores y seguidos, nombre, bio, link y botón «Seguir»), no solo foto y nombre (Lean, 05/11/2026). Modelo: lámina 11 de `produccion/carrusel-oro-noviembre/carrusel.html`. Actualizar los números el día que se publica.
 - **Muchos seguidores recién empiezan** (Lean, 05/11/2026): explicar cada dato en una frase y dar el resultado concreto («si sale más de X, el oro suele bajar»), sin jerga ni siglas sueltas.
 - Objetivos: más del 60 % de retención a los 3 s y más del 30 % a la mitad del video.
 
