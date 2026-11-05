@@ -1,0 +1,23 @@
+{
+  "id": "prueba-cpi-sept",
+  "fecha": "2026-10-14",
+  "hora_ny": "08:30",
+  "dia": "Mié 14/10",
+  "nombre": "inflación",
+  "esperado": "0,2 %",
+  "salio": "0,3 %",
+  "comparacion": "más",
+  "frase_dato": "La inflación subyacente de septiembre (sin alimentos ni energía) subió 0,3 % en el mes, y se esperaba 0,2 %.",
+  "esperado_oro": "baja",
+  "que_hizo": "Cayó en los primeros 5 minutos y siguió bajando casi una hora.",
+  "porque": [
+    "La inflación salió <b>más alta</b> de lo esperado.",
+    "El mercado pensó: la Fed va a tener que <b>subir la tasa</b>.",
+    "Con tasas más altas, el <b>dólar se fortalece</b>.",
+    "Dólar fuerte = <b>oro más barato</b>."
+  ],
+  "aprendizaje": "Lo que mueve no es el número solo, sino <b>la diferencia con lo esperado</b>.",
+  "ahora": "Ejemplo de prueba con un dato de octubre. En cada carrusel real va acá qué cambia para la Fed de diciembre.",
+  "proxima": {"fecha": "Vie 6/11", "nombre": "Empleo", "hora": "10:30 ARG", "regla": "Si se crean <b>más de 60 mil</b> empleos, el oro suele bajar. Si son menos, suele subir."},
+  "fuentes": "BLS, CNBC"
+}
