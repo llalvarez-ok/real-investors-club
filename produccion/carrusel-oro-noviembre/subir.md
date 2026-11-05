@@ -8,30 +8,40 @@ Idea tomada de un carrusel de Carlos Valencia FX (calendario del mes y cómo pue
 datos verificados en fuentes y medios, horarios en hora de Argentina, lámina de «cómo leerlo» y resumen para guardar.
 Sin logos de organismos ni fotos de personas (íconos propios).
 
-## Texto
+## Texto (versión para principiantes, 05/11/2026)
 ```
 7 fechas que pueden mover el oro en noviembre 📅🟡
 
-El oro está en US$ 4.134, un 13 % abajo del máximo de mayo. Este mes llegan los datos que van a decidir qué hace la Fed en diciembre:
+Si recién empezás, esto es lo único que necesitás saber:
+👉 Si el dato sale MÁS ALTO de lo esperado, el oro suele BAJAR 🔻
+👉 Si sale MÁS BAJO, el oro suele SUBIR 🔺
 
-💼 Vie 6 · Empleo (NFP)
-🛒 Mar 10 · Inflación CPI
-🏭 Vie 13 · Precios al productor (PPI)
-🎙️ Lun 16 · Habla Warsh
-🏛️ Mié 18 · Minutas de la Fed
-📈 Mié 25 · Inflación PCE
-🛢️ Dom 29 · OPEP+
+En cada lámina te dejo qué es el dato, a qué hora sale (hora de Argentina) y el número que hay que mirar:
 
-Todos los horarios, en hora de Argentina. Deslizá y guardalo para tenerlo a mano 📌
+💼 Vie 6 · Empleo: ¿más o menos de 60 mil?
+🛒 Mar 10 · Inflación: ¿más o menos de 3,7 %?
+🏭 Vie 13 · Precios de empresas: ¿más o menos de 6,3 %?
+🎙️ Lun 16 · Habla el jefe de la Fed
+🏛️ Mié 18 · Lo que se habló en la Fed
+📈 Mié 25 · La inflación de la Fed: ¿más o menos de 3,6 %?
+🛢️ Dom 29 · Reunión del petróleo (OPEP+)
 
+«Suele» no es «siempre»: a veces el mercado ya lo esperaba. Por eso nunca se opera sin stop.
+
+📌 Guardalo para tenerlo a mano.
 💬 ¿Cuál de las 7 te preocupa más? Comentá la fecha 👇
 
 —
 Datos al 05/11/2026. Fuentes: BLS, BEA, Reserva Federal, OPEP, CNBC y CNN. Las fechas pueden cambiar.
 Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero.
 
-#oro #XAUUSD #trading #tradingargentina #Fed #inflacion #NFP #forex #calendarioeconomico #realinvestorsclub
+#oro #XAUUSD #trading #tradingargentina #tradingparaprincipiantes #Fed #inflacion #forex #calendarioeconomico #realinvestorsclub
 ```
+
+Pedido de Lean (05/11/2026): muchos seguidores recién empiezan, así que cada fecha dice qué es en una frase, el número
+de referencia y los dos resultados («si sale más de X, el oro suele bajar»). El HTML se arma con `armar.py` (datos de cada
+fecha arriba de todo) y los PNG con `generar.py`. Referencias: empleo, el consenso (~60 mil); CPI, PPI y PCE, el último dato
+(no hay consenso verificado); Warsh y minutas, el tono; OPEP+, producir más o menos.
 
 ## Datos y fuentes (verificados el 05/11/2026)
 | Lámina | Dato | Fuente |

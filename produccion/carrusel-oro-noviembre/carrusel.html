@@ -99,6 +99,51 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
 .accion .k{flex:none;width:72px;height:72px;border-radius:18px;background:rgba(226,198,140,.14);border:2px solid var(--oro3);display:flex;align-items:center;justify-content:center;font-size:36px}
 .accion b{color:var(--oro1)}
 .aviso{position:absolute;left:84px;right:84px;bottom:124px;font-size:20px;line-height:1.4;color:var(--txt2)}
+
+/* Versión para principiantes */
+.f2 h1{margin-top:44px;font-size:68px}
+.sigla{display:inline-block;margin-left:14px;vertical-align:middle;font-family:'IBM Plex Mono';font-weight:600;font-size:24px;letter-spacing:.06em;
+  color:var(--txt2);border:2px solid var(--borde);border-radius:8px;padding:4px 12px;text-transform:none}
+.que{margin-top:20px;font-size:33px;line-height:1.35;color:var(--txt)}
+.numeros{margin-top:30px;display:flex;gap:18px}
+.num{flex:1;border:2px solid var(--borde);border-radius:18px;padding:18px 24px;background:rgba(7,20,38,.6)}
+.num small{display:block;font-family:'IBM Plex Mono';font-size:20px;letter-spacing:.08em;color:var(--txt2);text-transform:uppercase}
+.num b{display:block;margin-top:6px;font-family:'Archivo';font-weight:900;font-size:50px;color:var(--oro1);white-space:nowrap}
+.escenarios{margin-top:30px;display:flex;flex-direction:column;gap:18px}
+.esc{border-radius:22px;padding:22px 28px}
+.esc.b{background:rgba(255,107,107,.10);border:2px solid rgba(255,107,107,.55)}
+.esc.s{background:rgba(61,214,140,.10);border:2px solid rgba(61,214,140,.55)}
+.esc .si{font-size:30px;line-height:1.3;color:var(--txt2)}
+.esc .si b{font-weight:600;color:var(--txt)}
+.esc .res{margin-top:8px;font-family:'Archivo';font-weight:900;font-size:44px;line-height:1.05;text-transform:uppercase}
+.esc.b .res{color:var(--rojo)} .esc.s .res{color:var(--verde)}
+.esc .res span{margin-right:10px}
+.porque{margin-top:22px;font-size:25px;line-height:1.35;color:var(--txt2)}
+.porque b{color:var(--oro1);font-family:'IBM Plex Mono';font-weight:600;font-size:21px;letter-spacing:.08em;margin-right:8px}
+/* Lámina 2 */
+.l2 h1{font-size:84px;margin-top:150px}
+.fed{margin-top:34px;font-size:33px;line-height:1.4;color:var(--txt)}
+.fed b{color:var(--oro1);font-weight:600}
+.cadena{margin-top:40px;display:flex;flex-direction:column;gap:22px}
+.cad{border-radius:22px;padding:26px 30px}
+.cad.b{background:rgba(255,107,107,.10);border:2px solid rgba(255,107,107,.55)}
+.cad.s{background:rgba(61,214,140,.10);border:2px solid rgba(61,214,140,.55)}
+.cad .pasos{font-size:30px;line-height:1.45}
+.cad .fin{margin-top:10px;font-family:'Archivo';font-weight:900;font-size:40px;text-transform:uppercase}
+.cad.b .fin{color:var(--rojo)} .cad.s .fin{color:var(--verde)}
+.ojo{margin-top:30px;font-size:26px;line-height:1.4;color:var(--txt2)}
+.ojo b{color:var(--txt)}
+/* Resumen */
+.r2 h1{font-size:72px;margin-top:136px}
+.tabla{margin-top:30px;display:flex;flex-direction:column;gap:12px}
+.tf{display:grid;grid-template-columns:150px 1fr 230px;align-items:center;gap:16px;border:2px solid var(--borde);border-radius:14px;padding:13px 20px;background:rgba(7,20,38,.6)}
+.tf .f{font-family:'Archivo';font-weight:900;font-size:30px;color:var(--oro1)}
+.tf .q{font-size:27px;font-weight:600}
+.tf .q span{display:block;font-size:19px;font-weight:400;color:var(--txt2)}
+.tf .z{font-size:21px;line-height:1.3;color:var(--txt2);text-align:right}
+.tf .z i{font-style:normal;color:var(--rojo);font-weight:600}
+.tf.cab2{background:none;border:none;padding:0 20px}
+.tf.cab2 span{font-family:'IBM Plex Mono';font-size:18px;letter-spacing:.08em;color:var(--txt2)}
 </style>
 </head>
 <body>
@@ -108,7 +153,7 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>NOVIEMBRE 2026</span></div>
   <div class="paso">1/11</div>
   <h1><span class="oro">7 fechas</span> que pueden mover el <span class="oro">oro</span> en noviembre</h1>
-  <p class="baja">Con <b>hora de Argentina</b>, el último dato y qué mirar en cada una.</p>
+  <p class="baja">Qué es cada dato, a qué hora sale y <b>qué pasa con el oro si sale alto o bajo</b>.</p>
   <div class="desliza">Deslizá →</div>
   <div class="grafico">
     <div class="tit"><span>ORO (GC=F) · ÚLTIMOS 6 MESES</span><span><b>US$ __PRECIO__</b> &nbsp;<span style="color:var(--rojo)">__DESDEMAX__ desde el máximo de mayo</span></span></div>
@@ -122,21 +167,22 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 2 · Regla -->
-<section class="lamina regla" id="l2">
+<!-- 2 · Cómo leerlo -->
+<section class="lamina l2" id="l2">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>ANTES DE EMPEZAR</span></div>
   <div class="paso">2/11</div>
-  <h1>Una sola idea para <span class="oro">leer</span> todo el mes</h1>
-  <div class="flujo">
-    <div class="fila"><span class="chip r">Dato caliente</span><span class="flecha">→</span><span class="chip n">Fed más dura</span><span class="flecha">→</span><span class="chip r">Oro presionado</span></div>
-    <div class="fila"><span class="chip v">Dato frío</span><span class="flecha">→</span><span class="chip n">Fed más tranquila</span><span class="flecha">→</span><span class="chip v">Oro con aire</span></div>
+  <h1>Cómo leer este <span class="oro">carrusel</span></h1>
+  <p class="fed">La <b>Fed</b> es el banco central de EE. UU. Decide la <b>tasa de interés</b>, y eso mueve al dólar y al oro.</p>
+  <div class="cadena">
+    <div class="cad b"><div class="pasos">Dato <b>más alto</b> de lo esperado → la Fed sube la tasa → el dólar se fortalece</div><div class="fin">🔻 El oro suele bajar</div></div>
+    <div class="cad s"><div class="pasos">Dato <b>más bajo</b> de lo esperado → la Fed no sube → el dólar se debilita</div><div class="fin">🔺 El oro suele subir</div></div>
   </div>
-  <p class="nota">«Caliente» es inflación alta o empleo fuerte. «Frío», lo contrario. <b>No es una regla fija:</b> el mercado reacciona a la diferencia entre lo que esperaba y lo que salió.</p>
+  <p class="ojo"><b>«Suele» no es «siempre».</b> A veces el mercado ya lo esperaba y no se mueve, o hace lo contrario. Por eso nunca se opera sin stop.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 3 · Empleo -->
-<section class="lamina fecha" id="l3">
+<!-- 3 · Fecha 1 -->
+<section class="lamina fecha f2" id="l3">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 1 DE 7</span></div>
   <div class="paso">3/11</div>
   <div class="cab">
@@ -144,19 +190,23 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
     <div class="cuando"><div class="d">Viernes 6</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><rect x="6" y="15" width="36" height="25" rx="4"/><path d="M17 15v-4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M6 26h36"/></svg></div>
   </div>
-  <h1>Empleo en <span class="oro">EE. UU.</span> (NFP)</h1>
-  <p class="sub">El informe de octubre. Es el dato que más mueve al dólar cada mes.</p>
-  <div class="datos c3">
-    <div class="dato"><small>Septiembre</small><b class="r">+29 mil</b><em>muy por debajo de lo esperado</em></div>
-    <div class="dato"><small>Se espera</small><b class="o">55–65 mil</b><em>según el consenso</em></div>
-    <div class="dato"><small>Desempleo</small><b class="t">4,2 %</b><em>en septiembre</em></div>
+  <h1>Empleo en <span class="oro">EE. UU.</span><span class="sigla">NFP</span></h1>
+  <p class="que">Cuántos puestos de trabajo nuevos se crearon en octubre.</p>
+  <div class="numeros">
+    <div class="num"><small>Septiembre</small><b>+29 mil</b></div>
+    <div class="num"><small>Se espera</small><b>~60 mil</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Empleo <span class="v">débil</span>: le saca presión a la Fed y suele darle aire al oro. Empleo <span class="r">fuerte</span>: lo contrario.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si se crean <b>más de 60 mil</b> empleos</div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si se crean <b>menos de 60 mil</b> empleos</div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Mucho empleo = la economía aguanta tasas altas = el dólar se fortalece.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 4 · CPI -->
-<section class="lamina fecha" id="l4">
+<!-- 4 · Fecha 2 -->
+<section class="lamina fecha f2" id="l4">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 2 DE 7</span></div>
   <div class="paso">4/11</div>
   <div class="cab">
@@ -164,18 +214,22 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
     <div class="cuando"><div class="d">Martes 10</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M8 12h4l5 20h20l4-14H15"/><circle cx="19" cy="38" r="2.5"/><circle cx="34" cy="38" r="2.5"/></svg></div>
   </div>
-  <h1>Inflación <span class="oro">CPI</span></h1>
-  <p class="sub">Lo que subieron los precios en octubre. Es el último CPI antes de la reunión de la Fed de diciembre.</p>
-  <div class="datos c2">
-    <div class="dato"><small>Septiembre · anual</small><b class="r">3,7 %</b><em>empujada por la nafta</em></div>
-    <div class="dato"><small>Subyacente · anual</small><b class="t">2,6 %</b><em>sin alimentos ni energía</em></div>
+  <h1><span class="oro">Inflación</span> en EE. UU.<span class="sigla">CPI</span></h1>
+  <p class="que">Cuánto subieron los precios del súper, la nafta y los servicios.</p>
+  <div class="numeros">
+    <div class="num"><small>Último dato · septiembre</small><b>3,7 %</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Un dato <span class="r">caliente</span> acerca una suba de tasas en diciembre y puede pesar sobre el oro. Un dato <span class="v">frío</span> le da aire.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si la inflación sale <b>más de 3,7 %</b></div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si la inflación sale <b>menos de 3,7 %</b></div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Más inflación = la Fed sube la tasa = el dólar se fortalece.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 5 · PPI -->
-<section class="lamina fecha" id="l5">
+<!-- 5 · Fecha 3 -->
+<section class="lamina fecha f2" id="l5">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 3 DE 7</span></div>
   <div class="paso">5/11</div>
   <div class="cab">
@@ -183,37 +237,46 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
     <div class="cuando"><div class="d">Viernes 13</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M6 40V22l10 6v-6l10 6v-6l10 6V10h6v30z"/><path d="M6 40h36"/></svg></div>
   </div>
-  <h1>Precios al <span class="oro">productor</span> (PPI)</h1>
-  <p class="sub">Lo que pagan las empresas. Si sube acá, <b>suele llegar después al consumidor</b>.</p>
-  <div class="datos c2">
-    <div class="dato"><small>Septiembre · mensual</small><b class="r">+1,3 %</b><em>la mayor suba desde 2022</em></div>
-    <div class="dato"><small>Septiembre · anual</small><b class="r">6,3 %</b><em>la más alta desde fines de 2022</em></div>
+  <h1>Precios de <span class="oro">empresas</span><span class="sigla">PPI</span></h1>
+  <p class="que">Lo que pagan las fábricas. Si sube acá, después llega a los precios del súper.</p>
+  <div class="numeros">
+    <div class="num"><small>Último dato · septiembre</small><b>6,3 %</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Si los costos <span class="r">siguen subiendo</span>, el mercado espera más inflación y una Fed más dura, y eso suele fortalecer al dólar.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si sale <b>más de 6,3 %</b></div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si sale <b>menos de 6,3 %</b></div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Costos más altos = se espera más inflación = Fed más dura.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 6 · Warsh -->
-<section class="lamina fecha" id="l6">
+<!-- 6 · Fecha 4 -->
+<section class="lamina fecha f2" id="l6">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 4 DE 7</span></div>
   <div class="paso">6/11</div>
   <div class="cab">
     <div class="cal"><div class="mes">NOV</div><div class="dia">16</div></div>
-    <div class="cuando"><div class="d">Lunes 16</div><div class="h">Bahía de San Francisco</div></div>
+    <div class="cuando"><div class="d">Lunes 16</div><div class="h">Sin hora fija</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 6a6 6 0 0 1 6 6v10a6 6 0 0 1-12 0V12a6 6 0 0 1 6-6z"/><path d="M12 22a12 12 0 0 0 24 0M24 34v8M17 42h14"/></svg></div>
   </div>
-  <h1>Habla <span class="oro">Warsh</span></h1>
-  <p class="sub">El presidente de la Fed encabeza una audiencia sobre <b>IA, productividad y empleo</b>. No decide tasas, pero cualquier frase sobre diciembre se escucha.</p>
-  <div class="datos c2">
-    <div class="dato"><small>Tasa de la Fed</small><b class="o">3,75–4 %</b><em>sin cambios en octubre</em></div>
-    <div class="dato"><small>Próxima decisión</small><b class="t">9 dic</b><em>con proyecciones nuevas</em></div>
+  <h1>Habla <span class="oro">Warsh</span><span class="sigla">presidente de la Fed</span></h1>
+  <p class="que">El jefe del banco central de EE. UU. habla en público. Cada palabra se escucha.</p>
+  <div class="numeros">
+    <div class="num"><small>Tasa hoy</small><b>3,75–4 %</b></div>
+    <div class="num"><small>Próxima decisión</small><b>9 de dic.</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Un tono <span class="r">duro</span> fortalece al dólar y presiona al oro. Un tono <span class="v">prudente</span> le puede dar respiro.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si dice que <b>hay que subir la tasa</b></div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si dice que <b>se puede esperar</b></div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Lo que diga hoy anticipa lo que hará en diciembre.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 7 · Minutas -->
-<section class="lamina fecha" id="l7">
+<!-- 7 · Fecha 5 -->
+<section class="lamina fecha f2" id="l7">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 5 DE 7</span></div>
   <div class="paso">7/11</div>
   <div class="cab">
@@ -221,19 +284,23 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
     <div class="cuando"><div class="d">Miércoles 18</div><div class="h"><b>16:00</b> hora de Argentina</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M6 18 24 8l18 10M9 18v18M17 18v18M31 18v18M39 18v18M6 40h36"/></svg></div>
   </div>
-  <h1>Minutas de la <span class="oro">Fed</span></h1>
-  <p class="sub">Lo que se discutió a puertas cerradas el <b>27 y 28 de octubre</b>.</p>
-  <div class="datos c3">
-    <div class="dato"><small>Decisión</small><b class="t">Pausa</b><em>tasa sin cambios</em></div>
-    <div class="dato"><small>Votación</small><b class="o">10 a 2</b><em>dividida</em></div>
-    <div class="dato"><small>Querían subir</small><b class="r">2</b><em>Cook y Hammack</em></div>
+  <h1>Minutas de la <span class="oro">Fed</span><span class="sigla">actas</span></h1>
+  <p class="que">Se publica lo que se habló a puertas cerradas en la última reunión.</p>
+  <div class="numeros">
+    <div class="num"><small>Octubre</small><b>Pausa</b></div>
+    <div class="num"><small>Votación</small><b>10 a 2</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Si las minutas muestran <span class="r">ganas de subir</span> en diciembre, el dólar gana fuerza y el oro sufre. Si muestran <span class="v">dudas</span>, al revés.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si <b>muchos quieren subir</b> la tasa en diciembre</div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si muestran <b>dudas</b> sobre subir</div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>En octubre 2 de los 12 ya querían subir. Se busca si son más.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 8 · PCE -->
-<section class="lamina fecha" id="l8">
+<!-- 8 · Fecha 6 -->
+<section class="lamina fecha f2" id="l8">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 6 DE 7</span></div>
   <div class="paso">8/11</div>
   <div class="cab">
@@ -241,51 +308,59 @@ h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.9
     <div class="cuando"><div class="d">Miércoles 25</div><div class="h"><b>10:30</b> hora de Argentina</div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M8 40V8M8 40h32"/><path d="M14 32l8-9 6 5 10-13"/></svg></div>
   </div>
-  <h1>Inflación <span class="oro">PCE</span></h1>
-  <p class="sub">La medida de inflación que más mira la Fed. <b>El jueves 26 es Acción de Gracias</b>: Wall Street cierra y el oro opera con poco volumen.</p>
-  <div class="datos c3">
-    <div class="dato"><small>PCE sept.</small><b class="r">3,6 %</b><em>anual</em></div>
-    <div class="dato"><small>Subyacente</small><b class="t">3,1 %</b><em>la más alta desde mayo</em></div>
-    <div class="dato"><small>PIB 3.er trim.</small><b class="o">3,4 %</b><em>primera lectura</em></div>
+  <h1>La inflación de <span class="oro">la Fed</span><span class="sigla">PCE</span></h1>
+  <p class="que">La medida de precios favorita de la Fed. El jueves 26 es feriado en EE. UU. y se mueve poco.</p>
+  <div class="numeros">
+    <div class="num"><small>Último dato · septiembre</small><b>3,6 %</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p>Es el último gran dato antes de la Fed de diciembre: puede <span class="r">confirmar</span> la suba de tasas o <span class="v">enfriarla</span>.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si sale <b>más de 3,6 %</b></div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si sale <b>menos de 3,6 %</b></div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Es el último gran dato antes de la decisión de diciembre.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
-<!-- 9 · OPEP+ -->
-<section class="lamina fecha" id="l9">
+<!-- 9 · Fecha 7 -->
+<section class="lamina fecha f2" id="l9">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>FECHA 7 DE 7</span></div>
   <div class="paso">9/11</div>
   <div class="cab">
     <div class="cal"><div class="mes">NOV</div><div class="dia">29</div></div>
-    <div class="cuando"><div class="d">Domingo 29</div><div class="h">El mercado reacciona el <b>lunes 30</b></div></div>
+    <div class="cuando"><div class="d">Domingo 29</div><div class="h">El oro reacciona el <b>lunes 30</b></div></div>
     <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 6c7 10 12 16 12 23a12 12 0 0 1-24 0c0-7 5-13 12-23z"/></svg></div>
   </div>
-  <h1>Reunión de la <span class="oro">OPEP+</span></h1>
-  <p class="sub">Los 21 países del grupo definen <b>cuánto petróleo producen en 2027</b>.</p>
-  <div class="datos c2">
-    <div class="dato"><small>Diciembre</small><b class="t">Sin cambios</b><em>decidido el 1/11</em></div>
-    <div class="dato"><small>Recortes vigentes</small><b class="o">~2 M bpd</b><em>barriles por día</em></div>
+  <h1>Reunión de la <span class="oro">OPEP+</span><span class="sigla">petróleo</span></h1>
+  <p class="que">Los países que más petróleo producen deciden cuánto van a sacar en 2027.</p>
+  <div class="numeros">
+    <div class="num"><small>Decisión para diciembre</small><b>Sin cambios</b></div>
+
   </div>
-  <div class="oro-box"><small>CÓMO PUEDE MOVER AL ORO</small><p><span class="v">Más petróleo</span> enfría la inflación y le saca presión a la Fed. <span class="r">Menos petróleo</span> hace lo contrario.</p></div>
+  <div class="escenarios">
+    <div class="esc b"><div class="si">Si deciden <b>producir menos</b> petróleo</div><div class="res"><span>🔻</span>el oro suele bajar</div></div>
+    <div class="esc s"><div class="si">Si deciden <b>producir más</b> petróleo</div><div class="res"><span>🔺</span>el oro suele subir</div></div>
+  </div>
+  <p class="porque"><b>¿POR QUÉ?</b>Petróleo caro = nafta cara = más inflación = Fed más dura.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
 <!-- 10 · Resumen -->
-<section class="lamina resumen" id="l10">
+<section class="lamina r2" id="l10">
   <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>GUARDALO</span></div>
   <div class="paso">10/11</div>
   <h1>El mes en <span class="oro">una pantalla</span></h1>
-  <div class="lista">
-    <div class="item"><span class="f">Vie 6</span><span class="q">Empleo (NFP)<span>informe de octubre</span></span><span class="hh">10:30</span></div>
-    <div class="item"><span class="f">Mar 10</span><span class="q">Inflación CPI<span>octubre</span></span><span class="hh">10:30</span></div>
-    <div class="item"><span class="f">Vie 13</span><span class="q">Precios al productor (PPI)<span>octubre</span></span><span class="hh">10:30</span></div>
-    <div class="item"><span class="f">Lun 16</span><span class="q">Habla Warsh<span>audiencia sobre IA y empleo</span></span><span class="hh">—</span></div>
-    <div class="item"><span class="f">Mié 18</span><span class="q">Minutas de la Fed<span>reunión del 27-28/10</span></span><span class="hh">16:00</span></div>
-    <div class="item"><span class="f">Mié 25</span><span class="q">Inflación PCE<span>el 26, Acción de Gracias</span></span><span class="hh">10:30</span></div>
-    <div class="item"><span class="f">Dom 29</span><span class="q">Reunión OPEP+<span>reacción el lunes 30</span></span><span class="hh">—</span></div>
+  <div class="tabla">
+    <div class="tf cab2"><span>FECHA</span><span>QUÉ SALE · HORA ARG</span><span style="text-align:right">🔻 EL ORO SUELE BAJAR SI…</span></div>
+    <div class="tf"><span class="f">Vie 6</span><span class="q">Empleo<span>10:30</span></span><span class="z"><i>más de 60 mil</i></span></div>
+    <div class="tf"><span class="f">Mar 10</span><span class="q">Inflación (CPI)<span>10:30</span></span><span class="z"><i>más de 3,7 %</i></span></div>
+    <div class="tf"><span class="f">Vie 13</span><span class="q">Precios empresas (PPI)<span>10:30</span></span><span class="z"><i>más de 6,3 %</i></span></div>
+    <div class="tf"><span class="f">Lun 16</span><span class="q">Habla Warsh<span>sin hora</span></span><span class="z"><i>si dice «subir»</i></span></div>
+    <div class="tf"><span class="f">Mié 18</span><span class="q">Minutas de la Fed<span>16:00</span></span><span class="z"><i>muchos quieren subir</i></span></div>
+    <div class="tf"><span class="f">Mié 25</span><span class="q">Inflación PCE<span>10:30</span></span><span class="z"><i>más de 3,6 %</i></span></div>
+    <div class="tf"><span class="f">Dom 29</span><span class="q">OPEP+<span>lunes 30</span></span><span class="z"><i>menos petróleo</i></span></div>
   </div>
-  <p class="nota" style="margin-top:22px;font-size:22px">Horarios de Argentina. Las fechas pueden cambiar: confirmalas en el calendario económico el día anterior.</p>
+  <p class="nota" style="margin-top:20px;font-size:22px">Si sale lo contrario, el oro suele subir. Las fechas pueden cambiar: confirmalas el día anterior.</p>
   <div class="pie"><b>Lean Alvarez · <i>Real Investors Club</i></b><small>@leanalvarez.ok</small></div>
 </section>
 
