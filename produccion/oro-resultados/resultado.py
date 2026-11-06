@@ -75,6 +75,22 @@ def num(x, dec=0):
     return f"{x:,.{dec}f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
+def tarjeta_ig(c):
+    """Tarjeta de perfil de Instagram (regla de Lean del 05/11/2026). Números en el JSON (`perfil`) o los últimos conocidos."""
+    p = {"publicaciones": "31", "seguidores": "3.736", "seguidos": "18", **c.get("perfil", {})}
+    ok = ('<svg class="ig-ok" viewBox="0 0 40 40"><path fill="#0095f6" d="M20 1.7l4.6 3.4 5.7-.3 1.9 5.4 4.8 3.1-1.5 5.5 1.5 5.5-4.8 3.1-1.9 5.4-5.7-.3L20 38.3l-4.6-3.4-5.7.3-1.9-5.4-4.8-3.1 1.5-5.5-1.5-5.5 4.8-3.1 1.9-5.4 5.7.3z"/>'
+          '<path d="M13 20.5l4.8 4.8 9.4-9.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    return f'''  <div class="ig" style="margin-top:26px;padding:24px 30px">
+    <div class="ig-top"><img src="../../herramientas/particulas/avatar.png" alt="" style="width:130px;height:130px">
+      <div class="ig-der"><div class="ig-user" style="font-size:32px">leanalvarez.ok {ok}</div>
+        <div class="ig-stats"><div><b>{p["publicaciones"]}</b><span>publicaciones</span></div><div><b>{p["seguidores"]}</b><span>seguidores</span></div><div><b>{p["seguidos"]}</b><span>seguidos</span></div></div></div></div>
+    <div class="ig-nombre" style="margin-top:14px;font-size:25px">Lean Alvarez | Trading &amp; Finanzas</div>
+    <div class="ig-bio" style="font-size:21px">🚀 Trader en XAUUSD y Cripto · 📈 Opera de la forma correcta</div>
+    <div class="ig-botones" style="margin-top:14px"><span class="ig-seguir">Seguir</span><span class="ig-msj">Mensaje</span></div>
+  </div>
+'''
+
+
 def html(c, r):
     base = (RAIZ / "produccion/carrusel-oro-noviembre/carrusel.html").read_text(encoding="utf-8")
     head = base.split("<body>")[0].replace("../../", "../../")
@@ -120,13 +136,14 @@ def html(c, r):
           f'  <h1 style="font-size:80px">Por qué <span class="oro">{verbo}</span></h1>\n  <div class="pasos2">\n{pasos}  </div>\n'
           f'  <p class="lect">{c.get("aprendizaje", "")}</p>\n' + pie)
     l4 = (f'<section class="lamina res" id="l4">\n' + marca("LO QUE VIENE", 4) +
-          f'''  <h1 style="font-size:80px">¿Y ahora <span class="oro">qué</span>?</h1>
-  <p class="lect" style="font-size:33px;color:var(--txt)">{c["ahora"]}</p>
-  <div class="caja" style="margin-top:36px"><div class="tt"><span>PRÓXIMA FECHA</span><span>{c["proxima"]["hora"]}</span></div>
+          f'''  <h1 style="font-size:72px;margin-top:130px">¿Y ahora <span class="oro">qué</span>?</h1>
+  <p class="lect" style="font-size:29px;color:var(--txt);margin-top:20px">{c["ahora"]}</p>
+  <div class="caja" style="margin-top:24px;padding:18px 24px"><div class="tt"><span>PRÓXIMA FECHA</span><span>{c["proxima"]["hora"]}</span></div>
     <div style="font-family:Archivo;font-weight:900;font-size:52px">{c["proxima"]["fecha"]} · <span class="oro">{c["proxima"]["nombre"]}</span></div>
     <p class="lect" style="margin-top:12px">{c["proxima"]["regla"]}</p></div>
-  <p class="lect" style="margin-top:34px">📌 <b>Guardalo</b> · 💬 ¿Lo esperabas? <b>Comentá SÍ o NO</b> · ➕ <b>Seguime</b> para la próxima.</p>
-  <p class="aviso" style="bottom:120px">Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. Fuentes: {c["fuentes"]}. Oro: Yahoo Finance (GC=F).</p>
+  <p class="lect" style="margin-top:24px;font-size:28px">📌 <b>Guardalo</b> · 💬 ¿Lo esperabas? <b>Comentá SÍ o NO</b></p>
+{tarjeta_ig(c)}
+  <p class="aviso" style="bottom:112px;font-size:18px">Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. Fuentes: {c["fuentes"]}. Oro: Yahoo Finance (GC=F).</p>
 ''' + pie)
     return head.replace("</head>", extra + "</head>") + "<body>\n" + l1 + l2 + l3 + l4 + "</body></html>\n"
 

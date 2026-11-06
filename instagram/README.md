@@ -26,6 +26,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | «Elecciones en EE. UU.: ¿vender todo? Lo que dicen 19 elecciones desde 1950» (expediente cine, voz de Lean grabada en WhatsApp, con música, 77 s) | **Publicado a mano por Lean el 04/11/2026** con el primer audio entregado (el de la sala chica; las versiones sin eco no le gustaron) y el copy de `subir.md` | `produccion/reel-elecciones/subir.md` |
 | Carrusel «7 fechas que pueden mover el oro en noviembre» (11 láminas, identidad RIC, datos verificados, hora de Argentina; rehecho el mismo día para principiantes: «si sale más de X, el oro suele bajar») | Entregado el 05/11/2026; falta que Lean lo publique | `produccion/carrusel-oro-noviembre/subir.md` |
 | Carruseles de resultado de cada fecha del oro (4 láminas: qué salió, qué hizo el oro con el gráfico real, por qué y qué viene) | Programados del 06/11 al 30/11 (tareas one-shot que vuelven al chat de Instagram) | `produccion/oro-resultados/LEEME.md` |
+| Resultado 1/7 · Empleo (NFP) del 06/11: 165 mil contra 60 mil esperados, el oro bajó 0,5 % en la primera hora | Entregado el 06/11/2026 a las 12:00; falta que Lean lo publique | `produccion/oro-resultados/nfp-2026-11.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 

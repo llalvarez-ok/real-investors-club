@@ -1,0 +1,28 @@
+{
+  "id": "nfp-2026-11",
+  "fecha": "2026-11-06",
+  "hora_ny": "08:30",
+  "dia": "Vie 6/11",
+  "nombre": "empleo",
+  "esperado": "60 mil",
+  "salio": "165 mil",
+  "comparacion": "más",
+  "frase_dato": "Casi el triple. Además el desempleo bajó de 4,2 % a 4,1 % y los dos meses anteriores se corrigieron para arriba.",
+  "esperado_oro": "baja",
+  "que_hizo": "Bajó apenas salió el dato y siguió cayendo en la primera hora. Ojo: <b>ya venía bajando desde temprano</b>, así que no toda la caída es por el empleo.",
+  "porque": [
+    "Se crearon <b>muchos más empleos</b> de lo esperado.",
+    "Una economía fuerte <b>aguanta tasas altas</b>: la Fed puede subir la tasa sin miedo a frenarla.",
+    "Tasas altas = el <b>dólar se fortalece</b>.",
+    "Dólar fuerte = <b>oro más barato</b>."
+  ],
+  "aprendizaje": "Se movió menos que con la inflación del 14/10 (−1,2 %): para adivinar a la Fed, el mercado mira más los precios que el empleo. Por eso <b>la próxima fecha pesa más</b>.",
+  "ahora": "Con este empleo, la Fed tiene <b>un motivo más para subir la tasa en diciembre</b>. Ahora todo depende de la inflación del martes: si sale alta, se confirma; si sale baja, le saca presión.",
+  "proxima": {
+    "fecha": "Mar 10/11",
+    "nombre": "Inflación",
+    "hora": "10:30 ARG",
+    "regla": "Si sale <b>más de 3,7 %</b>, el oro suele bajar. Si sale menos, suele subir."
+  },
+  "fuentes": "BLS, CNBC, Bloomberg"
+}

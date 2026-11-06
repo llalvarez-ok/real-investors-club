@@ -8,6 +8,7 @@ un carrusel de resultado que explique qué salió, cómo reaccionó el oro y por
   el oro (velas reales de 5 min de GC=F con la hora del dato marcada, en hora de Argentina), por qué, y qué viene.
 - Lenguaje para principiantes y voseo. Si el oro hizo lo contrario de lo que «suele», se explica con la noticia.
 - Los PNG no van a git: se entregan por el chat. El texto para publicar va en `<id>.md`. Lean publica a mano.
+- El cierre (lámina 4) lleva la tarjeta de perfil de Instagram (regla de Lean del 05/11/2026); los números se pasan en el JSON como `perfil` o quedan los últimos conocidos.
 - Yahoo Finance solo da velas de 5 min de los últimos 60 días: cada resultado se arma el mismo día.
 
 ## Tareas programadas (one-shot, vuelven al chat de INSTAGRAM RIC; creadas el 05/11/2026 con el pedido de Lean)
@@ -20,3 +21,7 @@ un carrusel de resultado que explique qué salió, cómo reaccionó el oro y por
 | Mié 18/11 | Minutas de la Fed (tono) | 18/11 18:00 | `trig_01GvVjQHvqQiXFCBqNez5Zqs` |
 | Mié 25/11 | Inflación PCE, referencia 3,6 % | 25/11 12:00 | `trig_0151CATeh8sZoKPfxJYopenC` |
 | Dom 29/11 | OPEP+ (producir más o menos) | 30/11 12:00 | `trig_01Ny5ksqFEHMudiDrgvHtZav` |
+
+
+## Hechos
+- 06/11 · Empleo: 165 mil (esperado ~60 mil), desempleo 4,1 %. Oro −0,53 % en la primera hora (ya venía bajando). Hizo lo que «suele». `nfp-2026-11.json` / `.md`.
