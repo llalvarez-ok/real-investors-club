@@ -7,7 +7,8 @@
          Una ilustración de recursos/: la mano dibuja el contorno y después aparece el color.
          cambios: cambia la ilustración (por ejemplo la cara) en el segundo t.
      { tipo: "texto", texto, x, y, tam, color, t, d, giro, ancla: "start" | "middle" }   texto escrito a mano
-     { tipo: "trazo", d: "M…", color, grosor, t, dur }                                   flecha, subrayado, tachadura
+     { tipo: "trazo", d: "M…", color, grosor, t, dur, punta }                            flecha, subrayado, tachadura
+         punta: "butt" para una franja de borde recto (por defecto, redondeada)
      { tipo: "viaje", src, desde: [x, y], hasta: [x, y], w, t, dur, arco }               un objeto que viaja en arco
      { tipo: "fantasma", src, x, y, w, t, d }                                           solo el contorno, punteado
    Campos opcionales de cualquier elemento:
@@ -125,7 +126,7 @@
           tx.setAttribute("clip-path", `url(#${id})`);
           it.tx = tx;
         } else if (e.tipo === "trazo") {
-          it.p = nuevo("path", { d: e.d, fill: "none", stroke: e.color || TINTA, "stroke-width": e.grosor || 9, "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
+          it.p = nuevo("path", { d: e.d, fill: "none", stroke: e.color || TINTA, "stroke-width": e.grosor || 9, "stroke-linecap": e.punta || "round", "stroke-linejoin": "round" }, g);
         } else if (e.tipo === "viaje") {
           montar(g, e.src, e.w || 90).linea.remove();
         }

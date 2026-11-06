@@ -56,7 +56,7 @@ const flecha = (x1, y1, x2, y2, t, color = TINTA, o = {}) => {
   const p1 = [x2 - k * Math.cos(a - 0.45), y2 - k * Math.sin(a - 0.45)], p2 = [x2 - k * Math.cos(a + 0.45), y2 - k * Math.sin(a + 0.45)];
   return trazo(`M${x1} ${y1} L${x2} ${y2} M${p1[0]} ${p1[1]} L${x2} ${y2} L${p2[0]} ${p2[1]}`, t, { color, grosor: 9, dur: 0.6, ...o });
 };
-const banda = (x1, x2, ya, yb, t, color = BANDA_ORO, o = {}) => trazo(`M${x1} ${(ya + yb) / 2} L${x2} ${(ya + yb) / 2}`, t, { color, grosor: Math.abs(yb - ya), dur: 0.7, ...o });
+const banda = (x1, x2, ya, yb, t, color = BANDA_ORO, o = {}) => trazo(`M${x1} ${(ya + yb) / 2} L${x2} ${(ya + yb) / 2}`, t, { color, grosor: Math.abs(yb - ya), dur: 0.7, punta: "butt", ...o });
 const titulo = (texto, o = {}) => txt(texto, 0, -400, ini() + 0.2, { tam: 78, ...o });
 // leyenda de una escena dentro de una zona compartida: arriba, y se borra al terminar la escena
 const nota = (texto, t, o = {}) => txt(texto, -120, -440, t, { tam: 58, color: ORO, desaparece: fin() - 0.3, ...o });
@@ -116,6 +116,7 @@ img("peep-diego-feliz", 0, 130, 300, w("estrategia", 1, -0.3), { respira: true, 
 txt("¿qué día te toca?", 0, -420, w("toca", 1, -0.6), { tam: 84, color: ORO });
 txt("vuelve al medio", -560, 240, w("lugar", 1, -0.3), { tam: 50, color: GRIS });
 txt("no vuelve nunca", 560, 420, w("nunca", 1, -0.3), { tam: 50, color: ROJO });
+img("obj-busts-in-silhouette", 0, -250, 130, w("gente", 1, -0.2), { efecto: "pop" });
 txt("se podía ver antes de entrar", 0, 470, w("ver", 1, -0.2), { tam: 62, color: ORO });
 
 // 2 · Qué vas a ver
@@ -191,13 +192,15 @@ txt("EQUILIBRIO", 330, -380, w("equilibrio", 1, -0.2), { tam: 96, color: ORO, ef
 img("obj-balance-scale", 330, -170, 260, w("equilibrio", 1, 0.4));
 banda(-200, 860, 190, 350, w("zona", 1, -0.3));
 trazo(zigzag(-180, 840, 270, 55, 16), w("viene", 1, -0.3), { grosor: 7, dur: 2.2 });
+img("obj-relieved-face", -620, 300, 100, w("apuro", 1, -0.2), { efecto: "pop" });
+txt("parece aburrido…", -620, 430, w("aburrido", 1, -0.3), { tam: 50, color: GRIS });
 txt("la mayor parte del tiempo", 330, 460, w("mayor", 1, -0.3), { tam: 60 });
 
 // 8 · Dos modos: desequilibrio
 en(8);
-txt("DESEQUILIBRIO", -480, -400, w("desequilibrio", 1, -0.2), { tam: 92, color: ORO, efecto: "pop" });
-img("obj-balance-scale", -480, -170, 260, w("desequilibrio", 1, 0.4), { mueve: [{ t: w("nuevo", 1, -0.2), dur: 0.5, giro: -18 }] });
-img("obj-racing-car", -480, 160, 200, w("piloto", 1, -0.2), { efecto: "pop" });
+txt("DESEQUILIBRIO", -420, -330, w("desequilibrio", 1, -0.2), { tam: 92, color: ORO, efecto: "pop" });
+img("obj-balance-scale", -420, -110, 240, w("desequilibrio", 1, 0.4), { mueve: [{ t: w("nuevo", 1, -0.2), dur: 0.5, giro: -18 }] });
+img("obj-racing-car", -420, 200, 200, w("piloto", 1, -0.2), { efecto: "pop" });
 banda(-150, 330, 250, 380, w("zona", 1, -0.6), BANDA_GRIS);
 trazo(zigzag(-140, 200, 315, 40, 8) + " L330 120 L470 -40 L560 -170", w("sale", 1, -0.2), { grosor: 7, color: VERDE, dur: 1.6 });
 banda(470, 900, -240, -110, w("otro", 1, -0.2));
@@ -220,15 +223,20 @@ nota("228 puntos · 0,8 %", w("puntos", 2, -0.3));
 txt("equilibrio de manual", -250, 440, w("manual", 1, -0.4), { tam: 62, color: ORO, desaparece: fin() - 0.2 });
 en(10);
 nota("¿en qué precios se negoció más?", w("pregunta", 1, -0.2), { color: TINTA });
+txt("contratos negociados en cada precio", -250, 440, w("contratos", 1, -0.2), { tam: 54, desaparece: w("foto", 1, -0.8) });
 G3.perfil(w("barra", 1, -0.3), w("vuelta", 1, 0));
 txt("perfil de volumen", 500, -330, w("perfil", 1, -0.3), { tam: 56, color: ORO });
 G3.contorno(w("campana", 1, -0.2), 1.6);
+txt("pocas arriba", 720, G3.PY(28440), w("arriba", 1, -0.2), { tam: 40, color: GRIS, ancla: "start", desaparece: fin() - 0.2 });
+txt("pocas abajo", 720, G3.PY(28225), w("abajo", 1, -0.2), { tam: 40, color: GRIS, ancla: "start", desaparece: fin() - 0.2 });
+txt("panza", 740, G3.PY(28330), w("panza", 1, -0.2), { tam: 44, color: ORO, ancla: "start", desaparece: fin() - 0.2 });
 txt("campana = equilibrio", 500, 420, w("foto", 1, -0.6), { tam: 56, color: ORO, desaparece: fin() - 0.2 });
 en(11);
 G3.linea(window.NQ["2026-11-03"].poc + 5, w("control", 1, -0.2));
 nota("punto de control ≈ 28.310", w("control", 1, 0));
 img("obj-automobile", 820, G3.PY(28315) - 70, 110, w("diecisiete", 1, -0.2), { efecto: "pop", desaparece: fin() - 0.2 });
 txt("17.000", 820, G3.PY(28315) + 60, w("diecisiete", 1, 0), { tam: 40, color: GRIS, desaparece: fin() - 0.2 });
+txt("donde más se negoció en el día", -250, 440, w("negoció", 1, -0.2), { tam: 56, desaparece: fin() - 0.2 });
 en(12);
 G3.franja(28290, 28390, w("valor", 1, -0.2));
 nota("área de valor: 70 % del volumen", w("setenta", 1, -0.4));
@@ -237,17 +245,18 @@ txt("bajo 28.290", 720, G3.PY(28290) + 34, w("noventa", 1, -0.2), { tam: 40, col
 txt("el precio razonable de ese día", -250, 440, w("razonable", 1, -0.4), { tam: 58, desaparece: fin() - 0.2 });
 en(13);
 const i11 = G3.idx("11:00");
-img("peep-bruno-feliz", -840, 360, 190, w("martín", 1, -0.3), { respira: { hasta: fin(14) }, cambios: [{ t: w("volvió", 1, 0), src: "peep-bruno-preocupada" }] });
+img("peep-bruno-feliz", -860, 120, 190, w("martín", 1, -0.3), { respira: { hasta: fin(14) }, cambios: [{ t: w("volvió", 1, 0), src: "peep-bruno-preocupada" }] });
 trazo(`M${G3.X0} ${G3.PY(28422)} L${G3.PX(i11) + 20} ${G3.PY(28422)}`, w("mañana", 2, -0.3), { color: GRIS, grosor: 4, dur: 0.6 });
 caja(G3.PX(i11) - 30, G3.PY(28455), G3.PX(i11 + 5) + 30, G3.PY(28330), w("ruptura", 1, -0.4), { color: ROJO, grosor: 6 });
-nota("Martín compra la ruptura: 28.444", w("compró", 1, -0.3));
+nota("Martín compra la ruptura: 28.444", w("compró", 1, -0.3), { x: -560, tam: 52 });
 txt("compré acá", G3.PX(i11) + 40, G3.PY(28455) - 20, w("compró", 1, 0), { tam: 44, color: ROJO, ancla: "start" });
 flecha(G3.PX(i11 + 1), G3.PY(28440), G3.PX(i11 + 5), G3.PY(28355), w("volvió", 1, -0.2), ROJO);
-txt("vuelve al medio de la campana", -250, 440, w("campana", 1, -0.4), { tam: 56, color: ROJO, desaparece: fin() - 0.2 });
+txt("vuelve al medio de la campana", -560, -370, w("campana", 1, -0.4), { tam: 48, color: ROJO, desaparece: fin() - 0.2 });
 en(14);
 const i13 = G3.idx("13:30"), i14 = G3.idx("14:30");
 nota("sin noticia, la ruptura no tiene compradores", w("noticia", 1, -0.3), { tam: 50 });
 img("obj-raised-hand-light", 820, -300, 90, w("probar", 1, -0.2), { efecto: "pop", mueve: [{ t: w("compradores", 1, 0.3), dur: 0.5, dy: 90 }], desaparece: w("acuerdo", 1, 0.6) });
+txt("vuelve a donde había acuerdo", -250, 440, w("volvió", 1, -0.2), { tam: 56, desaparece: w("tarde", 1, -0.5) });
 txt("por la tarde, otra vez", -250, 440, w("tarde", 1, -0.3), { tam: 56, desaparece: fin() - 0.2 });
 caja(G3.PX(i13) - 25, G3.PY(28450), G3.PX(i14 + 4) + 25, G3.PY(28230), w("tarde", 1, 0.3), { color: ROJO, grosor: 6 });
 txt("28.432", G3.PX(i13) - 10, G3.PY(28450) - 15, w("treinta", 1, -0.2), { tam: 40, color: ROJO });
@@ -294,6 +303,7 @@ caja(G4.PX(j11) - 20, G4.PY(28520), G4.PX(j11 + 5) + 20, G4.PY(28455), w("tocó"
 txt("28.474", G4.PX(j11) + 10, G4.PY(28455) + 46, w("cuatro", 1, -0.2), { tam: 40, color: ORO });
 flecha(G4.PX(j11 + 4), G4.PY(28480), G4.PX(j1130 + 5), G4.PY(28785), w("subió", 1, -0.2), VERDE, { grosor: 7 });
 txt("+318", G4.PX(j1130 + 5) + 20, G4.PY(28785) - 20, w("trescientos", 1, 0), { tam: 48, color: VERDE, ancla: "start" });
+txt("se mueve rápido: para un lado o para el otro", -120, 440, w("rápido", 1, -0.2), { tam: 50, desaparece: w("tocó", 1, -0.3) });
 txt("no es una garantía: es un lugar para prestar atención", -120, 440, w("garantía", 1, -0.4), { tam: 50, color: GRIS, desaparece: fin() - 0.2 });
 
 // 19 y 20 · Jueves 5/11: el remate se rompe
@@ -325,14 +335,17 @@ en(21);
 img("obj-newspaper", -740, -330, 150, w("cayó", 1, -0.2), { efecto: "pop" });
 cruz(-740, -330, w("saberlo", 1, 0), 60);
 txt("no hace falta saber por qué", -380, -320, w("saberlo", 1, 0.2), { tam: 52, color: GRIS, ancla: "start" });
+txt("abrió lejos del valor y no volvió", -380, -250, w("lejos", 1, -0.2), { tam: 44, color: GRIS, ancla: "start", desaparece: w("fíjate", 1, 0) });
+img("obj-chart-decreasing", 560, -330, 100, w("bajada", 1, -0.2), { efecto: "pop" });
+img("obj-anxious-face-with-sweat", 760, -330, 100, w("mal", 1, -0.2), { efecto: "pop" });
 const CX = [-60, 340, 740];
 [["martes", "(equilibrio)", "martes", 2], ["miércoles", "(sale arriba)", "miércoles", 1], ["jueves", "(sale abajo)", "jueves", 1]].forEach(([a, b, p, n], i) => {
   const t0 = i === 1 ? w("ruptura", 1, -0.4) : w(p, n, -0.4);
   txt(a, CX[i], -170, t0, { tam: 56 }); txt(b, CX[i], -115, t0 + 0.3, { tam: 40, color: GRIS });
 });
-txt("comprar bajadas", -560, 30, w("bajadas", 2, -0.3), { tam: 56 });
+txt("comprar bajadas", -560, 30, w("bajadas", 1, -0.3), { tam: 56 });
 txt("seguir la ruptura", -560, 200, w("ruptura", 1, -0.3), { tam: 56 });
-trazo("M-860 -80 L900 -80 M-860 110 L900 110 M-240 -220 L-240 280", w("bajadas", 2, -0.6), { color: GRIS, grosor: 4, dur: 0.6 });
+trazo("M-860 -80 L900 -80 M-860 110 L900 110 M-240 -220 L-240 280", w("bajadas", 1, -0.6), { color: GRIS, grosor: 4, dur: 0.6 });
 tilde(CX[0], 15, w("funcionó", 1, 0), 1.3);
 txt("–", CX[1], 40, w("funcionó", 1, 0.3), { tam: 60, color: GRIS });
 cruz(CX[2], 15, w("desastre", 1, 0), 30);
@@ -344,6 +357,8 @@ txt("la estrategia tiene que encajar con el modo del mercado", 0, 430, w("encaja
 // 22 · La cuenta de dos años
 en(22);
 titulo("La cuenta: Nasdaq, 2024 a 2026");
+txt("¿alcanza con abrir fuera?", -120, -300, w("alcanza", 1, -0.3), { tam: 56, desaparece: w("seguido", 1, -0.5) });
+txt("No.", 420, -300, w("no", 1, -0.1), { tam: 70, color: ROJO, efecto: "pop", desaparece: w("seguido", 1, -0.5) });
 txt("abre fuera del valor de ayer: 395 de 587 sesiones", 0, -260, w("seguido", 1, -0.2), { tam: 56 });
 txt("2 de cada 3", 0, -170, w("tres", 1, -0.2), { tam: 70, color: ORO, efecto: "pop" });
 img("obj-coin", -640, 130, 200, w("mitad", 1, -0.3), { efecto: "pop", gira: { t: w("mitad", 1, 0), dur: 2.4 } });
@@ -397,7 +412,7 @@ en(26);
 txt("3. ¿Acepta o rechaza?", 0, -400, w("tercera", 1, -0.1), { tam: 72 });
 banda(-700, -100, 160, 300, w("precio", 1, -0.2), BANDA_GRIS);
 trazo("M-650 230 L-560 200 L-480 250 L-380 210 L-300 30 L-200 -60", w("afuera", 1, -0.3), { grosor: 7, color: VERDE, dur: 0.8 });
-trazo("M-100 -200 C 40 -200 60 -40 -40 -10 C-120 20 -120 -170 -100 -200", w("campana", 1, -0.2), { color: ORO, grosor: 7, dur: 0.8 });
+[0.25, 0.5, 0.8, 1, 0.75, 0.45, 0.2].forEach((f, i) => trazo(`M-160 ${-230 + i * 26} L${-160 + f * 200} ${-230 + i * 26}`, w("campana", 1, -0.2) + i * 0.08, { color: ORO, grosor: 18, dur: 0.2 }));
 txt("¿arma una campana nueva?", 360, -150, w("campana", 1, 0.2), { tam: 54 });
 txt("¿o vuelve rápido al medio?", 360, -40, w("medio", 1, -0.2), { tam: 54 });
 img("obj-hourglass-not-done", 360, 170, 160, w("sabes", 1, -0.2), { efecto: "pop" });
@@ -442,14 +457,15 @@ txt("Repasemos", 0, -400, ini() + 0.1, { tam: 80, color: ORO });
 
 // 30 · Cierre
 en(30);
-img("marca-logo", 0, -280, 560, ini() + 0.2, { d: 2.0 });
-txt("en vivo: la apertura de Nueva York", 0, -110, w("vivos", 1, -0.2), { tam: 54, color: GRIS });
-caja(-250, -40, 250, 60, w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9 });
-txt("SUSCRIBIRME", 0, 36, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
-img("obj-bell", 350, 10, 120, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
-txt("comenta SUBASTA", 0, 160, w("subasta", 1, -0.2), { tam: 66, color: ORO });
-txt("Julián no adivina: lee el salón", 0, 250, w("salón", 1, -0.6), { tam: 56 });
-txt("realinvestors.club", 0, 340, w("educativo", 1, -1.2), { tam: 64, color: ORO });
+img("marca-logo", 0, -330, 460, ini() + 0.2, { d: 2.0 });
+txt("en vivo: la apertura de Nueva York", 0, -130, w("nueva", 1, -0.2), { tam: 54, color: GRIS });
+txt("próximo video: cómo operar el desequilibrio", 0, -50, w("próximo", 1, -0.2), { tam: 50, color: GRIS });
+caja(-250, -10, 250, 90, w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9 });
+txt("SUSCRIBIRME", 0, 66, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
+img("obj-bell", 350, 40, 120, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
+txt("comenta SUBASTA", 0, 185, w("subasta", 1, -0.2), { tam: 66, color: ORO });
+txt("Julián no adivina: lee el salón", 0, 265, w("salón", 1, -0.6), { tam: 56 });
+txt("realinvestors.club", 0, 345, w("educativo", 1, -1.2), { tam: 64, color: ORO });
 txt("Contenido educativo. No constituye recomendación de inversión.", 0, 430, w("educativo", 1, -0.4), { tam: 40, color: GRIS });
 
 // Cámara: llega a cada zona apenas empieza su escena; en la del error de Martín se acerca a las velas de las 11:00;
