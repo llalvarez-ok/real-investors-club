@@ -47,7 +47,7 @@
    "tramos": [
     [
      22,
-     23
+     22
     ]
    ],
    "gancho": "Abrir fuera del valor es casi una **moneda**",
@@ -74,10 +74,6 @@
     [
      1,
      1
-    ],
-    [
-     13,
-     13
     ]
    ],
    "gancho": "¿Tranquilo o **pánico**?",

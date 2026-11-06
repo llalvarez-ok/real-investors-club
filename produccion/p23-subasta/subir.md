@@ -47,11 +47,13 @@ Datos: futuro del Nasdaq 100 (NQ=F, Yahoo Finance), sesión de Nueva York del 3,
 
 **Etiquetas:** perfil de volumen, volume profile, punto de control, POC trading, área de valor, value area, nodo de bajo volumen, teoría de subasta, auction market theory, equilibrio y desequilibrio, nasdaq, trading para principiantes, order flow, educación financiera, real investors club
 
+**Estreno propuesto:** sábado 14/11/2026 a las 19:00 de Argentina (una semana después de P22 y dos días antes del curso del 16/11, que sigue con este tema). Shorts: del 17/11 al 21/11, uno por día a las 13:00.
+
 **Configuración:** público (o programado) · categoría Educación · idioma español · contenido alterado o sintético: sí · no es para niños · playlists «Psicología del dinero y finanzas sin humo» · pantalla final: suscribirse y el video de P22.
 
 **Comentario para fijar:** ¿Alguna vez compraste una ruptura y el precio volvió en minutos? Comenta SUBASTA 👇
 
-## S1-remate (Short de YouTube)
+## S1-remate · 50 s (Short de YouTube)
 
 Escenas 5-6 · gancho en pantalla: «El precio justo lo deciden las ofertas»
 
@@ -68,7 +70,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
 ```
 
-## S2-martin (Short de YouTube)
+## S2-martin · 53 s (Short de YouTube)
 
 Escenas 13-14 · gancho en pantalla: «Compró la ruptura y el precio volvió»
 
@@ -85,7 +87,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #Nasdaq #EducacionFinanciera
 ```
 
-## S3-nodo (Short de YouTube)
+## S3-nodo · 53 s (Short de YouTube)
 
 Escenas 17-18 · gancho en pantalla: «Los precios por donde pasó apurado»
 
@@ -102,9 +104,9 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #PerfilDeVolumen #Trading #EducacionFinanciera
 ```
 
-## S4-moneda (Short de YouTube)
+## S4-moneda · 34 s (Short de YouTube)
 
-Escenas 22-23 · gancho en pantalla: «Abrir fuera del valor es casi una moneda»
+Escena 22 · gancho en pantalla: «Abrir fuera del valor es casi una moneda»
 
 **Título:** Abrió fuera del valor de ayer: la mitad de las veces vuelve #Shorts
 
@@ -119,7 +121,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #Nasdaq #EducacionFinanciera
 ```
 
-## S5-tres-preguntas (Short de YouTube)
+## S5-tres-preguntas · 55 s (Short de YouTube)
 
 Escenas 24-26 · gancho en pantalla: «3 preguntas antes de operar»
 
@@ -136,9 +138,9 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
 ```
 
-## R1-instagram (Reel de Instagram)
+## R1-instagram · 35 s (Reel de Instagram)
 
-Escenas 1, 13 · gancho en pantalla: «¿Tranquilo o pánico?»
+Escena 1 · gancho en pantalla: «¿Tranquilo o pánico?»
 
 ```
 El martes 3/11 el Nasdaq se movió menos del 1 %. El jueves 5/11 cayó más del 6 %. 📉

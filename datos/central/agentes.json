@@ -33,11 +33,11 @@
   "id": "pizarra",
   "nombre": "Diego",
   "rol": "Guionista y pizarra",
-  "estado": "esperando",
-  "haciendo": "Guion de P21 «Mismo sueldo, vidas opuestas» listo",
-  "ultimo": "P22 «Perder 8 veces y ganar el mes» (17:24)",
-  "espera": "Tu OK al guion de P21",
-  "actualizado": "2026-11-02 19:30"
+  "estado": "listo",
+  "haciendo": "P23 entregado; sigue P21 (aprobado) o L2 de Fabio",
+  "ultimo": "P23 «El mercado es una subasta» (12:30) + 5 Shorts + reel",
+  "espera": "Que subas P23 a YouTube",
+  "actualizado": "2026-11-06 12:30"
  },
  {
   "id": "editor",
@@ -45,9 +45,9 @@
   "rol": "Editor de video",
   "estado": "listo",
   "haciendo": "Libre para la próxima edición",
-  "ultimo": "Render de P22 y sus 5 Shorts y el reel",
+  "ultimo": "Render de P23 (12:30), 5 Shorts y el reel",
   "espera": "Las clases del curso anterior en Drive y los sponsors nuevos",
-  "actualizado": "2026-11-02 19:30"
+  "actualizado": "2026-11-06 12:30"
  },
  {
   "id": "disenadora",

@@ -1,5 +1,12 @@
 [
  {
+  "id": "p23-subir",
+  "decision": "Subir P23 «El mercado es una subasta» y sus 5 Shorts (estreno propuesto: 14/11 19:00)",
+  "agente": "Productor de YouTube",
+  "desde": "2026-11-06",
+  "prioridad": "alta"
+ },
+ {
   "id": "p22-subir",
   "decision": "Subir P22 y elegir fecha de estreno (con sus 5 Shorts)",
   "agente": "Productor de YouTube",
