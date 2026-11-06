@@ -7,10 +7,10 @@ reglas de uso: conceptos con nuestras palabras, sin el video, sus frases ni sus 
 ## Momentos de la parte en vivo que no estaban en el plan
 | Tiempo | Qué pasa | Sirve para |
 |---|---|---|
-| 1:56:30 | Admite el efecto Dunning-Kruger: cuando aprendió flujo de órdenes creyó entenderlo todo y entraba fuera de su modelo («es plata regalada»). Lo vio recién al revisar su diario «con la cabeza fría». | Short, P23 |
+| 1:56:30 | Admite el efecto Dunning-Kruger: cuando aprendió flujo de órdenes creyó entenderlo todo y entraba fuera de su modelo («es plata regalada»). Lo vio recién al revisar su diario «con la cabeza fría». | Short, P24 |
 | 2:33:59 | El presentador: 1.100 USD en media hora con un contrato no es poco; las redes hacen creer que hay que ganar 100.000 al mes. | Short, pilar de expectativas |
 | 2:35:44 | «Los traders pierden porque buscan el jonrón»; nunca te fundís por tomar ganancias parciales. | Short, P24 |
-| 2:40:36 | Casarse con la operación: el sesgo era alcista, vendió, perdió, y la gente sigue vendiendo toda la subida «porque es la que perdió». | Short, P23 |
+| 2:40:36 | Casarse con la operación: el sesgo era alcista, vendió, perdió, y la gente sigue vendiendo toda la subida «porque es la que perdió». | Short, P25 |
 | 2:44:35 | Usar IA para el diario de operaciones; con 2.500 operaciones, un cambio chico en la gestión del riesgo cambia toda la curva. Reparto: un tercio estrategia, un tercio mentalidad, un tercio gestión del riesgo. | Tutorial con Realy, Short |
 | 2:59:50 | Pierde 255 USD en vivo y lo explica: cada vez que el precio toca el máximo y vuelve, el setup se debilita. | Short (pérdida explicada) |
 | 3:18:44 | Iba ganando 28.000 USD en el día, quiso llegar al objetivo, se dio vuelta a 5 ticks y lo perdió todo más un stop. | Short (historia), P24 |
@@ -19,16 +19,16 @@ reglas de uso: conceptos con nuestras palabras, sin el video, sus frases ni sus 
 | 3:31:08 | En la apertura del Nasdaq, 7 de cada 10 veces el que busca la explosión falla; 7 días rojos y 3 verdes, y no sabés cuáles. | «Dos vidas», P24 |
 
 ## Propuestas, en orden de prioridad
-1. **L1 «El mercado es una subasta» como próximo pilar largo** (ya estaba en el plan). Es el más buscable y prepara el curso del 16/11:
+1. **L1 «El mercado es una subasta» como próximo pilar largo** (ya estaba en el plan). **Elegido por Lean el 06/11/2026: es P23** (`produccion/p23-subasta/`). Es el más buscable y prepara el curso del 16/11:
    perfil de volumen, POC, área de valor y nodos de bajo volumen sobre un día real del Nasdaq (velas de 1 minuto de yfinance, perfil
    aproximado). Lean ya usa el POC y el VAL en sus vivos: el video puede cerrar con «en mis vivos lo vas a ver en directo».
-2. **P23 «Por qué aprender una herramienta nueva te hace perder plata al principio»** (pizarra, ~12 min): Dunning-Kruger, entrar fuera
+2. **P24 «Por qué aprender una herramienta nueva te hace perder plata al principio»** (pizarra, ~12 min): Dunning-Kruger, entrar fuera
    del modelo, casarse con la operación, y el diario «con la cabeza fría» como salida. Metáfora: el que aprende a manejar y a la semana
    se cree piloto. Dos personas con nombre y números de ejemplo.
-3. **P24 «Dos traders en la apertura de Nueva York»** (fórmula «Dos vidas», la que más supera al nicho): uno busca el jonrón (3 días
+3. **P25 «Dos traders en la apertura de Nueva York»** (fórmula «Dos vidas», la que más supera al nicho): uno busca el jonrón (3 días
    verdes de 10, rachas de −10.000 de ejemplo), el otro suma de a poco con parciales y un tope diario. Incluye la historia del día
    que se esfumó por 5 ticks (contada como ejemplo propio, sin nombrar a Fabio) y «mañana es otro día». Distinto de P22: P22 es
-   tasa de acierto y rachas; P24 es codicia, parciales y cuándo cerrar el día.
+   tasa de acierto y rachas; P25 es codicia, parciales y cuándo cerrar el día.
 4. **Tutorial con Realy: «Tu diario de trading con IA, paso a paso»** (formato tutorial pedido por Lean, un Short por paso): qué anotar,
    cómo exportar las operaciones, qué preguntarle a la IA, cómo leer la curva de capital. Encaja con que RIC enseña con IA y no
    necesita datos de ticks. Sin revelar cómo opera Realy por dentro.
