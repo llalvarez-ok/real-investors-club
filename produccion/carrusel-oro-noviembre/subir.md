@@ -35,7 +35,7 @@ En cada lámina te dejo qué es el dato, a qué hora sale (hora de Argentina) y 
 Datos al 05/11/2026. Fuentes: BLS, BEA, Reserva Federal, OPEP, CNBC y CNN. Las fechas pueden cambiar.
 Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero.
 
-#oro #XAUUSD #trading #tradingargentina #tradingparaprincipiantes #Fed #inflacion #forex #calendarioeconomico #realinvestorsclub
+#oro #XAUUSD #trading #tradingargentina #Fed
 ```
 
 Pedido de Lean (05/11/2026): muchos seguidores recién empiezan, así que cada fecha dice qué es en una frase, el número

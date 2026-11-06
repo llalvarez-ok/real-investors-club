@@ -9,6 +9,7 @@ un carrusel de resultado que explique qué salió, cómo reaccionó el oro y por
 - Lenguaje para principiantes y voseo. Si el oro hizo lo contrario de lo que «suele», se explica con la noticia.
 - Los PNG no van a git: se entregan por el chat. El texto para publicar va en `<id>.md`. Lean publica a mano.
 - El cierre (lámina 4) lleva la tarjeta de perfil de Instagram (regla de Lean del 05/11/2026); los números se pasan en el JSON como `perfil` o quedan los últimos conocidos.
+- Texto para publicar: **5 hashtags como máximo**, con el esquema de `instagram/README.md` (el quinto, el tema del día: `#NFP`, `#inflacion`, `#Fed`, `#OPEP`…).
 - Yahoo Finance solo da velas de 5 min de los últimos 60 días: cada resultado se arma el mismo día.
 
 ## Tareas programadas (one-shot, vuelven al chat de INSTAGRAM RIC; creadas el 05/11/2026 con el pedido de Lean)
