@@ -5,19 +5,19 @@
   "rol": "Coordinadora de producción",
   "estado": "trabajando",
   "haciendo": "Tarea programada: parte del día a las 08:40 (calendario, decisiones y Central)",
-  "ultimo": "Organizó el equipo de 10 agentes",
+  "ultimo": "Parte del 06/11: P22 sin MP4 (estreno mañana 19:00); 12/11 sin piezas",
   "espera": "Leer su parte cada mañana",
-  "actualizado": "2026-11-02 18:50"
+  "actualizado": "2026-11-06 08:50"
  },
  {
   "id": "youtube",
   "nombre": "Julián",
   "rol": "Productor de YouTube",
   "estado": "trabajando",
-  "haciendo": "Cuidando lo programado: P10 sale el 04/11 y sus Shorts del 06 al 10",
-  "ultimo": "Short «Dos traders» publicado a las 12:30 con comentario",
-  "espera": "Que subas P22 y elijas la fecha de estreno",
-  "actualizado": "2026-11-02 19:30"
+  "haciendo": "Cuidando lo programado: Shorts diarios hasta el 11/11; P22 sábado 07/11 19:00 en riesgo",
+  "ultimo": "Video P10 «FOMO» publicado el 04/11 a las 19:00",
+  "espera": "Que subas hoy el MP4 de P22 (si no, mover el estreno)",
+  "actualizado": "2026-11-06 08:50"
  },
  {
   "id": "instagram",
@@ -25,9 +25,9 @@
   "rol": "Productora de Instagram",
   "estado": "bloqueado",
   "haciendo": "Tarea programada: revisión de Instagram los domingos a las 20:10; API bloqueada por ahora",
-  "ultimo": "Reel de Corea publicado a mano con música (01/11)",
-  "espera": "Revisar la app «RIC» en Meta y el token IGAA",
-  "actualizado": "2026-11-02 18:50"
+  "ultimo": "Reel de Elecciones publicado (04/11); carrusel del oro entregado (05/11)",
+  "espera": "Que publiques el carrusel del oro hoy (antes del empleo) y revises el token IGAA",
+  "actualizado": "2026-11-06 08:50"
  },
  {
   "id": "pizarra",
@@ -56,57 +56,57 @@
   "estado": "listo",
   "haciendo": "Libre para miniaturas y portadas",
   "ultimo": "Portadas de los vivos (Nueva York, Asia y psicología)",
-  "espera": "Si querés la hora de Argentina en las portadas",
-  "actualizado": "2026-11-02 19:30"
+  "espera": "Nada por ahora",
+  "actualizado": "2026-11-05 08:45"
  },
  {
   "id": "analista",
   "nombre": "Ana",
   "rol": "Analista",
   "estado": "trabajando",
-  "haciendo": "Tarea programada: números del día, todos los días a las 09:10",
-  "ultimo": "Lo mejor: noticias con tu voz; los largos no traen horas",
-  "espera": "Nada por ahora",
-  "actualizado": "2026-11-02 18:45"
+  "haciendo": "Parte diario 09:10: números de YouTube vs. día anterior",
+  "ultimo": "Parte del 06/11: horas 51,3 (+28,4), 71 suscriptores, Corea +134 vistas",
+  "espera": "Instagram: la API no respondió (token); sin dato nuevo",
+  "actualizado": "2026-11-06 09:30"
  },
  {
   "id": "investigador",
   "nombre": "Pablo",
   "rol": "Investigador de tendencias",
-  "estado": "trabajando",
-  "haciendo": "Tarea programada: informe del nicho los lunes a las 16:20 (primero: 09/11)",
-  "ultimo": "Recién llegado al equipo (02/11)",
-  "espera": "Elegir uno de sus 3 temas cada lunes",
-  "actualizado": "2026-11-02 18:50"
+  "estado": "esperando",
+  "haciendo": "Primer informe del nicho: lunes 09/11 a las 16:20",
+  "ultimo": "Equipo desde el 02/11; todavía sin informe",
+  "espera": "Nada hasta el lunes",
+  "actualizado": "2026-11-06 08:50"
  },
  {
   "id": "comunidad",
   "nombre": "Lucía",
   "rol": "Community manager",
-  "estado": "trabajando",
-  "haciendo": "Tarea programada: comentarios a las 10:20 y 19:20; deja borradores para aprobar",
-  "ultimo": "Recién llegada al equipo (02/11)",
-  "espera": "Aprobar los borradores de respuestas",
-  "actualizado": "2026-11-02 18:45"
+  "estado": "esperando",
+  "haciendo": "Comentarios a las 10:20 y 19:20; 2 borradores de Corea sin aprobar desde el 02/11",
+  "ultimo": "Dejó borradores en la Central el 02/11",
+  "espera": "Que apruebes o descartes los 2 borradores de respuestas",
+  "actualizado": "2026-11-06 08:50"
  },
  {
   "id": "auditora",
   "nombre": "Marta",
   "rol": "Auditora de calidad",
-  "estado": "trabajando",
-  "haciendo": "Tarea programada: auditoría del día a las 23:10",
-  "ultimo": "Recién llegada al equipo (02/11)",
-  "espera": "Leer su informe cada mañana",
-  "actualizado": "2026-11-02 18:45"
+  "estado": "esperando",
+  "haciendo": "Auditoría del 06/11 entregada: 5 videos y 6 commits revisados",
+  "ultimo": "Informe analisis/auditoria/2026-11-06.md: falta el aviso de voz sintética en 3 Shorts",
+  "espera": "Que Lean marque «contenido sintético» en 3 Shorts antes del estreno",
+  "actualizado": "2026-11-06 23:10"
  },
  {
   "id": "critico",
   "nombre": "Rocío",
   "rol": "Crítica de guiones e impacto",
-  "estado": "trabajando",
+  "estado": "esperando",
   "haciendo": "Revisa cada guion antes de que llegue a Lean, con la rúbrica de diseno/rubrica-guion.md (todo en 8 o más)",
-  "ultimo": "Revisó el guion v3 de Elecciones en EE. UU.: pidió gancho hacia el espectador, sacar una frase sin respaldo y acortar a ~57 s",
-  "espera": "El OK de Lean al guion v3 y su audio",
-  "actualizado": "2026-11-04 10:00"
+  "ultimo": "Guion de Elecciones v4 aprobado; Lean lo grabó y salió el 04/11",
+  "espera": "El próximo guion para revisar (P21)",
+  "actualizado": "2026-11-05 08:45"
  }
 ]

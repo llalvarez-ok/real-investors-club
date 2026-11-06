@@ -8,24 +8,24 @@
  },
  {
   "id": "p22-subir",
-  "decision": "Subir P22 y elegir fecha de estreno (con sus 5 Shorts)",
+  "decision": "Subir hoy el MP4 de P22 a Studio (estreno fijado: sáb 07/11 19:00)",
   "agente": "Productor de YouTube",
   "desde": "2026-11-02",
   "prioridad": "alta"
  },
  {
-  "id": "vivo-vacio",
-  "decision": "Borrar u ocultar la transmisión vacía pública (-_PEUCxVXGw)",
-  "agente": "Analista",
-  "desde": "2026-11-02",
+  "id": "ig-carrusel-oro",
+  "decision": "Publicar hoy el carrusel «7 fechas del oro» (antes del empleo, vie 06/11)",
+  "agente": "Productora de Instagram",
+  "desde": "2026-11-05",
   "prioridad": "alta"
  },
  {
-  "id": "fijar-comentarios",
-  "decision": "Fijar en Studio los comentarios de «Dos traders» y Corea",
-  "agente": "Productor de YouTube",
-  "desde": "2026-11-02",
-  "prioridad": "media"
+  "id": "sintetico-shorts-0611",
+  "decision": "Marcar contenido sintético y sumar aviso de voz de IA en 3 Shorts (vXMFiNvFgwg, VNjgXvAp5Ic, MaLhm9-0AZY)",
+  "agente": "Auditora",
+  "desde": "2026-11-06",
+  "prioridad": "alta"
  },
  {
   "id": "ig-api",
@@ -35,52 +35,80 @@
   "prioridad": "alta"
  },
  {
-  "id": "p21-guion",
-  "decision": "Aprobar el guion de P21 «Mismo sueldo, vidas opuestas»",
-  "agente": "Guionista y pizarra",
-  "desde": "2026-11-02",
-  "prioridad": "media"
- },
- {
-  "id": "curso-vivo",
-  "decision": "Confirmar que el curso del 16/11 sale desde el canal de RIC y queda público",
-  "agente": "Productor de YouTube",
+  "id": "tareas-push",
+  "decision": "Agregar el repo a cada tarea programada (sin eso no pueden subir a main)",
+  "agente": "Coordinadora",
   "desde": "2026-11-02",
   "prioridad": "alta"
  },
  {
+  "id": "p23-guion",
+  "decision": "Aprobar el guion de P23 «El mercado es una subasta» (35 escenas, ~14 min)",
+  "agente": "Guionista y pizarra",
+  "desde": "2026-11-06",
+  "prioridad": "media"
+ },
+ {
+  "id": "mp4-vivos",
+  "decision": "Subir a Drive los MP4 de los vivos del 02 y 03/11 para cortar los Shorts",
+  "agente": "Editor de video",
+  "desde": "2026-11-03",
+  "prioridad": "media"
+ },
+ {
+  "id": "vivo-editado",
+  "decision": "Vivo del 02/11 editado (36:21): ¿difuminar el bróker y sumar un QR?",
+  "agente": "Editor de video",
+  "desde": "2026-11-03",
+  "prioridad": "media"
+ },
+ {
+  "id": "aud-comentarios",
+  "decision": "Revisar en Studio que los Shorts programados tengan comentarios permitidos",
+  "agente": "Auditora",
+  "desde": "2026-11-05",
+  "prioridad": "media"
+ },
+ {
+  "id": "aud-sintetico",
+  "decision": "Confirmar en Studio que P10 (FOMO, voz Brian) tenga la marca de contenido sintético",
+  "agente": "Auditora",
+  "desde": "2026-11-05",
+  "prioridad": "media"
+ },
+ {
+  "id": "borradores-comunidad",
+  "decision": "Aprobar o descartar los 2 borradores de respuestas a comentarios de Corea",
+  "agente": "Community manager",
+  "desde": "2026-11-02",
+  "prioridad": "media"
+ },
+ {
   "id": "sponsors",
-  "decision": "Qué sponsors salen y cuáles entran en las clases reeditadas",
+  "decision": "Qué sponsors salen y cuáles entran en las clases reeditadas (preguntar desde el 09/11)",
   "agente": "Productor de YouTube",
   "desde": "2026-11-02",
   "prioridad": "media"
  },
  {
-  "id": "lanzamiento-reel",
-  "decision": "Aprobar el reel de lanzamiento del curso (falta voz o música y el MP4)",
-  "agente": "Productora de Instagram",
-  "desde": "2026-11-02",
+  "id": "dias-vacios",
+  "decision": "Elegir qué sale el 12 y 13/11 (sin piezas; sus Shorts de P22 dependen del MP4)",
+  "agente": "Coordinadora",
+  "desde": "2026-11-06",
   "prioridad": "media"
+ },
+ {
+  "id": "voseo-desc-vivo",
+  "decision": "Descripciones de los Shorts del vivo con voseo: ¿se mantienen o pasan a «tú»?",
+  "agente": "Auditora",
+  "desde": "2026-11-06",
+  "prioridad": "baja"
  },
  {
   "id": "stock",
-  "decision": "Habilitar Pexels y Pixabay (dominios y claves) para fotos y videos de stock",
+  "decision": "Habilitar Pexels y Pixabay (dominios y claves): más adelante",
   "agente": "Productor de YouTube",
   "desde": "2026-11-02",
-  "prioridad": "baja"
- },
- {
-  "id": "voseo",
-  "decision": "¿Voseo o «tú» en los Shorts del canal?",
-  "agente": "Guionista y pizarra",
-  "desde": "2026-11-01",
-  "prioridad": "baja"
- },
- {
-  "id": "playlist-shorts",
-  "decision": "Aprobar las playlists para los 15 Shorts sin lista",
-  "agente": "Analista",
-  "desde": "2026-11-01",
   "prioridad": "baja"
  }
 ]
