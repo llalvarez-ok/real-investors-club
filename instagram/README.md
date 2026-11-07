@@ -101,6 +101,12 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
 
 ## Configurar la API paso a paso (05/11/2026)
+
+> **07/11/2026: el camino del token «IGAA…» NO funciona.** Lean siguió los pasos de abajo varias veces y el token nunca
+> se pudo crear. No volver a pedírselo. Camino propuesto: publicar Reels con el conector de **vidIQ**
+> (`vidiq_connect_instagram_account` en modo oauth, que es iniciar sesión con Instagram en un botón, y después
+> `vidiq_instagram_publish_reel`), que se encarga del token por su cuenta. Falta que Lean dé el OK para conectarlo:
+> conectarlo no publica nada, y cada Reel se publica solo con su OK. Lo de abajo queda como historial.
 **Cómo está:** desde el 02/11 Meta bloqueó la app «RIC»: todo responde «API access blocked» (código 200), incluso las
 estadísticas. Además el token «EAA…» nunca pudo publicar (2207085, falta página de Facebook). Probar cualquier token con
 `python herramientas/probar_token_ig.py` (solo lee y no muestra el token).
