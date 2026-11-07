@@ -27,6 +27,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | Carrusel «7 fechas que pueden mover el oro en noviembre» (11 láminas, identidad RIC, datos verificados, hora de Argentina; rehecho el mismo día para principiantes: «si sale más de X, el oro suele bajar») | Publicado el 05/11/2026 a las 08:02 (https://www.instagram.com/p/DfW4LaloSkO/). Al 07/11: 100 cuentas, 2 guardados, 0 comentarios | `produccion/carrusel-oro-noviembre/subir.md` |
 | Carruseles de resultado de cada fecha del oro (4 láminas: qué salió, qué hizo el oro con el gráfico real, por qué y qué viene) | Programados del 06/11 al 30/11 (tareas one-shot que vuelven al chat de Instagram) | `produccion/oro-resultados/LEEME.md` |
 | Resultado 1/7 · Empleo (NFP) del 06/11: 165 mil contra 60 mil esperados, el oro bajó 0,5 % en la primera hora | Publicado el 06/11/2026 a las 16:41 (https://www.instagram.com/p/DfaYXKTIWXP/). Al 07/11: 56 cuentas, 0 comentarios | `produccion/oro-resultados/nfp-2026-11.md` |
+| Historia «En YouTube voy más a fondo» (promoción del canal, con P22 como video nuevo y lugar para el sticker de link) | Entregada el 07/11/2026; Lean puso el canal de YouTube como primer link del perfil | `produccion/historia-youtube/LEEME.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
@@ -55,7 +56,7 @@ Las de la sección 9 del reporte de partículas, que valen para todos los estilo
 - Objetivos: más del 60 % de retención a los 3 s y más del 30 % a la mitad del video.
 
 ## Perfil (propuesta del 07/11/2026)
-Nombre, bio, links, categoría, destacadas, fijadas y ajustes de alcance en `analisis/2026-11-07-perfil-instagram.md`. Pendiente de que Lean lo aplique.
+Nombre, bio, links, categoría, destacadas, fijadas y ajustes de alcance en `analisis/2026-11-07-perfil-instagram.md`. Pendiente de que Lean lo aplique. Decisión del 07/11/2026: por ahora no se promociona el curso del 16/11; el primer link del perfil es el canal de YouTube.
 
 ## Copy del Reel de la clase 14
 ```
