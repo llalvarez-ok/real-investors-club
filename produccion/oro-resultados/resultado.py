@@ -77,7 +77,7 @@ def num(x, dec=0):
 
 def tarjeta_ig(c):
     """Tarjeta de perfil de Instagram (regla de Lean del 05/11/2026). Números en el JSON (`perfil`) o los últimos conocidos."""
-    p = {"publicaciones": "31", "seguidores": "3.736", "seguidos": "18", **c.get("perfil", {})}
+    p = {"publicaciones": "33", "seguidores": "3.726", "seguidos": "18", **c.get("perfil", {})}  # API, 07/11/2026
     ok = ('<svg class="ig-ok" viewBox="0 0 40 40"><path fill="#0095f6" d="M20 1.7l4.6 3.4 5.7-.3 1.9 5.4 4.8 3.1-1.5 5.5 1.5 5.5-4.8 3.1-1.9 5.4-5.7-.3L20 38.3l-4.6-3.4-5.7.3-1.9-5.4-4.8-3.1 1.5-5.5-1.5-5.5 4.8-3.1 1.9-5.4 5.7.3z"/>'
           '<path d="M13 20.5l4.8 4.8 9.4-9.6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>')
     return f'''  <div class="ig" style="margin-top:26px;padding:24px 30px">
@@ -117,19 +117,25 @@ def html(c, r):
 .p2 .n{flex:none;width:52px;height:52px;border-radius:50%;background:var(--oro1);color:var(--noche1);font-family:'Archivo';font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center}
 .lect{margin-top:28px;font-size:30px;line-height:1.4;color:var(--txt2)} .lect b{color:var(--txt)}
 </style>"""
+    # Portada (cambio del 07/11/2026, crítica del equipo): cara de Lean, un gancho que habla de lo que pasó con el oro
+    # y un solo número grande. El detalle del dato pasa a la lámina 2.
+    gancho = c.get("gancho") or f'Salió el dato de {c["nombre"]}: el oro {verbo} {num(abs(r["pct"]), 1)} % en una hora'
     l1 = (f'<section class="lamina res" id="l1">\n' + marca(f'RESULTADO · {c["dia"].upper()}', 1) +
-          f'''  <h1>Salió el dato de <span class="oro">{c["nombre"]}</span></h1>
-  <div class="big numeros">
+          f'''  <div style="margin-top:140px;display:flex;align-items:center;gap:22px">
+    <img src="../../herramientas/particulas/avatar.png" alt="" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid var(--oro2)">
+    <div style="font-size:28px;line-height:1.3;color:var(--txt2)"><b style="color:var(--txt)">Lean Alvarez</b><br>Lo que pasó hoy con el oro</div>
+  </div>
+  <h1 style="font-size:80px;margin-top:40px">{gancho}</h1>
+  <div class="veredicto {clase}" style="margin-top:40px"><div class="t">El oro en la primera hora</div><div class="r" style="font-size:120px">{flecha} {num(abs(r["pct"]), 1)} %</div></div>
+  <div class="big numeros" style="margin-top:28px">
     <div class="num"><small>Se esperaba</small><b>{c["esperado"]}</b></div>
     <div class="num"><small>Salió</small><b style="color:var(--{'rojo' if c['comparacion'] == 'más' else 'verde' if c['comparacion'] == 'menos' else 'oro1'})">{c["salio"]}</b></div>
   </div>
-  <p class="lect">Salió <b>{c["comparacion"]} {"de lo esperado" if c["comparacion"] != "igual" else "a lo esperado"}</b>. {c.get("frase_dato", "")}</p>
-  <div class="veredicto {clase}"><div class="t">En la primera hora, el oro</div><div class="r">{flecha} {verbo} {num(abs(r["pct"]), 1)} %</div></div>
 ''' + pie)
     l2 = (f'<section class="lamina res" id="l2">\n' + marca("QUÉ HIZO EL ORO", 2) +
           f'''  <h1 style="font-size:76px">De US$ {num(r["p0"])} a <span class="oro">US$ {num(r["p1"])}</span></h1>
   <div class="caja"><div class="tt"><span>ORO · VELAS DE 5 MIN · HORA ARG</span><span>{c["dia"]}</span></div>{svg(r)}</div>
-  <p class="lect">{"Pasó lo que <b>suele</b> pasar." if cumplio else "Esta vez hizo <b>lo contrario</b> de lo que suele pasar."} {c["que_hizo"]}</p>
+  <p class="lect">Salió <b>{c["comparacion"]} {"de lo esperado" if c["comparacion"] != "igual" else "a lo esperado"}</b>. {c.get("frase_dato", "")} {"Pasó lo que <b>suele</b> pasar." if cumplio else "Esta vez hizo <b>lo contrario</b> de lo que suele pasar."} {c["que_hizo"]}</p>
 ''' + pie)
     pasos = "".join(f'    <div class="p2"><span class="n">{i + 1}</span><span>{p}</span></div>\n' for i, p in enumerate(c["porque"]))
     l3 = (f'<section class="lamina res" id="l3">\n' + marca("¿POR QUÉ?", 3) +
@@ -141,7 +147,7 @@ def html(c, r):
   <div class="caja" style="margin-top:24px;padding:18px 24px"><div class="tt"><span>PRÓXIMA FECHA</span><span>{c["proxima"]["hora"]}</span></div>
     <div style="font-family:Archivo;font-weight:900;font-size:52px">{c["proxima"]["fecha"]} · <span class="oro">{c["proxima"]["nombre"]}</span></div>
     <p class="lect" style="margin-top:12px">{c["proxima"]["regla"]}</p></div>
-  <p class="lect" style="margin-top:24px;font-size:28px">📌 <b>Guardalo</b> · 💬 ¿Lo esperabas? <b>Comentá SÍ o NO</b></p>
+  <p class="lect" style="margin-top:24px;font-size:28px">📌 <b>Guardalo</b> · 📲 <b>Mandáselo</b> a alguien que opere oro</p>
 {tarjeta_ig(c)}
   <p class="aviso" style="bottom:112px;font-size:18px">Contenido educativo. No constituye recomendación de inversión. Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. Fuentes: {c["fuentes"]}. Oro: Yahoo Finance (GC=F).</p>
 ''' + pie)

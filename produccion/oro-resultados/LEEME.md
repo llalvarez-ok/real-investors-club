@@ -12,6 +12,9 @@ un carrusel de resultado que explique qué salió, cómo reaccionó el oro y por
 - Texto para publicar: **5 hashtags como máximo**, con el esquema de `instagram/README.md` (el quinto, el tema del día: `#NFP`, `#inflacion`, `#Fed`, `#OPEP`…).
 - Yahoo Finance solo da velas de 5 min de los últimos 60 días: cada resultado se arma el mismo día.
 
+## Cambios del 07/11/2026 (los carruseles no llegaban a no seguidores)
+Ver `analisis/2026-11-07-carruseles-sin-alcance.md`. En el JSON: `gancho` (frase de portada sobre lo que hizo el oro, primera persona o pregunta, sin siglas). Portada con la foto de Lean y un solo número; publicar de 19 a 21 h; primera línea del texto = gancho + palabra para comentar con algo a cambio; nunca «Comentá SÍ o NO». Carrusel solo para inflación (CPI, PCE) y Fed; para PPI, Warsh y OPEP+ alcanza con 1–2 láminas para historia (1080x1920) con encuesta.
+
 ## Tareas programadas (one-shot, vuelven al chat de INSTAGRAM RIC; creadas el 05/11/2026 con el pedido de Lean)
 | Fecha | Dato | Se arma (hora ARG) | Tarea |
 |---|---|---|---|
