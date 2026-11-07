@@ -1,6 +1,6 @@
 # P23 · El mercado es una subasta: 3 preguntas antes de operar
 
-Estilo pizarra · voz Brian · 1941 palabras, ~12.8 min · 30 escenas
+Estilo pizarra · voz Brian · 1947 palabras, ~12.8 min · 30 escenas
 
 **Datos y fuentes:**
 - Conceptos (teoría de la subasta, equilibrio y desequilibrio, perfil de volumen, punto de control, área de valor, nodos de bajo volumen, aceptación y rechazo): analisis/2026-11-02-fabio-valentini-orderflow.md, conceptos 1 a 4. Se usan los conceptos, no sus frases ni su ejemplo (el remate de Julián es propio).
@@ -137,7 +137,7 @@ Para leer la subasta, no hace falta saber por qué cayó: abrió lejos del valor
 
 ## 22. La cuenta de dos años
 
-¿Y abrir fuera del valor de ayer alcanza para saber que hay desequilibrio? No. Hice la cuenta con los últimos dos años del Nasdaq. Y pasa seguido: en dos de cada tres sesiones, Nueva York abrió fuera del área de valor del día anterior. En esos días, más o menos la mitad de las veces el precio volvió a entrar en esa área el mismo día. La otra mitad, no volvió. Lo revisé también con los últimos dos meses, en velas de cinco minutos, y da parecido. Es estadística del pasado, no una promesa.
+Ahora, abrir fuera del valor de ayer no alcanza para saber que hay desequilibrio. Hice la cuenta con los últimos dos años del Nasdaq. Y pasa seguido: en dos de cada tres sesiones, Nueva York abrió fuera del área de valor del día anterior. En esos días, más o menos la mitad de las veces el precio volvió a entrar en esa área el mismo día. La otra mitad, no volvió. Lo revisé también con los últimos dos meses, en velas de cinco minutos, y da parecido. Es estadística del pasado, no una promesa.
 
 *En pantalla:* «abre fuera: 395 de 587 sesiones». Una moneda grande que gira. Barra partida: «vuelve al valor ≈ 51 %» y «no vuelve ≈ 49 %». Rótulo «NQ, 2024 a 2026».
 
@@ -161,7 +161,7 @@ La segunda: ¿dónde estás hoy con respecto a ese valor? Puede estar adentro, a
 
 ## 26. Tres preguntas: acepta o rechaza
 
-Y la tercera: ¿el mercado acepta o rechaza el precio nuevo? ¿Se queda afuera y arma una campana nueva, como el miércoles? ¿O vuelve rápido al medio, como la ruptura de Martín? Hasta que no lo sabes, la mejor operación muchas veces es no operar.
+Y la tercera: si el mercado acepta o rechaza el precio nuevo. Si se queda afuera y arma una campana nueva, como el miércoles, lo acepta. Si vuelve rápido al medio, como la ruptura de Martín, lo rechaza. Hasta que no lo sabes, la mejor operación muchas veces es no operar.
 
 *En pantalla:* Pregunta 3: «¿acepta o rechaza?». Una campana nueva que se forma arriba; al lado, un reloj de arena.
 

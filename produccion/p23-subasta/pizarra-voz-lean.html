@@ -413,8 +413,8 @@ txt("3. ¿Acepta o rechaza?", 0, -400, w("tercera", 1, -0.1), { tam: 72 });
 banda(-700, -100, 160, 300, w("precio", 1, -0.2), BANDA_GRIS);
 trazo("M-650 230 L-560 200 L-480 250 L-380 210 L-300 30 L-200 -60", w("afuera", 1, -0.3), { grosor: 7, color: VERDE, dur: 0.8 });
 [0.25, 0.5, 0.8, 1, 0.75, 0.45, 0.2].forEach((f, i) => trazo(`M-160 ${-230 + i * 26} L${-160 + f * 200} ${-230 + i * 26}`, w("campana", 1, -0.2) + i * 0.08, { color: ORO, grosor: 18, dur: 0.2 }));
-txt("¿arma una campana nueva?", 360, -150, w("campana", 1, 0.2), { tam: 54 });
-txt("¿o vuelve rápido al medio?", 360, -40, w("medio", 1, -0.2), { tam: 54 });
+txt("campana nueva → acepta", 360, -150, w("acepta", 2, -0.3), { tam: 54, color: VERDE });
+txt("vuelve al medio → rechaza", 360, -40, w("rechaza", 2, -0.3), { tam: 54, color: ROJO });
 img("obj-hourglass-not-done", 360, 170, 160, w("sabes", 1, -0.2), { efecto: "pop" });
 txt("a veces, la mejor operación es no operar", 0, 420, w("operar", 1, -0.8), { tam: 62, color: ORO });
 
