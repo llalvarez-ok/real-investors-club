@@ -4,27 +4,27 @@
   "metrica": "Suscriptores de YouTube",
   "valor": 71,
   "meta": 1000,
-  "fecha": "2026-11-07 12:25"
+  "fecha": "2026-11-07 13:02"
  },
  {
   "id": "horas",
   "metrica": "Horas de videos largos (12 meses)",
-  "valor": 53.6,
+  "valor": 25.0,
   "meta": 4000,
-  "fecha": "2026-11-07 12:25"
+  "fecha": "2026-11-07 13:02"
  },
  {
   "id": "vistas",
   "metrica": "Vistas totales de YouTube",
-  "valor": 6304,
+  "valor": 6336,
   "meta": null,
-  "fecha": "2026-11-07 12:25"
+  "fecha": "2026-11-07 13:02"
  },
  {
   "id": "instagram",
   "metrica": "Seguidores de Instagram",
-  "valor": 3726,
+  "valor": 3727,
   "meta": null,
-  "fecha": "2026-11-07 12:25"
+  "fecha": "2026-11-07 13:02"
  }
 ]

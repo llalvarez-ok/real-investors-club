@@ -1,0 +1,122 @@
+[
+ {
+  "grupo": "País",
+  "valor": "AR",
+  "pct": 58.4,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "MX",
+  "pct": 12.4,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "ES",
+  "pct": 11.9,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "CO",
+  "pct": 4.3,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "VE",
+  "pct": 3.0,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "PE",
+  "pct": 2.9,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "EC",
+  "pct": 2.4,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "CL",
+  "pct": 2.4,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "US",
+  "pct": 1.6,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "País",
+  "valor": "CU",
+  "pct": 0.7,
+  "medida": "vistas"
+ },
+ {
+  "grupo": "Género",
+  "valor": "Hombres",
+  "pct": 94.2,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Género",
+  "valor": "Mujeres",
+  "pct": 5.8,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "18-24",
+  "pct": 5,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "25-34",
+  "pct": 20.1,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "35-44",
+  "pct": 23.2,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "45-54",
+  "pct": 23.1,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "55-64",
+  "pct": 17.4,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Edad",
+  "valor": "65-",
+  "pct": 11.2,
+  "medida": "% de espectadores"
+ },
+ {
+  "grupo": "Suscripto",
+  "valor": "No suscriptos",
+  "pct": 97.1,
+  "medida": "% de vistas"
+ },
+ {
+  "grupo": "Suscripto",
+  "valor": "Suscriptos",
+  "pct": 2.9,
+  "medida": "% de vistas"
+ }
+]

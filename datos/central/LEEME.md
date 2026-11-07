@@ -33,3 +33,14 @@ tocar a un personaje muestra su estado; botón «Pausar»; con «reducir movimie
 ## Cuando un agente necesita algo de Lean
 Además de sumarlo a `pendientes.json`, crear un pedido en la **Mesa de Lean** (ver `datos/mesa/LEEME.md`): pregunta corta,
 contexto y de 2 a 4 opciones. Lean responde ahí con un clic, y su respuesta dispara al equipo.
+
+## Pestaña «Estadísticas» (07/11/2026)
+Arriba de la Central hay dos botones: «Equipo y calendario» (lo de siempre) y «Estadísticas» (link directo: la Central con `#estadisticas` al final).
+Muestra, para los últimos 28 días comparados con los 28 anteriores: el diagnóstico (qué falla y qué hacer, en rojo, para mirar y bien),
+los totales de YouTube e Instagram, vistas por día por tipo (Short, largo, vivo), los minutos que cuentan para monetizar contra la meta diaria,
+las fuentes de tráfico, la curva de retención de cada largo, la tabla de videos y la de publicaciones de Instagram (ordenables) y la audiencia
+(países, edad, género) de las dos plataformas.
+1. `python herramientas/estadisticas_ric.py` escribe 10 JSON en `datos/central/estadisticas/` (solo datos agregados).
+2. Subir cada uno como asset y hacer `update` de `datasets/<nombre sin .json>` con la `url` nueva, `updated` y `edit` (un batch alcanza).
+3. Las reglas del diagnóstico están al final del script: si se cambia un umbral, se cambia ahí.
+Lo que las API no dan: impresiones y % de clics de las miniaturas de YouTube, la curva de retención de los Reels y qué Reel trajo cada seguidor.

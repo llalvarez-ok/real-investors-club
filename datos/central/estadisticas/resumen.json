@@ -1,0 +1,112 @@
+[
+ {
+  "id": "yt_suscriptores",
+  "plataforma": "YouTube",
+  "metrica": "Suscriptores",
+  "valor": 71,
+  "anterior": null,
+  "meta": 1000,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "yt_horas",
+  "plataforma": "YouTube",
+  "metrica": "Horas de largos y vivos (12 meses)",
+  "valor": 25.0,
+  "anterior": null,
+  "meta": 4000,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": "Los minutos de los Shorts no cuentan para monetizar"
+ },
+ {
+  "id": "yt_vistas",
+  "plataforma": "YouTube",
+  "metrica": "Vistas",
+  "valor": 5867,
+  "anterior": 251,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "yt_minutos",
+  "plataforma": "YouTube",
+  "metrica": "Minutos vistos",
+  "valor": 2651,
+  "anterior": 481,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "yt_subs_netos",
+  "plataforma": "YouTube",
+  "metrica": "Suscriptores netos",
+  "valor": 49,
+  "anterior": 8,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_seguidores",
+  "plataforma": "Instagram",
+  "metrica": "Seguidores",
+  "valor": 3727,
+  "anterior": null,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_alcance",
+  "plataforma": "Instagram",
+  "metrica": "Cuentas alcanzadas",
+  "valor": 10274,
+  "anterior": 1316,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_interacciones",
+  "plataforma": "Instagram",
+  "metrica": "Interacciones",
+  "valor": 534,
+  "anterior": 385,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_visitas",
+  "plataforma": "Instagram",
+  "metrica": "Visitas al perfil",
+  "valor": 219,
+  "anterior": 167,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_links",
+  "plataforma": "Instagram",
+  "metrica": "Toques en el link de la bio",
+  "valor": 0,
+  "anterior": 0,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ },
+ {
+  "id": "ig_netos",
+  "plataforma": "Instagram",
+  "metrica": "Seguidores netos",
+  "valor": -29,
+  "anterior": -25,
+  "meta": null,
+  "periodo": "10/10 al 06/11/2026",
+  "nota": ""
+ }
+]

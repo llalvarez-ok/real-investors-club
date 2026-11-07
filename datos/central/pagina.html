@@ -111,6 +111,51 @@
 @keyframes ric-duda { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-4deg); } 84% { transform: rotate(4deg); } 92% { transform: rotate(-2deg); } }
 @keyframes ric-salta { 0%, 80%, 100% { transform: translateY(0); } 88% { transform: translateY(-9px); } }
 @keyframes ric-burbuja { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+.ric-nav { display: flex; gap: var(--cds-gap-xs); flex-wrap: wrap; }
+.ric-nav button { font: inherit; font-size: var(--cds-font-size-body); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--color-border-line); background: transparent; color: var(--color-fg-muted); cursor: pointer; }
+.ric-nav button[aria-pressed="true"] { color: var(--color-fg); border-color: var(--ric-oro); background: color-mix(in srgb, var(--ric-oro) 12%, transparent); }
+.ric-nav button:focus-visible, .es-orden:focus-visible { outline: 2px solid var(--ric-oro); outline-offset: 2px; }
+.ric-pagina { display: flex; flex-direction: column; gap: var(--cds-gap-lg); }
+.es-intro { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.es-intro .es-tit { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); }
+.es-intro p { margin: 0; color: var(--color-fg-muted); max-width: 70ch; }
+.ric .es-intro b { font-weight: 600; }
+.ric .es-mal { color: var(--color-bad); } .ric .es-atencion { color: var(--color-warn); } .ric .es-bien { color: var(--color-ok); }
+.es-diag { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: var(--cds-gap-md); min-height: 6rem; }
+.es-item { display: flex; flex-direction: column; gap: var(--cds-gap-xs); border-left-width: 4px; }
+.es-item.mal { border-left-color: var(--color-bad); } .es-item.atencion { border-left-color: var(--color-warn); } .es-item.bien { border-left-color: var(--color-ok); }
+.es-item .es-cab { display: flex; gap: var(--cds-gap-xs); align-items: center; flex-wrap: wrap; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.es-item strong { font-size: var(--cds-font-size-body); }
+.es-item .es-dato { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-heading); line-height: 1.25; }
+.es-item .es-hacer { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.chip.mal { color: var(--color-bad); border-color: currentColor; } .chip.atencion { color: var(--color-warn); border-color: currentColor; } .chip.bien { color: var(--color-ok); border-color: currentColor; }
+.es-grupo { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .06em; margin-top: var(--cds-gap-xs); }
+.es-cambio { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.ric .es-cambio.sube { color: var(--color-ok); } .ric .es-cambio.baja { color: var(--color-bad); }
+.es-grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.es-grilla-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.es-card { display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+.es-card h3 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.es-nota { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.es-chart { position: relative; min-height: 220px; }
+.es-chart svg { display: block; overflow: visible; }
+.es-chart text { fill: var(--color-fg-muted); font-size: 11px; font-family: var(--font-anthropic-sans); }
+.es-leyenda { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); flex-wrap: wrap; }
+.es-leyenda i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.es-barras { display: flex; flex-direction: column; gap: 6px; min-height: 3rem; }
+.es-barras + .es-barras { margin-top: var(--cds-gap-sm); padding-top: var(--cds-gap-sm); border-top: 1px solid var(--cds-chart-grid); }
+.es-fila { display: grid; grid-template-columns: minmax(6rem, 11rem) 1fr 3.6rem; gap: var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); }
+.es-fila .et { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.es-fila .pista { height: 10px; background: var(--cds-chart-grid); border-radius: 3px; overflow: hidden; }
+.es-fila .pista i { display: block; height: 100%; border-radius: 3px; background: var(--ric-oro); }
+.es-fila .v { text-align: right; font-variant-numeric: tabular-nums; }
+.es-select { align-self: flex-start; max-width: 100%; }
+.es-orden { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+.es-orden[aria-pressed="true"] { color: var(--color-fg); }
+.es-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+.es-tip .f { color: var(--cds-text-secondary); }
+.ric-tabla td.es-txt { min-width: 14rem; }
+.ric-tabla td a { color: inherit; }
 </style>
 <script src="avatares-1.js"></script>
 <script src="avatares-2.js"></script>
@@ -124,8 +169,13 @@
       <h1 id="central">Central RIC</h1>
       <p>El canal tiene <b data-draw="celda" data-source="kpis" data-where="id=suscriptores" data-field="valor">—</b> suscriptores y <b data-draw="celda" data-source="kpis" data-where="id=horas" data-field="valor" data-fmt="dec">—</b> horas de videos largos. Hay <b data-draw="celda" data-source="cuentas" data-field="programados">—</b> publicaciones programadas y <b data-draw="celda" data-source="cuentas" data-field="pendientes">—</b> decisiones que esperan a Lean. <a class="ric-mesa" href="https://claude.ai/artifact/Ts3PS5vhvbBF7rjuqmethD" target="_blank" rel="noopener">Responderles en la Mesa de Lean →</a></p>
     </div>
+    <nav class="ric-nav" aria-label="Páginas de la Central">
+      <button type="button" data-pagina="central" aria-pressed="true">Equipo y calendario</button>
+      <button type="button" data-pagina="estadisticas" aria-pressed="false">Estadísticas</button>
+    </nav>
   </header>
 
+  <div class="ric-pagina" id="pg-central">
   <section class="ric-sec" id="numeros">
     <h2>Camino a la monetización <small>YouTube pide 1.000 suscriptores y 4.000 horas de videos largos en 12 meses</small></h2>
     <div class="ric-kpis">
@@ -315,6 +365,139 @@
   </section>
 
   <p class="ric-pie">Los números salen de las API de YouTube e Instagram con <code>herramientas/central_ric.py</code>; los agentes y las decisiones los actualiza cada chat al terminar algo. Personajes: Open Peeps (CC0).</p>
+  </div>
+
+  <section class="ric-pagina" id="estadisticas" hidden>
+    <div class="es-intro">
+      <h2 class="es-tit">Estadísticas de YouTube e Instagram</h2>
+      <p>Del <span data-draw="celda" data-source="resumen" data-where="id=yt_vistas" data-field="periodo">—</span> (28 días), comparado con los 28 días anteriores. Hay <b class="es-mal" data-draw="celda" data-source="semaforo" data-field="mal">—</b> puntos en rojo, <b class="es-atencion" data-draw="celda" data-source="semaforo" data-field="atencion">—</b> para mirar y <b class="es-bien" data-draw="celda" data-source="semaforo" data-field="bien">—</b> que van bien. Los datos de YouTube llegan con 2 o 3 días de atraso.</p>
+    </div>
+
+    <section class="ric-sec" id="es-diagnostico">
+      <h2>Qué está fallando y qué hacer <small>reglas fijas sobre los datos de abajo; rojo primero</small></h2>
+      <div class="es-diag" data-draw="diagnostico" data-source="diagnostico"></div>
+    </section>
+
+    <section class="ric-sec" id="es-resumen">
+      <h2>Los números del período <small>la flecha compara con los 28 días anteriores</small></h2>
+      <div class="es-grupo">YouTube</div>
+      <div class="ric-kpis">
+        <div class="ric-card kpi"><span class="kpi-label">Vistas</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=yt_vistas" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=yt_vistas" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Minutos vistos</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=yt_minutos" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=yt_minutos" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Suscriptores netos</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=yt_subs_netos" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=yt_subs_netos" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Horas de largos y vivos (12 meses)</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=yt_horas" data-field="valor" data-fmt="dec">—</span><span class="kpi-nota">de 4.000; los Shorts no cuentan</span></div>
+      </div>
+      <div class="es-grupo">Instagram (@leanalvarez.ok)</div>
+      <div class="ric-kpis">
+        <div class="ric-card kpi"><span class="kpi-label">Cuentas alcanzadas</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=ig_alcance" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=ig_alcance" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Interacciones</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=ig_interacciones" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=ig_interacciones" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Visitas al perfil</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=ig_visitas" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=ig_visitas" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Toques en el link de la bio</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=ig_links" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=ig_links" data-field="cambio">—</span></div>
+        <div class="ric-card kpi"><span class="kpi-label">Seguidores netos (altas menos bajas)</span><span class="kpi-valor" data-draw="celda" data-source="resumen" data-where="id=ig_netos" data-field="valor">—</span><span class="es-cambio" data-draw="cambio" data-source="cambios" data-where="id=ig_netos" data-field="cambio">—</span></div>
+      </div>
+    </section>
+
+    <section class="ric-sec" id="es-youtube">
+      <h2>YouTube <small>qué se ve y de dónde llega la gente</small></h2>
+      <div class="es-grilla">
+        <div class="ric-card es-card" id="es-yt-diario">
+          <h3>Vistas por día</h3>
+          <p class="es-nota">Separadas en Shorts, largos y vivos.</p>
+          <div class="es-leyenda"><span><i class="c0"></i>Shorts</span><span><i class="c1"></i>Largos</span><span><i class="c2"></i>Vivos</span></div>
+          <div class="es-chart" data-draw="yt-diario" data-source="yt_diario"></div>
+        </div>
+        <div class="ric-card es-card" id="es-yt-horas">
+          <h3>Minutos que cuentan para monetizar</h3>
+          <p class="es-nota">Minutos vistos por día en largos y vivos; la línea es lo que hace falta por día para llegar a 4.000 horas en un año.</p>
+          <div class="es-chart" data-draw="yt-horas" data-source="yt_diario"></div>
+        </div>
+        <div class="ric-card es-card" id="es-yt-trafico">
+          <h3>De dónde llegan las vistas</h3>
+          <div class="tabs" role="group" aria-label="Tipo de video">
+            <button type="button" data-trafico="Largo" aria-pressed="true">Largos y vivos</button>
+            <button type="button" data-trafico="Short" aria-pressed="false">Shorts</button>
+          </div>
+          <div class="es-barras" data-draw="yt-trafico" data-source="yt_trafico"></div>
+        </div>
+        <div class="ric-card es-card" id="es-yt-retencion">
+          <h3>Dónde se va la gente</h3>
+          <p class="es-nota">Curva de retención desde que se publicó; la línea punteada marca los 30 segundos.</p>
+          <select class="dash-select es-select" data-draw="ret-video" data-source="yt_retencion" aria-label="Video"></select>
+          <div class="es-chart" data-draw="yt-retencion" data-source="yt_retencion"></div>
+        </div>
+      </div>
+      <div class="ric-card es-card" id="es-yt-videos">
+        <h3>Cada video</h3>
+        <p class="es-nota">Tocá un título de columna para ordenar. «Cada 1.000» son los suscriptores que trajo cada 1.000 vistas desde que se publicó.</p>
+        <div class="ric-tabla">
+          <table data-source="yt_videos" data-row-key="id">
+            <thead><tr>
+              <th data-field="titulo"><button type="button" class="es-orden" data-tabla="videos" data-col="titulo">Título</button></th>
+              <th data-field="tipo"><button type="button" class="es-orden" data-tabla="videos" data-col="tipo">Tipo</button></th>
+              <th class="num" data-field="vistas"><button type="button" class="es-orden" data-tabla="videos" data-col="vistas">Vistas 28 d</button></th>
+              <th class="num" data-field="vistas_total"><button type="button" class="es-orden" data-tabla="videos" data-col="vistas_total">Vistas total</button></th>
+              <th class="num" data-field="pct_visto_total"><button type="button" class="es-orden" data-tabla="videos" data-col="pct_visto_total">% visto</button></th>
+              <th class="num" data-field="subs_total"><button type="button" class="es-orden" data-tabla="videos" data-col="subs_total">Suscriptores</button></th>
+              <th class="num" data-field="subs_cada_mil"><button type="button" class="es-orden" data-tabla="videos" data-col="subs_cada_mil">Cada 1.000</button></th>
+            </tr></thead>
+            <tbody data-draw="yt-videos" data-source="yt_videos"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ric-sec" id="es-instagram">
+      <h2>Instagram <small>qué circula y quién te sigue</small></h2>
+      <div class="es-grilla">
+        <div class="ric-card es-card" id="es-ig-diario">
+          <h3>Alcance por día</h3>
+          <p class="es-nota">Cuentas alcanzadas; los puntos son los seguidores nuevos de cada día.</p>
+          <div class="es-chart" data-draw="ig-diario" data-source="ig_diario"></div>
+        </div>
+        <div class="ric-card es-card" id="es-ig-alcance">
+          <h3>A quién le llega</h3>
+          <p class="es-nota">Alcance del período por tipo de cuenta y por formato.</p>
+          <div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Alcance" data-grupo="Alcance por tipo de cuenta"></div>
+          <div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Alcance" data-grupo="Alcance por formato"></div>
+        </div>
+      </div>
+      <div class="ric-card es-card" id="es-ig-pubs">
+        <h3>Cada publicación</h3>
+        <p class="es-nota">«Se va a los 3 s» y «Seg. vistos» solo existen para los Reels. Tocá un título de columna para ordenar.</p>
+        <div class="ric-tabla">
+          <table data-source="ig_publicaciones" data-row-key="id">
+            <thead><tr>
+              <th data-field="fecha"><button type="button" class="es-orden" data-tabla="pubs" data-col="fecha">Fecha</button></th>
+              <th data-field="formato"><button type="button" class="es-orden" data-tabla="pubs" data-col="formato">Formato</button></th>
+              <th data-field="texto"><button type="button" class="es-orden" data-tabla="pubs" data-col="texto">Texto</button></th>
+              <th class="num" data-field="alcance"><button type="button" class="es-orden" data-tabla="pubs" data-col="alcance">Alcance</button></th>
+              <th class="num" data-field="pct_salta_3s"><button type="button" class="es-orden" data-tabla="pubs" data-col="pct_salta_3s">Se va a los 3 s</button></th>
+              <th class="num" data-field="seg_vistos"><button type="button" class="es-orden" data-tabla="pubs" data-col="seg_vistos">Seg. vistos</button></th>
+              <th class="num" data-field="interacciones"><button type="button" class="es-orden" data-tabla="pubs" data-col="interacciones">Interacciones</button></th>
+              <th class="num" data-field="guardados"><button type="button" class="es-orden" data-tabla="pubs" data-col="guardados">Guardados</button></th>
+              <th class="num" data-field="compartidos"><button type="button" class="es-orden" data-tabla="pubs" data-col="compartidos">Compartidos</button></th>
+            </tr></thead>
+            <tbody data-draw="ig-pubs" data-source="ig_publicaciones"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ric-sec" id="es-audiencia">
+      <h2>Quién te ve <small>porcentaje de cada grupo</small></h2>
+      <div class="es-grilla es-grilla-3">
+        <div class="ric-card es-card"><h3>YouTube · países</h3><p class="es-nota">Vistas del período.</p><div class="es-barras" data-draw="aud" data-source="yt_audiencia" data-grupo="País"></div></div>
+        <div class="ric-card es-card"><h3>YouTube · edad</h3><p class="es-nota">Espectadores con sesión iniciada.</p><div class="es-barras" data-draw="aud" data-source="yt_audiencia" data-grupo="Edad"></div></div>
+        <div class="ric-card es-card"><h3>YouTube · suscriptos</h3><p class="es-nota">Vistas de suscriptos y de no suscriptos.</p><div class="es-barras" data-draw="aud" data-source="yt_audiencia" data-grupo="Suscripto"></div><div class="es-barras" data-draw="aud" data-source="yt_audiencia" data-grupo="Género"></div></div>
+        <div class="ric-card es-card"><h3>Instagram · países de los seguidores</h3><p class="es-nota">Los 10 primeros.</p><div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Seguidores" data-grupo="País"></div></div>
+        <div class="ric-card es-card"><h3>Instagram · países de quienes interactúan</h3><p class="es-nota">Este mes.</p><div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Interactúan" data-grupo="País"></div></div>
+        <div class="ric-card es-card"><h3>Instagram · edad de los seguidores</h3><p class="es-nota">Y género, abajo.</p><div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Seguidores" data-grupo="Edad"></div><div class="es-barras" data-draw="aud" data-source="ig_audiencia" data-quien="Seguidores" data-grupo="Género"></div></div>
+      </div>
+    </section>
+
+    <p class="ric-pie">Datos de YouTube Analytics y de la API de Instagram con <code>herramientas/estadisticas_ric.py</code>. La API no da la curva de retención de los Reels, las impresiones ni el porcentaje de clics de las miniaturas de YouTube: eso se ve en Studio y en la app.</p>
+  </section>
+
 </div>
 
 <script>
@@ -446,6 +629,348 @@
       dash.draw("calendario");
     });
   }
+})();
+</script>
+<script>
+(() => {
+  const num = (v) => new Intl.NumberFormat("es-AR").format(v);
+  const dec = (v) => new Intl.NumberFormat("es-AR", { maximumFractionDigits: 1 }).format(v);
+  const pct = (v) => new Intl.NumberFormat("es-AR", { maximumFractionDigits: 1 }).format(v) + " %";
+  const ddmm = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}`;
+  const filas = (id) => { const r = dash.data(id); return r.status === "ok" ? r.data : null; };
+  const ORO = "#b8913f";
+  const col = (i) => (dash.colors && dash.colors[i]) || ORO;
+  const NS = "http://www.w3.org/2000/svg";
+
+  // ---------- Navegación entre páginas ----------
+  const paginas = { central: "pg-central", estadisticas: "estadisticas" };
+  const abrir = (nombre, link) => {
+    for (const [n, id] of Object.entries(paginas)) {
+      for (const s of document.querySelectorAll("#" + id)) s.hidden = n !== nombre;
+    }
+    for (const b of document.querySelectorAll(".ric-nav button")) b.setAttribute("aria-pressed", String(b.dataset.pagina === nombre));
+    if (link !== false) dash.setLink(nombre);
+  };
+  for (const b of document.querySelectorAll(".ric-nav button")) b.addEventListener("click", () => abrir(b.dataset.pagina));
+  const h = location.hash.slice(1);
+  const enEst = h && (h === "estadisticas" || (document.getElementById(h) && document.getElementById(h).closest("#estadisticas")));
+  abrir(enEst ? "estadisticas" : "central", false);
+  if (enEst && h !== "estadisticas") setTimeout(() => { const el = document.getElementById(h); if (el) el.scrollIntoView(); }, 300);
+
+  for (const i of document.querySelectorAll(".es-leyenda i")) {
+    const n = Number(i.className.replace("c", ""));
+    i.style.background = col(n);
+  }
+
+  // ---------- Cálculos ----------
+  dash.calc("cambios", {
+    inputs: ["resumen"],
+    title: "Cambio contra el período anterior",
+    description: "Diferencia porcentual de cada número con los 28 días anteriores (o en unidades, si el anterior es cero o negativo).",
+    fn: (resumen) => resumen.map((r) => {
+      const a = r.anterior, v = r.valor;
+      if (a === null || a === undefined || v === null || v === undefined) return { id: r.id, cambio: null, modo: "nada" };
+      if (a <= 0) return { id: r.id, cambio: v - a, modo: "unidades" };
+      return { id: r.id, cambio: Math.round(((v - a) / a) * 1000) / 10, modo: "pct" };
+    }),
+  });
+
+  dash.calc("semaforo", {
+    inputs: ["diagnostico"],
+    title: "Puntos del diagnóstico por estado",
+    description: "Cuántos puntos del diagnóstico están en rojo, para mirar y bien.",
+    fn: (diagnostico) => [{
+      mal: diagnostico.filter((d) => d.estado === "mal").length,
+      atencion: diagnostico.filter((d) => d.estado === "atencion").length,
+      bien: diagnostico.filter((d) => d.estado === "bien").length,
+    }],
+  });
+
+  // ---------- Dibujos ----------
+  dash.draw("cambio", (el) => {
+    const d = filas("cambios");
+    const id = new URLSearchParams(el.dataset.where || "").get("id");
+    const r = d && d.find((x) => x.id === id);
+    el.className = "es-cambio";
+    if (!r || r.cambio === null) { el.textContent = "—"; return; }
+    const signo = r.cambio > 0 ? "+" : "";
+    el.textContent = r.modo === "pct" ? `${r.cambio > 0 ? "▲" : r.cambio < 0 ? "▼" : "="} ${signo}${dec(r.cambio)} % contra el período anterior`
+      : `${signo}${num(r.cambio)} contra el período anterior`;
+    if (r.cambio > 0) el.classList.add("sube"); else if (r.cambio < 0) el.classList.add("baja");
+  });
+
+  const ESTADO = { mal: "En rojo", atencion: "Para mirar", bien: "Bien" };
+  const PESO = { mal: 0, atencion: 1, bien: 2 };
+  dash.draw("diagnostico", (el) => {
+    el.replaceChildren();
+    const d = filas("diagnostico");
+    if (!d) { el.textContent = "—"; return; }
+    for (const r of d.slice().sort((a, b) => (PESO[a.estado] - PESO[b.estado]) || a.orden - b.orden)) {
+      const c = document.createElement("article"); c.className = "ric-card es-item " + r.estado;
+      const cab = document.createElement("div"); cab.className = "es-cab";
+      const chip = document.createElement("span"); chip.className = "chip " + r.estado; chip.textContent = ESTADO[r.estado] || r.estado;
+      const pl = document.createElement("span"); pl.textContent = r.plataforma;
+      cab.append(chip, pl);
+      const t = document.createElement("strong"); t.textContent = r.hallazgo;
+      const dato = document.createElement("div"); dato.className = "es-dato"; dato.textContent = r.dato;
+      const hacer = document.createElement("div"); hacer.className = "es-hacer"; hacer.textContent = "Qué hacer: " + r.que_hacer;
+      c.append(cab, t, dato, hacer);
+      el.append(c);
+    }
+  });
+
+  // Tooltip dentro del gráfico
+  const tip = (el) => { const t = document.createElement("div"); t.className = "es-tip"; t.hidden = true; el.append(t); return t; };
+  const mostrar = (t, el, x, y, lineas) => {
+    t.replaceChildren();
+    lineas.forEach((l, i) => { const d = document.createElement("div"); if (i === 0) d.className = "f"; d.textContent = l; t.append(d); });
+    t.hidden = false;
+    const w = el.clientWidth, tw = t.offsetWidth;
+    t.style.left = Math.max(0, Math.min(w - tw, x - tw / 2)) + "px";
+    t.style.top = Math.max(0, y - t.offsetHeight - 10) + "px";
+  };
+
+  const lienzo = (el, alto) => {
+    el.replaceChildren();
+    const w = Math.max(260, el.clientWidth);
+    const svg = d3.select(el).append("svg").attr("width", "100%").attr("viewBox", `0 0 ${w} ${alto}`).attr("height", alto);
+    return { svg, w };
+  };
+
+  const ejeY = (svg, y, w, m, fmt) => {
+    const ticks = y.ticks(4);
+    const g = svg.append("g");
+    for (const t of ticks) {
+      g.append("line").attr("x1", m.l).attr("x2", w - m.r).attr("y1", y(t)).attr("y2", y(t)).attr("stroke", "var(--cds-chart-grid)");
+      g.append("text").attr("x", m.l - 6).attr("y", y(t)).attr("dy", "0.32em").attr("text-anchor", "end").text(fmt(t));
+    }
+  };
+  const ejeX = (svg, fechas, x, alto, m, ancho) => {
+    const cada = Math.max(1, Math.ceil(fechas.length / Math.max(2, Math.floor(ancho / 60))));
+    fechas.forEach((f, i) => {
+      if (i % cada) return;
+      svg.append("text").attr("x", x(f) + (x.bandwidth ? x.bandwidth() / 2 : 0)).attr("y", alto - m.b + 16).attr("text-anchor", "middle").text(ddmm(f));
+    });
+  };
+
+  dash.draw("yt-diario", (el) => {
+    const d = filas("yt_diario");
+    if (!d) { el.replaceChildren(); el.textContent = "—"; return; }
+    const alto = 240, { svg, w } = lienzo(el, alto), m = { l: 40, r: 8, t: 8, b: 24 };
+    const claves = ["vistas_short", "vistas_largo", "vistas_vivo"], nombres = ["Shorts", "Largos", "Vivos"];
+    const pila = d3.stack().keys(claves)(d);
+    const x = d3.scaleBand(d.map((r) => r.dia), [m.l, w - m.r]).padding(0.2);
+    const y = d3.scaleLinear([0, d3.max(d, (r) => claves.reduce((s, k) => s + r[k], 0)) || 1], [alto - m.b, m.t]).nice();
+    ejeY(svg, y, w, m, num);
+    pila.forEach((serie, i) => {
+      svg.append("g").selectAll("rect").data(serie).join("rect")
+        .attr("x", (p) => x(p.data.dia)).attr("width", x.bandwidth()).attr("y", (p) => y(p[1]))
+        .attr("height", (p) => Math.max(0, y(p[0]) - y(p[1]))).attr("fill", col(i)).attr("rx", 1.5);
+    });
+    ejeX(svg, d.map((r) => r.dia), x, alto, m, w);
+    const t = tip(el);
+    svg.append("g").selectAll("rect").data(d).join("rect").attr("x", (r) => x(r.dia) - x.step() * x.padding() / 2).attr("width", x.step())
+      .attr("y", m.t).attr("height", alto - m.t - m.b).attr("fill", "transparent")
+      .on("mousemove", (ev, r) => mostrar(t, el, (x(r.dia) + x.bandwidth() / 2) * (el.clientWidth / w), d3.pointer(ev, el)[1],
+        [ddmm(r.dia), ...claves.map((k, i) => `${nombres[i]}: ${num(r[k])}`), `Suscriptores: +${num(r.subs_ganados)} / −${num(r.subs_perdidos)}`]))
+      .on("mouseleave", () => { t.hidden = true; });
+  });
+
+  const META_DIA = (4000 * 60) / 365; // minutos por día de largos y vivos para llegar a 4.000 h en 12 meses
+  dash.draw("yt-horas", (el) => {
+    const d = filas("yt_diario");
+    if (!d) { el.replaceChildren(); el.textContent = "—"; return; }
+    const alto = 240, { svg, w } = lienzo(el, alto), m = { l: 44, r: 8, t: 8, b: 24 };
+    const v = (r) => r.minutos_largo + r.minutos_vivo;
+    const x = d3.scaleBand(d.map((r) => r.dia), [m.l, w - m.r]).padding(0.2);
+    const y = d3.scaleLinear([0, Math.max(META_DIA * 1.1, d3.max(d, v) || 1)], [alto - m.b, m.t]).nice();
+    ejeY(svg, y, w, m, num);
+    svg.append("g").selectAll("rect").data(d).join("rect").attr("x", (r) => x(r.dia)).attr("width", x.bandwidth())
+      .attr("y", (r) => y(v(r))).attr("height", (r) => Math.max(0, y(0) - y(v(r)))).attr("fill", ORO).attr("rx", 1.5);
+    svg.append("line").attr("x1", m.l).attr("x2", w - m.r).attr("y1", y(META_DIA)).attr("y2", y(META_DIA))
+      .attr("stroke", "var(--color-bad)").attr("stroke-width", 1.5).attr("stroke-dasharray", "5 4");
+    svg.append("text").attr("x", w - m.r).attr("y", y(META_DIA) - 6).attr("text-anchor", "end").text(`meta: ${num(Math.round(META_DIA))} min por día`);
+    ejeX(svg, d.map((r) => r.dia), x, alto, m, w);
+    const t = tip(el), k = el.clientWidth / w;
+    svg.append("g").selectAll("rect").data(d).join("rect").attr("x", (r) => x(r.dia)).attr("width", x.step()).attr("y", m.t)
+      .attr("height", alto - m.t - m.b).attr("fill", "transparent")
+      .on("mousemove", (ev, r) => mostrar(t, el, (x(r.dia) + x.bandwidth() / 2) * k, d3.pointer(ev, el)[1],
+        [ddmm(r.dia), `Largos: ${num(r.minutos_largo)} min`, `Vivos: ${num(r.minutos_vivo)} min`]))
+      .on("mouseleave", () => { t.hidden = true; });
+  });
+
+  const barras = (el, items, fmt) => {
+    el.replaceChildren();
+    const max = Math.max(1e-9, ...items.map((i) => i.v));
+    for (const it of items) {
+      const f = document.createElement("div"); f.className = "es-fila";
+      const et = document.createElement("span"); et.className = "et"; et.textContent = it.et; et.title = it.et;
+      const p = document.createElement("span"); p.className = "pista";
+      const b = document.createElement("i"); b.style.width = Math.max(1, (it.v / max) * 100) + "%"; p.append(b);
+      const v = document.createElement("span"); v.className = "v"; v.textContent = fmt(it.v);
+      f.append(et, p, v); el.append(f);
+    }
+  };
+
+  window.ricTrafico = "Largo";
+  dash.draw("yt-trafico", (el) => {
+    const d = filas("yt_trafico");
+    if (!d) { el.replaceChildren(); el.textContent = "—"; return; }
+    const tipos = window.ricTrafico === "Short" ? ["Short"] : ["Largo", "Vivo"];
+    const por = new Map();
+    for (const r of d.filter((r) => tipos.includes(r.tipo))) por.set(r.fuente, (por.get(r.fuente) || 0) + r.vistas);
+    const tot = [...por.values()].reduce((a, b) => a + b, 0) || 1;
+    barras(el, [...por].sort((a, b) => b[1] - a[1]).slice(0, 9).map(([et, v]) => ({ et, v: (v * 100) / tot })), pct);
+  });
+  for (const b of document.querySelectorAll("[data-trafico]")) {
+    b.addEventListener("click", () => {
+      window.ricTrafico = b.dataset.trafico;
+      for (const o of document.querySelectorAll("[data-trafico]")) o.setAttribute("aria-pressed", String(o === b));
+      dash.draw("yt-trafico");
+    });
+  }
+
+  dash.draw("ret-video", (sel) => {
+    const d = filas("yt_retencion");
+    if (!d) { sel.replaceChildren(); return; }
+    const vids = [...new Map(d.map((r) => [r.video, r.titulo])).entries()];
+    sel.replaceChildren(...vids.map(([id, t]) => new Option(t, id)));
+    if (!window.ricRet || !vids.some(([id]) => id === window.ricRet)) window.ricRet = vids.length ? vids[0][0] : null;
+    sel.value = window.ricRet || "";
+    sel.onchange = () => { window.ricRet = sel.value; dash.draw("yt-retencion"); };
+  });
+
+  dash.draw("yt-retencion", (el) => {
+    const todo = filas("yt_retencion");
+    if (!todo) { el.replaceChildren(); el.textContent = "—"; return; }
+    const id = window.ricRet || (todo[0] && todo[0].video);
+    const d = todo.filter((r) => r.video === id).sort((a, b) => a.segundo - b.segundo);
+    const alto = 240, { svg, w } = lienzo(el, alto), m = { l: 40, r: 12, t: 8, b: 24 };
+    if (!d.length) return;
+    const dur = d[0].duracion_s;
+    const x = d3.scaleLinear([0, dur], [m.l, w - m.r]);
+    const y = d3.scaleLinear([0, Math.max(100, d3.max(d, (r) => r.retencion))], [alto - m.b, m.t]).nice();
+    ejeY(svg, y, w, m, (v) => v + " %");
+    const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
+    for (const s of x.ticks(5)) svg.append("text").attr("x", x(s)).attr("y", alto - m.b + 16).attr("text-anchor", "middle").text(mmss(s));
+    if (dur > 30) {
+      svg.append("line").attr("x1", x(30)).attr("x2", x(30)).attr("y1", m.t).attr("y2", alto - m.b).attr("stroke", "var(--cds-chart-reference)").attr("stroke-dasharray", "4 4");
+    }
+    const gr = svg.append("defs").append("linearGradient").attr("id", "es-grad").attr("x1", 0).attr("x2", 0).attr("y1", 0).attr("y2", 1);
+    [[0, 0.26], [0.25, 0.16], [0.5, 0.08], [0.75, 0.03], [1, 0]].forEach(([o, a]) => gr.append("stop").attr("offset", o).attr("style", `stop-color:${ORO};stop-opacity:${a}`));
+    svg.append("path").datum(d).attr("fill", "url(#es-grad)").attr("d", d3.area().x((r) => x(r.segundo)).y0(y(0)).y1((r) => y(r.retencion)));
+    svg.append("path").datum(d).attr("fill", "none").attr("stroke", ORO).attr("stroke-width", 2).attr("stroke-linejoin", "round").attr("stroke-linecap", "round")
+      .attr("d", d3.line().x((r) => x(r.segundo)).y((r) => y(r.retencion)));
+    const punto = svg.append("circle").attr("r", 4).attr("fill", ORO).attr("opacity", 0);
+    const t = tip(el), k = el.clientWidth / w;
+    svg.append("rect").attr("x", m.l).attr("width", w - m.l - m.r).attr("y", m.t).attr("height", alto - m.t - m.b).attr("fill", "transparent")
+      .on("mousemove", (ev) => {
+        const s = x.invert(d3.pointer(ev)[0]);
+        const r = d.reduce((a, b) => (Math.abs(b.segundo - s) < Math.abs(a.segundo - s) ? b : a));
+        punto.attr("cx", x(r.segundo)).attr("cy", y(r.retencion)).attr("opacity", 1);
+        mostrar(t, el, x(r.segundo) * k, y(r.retencion) * k, [`Minuto ${mmss(r.segundo)}`, `Sigue mirando: ${dec(r.retencion)} %`]);
+      })
+      .on("mouseleave", () => { t.hidden = true; punto.attr("opacity", 0); });
+  });
+
+  // Tablas ordenables
+  window.ricOrden = { videos: { col: "vistas_total", asc: false }, pubs: { col: "fecha", asc: false } };
+  const ordenar = (rows, o) => rows.slice().sort((a, b) => {
+    const va = a[o.col], vb = b[o.col];
+    if (va === null || va === undefined) return 1;
+    if (vb === null || vb === undefined) return -1;
+    const c = typeof va === "number" ? va - vb : String(va).localeCompare(String(vb), "es");
+    return o.asc ? c : -c;
+  });
+  const marcarOrden = () => {
+    for (const b of document.querySelectorAll(".es-orden")) {
+      const o = window.ricOrden[b.dataset.tabla];
+      const activo = o.col === b.dataset.col;
+      b.setAttribute("aria-pressed", String(activo));
+      const th = b.closest("th"); if (th) th.setAttribute("aria-sort", activo ? (o.asc ? "ascending" : "descending") : "none");
+    }
+  };
+  for (const b of document.querySelectorAll(".es-orden")) {
+    b.addEventListener("click", () => {
+      const o = window.ricOrden[b.dataset.tabla];
+      if (o.col === b.dataset.col) o.asc = !o.asc; else { o.col = b.dataset.col; o.asc = ["titulo", "tipo", "formato", "texto"].includes(o.col); }
+      marcarOrden();
+      dash.draw(b.dataset.tabla === "videos" ? "yt-videos" : "ig-pubs");
+    });
+  }
+  marcarOrden();
+
+  const td = (tr, texto, clase) => { const c = document.createElement("td"); if (clase) c.className = clase; c.textContent = texto; tr.append(c); return c; };
+  const n0 = (v) => (v === null || v === undefined ? "—" : num(v));
+
+  dash.draw("yt-videos", (el) => {
+    el.replaceChildren();
+    const d = filas("yt_videos");
+    if (!d) return;
+    for (const r of ordenar(d, window.ricOrden.videos)) {
+      const tr = document.createElement("tr"); tr.dataset.key = r.id;
+      const c = td(tr, "", "es-txt"); const a = document.createElement("a"); a.href = "https://youtu.be/" + encodeURIComponent(r.id); a.target = "_blank"; a.rel = "noopener"; a.textContent = r.titulo; c.append(a);
+      td(tr, r.tipo);
+      td(tr, n0(r.vistas), "num"); td(tr, n0(r.vistas_total), "num");
+      td(tr, r.pct_visto_total ? pct(r.pct_visto_total) : "—", "num");
+      td(tr, n0(r.subs_total), "num"); td(tr, dec(r.subs_cada_mil), "num");
+      el.append(tr);
+    }
+  });
+
+  dash.draw("ig-pubs", (el) => {
+    el.replaceChildren();
+    const d = filas("ig_publicaciones");
+    if (!d) return;
+    for (const r of ordenar(d, window.ricOrden.pubs)) {
+      const tr = document.createElement("tr"); tr.dataset.key = r.id;
+      td(tr, r.fecha);
+      td(tr, r.formato);
+      const c = td(tr, "", "es-txt");
+      if (r.link && r.link.startsWith("https://www.instagram.com/")) { const a = document.createElement("a"); a.href = r.link; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.texto || "(sin texto)"; c.append(a); }
+      else c.textContent = r.texto;
+      td(tr, n0(r.alcance), "num");
+      td(tr, r.pct_salta_3s === null || r.pct_salta_3s === undefined ? "—" : pct(r.pct_salta_3s), "num");
+      td(tr, r.seg_vistos === null || r.seg_vistos === undefined ? "—" : dec(r.seg_vistos), "num");
+      td(tr, n0(r.interacciones), "num"); td(tr, n0(r.guardados), "num"); td(tr, n0(r.compartidos), "num");
+      el.append(tr);
+    }
+  });
+
+  dash.draw("ig-diario", (el) => {
+    const d = filas("ig_diario");
+    if (!d) { el.replaceChildren(); el.textContent = "—"; return; }
+    const alto = 240, { svg, w } = lienzo(el, alto), m = { l: 44, r: 30, t: 8, b: 24 };
+    const x = d3.scaleBand(d.map((r) => r.dia), [m.l, w - m.r]).padding(0.2);
+    const y = d3.scaleLinear([0, d3.max(d, (r) => r.alcance) || 1], [alto - m.b, m.t]).nice();
+    const y2 = d3.scaleLinear([0, Math.max(5, d3.max(d, (r) => r.seguidores_ganados) || 1)], [alto - m.b, m.t]).nice();
+    ejeY(svg, y, w, m, num);
+    for (const tk of y2.ticks(3)) svg.append("text").attr("x", w - m.r + 6).attr("y", y2(tk)).attr("dy", "0.32em").text(tk);
+    svg.append("g").selectAll("rect").data(d).join("rect").attr("x", (r) => x(r.dia)).attr("width", x.bandwidth())
+      .attr("y", (r) => y(r.alcance)).attr("height", (r) => Math.max(0, y(0) - y(r.alcance))).attr("fill", col(0)).attr("rx", 1.5);
+    svg.append("g").selectAll("circle").data(d).join("circle").attr("cx", (r) => x(r.dia) + x.bandwidth() / 2).attr("cy", (r) => y2(r.seguidores_ganados))
+      .attr("r", 3.5).attr("fill", ORO).attr("stroke", "var(--color-panel)").attr("stroke-width", 1.5);
+    ejeX(svg, d.map((r) => r.dia), x, alto, m, w);
+    const t = tip(el), k = el.clientWidth / w;
+    svg.append("g").selectAll("rect").data(d).join("rect").attr("x", (r) => x(r.dia)).attr("width", x.step()).attr("y", m.t)
+      .attr("height", alto - m.t - m.b).attr("fill", "transparent")
+      .on("mousemove", (ev, r) => mostrar(t, el, (x(r.dia) + x.bandwidth() / 2) * k, d3.pointer(ev, el)[1],
+        [ddmm(r.dia), `Alcance: ${num(r.alcance)} cuentas`, `Seguidores nuevos: ${num(r.seguidores_ganados)}`]))
+      .on("mouseleave", () => { t.hidden = true; });
+  });
+
+  const PAISES = { AR: "Argentina", MX: "México", ES: "España", CO: "Colombia", CL: "Chile", PE: "Perú", UY: "Uruguay", VE: "Venezuela",
+    EC: "Ecuador", BO: "Bolivia", PY: "Paraguay", US: "Estados Unidos", BR: "Brasil", DO: "Rep. Dominicana", GT: "Guatemala",
+    CR: "Costa Rica", PA: "Panamá", HN: "Honduras", SV: "El Salvador", NI: "Nicaragua", CU: "Cuba", PR: "Puerto Rico", IN: "India",
+    IT: "Italia", FR: "Francia", DE: "Alemania", GB: "Reino Unido", PT: "Portugal", CA: "Canadá", ID: "Indonesia", NG: "Nigeria",
+    PK: "Pakistán", BD: "Bangladés", EG: "Egipto", TR: "Turquía", PH: "Filipinas", IR: "Irán", IQ: "Irak" };
+  dash.draw("aud", (el) => {
+    const d = filas(el.dataset.source);
+    if (!d) { el.replaceChildren(); el.textContent = "—"; return; }
+    const rows = d.filter((r) => r.grupo === el.dataset.grupo && (!el.dataset.quien || r.quien === el.dataset.quien));
+    if (el.dataset.grupo === "País") rows.sort((a, b) => b.pct - a.pct);
+    barras(el, rows.slice(0, 10).map((r) => ({ et: el.dataset.grupo === "País" ? (PAISES[r.valor] || r.valor) : r.valor, v: r.pct })), pct);
+  });
 })();
 </script>
 <script src="oficina.js"></script>

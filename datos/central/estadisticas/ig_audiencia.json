@@ -1,0 +1,324 @@
+[
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "AR",
+  "cuentas": 1445,
+  "pct": 42.5
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "BR",
+  "cuentas": 257,
+  "pct": 7.6
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "CO",
+  "cuentas": 166,
+  "pct": 4.9
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "MX",
+  "cuentas": 129,
+  "pct": 3.8
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "IN",
+  "cuentas": 124,
+  "pct": 3.6
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "PE",
+  "cuentas": 116,
+  "pct": 3.4
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "ID",
+  "cuentas": 106,
+  "pct": 3.1
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "VE",
+  "cuentas": 86,
+  "pct": 2.5
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "US",
+  "cuentas": 85,
+  "pct": 2.5
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "País",
+  "valor": "PH",
+  "cuentas": 73,
+  "pct": 2.1
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "25-34",
+  "cuentas": 1474,
+  "pct": 40.3
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "35-44",
+  "cuentas": 970,
+  "pct": 26.5
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "45-54",
+  "cuentas": 477,
+  "pct": 13.0
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "18-24",
+  "cuentas": 451,
+  "pct": 12.3
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "55-64",
+  "cuentas": 182,
+  "pct": 5.0
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "65+",
+  "cuentas": 80,
+  "pct": 2.2
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Edad",
+  "valor": "13-17",
+  "cuentas": 28,
+  "pct": 0.8
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Género",
+  "valor": "Hombres",
+  "cuentas": 2220,
+  "pct": 60.6
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Género",
+  "valor": "Sin dato",
+  "cuentas": 750,
+  "pct": 20.5
+ },
+ {
+  "quien": "Seguidores",
+  "grupo": "Género",
+  "valor": "Mujeres",
+  "cuentas": 692,
+  "pct": 18.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "AR",
+  "cuentas": 96,
+  "pct": 86.5
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "CO",
+  "cuentas": 3,
+  "pct": 2.7
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "ES",
+  "cuentas": 3,
+  "pct": 2.7
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "UY",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "PT",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "CL",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "MX",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "IT",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "GT",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "País",
+  "valor": "CU",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "35-44",
+  "cuentas": 41,
+  "pct": 36.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "25-34",
+  "cuentas": 40,
+  "pct": 36.0
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "45-54",
+  "cuentas": 14,
+  "pct": 12.6
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "55-64",
+  "cuentas": 9,
+  "pct": 8.1
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "18-24",
+  "cuentas": 6,
+  "pct": 5.4
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "65+",
+  "cuentas": 1,
+  "pct": 0.9
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Edad",
+  "valor": "13-17",
+  "cuentas": 0,
+  "pct": 0.0
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Género",
+  "valor": "Hombres",
+  "cuentas": 84,
+  "pct": 75.7
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Género",
+  "valor": "Mujeres",
+  "cuentas": 19,
+  "pct": 17.1
+ },
+ {
+  "quien": "Interactúan",
+  "grupo": "Género",
+  "valor": "Sin dato",
+  "cuentas": 8,
+  "pct": 7.2
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por tipo de cuenta",
+  "valor": "No seguidores",
+  "cuentas": 9409,
+  "pct": 93.2
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por tipo de cuenta",
+  "valor": "Seguidores",
+  "cuentas": 682,
+  "pct": 6.8
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por formato",
+  "valor": "Reels",
+  "cuentas": 7265,
+  "pct": 66.5
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por formato",
+  "valor": "Historias",
+  "cuentas": 3488,
+  "pct": 32.0
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por formato",
+  "valor": "Carruseles",
+  "cuentas": 139,
+  "pct": 1.3
+ },
+ {
+  "quien": "Alcance",
+  "grupo": "Alcance por formato",
+  "valor": "Publicaciones",
+  "cuentas": 25,
+  "pct": 0.2
+ }
+]

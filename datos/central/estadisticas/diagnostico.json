@@ -1,0 +1,90 @@
+[
+ {
+  "orden": 1,
+  "plataforma": "YouTube",
+  "estado": "mal",
+  "hallazgo": "Las horas para monetizar avanzan muy lento",
+  "dato": "12 h por mes en largos y vivos; faltan 3.975 h",
+  "que_hacer": "Los vivos largos son lo que más horas suma: transmitir y dejar público cada vivo y el curso del 16/11, con capítulos."
+ },
+ {
+  "orden": 2,
+  "plataforma": "YouTube",
+  "estado": "atencion",
+  "hallazgo": "Casi todas las vistas son de Shorts",
+  "dato": "96 % de las vistas del período vienen de Shorts",
+  "que_hacer": "Cada Short tiene que mandar a un largo: video relacionado en Studio y comentario fijado con el link."
+ },
+ {
+  "orden": 3,
+  "plataforma": "YouTube",
+  "estado": "atencion",
+  "hallazgo": "Qué formato trae más suscriptores",
+  "dato": "Shorts: 4,0 y largos y vivos: 19,5 suscriptores cada 1.000 vistas (desde que se abrió el canal)",
+  "que_hacer": "Repetir el formato que más convierte y pedir la suscripción tarde, después de dar valor."
+ },
+ {
+  "orden": 4,
+  "plataforma": "YouTube",
+  "estado": "mal",
+  "hallazgo": "YouTube casi no recomienda los largos",
+  "dato": "14 % de las vistas de largos vienen de búsqueda, sugeridos o inicio",
+  "que_hacer": "Títulos con lo que la gente busca (ric-empaque) y miniaturas con una sola idea; capítulos en todos los largos."
+ },
+ {
+  "orden": 5,
+  "plataforma": "YouTube",
+  "estado": "bien",
+  "hallazgo": "Cuánto se ven los largos",
+  "dato": "Mediana de 54 % visto en los 7 largos con 30 vistas o más",
+  "que_hacer": "Ver dónde se va la gente con ric-retencion y cortar las explicaciones largas en la edición."
+ },
+ {
+  "orden": 6,
+  "plataforma": "YouTube",
+  "estado": "atencion",
+  "hallazgo": "El gancho de los largos pierde mucha gente",
+  "dato": "Se va el 33 % en los primeros 30 segundos (mediana de 7 largos)",
+  "que_hacer": "Arrancar con la fórmula «Dos vidas» o el detalle cotidiano de diseno/ganchos.json; nada de presentaciones."
+ },
+ {
+  "orden": 7,
+  "plataforma": "Instagram",
+  "estado": "mal",
+  "hallazgo": "Los Reels pierden a la gente en los primeros 3 segundos",
+  "dato": "Mediana de 56 % que se va antes de los 3 s (últimos 10 Reels)",
+  "que_hacer": "Gancho visible desde el cuadro 0 y la voz en el segundo 0; Lean a cámara rinde más que los Reels de noticias."
+ },
+ {
+  "orden": 8,
+  "plataforma": "Instagram",
+  "estado": "mal",
+  "hallazgo": "El perfil no convierte visitas en clics",
+  "dato": "219 visitas al perfil y 0 toques en el link",
+  "que_hacer": "Bio con una sola promesa y un solo destino (el curso del 16/11) y 3 publicaciones fijadas que lo expliquen."
+ },
+ {
+  "orden": 9,
+  "plataforma": "Instagram",
+  "estado": "mal",
+  "hallazgo": "Llegás a gente nueva pero no te sigue",
+  "dato": "93 % del alcance son no seguidores; 15 seguidores nuevos y 44 bajas en el período",
+  "que_hacer": "Cerrar cada Reel con un motivo para seguir (qué vas a encontrar acá) y una serie fija que se repita."
+ },
+ {
+  "orden": 10,
+  "plataforma": "Instagram",
+  "estado": "mal",
+  "hallazgo": "Los carruseles no se guardan ni se comparten",
+  "dato": "41 guardados y compartidos sobre 2.119 cuentas alcanzadas en los últimos 6 carruseles",
+  "que_hacer": "Carruseles solo para datos que sirvan de referencia (algo para guardar), con la portada como gancho."
+ },
+ {
+  "orden": 11,
+  "plataforma": "Instagram",
+  "estado": "bien",
+  "hallazgo": "La publicación que más funcionó",
+  "dato": "«Corea del Norte le robó US$ 6.300 millones a Binance… y no e» (Reel, 02/11): 5.658 cuentas, 18,7 veces la mediana",
+  "que_hacer": "Sacar una continuación con el mismo formato y la misma voz."
+ }
+]

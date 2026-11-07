@@ -64,12 +64,13 @@ vids = []
 for i in range(0, len(ids), 50):
     vids += get(Y + "videos", part="snippet,status,contentDetails,statistics,liveStreamingDetails", id=",".join(ids[i:i + 50]))["items"]
 
-# Horas de reproducción de videos largos (más de 60 s) en los últimos 365 días, de Analytics
+# Horas de reproducción de videos largos y vivos en los últimos 365 días, de Analytics.
+# Se separa por tipo de contenido (creatorContentType): los Shorts de hasta 3 minutos no cuentan aunque duren más de 60 s.
 fin, ini = AHORA.date(), AHORA.date() - dt.timedelta(days=365)
 an = get("https://youtubeanalytics.googleapis.com/v2/reports", ids="channel==MINE", startDate=str(ini), endDate=str(fin),
-         metrics="estimatedMinutesWatched", dimensions="video", maxResults=200, sort="-estimatedMinutesWatched")
+         metrics="estimatedMinutesWatched", dimensions="creatorContentType")
+min_largos = sum(m for tipo, m in an.get("rows", []) if tipo != "shorts")
 dur = {v["id"]: segundos(v["contentDetails"]["duration"]) for v in vids}
-min_largos = sum(m for vid, m in an.get("rows", []) if dur.get(vid, 0) > 60)
 
 ig = {}
 tok_ig = os.environ.get("RIC_IG_TOKEN_IG") or os.environ.get("RIC_IG_TOKEN")
