@@ -54,6 +54,9 @@ Las de la sección 9 del reporte de partículas, que valen para todos los estilo
 - **Muchos seguidores recién empiezan** (Lean, 05/11/2026): explicar cada dato en una frase y dar el resultado concreto («si sale más de X, el oro suele bajar»), sin jerga ni siglas sueltas.
 - Objetivos: más del 60 % de retención a los 3 s y más del 30 % a la mitad del video.
 
+## Perfil (propuesta del 07/11/2026)
+Nombre, bio, links, categoría, destacadas, fijadas y ajustes de alcance en `analisis/2026-11-07-perfil-instagram.md`. Pendiente de que Lean lo aplique.
+
 ## Copy del Reel de la clase 14
 ```
 ¿Fuiste parte del curso de Básicos de trading? 📈
