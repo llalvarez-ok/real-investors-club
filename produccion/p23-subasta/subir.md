@@ -2,7 +2,7 @@
 
 ## Video largo
 
-**Archivo:** RIC-P23-subasta.mp4 (12:30) · **Miniatura:** RIC-P23-subasta-portada.png
+**Archivo:** RIC-P23-subasta-voz-lean.mp4 (10:35, voz clonada de Lean con Qwen3-TTS; la versión con Brian de 12:30 queda descartada) · **Miniatura:** RIC-P23-subasta-portada.png
 
 **Título:** El mercado es una subasta: 3 preguntas antes de operar
 
@@ -14,31 +14,31 @@
 El martes 3 de noviembre de 2026 el Nasdaq se movió menos del 1 %. El jueves 5 cayó más del 6 %. Si usas la misma estrategia los dos días, uno de los dos te destruye la cuenta. En este video vas a ver por qué el mercado funciona como una subasta, los dos modos en los que puede estar (equilibrio y desequilibrio), cómo leer el perfil de volumen (punto de control, área de valor y nodos de bajo volumen) y las tres preguntas que conviene hacerse antes de cada operación. Todo con datos reales del Nasdaq.
 
 0:00 Dos días, el mismo mercado
-1:12 El remate de Julián
-1:33 El precio justo
-2:23 Equilibrio y desequilibrio
-3:15 Martes 3/11: un día de equilibrio
-3:42 El perfil de volumen
-4:17 El punto de control
-4:35 El área de valor
-4:59 El error común: comprar la ruptura
-5:52 Miércoles 4/11: sale arriba
-6:39 El nodo de bajo volumen
-7:32 Jueves 5/11: el remate se rompe
-8:18 La misma estrategia, dos resultados
-8:52 La cuenta de dos años
-9:27 Aceptación o rechazo
-9:52 Las 3 preguntas antes de operar
-10:47 Lo que el perfil no hace
-11:15 Tu semana de práctica
-11:44 Repasemos
+1:01 El remate de Julián
+1:15 El precio justo
+1:53 Equilibrio y desequilibrio
+2:36 Martes 3/11: un día de equilibrio
+3:00 El perfil de volumen
+3:28 El punto de control
+3:44 El área de valor
+4:06 El error común: comprar la ruptura
+4:54 Miércoles 4/11: sale arriba
+5:33 El nodo de bajo volumen
+6:21 Jueves 5/11: el remate se rompe
+6:59 La misma estrategia, dos resultados
+7:27 La cuenta de dos años
+7:58 Aceptación o rechazo
+8:20 Las 3 preguntas antes de operar
+9:08 Lo que el perfil no hace
+9:30 Tu semana de práctica
+9:55 Repasemos
 
 🎓 Curso inicial gratis (Nivel 0) en https://realinvestors.club
 📺 Video anterior: Por qué un trader puede perder 8 veces seguidas y ganar el mes LINK
 
 Datos: futuro del Nasdaq 100 (NQ=F, Yahoo Finance), sesión de Nueva York del 3, 4 y 5/11/2026, velas de 5 minutos. Perfil de volumen aproximado: el volumen de cada vela de 1 minuto repartido entre su máximo y su mínimo, en niveles de 10 puntos; área de valor = 70 % del volumen. La cuenta de dos años: NQ=F, velas de 1 hora, 587 sesiones (2024 a 2026): 395 abrieron fuera del área de valor del día anterior y en 203 (51 %) el precio volvió a entrar ese mismo día; con velas de 5 minutos de los últimos 60 días, 55 %. Estadística del pasado, no una promesa. Julián, el auto y Martín son ejemplos.
 
-🤖 Este video usa una voz y un narrador digitales generados con inteligencia artificial.
+🤖 La narración es una voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 
 ⚠️ Contenido educativo. No constituye recomendación de inversión. Operar en los mercados implica riesgo de pérdida de capital.
 
@@ -65,6 +65,7 @@ En un remate, las manos se juntan alrededor de un precio: ese es el precio justo
 ▶️ Video completo: LINK
 realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
@@ -82,6 +83,7 @@ Nasdaq, 3/11/2026: rompió el máximo de la mañana, marcó 28.444 y en media ho
 ▶️ Video completo: LINK
 realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #Shorts #Trading #Nasdaq #EducacionFinanciera
@@ -99,6 +101,7 @@ Nasdaq, 4/11/2026: entre 28.400 y 28.500 casi no se negoció. Cuando el precio v
 ▶️ Video completo: LINK
 realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #Shorts #PerfilDeVolumen #Trading #EducacionFinanciera
@@ -116,6 +119,7 @@ Nasdaq, 2024-2026: en 2 de cada 3 sesiones, Nueva York abrió fuera del área de
 ▶️ Video completo: LINK
 realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #Shorts #Trading #Nasdaq #EducacionFinanciera
@@ -133,6 +137,7 @@ Escenas 24-26 · gancho en pantalla: «3 preguntas antes de operar»
 ▶️ Video completo: LINK
 realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
@@ -155,6 +160,7 @@ Comentá SUBASTA si alguna vez compraste una ruptura y el precio volvió 👇
 🎥 Video completo en YouTube: Real Investors Club (link en la bio)
 🎓 Curso inicial gratis en realinvestors.club
 
+Voz generada con inteligencia artificial a partir de la voz de Lean Alvarez.
 Contenido educativo. No constituye recomendación de inversión.
 
 #trading #nasdaq #perfildevolumen #educacionfinanciera #inversiones #realinvestorsclub
