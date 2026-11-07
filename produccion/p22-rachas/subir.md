@@ -2,7 +2,7 @@
 
 ## Video largo
 
-**Archivo:** RIC-P22-rachas.mp4 (17:24) · **Miniatura:** RIC-P22-rachas-portada.png
+**Archivo:** RIC-P22-rachas-voz-Lean.mp4 (15:12, voz de Lean clonada con Qwen3-TTS) · **Miniatura:** RIC-P22-rachas-portada.png
 
 **Título:** Por qué un trader puede perder 8 veces seguidas y ganar el mes
 
@@ -14,36 +14,36 @@
 Si pierdes ocho operaciones seguidas, ¿quiere decir que no sirves para esto? No necesariamente. En este video hacemos la cuenta completa: por qué acertar mucho no alcanza, cada cuánto llegan las rachas de pérdidas, cuánto arriesgar por operación para sobrevivirlas, el límite de pérdida diaria, la regla contra la revancha y el costo que casi nadie mira: las comisiones.
 
 0:00 Dos traders, un final inesperado
-1:06 Ramón, el pescador
-1:54 Acertar mucho no alcanza: Nico y Tomás
-2:56 Riesgo/beneficio y punto de equilibrio
-3:37 La esperanza matemática
-4:11 Objetivo más lejos, menos aciertos
-5:11 ¿Cada cuánto llegan 8 pérdidas seguidas?
-6:07 5 meses del mismo método (simulación)
-6:45 Por qué una racha duele tanto
-7:30 El error más común
-7:51 Cuántas operaciones hacen falta
-8:29 Lo que no se ve en las redes
-8:53 Cuánto arriesgar por operación
-9:46 Lo que cuesta volver
-10:27 El límite de pérdida diaria
-11:09 Un plan para la racha
-11:37 Pérdida buena y pérdida mala
-12:04 Sin condiciones no hay operación
-12:40 La racha que se festeja
-13:05 Arriesgar solo con la ganancia del día
-13:39 Las comisiones
-14:26 La cuenta del mes de Tomás
-15:35 Tu ejercicio y tu diario
-16:31 Repasemos
+1:01 Ramón, el pescador
+1:43 Acertar mucho no alcanza: Nico y Tomás
+2:37 Riesgo/beneficio y punto de equilibrio
+3:14 La esperanza matemática
+3:42 Objetivo más lejos, menos aciertos
+4:37 ¿Cada cuánto llegan 8 pérdidas seguidas?
+5:28 5 meses del mismo método (simulación)
+5:58 Por qué una racha duele tanto
+6:37 El error más común
+6:54 Cuántas operaciones hacen falta
+7:27 Lo que no se ve en las redes
+7:47 Cuánto arriesgar por operación
+8:34 Lo que cuesta volver
+9:11 El límite de pérdida diaria
+9:46 Un plan para la racha
+10:11 Pérdida buena y pérdida mala
+10:34 Sin condiciones no hay operación
+11:05 La racha que se festeja
+11:27 Arriesgar solo con la ganancia del día
+11:56 Las comisiones
+12:36 La cuenta del mes de Tomás
+13:37 Tu ejercicio y tu diario
+14:25 Repasemos
 
 🎓 Curso inicial gratis (Nivel 0) en https://realinvestors.club
 📺 Video anterior: FOMO: el error que te hace comprar en el peor momento https://youtu.be/SbO7TcPcg7M
 
 Datos y cálculos: probabilidades calculadas (binomial y rachas): con 30 % de aciertos, 8 pérdidas seguidas en un momento dado ≈ 5,8 %; al menos una racha de 8 en 100 operaciones ≈ 85,8 %; en 40 ≈ 51 %. Racha de 8 pérdidas: 0,25 % por operación ≈ −2 %; 2 % ≈ −14,9 %; 5 % ≈ −33,7 %. Los cinco meses de Tomás son una simulación por computadora del mismo método. Nico, Tomás y Ramón, los montos y las comisiones son ejemplos. Nada de esto es una promesa de resultados.
 
-🤖 Este video usa una voz y un narrador digitales generados con inteligencia artificial.
+🤖 La voz de este video es un clon de la voz de Lean generado con inteligencia artificial.
 
 ⚠️ Contenido educativo. No constituye recomendación de inversión. Operar en los mercados implica riesgo de pérdida de capital.
 
