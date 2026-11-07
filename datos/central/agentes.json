@@ -23,11 +23,11 @@
   "id": "instagram",
   "nombre": "Camila",
   "rol": "Productora de Instagram",
-  "estado": "bloqueado",
-  "haciendo": "Tarea programada: revisión de Instagram los domingos a las 20:10; API bloqueada por ahora",
-  "ultimo": "Reel de Elecciones publicado (04/11); carrusel del oro entregado (05/11)",
-  "espera": "Que publiques el carrusel del oro hoy (antes del empleo) y revises el token IGAA",
-  "actualizado": "2026-11-06 08:50"
+  "estado": "esperando",
+  "haciendo": "Revisión de Instagram de los domingos (20:10); API solo lectura",
+  "ultimo": "Revisión del 07/11: Corea 5.658 cuentas pero −11 seguidores en la semana; plan del curso 16/11",
+  "espera": "Bio nueva, Reel tuyo a cámara del curso para el lunes 09/11 y ManyChat con CURSO",
+  "actualizado": "2026-11-07 12:40"
  },
  {
   "id": "pizarra",

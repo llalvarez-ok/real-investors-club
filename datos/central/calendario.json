@@ -1,69 +1,5 @@
 [
  {
-  "id": "5FsbseLanto",
-  "fecha": "2026-10-26 23:20",
-  "plataforma": "YouTube",
-  "tipo": "Video",
-  "titulo": "¿Cuánto se puede ganar con trading? Lo realista y lo que es humo · Lección 6",
-  "estado": "publicado"
- },
- {
-  "id": "BUJwplULfj0",
-  "fecha": "2026-10-26 23:36",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "¿10 % semanal garantizado? Haz la cuenta y vas a ver el humo #shorts",
-  "estado": "publicado"
- },
- {
-  "id": "8ehRdk3q7NA",
-  "fecha": "2026-10-27 18:00",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "¿Se puede vivir del trading con 1.000 dólares? La cuenta que nadie te hace #shorts",
-  "estado": "publicado"
- },
- {
-  "id": "5sWw1BRWDCk",
-  "fecha": "2026-10-28 16:08",
-  "plataforma": "YouTube",
-  "tipo": "Video",
-  "titulo": "Por qué vendes justo cuando baja (y cómo evitarlo)",
-  "estado": "publicado"
- },
- {
-  "id": "_olHq7c9EeY",
-  "fecha": "2026-10-28 18:00",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "3 señales de que una inversión es humo #shorts",
-  "estado": "publicado"
- },
- {
-  "id": "an_hMeK6cQg",
-  "fecha": "2026-10-29 18:00",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "El error que hace abandonar a los que empiezan a invertir #shorts",
-  "estado": "publicado"
- },
- {
-  "id": "6yh_31WWOew",
-  "fecha": "2026-10-30 18:00",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "¿Cuánto rinde de verdad invertir? Tres números que todo inversor debe conocer #shorts",
-  "estado": "publicado"
- },
- {
-  "id": "i6VBQSvIZng",
-  "fecha": "2026-10-31 03:41",
-  "plataforma": "YouTube",
-  "tipo": "Short",
-  "titulo": "Le robaron US$ 6.300 M a Binance en 4 horas 🚨 El mayor hackeo cripto de la historia #shorts",
-  "estado": "publicado"
- },
- {
   "id": "MFnMqDKPk-w",
   "fecha": "2026-10-31 15:50",
   "plataforma": "YouTube",
@@ -96,14 +32,6 @@
   "estado": "publicado"
  },
  {
-  "id": "DcZcgifTT2I",
-  "fecha": "2026-11-02 10:58",
-  "plataforma": "YouTube",
-  "tipo": "Vivo",
-  "titulo": "Operando el Mercado de Nueva York",
-  "estado": "publicado"
- },
- {
   "id": "CVYZZyVTNuU",
   "fecha": "2026-11-02 12:30",
   "plataforma": "YouTube",
@@ -117,7 +45,23 @@
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "Vendió todo el peor día de 2020: lo que nadie te cuenta #Shorts",
-  "estado": "programado"
+  "estado": "publicado"
+ },
+ {
+  "id": "DcZcgifTT2I",
+  "fecha": "2026-11-03 00:42",
+  "plataforma": "YouTube",
+  "tipo": "Vivo",
+  "titulo": "Trading en vivo en la apertura de Nueva York: US30, oro y Bitcoin · 02/11/2026",
+  "estado": "publicado"
+ },
+ {
+  "id": "yfoWKKtnn3k",
+  "fecha": "2026-11-03 15:00",
+  "plataforma": "YouTube",
+  "tipo": "Short",
+  "titulo": "El lunes dije en vivo que buscaba una caída fuerte en el oro: lo que pasó #Shorts",
+  "estado": "publicado"
  },
  {
   "id": "vLfesRlG_Dk",
@@ -125,15 +69,23 @@
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "Si pierdes 50 %, ¿cuánto necesitas para recuperarte? #Shorts",
-  "estado": "programado"
+  "estado": "publicado"
  },
  {
-  "id": "vXMFiNvFgwg",
+  "id": "UPs-mOKt928",
+  "fecha": "2026-11-04 00:47",
+  "plataforma": "YouTube",
+  "tipo": "Vivo",
+  "titulo": "Trading en vivo en la apertura de Nueva York · 03/11/2026",
+  "estado": "publicado"
+ },
+ {
+  "id": "XG9VdqKMf8c",
   "fecha": "2026-11-04 13:00",
   "plataforma": "YouTube",
   "tipo": "Short",
-  "titulo": "Por qué vendes lo que gana y te quedas con lo que pierde #Shorts",
-  "estado": "programado"
+  "titulo": "Demócratas ganan el Congreso: ¿vender todo? Lo que dicen 19 elecciones desde 1950 #Shorts",
+  "estado": "publicado"
  },
  {
   "id": "SbO7TcPcg7M",
@@ -141,19 +93,43 @@
   "plataforma": "YouTube",
   "tipo": "Video",
   "titulo": "FOMO: el error que te hace comprar en el peor momento",
-  "estado": "programado"
+  "estado": "publicado"
  },
  {
-  "id": "VNjgXvAp5Ic",
+  "id": "vXMFiNvFgwg",
+  "fecha": "2026-11-05 13:00",
+  "plataforma": "YouTube",
+  "tipo": "Short",
+  "titulo": "Por qué vendes lo que gana y te quedas con lo que pierde #Shorts",
+  "estado": "publicado"
+ },
+ {
+  "id": "XWsOBQY8_Ak",
   "fecha": "2026-11-05 19:00",
   "plataforma": "YouTube",
   "tipo": "Short",
+  "titulo": "El error que cometí en vivo: entrar sin intención en la EMA #Shorts",
+  "estado": "publicado"
+ },
+ {
+  "id": "VNjgXvAp5Ic",
+  "fecha": "2026-11-06 13:00",
+  "plataforma": "YouTube",
+  "tipo": "Short",
   "titulo": "3 hábitos para no vender por miedo #Shorts",
-  "estado": "programado"
+  "estado": "publicado"
+ },
+ {
+  "id": "M96iCwjSeUA",
+  "fecha": "2026-11-06 19:00",
+  "plataforma": "YouTube",
+  "tipo": "Short",
+  "titulo": "Me comí un stop en vivo (y está bien) #Shorts",
+  "estado": "publicado"
  },
  {
   "id": "MaLhm9-0AZY",
-  "fecha": "2026-11-06 19:00",
+  "fecha": "2026-11-07 13:00",
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "Entró en el pico de Bitcoin en 2021: lo que pasó después #Shorts",
@@ -161,7 +137,7 @@
  },
  {
   "id": "SPvuO-ppHm8",
-  "fecha": "2026-11-07 19:00",
+  "fecha": "2026-11-08 19:00",
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "¿Compras porque todos compran? El truco de la fila #Shorts",
@@ -169,7 +145,7 @@
  },
  {
   "id": "wX-T6YetVO4",
-  "fecha": "2026-11-08 19:00",
+  "fecha": "2026-11-09 19:00",
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "3 preguntas antes de entrar en algo de lo que todos hablan #Shorts",
@@ -177,7 +153,7 @@
  },
  {
   "id": "3CucxdZ-ODw",
-  "fecha": "2026-11-09 19:00",
+  "fecha": "2026-11-10 19:00",
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "«Últimos cupos»: el FOMO que te fabrican #Shorts",
@@ -185,7 +161,7 @@
  },
  {
   "id": "gFUF0uoI9fY",
-  "fecha": "2026-11-10 19:00",
+  "fecha": "2026-11-11 19:00",
   "plataforma": "YouTube",
   "tipo": "Short",
   "titulo": "Por qué el FOMO siempre llega tarde #Shorts",

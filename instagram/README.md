@@ -10,7 +10,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 |---|---|
 | Usuario | **@leanalvarez.ok** (verificada) |
 | Nombre | Lean Alvarez \| Trading & Finanzas |
-| Seguidores | 3.736 al 01/11/2026, leído por la API (actualizar en la tarjeta de cierre de cada Reel) |
+| Seguidores | 3.726 al 07/11/2026 (3.736 al 01/11), leído por la API (actualizar en la tarjeta de cierre de cada Reel) |
 | ID en la API | 17841458469793556 |
 | Bio | Trader en XAUUSD y Cripto · Opera de la forma correcta · ⚠️ Los CFDs son instrumentos complejos y conllevan alto riesgo de pérdida de dinero. |
 | Link | realinvestors.club |
@@ -22,11 +22,11 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | P10 «FOMO» | **No figura en Instagram** según la API (01/11) | `produccion/p10-fomo/subir.md`, sección R1-instagram |
 | Clase 14 «Order blocks» (curso anterior) | Publicado (29/10), con la automatización «CURSO» | Abajo, en «Copy del Reel de la clase 14»; armado en `herramientas/curso/reel/` |
 | «El robo a Binance» (partículas) | Publicado (31/10) | `analisis/2026-11-01-reporte-reels-particulas.md`, sección 6 |
-| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | **Publicado a mano por Lean el 01/11/2026 a las 21:18 de Argentina** (https://www.instagram.com/reel/DfOABv1NrZD/, ID 18111823058184752): texto igual a `caption-ig.txt`, compartido en el feed (revisado por la API el 02/11) | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
-| «Elecciones en EE. UU.: ¿vender todo? Lo que dicen 19 elecciones desde 1950» (expediente cine, voz de Lean grabada en WhatsApp, con música, 77 s) | **Publicado a mano por Lean el 04/11/2026** con el primer audio entregado (el de la sala chica; las versiones sin eco no le gustaron) y el copy de `subir.md` | `produccion/reel-elecciones/subir.md` |
-| Carrusel «7 fechas que pueden mover el oro en noviembre» (11 láminas, identidad RIC, datos verificados, hora de Argentina; rehecho el mismo día para principiantes: «si sale más de X, el oro suele bajar») | Entregado el 05/11/2026; falta que Lean lo publique | `produccion/carrusel-oro-noviembre/subir.md` |
+| «¿Por qué Corea del Norte robó Binance?» (expediente cine, voz de Lean, con música) | **Publicado a mano por Lean el 01/11/2026 a las 21:18 de Argentina** (la API da hoy https://www.instagram.com/reel/DfOBCthORKY/, ID 18111900926190761; antes figuraba DfOABv1NrZD): texto igual a `caption-ig.txt`, compartido en el feed. Al 07/11: 5.658 cuentas, 6.929 vistas, 17 compartidos, 37 % se va antes de 3 s, 27,4 s vistos (el mejor de la cuenta) | `produccion/reel-corea/caption-ig.txt` y `subir.md` |
+| «Elecciones en EE. UU.: ¿vender todo? Lo que dicen 19 elecciones desde 1950» (expediente cine, voz de Lean grabada en WhatsApp, con música, 77 s) | **Publicado a mano por Lean el 04/11/2026** con el primer audio entregado (el de la sala chica; las versiones sin eco no le gustaron) y el copy de `subir.md`. Al 07/11: 195 cuentas, 66 % se va antes de 3 s, 17 s vistos | `produccion/reel-elecciones/subir.md` |
+| Carrusel «7 fechas que pueden mover el oro en noviembre» (11 láminas, identidad RIC, datos verificados, hora de Argentina; rehecho el mismo día para principiantes: «si sale más de X, el oro suele bajar») | Publicado el 05/11/2026 a las 08:02 (https://www.instagram.com/p/DfW4LaloSkO/). Al 07/11: 100 cuentas, 2 guardados, 0 comentarios | `produccion/carrusel-oro-noviembre/subir.md` |
 | Carruseles de resultado de cada fecha del oro (4 láminas: qué salió, qué hizo el oro con el gráfico real, por qué y qué viene) | Programados del 06/11 al 30/11 (tareas one-shot que vuelven al chat de Instagram) | `produccion/oro-resultados/LEEME.md` |
-| Resultado 1/7 · Empleo (NFP) del 06/11: 165 mil contra 60 mil esperados, el oro bajó 0,5 % en la primera hora | Entregado el 06/11/2026 a las 12:00; falta que Lean lo publique | `produccion/oro-resultados/nfp-2026-11.md` |
+| Resultado 1/7 · Empleo (NFP) del 06/11: 165 mil contra 60 mil esperados, el oro bajó 0,5 % en la primera hora | Publicado el 06/11/2026 a las 16:41 (https://www.instagram.com/p/DfaYXKTIWXP/). Al 07/11: 56 cuentas, 0 comentarios | `produccion/oro-resultados/nfp-2026-11.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
@@ -34,6 +34,8 @@ Los MP4 no van a git: se entregaron por el chat.
 
 ## Desempeño y cambios propuestos
 Revisión completa del 01/11/2026 con los datos de la API: `analisis/2026-11-01-revision-instagram.md` (se repite con `python herramientas/revisar_instagram.py`). Resumen: en 30 días interactuaron 132 cuentas (86 % de Argentina); el contenido llegó a 4.203 no seguidores y solo a 632 seguidores; ~24 % de los seguidores son de países sin habla hispana y no interactúan; lo que más comentarios trae es Lean analizando el oro, operando en vivo o personal (11 a 21 % de interacción), contra 4–5 % de los Reels de lecciones y noticias de octubre; entraron 15 seguidores y se fueron 35. Plan: 2 de cada 3 publicaciones con Lean, un solo estilo de noticias por semana, palabra clave en todo, historias diarias con stickers y bio nueva.
+
+**Revisión del 07/11/2026:** `analisis/2026-11-07-revision-instagram.md`. Corea (voz de Lean, expediente cine) llegó a 5.658 cuentas con 37 % de salida a los 3 s, el mejor de la cuenta, pero en esa semana entraron 4 seguidores y se fueron 15 (3.726); Elecciones (195) y los carruseles del oro (100 y 56) casi no circularon; 0 toques al link del perfil en 30 días. El plan sigue con cambios: expediente cine con la voz de Lean como único estilo de noticias (fin de semana, 20–22 h), bio y fijadas para convertir, carruseles solo para datos grandes (el resto en historias) y el curso del 16/11 con «Comentá CURSO» + ManyChat (calendario de la semana en la sección 6).
 
 El análisis del Reel «Perfil de volumen» (curva de retención, origen de las vistas y diagnóstico) está en
 `analisis/2026-11-01-reporte-reels-particulas.md`, sección 8. Los cambios que salieron de ahí son las reglas de abajo.
