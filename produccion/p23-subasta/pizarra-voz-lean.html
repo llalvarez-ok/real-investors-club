@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- P23 "El mercado es una subasta" en pizarra. Motor: herramientas/animaciones/pizarra.js.
+     Los tiempos salen de tiempos.js (herramientas/tiempos_pizarra.py): cada elemento aparece cuando la voz dice su palabra.
+     Datos reales en nq.js (datos_nq.py): NQ=F, sesión de Nueva York del 3, 4 y 5/11/2026, velas de 5 min y perfil de volumen.
+     Metáfora central: el remate de autos de Julián. Personajes: Julián = julian, Martín = bruno, el espectador = diego.
+     Cada escena ocupa una zona del lienzo (6 columnas en serpentina); las del gráfico de cada día comparten zona. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fdfdfb}
+#logo svg{width:190px;height:auto;display:block}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+<script src="../../herramientas/animaciones/pizarra.js"></script>
+<script src="tiempos-voz-lean.js"></script>
+<script src="nq.js"></script>
+</head><body>
+<script>
+const VERDE = "#1f9d63", ROJO = "#d93a3f", ORO = "#b8913f", GRIS = "#7d8597", TINTA = "#14213d";
+const BANDA_ORO = "rgba(199,163,94,.22)", BANDA_GRIS = "rgba(125,133,151,.16)", BARRA = "#9aa6bb";
+const T = window.TIEMPOS, FALTAN = (window.FALTAN = []);
+// zona de cada escena (índice = escena): las del gráfico del 3/11 (9 a 14), del 4/11 (15 a 18) y del 5/11 (19 y 20) comparten zona
+const ZONA = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const COLS = 6, DX = 2600, DY = 1500;
+const centro = (z) => { const fila = Math.floor(z / COLS); let col = z % COLS; if (fila % 2) col = COLS - 1 - col; return [col * DX, fila * DY]; };
+let S = 1, B = [0, 0];
+const en = (s) => { S = s; B = centro(ZONA[s]); };
+const ini = (s = S) => T.escenas[s - 1].ini, fin = (s = S) => T.escenas[s - 1].ini + T.escenas[s - 1].dur;
+const norm = (x) => x.toLowerCase().replace(/[^\wáéíóúüñ]/g, "");
+function w(palabra, n = 1, desfase = 0) {
+  const ps = T.escenas[S - 1].palabras, q = norm(palabra);
+  let k = 0;
+  for (const p of ps) if (p.p === q && ++k === n) return p.t + desfase;
+  FALTAN.push(`${S}:${palabra}#${n}`);
+  return ini() + 1;
+}
+const E = [];
+function add(o) {
+  const r = { ...o, x: B[0] + (o.x || 0), y: B[1] + (o.y || 0) };
+  if (o.respira) r.respira = { hasta: o.respira.hasta || fin() };
+  if (o.desde) { r.desde = [B[0] + o.desde[0], B[1] + o.desde[1]]; r.hasta = [B[0] + o.hasta[0], B[1] + o.hasta[1]]; r.x = 0; r.y = 0; }
+  E.push(r);
+  return r;
+}
+const txt = (texto, x, y, t, o = {}) => add({ tipo: "texto", texto, x, y, t, tam: 64, ancla: "middle", d: Math.min(1.4, 0.25 + texto.length * 0.045), ...o });
+const img = (src, x, y, w_, t, o = {}) => add({ tipo: "img", src, x, y, w: w_, t, d: 1.2, ...o });
+const trazo = (d, t, o = {}) => add({ tipo: "trazo", d, t, dur: 0.5, ...o });
+const tilde = (x, y, t, s = 1) => trazo(`M${x - 22 * s} ${y} L${x - 4 * s} ${y + 20 * s} L${x + 30 * s} ${y - 26 * s}`, t, { color: VERDE, grosor: 11 * Math.sqrt(s), dur: 0.3 });
+const cruz = (x, y, t, s = 24) => trazo(`M${x - s} ${y - s} L${x + s} ${y + s} M${x + s} ${y - s} L${x - s} ${y + s}`, t, { color: ROJO, grosor: 10, dur: 0.3 });
+const tacha = (x1, y1, x2, y2, t) => trazo(`M${x1} ${y1} L${x2} ${y2}`, t, { color: ROJO, grosor: 12, dur: 0.3 });
+const subraya = (x1, x2, y, t, color = ORO) => trazo(`M${x1} ${y} Q${(x1 + x2) / 2} ${y + 16} ${x2} ${y - 4}`, t, { color, grosor: 10, dur: 0.45 });
+const caja = (x1, y1, x2, y2, t, o = {}) => trazo(`M${x1} ${y1} L${x2} ${y1} L${x2} ${y2} L${x1} ${y2} Z`, t, { grosor: 7, dur: 0.5, ...o });
+const flecha = (x1, y1, x2, y2, t, color = TINTA, o = {}) => {
+  const a = Math.atan2(y2 - y1, x2 - x1), k = 34;
+  const p1 = [x2 - k * Math.cos(a - 0.45), y2 - k * Math.sin(a - 0.45)], p2 = [x2 - k * Math.cos(a + 0.45), y2 - k * Math.sin(a + 0.45)];
+  return trazo(`M${x1} ${y1} L${x2} ${y2} M${p1[0]} ${p1[1]} L${x2} ${y2} L${p2[0]} ${p2[1]}`, t, { color, grosor: 9, dur: 0.6, ...o });
+};
+const banda = (x1, x2, ya, yb, t, color = BANDA_ORO, o = {}) => trazo(`M${x1} ${(ya + yb) / 2} L${x2} ${(ya + yb) / 2}`, t, { color, grosor: Math.abs(yb - ya), dur: 0.7, punta: "butt", ...o });
+const titulo = (texto, o = {}) => txt(texto, 0, -400, ini() + 0.2, { tam: 78, ...o });
+// leyenda de una escena dentro de una zona compartida: arriba, y se borra al terminar la escena
+const nota = (texto, t, o = {}) => txt(texto, -120, -440, t, { tam: 58, color: ORO, desaparece: fin() - 0.3, ...o });
+const n2 = (v) => Math.round(v).toLocaleString("es-AR");
+const zigzag = (x1, x2, yc, amp, pasos) => { let d = `M${x1} ${yc}`; for (let i = 1; i <= pasos; i++) d += ` L${x1 + (x2 - x1) * i / pasos} ${yc + (i % 2 ? -amp : amp) * (0.6 + 0.4 * Math.sin(i * 1.7))}`; return d; };
+
+// ---------- gráficos con datos reales ----------
+function grafico(dia, lo, hi, o = {}) {
+  const D = window.NQ[dia], X0 = o.x0 ?? -720, X1 = o.x1 ?? 220, Y0 = 330, Y1 = -300, P0 = o.p0 ?? 300, PL = o.pl ?? 380;
+  const n = D.velas.length, paso = (X1 - X0) / (n - 1);
+  const PX = (i) => X0 + i * paso, PY = (p) => Y0 + (p - lo) / (hi - lo) * (Y1 - Y0);
+  const idx = (hhmm) => D.velas.findIndex((v) => v[0] === hhmm);
+  return {
+    D, PX, PY, idx, P0, PL, X0, X1,
+    ejes(t) { trazo(`M${X0 - 30} ${Y1 - 20} L${X0 - 30} ${Y0 + 20} L${X1 + 30} ${Y0 + 20}`, t, { grosor: 5, color: GRIS, dur: 0.5 }); },
+    precio(p, t, o2 = {}) { txt(n2(p), X0 - 45, PY(p) + 14, t, { tam: 36, color: GRIS, ancla: "end", ...o2 }); },
+    // dibuja las velas de a a b (índices), repartidas entre t1 y t2
+    velas(a, b, t1, t2) {
+      for (let i = a; i <= b; i++) {
+        const [, op, h, l, c] = D.velas[i], t = t1 + (t2 - t1) * (i - a) / Math.max(1, b - a), col = c >= op ? VERDE : ROJO, x = PX(i);
+        trazo(`M${x} ${PY(h)} L${x} ${PY(l)}`, t, { color: col, grosor: 2.5, dur: 0.12 });
+        const y1 = PY(Math.max(op, c)), y2 = Math.max(PY(Math.min(op, c)), y1 + 2.5);
+        trazo(`M${x} ${y1} L${x} ${y2}`, t + 0.04, { color: col, grosor: Math.max(5, paso * 0.66), dur: 0.12 });
+      }
+    },
+    // perfil de volumen: barras horizontales que crecen de abajo hacia arriba entre t1 y t2
+    perfil(t1, t2, o2 = {}) {
+      const pf = D.perfil, h = Math.abs(PY(lo + 10) - PY(lo)), x0 = o2.x0 ?? P0, largo = o2.largo ?? PL;
+      pf.forEach(([b, f], i) => {
+        const y = PY(b + 5), t = t1 + (t2 - t1) * i / (pf.length - 1);
+        trazo(`M${x0} ${y} L${x0 + Math.max(3, f * largo)} ${y}`, t, { color: o2.color || BARRA, grosor: Math.max(1.6, h * 0.78), dur: 0.25, ...(o2.extra || {}) });
+      });
+    },
+    // contorno de la campana sobre las puntas de las barras (suavizado)
+    contorno(t, dur = 1.6, o2 = {}) {
+      const pf = D.perfil, k = 2;
+      const sm = pf.map((_, i) => { let s = 0, c = 0; for (let j = i - k; j <= i + k; j++) if (pf[j]) { s += pf[j][1]; c++; } return s / c; });
+      const d = pf.map(([b], i) => `${i ? "L" : "M"}${(P0 + sm[i] * PL + 14).toFixed(1)} ${PY(b + 5).toFixed(1)}`).join(" ");
+      trazo(d, t, { color: o2.color || ORO, grosor: 7, dur, ...o2 });
+    },
+    franja(a, b, t, color = BANDA_ORO, o2 = {}) { banda(o2.x1 ?? X0 - 10, o2.x2 ?? P0 + PL + 20, PY(a), PY(b), t, color, o2); },
+    linea(p, t, color = ORO, o2 = {}) { trazo(`M${o2.x1 ?? X0 - 10} ${PY(p)} L${o2.x2 ?? P0 + PL + 20} ${PY(p)}`, t, { color, grosor: 6, dur: 0.6, ...o2 }); },
+  };
+}
+
+// 1 · Gancho: dos días
+en(1);
+img("obj-tear-off-calendar", -560, -170, 190, w("martes", 1, -0.2), { efecto: "pop" });
+txt("mar 3/11", -560, -310, w("martes", 1, 0.2), { tam: 66 });
+trazo(zigzag(-780, -340, 40, 22, 14), w("uno", 1, -0.3), { color: TINTA, grosor: 7, dur: 1.0 });
+txt("rango 0,8 %", -560, 150, w("ciento", 1, 0), { tam: 54, color: GRIS });
+img("obj-tear-off-calendar", 560, -170, 190, w("jueves", 1, -0.2), { efecto: "pop" });
+txt("jue 5/11", 560, -310, w("jueves", 1, 0.2), { tam: 66 });
+trazo("M340 0 L420 -10 L470 40 L540 30 L600 110 L650 100 L720 210 L780 260", w("seis", 1, -0.3), { color: ROJO, grosor: 8, dur: 0.9 });
+txt("−6,4 %", 560, 330, w("seis", 1, 0.3), { tam: 80, color: ROJO, efecto: "pop" });
+img("peep-diego-feliz", 0, 130, 300, w("estrategia", 1, -0.3), { respira: true, cambios: [{ t: w("destruye", 1, -0.1), src: "peep-diego-preocupada" }] });
+txt("¿qué día te toca?", 0, -420, w("toca", 1, -0.6), { tam: 84, color: ORO });
+txt("vuelve al medio", -560, 240, w("lugar", 1, -0.3), { tam: 50, color: GRIS });
+txt("no vuelve nunca", 560, 420, w("nunca", 1, -0.3), { tam: 50, color: ROJO });
+img("obj-busts-in-silhouette", 0, -250, 130, w("gente", 1, -0.2), { efecto: "pop" });
+txt("se podía ver antes de entrar", 0, 470, w("ver", 1, -0.2), { tam: 62, color: ORO });
+
+// 2 · Qué vas a ver
+en(2);
+txt("el mercado es una subasta", 0, -400, w("subasta", 1, -0.4), { tam: 84, color: ORO });
+img("obj-hammer", 560, -400, 110, w("subasta", 1, 0.3), { efecto: "pop" });
+[["los dos modos del mercado", "modos"], ["el gráfico dado vuelta", "vuelta"], ["dónde se negoció de verdad", "verdad"], ["tres preguntas antes de operar", "preguntas"]].forEach(([t_, p], i) => {
+  const y = -210 + i * 130, t0 = w(p, 1, -0.5);
+  caja(-640, y - 38, -572, y + 28, t0, { dur: 0.3 });
+  txt(t_, -530, y + 16, t0 + 0.2, { tam: 62, ancla: "start" });
+  tilde(-606, y - 8, t0 + 1.0);
+});
+txt("Nasdaq · 3, 4 y 5 de noviembre", 0, 400, w("noviembre", 1, -0.4), { tam: 60, color: GRIS });
+
+// 3 · La palabra para comentar
+en(3);
+trazo("M-760 -60 L-260 -60", w("máximo", 1, -0.6), { color: GRIS, grosor: 6, dur: 0.4 });
+trazo("M-700 120 L-580 40 L-500 70 L-420 -120 L-360 20 L-300 180", w("máximo", 1, -0.2), { color: TINTA, grosor: 8, dur: 1.4 });
+cruz(-420, -160, w("atrás", 1, -0.2));
+txt("¿compraste la ruptura… y volvió?", -500, -300, w("pregunta", 1, 0), { tam: 60 });
+img("obj-speech-balloon", 380, 0, 440, w("comentarios", 1, -0.4), { d: 1.0 });
+txt("SUBASTA", 380, 10, w("subasta", 1, -0.1), { tam: 140, color: ORO, efecto: "pop", giro: -4 });
+txt("¿por qué pasa tan seguido?", 0, 400, w("seguido", 1, -0.8), { tam: 64, color: GRIS });
+
+// 4 · La metáfora: el remate de Julián
+en(4);
+titulo("El remate de Julián", { color: ORO });
+img("peep-julian-feliz", -620, 80, 320, w("julián", 1, -0.3), { respira: true });
+img("obj-hammer", -380, -40, 130, w("rematador", 1, 0), { efecto: "pop", vibra: { t: w("rematador", 1, 0.3), dur: 0.6 } });
+img("obj-automobile", 330, 200, 420, w("auto", 1, -0.2));
+txt("auto usado, buen estado", 330, 420, w("estado", 1, -0.3), { tam: 48, color: GRIS });
+txt("US$ 20.000", 330, -270, w("veinte", 1, -0.2), { tam: 64 });
+tacha(170, -290, 490, -280, w("nadie", 1, 0.2));
+txt("US$ 18.000", 330, -170, w("dieciocho", 1, -0.2), { tam: 64 });
+tacha(170, -190, 490, -180, w("nada", 1, 0));
+txt("US$ 16.000", 330, -70, w("dieciséis", 1, -0.2), { tam: 64, color: VERDE });
+img("obj-raised-hand-light", 640, -90, 110, w("mano", 2, -0.2), { efecto: "pop" });
+
+// 5 · El precio justo
+en(5);
+titulo("El precio justo");
+trazo("M-300 330 L-300 -300", w("ofertas", 1, -0.4), { grosor: 6, color: GRIS, dur: 0.5 });
+const PJ = (v) => 200 - (v - 16000) / 2000 * 480;
+[[16000, "16.000"], [16500, "16.500"], [17000, "17.000"], [17200, "17.200"], [18000, "18.000"]].forEach(([v, l]) => txt(l, -330, PJ(v) + 14, w("ofertas", 1, 0) + (v - 16000) / 2000, { tam: 44, color: GRIS, ancla: "end" }));
+img("obj-raised-hand-light", -150, PJ(16000), 80, w("ofertas", 1, 0.3), { efecto: "pop" });
+img("obj-raised-hand-light", -150, PJ(16500), 80, w("quinientos", 1, -0.1), { efecto: "pop" });
+for (let i = 0; i < 7; i++) img("obj-raised-hand-light", -150 + i * 95, PJ(17000) + (i % 2 ? -30 : 25), 80, w("manos", 1, -0.3) + i * 0.12, { efecto: "pop" });
+img("obj-raised-hand-light", -150, PJ(18000), 80, w("doscientos", 1, 0.2), { efecto: "pop", desaparece: w("manos", 1, 0.5) });
+txt("precio justo ≈ 17.000", 620, PJ(17000) + 18, w("justo", 1, -0.3), { tam: 64, color: ORO });
+subraya(380, 860, PJ(17000) + 40, w("justo", 1, 0.5));
+txt("lo decidieron las ofertas", 300, 420, w("decidieron", 1, -0.3), { tam: 62 });
+
+// 6 · La noticia
+en(6);
+img("obj-speech-balloon", -500, -200, 380, w("famoso", 1, -1.6), { d: 1.0 });
+txt("¡era de un piloto!", -500, -195, w("piloto", 1, -0.2), { tam: 54 });
+img("obj-racing-car", -500, 170, 320, w("piloto", 1, 0.3));
+img("obj-glowing-star", -260, -330, 80, w("famoso", 1, 0), { efecto: "pop" });
+txt("17.000 = barato", 0, -420, w("barato", 1, -0.3), { tam: 66, color: GRIS });
+txt("19.000", 300, 230, w("diecinueve", 1, -0.1), { tam: 62, color: VERDE, efecto: "pop" });
+txt("22.000", 460, 60, w("veintidós", 1, -0.1), { tam: 62, color: VERDE, efecto: "pop" });
+txt("25.000", 620, -110, w("veinticinco", 1, -0.1), { tam: 62, color: VERDE, efecto: "pop" });
+flecha(180, 330, 760, -240, w("corriendo", 1, -0.4), VERDE);
+img("obj-dashing-away", 820, -160, 110, w("corriendo", 1, 0.2), { efecto: "pop" });
+txt("busca un lugar nuevo", 320, 440, w("nuevo", 1, -0.3), { tam: 64, color: ORO });
+
+// 7 · Dos modos: equilibrio
+en(7);
+img("obj-desktop-computer", -620, -150, 260, w("remate", 1, -0.2));
+[[-800, -330], [-440, -330], [-820, 20], [-420, 20]].forEach(([x, y], i) => img("obj-raised-hand-light", x, y, 80, w("acuerdo", 1, -0.3) + i * 0.15, { efecto: "pop" }));
+txt("un remate que no termina", -620, 160, w("nunca", 1, -0.2), { tam: 54, color: GRIS });
+txt("EQUILIBRIO", 330, -380, w("equilibrio", 1, -0.2), { tam: 96, color: ORO, efecto: "pop" });
+img("obj-balance-scale", 330, -170, 260, w("equilibrio", 1, 0.4));
+banda(-200, 860, 190, 350, w("zona", 1, -0.3));
+trazo(zigzag(-180, 840, 270, 55, 16), w("viene", 1, -0.3), { grosor: 7, dur: 2.2 });
+img("obj-relieved-face", -620, 300, 100, w("apuro", 1, -0.2), { efecto: "pop" });
+txt("parece aburrido…", -620, 430, w("aburrido", 1, -0.3), { tam: 50, color: GRIS });
+txt("la mayor parte del tiempo", 330, 460, w("mayor", 1, -0.3), { tam: 60 });
+
+// 8 · Dos modos: desequilibrio
+en(8);
+txt("DESEQUILIBRIO", -420, -330, w("desequilibrio", 1, -0.2), { tam: 92, color: ORO, efecto: "pop" });
+img("obj-balance-scale", -420, -110, 240, w("desequilibrio", 1, 0.4), { mueve: [{ t: w("nuevo", 1, -0.2), dur: 0.5, giro: -18 }] });
+img("obj-racing-car", -420, 200, 200, w("piloto", 1, -0.2), { efecto: "pop" });
+banda(-150, 330, 250, 380, w("zona", 1, -0.6), BANDA_GRIS);
+trazo(zigzag(-140, 200, 315, 40, 8) + " L330 120 L470 -40 L560 -170", w("sale", 1, -0.2), { grosor: 7, color: VERDE, dur: 1.6 });
+banda(470, 900, -240, -110, w("otro", 1, -0.2));
+trazo(zigzag(560, 880, -175, 35, 8), w("equilibrio", 1, -0.2), { grosor: 7, dur: 1.4 });
+txt("equilibrio nuevo", 690, -280, w("equilibrio", 1, 0.3), { tam: 54, color: ORO });
+trazo("M700 0 C820 120 640 260 520 200", w("ciclo", 1, -0.3), { grosor: 6, color: GRIS, dur: 0.6 });
+txt("y el ciclo vuelve a empezar", 520, 330, w("ciclo", 1, 0), { tam: 52, color: GRIS });
+
+// 9 a 14 · Martes 3/11: equilibrio, perfil, punto de control, área de valor, Martín
+const G3 = grafico("2026-11-03", 28190, 28470);
+en(9);
+txt("Nasdaq (NQ) · martes 3/11 · Nueva York", 520, -470, ini() + 0.2, { tam: 46, color: GRIS });
+G3.ejes(w("nasdaq", 1, -0.3));
+G3.velas(0, 77, w("arrancó", 1, -0.2), w("franja", 1, -0.3));
+G3.precio(28266, w("setenta", 1, -0.2));
+G3.precio(28444, w("cuarenta", 1, -0.2), { color: TINTA });
+G3.precio(28216, w("dieciséis", 1, -0.2), { color: TINTA });
+G3.franja(28216, 28444, w("franja", 1, 0), BANDA_GRIS, { x2: G3.X1 + 20 });
+nota("228 puntos · 0,8 %", w("puntos", 2, -0.3));
+txt("equilibrio de manual", -250, 440, w("manual", 1, -0.4), { tam: 62, color: ORO, desaparece: fin() - 0.2 });
+en(10);
+nota("¿en qué precios se negoció más?", w("pregunta", 1, -0.2), { color: TINTA });
+txt("contratos negociados en cada precio", -250, 440, w("contratos", 1, -0.2), { tam: 54, desaparece: w("foto", 1, -0.8) });
+G3.perfil(w("barra", 1, -0.3), w("vuelta", 1, 0));
+txt("perfil de volumen", 500, -330, w("perfil", 1, -0.3), { tam: 56, color: ORO });
+G3.contorno(w("campana", 1, -0.2), 1.6);
+txt("pocas arriba", 720, G3.PY(28440), w("arriba", 1, -0.2), { tam: 40, color: GRIS, ancla: "start", desaparece: fin() - 0.2 });
+txt("pocas abajo", 720, G3.PY(28225), w("abajo", 1, -0.2), { tam: 40, color: GRIS, ancla: "start", desaparece: fin() - 0.2 });
+txt("panza", 740, G3.PY(28330), w("panza", 1, -0.2), { tam: 44, color: ORO, ancla: "start", desaparece: fin() - 0.2 });
+txt("campana = equilibrio", 500, 420, w("foto", 1, -0.6), { tam: 56, color: ORO, desaparece: fin() - 0.2 });
+en(11);
+G3.linea(window.NQ["2026-11-03"].poc + 5, w("control", 1, -0.2));
+nota("punto de control ≈ 28.310", w("control", 1, 0));
+img("obj-automobile", 820, G3.PY(28315) - 70, 110, w("diecisiete", 1, -0.2), { efecto: "pop", desaparece: fin() - 0.2 });
+txt("17.000", 820, G3.PY(28315) + 60, w("diecisiete", 1, 0), { tam: 40, color: GRIS, desaparece: fin() - 0.2 });
+txt("donde más se negoció en el día", -250, 440, w("negoció", 1, -0.2), { tam: 56, desaparece: fin() - 0.2 });
+en(12);
+G3.franja(28290, 28390, w("valor", 1, -0.2));
+nota("área de valor: 70 % del volumen", w("setenta", 1, -0.4));
+txt("alto 28.390", 720, G3.PY(28390) - 6, w("noventa", 2, -0.2), { tam: 40, color: ORO, ancla: "start" });
+txt("bajo 28.290", 720, G3.PY(28290) + 34, w("noventa", 1, -0.2), { tam: 40, color: ORO, ancla: "start" });
+txt("el precio razonable de ese día", -250, 440, w("razonable", 1, -0.4), { tam: 58, desaparece: fin() - 0.2 });
+en(13);
+const i11 = G3.idx("11:00");
+img("peep-bruno-feliz", -860, 120, 190, w("martín", 1, -0.3), { respira: { hasta: fin(14) }, cambios: [{ t: w("volvió", 1, 0), src: "peep-bruno-preocupada" }] });
+trazo(`M${G3.X0} ${G3.PY(28422)} L${G3.PX(i11) + 20} ${G3.PY(28422)}`, w("mañana", 2, -0.3), { color: GRIS, grosor: 4, dur: 0.6 });
+caja(G3.PX(i11) - 30, G3.PY(28455), G3.PX(i11 + 5) + 30, G3.PY(28330), w("ruptura", 1, -0.4), { color: ROJO, grosor: 6 });
+nota("Martín compra la ruptura: 28.444", w("compró", 1, -0.3), { x: -560, tam: 52 });
+txt("compré acá", G3.PX(i11) + 40, G3.PY(28455) - 20, w("compró", 1, 0), { tam: 44, color: ROJO, ancla: "start" });
+flecha(G3.PX(i11 + 1), G3.PY(28440), G3.PX(i11 + 5), G3.PY(28355), w("volvió", 1, -0.2), ROJO);
+txt("vuelve al medio de la campana", -560, -370, w("campana", 1, -0.4), { tam: 48, color: ROJO, desaparece: fin() - 0.2 });
+en(14);
+const i13 = G3.idx("13:30"), i14 = G3.idx("14:30");
+nota("sin noticia, la ruptura no tiene compradores", w("noticia", 1, -0.3), { tam: 50 });
+img("obj-raised-hand-light", 820, -300, 90, w("probar", 1, -0.2), { efecto: "pop", mueve: [{ t: w("compradores", 1, 0.3), dur: 0.5, dy: 90 }], desaparece: w("acuerdo", 1, 0.6) });
+txt("vuelve a donde había acuerdo", -250, 440, w("volvió", 1, -0.2), { tam: 56, desaparece: w("tarde", 1, -0.5) });
+txt("por la tarde, otra vez", -250, 440, w("tarde", 1, -0.3), { tam: 56, desaparece: fin() - 0.2 });
+caja(G3.PX(i13) - 25, G3.PY(28450), G3.PX(i14 + 4) + 25, G3.PY(28230), w("tarde", 1, 0.3), { color: ROJO, grosor: 6 });
+txt("28.432", G3.PX(i13) - 10, G3.PY(28450) - 15, w("treinta", 1, -0.2), { tam: 40, color: ROJO });
+flecha(G3.PX(i13 + 2), G3.PY(28425), G3.PX(i14 + 2), G3.PY(28268), w("después", 1, -0.3), ROJO);
+txt("28.260", G3.PX(i14 + 2) + 15, G3.PY(28268) + 46, w("sesenta", 1, -0.2), { tam: 40, color: ROJO });
+
+// 15 a 18 · Miércoles 4/11: sale arriba, equilibrio nuevo, nodo de bajo volumen
+const G4 = grafico("2026-11-04", 28250, 29000);
+en(15);
+txt("Nasdaq (NQ) · miércoles 4/11", 560, -470, ini() + 0.2, { tam: 46, color: GRIS });
+G4.ejes(ini() + 0.4);
+G4.franja(28290, 28390, w("martes", 1, -0.2), BANDA_GRIS, { x1: G4.X0 - 220, x2: G4.X1 + 20 });
+txt("valor del martes", G4.X0 + 10, G4.PY(28290) + 50, w("martes", 1, 0.3), { tam: 42, color: GRIS, ancla: "start" });
+G4.precio(28430, w("treinta", 1, -0.2), { color: TINTA });
+G4.velas(0, 0, w("abrió", 1, 0), w("abrió", 1, 0));
+G4.velas(1, 5, w("primera", 1, 0), w("sesenta", 1, 0));
+G4.precio(28868, w("sesenta", 1, -0.2), { color: VERDE });
+G4.velas(6, 7, w("siguió", 1, 0), w("nueve", 1, 0));
+G4.precio(28969, w("nueve", 1, -0.2), { color: VERDE });
+flecha(G4.PX(0), G4.PY(28440), G4.PX(5), G4.PY(28880), w("subió", 1, 0), VERDE, { grosor: 7 });
+nota("no vuelve a entrar: sale del equilibrio", w("salir", 1, -0.4));
+en(16);
+G4.velas(8, 77, w("después", 1, 0), w("arriba", 1, 0.5));
+G4.perfil(w("campana", 1, -0.4), w("arriba", 1, 0.8));
+G4.linea(window.NQ["2026-11-04"].poc + 5, w("control", 1, -0.2));
+nota("equilibrio nuevo, más arriba", w("acuerdo", 1, -0.3));
+// el perfil del martes, en gris, a la izquierda y en la misma escala
+window.NQ["2026-11-03"].perfil.forEach(([b, f], i) => trazo(`M${G4.X0 - 220} ${G4.PY(b + 5)} L${G4.X0 - 220 + f * 170} ${G4.PY(b + 5)}`, w("martes", 1, -0.3) + i * 0.02, { color: GRIS, grosor: 6.5, dur: 0.2 }));
+trazo(`M${G4.X0 - 220} ${G4.PY(28315)} L${G4.X0 - 40} ${G4.PY(28315)}`, w("martes", 1, 0.3), { color: ORO, grosor: 5, dur: 0.4 });
+flecha(G4.X0 - 120, G4.PY(28330), G4.X0 - 120, G4.PY(28610), w("trescientos", 1, -0.3), ORO, { grosor: 7 });
+txt("+310", G4.X0 - 210, G4.PY(28480), w("trescientos", 1, 0.2), { tam: 56, color: ORO, ancla: "start" });
+txt("acepta precios más altos", -250, 440, w("aceptó", 1, -0.3), { tam: 58, color: VERDE, desaparece: fin() - 0.2 });
+en(17);
+caja(G4.P0 - 10, G4.PY(28515), G4.P0 + 150, G4.PY(28395), w("cortitas", 1, -0.3), { color: ROJO, grosor: 6 });
+G4.franja(28400, 28510, w("corriendo", 1, -0.3), "rgba(217,58,63,.10)");
+img("obj-rabbit", G4.P0 + 260, G4.PY(28455), 120, w("corriendo", 1, 0), { efecto: "pop", mueve: [{ t: w("corriendo", 1, 0.3), dur: 1.2, dy: -260 }], desaparece: fin() - 0.3 });
+nota("nodo de bajo volumen: pasó apurado", w("nodo", 1, -0.3));
+txt("nadie se quedó a discutir", -250, 440, w("discutir", 1, -0.5), { tam: 56, desaparece: fin() - 0.2 });
+en(18);
+const j11 = G4.idx("11:00"), j1130 = G4.idx("11:30");
+img("obj-magnifying-glass-tilted-left", G4.PX(j11) - 40, G4.PY(28400) + 60, 110, w("importa", 1, -0.2), { efecto: "pop", desaparece: fin() - 0.2 });
+nota("casi nadie tiene posiciones ahí", w("posiciones", 1, -0.4), { color: TINTA });
+caja(G4.PX(j11) - 20, G4.PY(28520), G4.PX(j11 + 5) + 20, G4.PY(28455), w("tocó", 1, -0.3), { color: ORO, grosor: 6 });
+txt("28.474", G4.PX(j11) + 10, G4.PY(28455) + 46, w("cuatro", 1, -0.2), { tam: 40, color: ORO });
+flecha(G4.PX(j11 + 4), G4.PY(28480), G4.PX(j1130 + 5), G4.PY(28785), w("subió", 1, -0.2), VERDE, { grosor: 7 });
+txt("+318", G4.PX(j1130 + 5) + 20, G4.PY(28785) - 20, w("trescientos", 1, 0), { tam: 48, color: VERDE, ancla: "start" });
+txt("se mueve rápido: para un lado o para el otro", -120, 440, w("rápido", 1, -0.2), { tam: 50, desaparece: w("tocó", 1, -0.3) });
+txt("no es una garantía: es un lugar para prestar atención", -120, 440, w("garantía", 1, -0.4), { tam: 50, color: GRIS, desaparece: fin() - 0.2 });
+
+// 19 y 20 · Jueves 5/11: el remate se rompe
+const G5 = grafico("2026-11-05", 26650, 28850);
+en(19);
+txt("Nasdaq (NQ) · jueves 5/11", 560, -470, ini() + 0.2, { tam: 46, color: GRIS });
+G5.ejes(ini() + 0.4);
+G5.franja(28550, 28790, w("miércoles", 1, -0.2), BANDA_GRIS, { x2: G5.X1 + 20 });
+txt("valor del miércoles", G5.X0 + 10, G5.PY(28790) - 14, w("miércoles", 1, 0.3), { tam: 42, color: GRIS, ancla: "start" });
+G5.velas(0, 0, w("abrió", 1, 0), w("abrió", 1, 0));
+G5.precio(28203, w("tres", 1, -0.2), { color: TINTA });
+G5.velas(1, 5, w("primera", 1, 0), w("ocho", 1, 0));
+G5.precio(27458, w("ocho", 1, -0.2), { color: ROJO });
+nota("no vuelve a entrar", w("entrar", 1, -0.3), { color: ROJO });
+G5.velas(6, 77, w("siguió", 1, 0), w("dieciocho", 1, 0.6));
+G5.precio(26718, w("dieciocho", 1, -0.2), { color: ROJO });
+flecha(G5.PX(1), G5.PY(28150), G5.PX(14), G5.PY(26800), w("setecientos", 1, -0.2), ROJO, { grosor: 7 });
+en(20);
+G5.perfil(w("perfil", 1, -0.2), w("campana", 1, 0));
+caja(G5.P0 - 10, G5.PY(28230), G5.P0 + 140, G5.PY(27500), w("cola", 1, -0.3), { color: ROJO, grosor: 6 });
+nota("arriba, una cola finita: pasó apurado", w("cola", 1, 0));
+G5.franja(26830, 27500, w("campana", 1, -0.2));
+G5.linea(window.NQ["2026-11-05"].poc + 5, w("novecientos", 1, -0.3));
+txt("≈ 26.900", 760, G5.PY(26905) - 14, w("novecientos", 1, 0), { tam: 42, color: ORO, ancla: "start" });
+txt("−6,4 % al cierre", -250, 440, w("seis", 1, -0.3), { tam: 80, color: ROJO, efecto: "pop" });
+
+// 21 · La misma estrategia, dos resultados
+en(21);
+img("obj-newspaper", -740, -330, 150, w("saber", 1, -0.2), { efecto: "pop" });
+cruz(-740, -330, w("cayó", 1, 0), 60);
+txt("no hace falta saber por qué", -380, -320, w("cayó", 1, 0.2), { tam: 52, color: GRIS, ancla: "start" });
+txt("abrió lejos del valor y no volvió", -380, -250, w("lejos", 1, -0.2), { tam: 44, color: GRIS, ancla: "start", desaparece: w("fíjate", 1, 0) });
+img("obj-chart-decreasing", 560, -330, 100, w("bajada", 1, -0.2), { efecto: "pop" });
+img("obj-anxious-face-with-sweat", 760, -330, 100, w("mal", 1, -0.2), { efecto: "pop" });
+const CX = [-60, 340, 740];
+[["martes", "(equilibrio)", "martes", 2], ["miércoles", "(sale arriba)", "miércoles", 1], ["jueves", "(sale abajo)", "jueves", 1]].forEach(([a, b, p, n], i) => {
+  const t0 = i === 1 ? w("ruptura", 1, -0.4) : w(p, n, -0.4);
+  txt(a, CX[i], -170, t0, { tam: 56 }); txt(b, CX[i], -115, t0 + 0.3, { tam: 40, color: GRIS });
+});
+txt("comprar bajadas", -560, 30, w("bajadas", 1, -0.3), { tam: 56 });
+txt("seguir la ruptura", -560, 200, w("ruptura", 1, -0.3), { tam: 56 });
+trazo("M-860 -80 L900 -80 M-860 110 L900 110 M-240 -220 L-240 280", w("bajadas", 1, -0.6), { color: GRIS, grosor: 4, dur: 0.6 });
+tilde(CX[0], 15, w("funcionó", 1, 0), 1.3);
+txt("–", CX[1], 40, w("funcionó", 1, 0.3), { tam: 60, color: GRIS });
+cruz(CX[2], 15, w("desastre", 1, 0), 30);
+cruz(CX[0], 185, w("falló", 1, 0), 30);
+tilde(CX[1], 185, w("funcionó", 2, 0), 1.3);
+tilde(CX[2], 185, w("funcionó", 2, 0.5), 1.3);
+txt("la estrategia tiene que encajar con el modo del mercado", 0, 430, w("encajan", 1, -0.5), { tam: 58, color: ORO });
+
+// 22 · La cuenta de dos años
+en(22);
+titulo("La cuenta: Nasdaq, 2024 a 2026");
+txt("¿alcanza con abrir fuera?", -120, -300, w("alcanza", 1, -0.3), { tam: 56, desaparece: w("seguido", 1, -0.5) });
+txt("No.", 420, -300, w("no", 1, -0.1), { tam: 70, color: ROJO, efecto: "pop", desaparece: w("seguido", 1, -0.5) });
+txt("abre fuera del valor de ayer: 395 de 587 sesiones", 0, -260, w("seguido", 1, -0.2), { tam: 56 });
+txt("2 de cada 3", 0, -170, w("tres", 1, -0.2), { tam: 70, color: ORO, efecto: "pop" });
+img("obj-coin", -640, 130, 200, w("mitad", 1, -0.3), { efecto: "pop", gira: { t: w("mitad", 1, 0), dur: 2.4 } });
+caja(-400, 2, 600, 58, w("mitad", 1, 0), { grosor: 5, color: GRIS, dur: 0.4 });
+trazo("M-388 30 L122 30", w("entrar", 1, -0.2), { color: VERDE, grosor: 40, dur: 0.9 });
+txt("vuelve a entrar ≈ 51 %", 100, -20, w("entrar", 1, 0.2), { tam: 48, color: VERDE });
+caja(-400, 152, 600, 208, w("volvió", 2, -0.3), { grosor: 5, color: GRIS, dur: 0.4 });
+trazo("M-388 180 L102 180", w("volvió", 2, 0), { color: ROJO, grosor: 40, dur: 0.9 });
+txt("no vuelve ≈ 49 %", 100, 255, w("volvió", 2, 0.4), { tam: 48, color: ROJO });
+txt("2 meses, velas de 5 min: 55 %", 0, 340, w("parecido", 1, -0.4), { tam: 46, color: GRIS });
+txt("estadística del pasado, no una promesa", 0, 440, w("promesa", 1, -0.6), { tam: 60, color: ORO });
+
+// 23 · Aceptación o rechazo
+en(23);
+img("obj-coin", -760, -360, 100, w("moneda", 1, -0.2), { efecto: "pop" });
+txt("la apertura sola no dice nada", -300, -360, w("nada", 1, -0.4), { tam: 52, color: GRIS });
+img("obj-door", -560, 60, 280, w("máximo", 1, -0.3));
+txt("romper ≠ salir", -560, -190, w("salir", 1, -0.2), { tam: 72, color: ORO });
+trazo("M-420 230 C-300 160 -300 40 -420 0", w("equilibrio", 1, 0), { color: GRIS, grosor: 6, dur: 0.5 });
+txt("se queda afuera y negocia", 380, -110, w("afuera", 1, -0.2), { tam: 54 });
+txt("→ ACEPTA", 380, -30, w("aceptando", 1, -0.2), { tam: 70, color: VERDE, efecto: "pop" });
+tilde(640, -50, w("aceptando", 1, 0.3), 1.3);
+txt("vuelve a entrar rápido", 380, 140, w("rápido", 1, -0.3), { tam: 54 });
+txt("→ RECHAZA", 380, 220, w("rechazando", 1, -0.2), { tam: 70, color: ROJO, efecto: "pop" });
+cruz(660, 200, w("rechazando", 1, 0.3), 26);
+txt("miércoles  vs.  Martín", 0, 420, w("diferencia", 1, -0.2), { tam: 62, color: ORO });
+
+// 24 · Pregunta 1
+en(24);
+img("obj-clipboard", -580, 40, 380, w("preguntas", 1, -0.3));
+txt("Antes de operar", -580, -300, w("operación", 1, -0.3), { tam: 64, color: ORO });
+txt("1. ¿Dónde estuvo el valor ayer?", 330, -260, w("primera", 1, -0.1), { tam: 66 });
+txt("punto de control + área de valor", 330, -160, w("control", 1, -0.3), { tam: 50, color: GRIS });
+img("obj-world-map", 330, 140, 380, w("mapa", 1, -0.3));
+img("obj-round-pushpin", 400, 90, 90, w("justo", 1, -0.3), { efecto: "pop" });
+txt("tu mapa", 330, 380, w("mapa", 1, 0.3), { tam: 56, color: ORO });
+
+// 25 · Pregunta 2
+en(25);
+txt("2. ¿Dónde estás hoy?", 0, -400, w("segunda", 1, -0.1), { tam: 72 });
+banda(-500, 500, -40, 80, w("valor", 1, -0.2));
+txt("valor de ayer", 0, 40, w("valor", 1, 0.3), { tam: 46, color: ORO });
+flecha(-700, -260, -560, -110, w("arriba", 1, -0.2), TINTA); txt("arriba", -760, -290, w("arriba", 1, 0), { tam: 52 });
+flecha(-700, 300, -560, 150, w("abajo", 1, -0.2), TINTA); txt("abajo", -760, 360, w("abajo", 1, 0), { tam: 52 });
+txt("adentro", 0, -80, w("adentro", 1, -0.2), { tam: 52 });
+txt("adentro: idas y vueltas, desconfía de las rupturas", 0, 260, w("desconfianza", 1, -0.8), { tam: 52 });
+txt("afuera: presta atención", 0, 380, w("atención", 1, -0.4), { tam: 58, color: ORO });
+
+// 26 · Pregunta 3
+en(26);
+txt("3. ¿Acepta o rechaza?", 0, -400, w("tercera", 1, -0.1), { tam: 72 });
+banda(-700, -100, 160, 300, w("precio", 1, -0.2), BANDA_GRIS);
+trazo("M-650 230 L-560 200 L-480 250 L-380 210 L-300 30 L-200 -60", w("afuera", 1, -0.3), { grosor: 7, color: VERDE, dur: 0.8 });
+[0.25, 0.5, 0.8, 1, 0.75, 0.45, 0.2].forEach((f, i) => trazo(`M-160 ${-230 + i * 26} L${-160 + f * 200} ${-230 + i * 26}`, w("campana", 1, -0.2) + i * 0.08, { color: ORO, grosor: 18, dur: 0.2 }));
+txt("¿arma una campana nueva?", 360, -150, w("campana", 1, 0.2), { tam: 54 });
+txt("¿o vuelve rápido al medio?", 360, -40, w("medio", 1, -0.2), { tam: 54 });
+img("obj-hourglass-not-done", 360, 170, 160, w("sabes", 1, -0.2), { efecto: "pop" });
+txt("a veces, la mejor operación es no operar", 0, 420, w("operar", 1, -0.8), { tam: 62, color: ORO });
+
+// 27 · Lo que no es
+en(27);
+img("obj-crystal-ball", -640, -160, 240, w("adivina", 1, -0.2));
+tacha(-760, -40, -520, -280, w("futuro", 1, 0));
+txt("muestra dónde se negoció, no dónde se va a negociar", 0, -420, w("muestra", 1, -0.2), { tam: 50, color: GRIS });
+txt("contexto, no una orden", -640, 120, w("contexto", 1, -0.2), { tam: 60, color: ORO });
+img("peep-julian-feliz", 250, 140, 280, w("julián", 1, -0.2), { respira: true });
+img("obj-magnifying-glass-tilted-left", 420, 20, 110, w("salón", 1, -0.2), { efecto: "pop" });
+[0, 1, 2].forEach((i) => img("obj-raised-hand-light", -240 + i * 90, 360, 70, w("despacio", 1, -0.2) + i * 0.6, { efecto: "pop" }));
+txt("hay acuerdo", -150, 450, w("acuerdo", 1, -0.3), { tam: 48, color: VERDE });
+[0, 1, 2, 3].forEach((i) => img("obj-raised-hand-light", 560 + i * 80, 360, 70, w("juntas", 1, -0.1), { efecto: "pop" }));
+txt("algo cambió", 680, 450, w("cambió", 1, -0.3), { tam: 48, color: ROJO });
+
+// 28 · Actividad
+en(28);
+titulo("Tu semana de práctica", { color: ORO });
+img("obj-desktop-computer", -700, -150, 220, w("plataforma", 1, -0.2), { efecto: "pop" });
+txt("perfil de volumen por sesión", -700, 20, w("perfil", 1, -0.2), { tam: 44, color: GRIS });
+txt("cuenta de práctica", -700, 90, w("práctica", 1, -0.3), { tam: 50 });
+img("obj-notebook", -700, 300, 160, w("anota", 1, -0.3), { efecto: "pop" });
+const HC = [-120, 330, 720];
+[["control de ayer", "control"], ["abrió", "abrió"], ["¿aceptó o rechazó?", "rechazó"]].forEach(([h, p], i) => txt(h, HC[i], -230, w(p, 1, -0.2), { tam: 46 }));
+trazo("M-400 -190 L900 -190", w("anota", 1, 0), { color: GRIS, grosor: 4, dur: 0.5 });
+["lun", "mar", "mié", "jue", "vie"].forEach((d, i) => { txt(d, -340, -110 + i * 80, w("semana", 1, -0.2) + i * 0.15, { tam: 46, color: GRIS }); trazo(`M-400 ${-80 + i * 80} L900 ${-80 + i * 80}`, w("semana", 1, 0) + i * 0.15, { color: "#d6dae2", grosor: 3, dur: 0.3 }); });
+txt("no operes con esto todavía", 250, 350, w("todavía", 1, -0.4), { tam: 54, color: ROJO });
+txt("primero aprende a ver el salón", 250, 440, w("salón", 1, -0.5), { tam: 60, color: ORO });
+
+// 29 · Repasemos (antes, la cámara muestra toda la pizarra)
+en(29);
+const R0 = ini() + 3.4;
+txt("Repasemos", 0, -400, ini() + 0.1, { tam: 80, color: ORO });
+[["el mercado es una subasta", "subasta"], ["equilibrio o desequilibrio", "desequilibrio"], ["perfil: punto de control, área de valor, nodos", "nodos"], ["3 preguntas antes de operar", null]].forEach(([t_, p], i) => {
+  const t0 = Math.max(R0 + i * 0.6, p ? w(p, 1, -0.6) : fin() - 1.4), y = -230 + i * 140;
+  tilde(-700, y - 14, t0);
+  txt(t_, -640, y + 6, t0 + 0.3, { tam: 64, ancla: "start" });
+});
+
+// 30 · Cierre
+en(30);
+img("marca-logo", 0, -330, 460, ini() + 0.2, { d: 2.0 });
+txt("en vivo: la apertura de Nueva York", 0, -130, w("nueva", 1, -0.2), { tam: 54, color: GRIS });
+txt("próximo video: cómo operar el desequilibrio", 0, -50, w("próximo", 1, -0.2), { tam: 50, color: GRIS });
+caja(-250, -10, 250, 90, w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9 });
+txt("SUSCRIBIRME", 0, 66, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
+img("obj-bell", 350, 40, 120, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
+txt("comenta SUBASTA", 0, 185, w("subasta", 1, -0.2), { tam: 66, color: ORO });
+txt("Julián no adivina: lee el salón", 0, 265, w("salón", 1, -0.6), { tam: 56 });
+txt("realinvestors.club", 0, 345, w("educativo", 1, -1.2), { tam: 64, color: ORO });
+txt("Contenido educativo. No constituye recomendación de inversión.", 0, 430, w("educativo", 1, -0.4), { tam: 40, color: GRIS });
+
+// Cámara: llega a cada zona apenas empieza su escena; en la del error de Martín se acerca a las velas de las 11:00;
+// en el repaso se aleja para mostrar toda la pizarra
+const cam = [{ t: 0, x: centro(0)[0], y: centro(0)[1], zoom: 1 }];
+let zonaAnt = 0;
+for (let s = 2; s <= 30; s++) {
+  en(s);
+  if (s === 29) {
+    cam.push({ t: ini() + 1.0, x: 2.5 * DX, y: 1.5 * DY, zoom: 0.14, dur: 1.4 });
+    cam.push({ t: ini() + 3.2, x: B[0], y: B[1], zoom: 1, dur: 1.4 });
+    zonaAnt = ZONA[s];
+    continue;
+  }
+  if (s === 13) { cam.push({ t: w("ruptura", 1, -0.6), x: B[0] + G3.PX(i11 + 3) - 120, y: B[1] + G3.PY(28390), zoom: 1.35, dur: 1.2 }); zonaAnt = ZONA[s]; continue; }
+  if (s === 14) { cam.push({ t: ini() + 0.4, x: B[0], y: B[1], zoom: 1, dur: 1.0 }); zonaAnt = ZONA[s]; continue; }
+  if (ZONA[s] !== zonaAnt) cam.push({ t: ini() + 0.35, x: B[0], y: B[1], zoom: 1, dur: 1.1 });
+  zonaAnt = ZONA[s];
+}
+
+Pizarra.escena({ dur: T.total, elementos: E, camara: cam });
+</script>
+</body></html>
