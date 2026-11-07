@@ -104,6 +104,13 @@ Portada: «ORDER BLOCKS en 1 minuto».
 
 ## Configurar la API paso a paso (05/11/2026)
 
+> **07/11/2026 (tarde): el usuario del sistema ya no existe.** En el portfolio, «Usuarios del sistema» está vacío y
+> «Agregar» aparece desactivado (captura de Lean). El token cargado era de ese usuario (122094458865549809) y ahora falla
+> también para leer («Cannot call API for app 1458970836298742 on behalf of user…»). No volver a pedir pasos con
+> usuarios del sistema. Camino nuevo: página de Facebook nueva (61596410367956) ya conectada a @leanalvarez.ok por Lean;
+> token de usuario de Lean desde el Explorador de la API Graph (app RIC) con permisos de páginas e Instagram, ampliado
+> a 60 días en el Depurador de tokens y cargado en `RIC_IG_TOKEN_IG`; de ahí se saca el token de la página (no vence).
+
 > **07/11/2026: el camino del token «IGAA…» NO funciona.** Lean siguió los pasos de abajo varias veces y el token nunca
 > se pudo crear. No volver a pedírselo. Camino propuesto: publicar Reels con el conector de **vidIQ**
 > (`vidiq_connect_instagram_account` en modo oauth, que es iniciar sesión con Instagram en un botón, y después
