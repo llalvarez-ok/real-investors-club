@@ -17,7 +17,7 @@ Si pierdes ocho operaciones seguidas, ¿quiere decir que no sirves para esto? Mi
 
 ## 02. Qué vas a ver
 
-Parece un truco, pero es pura aritmética. Y al final del video te voy a mostrar la cuenta exacta del mes de Tomás, operación por operación. Antes, vas a ver por qué acertar mucho no alcanza, cuántas pérdidas seguidas son normales, cuánto arriesgar para sobrevivir a una racha, el costo que casi nadie mira y la regla que evita la revancha.
+Parece un truco, pero es pura aritmética. Y al final del video te voy a mostrar la cuenta exacta del mes de Tomás, operación por operación. Antes, vas a ver: por qué acertar mucho no alcanza, cuántas pérdidas seguidas son normales, cuánto arriesgar para sobrevivir a una racha, el costo que casi nadie mira y la regla que evita la revancha.
 
 *En pantalla:* Lista escrita a mano con casilleros que se tildan.
 
@@ -41,13 +41,13 @@ Ramón tiene tres reglas. La carnada es chica. El pez vale más que la carnada. 
 
 ## 06. Nico: acierta mucho y pierde
 
-Volvamos con Nico. Gana siete de cada diez operaciones. Pero cuando gana, se lleva cien dólares, y cuando pierde, pierde trescientos. ¿Por qué? Porque cierra rápido las ganadoras, por miedo a que se den vuelta, y deja correr las perdedoras, esperando que vuelvan. Hagamos la cuenta. Siete por cien, setecientos. Tres por trescientos, novecientos. Por cada diez operaciones, Nico pierde doscientos dólares. Acierta mucho, y pierde igual.
+Volvamos con Nico. Gana siete de cada diez operaciones. Pero cuando gana, se lleva cien dólares, y cuando pierde, pierde trescientos. ¿Por qué? Porque cierra rápido las ganadoras, por miedo a que se den vuelta, y deja correr las perdedoras, esperando que vuelvan. Hagamos la cuenta. Siete por cien: setecientos. Tres por trescientos: novecientos. Por cada diez operaciones, Nico pierde doscientos dólares. Acierta mucho, y pierde igual.
 
 *En pantalla:* Nico con dos columnas: 7 × 100 = 700 en verde, 3 × 300 = 900 en rojo. Resultado: −200.
 
 ## 07. Tomás: falla mucho y gana
 
-Tomás hace lo contrario. Gana tres de cada diez. Pero cuando gana, se lleva trescientos, y cuando pierde, pierde cien. Tres por trescientos, novecientos. Siete por cien, setecientos. Por cada diez operaciones, gana doscientos dólares. Es el mismo número dado vuelta. La diferencia no está en cuántas veces aciertas, sino en cuánto ganas cuando aciertas y cuánto pierdes cuando fallas.
+Tomás hace lo contrario. Gana tres de cada diez. Pero cuando gana, se lleva trescientos, y cuando pierde, pierde cien. Tres por trescientos: novecientos. Siete por cien: setecientos. Por cada diez operaciones, gana doscientos dólares. Es el mismo número dado vuelta. La diferencia no está en cuántas veces aciertas, sino en cuánto ganas cuando aciertas y cuánto pierdes cuando fallas.
 
 *En pantalla:* Tomás con la cuenta espejo: 3 × 300 = 900 en verde, 7 × 100 = 700 en rojo. Resultado: +200. Una balanza.
 
@@ -71,7 +71,7 @@ Hay una cuenta que resume todo esto, y es más simple de lo que parece. Multipli
 
 ## 11. No es magia
 
-Pero ojo, esto no es magia. Un objetivo más lejos se alcanza menos veces. Si hoy aciertas cuatro de cada diez con uno a dos, y mañana pones el objetivo al triple de distancia, no vas a seguir acertando cuatro de cada diez. Vas a acertar menos. El equilibrio entre las dos cosas solo lo conoces midiendo tus propias operaciones. En la pesca es igual: si solo buscas peces gigantes, vas a pasar muchas más horas sin un pique.
+Pero ojo: esto no es magia. Un objetivo más lejos se alcanza menos veces. Si hoy aciertas cuatro de cada diez con uno a dos, y mañana pones el objetivo al triple de distancia, no vas a seguir acertando cuatro de cada diez. Vas a acertar menos. El equilibrio entre las dos cosas solo lo conoces midiendo tus propias operaciones. En la pesca es igual: si solo buscas peces gigantes, vas a pasar muchas más horas sin un pique.
 
 *En pantalla:* Un objetivo cerca con muchos tildes, un objetivo lejos con pocos. Un pez gigante y Ramón esperando con un reloj de arena.
 
@@ -101,19 +101,19 @@ Con cuarenta operaciones, que es un mes bastante activo, la probabilidad es de m
 
 ## 16. Cinco meses del mismo Tomás
 
-Para verlo mejor, hice una prueba con un programa. Simulé cinco meses de Tomás, con el mismo método: acierta tres de cada diez, con uno a tres, y cuarenta operaciones por mes. Mismo método, misma disciplina. El primer mes terminó parejo. El segundo, ganó el uno por ciento. El tercero perdió el uno por ciento, y tuvo una racha de diez pérdidas seguidas. El cuarto ganó el tres, y el quinto, el dos. Cinco meses tan distintos, con exactamente las mismas reglas. Y en total, ganó el cinco por ciento.
+Para verlo mejor, hice una prueba con un programa. Simulé cinco meses de Tomás, con el mismo método: acierta tres de cada diez, con uno a tres, y cuarenta operaciones por mes. Mismo método, misma disciplina. El primer mes terminó parejo. El segundo, ganó el uno por ciento. El tercero, perdió el uno por ciento, y tuvo una racha de diez pérdidas seguidas. El cuarto, ganó el tres, y el quinto, el dos. Cinco meses tan distintos, con exactamente las mismas reglas. Y en total, ganó el cinco por ciento.
 
 *En pantalla:* Cinco calendarios en fila con su resultado: 0 %, +1 %, −1 % (racha de 10), +3 %, +2 %. Total +5 % en dorado. Rótulo «simulación».
 
 ## 17. Por qué la racha duele tanto
 
-Entonces, ¿por qué una racha se siente como el fin del mundo? Primero, porque perder duele más o menos el doble de lo que alegra ganar lo mismo. Ocho pérdidas pesan como dieciséis. Y segundo, porque el cerebro busca patrones donde no los hay. Después de ocho pérdidas piensa: la próxima tiene que salir bien. O al revés: esto ya no funciona. Ninguna de las dos es cierta. Cada operación es una tirada nueva, y no se acuerda de las anteriores.
+Entonces, ¿por qué una racha se siente como el fin del mundo? Primero, porque perder duele más o menos el doble de lo que alegra ganar lo mismo. Ocho pérdidas pesan como dieciséis. Y segundo, porque el cerebro busca patrones donde no los hay. Después de ocho pérdidas, piensa: la próxima tiene que salir bien. O al revés: esto ya no funciona. Ninguna de las dos es cierta. Cada operación es una tirada nueva, y no se acuerda de las anteriores.
 
 *En pantalla:* Un cerebro con una balanza: una pérdida pesa como dos ganancias. Un dado que rueda con «no tiene memoria».
 
 ## 18. Ramón no cambia de caña
 
-Ramón lo sabe. Hay mañanas en que el agua está quieta y no pica nada. Y no por eso cambia de caña, de lugar y de carnada cada diez minutos. Si lo hiciera, nunca sabría qué es lo que funciona.
+Ramón lo sabe. Hay mañanas en que el agua está quieta y no pica nada. Y no por eso cambia de caña, de lugar o de carnada cada diez minutos. Si lo hiciera, nunca sabría qué es lo que funciona.
 
 *En pantalla:* Ramón tranquilo junto al agua quieta, un sol. Tres cañas tachadas.
 

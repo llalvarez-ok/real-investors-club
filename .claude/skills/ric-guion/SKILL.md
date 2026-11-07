@@ -32,6 +32,13 @@ Tiene que salir **sin errores (✗)**. Corrige: voseo, «temario», «la IA», e
 «plata», y lo que Brian lee en inglés («Resumiendo» → «Repasemos»; nunca frases en inglés como «fear of missing
 out»). Los avisos (·) se revisan a criterio. También da palabras, duración estimada y el puntaje del gancho.
 
+**Puntuación (regla 12 de `diseno/rubrica-guion.md`):** la voz entona según la puntuación y una coma o un signo de
+pregunta mal puesto cambia el sentido. Revisar oración por oración antes de generar: nada de preguntas de una palabra,
+dos puntos en las cuentas («Siete por cien: setecientos») y antes de las listas, coma después de la frase inicial de
+tiempo o condición y nunca entre sujeto y verbo. Después de generar: `herramientas/voces/verificar_voz.py`.
+
+**Voz desde el 07/11/2026:** el clon de Lean con Qwen3-TTS (`herramientas/voces/LEEME.md`), no Brian ni Tomás.
+
 ## Al escribir
 
 - Una metáfora central (pilar) o la estructura de clase (lección).
