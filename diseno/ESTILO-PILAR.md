@@ -30,7 +30,7 @@ Las lecciones siguen con el estilo de siempre (láminas, avatar y esquema de cla
 
 ## Voz y música (elegidas el 28/10/2026)
 
-- **Voz:** Brian (`en-US-BrianMultilingualNeural` de edge-tts), con rate y pitch neutros (+0 %, +0 Hz). La eligió Lean entre 7 muestras. Es una voz multilingüe y lee mejor los números escritos en palabras.
+- **Voz (desde el 07/11/2026): el clon de la voz de Lean con Qwen3-TTS** (`herramientas/voces/LEEME.md`), salvo que él grabe. Antes: Brian (`en-US-BrianMultilingualNeural` de edge-tts), con rate y pitch neutros (+0 %, +0 Hz). La eligió Lean entre 7 muestras. Es una voz multilingüe y lee mejor los números escritos en palabras.
 - **Procesamiento de la voz** (ffmpeg): `highpass=f=70,equalizer=f=180:t=q:w=1:g=2.5,equalizer=f=3200:t=q:w=1.2:g=1.5,equalizer=f=7000:t=q:w=2:g=-3,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120:makeup=2,loudnorm=I=-16:TP=-1.5:LRA=7`. Da más calidez en los graves, menos sibilancia, compresión suave y volumen al estándar de YouTube.
 - **Pronunciación de Brian (aviso de Lean, 28/10/2026):** es una voz multilingüe y, si una frase trae palabras en inglés, la lee entera con acento inglés.
   - No poner frases en inglés en la voz: "FOMO es una sigla que viene del inglés", no "fear of missing out".

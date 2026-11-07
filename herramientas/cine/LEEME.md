@@ -17,7 +17,7 @@ las partículas doradas del Short de Binance (`herramientas/particulas/`), con t
   zoom de entrada con desenfoque en cada bloque y temblor de cámara en los impactos.
 - **Subtítulos palabra por palabra**: la palabra que suena se enciende y las claves van en dorado; los números se escriben en
   cifras (`pantalla` del guion).
-- **Voz:** `es-AR-TomasNeural` (edge-tts, masculina argentina). Reemplaza a Daniela (Piper), que pronunciaba mal muchas
+- **Voz (desde el 07/11/2026): el clon de Lean con Qwen3-TTS** (`herramientas/voces/LEEME.md`), o su voz grabada (`voz_grabada.py`). Antes: `es-AR-TomasNeural` (edge-tts, masculina argentina). Reemplaza a Daniela (Piper), que pronunciaba mal muchas
   palabras (ver abajo).
 
 ## Nitidez (pedido de Lean del 01/11/2026: «el video se ve borroso»)

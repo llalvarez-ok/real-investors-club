@@ -1,6 +1,6 @@
 # Voz clonada de Lean con Qwen3-TTS (Apache 2.0)
 
-Elegida por Lean el 07/11/2026 entre 5 muestras (`analisis/2026-11-07-voces-abiertas.md`).
+**Es la voz de todos los videos de RIC desde el 07/11/2026** (decisión de Lean), salvo que él grabe. Elegida entre 5 muestras (`analisis/2026-11-07-voces-abiertas.md`).
 
 Instalación (una vez por máquina, ~4 GB del modelo 1.7B Base desde Hugging Face):
 ```bash
