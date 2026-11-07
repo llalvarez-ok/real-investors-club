@@ -82,7 +82,7 @@ Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora 
 ## En producción
 - **P22 «Por qué un trader puede perder 8 veces seguidas y ganar el mes»** (02/11/2026, video largo L4 del plan de Fabio Valentini): pizarra, 17:24, metáfora de Ramón el pescador; 5 Shorts y un reel. Todo en `produccion/p22-rachas/` (textos en `subir.md`). Falta que Lean lo vea y lo suba.
 
-- **P23 «El mercado es una subasta: 3 preguntas antes de operar»** (06/11/2026, L1 del plan de Fabio Valentini): pizarra, 12:30, remate de Julián, datos reales del Nasdaq del 3 al 5/11; 5 Shorts y un reel. Todo en `produccion/p23-subasta/` (textos en `subir.md`). Entregado por el chat; falta que Lean lo suba.
+- **P23 «El mercado es una subasta: 3 preguntas antes de operar»** (06/11/2026, L1 del plan de Fabio Valentini): pizarra, 10:35 con la voz clonada de Lean (rehecho el 07/11; la versión con Brian de 12:30 queda descartada), remate de Julián, datos reales del Nasdaq del 3 al 5/11; 5 Shorts y un reel en voseo. Todo en `produccion/p23-subasta/` (textos en `subir.md`). Entregado por el chat; falta que Lean lo suba.
 
 ## Historial de cambios por la API
 - `youtube/cambios-2026-10-27.json`: auditoría inicial.

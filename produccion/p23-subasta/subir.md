@@ -1,5 +1,7 @@
 # P23 · Textos para subir
 
+Versión con la voz clonada de Lean (Qwen3-TTS): video `RIC-P23-subasta-voz-lean.mp4` (tú) y Shorts y reel en voseo (`shorts-voz-lean.json`). Contenido sintético: **sí**, en todos.
+
 ## Video largo
 
 **Archivo:** RIC-P23-subasta-voz-lean.mp4 (10:35, voz clonada de Lean con Qwen3-TTS; la versión con Brian de 12:30 queda descartada) · **Miniatura:** RIC-P23-subasta-portada.png
@@ -53,7 +55,7 @@ Datos: futuro del Nasdaq 100 (NQ=F, Yahoo Finance), sesión de Nueva York del 3,
 
 **Comentario para fijar:** ¿Alguna vez compraste una ruptura y el precio volvió en minutos? Comenta SUBASTA 👇
 
-## S1-remate · 50 s (Short de YouTube)
+## S1-remate · 36 s (Short de YouTube)
 
 Escenas 5-6 · gancho en pantalla: «El precio justo lo deciden las ofertas»
 
@@ -71,7 +73,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
 ```
 
-## S2-martin · 53 s (Short de YouTube)
+## S2-martin · 46 s (Short de YouTube)
 
 Escenas 13-14 · gancho en pantalla: «Compró la ruptura y el precio volvió»
 
@@ -89,7 +91,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #Nasdaq #EducacionFinanciera
 ```
 
-## S3-nodo · 53 s (Short de YouTube)
+## S3-nodo · 48 s (Short de YouTube)
 
 Escenas 17-18 · gancho en pantalla: «Los precios por donde pasó apurado»
 
@@ -107,7 +109,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #PerfilDeVolumen #Trading #EducacionFinanciera
 ```
 
-## S4-moneda · 34 s (Short de YouTube)
+## S4-moneda · 30 s (Short de YouTube)
 
 Escena 22 · gancho en pantalla: «Abrir fuera del valor es casi una moneda»
 
@@ -125,7 +127,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #Nasdaq #EducacionFinanciera
 ```
 
-## S5-tres-preguntas · 55 s (Short de YouTube)
+## S5-tres-preguntas · 49 s (Short de YouTube)
 
 Escenas 24-26 · gancho en pantalla: «3 preguntas antes de operar»
 
@@ -143,7 +145,7 @@ Contenido educativo. No constituye recomendación de inversión.
 #Shorts #Trading #PerfilDeVolumen #EducacionFinanciera
 ```
 
-## R1-instagram · 35 s (Reel de Instagram)
+## R1-instagram · 29 s (Reel de Instagram)
 
 Escena 1 · gancho en pantalla: «¿Tranquilo o pánico?»
 
