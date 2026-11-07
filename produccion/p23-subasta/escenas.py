@@ -48,7 +48,7 @@ E = [
  "Una puerta: el precio asoma y vuelve a entrar, «romper ≠ salir». Dos caminos: «se queda afuera y negocia → acepta» con un tilde verde; «vuelve rápido → rechaza» con una flecha de vuelta."),
 ("Tres preguntas: dónde está el valor", "Con todo esto, hay tres preguntas que conviene hacerte antes de cada operación. La primera: ¿dónde estuvo el valor ayer? Busca el punto de control y el área de valor del día anterior. Son tu mapa. Te dicen dónde estuvo el precio justo la última vez que todos se pusieron de acuerdo.",
  "Hoja «Antes de operar» con la pregunta 1 escrita: «¿dónde estuvo el valor ayer?». Un mapa con una equis."),
-("Tres preguntas: dónde estás hoy", "La segunda: ¿dónde estás hoy con respecto a ese valor? Adentro, arriba o abajo. Si estás adentro, lo más probable es un día de idas y vueltas, y las rupturas de los bordes merecen desconfianza. Si estás afuera, presta mucha atención a lo que viene.",
+("Tres preguntas: dónde estás hoy", "La segunda: ¿dónde estás hoy con respecto a ese valor? Puede estar adentro, arriba o abajo. Si estás adentro, lo más probable es un día de idas y vueltas, y las rupturas de los bordes merecen desconfianza. Si estás afuera, presta mucha atención a lo que viene.",
  "Pregunta 2: «¿adentro, arriba o abajo?». Tres flechas cortas alrededor de una franja."),
 ("Tres preguntas: acepta o rechaza", "Y la tercera: ¿el mercado acepta o rechaza el precio nuevo? ¿Se queda afuera y arma una campana nueva, como el miércoles? ¿O vuelve rápido al medio, como la ruptura de Martín? Hasta que no lo sabes, la mejor operación muchas veces es no operar.",
  "Pregunta 3: «¿acepta o rechaza?». Una campana nueva que se forma arriba; al lado, un reloj de arena."),

@@ -1,6 +1,6 @@
 # P23 · El mercado es una subasta: 3 preguntas antes de operar
 
-Estilo pizarra · voz Brian · 1939 palabras, ~12.8 min · 30 escenas
+Estilo pizarra · voz Brian · 1941 palabras, ~12.8 min · 30 escenas
 
 **Datos y fuentes:**
 - Conceptos (teoría de la subasta, equilibrio y desequilibrio, perfil de volumen, punto de control, área de valor, nodos de bajo volumen, aceptación y rechazo): analisis/2026-11-02-fabio-valentini-orderflow.md, conceptos 1 a 4. Se usan los conceptos, no sus frases ni su ejemplo (el remate de Julián es propio).
@@ -155,7 +155,7 @@ Con todo esto, hay tres preguntas que conviene hacerte antes de cada operación.
 
 ## 25. Tres preguntas: dónde estás hoy
 
-La segunda: ¿dónde estás hoy con respecto a ese valor? Adentro, arriba o abajo. Si estás adentro, lo más probable es un día de idas y vueltas, y las rupturas de los bordes merecen desconfianza. Si estás afuera, presta mucha atención a lo que viene.
+La segunda: ¿dónde estás hoy con respecto a ese valor? Puede estar adentro, arriba o abajo. Si estás adentro, lo más probable es un día de idas y vueltas, y las rupturas de los bordes merecen desconfianza. Si estás afuera, presta mucha atención a lo que viene.
 
 *En pantalla:* Pregunta 2: «¿adentro, arriba o abajo?». Tres flechas cortas alrededor de una franja.
 
