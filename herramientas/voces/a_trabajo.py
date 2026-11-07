@@ -16,7 +16,7 @@ def nz(w):
     """Palabra normalizada; los números (y %) se expanden a varias palabras: «30%» → treinta por ciento."""
     w = w.lower()
     out = []
-    for p in re.findall(r"\d[\d.,]*%?|[^\W\d_]+%?|%", w):
+    for p in re.findall(r"\d+(?:[.,]\d+)*%?|[^\W\d_]+%?|%", w):
         pc = p.endswith("%"); p = p.rstrip("%")
         if p and p[0].isdigit():
             p = p.replace(".", "")
