@@ -104,6 +104,11 @@ Portada: «ORDER BLOCKS en 1 minuto».
 
 ## Configurar la API paso a paso (05/11/2026)
 
+> **07/11/2026 (último estado, según Lean):** con el token nuevo cargado en `RIC_IG_TOKEN_IG` funcionan estadísticas,
+> comentarios y mensajes; **publicar sigue sin andar**. Lean decidió dejarlo así por ahora: las publicaciones las hace él
+> a mano. No volver a pedirle pasos para el token salvo que él lo pida. (Las sesiones abiertas antes de cargarlo tienen
+> una copia vieja y vencida de la variable: probar siempre desde un chat nuevo.)
+
 > **07/11/2026 (tarde): el usuario del sistema ya no existe.** En el portfolio, «Usuarios del sistema» está vacío y
 > «Agregar» aparece desactivado (captura de Lean). El token cargado era de ese usuario (122094458865549809) y ahora falla
 > también para leer («Cannot call API for app 1458970836298742 on behalf of user…»). No volver a pedir pasos con
