@@ -101,9 +101,13 @@ Portada: «ORDER BLOCKS en 1 minuto».
 - Cargar el link del grupo del curso y los números de cada Reel (vistas, retención a los 3 s, seguidores ganados).
 
 ## Configurar la API paso a paso (05/11/2026)
-**Cómo está:** desde el 02/11 Meta bloqueó la app «RIC»: todo responde «API access blocked» (código 200), incluso las
-estadísticas. Además el token «EAA…» nunca pudo publicar (2207085, falta página de Facebook). Probar cualquier token con
-`python herramientas/probar_token_ig.py` (solo lee y no muestra el token).
+**Cómo está (probado el 07/11/2026):** el bloqueo «API access blocked» del 02/11 ya no aparece: el token «EAA…» vuelve a
+leer la cuenta (@leanalvarez.ok, 3.727 seguidores), las publicaciones y los comentarios. Pero **perdió el permiso
+`instagram_manage_insights`** (`me/permissions` ya no lo lista): las estadísticas de la cuenta y de cada publicación
+responden «(#10) Application does not have permission for this action», así que `revisar_instagram.py` no va a tener
+alcance ni retención hasta que se vuelva a otorgar ese permiso (en la app → Casos de uso → Permisos, o al generar el
+token nuevo). Sigue sin página de Facebook (`me/accounts` vacío), así que sigue sin poder publicar (2207085). Probar
+cualquier token con `python herramientas/probar_token_ig.py` (solo lee y no muestra el token).
 
 **Parte A: por qué la bloquearon (5 min, Lean).**
 1. developers.facebook.com/apps → «RIC». Leer el cartel rojo o amarillo de arriba («App restringida», «Verificación»,
