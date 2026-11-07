@@ -3,3 +3,4 @@ __pycache__/
 # Listas de seguidores de Instagram (datos personales; el repo es público)
 instagram/seguidores/
 datos/transcripciones/
+venv-qwen/

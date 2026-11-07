@@ -1,6 +1,6 @@
 # P23 · El mercado es una subasta: 3 preguntas antes de operar
 
-Estilo pizarra · voz Brian · 1943 palabras, ~12.8 min · 30 escenas
+Estilo pizarra · voz Brian · 1939 palabras, ~12.8 min · 30 escenas
 
 **Datos y fuentes:**
 - Conceptos (teoría de la subasta, equilibrio y desequilibrio, perfil de volumen, punto de control, área de valor, nodos de bajo volumen, aceptación y rechazo): analisis/2026-11-02-fabio-valentini-orderflow.md, conceptos 1 a 4. Se usan los conceptos, no sus frases ni su ejemplo (el remate de Julián es propio).
@@ -101,7 +101,7 @@ Mira ahora el miércoles cuatro. El precio abrió en veintiocho mil cuatrociento
 
 ## 16. Un equilibrio nuevo
 
-¿Y después? Lo mismo que el auto del piloto. El precio encontró un lugar nuevo donde volvió a haber acuerdo, y armó una campana nueva, más arriba. El punto de control del miércoles quedó alrededor de veintiocho mil seiscientos veinte. Es decir, más de trescientos puntos por encima del martes. El mercado aceptó precios más altos.
+Y después pasó lo mismo que con el auto del piloto: el precio encontró un lugar nuevo donde volvió a haber acuerdo, y armó una campana nueva, más arriba. El punto de control del miércoles quedó alrededor de veintiocho mil seiscientos veinte. Es decir, más de trescientos puntos por encima del martes. El mercado aceptó precios más altos.
 
 *En pantalla:* Perfil real del 4/11 al lado del perfil del 3/11: dos campanas, la segunda más arriba. Flecha entre los dos puntos de control: «+310».
 
@@ -131,7 +131,7 @@ Mira el perfil de ese día. Arriba, una cola larga y finita: todos los precios p
 
 ## 21. La misma estrategia, dos resultados
 
-¿Por qué cayó? Para leer la subasta, no hace falta saberlo en ese momento: abrió lejos del valor de ayer, y no volvió. Si ese día alguien compró cada bajada pensando que iba a volver al medio, como el martes, lo pasó muy mal. Fíjate en esto. Comprar las bajadas funcionó el martes, y fue un desastre el jueves. Seguir la ruptura falló el martes, y el miércoles funcionó. No hay una estrategia buena o mala en sí misma. Hay estrategias que encajan con el modo del mercado, y otras que no.
+Para leer la subasta, no hace falta saber por qué cayó: abrió lejos del valor de ayer, y no volvió. Si ese día alguien compró cada bajada pensando que iba a volver al medio, como el martes, lo pasó muy mal. Fíjate en esto. Comprar las bajadas funcionó el martes, y fue un desastre el jueves. Seguir la ruptura falló el martes, y el miércoles funcionó. No hay una estrategia buena o mala en sí misma. Hay estrategias que encajan con el modo del mercado, y otras que no.
 
 *En pantalla:* Un periódico con signos de pregunta, tachado. Tabla a mano: filas «comprar bajadas» y «seguir la ruptura»; columnas «martes (equilibrio)», «miércoles (sale arriba)» y «jueves (sale abajo)», con tildes y cruces.
 
@@ -167,7 +167,7 @@ Y la tercera: ¿el mercado acepta o rechaza el precio nuevo? ¿Se queda afuera y
 
 ## 27. Lo que no es
 
-Ojo con una cosa. El perfil de volumen no adivina el futuro. Te muestra dónde se negoció, no dónde se va a negociar. Es contexto, no una orden de compra o venta. Julián tampoco sabe a cuánto se va a vender el auto. Lo que sabe es leer el salón. Si las manos se levantan despacio y vuelven siempre al mismo precio, hay acuerdo. Si se levantan todas juntas y el precio salta, algo cambió.
+Ojo: el perfil de volumen no adivina el futuro. Te muestra dónde se negoció, no dónde se va a negociar. Es contexto, no una orden de compra o venta. Julián tampoco sabe a cuánto se va a vender el auto. Lo que sabe es leer el salón. Si las manos se levantan despacio y vuelven siempre al mismo precio, hay acuerdo. Si se levantan todas juntas y el precio salta, algo cambió.
 
 *En pantalla:* Una bola de cristal tachada. Julián mirando el salón con una lupa; manos levantadas despacio a un lado, manos levantadas todas juntas al otro.
 
