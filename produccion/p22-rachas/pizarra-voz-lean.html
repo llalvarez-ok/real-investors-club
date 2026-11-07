@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- P22 "Por qué un trader puede perder 8 veces seguidas y ganar el mes" en pizarra. Motor: herramientas/animaciones/pizarra.js.
+     Los tiempos salen de tiempos.js (herramientas/tiempos_pizarra.py): cada elemento aparece cuando la voz dice su palabra.
+     Metáfora central: Ramón, el pescador (carnada chica, pez grande, bolsa de carnada del día).
+     Personajes: Nico = bruno, Tomás = julian, Ramón = diego. Cada escena ocupa una zona del lienzo (6 columnas en serpentina). -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fdfdfb}
+#logo svg{width:190px;height:auto;display:block}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+<script src="../../herramientas/animaciones/pizarra.js"></script>
+<script src="tiempos-voz-lean.js"></script>
+</head><body>
+<script>
+const VERDE = "#1f9d63", ROJO = "#d93a3f", ORO = "#b8913f", GRIS = "#7d8597", TINTA = "#14213d", AGUA = "#4a90c2";
+const T = window.TIEMPOS, FALTAN = (window.FALTAN = []);
+const COLS = 6, DX = 2600, DY = 1500;
+const centro = (z) => { const fila = Math.floor(z / COLS); let col = z % COLS; if (fila % 2) col = COLS - 1 - col; return [col * DX, fila * DY]; };
+let S = 1, B = [0, 0];
+const en = (s) => { S = s; B = centro(s - 1); };
+const ini = (s = S) => T.escenas[s - 1].ini, fin = (s = S) => T.escenas[s - 1].ini + T.escenas[s - 1].dur;
+const norm = (x) => x.toLowerCase().replace(/[^\wáéíóúüñ]/g, "");
+function w(palabra, n = 1, desfase = 0) {
+  const ps = T.escenas[S - 1].palabras, q = norm(palabra);
+  let k = 0;
+  for (const p of ps) if (p.p === q && ++k === n) return p.t + desfase;
+  FALTAN.push(`${S}:${palabra}#${n}`);
+  return ini() + 1;
+}
+const E = [];
+function add(o) {
+  const r = { ...o, x: B[0] + (o.x || 0), y: B[1] + (o.y || 0) };
+  if (o.respira) r.respira = { hasta: fin() };
+  if (o.desde) { r.desde = [B[0] + o.desde[0], B[1] + o.desde[1]]; r.hasta = [B[0] + o.hasta[0], B[1] + o.hasta[1]]; r.x = 0; r.y = 0; }
+  E.push(r);
+  return r;
+}
+const txt = (texto, x, y, t, o = {}) => add({ tipo: "texto", texto, x, y, t, tam: 64, ancla: "middle", d: Math.min(1.4, 0.25 + texto.length * 0.045), ...o });
+const img = (src, x, y, w_, t, o = {}) => add({ tipo: "img", src, x, y, w: w_, t, d: 1.2, ...o });
+const trazo = (d, t, o = {}) => add({ tipo: "trazo", d, t, dur: 0.5, ...o });
+const tilde = (x, y, t, s = 1) => trazo(`M${x - 22 * s} ${y} L${x - 4 * s} ${y + 20 * s} L${x + 30 * s} ${y - 26 * s}`, t, { color: VERDE, grosor: 11 * Math.sqrt(s), dur: 0.3 });
+const cruz = (x, y, t, s = 24) => trazo(`M${x - s} ${y - s} L${x + s} ${y + s} M${x + s} ${y - s} L${x - s} ${y + s}`, t, { color: ROJO, grosor: 10, dur: 0.3 });
+const tacha = (x1, y1, x2, y2, t) => trazo(`M${x1} ${y1} L${x2} ${y2}`, t, { color: ROJO, grosor: 12, dur: 0.3 });
+const subraya = (x1, x2, y, t, color = ORO) => trazo(`M${x1} ${y} Q${(x1 + x2) / 2} ${y + 16} ${x2} ${y - 4}`, t, { color, grosor: 10, dur: 0.45 });
+const caja = (x1, y1, x2, y2, t, o = {}) => trazo(`M${x1} ${y1} L${x2} ${y1} L${x2} ${y2} L${x1} ${y2} Z`, t, { grosor: 7, dur: 0.5, ...o });
+// barra horizontal: contorno y relleno que crece hasta frac
+const barra = (x, y, ancho, frac, t, color, dur = 1.2) => { caja(x, y - 28, x + ancho, y + 28, t, { grosor: 5, color: GRIS, dur: 0.4 }); return trazo(`M${x + 12} ${y} L${x + 12 + (ancho - 24) * frac} ${y}`, t + 0.4, { color, grosor: 40, dur, }); };
+const titulo = (texto, o = {}) => txt(texto, 0, -400, ini() + 0.2, { tam: 78, ...o });
+// fila de marcas: "x" o "v" en una línea
+const fila = (marcas, x0, y, paso, t0, cada = 0.12, s = 1) => [...marcas].forEach((m, i) => (m === "v" ? tilde(x0 + i * paso, y, t0 + i * cada, s) : cruz(x0 + i * paso, y, t0 + i * cada, 22 * s)));
+// el agua del muelle
+const agua = (y, t, x1 = -800, x2 = 800) => trazo(`M${x1} ${y} Q${x1 + 100} ${y - 25} ${x1 + 200} ${y} T${x1 + 400} ${y} T${x1 + 600} ${y} T${x1 + 800} ${y} T${x1 + 1000} ${y} T${x1 + 1200} ${y} T${x1 + 1400} ${y} T${x1 + 1600} ${y}`.replace(/T/g, " T"), t, { color: AGUA, grosor: 7, dur: 0.9 });
+
+// 1 · Gancho: dos vidas
+en(1);
+for (let i = 0; i < 8; i++) Object.assign(cruz(-420 + i * 120, -380, w("ocho", 1, -0.1) + i * 0.1), { desaparece: w("mira", 1, 0.2) });
+txt("¿no sirvo para esto?", 0, -250, w("sirves", 1, -0.2), { tam: 80, color: ROJO, desaparece: w("mira") + 0.3 });
+img("peep-bruno-feliz", -520, 140, 300, w("nico", 1, -0.2), { respira: true, cambios: [{ t: w("perdiendo", 1, -0.2), src: "peep-bruno-preocupada" }] });
+img("peep-julian-feliz", 520, 140, 300, w("tomás", 1, -0.2), { respira: true, cambios: [{ t: w("ocho", 2, -0.3), src: "peep-julian-preocupada" }, { t: w("tomás", 4), src: "peep-julian-feliz" }] });
+txt("Nico", -520, -110, w("nico", 1, 0.3), { tam: 70 });
+txt("Tomás", 520, -110, w("tomás", 1, 0.3), { tam: 70 });
+txt("US$ 10.000", -520, -200, w("mil", 1, -0.2), { tam: 54, color: GRIS });
+txt("US$ 10.000", 520, -200, w("mil", 1, 0.1), { tam: 54, color: GRIS });
+txt("7 de 10 ✓", -170, 0, w("siete", 1, 0), { tam: 62, color: VERDE });
+txt("7 de 10 ✗", 170, 0, w("siete", 2, 0), { tam: 62, color: ROJO });
+fila("xxxxxxxx", 140, 420, 75, w("ocho", 2, -0.2), 0.1, 0.8);
+txt("¿quién ganó el mes?", 0, -330, w("quién", 1, -0.2), { tam: 72, color: ORO });
+tilde(780, -80, w("tomás", 4, 0.1), 1.6);
+
+// 2 · Qué vas a ver
+en(2);
+txt("pura aritmética", 0, -400, w("aritmética", 1, -0.3), { tam: 84, color: ORO });
+img("obj-abacus", 520, -390, 130, w("aritmética", 1, 0.3), { efecto: "pop" });
+txt("al final: la cuenta del mes de Tomás", 0, -290, w("exacta", 1, -0.3), { tam: 54, color: GRIS });
+[["acertar mucho no alcanza", "alcanza"], ["cuántas pérdidas seguidas son normales", "normales"], ["cuánto arriesgar para sobrevivir", "sobrevivir"], ["el costo que nadie mira", "costo"], ["la regla contra la revancha", "revancha"]].forEach(([t_, p], i) => {
+  const y = -170 + i * 125, t0 = w(p, 1, -0.5);
+  caja(-640, y - 38, -572, y + 28, t0, { dur: 0.3 });
+  txt(t_, -530, y + 16, t0 + 0.2, { tam: 60, ancla: "start" });
+  tilde(-606, y - 8, t0 + 1.0);
+});
+
+// 3 · La palabra para comentar
+en(3);
+img("obj-speech-balloon", -330, 20, 420, w("pregunta", 1, -0.2), { d: 1.0 });
+txt("¿tu peor racha?", -330, -260, w("peor", 1, -0.2), { tam: 74 });
+txt("RACHA", 300, -60, w("racha", 2, -0.1), { tam: 170, color: ORO, efecto: "pop", giro: -4 });
+txt("+ tu número", 330, 80, w("número", 1, -0.1), { tam: 80 });
+img("obj-thinking-face", 420, 290, 130, w("normal", 1, -0.3), { efecto: "pop" });
+txt("¿normal o alarma?", 70, 310, w("alarma", 1, -0.4), { tam: 62, color: GRIS });
+img("obj-warning", -330, 340, 100, w("alarma"), { efecto: "pop" });
+
+// 4 · La metáfora: Ramón, el pescador
+en(4);
+titulo("Ramón, el pescador", { color: ORO });
+trazo("M-860 40 L-200 40 M-760 40 L-760 220 M-420 40 L-420 220", w("muelle", 1, -0.4), { grosor: 10, color: "#8e7140", dur: 0.8 });
+agua(170, w("muelle", 1, 0.2), -860, 860);
+agua(270, w("muelle", 1, 0.6), -860, 860);
+img("peep-diego-feliz", -500, -150, 300, w("ramón", 2, -0.3), { respira: true });
+img("obj-fishing-pole", -230, -120, 260, w("línea", 1, -0.4), { d: 0.9 });
+trazo("M-120 -230 Q60 -120 120 160", w("línea", 1, 0.1), { grosor: 3, color: GRIS, dur: 0.6 });
+img("obj-worm", 130, 200, 90, w("carnada", 1), { efecto: "pop", desaparece: w("pierde", 1, 0.3) });
+txt("carnada: cuesta poco", 520, -240, w("poco", 1, -0.3), { tam: 58 });
+txt("casi siempre: nada", 520, -150, w("nada", 1, -0.2), { tam: 58, color: ROJO });
+img("obj-tropical-fish", 400, 220, 250, w("pez", 1, -0.2), { efecto: "pop", mueve: [{ t: w("pez", 1, 0.4), dur: 0.9, dy: -60 }] });
+txt("= muchas carnadas", 560, -50, w("juntas", 1, -0.2), { tam: 58, color: VERDE });
+txt("el costo de pescar", 0, 420, w("costo", 1, -0.1), { tam: 70, color: ORO });
+
+// 5 · Las tres reglas de Ramón
+en(5);
+titulo("Las tres reglas de Ramón");
+[["obj-worm", "la carnada es chica", "chica", 1], ["obj-tropical-fish", "el pez vale más", "vale", 1], ["obj-house", "sin carnada: a casa", "casa", 1]].forEach(([ico, t_, p, n], i) => {
+  const x = -600 + i * 600, t0 = w(p, n, -0.3);
+  txt(String(i + 1), x - 170, -230, t0, { tam: 100, color: ORO, efecto: "pop" });
+  img(ico, x, -130, 180, t0 + 0.1, { d: 0.9 });
+  txt(t_, x, 30, t0 + 0.6, { tam: 56 });
+});
+fila("xxxxxxxx", -560, 170, 80, w("ocho", 1, -0.1), 0.1, 0.8);
+txt("8 tiradas sin pique", -260, 250, w("pique", 1, -0.1), { tam: 52, color: ROJO });
+img("obj-bucket", 470, 200, 170, w("balde", 1, -0.3), { d: 0.9 });
+txt("balde lleno a fin de mes", 470, 330, w("lleno"), { tam: 52, color: VERDE });
+txt("trading ≈ pesca, no adivinar", 0, 430, w("pesca", 1, -0.3), { tam: 64, color: ORO });
+
+// 6 · Nico: acierta mucho y pierde
+en(6);
+titulo("Nico");
+img("peep-bruno-feliz", -620, 80, 320, w("nico", 1, -0.3), { respira: true, cambios: [{ t: w("pierde", 2, -0.2), src: "peep-bruno-preocupada" }] });
+fila("vvvvvvvxxx", -330, -270, 80, w("siete", 1, -0.2), 0.1, 0.8);
+txt("gana: US$ 100", 80, -150, w("cien", 1, -0.1), { tam: 60, color: VERDE });
+txt("pierde: US$ 300", 520, -150, w("trescientos", 1, -0.1), { tam: 60, color: ROJO });
+txt("cierra rápido las ganadoras", 300, -50, w("rápido", 1, -0.3), { tam: 50, color: GRIS });
+txt("deja correr las perdedoras", 300, 20, w("correr", 1, -0.3), { tam: 50, color: GRIS });
+txt("7 × 100 = 700", 0, 140, w("setecientos", 1, -0.4), { tam: 70, color: VERDE });
+txt("3 × 300 = 900", 450, 140, w("novecientos", 1, -0.4), { tam: 70, color: ROJO });
+txt("−200 cada 10 operaciones", 220, 280, w("doscientos", 1, -0.4), { tam: 72, color: ROJO });
+txt("acierta mucho… y pierde", 0, 420, w("igual", 1, -0.6), { tam: 66, color: ORO });
+
+// 7 · Tomás: falla mucho y gana
+en(7);
+titulo("Tomás");
+img("peep-julian-feliz", 620, 80, 320, w("tomás", 1, -0.3), { respira: true });
+fila("vvvxxxxxxx", -760, -270, 80, w("tres", 1, -0.2), 0.1, 0.8);
+txt("gana: US$ 300", -560, -150, w("trescientos", 1, -0.1), { tam: 60, color: VERDE });
+txt("pierde: US$ 100", -130, -150, w("cien", 1, -0.1), { tam: 60, color: ROJO });
+txt("3 × 300 = 900", -560, 0, w("novecientos", 1, -0.4), { tam: 70, color: VERDE });
+txt("7 × 100 = 700", -130, 0, w("setecientos", 1, -0.4), { tam: 70, color: ROJO });
+txt("+200 cada 10 operaciones", -340, 140, w("doscientos", 1, -0.4), { tam: 72, color: VERDE });
+img("obj-balance-scale", -340, 300, 150, w("vuelta", 1, -0.3), { d: 0.9 });
+txt("no importa cuántas veces aciertas…", 0, 410, w("diferencia", 1, -0.2), { tam: 52, color: GRIS });
+txt("…sino cuánto ganas y cuánto pierdes", 0, 470, w("ganas", 1, -0.4), { tam: 52, color: ORO });
+
+// 8 · Relación riesgo beneficio
+en(8);
+titulo("riesgo : beneficio", { color: ORO });
+img("obj-balance-scale", 0, -60, 340, w("nombre", 1, -0.2), { d: 1.1, mueve: [{ t: w("trescientos", 1, 0.2), dur: 0.8, giro: -8 }] });
+txt("arriesgo 100", -470, -80, w("cien", 1, -0.1), { tam: 64, color: ROJO });
+txt("busco 300", 470, -80, w("trescientos", 1, -0.1), { tam: 64, color: VERDE });
+txt("1 : 3", 0, 200, w("tres", 1, -0.2), { tam: 150, color: ORO, efecto: "pop" });
+txt("¿cuántas veces tengo que acertar para no perder?", 0, 400, w("porcentaje", 1, -0.4), { tam: 58 });
+img("obj-light-bulb", 690, 300, 110, w("clave", 1, -0.2), { efecto: "pop" });
+
+// 9 · La tabla del punto de equilibrio
+en(9);
+titulo("Para no perder, necesitas acertar…");
+trazo("M-500 -280 L500 -280 M0 -330 L0 360", ini() + 0.6, { grosor: 5, color: GRIS, dur: 0.6 });
+txt("relación", -250, -300, ini() + 0.8, { tam: 52, color: GRIS });
+txt("aciertos", 250, -300, ini() + 1.1, { tam: 52, color: GRIS });
+[["1 : 1", "50 %", "mitad", 1], ["1 : 2", "33 %", "tres", 1], ["1 : 3", "25 %", "cuatro", 1], ["1 : 5", "17 %", "seis", 1]].forEach(([r, p, pal, n], i) => {
+  const y = -170 + i * 135, t0 = w(pal, n, -0.6);
+  txt(r, -250, y + 20, t0, { tam: 80 });
+  txt(p, 250, y + 20, t0 + 0.4, { tam: 80, color: i === 0 ? ROJO : i === 3 ? VERDE : TINTA });
+  barra(450, y, 300, parseFloat(p) / 50, t0 + 0.4, i === 0 ? ROJO : VERDE, 0.6);
+});
+txt("objetivo más lejos → necesitas acertar menos", 0, 420, w("lejos", 1, -0.3), { tam: 56, color: ORO });
+
+// 10 · La cuenta que resume todo
+en(10);
+titulo("La cuenta que resume todo");
+txt("(aciertos × ganancia)", -420, -150, w("aciertas", 1, -0.3), { tam: 74, color: VERDE });
+txt("−", 0, -150, w("resta", 1, -0.3), { tam: 110, efecto: "pop" });
+txt("(fallos × pérdida)", 400, -150, w("fallas", 1, -0.3), { tam: 74, color: ROJO });
+trazo("M-240 -40 L-420 80", w("positivo", 1, -0.3), { grosor: 7, color: VERDE, dur: 0.3 });
+txt("positivo: ventaja", -470, 150, w("positivo", 1, 0), { tam: 66, color: VERDE });
+tilde(-760, 130, w("ventaja", 1, 0.1));
+trazo("M240 -40 L420 80", w("negativo", 1, -0.3), { grosor: 7, color: ROJO, dur: 0.3 });
+txt("negativo: la cuenta baja", 470, 150, w("negativo", 1, 0), { tam: 66, color: ROJO });
+img("obj-chart-decreasing", 470, 290, 110, w("baja", 1, -0.1), { efecto: "pop" });
+txt("esperanza matemática", 0, 380, w("esperanza", 1, -0.2), { tam: 84, color: ORO });
+img("peep-bruno-preocupada", -720, 330, 150, w("nico", 1, -0.2), { efecto: "pop" });
+img("peep-julian-feliz", 720, 330, 150, w("tomás", 1, -0.2), { efecto: "pop" });
+
+// 11 · No es magia
+en(11);
+titulo("No es magia", { color: ROJO });
+trazo("M-800 250 L800 250", w("objetivo", 1, -0.4), { grosor: 5, color: GRIS, dur: 0.6 });
+img("obj-shield", -760, 160, 90, w("objetivo", 1, -0.2), { efecto: "pop" });
+img("obj-glowing-star", -260, 170, 80, w("objetivo", 1, 0), { efecto: "pop" });
+txt("cerca: aciertas más", -260, 340, w("objetivo", 1, 0.3), { tam: 50, color: VERDE });
+img("obj-glowing-star", 650, 170, 80, w("triple", 1, -0.1), { efecto: "pop" });
+trazo("M-260 120 Q200 -40 650 120", w("triple", 1, 0.1), { grosor: 6, color: ORO, dur: 0.7 });
+txt("×3 de distancia", 200, 0, w("distancia", 1, -0.2), { tam: 58, color: ORO });
+txt("lejos: aciertas menos", 650, 340, w("menos", 2, -0.2), { tam: 50, color: ROJO });
+txt("el equilibrio sale de medir tus operaciones", 0, -280, w("midiendo", 1, -0.4), { tam: 54 });
+img("peep-diego-preocupada", -600, -110, 190, w("pesca", 1, -0.3), { respira: true });
+img("obj-fish", -330, -60, 150, w("gigantes", 1, -0.3), { efecto: "pop" });
+img("obj-hourglass-not-done", -820, -40, 90, w("horas", 1, -0.3), { efecto: "pop" });
+
+// 12 · Cómo se arregla Nico
+en(12);
+titulo("Cómo se arregla Nico");
+img("peep-bruno-preocupada", -620, 60, 320, w("nico", 1, -0.3), { respira: true, cambios: [{ t: w("completo", 1, -0.3), src: "peep-bruno-feliz" }] });
+txt("2 decisiones antes de entrar", 200, -280, w("decisiones", 1, -0.3), { tam: 60 });
+txt("1", -200, -150, w("primera", 1, -0.1), { tam: 90, color: ORO, efecto: "pop" });
+txt("dónde salgo si me equivoco", 230, -150, w("equivoca", 1, -0.4), { tam: 58, color: ROJO });
+img("obj-stop-sign", 680, -165, 70, w("mover", 1, -0.1), { efecto: "pop" });
+txt("(y no la alejo)", 230, -80, w("alejarla", 1, -0.4), { tam: 48, color: GRIS });
+txt("2", -200, 40, w("segunda", 1, -0.1), { tam: 90, color: ORO, efecto: "pop" });
+txt("objetivo ≥ 2 o 3 veces el riesgo", 250, 40, w("valga", 1, -0.2), { tam: 58, color: VERDE });
+txt("acierta un poco menos…", 200, 250, w("menos", 2, -0.3), { tam: 54, color: GRIS });
+txt("pérdidas: ya no el triple de sus ganancias", 200, 160, w("triple", 1, -0.3), { tam: 50, color: GRIS });
+txt("…y la cuenta cambia por completo", 200, 330, w("cambia", 1, -0.3), { tam: 62, color: ORO });
+
+// 13 · Las rachas: la cuenta
+en(13);
+titulo("¿Cada cuánto llegan 8 pérdidas seguidas?");
+img("obj-thinking-face", 0, -250, 110, w("cuenta", 1, -0.2), { efecto: "pop" });
+fila("xxxxxxxx", -560, -90, 160, w("ocho", 1, -0.3), 0.12, 1.1);
+txt("0,7 × 0,7 × 0,7 × … (8 veces)", 0, 80, w("probabilidad", 1, -0.3), { tam: 64 });
+txt("≈ 6 %", 0, 210, w("seis", 1, -0.2), { tam: 120, color: ORO, efecto: "pop" });
+txt("parece poco…", -420, 380, w("poco", 1, -0.2), { tam: 62, color: GRIS });
+txt("pero operas cientos de veces", 300, 380, w("cientos", 1, -0.4), { tam: 62, color: ROJO });
+
+// 14 · Más probable que no
+en(14);
+titulo("100 operaciones, 3 de cada 10 aciertos");
+txt("al menos una racha de 8", 0, -220, w("racha", 1, -0.3), { tam: 66 });
+barra(-650, -60, 1300, 0.858, w("ochenta", 1, -0.8), ROJO, 1.5);
+txt("86 %", 0, 80, w("ochenta", 1, 0), { tam: 140, color: ROJO, efecto: "pop" });
+txt("no es mala suerte", -380, 260, w("suerte", 1, -0.3), { tam: 64 });
+txt("es lo esperable", 380, 260, w("esperable", 1, -0.3), { tam: 64, color: ORO });
+txt("lo raro sería que no te pase", 0, 400, w("raro", 1, -0.2), { tam: 70, color: ORO });
+
+// 15 · Las rachas son parte del sistema
+en(15);
+titulo("Probabilidad de una racha de 8");
+[["40 operaciones · 30 % de aciertos", 0.51, "cuarenta", 1], ["100 operaciones · 40 % de aciertos", 0.49, "cuatro", 1], ["100 operaciones · 30 % de aciertos", 0.86, "cien", 1]].forEach(([t_, f, p, n], i) => {
+  const y = -230 + i * 170, t0 = w(p, n, -0.3);
+  txt(t_, -820, y - 40, t0, { tam: 46, ancla: "start", color: GRIS });
+  barra(-820, y + 30, 1150, f, t0 + 0.2, ROJO, 0.9);
+  txt(Math.round(f * 100) + " %", 520, y + 50, t0 + 1.2, { tam: 70, ancla: "start", color: ROJO });
+});
+img("obj-coin", 760, -230, 120, w("moneda", 1, -0.2), { efecto: "pop", gira: { t: w("moneda", 1, 0.1), dur: 1.4 } });
+txt("no son una falla: son parte del sistema", 0, 360, w("parte", 1, -0.4), { tam: 66, color: ORO });
+
+// 16 · Cinco meses del mismo Tomás (simulación)
+en(16);
+titulo("5 meses del mismo Tomás (simulación)");
+img("obj-robot", 760, -400, 100, w("programa", 1, -0.2), { efecto: "pop" });
+txt("3 de 10 · 1 : 3 · 40 operaciones por mes", 0, -300, w("acierta", 1, -0.3), { tam: 50, color: GRIS });
+[["0 %", TINTA, "primer"], ["+1 %", VERDE, "segundo"], ["−1 %", ROJO, "tercero"], ["+3 %", VERDE, "cuarto"], ["+2 %", VERDE, "quinto"]].forEach(([r, c, p], i) => {
+  const x = -720 + i * 360, t0 = w(p, 1, -0.3);
+  img("obj-tear-off-calendar", x, -110, 150, t0, { d: 0.6 });
+  txt("mes " + (i + 1), x, 30, t0 + 0.3, { tam: 46, color: GRIS });
+  txt(r, x, 120, t0 + 0.6, { tam: 78, color: c });
+});
+txt("racha de 10", 0, 190, w("diez", 2, -0.2), { tam: 46, color: ROJO });
+txt("mismas reglas", 0, -230, w("mismo", 2, -0.2), { tam: 50, color: ORO });
+txt("total: +5 %", 0, 380, w("total", 1, -0.1), { tam: 100, color: ORO, efecto: "pop" });
+
+// 17 · Por qué la racha duele tanto
+en(17);
+titulo("¿Por qué duele tanto?");
+img("obj-balance-scale", -420, -60, 330, w("duele", 1, -0.3), { d: 1.0, mueve: [{ t: w("doble", 1, 0), dur: 0.7, giro: 12 }] });
+txt("perder pesa ×2", -420, 170, w("doble", 1, -0.1), { tam: 70, color: ROJO });
+txt("8 pérdidas ≈ 16", -420, 280, w("dieciséis", 1, -0.3), { tam: 62, color: GRIS });
+img("obj-brain", 430, -130, 220, w("cerebro", 1, -0.3), { d: 0.9 });
+txt("«la próxima sale bien»", 430, 60, w("próxima", 1, -0.2), { tam: 54 });
+txt("«ya no funciona»", 430, 140, w("funciona", 1, -0.3), { tam: 54 });
+tacha(220, 30, 640, 160, w("cierta", 1, -0.2));
+img("obj-game-die", 300, 300, 110, w("tirada", 1, -0.3), { efecto: "pop", gira: { t: w("tirada", 1, 0), dur: 1.0 } });
+txt("no tiene memoria", 560, 310, w("anteriores", 1, -0.4), { tam: 56, color: ORO });
+
+// 18 · Ramón no cambia de caña
+en(18);
+agua(170, ini() + 0.4, -860, 860);
+img("obj-sun", 600, -330, 140, w("mañanas", 1, -0.2), { efecto: "pop" });
+img("peep-diego-feliz", -350, -40, 320, w("ramón", 1, -0.2), { respira: true });
+img("obj-fishing-pole", -80, -20, 260, w("quieta", 1, -0.3), { d: 0.8 });
+txt("no pica nada", 300, -60, w("nada", 1, -0.2), { tam: 62, color: GRIS });
+img("obj-fishing-pole", 120, 330, 130, w("caña", 1, -0.1), { efecto: "pop" });
+img("obj-worm", 330, 330, 80, w("carnada", 1, -0.1), { efecto: "pop" });
+img("obj-sailboat", 520, 320, 120, w("lugar", 1, -0.1), { efecto: "pop" });
+tacha(40, 380, 600, 270, w("minutos", 1, -0.1));
+txt("si cambia todo, nunca sabe qué funciona", 0, -380, w("sabría", 1, -0.3), { tam: 60, color: ORO });
+
+// 19 · El error común
+en(19);
+titulo("El error más común", { color: ROJO });
+img("peep-carla-feliz", -560, 80, 320, w("pérdidas", 1, -0.4), { respira: true, cambios: [{ t: w("abandona", 1, -0.1), src: "peep-carla-preocupada" }] });
+fila("xxxxx", -780, -280, 70, w("cinco", 1, -0.1), 0.1, 0.7);
+img("obj-wastebasket", 520, 260, 180, w("abandona", 1, -0.3), { d: 0.8 });
+[["método 1", "abandona"], ["método 2", "nuevo"], ["método 3", "otro"], ["método 4", "otro"]].forEach(([t_, p], i) => {
+  const t0 = w(p, i === 3 ? 2 : 1, 0);
+  img("obj-memo", -40 + i * 40, -120 + i * 10, 120, t0 - 0.3, { efecto: "pop", mueve: [{ t: t0 + 0.4, dur: 0.6, dx: 560 - i * 40, dy: 380 - i * 10, esc: 0.5 }], desaparece: t0 + 0.9 });
+  txt(t_, -40 + i * 40, -220 + i * 10, t0 - 0.3, { tam: 40, color: GRIS, desaparece: t0 + 0.4 });
+});
+txt("nunca junta suficientes operaciones", 150, 380, w("junta", 1, -0.2), { tam: 62, color: ORO });
+
+// 20 · Cuántas operaciones hacen falta
+en(20);
+titulo("¿Cuántas operaciones hacen falta?");
+txt("método bueno de verdad: 3 de 10 · 1 : 3", 0, -280, w("verdad", 1, -0.2), { tam: 56, color: VERDE });
+txt("30 operaciones", -420, -130, w("treinta", 1, -0.2), { tam: 74 });
+img("obj-magnifying-glass-tilted-left", -420, 50, 200, w("treinta", 1, 0.4), { d: 0.8 });
+txt("28 % de las veces: negativo", 300, -30, w("negativo", 1, -0.3), { tam: 64, color: ROJO });
+barra(30, 70, 540, 0.281, w("negativo", 1, 0.2), ROJO, 0.6);
+img("peep-ana-preocupada", 300, 300, 200, w("sirve", 1, -0.4), { respira: true });
+txt("«no sirve»", -40, 280, w("sirve", 1, -0.1), { tam: 64, color: ROJO });
+txt("…y es bueno", 620, 300, w("bueno", 2, -0.1), { tam: 64, color: VERDE });
+
+// 21 · Cientos, no una semana
+en(21);
+titulo("300 operaciones");
+txt("negativo: menos del 3 %", 0, -250, w("menos", 1, -0.2), { tam: 80, color: VERDE });
+barra(-600, -120, 1200, 0.024, w("tres", 1, 0), ROJO, 0.4);
+txt("una ventaja se mide en cientos de operaciones", 0, 20, w("ventaja", 1, -0.2), { tam: 66, color: ORO });
+img("obj-tear-off-calendar", -400, 230, 180, w("semana", 1, -0.3), { d: 0.8 });
+tacha(-500, 160, -300, 320, w("semana", 1, 0.5));
+txt("semana mala: casi nada", 150, 210, w("mala", 1, -0.2), { tam: 56, color: GRIS });
+txt("semana buena: tampoco", 150, 300, w("tampoco", 1, -0.4), { tam: 56, color: GRIS });
+
+// 22 · Lo que no se ve en las redes
+en(22);
+img("obj-mobile-phone", -400, 20, 400, w("redes", 1, -0.3), { d: 1.0 });
+txt("+300 %", -400, -30, w("bien", 1, -0.2), { tam: 72, color: VERDE, efecto: "pop" });
+fila("xxxxxxxx", 0, -280, 105, w("nadie", 1, 0), 0.12, 0.9);
+txt("lo que nadie muestra", 370, -180, w("anteriores", 1, -0.2), { tam: 56, color: ROJO });
+txt("tu peor semana  vs  su mejor captura", 250, 20, w("comparas", 1, -0.2), { tam: 54 });
+img("peep-marta-preocupada", 300, 250, 200, w("único", 1, -0.4), { respira: true, cambios: [{ t: w("eres", 2, 0), src: "peep-marta-feliz" }] });
+txt("no eres el único", 620, 230, w("eres", 2, 0), { tam: 56, color: VERDE });
+txt("la diferencia: cuánto te cuestan", 0, 440, w("cuestan", 1, -0.5), { tam: 62, color: ORO });
+
+// 23 · Sobrevivir a la racha
+en(23);
+txt("no evitarlas…", -400, -260, w("evitarlas", 1, -0.3), { tam: 80, color: GRIS });
+txt("…sobrevivirlas", 380, -260, w("sobrevivir", 1, -0.3), { tam: 90, color: ORO });
+img("obj-shield", 0, 20, 300, w("sobrevivir", 1, 0.3), { d: 1.0 });
+txt("¿cuánto de tu cuenta arriesgas en cada operación?", 0, 330, w("arriesgas", 1, -0.4), { tam: 62 });
+subraya(-300, 300, 360, w("operación", 1, 0));
+
+// 24 · Un cuarto del uno por ciento
+en(24);
+titulo("0,25 % por operación");
+img("obj-money-bag", -520, -40, 260, w("cuenta", 1, -0.3), { d: 0.9 });
+txt("US$ 10.000", -520, 160, w("mil", 1, -0.1), { tam: 66 });
+img("obj-coin", 0, -60, 120, w("veinticinco", 1, -0.3), { efecto: "pop" });
+txt("US$ 25", 0, 70, w("veinticinco", 1, 0), { tam: 70, color: ORO });
+fila("xxxxxxxx", 230, -100, 75, w("ocho", 1, -0.2), 0.1, 0.8);
+txt("8 × 0,25 % ≈ 2 %", 500, 40, w("dos", 1, -0.3), { tam: 72, color: ROJO });
+txt("duele, pero sigues de pie", 0, 360, w("pie", 1, -0.6), { tam: 72, color: VERDE });
+
+// 25 · La misma racha, otro riesgo
+en(25);
+titulo("La misma racha de 8, otro riesgo");
+[["0,25 % por operación", 0.02, "−2 %", ini() + 1.6], ["2 % por operación", 0.149, "−15 %", w("quince", 1, -0.5)], ["5 % por operación", 0.337, "−34 %", w("tercio", 1, -0.4)]].forEach(([t_, f, r, t0], i) => {
+  const y = -220 + i * 170;
+  txt(t_, -820, y - 40, t0, { tam: 48, ancla: "start", color: GRIS });
+  barra(-820, y + 30, 1150, f / 0.35, t0 + 0.2, ROJO, 0.8);
+  txt(r, 420, y + 50, t0 + 1.0, { tam: 74, ancla: "start", color: ROJO });
+});
+img("obj-collision", 700, 170, 140, w("golpe", 1, -0.3), { efecto: "pop" });
+txt("misma semana, otro golpe", 0, 400, w("golpe", 1, -0.4), { tam: 66, color: ORO });
+
+// 26 · Lo que cuesta volver
+en(26);
+titulo("Lo que cuesta volver");
+trazo("M-760 -200 L-760 300 L-200 300 L-200 -200", w("recupera", 1, -0.3), { grosor: 8, color: TINTA, dur: 0.7 });
+img("obj-ladder", -480, 60, 220, w("recupera", 1, 0.4), { d: 0.8 });
+[["−2 %", "+2 %", "dos", 1], ["−15 %", "+18 %", "dieciocho", 1], ["−34 %", "+51 %", "mitad", 1]].forEach(([a, b, p, n], i) => {
+  const y = -170 + i * 160, t0 = w(p, n, -0.8);
+  txt(a, 100, y, t0, { tam: 76, color: ROJO });
+  trazo(`M200 ${y - 20} L360 ${y - 20}`, t0 + 0.3, { grosor: 7, dur: 0.3 });
+  txt(b, 480, y, t0 + 0.5, { tam: 76, color: VERDE });
+});
+txt("una racha normal se vuelve un pozo", 0, 400, w("pozo", 1, -0.4), { tam: 64, color: ORO });
+
+// 27 · La carnada es chica
+en(27);
+img("peep-diego-feliz", -580, 40, 300, w("ramón", 1, -0.2), { respira: true });
+img("obj-worm", 0, -100, 340, w("costara", 1, -0.2), { d: 0.9 });
+cruz(0, -100, w("mes", 1, -0.2), 140);
+txt("ocho tiradas = sin pescar el resto del mes", 0, 180, w("tiradas", 1, -0.2), { tam: 56, color: ROJO });
+img("obj-worm", 560, -60, 90, w("chica", 1, -0.2), { efecto: "pop" });
+tilde(660, -100, w("chica", 1, 0.3));
+txt("no por miedo: para seguir pescando mañana", 0, 380, w("seguir", 1, -0.4), { tam: 60, color: ORO });
+
+// 28 · La bolsa de carnada del día
+en(28);
+titulo("Límite de pérdida diaria", { color: ORO });
+img("obj-basket", -480, 0, 300, w("bolsa", 1, -0.2), { d: 0.9 });
+for (let i = 0; i < 8; i++) {
+  const t0 = w("ocho", 1, -0.2) + i * 0.18;
+  img("obj-worm", -620 + (i % 4) * 90, -140 + Math.floor(i / 4) * 80, 70, w("bolsa", 1, 0.8) + i * 0.08, { efecto: "pop", desaparece: t0 + 0.3 });
+}
+txt("2 %", 100, -60, w("dos", 1, -0.2), { tam: 140, color: ROJO, efecto: "pop" });
+txt("8 pérdidas de 0,25 %", 160, 80, w("ocho", 1, -0.2), { tam: 58 });
+img("obj-door", 600, 0, 200, w("terminó", 1, -0.3), { d: 0.8 });
+txt("se terminó el día", 500, 220, w("terminó", 1, 0.1), { tam: 62, color: ORO });
+txt("aunque veas clara la siguiente", 0, 400, w("clara", 1, -0.3), { tam: 58, color: GRIS });
+
+// 29 · El daño viene después
+en(29);
+titulo("El daño viene después de la racha");
+img("peep-camila-preocupada", -420, 80, 320, w("daño", 1, -0.2), { respira: true });
+img("obj-fire", -160, -100, 110, w("enojado", 1, -0.2), { efecto: "pop", vibra: { t: w("enojado", 1, 0.2), dur: 1.2 } });
+img("obj-sleeping-face", -680, -150, 90, w("cansado", 1, -0.2), { efecto: "pop" });
+txt("«recupero todo en una»", 300, -120, w("recuperarlo", 1, -0.2), { tam: 64, color: ROJO });
+img("obj-stop-sign", 300, 120, 200, w("límite", 1, -0.2), { d: 0.8 });
+txt("el límite te saca del agua", 300, 330, w("saca", 1, -0.3), { tam: 64, color: ORO });
+
+// 30 · Un plan para la racha
+en(30);
+img("obj-memo", -560, 20, 300, w("plan", 1, -0.2), { d: 1.0 });
+txt("Mi plan para la racha", 120, -330, w("plan", 1, 0.1), { tam: 80, color: ORO });
+[["límite del día → cierro la plataforma", "plataforma"], ["5 pérdidas en la semana → mitad del riesgo", "mitad"], ["fin de semana → reviso cada operación", "reviso"]].forEach(([t_, p], i) => {
+  const y = -170 + i * 140, t0 = w(p, 1, -0.9);
+  caja(-260, y - 38, -192, y + 28, t0, { dur: 0.3 });
+  txt(t_, -160, y + 16, t0 + 0.2, { tam: 52, ancla: "start" });
+  tilde(-226, y - 8, t0 + 1.3);
+});
+txt("se decide tranquilo, no enojado", 120, 330, w("tranquilo", 1, -0.3), { tam: 64, color: GRIS });
+img("obj-relieved-face", 700, 310, 100, w("tranquilo", 1, 0.2), { efecto: "pop" });
+
+// 31 · Pérdida buena y pérdida mala
+en(31);
+titulo("¿Respeté mis reglas?");
+trazo("M0 -300 L0 340", ini() + 1.0, { grosor: 5, color: GRIS, dur: 0.5 });
+txt("sí → pérdida buena", -440, -190, w("buena", 1, -0.4), { tam: 70, color: VERDE });
+tilde(-440, -90, w("buena", 1, 0.2), 1.5);
+img("obj-worm", -440, 60, 120, w("costo", 1, -0.2), { efecto: "pop" });
+txt("el costo de la carnada", -440, 170, w("costo", 1, 0.2), { tam: 54 });
+txt("no → pérdida mala", 440, -190, w("mala", 1, -0.4), { tam: 70, color: ROJO });
+cruz(440, -90, w("mala", 1, 0.2), 34);
+txt("corregir", 440, 60, w("corregirla", 1, -0.3), { tam: 64, color: ROJO });
+txt("ganancia con suerte = también mala", 0, 330, w("suerte", 1, -0.6), { tam: 60, color: ORO });
+
+// 32 · Sin condiciones no hay operación
+en(32);
+titulo("Sin condiciones, no hay operación", { color: ORO });
+[["¿qué estoy viendo?", "viendo"], ["¿dónde salgo si me equivoco?", "equivocas"], ["¿dónde está mi objetivo?", "objetivo"]].forEach(([t_, p], i) => {
+  const y = -200 + i * 140, t0 = w(p, 1, -0.6);
+  caja(-560, y - 38, -492, y + 28, t0, { dur: 0.3 });
+  txt(t_, -450, y + 16, t0 + 0.2, { tam: 62, ancla: "start" });
+  tilde(-526, y - 8, t0 + 1.0);
+});
+txt("revancha", 620, -270, w("revancha", 1, -0.2), { tam: 64, color: ROJO });
+tacha(500, -300, 740, -250, w("condiciones", 1, 0));
+img("obj-stop-sign", 600, 0, 180, w("entras", 1, -0.3), { d: 0.7 });
+txt("si falta una: no entras", 0, 270, w("entras", 1, 0), { tam: 66, color: ROJO });
+fila("xxxx", -150, 390, 100, w("cuatro", 2, -0.3), 0.12, 0.8);
+txt("sobre todo", -400, 410, w("sobre", 1, -0.1), { tam: 56, color: ORO });
+
+// 33 · Tirar la caña entera
+en(33);
+agua(200, ini() + 0.3, -860, 860);
+img("peep-diego-feliz", -480, -40, 320, w("ramón", 1, -0.2), { respira: true });
+txt("lugar · hora · agua", 300, -300, w("sentido", 1, -0.6), { tam: 64, color: VERDE });
+img("obj-anxious-face-with-sweat", -250, -260, 100, w("enojado", 1, -0.2), { efecto: "pop" });
+tacha(-330, -320, -170, -200, w("enojado", 1, 0.3));
+img("obj-fishing-pole", -200, 0, 240, w("caña", 1, -0.4), { efecto: "pop", mueve: [{ t: w("entera", 1, 0), dur: 1.0, dx: 600, dy: 200, giro: 160 }] });
+txt("revancha", 380, 40, w("revancha", 1, -0.2), { tam: 90, color: ROJO });
+cruz(620, 280, w("pica", 1, 0), 40);
+
+// 34 · La racha ganadora
+en(34);
+titulo("La racha que se festeja", { color: ROJO });
+img("peep-ana-feliz", -560, 60, 300, w("festeja", 1, -0.3), { respira: true, cambios: [{ t: w("regalas", 1, -0.2), src: "peep-ana-preocupada" }] });
+fila("vvvvvv", -300, -230, 90, w("seis", 1, -0.2), 0.12, 0.9);
+img("obj-rocket", 450, -150, 160, w("fórmula", 1, -0.3), { efecto: "pop" });
+txt("riesgo ×2", 450, 20, w("duplicar", 1, -0.2), { tam: 80, color: ROJO });
+txt("el mercado no sabe que vienes ganando", 100, 170, w("mercado", 1, -0.2), { tam: 56 });
+txt("mismas probabilidades que todas", 100, 240, w("probabilidades", 1, -0.4), { tam: 50, color: GRIS });
+fila("xxxx", -80, 320, 90, w("pérdidas", 1, -0.2), 0.12, 0.9);
+txt("3 días se llevan un mes", 330, 420, w("regalas", 1, -0.1), { tam: 62, color: ORO });
+
+// 35 · Sumar con la ganancia del día
+en(35);
+titulo("Arriesgar más: solo con la ganancia del día");
+img("obj-money-bag", -560, 20, 240, w("cuenta", 1, -0.2), { d: 0.8 });
+img("obj-shield", -420, 120, 110, w("cuenta", 1, 0.5), { efecto: "pop" });
+txt("tu cuenta: no se toca", -560, 230, w("nunca", 1, -0.1), { tam: 50, color: GRIS });
+img("obj-coin", 120, -80, 150, w("uno", 1, -0.3), { efecto: "pop" });
+txt("+1 % hoy", 120, 70, w("uno", 1, 0), { tam: 70, color: VERDE });
+txt("arriesgo una parte", 120, 160, w("parte", 1, -0.3), { tam: 54 });
+txt("sale mal: parejo", 560, -60, w("mal", 1, -0.1), { tam: 56, color: GRIS });
+txt("sale bien: día muy bueno", 560, 30, w("bien", 1, -0.1), { tam: 56, color: VERDE });
+txt("nunca arriesgar más porque vas perdiendo", 0, 400, w("perdiendo", 1, -0.8), { tam: 60, color: ROJO });
+
+// 36 · Los peces chicos como carnada
+en(36);
+agua(220, ini() + 0.2, -860, 860);
+img("peep-diego-feliz", -520, -20, 300, w("peces", 1, -0.2), { respira: true });
+img("obj-fish", -120, -120, 110, w("chicos", 1, -0.1), { efecto: "pop", mueve: [{ t: w("carnada", 1, 0), dur: 0.9, dx: 300, dy: 300 }] });
+img("obj-tropical-fish", 450, 300, 260, w("grande", 1, -0.2), { efecto: "pop" });
+txt("lo que ganaste hoy", 330, -220, w("ganaste", 1, -0.3), { tam: 62, color: VERDE });
+txt("no lo que tenías guardado", 330, -120, w("guardado", 1, -0.5), { tam: 62, color: GRIS });
+
+// 37 · Las comisiones
+en(37);
+titulo("El costo que nadie mira: las comisiones");
+img("obj-receipt", -520, 60, 300, w("comisiones", 1, -0.2), { d: 1.0 });
+txt("US$ 2,50 por operación", 250, -230, w("cincuenta", 1, -0.4), { tam: 64 });
+txt("× 600 operaciones (3 meses)", 250, -110, w("seiscientas", 1, -0.3), { tam: 64 });
+txt("= US$ 1.500", 250, 20, w("quinientos", 1, -0.3), { tam: 84, color: ROJO });
+txt("15 % de una cuenta de 10.000", 250, 160, w("quince", 1, -0.3), { tam: 64, color: ROJO });
+txt("solo en costos", 250, 280, w("costos", 1, -0.3), { tam: 70, color: ORO });
+
+// 38 · Lo que se llevan los costos
+en(38);
+titulo("Lo que la comisión le hace a Tomás");
+img("peep-julian-preocupada", -640, 80, 280, w("tomás", 1, -0.2), { respira: true });
+txt("comisión = 1/10 del riesgo", 50, -240, w("décima", 1, -0.3), { tam: 62 });
+txt("ventaja: +0,2 por operación", 50, -120, w("décimas", 1, -0.3), { tam: 62, color: VERDE });
+trazo("M-180 0 L460 0", w("décimas", 1, 0.3), { color: VERDE, grosor: 50, dur: 0.8 });
+trazo("M140 0 L460 0", w("mitad", 1, -0.2), { color: ROJO, grosor: 50, dur: 0.6 });
+txt("la comisión se lleva la mitad", 140, 110, w("mitad", 1, 0.2), { tam: 62, color: ROJO });
+img("obj-sailboat", 520, 290, 180, w("combustible", 1, -0.3), { d: 0.8 });
+txt("100 salidas por día: el combustible se come la pesca", 0, 430, w("come", 1, -0.5), { tam: 50, color: ORO });
+
+// 39 · El mes de Tomás (ejemplo): curva de capital de 40 operaciones
+en(39);
+const SEQ = "LLWLLWLLLW" + "LLLLLLLLWL" + "WLWLLWLLWL" + "LWLWLLWLWL";
+const CX = (i) => -760 + i * 34, CY = (r) => 60 - r * 38;
+let eq = 0; const PTS = [[CX(0), CY(0)]];
+[...SEQ].forEach((x, i) => { eq += x === "W" ? 3 : -1; PTS.push([CX(i + 1), CY(eq)]); });
+const tramo = (a, b) => PTS.slice(a, b + 1).map(([x, y], i) => `${i ? "L" : "M"}${x} ${y}`).join(" ");
+titulo("El mes de Tomás (ejemplo)", { color: ORO });
+trazo(`M${CX(0)} ${CY(-7)} L${CX(0)} ${CY(10)} M${CX(0)} ${CY(0)} L${CX(40) + 20} ${CY(0)}`, w("cuarenta", 1, -0.4), { grosor: 5, color: GRIS, dur: 0.6 });
+txt("40 operaciones · US$ 25 de riesgo · objetivo ×3", 0, -300, w("veinticinco", 1, -0.3), { tam: 50, color: GRIS });
+trazo(tramo(0, 10), w("cuarenta", 1, 0.3), { grosor: 8, dur: 1.4 });
+txt("12 aciertos", -420, -210, w("doce", 1, -0.1), { tam: 58, color: VERDE });
+txt("28 pérdidas", -420, -140, w("veintiocho", 1, -0.1), { tam: 58, color: ROJO });
+trazo(tramo(10, 18), w("veintiocho", 1, -0.1), { grosor: 10, color: ROJO, dur: 1.2 });
+txt("racha de 8", CX(14), CY(-6) + 70, w("ocho", 1, 0), { tam: 52, color: ROJO });
+trazo(tramo(18, 40), w("racha", 1, 0), { grosor: 8, dur: 2.0 });
+en(40);
+titulo("La cuenta final", { color: ORO });
+txt("12 × US$ 75 = 900", -380, -220, w("novecientos", 1, -0.4), { tam: 76, color: VERDE });
+txt("28 × US$ 25 = 700", 380, -220, w("setecientos", 1, -0.4), { tam: 76, color: ROJO });
+txt("+US$ 200 (2 %)", 0, -80, w("doscientos", 1, -0.3), { tam: 90, color: VERDE });
+txt("− comisiones: 40 × 2,50 = 100", 0, 50, w("comisiones", 1, -0.2), { tam: 62, color: GRIS });
+txt("= +US$ 100 (1 %)", 0, 180, w("uno", 1, -0.3), { tam: 100, color: ORO, efecto: "pop" });
+fila("xxxxxxxx", -340, 330, 70, w("seguidas", 1, -0.4), 0.1, 0.7);
+txt("y terminó arriba", 420, 350, w("arriba", 1, -0.5), { tam: 66, color: VERDE });
+img("peep-julian-feliz", -720, 260, 200, w("arriba", 1, -0.5), { efecto: "pop" });
+
+// 41 · Nada heroico
+en(41);
+img("obj-sunset", -450, -250, 300, ini() + 0.2, { d: 1.4 });
+img("peep-diego-feliz", -450, 120, 300, w("pescando", 1, -0.5), { respira: true });
+img("obj-bucket", -200, 230, 140, w("pescando", 1, 0), { efecto: "pop" });
+txt("peor semana: −2 %", 400, 50, w("semana", 1, -0.1), { tam: 66, color: ROJO });
+txt("nada heroico", 400, 150, w("heroico", 1, -0.3), { tam: 70, color: ORO });
+txt("ejemplo, no promesa", 400, 300, w("ejemplo", 1, -0.2), { tam: 70, color: ROJO });
+txt("la cuenta para saber si tu método puede", 0, 430, w("cuenta", 2, -0.3), { tam: 54, color: GRIS });
+
+// 42 · Tu ejercicio
+en(42);
+titulo("Haz esto hoy", { color: ORO });
+caja(-700, -300, 700, 220, w("treinta", 1, -0.2));
+trazo("M-700 -190 L700 -190 M-230 -300 L-230 220 M230 -300 L230 220", w("treinta", 1, 0.4), { grosor: 5, color: GRIS, dur: 0.6 });
+txt("% de aciertos", -465, -225, w("acertaste", 1, -0.3), { tam: 46 });
+txt("ganancia media", 0, -225, w("ganaste", 1, -0.3), { tam: 46, color: VERDE });
+txt("pérdida media", 465, -225, w("perdiste", 1, -0.3), { tam: 46, color: ROJO });
+img("peep-bruno-feliz", -250, 360, 150, w("nico", 1, -0.2), { efecto: "pop" });
+img("peep-julian-feliz", 250, 360, 150, w("tomás", 1, -0.2), { efecto: "pop" });
+txt("¿cuál eres?", 0, 320, w("eres", 1, -0.3), { tam: 60 });
+txt("+ tu racha más larga", 0, 0, w("larga", 1, -0.4), { tam: 70, color: ORO });
+
+// 43 · El diario de operaciones
+en(43);
+img("obj-memo", -620, -40, 280, w("diario", 1, -0.3), { d: 1.0 });
+txt("tu diario", -620, 170, w("diario", 1, 0.3), { tam: 64, color: ORO });
+["fecha", "por qué entré", "riesgo", "resultado", "comisión", "¿reglas?"].forEach((t_, i) => {
+  const pal = ["fecha", "entraste", "arriesgaste", "salió", "comisión", "reglas"][i];
+  txt(t_, -250 + (i % 3) * 330, -230 + Math.floor(i / 3) * 110, w(pal, 1, -0.2), { tam: 56, ancla: "start" });
+});
+txt("cuando llegue la racha: abres el diario", 150, 100, w("racha", 1, -0.3), { tam: 58 });
+img("obj-bar-chart", 640, 210, 110, w("números", 1, -0.3), { efecto: "pop" });
+img("peep-diego-feliz", 200, 320, 180, w("ramón", 1, -0.3), { efecto: "pop" });
+txt("día · hora · carnada · lugar", 520, 380, w("carnada", 1, -0.3), { tam: 46, color: GRIS });
+
+// 44 · Repasemos (antes, la cámara muestra toda la pizarra)
+en(44);
+const R0 = ini() + 3.7;
+[["acertar mucho no alcanza", "alcanza"], ["1 : 3 → alcanza con 1 de cada 4", "cuatro"], ["rachas de 8: normales en cientos", "normales"], ["poco riesgo + límite diario + condiciones", "condiciones"], ["cuenta los costos", "costos"]].forEach(([t_, p], i) => {
+  const t0 = Math.max(R0 + i * 0.6, w(p, 1, -0.6)), y = -300 + i * 130;
+  tilde(-700, y - 14, t0);
+  txt(t_, -640, y + 6, t0 + 0.3, { tam: 64, ancla: "start" });
+});
+txt("Repasemos", 0, -420, ini() + 0.1, { tam: 80, color: ORO });
+
+// 45 · Cierre
+en(45);
+img("marca-logo", 0, -240, 600, ini() + 0.2, { d: 2.0 });
+caja(-240, -60, 240, 50, w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9 });
+txt("SUSCRIBIRME", 0, 22, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
+img("obj-bell", 340, -5, 120, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
+txt("comenta RACHA + tu número", 0, 140, w("comentar", 1, -0.2), { tam: 62, color: ORO });
+txt("Ramón vuelve contento a fin de mes", 0, 230, w("contento", 2, -0.6), { tam: 56 });
+txt("realinvestors.club · Nivel 0 gratis", 0, 320, w("gratis", 1, -0.6), { tam: 64, color: ORO });
+txt("Contenido educativo. No constituye recomendación de inversión.", 0, 420, w("educativo", 1, -0.6), { tam: 40, color: GRIS });
+
+// Cámara: llega a cada zona apenas empieza su escena; en el repaso, se aleja para mostrar toda la pizarra
+const cam = [{ t: 0, x: centro(0)[0], y: centro(0)[1], zoom: 1 }];
+for (let s = 2; s <= 45; s++) {
+  en(s);
+  if (s === 44) {
+    cam.push({ t: ini() + 1.2, x: 2.5 * DX, y: 3.5 * DY, zoom: 0.09, dur: 1.5 });
+    cam.push({ t: ini() + 3.6, x: B[0], y: B[1], zoom: 1, dur: 1.5 });
+    continue;
+  }
+  cam.push({ t: ini() + 0.35, x: B[0], y: B[1], zoom: 1, dur: 1.1 });
+}
+
+Pizarra.escena({ dur: T.total, elementos: E, camara: cam });
+</script>
+</body></html>
