@@ -1,0 +1,31 @@
+{
+ "fecha": "2026-11-07",
+ "cambios": [
+  {
+   "id": "VEL2WF_pp_I",
+   "antes": {
+    "title": "RIC P22 rachas voz Lean",
+    "status": {
+     "uploadStatus": "processed",
+     "privacyStatus": "private",
+     "license": "youtube",
+     "embeddable": true,
+     "publicStatsViewable": true,
+     "madeForKids": false,
+     "selfDeclaredMadeForKids": false
+    }
+   },
+   "despues": {
+    "title": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+    "privacy": "public",
+    "categoryId": "27",
+    "containsSyntheticMedia": true,
+    "playlists": [
+     "PLEaK47BmSetA",
+     "PLLiFzVm-nZuk"
+    ],
+    "comentario": "UgytJOVHY18oCBhIR8F4AaABAg"
+   }
+  }
+ ]
+}

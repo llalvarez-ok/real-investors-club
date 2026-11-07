@@ -61,7 +61,7 @@ Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora 
 - 06/11 13:00 · Short · 3 hábitos para no vender por miedo (P09) · `VNjgXvAp5Ic`
 - 06/11 19:00 · Short · Me comí un stop en vivo · `M96iCwjSeUA`
 - 07/11 13:00 · Short · Entró en el pico de Bitcoin en 2021 (P10) · `MaLhm9-0AZY`
-- 07/11 19:00 · Largo · P22 (falta que Lean lo suba)
+- 07/11 14:10 · Largo · P22 «Por qué un trader puede perder 8 veces seguidas y ganar el mes» · `VEL2WF_pp_I` (publicado; voz clonada de Lean)
 - 08/11 19:00 · Short · ¿Compras porque todos compran? (P10) · `SPvuO-ppHm8`
 - 09/11 19:00 · Short · 3 preguntas antes de entrar… (P10) · `wX-T6YetVO4`
 - 10/11 19:00 · Short · «Últimos cupos» (P10) · `3CucxdZ-ODw`

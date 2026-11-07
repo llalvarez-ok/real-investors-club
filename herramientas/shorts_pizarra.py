@@ -23,7 +23,7 @@ PANEL_Y, PANEL_H, RECORTE = 470, 729, 1600  # el centro de 1600x1080 del video, 
 AIRE = 0.15                  # el de unir_voz.sh
 CTA_SEG = 2.8
 ROJO, TINTA = "&H003F3AD9&", "&H003D2114&"  # #d93a3f y #14213d en BGR de ASS
-CTA = {"youtube": "Mira el video **completo** en el canal", "instagram": "Video **completo** en YouTube · link en la bio"}
+CTA = {"youtube": "Mirá el video **completo** en el canal", "instagram": "Video **completo** en YouTube · link en la bio"}
 
 
 def sh(*a):
