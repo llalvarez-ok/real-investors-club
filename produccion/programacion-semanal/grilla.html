@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Programación semanal</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+:root{--n1:#071426;--n2:#0d2142;--o1:#e2c68c;--o2:#c7a35e;--o3:#8e7140;--t:#ecf1f9;--t2:#a3b5d1;--b:#274a80;--asia:#7fb2ff;--rojo:#ff6b6b}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#000}
+.g{width:1080px;position:relative;overflow:hidden;font-family:'IBM Plex Sans';color:var(--t);margin-bottom:40px;
+ background:linear-gradient(rgba(39,74,128,.13) 1px,transparent 1px) 0 0/54px 54px,linear-gradient(90deg,rgba(39,74,128,.13) 1px,transparent 1px) 0 0/54px 54px,
+ radial-gradient(ellipse at 85% 6%,#163a6e 0%,transparent 50%),linear-gradient(170deg,var(--n2),var(--n1) 70%)}
+.historia{height:1920px}.feed{height:1350px}
+.col{position:absolute;left:110px;right:110px;display:flex;flex-direction:column}
+.historia .col{top:250px;gap:22px}.feed .col{top:70px;gap:18px}
+.oro{background:linear-gradient(180deg,var(--o1),var(--o2) 55%,var(--o3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.marca{display:flex;align-items:center;gap:16px}.marca img{height:58px}
+.marca span{font-family:'IBM Plex Mono';font-size:22px;letter-spacing:.14em;color:var(--t2)}
+h1{font-family:'Archivo';font-weight:900;text-transform:uppercase;line-height:.95}
+.historia h1{font-size:92px;margin-top:10px}.feed h1{font-size:70px;margin-top:4px}
+.semana{display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono';font-size:24px;color:var(--t2)}
+.semana b{color:var(--n1);background:var(--o1);padding:6px 12px;border-radius:6px;font-weight:600}
+.dias{display:flex;flex-direction:column}
+.historia .dias{gap:14px;margin-top:14px}.feed .dias{gap:12px;margin-top:8px}
+.d{display:grid;grid-template-columns:150px 1fr;align-items:center;border:2px solid var(--b);border-radius:18px;background:rgba(7,20,38,.65);overflow:hidden}
+.historia .d{min-height:118px}.feed .d{min-height:106px}
+.d .f{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:2px solid var(--b);background:rgba(13,33,66,.8)}
+.d .f small{font-family:'IBM Plex Mono';font-size:20px;letter-spacing:.1em;color:var(--t2)}
+.d .f b{font-family:'Archivo';font-weight:900;font-size:44px;line-height:1}
+.feed .d .f b{font-size:36px}
+.d .x{padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.d .q{font-size:30px;font-weight:600;line-height:1.2}.feed .d .q{font-size:26px}
+.d .q span{display:block;font-family:'IBM Plex Mono';font-size:19px;font-weight:600;letter-spacing:.1em;margin-bottom:4px}
+.d .h{font-family:'Archivo';font-weight:900;font-size:44px;white-space:nowrap}.feed .d .h{font-size:36px}
+.asia .q span{color:var(--asia)}.asia{border-left:8px solid var(--asia)}
+.ny .q span{color:var(--o1)}.ny{border-left:8px solid var(--o2)}
+.vivo .q span{color:var(--rojo)}.vivo{border-left:8px solid var(--rojo)}
+.curso{border:3px solid var(--o2);background:linear-gradient(120deg,rgba(226,198,140,.18),rgba(7,20,38,.7))}
+.curso .q span{color:var(--o1)}
+.pie{display:flex;justify-content:space-between;align-items:center;font-size:24px;color:var(--t2)}
+.pie b{color:var(--t)}
+.historia .pie{margin-top:20px}.feed .pie{margin-top:6px}
+.yt{display:inline-flex;align-items:center;gap:10px}
+.yt i{width:42px;height:30px;border-radius:9px;background:#ff3b3b;display:inline-flex;align-items:center;justify-content:center}
+.yt i::after{content:'';border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.aviso{font-size:18px;color:var(--t2);line-height:1.35}
+</style></head><body>
+<template id="t">
+ <div class="col">
+  <div class="marca"><img src="../../marca/logo-oro.png" alt=""><span>REAL INVESTORS CLUB</span></div>
+  <h1>Clases en vivo <span class="oro">de la semana</span></h1>
+  <div class="semana"><b>8 AL 14 DE NOVIEMBRE</b> Hora de Argentina</div>
+  <div class="dias">
+   <div class="d asia"><div class="f"><small>DOM</small><b>8</b></div><div class="x"><div class="q"><span>ASIA</span>Pre-apertura del mercado</div><div class="h">19:00</div></div></div>
+   <div class="d asia"><div class="f"><small>LUN</small><b>9</b></div><div class="x"><div class="q"><span>ASIA</span>Pre-apertura del mercado</div><div class="h">19:00</div></div></div>
+   <div class="d vivo"><div class="f"><small>MAR</small><b>10</b></div><div class="x"><div class="q"><span>● EN VIVO · NUEVA YORK</span>Operando en vivo</div><div class="h">11:00</div></div></div>
+   <div class="d ny"><div class="f"><small>MIÉ</small><b>11</b></div><div class="x"><div class="q"><span>NUEVA YORK</span>Pre-apertura del mercado</div><div class="h">10:30</div></div></div>
+   <div class="d asia"><div class="f"><small>JUE</small><b>12</b></div><div class="x"><div class="q"><span>ASIA</span>Pre-apertura del mercado</div><div class="h">19:00</div></div></div>
+   <div class="d vivo"><div class="f"><small>VIE</small><b>13</b></div><div class="x"><div class="q"><span>● EN VIVO · NUEVA YORK</span>Operando en vivo</div><div class="h">11:00</div></div></div>
+   <div class="d curso"><div class="f"><small>SÁB</small><b>14</b></div><div class="x"><div class="q"><span>CLASE INTRODUCTORIA</span>Curso Intermedio y Avanzado</div><div class="h">17:00</div></div></div>
+  </div>
+  <div class="pie"><span class="yt"><i></i><b>En vivo en YouTube</b></span><span>@REALinvestorsc</span></div>
+  <p class="aviso">Contenido educativo. No constituye recomendación de inversión. Operar CFDs conlleva alto riesgo de pérdida de dinero.</p>
+ </div>
+</template>
+<section class="g historia" id="historia"></section>
+<section class="g feed" id="feed"></section>
+<script>for(const id of ['historia','feed'])document.getElementById(id).appendChild(document.getElementById('t').content.cloneNode(true));</script>
+</body></html>
