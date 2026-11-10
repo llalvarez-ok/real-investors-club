@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- P26 "Cómo leer un gráfico desde cero" en pizarra. Motor: herramientas/animaciones/pizarra.js.
+     Los tiempos salen de tiempos.js (herramientas/tiempos_pizarra.py): cada elemento aparece cuando la voz dice su palabra.
+     Datos reales en oro.js (datos_oro.py): futuro del oro GC=F, velas diarias y semanales.
+     Metáfora central: cada vela es un partido de fútbol entre los que compran y los que venden. Sofía = camila.
+     Cada escena ocupa una zona del lienzo (6 columnas en serpentina). -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fdfdfb}
+#logo svg{width:190px;height:auto;display:block}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+<script src="../../herramientas/animaciones/pizarra.js"></script>
+<script src="tiempos.js"></script>
+<script src="oro.js"></script>
+</head><body>
+<script>
+const VERDE = "#1f9d63", ROJO = "#d93a3f", ORO = "#b8913f", GRIS = "#7d8597", TINTA = "#14213d";
+const BANDA_ORO = "rgba(199,163,94,.22)", BANDA_GRIS = "rgba(125,133,151,.16)", BARRA = "#9aa6bb";
+const T = window.TIEMPOS, FALTAN = (window.FALTAN = []);
+const ZONA = Array.from({ length: 27 }, (_, i) => Math.max(0, i - 1));
+const COLS = 6, DX = 2600, DY = 1500;
+const centro = (z) => { const fila = Math.floor(z / COLS); let col = z % COLS; if (fila % 2) col = COLS - 1 - col; return [col * DX, fila * DY]; };
+let S = 1, B = [0, 0];
+const en = (s) => { S = s; B = centro(ZONA[s]); };
+const ini = (s = S) => T.escenas[s - 1].ini, fin = (s = S) => T.escenas[s - 1].ini + T.escenas[s - 1].dur;
+const norm = (x) => x.toLowerCase().replace(/[^\wáéíóúüñ]/g, "");
+function w(palabra, n = 1, desfase = 0) {
+  const ps = T.escenas[S - 1].palabras, q = norm(palabra);
+  let k = 0;
+  for (const p of ps) if (p.p === q && ++k === n) return p.t + desfase;
+  FALTAN.push(`${S}:${palabra}#${n}`);
+  return ini() + 1;
+}
+const E = [];
+function add(o) {
+  const r = { ...o, x: B[0] + (o.x || 0), y: B[1] + (o.y || 0) };
+  if (o.respira) r.respira = { hasta: o.respira.hasta || fin() };
+  if (o.desde) { r.desde = [B[0] + o.desde[0], B[1] + o.desde[1]]; r.hasta = [B[0] + o.hasta[0], B[1] + o.hasta[1]]; r.x = 0; r.y = 0; }
+  E.push(r);
+  return r;
+}
+const txt = (texto, x, y, t, o = {}) => add({ tipo: "texto", texto, x, y, t, tam: 64, ancla: "middle", d: Math.min(1.4, 0.25 + texto.length * 0.045), ...o });
+const img = (src, x, y, w_, t, o = {}) => add({ tipo: "img", src, x, y, w: w_, t, d: 1.2, ...o });
+const trazo = (d, t, o = {}) => add({ tipo: "trazo", d, t, dur: 0.5, ...o });
+const tilde = (x, y, t, s = 1) => trazo(`M${x - 22 * s} ${y} L${x - 4 * s} ${y + 20 * s} L${x + 30 * s} ${y - 26 * s}`, t, { color: VERDE, grosor: 11 * Math.sqrt(s), dur: 0.3 });
+const cruz = (x, y, t, s = 24) => trazo(`M${x - s} ${y - s} L${x + s} ${y + s} M${x + s} ${y - s} L${x - s} ${y + s}`, t, { color: ROJO, grosor: 10, dur: 0.3 });
+const tacha = (x1, y1, x2, y2, t) => trazo(`M${x1} ${y1} L${x2} ${y2}`, t, { color: ROJO, grosor: 12, dur: 0.3 });
+const subraya = (x1, x2, y, t, color = ORO) => trazo(`M${x1} ${y} Q${(x1 + x2) / 2} ${y + 16} ${x2} ${y - 4}`, t, { color, grosor: 10, dur: 0.45 });
+const caja = (x1, y1, x2, y2, t, o = {}) => trazo(`M${x1} ${y1} L${x2} ${y1} L${x2} ${y2} L${x1} ${y2} Z`, t, { grosor: 7, dur: 0.5, ...o });
+const flecha = (x1, y1, x2, y2, t, color = TINTA, o = {}) => {
+  const a = Math.atan2(y2 - y1, x2 - x1), k = 34;
+  const p1 = [x2 - k * Math.cos(a - 0.45), y2 - k * Math.sin(a - 0.45)], p2 = [x2 - k * Math.cos(a + 0.45), y2 - k * Math.sin(a + 0.45)];
+  return trazo(`M${x1} ${y1} L${x2} ${y2} M${p1[0]} ${p1[1]} L${x2} ${y2} L${p2[0]} ${p2[1]}`, t, { color, grosor: 9, dur: 0.6, ...o });
+};
+const banda = (x1, x2, ya, yb, t, color = BANDA_ORO, o = {}) => trazo(`M${x1} ${(ya + yb) / 2} L${x2} ${(ya + yb) / 2}`, t, { color, grosor: Math.abs(yb - ya), dur: 0.7, punta: "butt", ...o });
+const titulo = (texto, o = {}) => txt(texto, 0, -400, ini() + 0.2, { tam: 78, ...o });
+// leyenda de una escena dentro de una zona compartida: arriba, y se borra al terminar la escena
+const nota = (texto, t, o = {}) => txt(texto, -120, -440, t, { tam: 58, color: ORO, desaparece: fin() - 0.3, ...o });
+const n2 = (v) => Math.round(v).toLocaleString("es-AR");
+const O = window.ORO;
+
+// ---------- velas ----------
+// una vela grande: x, y del centro de la caja, alto en px para el rango [lo, hi]; devuelve PY para anotar precios
+function velaGrande([, op, h, l, c], x, lo, hi, t, o = {}) {
+  const Y0 = o.y0 ?? 330, Y1 = o.y1 ?? -300, PY = (p) => Y0 + (p - lo) / (hi - lo) * (Y1 - Y0), col = o.color || (c >= op ? VERDE : ROJO);
+  const ancho = o.ancho ?? 120, tm = o.tm ?? t + 0.5;
+  if (!o.sinMecha) trazo(`M${x} ${PY(h)} L${x} ${PY(l)}`, tm, { color: col, grosor: o.grMecha ?? 9, dur: 0.6 });
+  const y1 = PY(Math.max(op, c)), y2 = Math.max(PY(Math.min(op, c)), y1 + 6);
+  banda(x - ancho / 2, x + ancho / 2, y1, y2, t, col, { dur: 0.6 });
+  return PY;
+}
+// una serie de velas en una caja
+function serie(V, x0, x1, t1, t2, o = {}) {
+  const lo = o.lo ?? Math.min(...V.map((v) => v[3])), hi = o.hi ?? Math.max(...V.map((v) => v[2]));
+  const Y0 = o.y0 ?? 330, Y1 = o.y1 ?? -280, n = V.length, paso = n > 1 ? (x1 - x0) / (n - 1) : 0;
+  const PX = (i) => x0 + i * paso, PY = (p) => Y0 + (p - lo) / (hi - lo) * (Y1 - Y0);
+  V.forEach(([, op, h, l, c], i) => {
+    const t = t1 + (t2 - t1) * i / Math.max(1, n - 1), col = c >= op ? VERDE : ROJO, x = PX(i);
+    trazo(`M${x} ${PY(h)} L${x} ${PY(l)}`, t, { color: col, grosor: o.grMecha ?? 4, dur: 0.14 });
+    const y1 = PY(Math.max(op, c)), y2 = Math.max(PY(Math.min(op, c)), y1 + 3);
+    trazo(`M${x} ${y1} L${x} ${y2}`, t + 0.05, { color: col, grosor: Math.max(6, Math.min(o.anchoMax ?? 60, paso * 0.62)), dur: 0.14, punta: "butt" });
+  });
+  return { PX, PY, paso };
+}
+const ejes = (x0, y0, x1, y1, t, o = {}) => trazo(`M${x0} ${y1} L${x0} ${y0} L${x1} ${y0}`, t, { grosor: 5, color: GRIS, dur: 0.6, ...o });
+const marcador = (texto, x, y, t, o = {}) => txt(texto, x, y, t, { tam: 96, color: TINTA, efecto: "pop", ...o });
+
+// 1 · Gancho
+en(1);
+img("obj-eyes", -560, -330, 120, w("gráfico", 1, -0.2), { efecto: "pop" });
+txt("¿qué pasó acá?", -330, -310, w("pasó", 1, -0.2), { tam: 64 });
+const M = O.mecha_inf;
+const PY1 = velaGrande(M, -330, 4080, 4560, w("vela", 1, -0.3), { ancho: 150, y0: 400, y1: -200 });
+txt("−350 en el día", 120, -160, w("trescientos", 1, -0.1), { tam: 66, color: ROJO });
+txt("…y cerró casi donde empezó", 120, -80, w("empezó", 1, -0.4), { tam: 54, color: GRIS });
+txt("23/03/2026 · oro", -330, -250, w("veintitrés", 1, -0.2), { tam: 54, color: GRIS });
+txt("abrió 4.450", -560, PY1(4450) - 6, w("abrió", 1, 0), { tam: 46, ancla: "end" });
+txt("mínimo 4.100", -440, PY1(4100) + 14, w("bajó", 1, 0), { tam: 46, ancla: "end", color: ROJO });
+txt("cerró 4.407", -100, PY1(4407) + 40, w("cerró", 2, 0.1), { tam: 46, ancla: "start" });
+caja(380, -260, 820, 220, w("siguientes", 1, -0.4), { color: GRIS, grosor: 6 });
+txt("?", 600, 60, w("siguientes", 1, 0), { tam: 220, color: GRIS, efecto: "pop" });
+txt("los días siguientes", 600, 300, w("siguientes", 1, 0.2), { tam: 46, color: GRIS });
+img("obj-crystal-ball", 600, 420, 90, w("adivinarlo", 1, -0.4), { efecto: "pop" });
+tacha(540, 370, 660, 470, w("adivinarlo", 1, 0.1));
+
+// 2 · Qué vas a ver
+en(2);
+txt("leer un gráfico desde cero", 0, -400, w("cero", 1, -0.4), { tam: 84, color: ORO });
+[["qué es un gráfico", "gráfico", 2], ["cómo se lee una vela", "vela", 1], ["qué dicen las mechas", "mechas", 1], ["las temporalidades", "temporalidades", 1], ["sube, baja o de costado", "costado", 1]].forEach(([t_, p, n], i) => {
+  const y = -250 + i * 120, t0 = w(p, n, -0.5);
+  caja(-600, y - 38, -532, y + 28, t0, { dur: 0.3 });
+  txt(t_, -490, y + 16, t0 + 0.2, { tam: 62, ancla: "start" });
+  tilde(-566, y - 8, t0 + 1.0);
+});
+img("obj-coin", 560, 360, 120, w("oro", 1, -0.4), { efecto: "pop" });
+txt("gráficos reales del oro", 230, 380, w("reales", 1, -0.2), { tam: 54, color: GRIS });
+
+// 3 · La palabra para comentar
+en(3);
+ejes(-760, 200, -260, -240, w("pregunta", 1, -0.2));
+for (let i = 0; i < 14; i++) { const x = -720 + i * 34, y = -20 + Math.sin(i * 1.3) * 90; trazo(`M${x} ${y - 50} L${x} ${y + 50}`, w("gráfico", 1, -0.3) + i * 0.05, { color: i % 3 ? VERDE : ROJO, grosor: 14, dur: 0.1 }); }
+txt("?", -500, -300, w("entender", 1, -0.2), { tam: 140, color: ROJO, efecto: "pop" });
+img("obj-speech-balloon", 380, -20, 460, w("comentarios", 1, -0.4), { d: 1.0 });
+txt("VELA", 380, -30, w("vela", 1, -0.2), { tam: 120, color: ORO, efecto: "pop" });
+txt("te leo", 380, 320, w("leo", 1, -0.4), { tam: 60, color: GRIS });
+
+// 4 · Qué es un gráfico
+en(4);
+titulo("¿Qué es un gráfico?");
+trazo("M-700 300 L700 300", w("tiempo", 1, -0.4), { grosor: 6, color: TINTA, dur: 0.7 });
+flecha(600, 300, 720, 300, w("tiempo", 2, -0.2));
+txt("tiempo →", 520, 370, w("tiempo", 2, 0), { tam: 56, color: GRIS });
+trazo("M700 300 L700 -260", w("precio", 2, -0.4), { grosor: 6, color: TINTA, dur: 0.7 });
+txt("precio ↑", 770, -240, w("precio", 2, 0), { tam: 56, color: GRIS, ancla: "start" });
+trazo("M-660 200 L-540 120 L-430 170 L-300 20 L-200 80 L-60 -60 L80 -10 L220 -140 L360 -80 L520 -200", w("dibujo", 1, -0.2), { color: ORO, grosor: 9, dur: 1.6 });
+[["oro", "obj-coin"], ["bitcoin", null], ["dólar", "obj-dollar-banknote"], ["acción", "obj-bank"]].forEach(([p, src], i) => {
+  const x = -480 + i * 320, t0 = w(p, 1, -0.2);
+  if (src) img(src, x, 430, 90, t0, { efecto: "pop" }); else txt("₿", x, 460, t0, { tam: 96, color: ORO, efecto: "pop" });
+});
+
+// 5 · Lo que un gráfico no hace
+en(5);
+titulo("Lo que un gráfico NO hace", { color: ROJO });
+ejes(-760, 260, -40, -200, w("pasó", 1, -0.4));
+trazo("M-720 180 L-600 100 L-500 140 L-380 20 L-260 60 L-140 -40", w("pasó", 1, -0.1), { color: TINTA, grosor: 8, dur: 1.0 });
+txt("lo que ya pasó", -400, 340, w("pasó", 1, 0.3), { tam: 50, color: GRIS });
+img("obj-crystal-ball", 450, -60, 260, w("mañana", 1, -0.4), { d: 0.9 });
+tacha(300, -220, 600, 100, w("mañana", 1, 0.3));
+flecha(-140, -40, 60, -200, w("escenarios", 1, -0.2), VERDE);
+flecha(-140, -40, 60, 120, w("escenarios", 1, 0.2), ROJO);
+txt("escenarios, no adivinar", 0, 420, w("adivinar", 1, -0.5), { tam: 66, color: ORO });
+
+// 6 · La metáfora: el partido
+en(6);
+titulo("Cada vela es un partido");
+caja(-640, -260, 640, 300, w("fútbol", 1, -0.4), { color: VERDE, grosor: 7, dur: 0.8 });
+trazo("M0 -260 L0 300", w("fútbol", 1, 0.2), { color: VERDE, grosor: 6, dur: 0.4 });
+trazo("M0 -50 m-90 0 a90 90 0 1 0 180 0 a90 90 0 1 0 -180 0", w("fútbol", 1, 0.4), { color: VERDE, grosor: 6, dur: 0.6 });
+txt("los que compran", -330, -170, w("compran", 1, -0.2), { tam: 56, color: VERDE });
+txt("los que venden", 330, -170, w("venden", 1, -0.2), { tam: 56, color: ROJO });
+img("obj-soccer-ball", 0, -50, 110, w("equipos", 1, -0.2), { efecto: "pop" });
+flecha(-330, 200, -330, 60, w("sube", 1, -0.3), VERDE);
+flecha(330, 60, 330, 200, w("baja", 1, -0.3), ROJO);
+txt("1 vela = 1 partido", 0, 420, w("resumen", 1, -0.3), { tam: 70, color: ORO });
+
+// 7 · Tres formas de dibujarlo
+en(7);
+titulo("Tres formas de dibujar el precio");
+const MINI = O.lateral_dia.slice(0, 12);
+caja(-860, -260, -340, 220, w("formas", 1, -0.2), { color: GRIS, grosor: 4 });
+{ const lo = 4600, hi = 4930, PY = (p) => 180 + (p - lo) / (hi - lo) * -400; trazo(MINI.map((v, i) => `${i ? "L" : "M"}${-820 + i * 40} ${PY(v[4])}`).join(" "), w("línea", 1, -0.2), { color: TINTA, grosor: 7, dur: 1.0 }); }
+txt("línea", -600, 300, w("línea", 1, 0), { tam: 56 });
+txt("solo el resultado", -600, 370, w("partido", 1, -0.3), { tam: 44, color: GRIS });
+caja(-260, -260, 260, 220, w("barras", 1, -0.4), { color: GRIS, grosor: 4 });
+{ const lo = 4600, hi = 4930, PY = (p) => 180 + (p - lo) / (hi - lo) * -400; MINI.forEach((v, i) => { const x = -220 + i * 40, t = w("barras", 1, 0) + i * 0.06; trazo(`M${x} ${PY(v[2])} L${x} ${PY(v[3])} M${x - 12} ${PY(v[1])} L${x} ${PY(v[1])} M${x} ${PY(v[4])} L${x + 12} ${PY(v[4])}`, t, { color: TINTA, grosor: 4, dur: 0.1 }); }); }
+txt("barras", 0, 300, w("barras", 1, 0.2), { tam: 56 });
+caja(340, -260, 860, 220, w("japonesas", 1, -0.6), { color: ORO, grosor: 6 });
+serie(MINI, 380, 820, w("japonesas", 1, -0.3), w("japonesas", 1, 0.6), { lo: 4600, hi: 4930, y0: 180, y1: -220, anchoMax: 26, grMecha: 3 });
+txt("velas japonesas", 600, 300, w("japonesas", 1, 0.2), { tam: 56, color: ORO });
+txt("el partido entero: 4 datos", 600, 370, w("cuatro", 1, -0.2), { tam: 44, color: ORO });
+
+// 8 · Los cuatro datos de una vela
+en(8);
+titulo("Los 4 datos de cada vela");
+{ const PY = velaGrande(["", 100, 160, 60, 140], -150, 50, 170, w("datos", 1, -0.3), { ancho: 170, color: VERDE, y0: 360, y1: -300 });
+  [["apertura", 100, "abrió", -1], ["cierre", 140, "cerró", -1], ["máximo", 160, "máximo", 1], ["mínimo", 60, "mínimo", 1]].forEach(([e, p, k, lado]) => {
+    const x2 = lado < 0 ? -320 : 20, t0 = w(k, 1, -0.1);
+    flecha(lado < 0 ? -470 : 230, PY(p), x2 + (lado < 0 ? 40 : -40), PY(p), t0, GRIS);
+    txt(e, lado < 0 ? -490 : 250, PY(p) + 18, t0 + 0.2, { tam: 56, ancla: lado < 0 ? "end" : "start" });
+  });
+}
+img("obj-stopwatch", 560, -200, 110, w("comienzo", 1, -0.2), { efecto: "pop" });
+txt("comienzo del partido", 560, -100, w("comienzo", 1, 0.1), { tam: 46, color: GRIS });
+img("obj-chequered-flag", 560, 100, 110, w("final", 1, -0.2), { efecto: "pop" });
+txt("resultado final", 560, 200, w("final", 1, 0.1), { tam: 46, color: GRIS });
+txt("hasta dónde llegó cada equipo", 0, 440, w("venden", 1, -0.3), { tam: 54, color: ORO });
+
+// 9 · Vela verde y vela roja
+en(9);
+titulo("Verde o roja: ¿quién ganó?");
+velaGrande(["", 100, 160, 80, 150], -380, 40, 190, w("verde", 1, -0.3), { ancho: 160, y0: 260, y1: -250 });
+txt("ganaron los que compran", -380, 360, w("compran", 1, -0.2), { tam: 50, color: VERDE });
+velaGrande(["", 150, 170, 60, 90], 380, 40, 190, w("roja", 1, -0.3), { ancho: 160, y0: 260, y1: -250 });
+txt("ganaron los que venden", 380, 360, w("venden", 1, -0.2), { tam: 50, color: ROJO });
+txt("abre 4.000 → cierra 4.050", -380, 440, w("supón", 1, -0.1), { tam: 48, color: GRIS });
+txt("abre 4.000 → cierra 3.950", 380, 440, w("novecientos", 1, -0.2), { tam: 48, color: GRIS });
+marcador("1 · 0", -380, -330, w("verde", 2, -0.2), { color: VERDE, tam: 80 });
+marcador("0 · 1", 380, -330, w("roja", 2, -0.2), { color: ROJO, tam: 80 });
+
+// 10 · El cuerpo y las mechas
+en(10);
+titulo("Cuerpo y mechas");
+{ const PY = (p) => 360 + (p - 50) / 120 * -660;
+  banda(-100, 100, PY(140), PY(100), w("cuerpo", 1, -0.2), VERDE, { dur: 0.7 });
+  txt("cuerpo", 160, PY(120) + 18, w("cuerpo", 1, 0.2), { tam: 60, ancla: "start" });
+  txt("de la apertura al cierre", 160, PY(120) + 80, w("cierre", 1, -0.2), { tam: 44, color: GRIS, ancla: "start" });
+  trazo(`M0 ${PY(140)} L0 ${PY(165)}`, w("mechas", 1, -0.2), { color: VERDE, grosor: 10, dur: 0.4 });
+  trazo(`M0 ${PY(100)} L0 ${PY(55)}`, w("mechas", 1, 0.1), { color: VERDE, grosor: 10, dur: 0.4 });
+  txt("mecha (o sombra)", -160, PY(155) + 14, w("sombras", 1, -0.2), { tam: 52, ancla: "end" });
+  txt("máximo", 60, PY(165) + 14, w("máximo", 1, -0.1), { tam: 52, color: VERDE, ancla: "start" });
+  txt("mínimo", 60, PY(55) + 14, w("mínimo", 1, -0.1), { tam: 52, color: ROJO, ancla: "start" });
+}
+
+// 11 · La vela del 23 de marzo
+en(11);
+titulo("Oro · 23 de marzo de 2026");
+{ const PY = velaGrande(M, -200, 4080, 4560, w("principio", 1, -0.3), { ancho: 170, y0: 380, y1: -300 });
+  [["abrió 4.450", 4450, "abrió", -1, TINTA, -14], ["máximo 4.537", 4537, "alto", 1, VERDE, 16], ["mínimo 4.100", 4100, "bajo", 1, ROJO, 16], ["cerró 4.407", 4407, "cerró", -1, TINTA, 50]].forEach(([e, p, k, lado, col, dy]) => {
+    txt(e, lado < 0 ? -320 : -100, PY(p) + dy, w(k, 1, 0), { tam: 52, ancla: lado < 0 ? "end" : "start", color: col });
+  });
+  txt("roja: cerró abajo de la apertura", 400, -200, w("roja", 1, -0.2), { tam: 48, color: ROJO });
+  subraya(-260, -140, PY(4100) + 30, w("enorme", 1, -0.4));
+  txt("¡la mecha!", 260, PY(4200), w("enorme", 1, -0.1), { tam: 80, color: ORO, efecto: "pop" });
+}
+
+// 12 · Lo que dice una mecha larga
+en(12);
+titulo("La mecha de abajo cuenta una historia");
+{ const PY = velaGrande(M, -450, 4080, 4560, ini() + 0.3, { ancho: 120, y0: 360, y1: -260 });
+  flecha(-380, PY(4450), -380, PY(4110), w("bajar", 1, -0.2), ROJO);
+  txt("−350", -300, PY(4250), w("trescientos", 1, 0), { tam: 60, color: ROJO, ancla: "start" });
+  flecha(-520, PY(4110), -520, PY(4400), w("recuperaron", 1, -0.2), VERDE);
+  txt("+307", -580, PY(4250), w("trescientos", 2, 0), { tam: 60, color: VERDE, ancla: "end" });
+}
+marcador("0 · 3", 350, -100, w("perdiendo", 1, -0.1), { color: ROJO });
+marcador("2 · 3", 350, 120, w("gol", 1, -0.2), { color: ORO });
+txt("perdió, pero algo cambió", 350, 300, w("cambió", 1, -0.4), { tam: 56, color: ORO });
+img("obj-soccer-ball", 620, -100, 90, w("equipo", 1, -0.2), { efecto: "pop" });
+
+// 13 · La mecha de arriba
+en(13);
+titulo("Oro · 11 de junio de 2026");
+{ const U = O.mecha_sup, PY = velaGrande(U, -250, 4030, 4260, w("junio", 1, -0.2), { ancho: 170, y0: 360, y1: -280 });
+  txt("abrió 4.094", -370, PY(4094) + 30, w("abrió", 1, 0), { tam: 50, ancla: "end" });
+  txt("llegó a 4.241", -150, PY(4241) + 16, w("llegó", 1, 0), { tam: 50, ancla: "start", color: VERDE });
+  txt("cerró 4.114", -150, PY(4114) - 10, w("cerró", 1, 0), { tam: 50, ancla: "start" });
+  txt("+20", -370, PY(4104) - 30, w("veinte", 1, -0.2), { tam: 44, color: VERDE, ancla: "end" });
+}
+marcador("3 · 0", 450, -100, w("lejos", 1, -0.2), { color: VERDE });
+marcador("3 · 2", 450, 120, w("devolvieron", 1, -0.1), { color: ORO });
+txt("ganaron… por poco", 450, 300, w("apenas", 1, -0.2), { tam: 56, color: ORO });
+
+// 14 · Una vela sola no alcanza
+en(14);
+titulo("Una vela sola no alcanza");
+{ const C = O.contexto_mecha_inf, k = C.findIndex((v) => v[0] === "2026-03-23");
+  const G = serie(C, -820, -60, w("orden", 1, -0.4), w("orden", 1, 1.6), { y0: 300, y1: -260, anchoMax: 24 });
+  caja(G.PX(k) - 24, G.PY(4560) - 10, G.PX(k) + 24, G.PY(4090) + 10, w("marzo", 1, -0.2), { color: ORO, grosor: 5 });
+  txt("4.813 el 1/4", G.PX(C.length - 1), G.PY(4813) - 30, w("ochocientos", 1, -0.2), { tam: 40, color: VERDE, ancla: "end" });
+}
+txt("25 mechas largas", 420, -200, w("veinticinco", 1, -0.2), { tam: 62 });
+txt("→ 14 perforaron el mínimo", 420, -110, w("catorce", 1, -0.2), { tam: 56, color: ROJO });
+txt("un día cualquiera: 7 de cada 10", 420, 10, w("siete", 1, -0.2), { tam: 52, color: GRIS });
+txt("casi lo mismo", 420, 100, w("mismo", 1, -0.2), { tam: 60, color: ORO });
+img("obj-magnifying-glass-tilted-left", 260, 300, 120, w("vela", 1, -0.2), { efecto: "pop" });
+tacha(200, 250, 320, 350, w("vela", 1, 0.3));
+img("obj-magnifying-glass-tilted-left", 560, 300, 160, w("alrededor", 1, -0.3), { efecto: "pop" });
+tilde(680, 300, w("alrededor", 1, 0.2));
+
+// 15 · Las temporalidades
+en(15);
+titulo("¿Cuánto dura cada partido?");
+[["15 min", "quince"], ["1 h", "hora"], ["4 h", null], ["1 día", "día"], ["1 semana", null]].forEach(([e, p], i) => {
+  const x = -640 + i * 320, t0 = w("temporalidad", 1, -0.2) + i * 0.15;
+  caja(x - 120, -260, x + 120, -170, t0, { color: GRIS, grosor: 5, dur: 0.3 });
+  txt(e, x, -198, t0 + 0.1, { tam: 50 });
+  if (p) caja(x - 128, -268, x + 128, -162, w(p, 1, -0.1), { color: ORO, grosor: 8, dur: 0.3 });
+});
+velaGrande(["", 10, 14, 8, 13], -640, 0, 40, w("quince", 1, 0.2), { ancho: 40, y0: 330, y1: -120 });
+velaGrande(["", 10, 22, 4, 18], -320, 0, 40, w("hora", 1, 0.2), { ancho: 60, y0: 330, y1: -120 });
+velaGrande(["", 20, 38, 2, 32], 320, 0, 40, w("día", 1, 0.2), { ancho: 90, y0: 330, y1: -120 });
+txt("mismo mercado, otro tamaño de resumen", 0, 440, w("resumen", 1, -0.5), { tam: 56, color: ORO });
+
+// 16 · Partido, fecha y torneo
+en(16);
+titulo("Jugada, partido, fecha… y tabla");
+[["15 min = una jugada", "obj-soccer-ball", "jugada"], ["1 día = un partido", "obj-goal-net", "partido"], ["1 semana = una fecha", "obj-spiral-calendar", "fecha"], ["tendencia = la tabla", "obj-trophy", "tabla"]].forEach(([e, src, p], i) => {
+  const x = -660 + i * 440, t0 = w(p, 1, -0.3);
+  img(src, x, -40, 200, t0, { efecto: "pop" });
+  txt(e, x, 160, t0 + 0.3, { tam: 46, color: i === 3 ? ORO : TINTA });
+  if (i < 3) flecha(x + 130, -40, x + 300, -40, t0 + 0.6, GRIS);
+});
+
+// 17 · Por qué parecen contradecirse
+en(17);
+titulo("¿El gráfico se contradice?");
+caja(-840, -260, -100, 260, w("día", 1, -0.4), { color: GRIS, grosor: 4 });
+trazo("M-800 200 L-680 120 L-560 140 L-440 40 L-320 60 L-200 -60 L-140 -120", w("sube", 1, -0.3), { color: VERDE, grosor: 9, dur: 1.0 });
+txt("1 día: sube", -470, 320, w("sube", 1, 0.2), { tam: 54, color: VERDE });
+caja(100, -260, 840, 260, w("quince", 1, -0.4), { color: GRIS, grosor: 4 });
+trazo("M140 -160 L200 -120 L240 -150 L300 -40 L360 -70 L420 40 L480 10 L560 120 L640 90 L720 190 L800 170", w("baja", 1, -0.3), { color: ROJO, grosor: 6, dur: 1.0 });
+txt("15 min: baja", 470, 320, w("baja", 1, 0.2), { tam: 54, color: ROJO });
+txt("ruido", 470, -320, w("ruido", 1, -0.3), { tam: 70, color: GRIS, efecto: "pop" });
+img("obj-trophy", 0, 0, 120, w("primero", 1, -0.3), { efecto: "pop" });
+txt("primero… y perdió un partido", 0, 440, w("pierde", 1, -0.2), { tam: 54, color: ORO });
+
+// 18 · Tendencia alcista
+en(18);
+titulo("Tendencia alcista: máximos y mínimos más altos", { tam: 66 });
+{ const V = O.sube_sem, G = serie(V, -760, 360, w("alcista", 1, -0.2), w("alcista", 1, 1.6), { y0: 330, y1: -230, anchoMax: 56 });
+  trazo(V.map((v, i) => `${i ? "L" : "M"}${G.PX(i)} ${G.PY(v[2]) - 18}`).join(" "), w("máximo", 1, -0.2), { color: ORO, grosor: 6, dur: 1.4 });
+  trazo(V.map((v, i) => `${i ? "L" : "M"}${G.PX(i)} ${G.PY(v[3]) + 18}`).join(" "), w("mínimo", 1, -0.2), { color: ORO, grosor: 6, dur: 1.4 });
+  txt("velas semanales · ago–oct 2025", -100, 420, w("semana", 1, -0.3), { tam: 46, color: GRIS });
+  txt("3.400 → 4.390", 650, -60, w("trescientos", 1, -0.2), { tam: 62, color: VERDE });
+}
+
+// 19 · Tendencia bajista
+en(19);
+titulo("Tendencia bajista: máximos y mínimos más bajos", { tam: 66 });
+{ const V = O.baja_sem, G = serie(V, -700, 300, w("bajista", 1, -0.2), w("bajista", 1, 1.4), { y0: 330, y1: -250, anchoMax: 60 });
+  const T3 = [2, 3, 4];
+  trazo(T3.map((i, k) => `${k ? "L" : "M"}${G.PX(i)} ${G.PY(V[i][2]) - 18}`).join(" "), w("máximos", 2, -0.2), { color: ROJO, grosor: 6, dur: 1.2 });
+  T3.forEach((i, k) => txt(n2(V[i][2]), G.PX(i) + 60, G.PY(V[i][2]) - 10, w(["cuarenta", "cuarenta", "uno"][k], k === 1 ? 2 : 1, 0), { tam: 40, color: ROJO, ancla: "start" }));
+  trazo(T3.map((i, k) => `${k ? "L" : "M"}${G.PX(i)} ${G.PY(V[i][3]) + 18}`).join(" "), w("mínimos", 2, -0.2), { color: ROJO, grosor: 6, dur: 1.2 });
+  T3.forEach((i, k) => txt(n2(V[i][3]), G.PX(i) + 60, G.PY(V[i][3]) + 40, w(["catorce", "ocho", "cien"][k], 1, 0), { tam: 40, color: ROJO, ancla: "start" }));
+  caja(G.PX(4) - 50, G.PY(4610), G.PX(4) + 50, G.PY(4090), w("veintitrés", 1, -0.2), { color: ORO, grosor: 6 });
+  txt("velas semanales · marzo 2026", -200, 420, w("semana", 1, -0.3), { tam: 46, color: GRIS });
+  txt("acá está nuestra vela", 640, 200, w("veintitrés", 1, 0.2), { tam: 48, color: ORO });
+}
+
+// 20 · Mercado lateral
+en(20);
+titulo("Lateral: entre un piso y un techo");
+{ const V = O.lateral_dia, G = serie(V, -760, 560, w("lateral", 1, -0.2), w("lateral", 1, 2.0), { lo: 4440, hi: 4960, y0: 340, y1: -260, anchoMax: 26, grMecha: 3 });
+  trazo(`M-800 ${G.PY(4920)} L620 ${G.PY(4920)}`, w("techo", 1, -0.2), { color: ROJO, grosor: 6, dur: 0.6 });
+  txt("techo ≈ 4.920", 640, G.PY(4920) + 14, w("techo", 1, 0.2), { tam: 48, color: ROJO, ancla: "start" });
+  trazo(`M-800 ${G.PY(4505)} L620 ${G.PY(4505)}`, w("piso", 1, -0.2), { color: VERDE, grosor: 6, dur: 0.6 });
+  txt("piso ≈ 4.500", 640, G.PY(4505) + 14, w("piso", 1, 0.2), { tam: 48, color: VERDE, ancla: "start" });
+  txt("6 semanas · abr–may 2026", -100, 430, w("semanas", 1, -0.3), { tam: 46, color: GRIS });
+  img("obj-soccer-ball", 760, 0, 90, w("trabado", 1, -0.4), { efecto: "pop" });
+}
+
+// 21 · Por qué importa el contexto
+en(21);
+titulo("Primero: ¿en qué situación está?");
+[["sube", VERDE], ["baja", ROJO], ["de costado", GRIS]].forEach(([e, col], i) => {
+  const x = -500 + i * 500, t0 = w("situación", 1, -0.2) + i * 0.3;
+  caja(x - 200, -200, x + 200, -60, t0, { color: col, grosor: 7, dur: 0.4 });
+  txt(e, x, -110, t0 + 0.2, { tam: 66, color: col });
+});
+tilde(-500, -260, w("después", 1, -0.2), 1.4);
+txt("lo que funciona en una tendencia…", 0, 120, w("tendencia", 1, -0.3), { tam: 56 });
+txt("…puede fallar en un rango", 0, 220, w("rango", 1, -0.3), { tam: 56, color: ROJO });
+img("obj-trophy", -300, 380, 100, w("primero", 1, -0.2), { efecto: "pop" });
+img("obj-soccer-ball", 300, 380, 100, w("trabado", 1, -0.2), { efecto: "pop" });
+
+// 22 · Sofía abre su primer gráfico
+en(22);
+img("peep-camila-feliz", -560, 120, 360, w("sofía", 1, -0.2), { respira: true, cambios: [{ t: w("vender", 1, -0.3), src: "peep-camila-preocupada" }] });
+img("obj-desktop-computer", -180, -60, 280, w("gráfico", 1, -0.2), { d: 0.9 });
+velaGrande(["", 150, 160, 40, 50], -180, 30, 170, w("roja", 1, -0.3), { ancho: 50, y0: -30, y1: -160 });
+txt("¡vendo!", -380, -330, w("vender", 1, -0.1), { tam: 70, color: ROJO, efecto: "pop" });
+txt("3 preguntas", 420, -330, w("preguntas", 1, -0.3), { tam: 72, color: ORO });
+[["1. ¿en qué temporalidad estoy?", "primero"], ["2. ¿qué hicieron las velas de antes?", "segundo"], ["3. ¿sube, baja o de costado?", "tercero"]].forEach(([e, p], i) => {
+  txt(e, 100, -180 + i * 130, w(p, 1, -0.2), { tam: 52, ancla: "start" });
+});
+
+// 23 · El error más común
+en(23);
+titulo("Dos errores que se repiten", { color: ROJO });
+img("obj-magnifying-glass-tilted-left", -450, -60, 180, w("primero", 1, -0.2), { efecto: "pop" });
+velaGrande(["", 100, 110, 30, 40], -450, 20, 120, w("primero", 1, 0.2), { ancho: 40, y0: 30, y1: -150 });
+txt("decidir por una sola vela", -450, 160, w("vela", 1, -0.2), { tam: 52 });
+cruz(-450, 260, w("vela", 1, 0.4), 40);
+[["15m", 0], ["1h", 1], ["4h", 2], ["1D", 3]].forEach(([e, i]) => { const t0 = w("segundo", 1, 0) + i * 0.35; caja(260 + i * 140, -140, 380 + i * 140, -60, t0, { color: GRIS, grosor: 4, dur: 0.2 }); txt(e, 320 + i * 140, -84, t0 + 0.1, { tam: 40 }); });
+txt("«¡te lo dije!»", 470, 60, w("razón", 1, -0.3), { tam: 62, color: ORO, efecto: "pop" });
+cruz(470, 170, w("razón", 1, 0.3), 40);
+txt("eso no es analizar: es convencerte", 0, 400, w("convencerte", 1, -0.6), { tam: 62, color: ROJO });
+
+// 24 · Actividad
+en(24);
+titulo("Tu turno");
+img("obj-notebook", -520, 40, 300, w("anota", 1, -0.4), { d: 0.9 });
+[["vela", -260], ["mecha", 20], ["¿qué pasó después?", 330]].forEach(([e, x], i) => txt(e, x, -200, w("anota", 1, 0) + i * 0.3, { tam: 46, ancla: "start" }));
+trazo("M-280 -170 L700 -170 M-280 -80 L700 -80 M-280 10 L700 10 M-280 100 L700 100", w("siguientes", 1, -0.3), { color: GRIS, grosor: 3, dur: 0.8 });
+txt("1 día · 3 mechas largas · 5 velas después", 220, 210, w("tres", 1, -0.1), { tam: 44, color: GRIS });
+[["sube", VERDE], ["baja", ROJO], ["de costado", GRIS]].forEach(([e, col], i) => { const x = -300 + i * 330, t0 = w("semanas", 1, 0) + i * 0.25; caja(x - 40, 290, x + 20, 350, t0, { color: col, dur: 0.2 }); txt(e, x + 40, 338, t0 + 0.1, { tam: 50, ancla: "start", color: col }); });
+txt("no operes todavía: primero aprende a leer", 0, 450, w("leer", 1, -0.6), { tam: 56, color: ORO });
+
+// 25 · Repasemos
+en(25);
+titulo("Repasemos");
+[["el gráfico: precio en el tiempo", "tiempo"], ["cada vela, un partido: 4 datos", "datos"], ["las mechas: quién dominó y quién reaccionó", "reaccionó"], ["temporalidad: cuánto dura el partido", "dura"], ["sube, baja o de costado", "costado"], ["una vela sola no alcanza", "contexto"]].forEach(([e, p], i) => {
+  const y = -270 + i * 115, t0 = w(p, 1, -0.6);
+  tilde(-700, y - 14, t0);
+  txt(e, -640, y + 6, t0 + 0.3, { tam: 56, ancla: "start" });
+});
+
+// 26 · Cierre
+en(26);
+img("marca-logo", 0, -330, 460, ini() + 0.2, { d: 2.0 });
+txt("en vivo: la apertura de Nueva York", 0, -130, w("nueva", 1, -0.2), { tam: 54, color: GRIS });
+txt("Nivel 0 gratis · realinvestors.club", 0, -50, w("gratis", 1, -0.2), { tam: 54, color: ORO });
+caja(-250, -10, 250, 90, w("suscríbete", 1, -0.4), { color: ROJO, grosor: 9 });
+txt("SUSCRIBIRME", 0, 66, w("suscríbete", 1, 0.1), { tam: 76, color: ROJO, efecto: "pop" });
+img("obj-bell", 350, 40, 120, w("suscríbete", 1, 0.5), { efecto: "pop", vibra: { t: w("suscríbete", 1, 0.9), dur: 1.0 } });
+txt("comenta VELA", 0, 185, w("vela", 1, -0.2), { tam: 66, color: ORO });
+txt("una vela es un partido; el torneo se lee con todas", 0, 265, w("torneo", 1, -0.6), { tam: 50 });
+txt("Contenido educativo. No constituye recomendación de inversión.", 0, 430, w("educativo", 1, -0.4), { tam: 40, color: GRIS });
+
+// Cámara: llega a cada zona apenas empieza su escena; en el repaso se aleja para mostrar toda la pizarra
+const cam = [{ t: 0, x: centro(0)[0], y: centro(0)[1], zoom: 1 }];
+for (let s = 2; s <= 26; s++) {
+  en(s);
+  if (s === 25) {
+    cam.push({ t: ini() + 0.35, x: 2.5 * DX, y: 1.5 * DY, zoom: 0.16, dur: 1.4 });
+    cam.push({ t: ini() + 2.6, x: B[0], y: B[1], zoom: 1, dur: 1.4 });
+    continue;
+  }
+  cam.push({ t: ini() + 0.35, x: B[0], y: B[1], zoom: 1, dur: 1.1 });
+}
+
+Pizarra.escena({ dur: T.total, elementos: E, camara: cam });
+</script>
+</body></html>
