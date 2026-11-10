@@ -1,19 +1,19 @@
 # P26 · Cómo leer un gráfico de trading desde cero (con el oro real)
 
-Estilo pizarra · voz clon de Lean · 1611 palabras, ~9.3 min · 26 escenas
+Estilo pizarra · voz clon de Lean · 1614 palabras, ~9.3 min · 26 escenas
 
 **Datos y fuentes:**
 - Tema tomado como referencia (no el texto): «Cómo leer gráficos de trading desde cero», Bitrevo, https://youtu.be/-daC6LlZzAU (08/11/2026). Estructura, metáfora del partido, ejemplos y datos propios.
 - Datos reales: futuro del oro (GC=F, COMEX), Yahoo Finance, en `oro.json` (de `datos_oro.py`). 23/03/2026: apertura 4.450,0, máximo 4.537,1, mínimo 4.100,0, cierre 4.407,3. 11/06/2026: apertura 4.094,4, máximo 4.241,3, mínimo 4.046,2, cierre 4.114,0.
 - Tendencia alcista, velas semanales (viernes) del 22/08 al 17/10/2025 (9 semanas; la del 24/10 no se usa: en oro.json solo tiene el lunes 20/10): máximos 3.423 → 3.518 → 3.656 → 3.715 → 3.744 → 3.825 → 3.923 → 4.081 → 4.392 y mínimos 3.353 → 3.396 → 3.506 → 3.622 → 3.660 → 3.718 → 3.786 → 3.909 → 4.011.
-- Después del 23/03/2026: el mínimo de 4.100 no se perforó hasta el 10/06/2026 (4.090); el 01/04 cerró en 4.813,1. Cuenta propia con las velas diarias de oro.json (15/08/2025 al 09/11/2026, 281 días con cinco días siguientes): 18 velas con mecha inferior ≥ 60 % del rango y ≥ 2 veces el cuerpo; en 11 el mínimo se perforó en los 5 días siguientes (61 %); en un día cualquiera, 191 de 281 (68 %).
+- Después del 23/03/2026: el mínimo de 4.100 no se perforó hasta el 10/06/2026 (4.090); el 01/04 cerró en 4.813,1. Cuenta propia con velas diarias de GC=F (Yahoo Finance) del 01/08/2025 al 09/11/2026 (316 días con 5 días siguientes): mecha inferior de al menos el 60 % del rango de la vela en 25 días; en 14 de ellos el mínimo se perforó en los 5 días siguientes (56 %); en un día cualquiera, 69 %.
 - Tendencia bajista, semanas del 13, 20 y 27/03/2026: máximos 5.249, 5.049, 4.601; mínimos 5.014, 4.478, 4.100.
 - Rango: del 06/04 al 15/05/2026, máximo 4.917,7 (17/04) y mínimos de 4.510 a 4.514 (04/05 y 15/05); luego bajó a 4.455 (20/05).
 - Sofía y el partido: ejemplos («Supón que…»).
 
 ## 01. Gancho: la misma vela
 
-Si abres un gráfico y solo ves palitos de colores, mira esta vela. El veintitrés de marzo de dos mil veintiséis, el oro abrió en cuatro mil cuatrocientos cincuenta dólares. Durante el día llegó a cuatro mil cien: trescientos cincuenta dólares abajo. Y aun así, cerró en cuatro mil cuatrocientos siete, casi donde había empezado. Todo eso quedó guardado en un solo dibujito: una vela. Al final de este video vas a poder leerla sin ayuda. Y vas a ver qué hizo el oro en los días siguientes, y por qué esa vela sola no te alcanzaba para adivinarlo.
+¿Miras un gráfico y no sabes qué pasó? Mira esta vela: el oro cayó trescientos cincuenta dólares en un día, pero cerró casi donde empezó. Fue el veintitrés de marzo de dos mil veintiséis. Abrió en cuatro mil cuatrocientos cincuenta, bajó hasta cuatro mil cien y cerró en cuatro mil cuatrocientos siete. Todo eso quedó guardado en un solo dibujito: una vela. Al final de este video vas a poder leerla sin ayuda. Y vas a ver qué hizo el oro en los días siguientes, y por qué esa vela sola no te alcanzaba para adivinarlo.
 
 *En pantalla:* Una vela roja grande con una mecha inferior larguísima. Etiquetas: abrió 4.450, mínimo 4.100, cerró 4.407. A la derecha, los días siguientes tapados con un signo de pregunta.
 
@@ -91,9 +91,9 @@ La mecha de arriba cuenta la historia contraria. El once de junio, el oro abrió
 
 ## 14. Una vela sola no alcanza
 
-Y lo más importante: una mecha larga no es una orden de comprar ni de vender. Es cierto que, después del veintitrés de marzo, el oro no volvió a tocar ese mínimo hasta junio, y el primero de abril cerró en cuatro mil ochocientos trece. Pero hicimos la cuenta con las velas diarias del oro desde agosto de dos mil veinticinco. Hubo dieciocho días con una mecha de abajo así de larga. En once de los dieciocho, el precio perforó ese mínimo en los cinco días siguientes. Y en un día cualquiera, el mínimo se perforó casi igual de seguido: siete de cada diez veces. Por eso, una vela se lee junto con las que tiene alrededor, no sola.
+Y lo más importante: una mecha larga no es una orden de comprar ni de vender. Es cierto que, después del veintitrés de marzo, el oro no volvió a tocar ese mínimo hasta junio, y el primero de abril cerró en cuatro mil ochocientos trece. Pero hicimos la cuenta con las velas diarias del oro desde agosto de dos mil veinticinco. Hubo veinticinco días con una mecha de abajo larga, de más de la mitad de la vela. En catorce de esos veinticinco, el precio perforó ese mínimo en los cinco días siguientes. Y en un día cualquiera, el mínimo se perforó en siete de cada diez casos. Casi lo mismo. Por eso, una vela se lee junto con las que tiene alrededor, no sola.
 
-*En pantalla:* La vela del 23/03 en su contexto real: las velas de antes (cayendo) y las de después. Una lupa sobre una sola vela, tachada; una lupa sobre el grupo, con un tilde. Contador a mano: «18 mechas largas → 11 perforaron el mínimo» y, debajo, «un día cualquiera: 7 de cada 10».
+*En pantalla:* La vela del 23/03 en su contexto real: las velas de antes (cayendo) y las de después. Una lupa sobre una sola vela, tachada; una lupa sobre el grupo, con un tilde. Contador a mano: «25 mechas largas → 14 perforaron el mínimo» y, debajo, «un día cualquiera: 7 de cada 10».
 
 ## 15. Las temporalidades
 
