@@ -1,0 +1,29 @@
+{
+  "id": "cpi-2026-11",
+  "fecha": "2026-11-10",
+  "hora_ny": "08:30",
+  "dia": "Mar 10/11",
+  "nombre": "inflación",
+  "gancho": "La inflación salió más alta y el oro cayó en 5 minutos",
+  "esperado": "0,3 %",
+  "salio": "0,4 %",
+  "comparacion": "más",
+  "frase_dato": "Los precios subieron 0,4 % en octubre y se esperaba 0,3 %. La subyacente (sin alimentos ni energía) quedó en 0,3 %. Ojo: este mes no se publicó el dato anual, porque falta el de octubre de 2025 por el cierre del gobierno de EE. UU.; por eso se mira el mensual.",
+  "esperado_oro": "baja",
+  "que_hizo": "Cayó de golpe en la primera vela, rebotó un poco y volvió a bajar antes de la hora.",
+  "porque": [
+    "La inflación salió <b>más alta</b> de lo esperado.",
+    "Con precios que no frenan, la Fed tiene <b>más motivos para subir la tasa</b> en diciembre.",
+    "Tasas más altas = el <b>dólar se fortalece</b>.",
+    "Dólar fuerte = <b>oro más barato</b>."
+  ],
+  "aprendizaje": "Se movió el doble que con el empleo del viernes (−0,5 %): para adivinar a la Fed, <b>el mercado mira primero los precios</b>.",
+  "ahora": "Empleo fuerte el viernes e inflación alta hoy: <b>dos motivos para que la Fed suba la tasa el 9/12</b>.",
+  "proxima": {
+    "fecha": "Vie 13/11",
+    "nombre": "Precios de empresas",
+    "hora": "10:30 ARG",
+    "regla": "Si suben <b>más de lo esperado</b>, el oro suele bajar."
+  },
+  "fuentes": "BLS, FXStreet, Axios"
+}
