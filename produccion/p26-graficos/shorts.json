@@ -1,0 +1,30 @@
+{
+ "_nota": "Shorts y reel de P26 con la voz clonada de Lean en voseo (escenas 01, 16, 17, 22 y 23 regeneradas en voseo; 12, 13 y 14 no tienen formas de tú). herramientas/shorts_pizarra.py.",
+ "video": "RIC-P26-graficos",
+ "piezas": [
+  {"id": "S1-esta-vela", "formato": "youtube", "tramos": [[1, 1]],
+   "gancho": "¿Sabés leer esta **vela**?",
+   "titulo": "El oro cayó 350 dólares en un día… y cerró casi igual: ¿sabés leer esta vela? #Shorts",
+   "texto": "El 23 de marzo de 2026 el oro abrió en 4.450, bajó hasta 4.100 y cerró en 4.407. Todo eso entra en una sola vela. En el video completo te enseño a leerla, con gráficos reales del oro.\n\n▶️ Video completo: LINK\nrealinvestors.club\n\nContenido educativo. No constituye recomendación de inversión.\n\n#Shorts #VelasJaponesas #Trading #Oro"},
+  {"id": "S2-mechas", "formato": "youtube", "tramos": [[12, 13]],
+   "gancho": "Lo que te dice una **mecha** larga",
+   "titulo": "Iba perdiendo 3 a 0 y terminó 2 a 3: lo que te dice una mecha larga #Shorts",
+   "texto": "Una mecha de abajo larga: los que venden bajaron el precio, pero los que compran lo recuperaron antes del cierre. Una mecha de arriba larga: al revés. Dos velas reales del oro de 2026.\n\n▶️ Video completo: LINK\nrealinvestors.club\n\nContenido educativo. No constituye recomendación de inversión.\n\n#Shorts #VelasJaponesas #Trading #Oro"},
+  {"id": "S3-una-vela-no-alcanza", "formato": "youtube", "tramos": [[14, 14]],
+   "gancho": "Una mecha larga **no** es una señal",
+   "titulo": "¿Una mecha larga avisa un rebote? Hicimos la cuenta con 15 meses de oro #Shorts",
+   "texto": "Desde agosto de 2025 hubo 25 días con una mecha de abajo larga en el oro. En 14 el mínimo se perforó en los 5 días siguientes. En un día cualquiera pasa 7 de cada 10 veces. Una vela se lee con las que tiene alrededor.\n\n▶️ Video completo: LINK\nrealinvestors.club\n\nContenido educativo. No constituye recomendación de inversión.\n\n#Shorts #Trading #AnalisisTecnico #Oro"},
+  {"id": "S4-jugada-partido-tabla", "formato": "youtube", "tramos": [[16, 17]],
+   "gancho": "El gráfico **no** se contradice",
+   "titulo": "En diario sube y en 15 minutos baja: el gráfico no se contradice #Shorts",
+   "texto": "Una vela de 15 minutos es una jugada, una de un día es un partido, una semanal es una fecha, y la tendencia es la tabla de posiciones. Si estás empezando, mirá primero el diario o el de 4 horas.\n\n▶️ Video completo: LINK\nrealinvestors.club\n\nContenido educativo. No constituye recomendación de inversión.\n\n#Shorts #Trading #Temporalidades #EducacionFinanciera"},
+  {"id": "S5-sofia-y-los-errores", "formato": "youtube", "tramos": [[22, 23]],
+   "gancho": "3 preguntas antes de **vender**",
+   "titulo": "Vio una vela roja y quiso vender: las 3 preguntas que le faltaron #Shorts",
+   "texto": "¿En qué temporalidad estoy? ¿Qué hicieron las velas de antes? ¿El mercado sube, baja o va de costado? Y dos errores: decidir por una sola vela y cambiar de temporalidad hasta que el gráfico te dé la razón.\n\n▶️ Video completo: LINK\nrealinvestors.club\n\nContenido educativo. No constituye recomendación de inversión.\n\n#Shorts #Trading #PsicologiaDelTrading #EducacionFinanciera"},
+  {"id": "R1-instagram", "formato": "instagram", "tramos": [[1, 1], [12, 12]],
+   "gancho": "¿Sabés leer esta **vela**?",
+   "titulo": "Reel de Instagram",
+   "texto": "El oro cayó 350 dólares en un día y cerró casi donde empezó. ¿Sabés leer esta vela? 👇\n\nUna mecha de abajo larga: iban perdiendo 3 a 0 y terminaron 2 a 3.\n\nComentá VELA y te paso el video completo.\n\nContenido educativo. No es recomendación de inversión.\n\n#trading #velasjaponesas #oro #bolsa #realinvestorsclub"}
+ ]
+}

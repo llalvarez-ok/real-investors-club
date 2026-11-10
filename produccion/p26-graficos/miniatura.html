@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- Miniatura de P26 (1280x720): node herramientas/miniatura.js produccion/p26-graficos/miniatura.html <salida.png>
+     Título: «Cómo leer un gráfico de trading desde cero (con el oro real)». La miniatura dice lo que el título no dice:
+     la vela real del 23/03/2026 (oro: abrió 4.450, mínimo 4.100, cerró 4.407) y la pregunta. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Archivo:wght@900&family=IBM+Plex+Mono:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;background:#fdfdfb}
+.vineta{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,transparent 60%,rgba(0,0,0,.09))}
+.logo{position:absolute;left:36px;top:30px;background:#0d2142;border-radius:14px;padding:10px 14px}
+.logo svg{width:150px;height:auto;display:block}
+h1{position:absolute;left:44px;top:170px;width:640px;font-family:'Archivo',sans-serif;font-weight:900;font-size:100px;line-height:.98;color:#14213d}
+h1 em{font-style:normal;color:#b8913f}
+.mano{position:absolute;left:52px;top:560px;font-family:'Caveat',cursive;font-size:58px;color:#d93a3f;transform:rotate(-3deg)}
+svg.g{position:absolute;right:40px;top:40px}
+.url{position:absolute;right:36px;bottom:24px;font:600 22px 'IBM Plex Mono',monospace;color:#8e7140}
+</style>
+<script src="../../herramientas/animaciones/recursos/recursos.js"></script>
+</head><body><div class="vineta"></div>
+<div class="logo" id="logo"></div>
+<h1>¿Sabes leer esta <em>vela</em>?</h1>
+<div class="mano">−350 dólares… y cerró casi igual</div>
+<svg class="g" width="560" height="640" viewBox="0 0 560 640">
+  <!-- 23/03/2026: alto 4.537 → y 60, bajo 4.100 → y 600 -->
+  <text x="280" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="26" fill="#8e7140">ORO · 23/03/2026</text>
+  <line x1="360" y1="60" x2="360" y2="600" stroke="#d93a3f" stroke-width="16" stroke-linecap="round"/>
+  <rect x="285" y="168" width="150" height="54" fill="#d93a3f" rx="4"/>
+  <text x="265" y="180" text-anchor="end" font-family="Caveat" font-weight="700" font-size="48" fill="#14213d">abrió 4.450</text>
+  <text x="265" y="236" text-anchor="end" font-family="Caveat" font-weight="700" font-size="48" fill="#14213d">cerró 4.407</text>
+  <text x="335" y="600" text-anchor="end" font-family="Caveat" font-weight="700" font-size="52" fill="#d93a3f">mínimo 4.100</text>
+</svg>
+<div class="url">realinvestors.club</div>
+<script>
+</script>
+</body></html>
