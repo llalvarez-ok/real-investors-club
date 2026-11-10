@@ -41,6 +41,10 @@ def main():
     out["mecha_inf"] = velas(d["2026-03-23":"2026-03-23"])[0]
     out["contexto_mecha_inf"] = velas(d["2026-03-09":"2026-04-08"])
     out["ano"] = velas(d["2025-11-01":"2026-11-09"])
+    sem = d.resample("W-FRI").agg({"Open": "first", "High": "max", "Low": "min", "Close": "last"}).dropna()
+    out["sube_sem"] = velas(sem["2025-08-22":"2025-10-17"])
+    out["baja_sem"] = velas(sem["2026-02-27":"2026-03-27"])
+    out["lateral_dia"] = velas(d["2026-04-06":"2026-05-15"])
     json.dump(out, open(os.path.join(AQUI, "oro.json"), "w"), ensure_ascii=False)
     open(os.path.join(AQUI, "oro.js"), "w").write("window.ORO=" + json.dumps(out, ensure_ascii=False) + ";")
     for k, v in out["tramos"].items(): print(k, v["desde"], v["hasta"], "máx", v["max"], "mín", v["min"], "cambio", v["cambio"], "%", "giros", [(g[0], d[v["desde"]:].index[g[1]].strftime("%d/%m"), g[2]) for g in v["giros"]])

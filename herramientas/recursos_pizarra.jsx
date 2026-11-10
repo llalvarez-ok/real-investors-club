@@ -58,7 +58,9 @@ const OBJETOS = ["money-bag", "coin", "dollar-banknote", "money-with-wings", "ch
   "game-die", "slot-machine", "stopwatch", "sunset", "door", "tear-off-calendar", "bar-chart", "basket", "wastebasket",
   // P23
   "automobile", "racing-car", "hammer", "raised-hand-light", "raising-hands-light", "rabbit", "crystal-ball", "world-map",
-  "chequered-flag", "clipboard", "desktop-computer", "megaphone", "spiral-notepad", "round-pushpin", "dashing-away", "notebook"];
+  "chequered-flag", "clipboard", "desktop-computer", "megaphone", "spiral-notepad", "round-pushpin", "dashing-away", "notebook",
+  // P26
+  "soccer-ball", "trophy", "goal-net", "stadium", "1st-place-medal", "eyes", "triangular-flag", "television", "left-right-arrow"];
 for (const n of OBJETOS) {
   const i = fluent.icons[n];
   const w = i.width || fluent.width, h = i.height || fluent.height;
