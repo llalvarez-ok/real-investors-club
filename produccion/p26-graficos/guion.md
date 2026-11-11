@@ -1,6 +1,6 @@
 # P26 · Cómo leer un gráfico de trading desde cero (con el oro real)
 
-Estilo pizarra · voz clon de Lean · 1614 palabras, ~9.3 min · 26 escenas
+Estilo pizarra · voz clon de Lean · 1615 palabras, ~9.3 min · 26 escenas
 
 **Datos y fuentes:**
 - Tema tomado como referencia (no el texto): «Cómo leer gráficos de trading desde cero», Bitrevo, https://youtu.be/-daC6LlZzAU (08/11/2026). Estructura, metáfora del partido, ejemplos y datos propios.
@@ -13,7 +13,7 @@ Estilo pizarra · voz clon de Lean · 1614 palabras, ~9.3 min · 26 escenas
 
 ## 01. Gancho: la misma vela
 
-¿Miras un gráfico y no sabes qué pasó? Mira esta vela: el oro cayó trescientos cincuenta dólares en un día, pero cerró casi donde empezó. Fue el veintitrés de marzo de dos mil veintiséis. Abrió en cuatro mil cuatrocientos cincuenta, bajó hasta cuatro mil cien y cerró en cuatro mil cuatrocientos siete. Todo eso quedó guardado en un solo dibujito: una vela. Al final de este video vas a poder leerla sin ayuda. Y vas a ver qué hizo el oro en los días siguientes, y por qué esa vela sola no te alcanzaba para adivinarlo.
+Si miras un gráfico y no sabes qué pasó, mira esta vela: el oro cayó trescientos cincuenta dólares en un día, pero cerró casi donde empezó. Fue el veintitrés de marzo de dos mil veintiséis. Abrió en cuatro mil cuatrocientos cincuenta, bajó hasta cuatro mil cien y cerró en cuatro mil cuatrocientos siete. Todo eso quedó guardado en un solo dibujito: una vela. Al final de este video vas a poder leerla sin ayuda. Y vas a ver qué hizo el oro en los días siguientes, y por qué esa vela sola no te alcanzaba para adivinarlo.
 
 *En pantalla:* Una vela roja grande con una mecha inferior larguísima. Etiquetas: abrió 4.450, mínimo 4.100, cerró 4.407. A la derecha, los días siguientes tapados con un signo de pregunta.
 
