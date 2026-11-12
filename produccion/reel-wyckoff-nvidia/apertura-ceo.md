@@ -105,3 +105,81 @@ corta para la pantalla y una afirmación para la voz, porque al clon no le salen
 - SEC, 8-K de la renuncia: https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvda-20261111.htm
 - Tom's Guide, cronología: https://tomsguide.com/computing/nvidia-ceo-jensen-huang-admits-to-affair-amid-board-probe-into-relationship-with-suspected-chinese-spy-the-full-timeline-of-how-we-got-here
 - Gigazine (NYT sobre Megaspeed, 10/2025): https://www.gigazine.net/gsc_news/en/20251012-nvidia-megaspeed
+
+## Revisión de Rocío (12/11/2026, 16:50 de Argentina)
+
+No escribí estas aperturas. Las revisé contra `diseno/rubrica-guion.md`, el guion v4 grabado y los datos. Antes de puntuar,
+volví a bajar los precios de Yahoo Finance (velas de 5 min de NVDA, ^IXIC y AMD), porque el pedido depende de «más de un tercio».
+
+### Hallazgo que cambia todo: «ya perdió más de un tercio» hoy es falso
+- Más de un tercio desde 243,37 significa por debajo de **162,25**.
+- Premercado 12/11, 9:10: 154,74 (−36,4 %). Está bien, pero ya es viejo.
+- Mínimo del 12/11: **149,27** en la apertura, 9:30 de Nueva York (−38,7 %).
+- **Precio a las 14:50 de Nueva York del 12/11: ~164,4 (−32,4 %).** En este momento la acción perdió menos de un tercio.
+- Conclusión: «ya perdió más de un tercio» (A) y «perdió más de un tercio» en presente o pasado reciente (C, y también la
+  frase 1 grabada) pueden ser falsos el día que salga el Reel. Lo verdadero y que no vence es **«llegó a perder más de un
+  tercio»**. Para la pantalla, usar dos números con fecha: «Récord 06/10: 243,37 · Mínimo 12/11: 149,27 (−39 %)». Antes de
+  renderizar, volver a correr `datos_nvda.py` después del cierre y usar el mínimo diario (el de 5 min puede diferir unos
+  centavos).
+- Verificado también: el 05/11 cayó todo el sector (Nasdaq −5,52 %, AMD −17,26 %, NVDA −9,26 %). Sirve como contexto y,
+  además, aleja cualquier lectura de acusación: ese día cayó todo el mercado.
+- Fechas de «el gráfico avisó antes» confirmadas por la cronología: récord sin volumen el 06/10 (0,84×), primera nota del
+  NYT el 29/10, ruptura el 05/11 (sin noticias de la empresa) y renuncia el 12/11. La señal de Wyckoff (06/10) es 23 días
+  anterior a la primera nota. Se puede decir «el gráfico avisó antes», siempre que la frase 8 («no siempre sale así») siga.
+
+### Puntajes (1 a 10)
+| Criterio | A | B | C |
+|---|---|---|---|
+| Gancho (3 s, espectador y tema) | 6: se pierde «Si comprás en los récords» y arranca con una pregunta que el clon entona mal | 5: el número fuerte desaparece | 7 |
+| Claridad para principiantes | 8 | 5: adelanta la «trampa» antes de explicarla y repite la frase 5 | 7: dos ideas en una frase larga |
+| Contexto del dato | 6: el −36 % sin fechas ni el sector | 8 | 7 |
+| Vigencia | 4: «ya perdió más de un tercio» hoy es falso (164,4) | 9 | 5: mismo problema |
+| Exactitud y riesgo legal | 7: el dato vence; el resto es correcto y no acusa | 9 | 7 |
+| Empalme con «Richard Wyckoff explicó…» | 8 | 6 | 8 |
+| Duración (60 a 65 s) | 8: ~64 s | 8 | 5: ~67 s |
+| Puntuación para la voz (regla 12) | 6: «¿Fue culpa de Yensen Juang?» en el clon, que no entona las preguntas (pasó en P23 y P26) | 6 | 6 |
+
+Ninguna llega a 8 en todo. A es la mejor base.
+
+### Arreglos exigidos
+1. **«Llegó a perder»**, no «perdió» ni «ya perdió». Y en pantalla, los dos precios con fecha.
+2. **La pregunta va en pantalla, no en la voz.** «¿FUE CULPA DEL CEO?» grande desde el cuadro 0 (cumple el pedido de Lean).
+   La voz arranca con una afirmación. Si Lean quiere que se diga la pregunta, que la grabe él: su voz sí la entona.
+3. **Recuperar al espectador en los 3 primeros segundos** («Si comprás en los récords…»), que es lo que funcionaba en la v4.
+4. **Marcas de fecha en el gráfico** (lo que sostiene «mirá las fechas» sin decirlo con palabras): «06/10 · récord sin fuerza»,
+   «29/10 · primera nota del escándalo», «05/11 · cae todo el sector (Nasdaq −5,5 %)» y «12/11 · renuncia». Nada de
+   «espía», «manipulación», «información privilegiada» ni «¿quién sabía?» en pantalla, en el texto ni en los hashtags.
+5. **Cierre propuesto: rechazado.** «Culpa del gráfico» es un error conceptual (el gráfico no causa nada: muestra) y suma
+   ~2 s. Se queda el cierre grabado por Lean («Guardalo para el próximo récord. Y seguime.»). El bucle se cierra solo en
+   pantalla: «¿Culpa del CEO? Mirá las fechas.». La pregunta para comentar va en el copy: «¿Qué mirás antes de comprar: la
+   noticia o el gráfico?».
+6. **Moderación:** si en los comentarios alguien afirma que hubo manipulación, Lucía no lo confirma ni lo festeja. Respuesta
+   tipo: «No hay pruebas públicas de eso. Lo que sí se ve son las fechas del gráfico.»
+7. **Voz:** el resto del Reel es Lean real. Lo mejor es que grabe él la apertura (30 palabras, ~10 s, Notas de voz del iPhone).
+   Si sale con el clon, marcar contenido sintético en YouTube y avisarlo en Instagram.
+
+### Versión final (reemplaza la frase 1 grabada; empalma con la frase 2 tal cual)
+- **Pantalla (desde el cuadro 0):**
+  - ¿FUE CULPA DEL **CEO**?
+  - Récord 06/10: 243,37 · Mínimo 12/11: 149,27 (**−39 %**)
+  - 12/11: renunció el CEO · Mirá las fechas
+- **Voz** (30 palabras, ~10 s; el Reel queda en ~65 s):
+  > Si comprás en los récords, mirá estas fechas. Envidia llegó a perder más de un tercio desde su récord, y su jefe renunció en pleno escándalo. Pero el gráfico avisó antes.
+- Sigue, ya grabado: «Richard Wyckoff explicó, hace casi cien años, cómo vende el dinero grande: de a poco.»
+- Cierre: el grabado. Al final, en pantalla: «¿Culpa del CEO? Mirá las fechas.»
+
+| Criterio | Final |
+|---|---|
+| Cumple el pedido (pregunta del CEO, sin acusar, Wyckoff intacto) | 8 |
+| Gancho | 8 |
+| Claridad para principiantes | 9 |
+| Contexto del dato | 8 |
+| Vigencia | 9 |
+| Exactitud y riesgo legal | 9 |
+| Empalme | 9 |
+| Duración | 8 |
+| Puntuación para la voz | 9 |
+
+**Aviso aparte, sobre la frase 7 grabada:** dice que el 12/11, antes de abrir, está debajo de 164. Sigue siendo cierto porque
+la frase está anclada al premercado. Pero la marca «estás acá» del gráfico tiene que mostrar el precio del día en que se
+publique (hoy cerca de 164, no 154).

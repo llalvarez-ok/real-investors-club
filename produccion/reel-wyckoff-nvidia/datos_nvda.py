@@ -5,7 +5,7 @@ from pathlib import Path
 import yfinance as yf
 AQUI = Path(__file__).parent
 t = yf.Ticker("NVDA")
-d = t.history(start="2026-03-01", end="2026-11-12", interval="1d")
+d = t.history(start="2026-03-01", end="2026-11-13", interval="1d")
 d["vm"] = d["Volume"].rolling(50, min_periods=20).mean()
 velas = [{"f": i.strftime("%Y-%m-%d"), "o": round(r.Open, 2), "h": round(r.High, 2), "l": round(r.Low, 2),
           "c": round(r.Close, 2), "v": int(r.Volume), "vr": round(r.Volume / r.vm, 2) if r.vm == r.vm else None}

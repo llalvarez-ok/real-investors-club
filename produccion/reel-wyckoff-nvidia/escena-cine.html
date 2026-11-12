@@ -75,6 +75,11 @@
   #pie { position: absolute; left: 50px; right: 50px; top: 1672px; text-align: center; font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.4); letter-spacing: .5px; }
   #graf { position: absolute; left: 60px; top: 540px; width: 960px; height: 620px; }
   .verde { color: #3dd68c; }
+  .fechas { left: 140px; right: 140px; display: flex; flex-direction: column; gap: 22px; }
+  .fechas div { background: rgba(10,13,20,.88); border-left: 8px solid #e2b74a; padding: 18px 26px; font: 600 34px Inter; color: #f5f5f2; }
+  .fechas div.r { border-left-color: #ff5a55; }
+  .fechas b { display: block; font: 800 26px "JetBrains Mono"; color: #ffde8c; letter-spacing: 2px; margin-bottom: 4px; }
+  .fechas div.r b { color: #ff8a85; }
   .sem { display: flex; gap: 16px; justify-content: center; left: 0; right: 0; }
   .sem div { width: 118px; height: 96px; border: 3px solid #ff5a55; color: #ff5a55; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center; background: rgba(255,90,85,.08); }
 </style></head>
@@ -88,13 +93,17 @@
   <!-- 01 · GANCHO (portada: se ve desde el cuadro 0) -->
   <div class="blq" data-b="01">
     <div class="abs tag rojo" style="left:140px;top:250px" data-b="01" data-o="ya" data-e="aparece">● Expediente · 12.11.26</div>
-    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="7">¿Compraste en el <span class="oro">récord</span>?</div>
-    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-w="7" data-e="sube">Nvidia perdió <span class="rojo">un tercio</span></div>
-    <div class="abs sello" style="left:300px;top:1010px;font-size:50px" data-b="01" data-o="ya" data-e="aparece" data-r="-6" data-hb="01" data-hw="16">Nvidia<small>Del récord al piso</small></div>
-    <div class="abs sem" style="top:1090px" data-b="01" data-w="17" data-e="aparece">
-      <div data-b="01" data-w="17" data-e="pop" data-s="pop">SEM 1</div><div data-b="01" data-w="17" data-o="0.12" data-e="pop">SEM 2</div><div data-b="01" data-w="17" data-o="0.24" data-e="pop">SEM 3</div>
-      <div data-b="01" data-w="17" data-o="0.36" data-e="pop">SEM 4</div><div data-b="01" data-w="17" data-o="0.48" data-e="pop" data-s="pop">SEM 5</div>
+    <div class="abs titulo" style="top:330px;font-size:104px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="25">¿Fue culpa<br>del <span class="oro">CEO</span>?</div>
+    <div class="abs tag" style="left:0;right:0;margin:auto;width:760px;top:990px;text-align:center;color:#ffde8c;font-size:28px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="18">Récord 06/10 → mínimo 12/11</div>
+    <div class="abs sello" style="left:250px;top:1080px;font-size:56px" data-b="01" data-w="21" data-e="sello" data-r="-6" data-s="sello" data-hb="01" data-hw="25">Renunció<small>12/11 · en pleno escándalo</small></div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-w="25" data-e="golpe" data-s="impacto">Mirá las <span class="oro">fechas</span></div>
+    <div class="abs fechas" style="top:620px" data-b="01" data-w="26" data-e="aparece">
+      <div data-b="01" data-w="26" data-e="izq" data-s="pop"><b>06/10</b>récord sin volumen</div>
+      <div data-b="01" data-w="26" data-o="0.2" data-e="izq"><b>29/10</b>primera nota del escándalo</div>
+      <div data-b="01" data-w="26" data-o="0.4" data-e="izq" class="r"><b>05/11</b>cae todo el sector · −9,3 %</div>
+      <div data-b="01" data-w="26" data-o="0.6" data-e="izq" data-s="pop" class="r"><b>12/11</b>renuncia el CEO</div>
     </div>
+    <div class="abs sello" style="left:330px;top:1150px;font-size:46px;color:#ffde8c;border-color:#e2b74a;background:rgba(40,30,4,.55)" data-b="01" data-w="30" data-e="sello" data-r="-5" data-s="sello">Avisó antes</div>
     <div class="abs credito" style="left:140px;top:1360px" data-b="01" data-o="ya" data-e="aparece">FOTO: WALL STREET · WIKIMEDIA COMMONS</div>
   </div>
 
@@ -204,7 +213,7 @@
     <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="11" data-w="10" data-o="0.2" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
   const P = (b, w, extra) => Object.assign({ b, w }, extra);
   window.ESC = {
-    clave: /(récords?|nvidia|tercio|wyckoff|poco|euforia|236|caída|190|trampa|volumen|piso|9|doble|164|mínimo|fase|rebote|flojo|falló|ojo|guardalo|seguime|suscribite|club)/i,
+    clave: /(ceo|fechas|antes|escándalo|renunció|tercio|récords?|nvidia|tercio|wyckoff|poco|euforia|236|caída|190|trampa|volumen|piso|9|doble|164|mínimo|fase|rebote|flojo|falló|ojo|guardalo|seguime|suscribite|club)/i,
     grano: .05,
     fotos: { ws: 'fotos/wallstreet.jpg', crash: 'fotos/crash-1929.jpg', sala: 'fotos/sala.jpg', ny: 'fotos/ny.jpg', lest: 'fotos/lucas-estresado.jpg' },
     planos: [
@@ -216,8 +225,9 @@
       { b: '11', o: 0, dur: 7, foto: 'ws', kb: [.5, .5, 1.1, .5, .5, 1.18], look: 'noche', oscuro: [.45, .5], alfa: .8 },
     ],
     particulas: [
-      { b: '01', o: -5, forma: 'texto', txt: '−35 %', tam: 230, y: 800, color: 'rojo' },
-      P('01', 12, { forma: 'texto', txt: '−35 %', tam: 250, y: 800, color: 'oro2', son: 'sube' }),
+      { b: '01', o: -5, forma: 'texto', txt: '−39 %', tam: 250, y: 820, color: 'rojo' },
+      P('01', 10, { forma: 'texto', txt: '−39 %', tam: 260, y: 820, color: 'oro2', son: 'sube' }),
+      P('01', 25, { forma: 'disperso', y: 950, alfa: .3 }),
       { b: '02', o: 0, forma: 'nube', y: 950, r: 520, e: 1.6, alfa: .35 },
       { b: '03', o: 0, forma: 'disperso', y: 950, alfa: .22 },
       P('10', 7, { forma: 'barras', v: [0.84, 2.6], max: 2.6, x: 540, y: 1230, color: 'oro2' }),

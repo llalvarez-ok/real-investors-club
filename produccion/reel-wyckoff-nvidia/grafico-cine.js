@@ -2,7 +2,9 @@
 // Envuelve window.cuadro del motor cine: primero el motor, después este lienzo (#graf, dentro de la cámara).
 (function () {
   const cv = document.getElementById('graf'), x = cv.getContext('2d'), Wc = cv.width, Hc = cv.height;
-  const V = window.NVDA.velas, N = V.length, PRE = window.NVDA.premercado_12_11 ? 154.74 : 154.74;
+  const V = window.NVDA.velas, N = V.length, PRE = 154.74;  // pre-mercado del 12/11 a las 9:10 de Nueva York
+  const fi = f => V.findIndex(v => v.f === f), H = fi('2026-11-12'), L = H >= 0 ? H : N;  // L: lugar del 12/11
+  const HOY = H >= 0 ? V[H].c : PRE, NOTA = fi('2026-10-29');
   const B = {}; T.bloques.forEach(b => { B[b.id] = b; });
   const tw = (b, w = 0, o = 0) => { const bb = B[b]; return bb.palabras[Math.min(w, bb.palabras.length - 1)][0] + o; };
   const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), eo = v => 1 - Math.pow(1 - v, 3);
@@ -35,7 +37,7 @@
     const a = cl((t - ini) / .4) * cl((fin + .25 - t) / .3);
     cv.style.opacity = a; if (a <= 0) return;
     // cuántas velas se ven: cada fase revela su tramo
-    const tramos = [[tw('03'), 0, 53, 1.6], [tw('04'), 53, 83, 1.2], [tw('05', 2), 83, 152, 1.8], [tw('06', 4), 152, 174, 1.1], [tw('07', 0), 174, N, .8]];
+    const tramos = [[tw('03'), 0, 53, 1.6], [tw('04'), 53, 83, 1.2], [tw('05', 2), 83, 152, 1.8], [tw('06', 4), 152, 174, 1.1], [tw('07', 0), 174, L, .8], [tw('08', 5, -.2), L, N, .9]];
     let n = 0; for (const [t0, a0, a1, d] of tramos) if (t >= t0) n = a0 + (a1 - a0) * eo(pr(t, t0, t0 + d));
     x.clearRect(0, 0, Wc, Hc);
     // documento: fondo, borde dorado y encabezado
@@ -47,9 +49,9 @@
     // fases A–E de Wyckoff (bloque 08 en adelante)
     const tf = tw('08', 5, -.2);
     if (t >= tf) {
-      const cortes = [[0, 82, 'A'], [83, 140, 'B'], [141, 155, 'C'], [156, 173, 'D'], [174, N + 2, 'E']];
+      const cortes = [[0, 82, 'A'], [83, 140, 'B'], [141, 155, 'C'], [156, 173, 'D'], [174, L + 2, 'E']];
       cortes.forEach(([i0, i1, L], k) => {
-        const aa = eo(pr(t, tf + k * .12, tf + k * .12 + .35)), xa = gx(i0) - cw / 2, xb = gx(Math.min(i1, N + 2)) + cw / 2, E = L === 'E';
+        const aa = eo(pr(t, tf + k * .12, tf + k * .12 + .35)), xa = gx(i0) - cw / 2, xb = gx(Math.min(i1, L + 2)) + cw / 2, E = L === 'E';
         x.save(); x.globalAlpha = aa * (E ? .3 + .1 * Math.sin(t * 5) : .12); x.fillStyle = E ? C.oro : '#9fd0ff'; x.fillRect(xa, Y0 - 10, xb - xa, Y1 - Y0 + 10); x.restore();
         x.save(); x.globalAlpha = aa; x.font = font(E ? 44 : 32, 900); x.fillStyle = E ? C.oro2 : 'rgba(245,245,242,.7)'; x.textAlign = 'center'; x.fillText(L, (xa + xb) / 2, Y0 + 34); x.restore();
       });
@@ -87,19 +89,25 @@
     for (const [t0, i, p, txt, col, abajo] of M) if (t >= t0) { const aa = eo(pr(t, t0, t0 + .3)); punto(gx(i), gy(p), col, aa, t); if (t < tf) etiqueta(txt, gx(i), gy(p), col, aa, abajo); }
     // pre-mercado del 12/11
     const tpre = tw('07', 7, -.1);
-    if (t >= tpre) { const aa = eo(pr(t, tpre, tpre + .4)); const px = gx(N + 1), py = gy(PRE);
-      x.save(); x.globalAlpha = aa; x.strokeStyle = C.r; x.lineWidth = 2.5; x.setLineDash([5, 6]); x.beginPath(); x.moveTo(gx(N - 1), gy(V[N - 1].c)); x.lineTo(px, py); x.stroke(); x.restore();
-      punto(px, py, C.r, aa, t); if (t < tf) etiqueta('12/11 · 154,74', px, py, C.r, aa, true); else etiqueta('ESTÁS ACÁ', px, py, C.oro2, eo(pr(t, tf + .6, tf + 1)), true); }
+    if (t >= tpre) { const aa = eo(pr(t, tpre, tpre + .4)); const px = gx(L), py = gy(PRE);
+      x.save(); x.globalAlpha = aa; x.strokeStyle = C.r; x.lineWidth = 2.5; x.setLineDash([5, 6]); x.beginPath(); x.moveTo(gx(L - 1), gy(V[L - 1].c)); x.lineTo(px, py); x.stroke(); x.restore();
+      if (t < tf) { punto(px, py, C.r, aa, t); etiqueta('12/11 ANTES DE ABRIR · 154,74', px, py, C.r, aa, true); }
+      else { const ab = eo(pr(t, tf + .6, tf + 1)); punto(px, gy(HOY), C.oro2, ab, t); etiqueta('ESTÁS ACÁ', px, gy(HOY), C.oro2, ab, true); } }
+    // fechas del escándalo sobre el gráfico
+    const tfe = tw('07', 0);
+    if (t >= tfe && t < tf) [[NOTA, '29/10 · 1.ª NOTA'], [L, '12/11 · RENUNCIA']].forEach(([i, txt], k) => { if (i < 0) return; const aa = eo(pr(t, tfe + k * .4, tfe + k * .4 + .4));
+      x.save(); x.globalAlpha = aa * .9; x.strokeStyle = '#ff8a85'; x.lineWidth = 2; x.setLineDash([4, 6]); x.beginPath(); x.moveTo(gx(i), Y0 + 10); x.lineTo(gx(i), VY1); x.stroke(); x.restore();
+      x.save(); x.globalAlpha = aa; x.font = font(17, 800, 'mono'); x.fillStyle = '#ff8a85'; x.textAlign = 'right'; x.fillText(txt, gx(i) - 6, Y0 + 30 + k * 26); x.restore(); });
     // escenario: rebote flojo hacia 190 que no lo supera; y la invalidación
     const te = tw('09', 8, -.2);
-    if (t >= te) { const q = eo(pr(t, te, te + 1.6)), pts = [[N + 1, PRE], [N + 9, 176], [N + 17, 188], [N + 23, 178], [N + 31, 160]];
+    if (t >= te) { const q = eo(pr(t, te, te + 1.6)), pts = [[L, HOY], [L + 8, 178], [L + 16, 188], [L + 22, 178], [L + 30, 160]];
       x.save(); x.strokeStyle = C.oro2; x.lineWidth = 5; x.setLineDash([16, 10]); x.shadowColor = C.oro; x.shadowBlur = 14; x.beginPath();
       const tot = pts.length - 1, hasta = q * tot;
       pts.forEach(([i, p], k) => { if (k === 0) x.moveTo(gx(i), gy(p)); else if (k <= hasta) x.lineTo(gx(i), gy(p)); else if (k - 1 < hasta) { const f = hasta - (k - 1), [i0, p0] = pts[k - 1]; x.lineTo(gx(i0 + (i - i0) * f), gy(p0 + (p - p0) * f)); } });
-      x.stroke(); x.restore(); etiqueta('ESCENARIO', gx(N + 17), gy(188), C.oro2, q, false); }
+      x.stroke(); x.restore(); etiqueta('ESCENARIO', gx(L + 16), gy(188), C.oro2, q, false); }
     const ti = tw('09', 18, -.2);
     if (t >= ti) { const q = eo(pr(t, ti, ti + .8)); x.save(); x.globalAlpha = q; x.strokeStyle = C.v; x.lineWidth = 4; x.setLineDash([10, 8]);
-      x.beginPath(); x.moveTo(gx(N + 1), gy(PRE)); x.lineTo(gx(N + 1 + 22 * q), gy(PRE + (205 - PRE) * q)); x.stroke(); x.restore();
+      x.beginPath(); x.moveTo(gx(L), gy(HOY)); x.lineTo(gx(L + 22 * q), gy(HOY + (205 - HOY) * q)); x.stroke(); x.restore();
       etiqueta('ARRIBA DE 190 = FALLÓ', gx(N - 8), gy(205), C.v, q, false); }
   }
   const base = window.cuadro;
