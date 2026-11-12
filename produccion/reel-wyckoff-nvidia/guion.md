@@ -1,4 +1,4 @@
-# Reel/Short «Wyckoff y la caída de Nvidia» (12/11/2026) · vigente: v2 (abajo); v1 queda como historial
+# Reel/Short «Wyckoff y la caída de Nvidia» (12/11/2026) · vigente: v3 (al final); v1 y v2 quedan como historial
 
 Pedido de Lean: nuestra versión de https://www.instagram.com/reel/DfoMxHsuXEm/ (Wyckoff aplicado a Nvidia; transcripción
 con Supadata). Se usa la idea, no las frases. Voseo (Instagram y Shorts), para principiantes, ~55 s.
@@ -32,7 +32,7 @@ No usado (sin poder verificarlo): el mínimo de 157,99 «fuera de horario» y lo
 
 En pantalla todo el tiempo, abajo: «Análisis educativo. No es recomendación de inversión.»
 
-## Guion v2 (revisado por Rocío con la rúbrica; 135 palabras, ~54 s) · VIGENTE
+## Guion v2 (revisado por Rocío con la rúbrica; 135 palabras, ~54 s)
 En pantalla todo el tiempo, abajo: «Análisis educativo. No es recomendación de inversión.»
 1. [Desde el cuadro 0, sobre el gráfico real de NVDA: «NVIDIA −31,8 % EN 5 SEMANAS»; chico: «máx. 06/10 243,37 → mín. 10/11 165,89»]
    Si comprás en los récords, mirá esto: Envidia cayó más del treinta por ciento en cinco semanas.
@@ -48,3 +48,13 @@ En pantalla todo el tiempo, abajo: «Análisis educativo. No es recomendación d
 - **Cierre YT** (tarjeta del canal): ¿Mirabas el volumen antes de comprar? Contalo abajo. Y suscribite a Real Investors Club.
 - El caso del S&P 500 de 2025 (récord con poco volumen, −18,8 % en 7 semanas) va en el texto del Reel, aclarado como un solo caso.
 - Verificar con `herramientas/voces/verificar_voz.py` que el clon diga bien «Richard» y «Uáicof».
+
+
+## Guion v3 (12/11/2026, Lean: «Nvidia hoy mismo está en 158») · VIGENTE
+Verificado: pre-mercado del 12/11 a las 8:35 de Nueva York, 158,34 (mínimo 158,00), debajo del mínimo del año (163,90
+del 30/03). Desde el récord de 243,37: −35 %. El cierre semanal todavía no se sabe (viernes 13/11). Cambian las escenas 1 y 7:
+1. [Desde el cuadro 0: «NVIDIA −35 % EN 5 SEMANAS»; chico: «máx. 06/10 243,37 → 12/11 pre-mercado 158»]
+   Si comprás en los récords, mirá esto: Envidia perdió más de un tercio de su valor en cinco semanas.
+7. [Líneas «164 · mínimo del año (30/03)» y «190 · piso de junio»; rótulo «12/11, antes de la apertura: 158»]
+   El doce de noviembre, antes de abrir, ya está debajo de ciento sesenta y cuatro, el mínimo del año. Si cierra la semana ahí, el patrón se confirma. Si vuelve arriba de ciento noventa, falló.
+El resto, igual que v2. ~142 palabras con el cierre IG (~57 s).
