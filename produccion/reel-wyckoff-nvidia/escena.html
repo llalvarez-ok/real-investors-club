@@ -114,8 +114,8 @@ function cabecera(t) {
   const seg = [
     [0, T.wyck - .2, () => {
       const p = eo(pr(t, 0, 1.4)); txt('NVIDIA', 140, 330, {px: 34, w: 600, f: 'mono', c: C.t2, ls: 6});
-      txt('−' + Math.round(35 * p) + ' %', 140, 500, {px: 190, w: 900, c: C.r, glow: 'rgba(255,107,107,.45)'});
-      txt('EN 5 SEMANAS', 145, 560, {px: 46, w: 900, c: C.t, a: pr(t, .6, 1.2)}); }],
+      txt('−35 %', 140, 500, {px: 190, w: 900, c: C.r, glow: 'rgba(255,107,107,.45)'});
+      txt('EN 5 SEMANAS', 145, 560, {px: 46, w: 900, c: C.t}); }],
     [T.wyck, T.euf - .2, () => {
       txt('RICHARD WYCKOFF', 140, 340, {px: 62, w: 900, c: C.t, a: eo(pr(t, T.wyck, T.wyck + .5))});
       txt('1873 – 1934 · trader y autor', 142, 386, {px: 26, w: 500, f: 'mono', c: C.t2, a: pr(t, T.wyck + .3, T.wyck + .9)});
@@ -202,10 +202,10 @@ function gancho(t) {
   const pts = []; for (let i = i0; i < VE.length; i++) pts.push([G.x0 + (i - i0) / (VE.length - i0) * (G.x1 - G.x0 - 40), gy(VE[i].c)]); pts.push([G.x1 - 20, gy(PRE)]);
   const p = eio(pr(t, .2, 3.6)); x.fillStyle = 'rgba(7,20,38,.55)'; x.strokeStyle = 'rgba(39,74,128,.9)'; x.lineWidth = 2;
   x.beginPath(); x.roundRect(G.x0 - 20, G.y0 - 40, G.x1 - G.x0 + 40, G.y1 - G.y0 + 80, 22); x.fill(); x.stroke();
-  trazo(pts, p, C.r, []);
+  trazo(pts, 1, C.r, []);
   const k = Math.min(pts.length - 1, Math.floor(p * (pts.length - 1))); x.fillStyle = C.r; x.shadowColor = C.r; x.shadowBlur = 25; x.beginPath(); x.arc(pts[k][0], pts[k][1], 9, 0, 7); x.fill(); x.shadowBlur = 0;
   txt('06/10 · 243,37', pts[11][0] - 10, gy(243.37) - 18, {px: 24, w: 700, f: 'mono', c: C.t});
-  if (p > .95) txt('12/11 · ' + num(PRE, 2), G.x1 - 30, gy(PRE) + 44, {px: 24, w: 700, f: 'mono', c: C.r, al: 'right'});
+  txt('12/11 · ' + num(PRE, 2), G.x1 - 30, gy(PRE) + 44, {px: 24, w: 700, f: 'mono', c: C.r, al: 'right'});
   x.restore();
 }
 
@@ -288,7 +288,6 @@ window.cuadro = t => {
   // marca de agua y aviso
   if (LOGO.complete && t >= T.euf && t < T.fase) { const w = 90, h = w * LOGO.height / LOGO.width; x.globalAlpha = .85 * alfaG; x.drawImage(LOGO, G.x1 + 10 - w, G.y0 - 34 - h + 26, w, h); x.globalAlpha = 1; }
   txt('Análisis educativo. No es recomendación de inversión.', 540, 1432, {px: 22, w: 600, f: 'plex', c: 'rgba(163,181,209,.85)', al: 'center'});
-  if (t < .25) { x.fillStyle = `rgba(255,255,255,${.25 * (1 - t / .25)})`; x.fillRect(0, 0, 1080, 1920); }
 };
 window.listo = (async () => { await document.fonts.load("900 40px 'Archivo'"); await document.fonts.load("600 40px 'IBM Plex Sans'"); await document.fonts.load("600 20px 'IBM Plex Mono'");
   await Promise.all([LOGO, AV].map(i => i.complete ? 0 : new Promise(r => { i.onload = r; i.onerror = r; }))); await document.fonts.ready; window.cuadro(0); return true; })();

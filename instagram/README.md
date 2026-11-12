@@ -30,6 +30,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | Historia «En YouTube voy más a fondo» (promoción del canal, con P22 como video nuevo y lugar para el sticker de link) | Entregada el 07/11/2026; Lean puso el canal de YouTube como primer link del perfil | `produccion/historia-youtube/LEEME.md` |
 | Programación semanal de clases en vivo, 8 al 14/11 (historia y feed) | Entregada el 09/11/2026 | `produccion/programacion-semanal/LEEME.md` |
 | Resultado 2/7 · Inflación (CPI) del 10/11: +0,4 % mensual contra 0,3 % esperado, el oro bajó 0,6 % en la primera hora (portada nueva con Lean) | Entregado el 10/11/2026 a las 12:00; para publicar de 19 a 21 h | `produccion/oro-resultados/cpi-2026-11.md` |
+| Reel «Wyckoff y la caída de Nvidia» (voz grabada por Lean, motion graphics con el gráfico real, 61 s; Short de 64 s) | Entregado el 12/11/2026; falta que Lean lo publique | `produccion/reel-wyckoff-nvidia/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
