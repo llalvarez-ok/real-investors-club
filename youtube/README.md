@@ -70,6 +70,14 @@ Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora 
 - 14/11 19:00 · Largo · P23 «El mercado es una subasta: 3 preguntas antes de operar» (propuesto; falta que Lean lo suba)
 - 17/11 a 21/11 13:00 · Shorts de P23 (uno por día)
 
+## Programados (12/11/2026, hora de Argentina)
+- 12/11 19:00 · Largo · P26 «Cómo leer un gráfico de trading desde cero (con el oro real)» · `q90nmfvmDdY`
+- 13/11 19:00 · Short · S1 «¿sabés leer esta vela?» · `fKpu6kbz-FE`
+- 14/11 19:00 · Short · S2 mechas · `PlWZnjVqqb8`
+- 15/11 19:00 · Short · S3 una vela no alcanza · `24G8fldWqh8`
+- 16/11 19:00 · Short · S4 jugada, partido y tabla · `buqMtKFxogs` (el curso en vivo es a las 21:00)
+- 17/11 19:00 · Short · S5 Sofía y los errores · `-qeRND2kGtc`
+
 ## Vivos
 | Fecha | Video | ID | Playlist |
 |---|---|---|---|
