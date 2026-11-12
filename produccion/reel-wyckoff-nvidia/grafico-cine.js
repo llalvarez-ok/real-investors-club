@@ -97,7 +97,7 @@
     const tfe = tw('07', 0);
     if (t >= tfe && t < tf) [[NOTA, '29/10 · 1.ª NOTA'], [L, '12/11 · RENUNCIA']].forEach(([i, txt], k) => { if (i < 0) return; const aa = eo(pr(t, tfe + k * .4, tfe + k * .4 + .4));
       x.save(); x.globalAlpha = aa * .9; x.strokeStyle = '#ff8a85'; x.lineWidth = 2; x.setLineDash([4, 6]); x.beginPath(); x.moveTo(gx(i), Y0 + 10); x.lineTo(gx(i), VY1); x.stroke(); x.restore();
-      x.save(); x.globalAlpha = aa; x.font = font(17, 800, 'mono'); x.fillStyle = '#ff8a85'; x.textAlign = 'right'; x.fillText(txt, gx(i) - 6, Y0 + 30 + k * 26); x.restore(); });
+      x.save(); x.globalAlpha = aa; x.font = font(17, 800, 'mono'); x.fillStyle = '#ff8a85'; x.textAlign = 'right'; x.fillText(txt, gx(i) - 6, Y1 - 12 - k * 26); x.restore(); });
     // escenario: rebote flojo hacia 190 que no lo supera; y la invalidación
     const te = tw('09', 8, -.2);
     if (t >= te) { const q = eo(pr(t, te, te + 1.6)), pts = [[L, HOY], [L + 8, 178], [L + 16, 188], [L + 22, 178], [L + 30, 160]];
