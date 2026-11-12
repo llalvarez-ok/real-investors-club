@@ -68,3 +68,10 @@ con la semilla 11. Duración: IG 58 s; cierre YT 5,2 s. Los WAV quedan fuera de 
 
 
 ## v4 (12/11/2026): Lean lo graba con su voz. Texto vigente en `texto-para-grabar.md` (fase de Wyckoff en el párrafo 7).
+
+## Voz grabada por Lean (12/11/2026, 15:44, nota de voz .m4a de 107 s, 128 kbps)
+Cortes en `cortes-voz-lean.json` (párrafo 7: segunda toma; párrafo 8: última toma completa; sin «Uno/Dos/Tres/Cuatro»,
+que van en pantalla). Cadena de estudio de `herramientas/cine/voz_grabada.py` (`estudio()`: ruido, de-esser, WPE para el
+eco de la sala, compuerta, ecualización, compresión y limitador; sin reverb agregada), silencios de más de 0,45 s llevados
+a 0,3 s y −16 LUFS. Resultado: IG 67,7 s; cierre YT 6,0 s. Verificado con whisper: dice todo el texto, sin repeticiones.
+Con su voz no se marca contenido sintético. Falta que Lean apruebe el audio.
