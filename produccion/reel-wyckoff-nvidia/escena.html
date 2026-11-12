@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Wyckoff y Nvidia</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script src="nvda.js"></script><script src="palabras-ig.js"></script><script src="palabras-yt_cierre.js"></script>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Reel «Wyckoff y Nvidia» (12/11/2026). Motion graphics en canvas, sincronizados con las palabras de la voz de Lean.
+// window.cuadro(t) dibuja el cuadro del segundo t (render con herramientas/cine/render.js). ?v=ig | ?v=yt
+const V = new URLSearchParams(location.search).get('v') || 'ig';
+const cv = document.getElementById('c'), x = cv.getContext('2d');
+const C = {n1:'#071426', n2:'#0d2142', o1:'#e2c68c', o2:'#c7a35e', o3:'#8e7140', t:'#ecf1f9', t2:'#a3b5d1', v:'#3dd68c', r:'#ff6b6b', b:'#274a80'};
+const D = window.NVDA, VE = D.velas, PRE = 154.74;
+// Tiempos (segundos) sacados de las palabras de la voz
+const T = {wyck:7.8, euf:14.2, m236:16.3, caida:18.2, m190:20.6, trampa:21.8, rec:24.0, vol:25.3, rompe:27.1, cae:30.1, doble:32.7,
+  nov12:34.3, m164:37.3, minimo:38.7, fase:40.4, ultima:42.0, rebote:44.4, superar:48.6, falla:50.4, fallo:53.0, ojo:53.8, cierre:58.6};
+const PAL = V === 'yt' ? PAL_IG.filter(w => w.i < T.cierre).concat(PAL_YT.map(w => ({w: w.w, i: w.i + T.cierre, f: w.f + T.cierre}))) : PAL_IG;
+const FIN = V === 'yt' ? T.cierre + 5.6 : 61.2;
+window.DURACION = FIN; window.EVENTOS = [];
+const img = s => { const i = new Image(); i.src = s; return i; };
+const LOGO = img('../../marca/logo-oro.png'), AV = img('../../herramientas/particulas/avatar.png');
+
+const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const pr = (t, a, b) => cl((t - a) / (b - a));
+const eo = p => 1 - Math.pow(1 - p, 3), eio = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+const back = p => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+const num = (v, d = 0) => v.toFixed(d).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+function font(px, w = 800, f = 'Archivo') { x.font = `${w} ${px}px ${f === 'mono' ? "'IBM Plex Mono'" : f === 'plex' ? "'IBM Plex Sans'" : "'Archivo'"}`; }
+function txt(s, X, Y, o = {}) { x.save(); x.globalAlpha *= o.a ?? 1; font(o.px || 40, o.w || 800, o.f); x.fillStyle = o.c || C.t; x.textAlign = o.al || 'left'; x.textBaseline = 'alphabetic';
+  if (o.ls) x.letterSpacing = o.ls + 'px'; if (o.glow) { x.shadowColor = o.glow; x.shadowBlur = 30; } x.fillText(s, X, Y); x.restore(); }
+function oro(X0, Y0, X1, Y1) { const g = x.createLinearGradient(X0, Y0, X1, Y1); g.addColorStop(0, C.o1); g.addColorStop(.55, C.o2); g.addColorStop(1, C.o3); return g; }
+
+// ---------- Fondo ----------
+function fondo(t) {
+  const g = x.createLinearGradient(0, 0, 0, 1920); g.addColorStop(0, '#0d2142'); g.addColorStop(1, '#050f1f'); x.fillStyle = g; x.fillRect(0, 0, 1080, 1920);
+  x.strokeStyle = 'rgba(39,74,128,.16)'; x.lineWidth = 1;
+  const off = (t * 6) % 54;
+  for (let X = -54 + off; X < 1080; X += 54) { x.beginPath(); x.moveTo(X, 0); x.lineTo(X, 1920); x.stroke(); }
+  for (let Y = -54 + off; Y < 1920; Y += 54) { x.beginPath(); x.moveTo(0, Y); x.lineTo(1080, Y); x.stroke(); }
+  const r = x.createRadialGradient(880, 300, 0, 880, 300, 900); r.addColorStop(0, 'rgba(22,58,110,.55)'); r.addColorStop(1, 'rgba(22,58,110,0)'); x.fillStyle = r; x.fillRect(0, 0, 1080, 1920);
+  // polvo dorado
+  for (let i = 0; i < 70; i++) { const s = Math.sin(i * 91.7) * 43758.5453, fr = s - Math.floor(s);
+    const px = (fr * 1080 + t * (8 + i % 7)) % 1080, py = (Math.abs(Math.sin(i * 12.9)) * 1920 - t * (12 + i % 5) * 2 + 1920 * 3) % 1920;
+    x.fillStyle = `rgba(226,198,140,${.08 + .12 * Math.abs(Math.sin(t * .7 + i))})`; x.beginPath(); x.arc(px, py, 1.2 + (i % 3), 0, 7); x.fill(); }
+  // viñeta
+  const vg = x.createRadialGradient(540, 960, 500, 540, 960, 1250); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.55)'); x.fillStyle = vg; x.fillRect(0, 0, 1080, 1920);
+}
+
+// ---------- Gráfico ----------
+const G = {x0: 140, x1: 810, y0: 660, y1: 1080, vy0: 1105, vy1: 1215, lo: 140, hi: 252};
+const N = VE.length + 1;   // + el pre-mercado del 12/11
+const gx = i => G.x0 + (i + .5) * (G.x1 - G.x0) / N, gy = p => G.y1 - (p - G.lo) / (G.hi - G.lo) * (G.y1 - G.y0);
+const vmax = Math.max(...VE.map(v => v.v));
+function revelado(t) {
+  if (t < T.euf) return 0;
+  const tramos = [[T.euf, T.m236, 0, 53], [T.caida, T.m190, 53, 83], [T.trampa, T.rec, 83, 152], [T.rompe, T.cae, 152, 174], [T.nov12, T.m164, 174, N]];
+  let r = 0; for (const [a, b, i0, i1] of tramos) { if (t >= a) r = i0 + (i1 - i0) * eio(pr(t, a, b)); } return r;
+}
+function grafico(t, alfa, sacudon) {
+  if (alfa <= 0) return; x.save(); x.globalAlpha = alfa;
+  if (sacudon) x.translate(Math.sin(t * 90) * sacudon * 10, Math.cos(t * 77) * sacudon * 7);
+  // marco y precios
+  x.fillStyle = 'rgba(7,20,38,.55)'; x.strokeStyle = 'rgba(39,74,128,.9)'; x.lineWidth = 2;
+  x.beginPath(); x.roundRect(G.x0 - 20, G.y0 - 40, G.x1 - G.x0 + 40, G.vy1 - G.y0 + 60, 22); x.fill(); x.stroke();
+  for (const p of [160, 190, 220, 250]) { if (p > G.hi) continue; x.strokeStyle = 'rgba(163,181,209,.10)'; x.lineWidth = 1; x.beginPath(); x.moveTo(G.x0, gy(p)); x.lineTo(G.x1, gy(p)); x.stroke(); }
+  txt('NVDA · DIARIO · 2026', G.x0, G.y0 - 12, {px: 20, w: 600, f: 'mono', c: C.t2});
+  const R = revelado(t), n = Math.floor(R);
+  // rango (caja de distribución) desde la trampa
+  if (t >= T.m190 && t < T.ojo) { const a = eo(pr(t, T.m190, T.m190 + .6)); x.strokeStyle = `rgba(226,198,140,${.75 * a})`; x.setLineDash([12, 10]); x.lineWidth = 3;
+    x.beginPath(); x.moveTo(gx(82), gy(189.59)); x.lineTo(gx(82) + (G.x1 - gx(82)) * a, gy(189.59)); x.stroke(); x.setLineDash([]);
+    txt('PISO 190', G.x0 + 6, gy(189.59) - 10, {px: 22, w: 700, f: 'mono', c: C.o1, a});
+    if (t >= T.rec) { const b = eo(pr(t, T.rec, T.rec + .8)); x.fillStyle = `rgba(226,198,140,${.07 * b})`; x.fillRect(gx(52), gy(243.4), (gx(152) - gx(52)) * b, gy(189.59) - gy(243.4));
+      txt('RANGO', gx(100), gy(243.4) + 30, {px: 20, w: 600, f: 'mono', c: C.o2, a: b}); } }
+  if (t >= T.minimo && t < T.ojo) { const a = eo(pr(t, T.minimo, T.minimo + .6)); x.strokeStyle = `rgba(255,107,107,${.8 * a})`; x.setLineDash([8, 8]); x.lineWidth = 2.5;
+    x.beginPath(); x.moveTo(G.x0, gy(163.9)); x.lineTo(G.x0 + (G.x1 - G.x0) * a, gy(163.9)); x.stroke(); x.setLineDash([]);
+    txt('164 · MÍNIMO DEL AÑO', G.x0 + 6, gy(163.9) + 28, {px: 21, w: 700, f: 'mono', c: C.r, a}); }
+  // velas
+  const w = Math.max(2, (G.x1 - G.x0) / N * .62);
+  for (let i = 0; i < Math.min(n + 1, VE.length); i++) { const v = VE[i], k = i === n ? R - n : 1; if (k <= 0) continue;
+    const up = v.c >= v.o, col = up ? C.v : C.r; x.globalAlpha = alfa * k;
+    x.strokeStyle = col; x.lineWidth = 1.4; x.beginPath(); x.moveTo(gx(i), gy(v.h)); x.lineTo(gx(i), gy(v.l)); x.stroke();
+    x.fillStyle = col; const y1 = gy(Math.max(v.o, v.c)), y2 = gy(Math.min(v.o, v.c)); x.fillRect(gx(i) - w / 2, y1, w, Math.max(1.5, y2 - y1)); }
+  x.globalAlpha = alfa;
+  // pre-mercado del 12/11
+  if (R >= N - .5) { const p = .5 + .5 * Math.sin(t * 6); x.fillStyle = C.r; x.shadowColor = C.r; x.shadowBlur = 25 * p; x.beginPath(); x.arc(gx(N - 1), gy(PRE), 9, 0, 7); x.fill(); x.shadowBlur = 0; }
+  // volumen
+  if (t >= T.vol) { const a = eo(pr(t, T.vol, T.vol + .8));
+    txt('VOLUMEN', G.x0, G.vy0 - 4, {px: 18, w: 600, f: 'mono', c: C.t2, a});
+    for (let i = 0; i < Math.min(n + 1, VE.length); i++) { const v = VE[i]; let h = v.v / vmax * (G.vy1 - G.vy0) * a;
+      let col = 'rgba(163,181,209,.35)';
+      if (i === 151) col = C.r; if (i === 173 && t >= T.cae) col = C.o1;
+      if (i === 173 && t >= T.cae) h *= .4 + .6 * back(pr(t, T.cae, T.cae + .7));
+      x.fillStyle = col; x.fillRect(gx(i) - w / 2, G.vy1 - h, w, h); }
+    // promedio de 50 días
+    x.strokeStyle = `rgba(226,198,140,${.6 * a})`; x.lineWidth = 2; x.beginPath(); let first = true;
+    for (let i = 20; i < Math.min(n + 1, VE.length); i++) { const m = VE.slice(Math.max(0, i - 49), i + 1).reduce((s, v) => s + v.v, 0) / Math.min(50, i + 1);
+      const yy = G.vy1 - m / vmax * (G.vy1 - G.vy0) * a; first ? x.moveTo(gx(i), yy) : x.lineTo(gx(i), yy); first = false; } x.stroke(); }
+  x.restore();
+}
+// Marcas de las fases sobre el gráfico
+function marca(t, t0, i, p, etiqueta, valor, col, arriba = true, hasta = T.ojo) {
+  if (t < t0 || t >= hasta) return; const a = eo(pr(t, t0, t0 + .5)), s = back(pr(t, t0, t0 + .6));
+  const X = gx(i), Y = gy(p), dy = arriba ? -1 : 1;
+  x.save(); x.globalAlpha = a; x.fillStyle = col; x.shadowColor = col; x.shadowBlur = 20; x.beginPath(); x.arc(X, Y, 8 * s, 0, 7); x.fill(); x.shadowBlur = 0;
+  x.strokeStyle = col; x.lineWidth = 2; x.beginPath(); x.moveTo(X, Y + dy * 12); x.lineTo(X, Y + dy * 62 * s); x.stroke();
+  font(24, 800); const w1 = x.measureText(etiqueta).width; font(30, 900); const w2 = x.measureText(valor).width; const W = Math.max(w1, w2) + 28;
+  let bx = cl(X - W / 2, G.x0 - 10, G.x1 + 10 - W), by = Y + dy * 62 * s + (arriba ? -78 : 0);
+  x.fillStyle = 'rgba(7,20,38,.92)'; x.strokeStyle = col; x.lineWidth = 2; x.beginPath(); x.roundRect(bx, by, W, 78, 14); x.fill(); x.stroke();
+  txt(etiqueta, bx + 14, by + 30, {px: 22, w: 800, c: col}); txt(valor, bx + 14, by + 66, {px: 30, w: 900, c: C.t}); x.restore();
+}
+
+// ---------- Cabecera (textos grandes arriba) ----------
+function cabecera(t) {
+  const seg = [
+    [0, T.wyck - .2, () => {
+      const p = eo(pr(t, 0, 1.4)); txt('NVIDIA', 140, 330, {px: 34, w: 600, f: 'mono', c: C.t2, ls: 6});
+      txt('−' + Math.round(35 * p) + ' %', 140, 500, {px: 190, w: 900, c: C.r, glow: 'rgba(255,107,107,.45)'});
+      txt('EN 5 SEMANAS', 145, 560, {px: 46, w: 900, c: C.t, a: pr(t, .6, 1.2)}); }],
+    [T.wyck, T.euf - .2, () => {
+      txt('RICHARD WYCKOFF', 140, 340, {px: 62, w: 900, c: C.t, a: eo(pr(t, T.wyck, T.wyck + .5))});
+      txt('1873 – 1934 · trader y autor', 142, 386, {px: 26, w: 500, f: 'mono', c: C.t2, a: pr(t, T.wyck + .3, T.wyck + .9)});
+      const a = eo(pr(t, 12.8, 13.4)); txt('El dinero grande vende', 140, 480, {px: 48, w: 800, c: C.t, a: pr(t, 10.8, 11.4)});
+      txt('DE A POCO', 140, 560, {px: 84, w: 900, c: oro(0, 490, 0, 560), a}); }],
+    [T.euf, T.caida - .1, () => fase('1 · EUFORIA', 'mayo · máximo', 236.0, 0, T.m236, C.o1)],
+    [T.caida, T.trampa - .1, () => fase('2 · PRIMERA CAÍDA', 'junio · marca el piso', 189.59, 0, T.m190, C.t)],
+    [T.trampa, T.rompe - .1, () => { fase('3 · LA TRAMPA', 'octubre · récord', 243.37, 0, T.rec, C.o1);
+      if (t >= T.vol) { const a = eo(pr(t, T.vol, T.vol + .5)); x.save(); x.globalAlpha = a; x.fillStyle = 'rgba(255,107,107,.15)'; x.strokeStyle = C.r; x.lineWidth = 2;
+        x.beginPath(); x.roundRect(560, 268, 300, 96, 16); x.fill(); x.stroke(); txt('VOLUMEN', 580, 302, {px: 22, w: 700, f: 'mono', c: C.r}); txt('0,84× normal', 580, 346, {px: 34, w: 900, c: C.t}); x.restore(); } }],
+    [T.rompe, T.nov12 - .1, () => { fase('4 · SE ROMPE EL PISO', '5 de noviembre', -9.3, 1, T.cae, C.r, ' %');
+      if (t >= T.doble) { const a = eo(pr(t, T.doble, T.doble + .5)); x.save(); x.globalAlpha = a; x.fillStyle = 'rgba(226,198,140,.14)'; x.strokeStyle = C.o1; x.lineWidth = 2;
+        x.beginPath(); x.roundRect(560, 268, 300, 96, 16); x.fill(); x.stroke(); txt('VOLUMEN', 580, 302, {px: 22, w: 700, f: 'mono', c: C.o1}); txt('2,6× normal', 580, 346, {px: 34, w: 900, c: C.t}); x.restore(); } }],
+    [T.nov12, T.fase - .1, () => { fase('12/11 · ANTES DE ABRIR', 'pre-mercado, 9:10 de Nueva York', PRE, 2, T.m164, C.r);
+      txt('debajo del mínimo del año (163,90)', 140, 590, {px: 28, w: 600, f: 'plex', c: C.t2, a: pr(t, T.minimo, T.minimo + .5)}); }],
+    [T.fase, T.rebote - .1, () => { txt('PARA WYCKOFF', 140, 330, {px: 30, w: 600, f: 'mono', c: C.t2, ls: 4, a: eo(pr(t, T.fase, T.fase + .4))});
+      txt('ÚLTIMA FASE:', 140, 440, {px: 88, w: 900, c: C.t, a: eo(pr(t, T.fase + .4, T.fase + .9))});
+      txt('LA CAÍDA', 140, 540, {px: 96, w: 900, c: C.r, a: eo(pr(t, T.ultima + 1.2, T.ultima + 1.7)), glow: 'rgba(255,107,107,.35)'}); }],
+    [T.rebote, T.falla - .1, () => { txt('LO QUE ESPERA EL ESQUEMA', 140, 330, {px: 30, w: 600, f: 'mono', c: C.o1, ls: 3, a: eo(pr(t, T.rebote, T.rebote + .4))});
+      txt('Un rebote flojo', 140, 430, {px: 70, w: 900, c: C.t, a: eo(pr(t, T.rebote + .6, T.rebote + 1.1))});
+      txt('hacia 190 que no lo supere', 140, 500, {px: 44, w: 800, c: C.t2, a: eo(pr(t, 47.3, 47.8))});
+      txt('Escenario de la teoría, no un pronóstico.', 140, 570, {px: 26, w: 600, f: 'plex', c: C.o2, a: pr(t, T.superar, T.superar + .5)}); }],
+    [T.falla, T.ojo - .1, () => { txt('SI VUELVE ARRIBA DE 190', 140, 360, {px: 50, w: 900, c: C.t, a: eo(pr(t, T.falla, T.falla + .5))});
+      txt('EL PATRÓN FALLÓ', 140, 480, {px: 90, w: 900, c: C.v, a: eo(pr(t, T.fallo - .3, T.fallo + .2)), glow: 'rgba(61,214,140,.3)'}); }],
+  ];
+  for (const [a, b, f] of seg) if (t >= a && t < b) { x.save(); const fo = pr(t, b - .25, b); x.globalAlpha = 1 - fo; x.translate(0, -30 * fo); f(); x.restore(); }
+}
+function fase(titulo, sub, valor, dec, tNum, col, suf = '') {
+  const t = window._t, t0 = Math.min(tNum - 1.5, tNum);
+  txt(titulo, 140, 330, {px: 40, w: 900, c: col, a: eo(pr(t, t0 - .6, t0))});
+  txt(sub, 142, 376, {px: 26, w: 600, f: 'plex', c: C.t2, a: pr(t, t0 - .3, t0 + .3)});
+  const p = eo(pr(t, tNum - .9, tNum)); const v = valor * p;
+  txt((valor < 0 ? '−' : '') + num(Math.abs(v), dec) + suf, 140, 540, {px: 150, w: 900, c: col === C.t ? C.t : col, a: pr(t, tNum - 1, tNum - .6), glow: col === C.r ? 'rgba(255,107,107,.35)' : 'rgba(226,198,140,.25)'});
+}
+
+// ---------- Esquema de Wyckoff (escena 2) ----------
+function esquema(t) {
+  if (t < T.wyck || t >= T.euf) return; const a = Math.min(eo(pr(t, T.wyck + .3, T.wyck + .9)), 1 - pr(t, T.euf - .4, T.euf));
+  const pts = [[0, .95], [.18, .30], [.30, .62], [.42, .38], [.52, .58], [.62, .22], [.72, .55], [.80, .70], [.86, .60], [1, 1.05]];
+  const X0 = 150, X1 = 850, Y0 = 700, Y1 = 1150, p = eio(pr(t, T.wyck + .6, 13.5));
+  x.save(); x.globalAlpha = a;
+  x.fillStyle = 'rgba(226,198,140,.08)'; x.fillRect(X0 + .18 * (X1 - X0), Y0 + .30 * (Y1 - Y0) - 10, (.72 - .18) * (X1 - X0), (.62 - .30) * (Y1 - Y0) + 20);
+  x.strokeStyle = oro(X0, 0, X1, 0); x.lineWidth = 7; x.lineJoin = 'round'; x.beginPath();
+  const total = pts.length - 1, upto = p * total;
+  for (let k = 0; k <= Math.floor(upto) && k < pts.length; k++) { const [u, v] = pts[k]; const X = X0 + u * (X1 - X0), Y = Y0 + v * (Y1 - Y0); k ? x.lineTo(X, Y) : x.moveTo(X, Y); }
+  const k = Math.floor(upto); if (k < total) { const f = upto - k, [u1, v1] = pts[k], [u2, v2] = pts[k + 1]; x.lineTo(X0 + (u1 + (u2 - u1) * f) * (X1 - X0), Y0 + (v1 + (v2 - v1) * f) * (Y1 - Y0)); }
+  x.stroke();
+  const et = [[.18, .30, 'EUFORIA'], [.30, .62, 'CAÍDA'], [.62, .22, 'TRAMPA'], [.80, .70, 'ROTURA']];
+  et.forEach(([u, v, s], i) => { if (p * total < [1, 2, 5, 7][i]) return; const X = X0 + u * (X1 - X0), Y = Y0 + v * (Y1 - Y0);
+    x.fillStyle = C.o1; x.beginPath(); x.arc(X, Y, 8, 0, 7); x.fill(); txt(s, X, Y + (v < .5 ? -22 : 44), {px: 24, w: 800, c: C.o1, al: 'center'}); });
+  txt('esquema de distribución', 500, Y1 + 80, {px: 24, w: 600, f: 'mono', c: C.t2, al: 'center'});
+  x.restore();
+}
+
+// ---------- Fases A-E sobre el gráfico y proyecciones ----------
+function fasesAE(t) {
+  if (t < T.fase || t >= T.ojo) return; const a = eo(pr(t, T.fase, T.fase + .8));
+  const cortes = [[0, 82, 'A'], [83, 140, 'B'], [141, 155, 'C'], [156, 173, 'D'], [174, N + 9, 'E']];
+  x.save(); x.globalAlpha = a;
+  cortes.forEach(([i0, i1, L], k) => { const X0 = gx(i0) - 2, X1 = Math.min(gx(i1) + 2, G.x1 + 6), on = L === 'E';
+    x.fillStyle = on ? 'rgba(255,107,107,.16)' : 'rgba(39,74,128,.22)'; x.fillRect(X0, G.y0 - 30, X1 - X0, 26);
+    txt(L, (X0 + X1) / 2, G.y0 - 9, {px: 20, w: 900, c: on ? C.r : C.t2, al: 'center'}); });
+  if (t >= T.ultima) { const p = .5 + .5 * Math.sin(t * 7); const X = gx(N - 1);
+    x.fillStyle = `rgba(255,107,107,${.6 + .4 * p})`; x.beginPath(); x.roundRect(X - 225, gy(PRE) + 22, 210, 44, 12); x.fill();
+    txt('FASE E · ESTÁS ACÁ', X - 120, gy(PRE) + 52, {px: 20, w: 900, c: '#fff', al: 'center'}); }
+  x.restore();
+  // proyección del esquema: rebote flojo que no supera 190 (ilustrativo)
+  if (t >= T.rebote) { const p = eio(pr(t, 45.0, 47.8)); const X0 = gx(N - 1), Y0 = gy(PRE);
+    const camino = [[X0, Y0], [X0 + 18, gy(176)], [X0 + 32, gy(186)], [X0 + 46, gy(172)], [X0 + 58, gy(152)]];
+    trazo(camino, p, C.o1, [10, 8]); if (p > .55) txt('rebote flojo', X0 + 10, gy(186) - 18, {px: 20, w: 700, c: C.o1, al: 'center', a: pr(p, .55, .8)}); }
+  if (t >= T.falla) { const p = eio(pr(t, T.falla + .2, 52.2)); const X0 = gx(N - 1), Y0 = gy(PRE);
+    trazo([[X0, Y0], [X0 + 22, gy(180)], [X0 + 42, gy(196)], [X0 + 56, gy(205)]], p, C.v, [6, 8]);
+    if (p > .9) { x.strokeStyle = C.v; x.lineWidth = 4; const cx = X0 + 42, cy = gy(196); x.beginPath(); x.arc(cx, cy, 14, 0, 7); x.stroke(); } }
+}
+function trazo(pts, p, col, dash) { const L = []; let tot = 0; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); L.push(d); tot += d; }
+  let rest = tot * p; x.save(); x.strokeStyle = col; x.lineWidth = 4; x.setLineDash(dash); x.beginPath(); x.moveTo(...pts[0]);
+  for (let i = 1; i < pts.length && rest > 0; i++) { const f = Math.min(1, rest / L[i - 1]); x.lineTo(pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * f, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * f); rest -= L[i - 1]; }
+  x.stroke(); x.restore(); }
+
+// ---------- Gancho: mini gráfico de la caída ----------
+function gancho(t) {
+  if (t >= T.wyck) return; const a = 1 - pr(t, T.wyck - .5, T.wyck);
+  x.save(); x.globalAlpha = a; const i0 = 140;
+  const pts = []; for (let i = i0; i < VE.length; i++) pts.push([G.x0 + (i - i0) / (VE.length - i0) * (G.x1 - G.x0 - 40), gy(VE[i].c)]); pts.push([G.x1 - 20, gy(PRE)]);
+  const p = eio(pr(t, .2, 3.6)); x.fillStyle = 'rgba(7,20,38,.55)'; x.strokeStyle = 'rgba(39,74,128,.9)'; x.lineWidth = 2;
+  x.beginPath(); x.roundRect(G.x0 - 20, G.y0 - 40, G.x1 - G.x0 + 40, G.y1 - G.y0 + 80, 22); x.fill(); x.stroke();
+  trazo(pts, p, C.r, []);
+  const k = Math.min(pts.length - 1, Math.floor(p * (pts.length - 1))); x.fillStyle = C.r; x.shadowColor = C.r; x.shadowBlur = 25; x.beginPath(); x.arc(pts[k][0], pts[k][1], 9, 0, 7); x.fill(); x.shadowBlur = 0;
+  txt('06/10 · 243,37', pts[11][0] - 10, gy(243.37) - 18, {px: 24, w: 700, f: 'mono', c: C.t});
+  if (p > .95) txt('12/11 · ' + num(PRE, 2), G.x1 - 30, gy(PRE) + 44, {px: 24, w: 700, f: 'mono', c: C.r, al: 'right'});
+  x.restore();
+}
+
+// ---------- Cierre "Ojo" ----------
+function ojo(t) {
+  if (t < T.ojo || t >= T.cierre) return; const a = Math.min(eo(pr(t, T.ojo, T.ojo + .4)), 1 - pr(t, T.cierre - .3, T.cierre));
+  x.save(); x.globalAlpha = a;
+  txt('OJO:', 140, 760, {px: 70, w: 900, c: C.o1});
+  txt('no siempre sale así', 140, 840, {px: 54, w: 800, c: C.t, a: pr(t, 54.2, 54.6)});
+  const b = eo(pr(t, 55.7, 56.2)); x.globalAlpha = a * b; x.fillStyle = 'rgba(226,198,140,.12)'; x.strokeStyle = C.o2; x.lineWidth = 3;
+  x.beginPath(); x.roundRect(130, 900, 740, 260, 26); x.fill(); x.stroke();
+  txt('RÉCORD + POCO VOLUMEN', 165, 985, {px: 52, w: 900, c: C.t}); txt('= PISTA,', 165, 1065, {px: 64, w: 900, c: oro(0, 1010, 0, 1070)});
+  txt('NO CERTEZA', 470, 1065, {px: 64, w: 900, c: C.t}); txt('Ante un récord, mirá también el volumen.', 165, 1125, {px: 28, w: 600, f: 'plex', c: C.t2, a: pr(t, 56.6, 57.2)});
+  x.restore();
+}
+
+// ---------- Tarjetas de cierre ----------
+function cierre(t) {
+  if (t < T.cierre) return; const a = eo(pr(t, T.cierre, T.cierre + .5)), s = back(pr(t, T.cierre + .2, T.cierre + .9));
+  x.save(); x.globalAlpha = a;
+  if (V === 'ig') {
+    txt('GUARDALO', 540, 560, {px: 110, w: 900, c: oro(0, 470, 0, 560), al: 'center'});
+    txt('para el próximo récord', 540, 625, {px: 40, w: 700, c: C.t, al: 'center'});
+    x.translate(540, 900); x.scale(s, s); x.translate(-540, -900);
+    x.fillStyle = 'rgba(7,20,38,.95)'; x.strokeStyle = C.b; x.lineWidth = 3; x.beginPath(); x.roundRect(150, 720, 780, 360, 30); x.fill(); x.stroke();
+    x.save(); x.beginPath(); x.arc(270, 830, 78, 0, 7); x.clip(); if (AV.complete) x.drawImage(AV, 192, 752, 156, 156); x.restore();
+    const g = x.createLinearGradient(190, 750, 350, 910); g.addColorStop(0, '#f9ce34'); g.addColorStop(.5, '#ee2a7b'); g.addColorStop(1, '#6228d7');
+    x.strokeStyle = g; x.lineWidth = 6; x.beginPath(); x.arc(270, 830, 84, 0, 7); x.stroke();
+    txt('leanalvarez.ok', 385, 800, {px: 40, w: 700, f: 'plex', c: C.t});
+    x.fillStyle = '#0095f6'; x.beginPath(); x.arc(700, 787, 14, 0, 7); x.fill(); txt('✓', 700, 795, {px: 20, w: 900, c: '#fff', al: 'center'});
+    [['33', 'publicaciones', 450], ['3.726', 'seguidores', 640], ['18', 'seguidos', 820]].forEach(([n, l, X]) => { txt(n, X, 870, {px: 36, w: 700, f: 'plex', c: C.t, al: 'center'}); txt(l, X, 900, {px: 20, w: 500, f: 'plex', c: C.t2, al: 'center'}); });
+    txt('Lean Alvarez | Trading & Finanzas', 190, 960, {px: 26, w: 700, f: 'plex', c: C.t});
+    const on = t > T.cierre + 1.6; x.fillStyle = on ? 'rgba(236,241,249,.15)' : '#0095f6'; x.beginPath(); x.roundRect(190, 990, 700, 64, 14); x.fill();
+    txt(on ? 'Siguiendo ✓' : 'Seguir', 540, 1033, {px: 30, w: 700, f: 'plex', c: '#fff', al: 'center'});
+  } else {
+    txt('¿MIRABAS EL VOLUMEN?', 540, 520, {px: 62, w: 900, c: C.t, al: 'center'});
+    txt('Contalo abajo 👇', 540, 590, {px: 40, w: 700, c: C.o1, al: 'center'});
+    x.translate(540, 900); x.scale(s, s); x.translate(-540, -900);
+    x.fillStyle = 'rgba(7,20,38,.95)'; x.strokeStyle = C.b; x.lineWidth = 3; x.beginPath(); x.roundRect(150, 720, 780, 340, 30); x.fill(); x.stroke();
+    x.fillStyle = C.n1; x.beginPath(); x.arc(280, 830, 80, 0, 7); x.fill(); x.strokeStyle = C.o2; x.lineWidth = 4; x.stroke();
+    if (LOGO.complete) { const w = 130, h = w * LOGO.height / LOGO.width; x.drawImage(LOGO, 280 - w / 2, 830 - h / 2, w, h); }
+    txt('Real Investors Club', 395, 815, {px: 40, w: 800, c: C.t}); txt('@REALinvestorsc', 395, 860, {px: 26, w: 500, f: 'mono', c: C.t2});
+    const on = t > T.cierre + 3.3; x.fillStyle = on ? 'rgba(236,241,249,.15)' : '#ff0033'; x.beginPath(); x.roundRect(190, 950, 700, 70, 35); x.fill();
+    txt(on ? 'Suscripto ✓' : 'Suscribirme', 540, 996, {px: 32, w: 700, f: 'plex', c: '#fff', al: 'center'});
+  }
+  x.restore();
+}
+
+// ---------- Subtítulos palabra por palabra ----------
+const CLAVE = /^(récords?|nvidia|tercio|wyckoff|poco|euforia|236|caída|190|trampa|récord|volumen|piso|9|doble|164|mínimo|fase|rebote|flojo|falló|ojo|guardalo|seguime|suscribite)$/i;
+const BLOQUES = (() => { const b = []; let cur = []; PAL.forEach((w, i) => { cur.push(w); const fin = /[.,:;?]$/.test(w.w) || cur.length >= 4 || (PAL[i + 1] && PAL[i + 1].i - w.f > .5);
+  if (fin || i === PAL.length - 1) { b.push(cur); cur = []; } }); return b; })();
+function subtitulos(t) {
+  const b = BLOQUES.find(b => t >= b[0].i - .05 && t <= b[b.length - 1].f + .25); if (!b) return;
+  font(56, 900); const words = b.map(w => w.w.replace(/[.,:;]$/, '').toUpperCase()); const sp = 18;
+  let lines = [[]], lw = [0]; words.forEach((w, k) => { const ww = x.measureText(w).width; if (lw[lw.length - 1] + ww > 720 && lines[lines.length - 1].length) { lines.push([]); lw.push(0); }
+    lines[lines.length - 1].push(k); lw[lw.length - 1] += ww + sp; });
+  const y0 = 1330 - (lines.length - 1) * 66;
+  lines.forEach((ln, li) => { let X = 540 - (lw[li] - sp) / 2;
+    ln.forEach(k => { const w = b[k], s = words[k], on = t >= w.i - .03, cur = t >= w.i - .03 && t < w.f + .05, clave = CLAVE.test(w.w.replace(/[.,:;%]$/, ''));
+      font(56, 900); const ww = x.measureText(s).width; x.save(); x.textAlign = 'left';
+      x.lineWidth = 10; x.strokeStyle = 'rgba(5,15,31,.9)'; x.lineJoin = 'round'; x.globalAlpha = on ? 1 : .35;
+      if (cur) { x.translate(X + ww / 2, y0 + li * 66 - 20); x.scale(1.08, 1.08); x.translate(-(X + ww / 2), -(y0 + li * 66 - 20)); }
+      x.strokeText(s, X, y0 + li * 66); x.fillStyle = clave ? C.o1 : C.t; x.fillText(s, X, y0 + li * 66); x.restore(); X += ww + sp; }); });
+}
+
+// ---------- Cuadro ----------
+window.cuadro = t => {
+  window._t = t = +t; x.clearRect(0, 0, 1080, 1920); fondo(t);
+  const alfaG = t < T.euf ? 0 : t >= T.ojo ? 1 - pr(t, T.ojo, T.ojo + .4) : eo(pr(t, T.euf, T.euf + .5));
+  const sac = t >= T.cae && t < T.cae + .5 ? 1 - pr(t, T.cae, T.cae + .5) : 0;
+  gancho(t); esquema(t); grafico(t, alfaG, sac);
+  if (alfaG > 0) { x.save(); x.globalAlpha = alfaG;
+    marca(t, T.m236 - .3, 52, 236.0, '1 · EUFORIA', '236', C.o1, true, T.fase);
+    marca(t, T.m190 - .3, 82, 189.59, '2 · CAÍDA', '190', C.t, false, T.fase);
+    marca(t, T.rec - .3, 151, 243.37, '3 · TRAMPA', '243', C.o1, true, T.fase);
+    marca(t, T.cae - .2, 173, 181.6, '4 · ROTURA', '−9,3 %', C.r, false, T.fase);
+    x.restore(); fasesAE(t); }
+  cabecera(t); ojo(t); cierre(t); if (t < T.cierre) subtitulos(t);
+  // marca de agua y aviso
+  if (LOGO.complete && t >= T.euf && t < T.fase) { const w = 90, h = w * LOGO.height / LOGO.width; x.globalAlpha = .85 * alfaG; x.drawImage(LOGO, G.x1 + 10 - w, G.y0 - 34 - h + 26, w, h); x.globalAlpha = 1; }
+  txt('Análisis educativo. No es recomendación de inversión.', 540, 1432, {px: 22, w: 600, f: 'plex', c: 'rgba(163,181,209,.85)', al: 'center'});
+  if (t < .25) { x.fillStyle = `rgba(255,255,255,${.25 * (1 - t / .25)})`; x.fillRect(0, 0, 1080, 1920); }
+};
+window.listo = (async () => { await document.fonts.load("900 40px 'Archivo'"); await document.fonts.load("600 40px 'IBM Plex Sans'"); await document.fonts.load("600 20px 'IBM Plex Mono'");
+  await Promise.all([LOGO, AV].map(i => i.complete ? 0 : new Promise(r => { i.onload = r; i.onerror = r; }))); await document.fonts.ready; window.cuadro(0); return true; })();
+</script></body></html>
