@@ -1,4 +1,4 @@
-# Reel/Short «Wyckoff y la caída de Nvidia» (12/11/2026) · vigente: v3 (al final); v1 y v2 quedan como historial
+# Reel/Short «Wyckoff y la caída de Nvidia» (12/11/2026) · vigente: v4 en `texto-para-grabar.md` (Lean lo graba); v1 a v3 quedan como historial
 
 Pedido de Lean: nuestra versión de https://www.instagram.com/reel/DfoMxHsuXEm/ (Wyckoff aplicado a Nvidia; transcripción
 con Supadata). Se usa la idea, no las frases. Voseo (Instagram y Shorts), para principiantes, ~55 s.
@@ -65,3 +65,6 @@ Clon de Lean con Qwen3-TTS; referencia: 18,6 s del Short «El error que cometí 
 (pronunciación escrita: «Envidia», «Ríchard Uáicof»). Verificado con whisper: todo bien salvo el cierre de IG
 («Guardalo… Y seguí esta cuenta» sonaba a infinitivo), reemplazado por «Guardalo para el próximo récord. Y seguime.»
 con la semilla 11. Duración: IG 58 s; cierre YT 5,2 s. Los WAV quedan fuera de git. Falta la aprobación de Lean.
+
+
+## v4 (12/11/2026): Lean lo graba con su voz. Texto vigente en `texto-para-grabar.md` (fase de Wyckoff en el párrafo 7).
