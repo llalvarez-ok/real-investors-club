@@ -50,10 +50,10 @@
     const tf = tw('08', 5, -.2);
     if (t >= tf) {
       const cortes = [[0, 82, 'A'], [83, 140, 'B'], [141, 155, 'C'], [156, 173, 'D'], [174, L + 2, 'E']];
-      cortes.forEach(([i0, i1, L], k) => {
-        const aa = eo(pr(t, tf + k * .12, tf + k * .12 + .35)), xa = gx(i0) - cw / 2, xb = gx(Math.min(i1, L + 2)) + cw / 2, E = L === 'E';
+      cortes.forEach(([i0, i1, Lt], k) => {
+        const aa = eo(pr(t, tf + k * .12, tf + k * .12 + .35)), xa = gx(i0) - cw / 2, xb = gx(Math.min(i1, L + 2)) + cw / 2, E = Lt === 'E';
         x.save(); x.globalAlpha = aa * (E ? .3 + .1 * Math.sin(t * 5) : .12); x.fillStyle = E ? C.oro : '#9fd0ff'; x.fillRect(xa, Y0 - 10, xb - xa, Y1 - Y0 + 10); x.restore();
-        x.save(); x.globalAlpha = aa; x.font = font(E ? 44 : 32, 900); x.fillStyle = E ? C.oro2 : 'rgba(245,245,242,.7)'; x.textAlign = 'center'; x.fillText(L, (xa + xb) / 2, Y0 + 34); x.restore();
+        x.save(); x.globalAlpha = aa; x.font = font(E ? 44 : 32, 900); x.fillStyle = E ? C.oro2 : 'rgba(245,245,242,.7)'; x.textAlign = 'center'; x.fillText(Lt, (xa + xb) / 2, Y0 + 34); x.restore();
       });
     }
     // grilla de precios
@@ -92,12 +92,12 @@
     if (t >= tpre) { const aa = eo(pr(t, tpre, tpre + .4)); const px = gx(L), py = gy(PRE);
       x.save(); x.globalAlpha = aa; x.strokeStyle = C.r; x.lineWidth = 2.5; x.setLineDash([5, 6]); x.beginPath(); x.moveTo(gx(L - 1), gy(V[L - 1].c)); x.lineTo(px, py); x.stroke(); x.restore();
       if (t < tf) { punto(px, py, C.r, aa, t); etiqueta('12/11 ANTES DE ABRIR · 154,74', px, py, C.r, aa, true); }
-      else { const ab = eo(pr(t, tf + .6, tf + 1)); punto(px, gy(HOY), C.oro2, ab, t); etiqueta('ESTÁS ACÁ', px, gy(HOY), C.oro2, ab, true); } }
+      else { const ab = eo(pr(t, tf + .6, tf + 1)); punto(px, gy(HOY), C.oro2, ab, t); etiqueta('ESTÁS ACÁ · CIERRE ' + HOY.toFixed(2).replace('.', ','), px, gy(HOY), C.oro2, ab, true); } }
     // fechas del escándalo sobre el gráfico
     const tfe = tw('07', 0);
     if (t >= tfe && t < tf) [[NOTA, '29/10 · 1.ª NOTA'], [L, '12/11 · RENUNCIA']].forEach(([i, txt], k) => { if (i < 0) return; const aa = eo(pr(t, tfe + k * .4, tfe + k * .4 + .4));
       x.save(); x.globalAlpha = aa * .9; x.strokeStyle = '#ff8a85'; x.lineWidth = 2; x.setLineDash([4, 6]); x.beginPath(); x.moveTo(gx(i), Y0 + 10); x.lineTo(gx(i), VY1); x.stroke(); x.restore();
-      x.save(); x.globalAlpha = aa; x.font = font(17, 800, 'mono'); x.fillStyle = '#ff8a85'; x.textAlign = 'right'; x.fillText(txt, gx(i) - 6, Y1 - 12 - k * 26); x.restore(); });
+      x.save(); x.globalAlpha = aa; x.font = font(17, 800, 'mono'); x.fillStyle = '#ff8a85'; x.textAlign = 'right'; x.fillText(txt, gx(i) - 6, VY0 + 22 + k * 24); x.restore(); });
     // escenario: rebote flojo hacia 190 que no lo supera; y la invalidación
     const te = tw('09', 8, -.2);
     if (t >= te) { const q = eo(pr(t, te, te + 1.6)), pts = [[L, HOY], [L + 8, 178], [L + 16, 188], [L + 22, 178], [L + 30, 160]];
