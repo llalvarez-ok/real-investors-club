@@ -58,3 +58,10 @@ del 30/03). Desde el récord de 243,37: −35 %. El cierre semanal todavía no s
 7. [Líneas «164 · mínimo del año (30/03)» y «190 · piso de junio»; rótulo «12/11, antes de la apertura: 158»]
    El doce de noviembre, antes de abrir, ya está debajo de ciento sesenta y cuatro, el mínimo del año. Si cierra la semana ahí, el patrón se confirma. Si vuelve arriba de ciento noventa, falló.
 El resto, igual que v2. ~142 palabras con el cierre IG (~57 s).
+
+## Voz (12/11/2026)
+Clon de Lean con Qwen3-TTS; referencia: 18,6 s del Short «El error que cometí en vivo» (Drive, RIC/referencias,
+`RIC-vivo-s1-error.mp4`, del segundo 15,25 al 33,85) con su texto corregido a mano. Textos en `textos-voz.json`
+(pronunciación escrita: «Envidia», «Ríchard Uáicof»). Verificado con whisper: todo bien salvo el cierre de IG
+(«Guardalo… Y seguí esta cuenta» sonaba a infinitivo), reemplazado por «Guardalo para el próximo récord. Y seguime.»
+con la semilla 11. Duración: IG 58 s; cierre YT 5,2 s. Los WAV quedan fuera de git. Falta la aprobación de Lean.
