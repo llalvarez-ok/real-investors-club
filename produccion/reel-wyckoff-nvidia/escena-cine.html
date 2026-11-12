@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Wyckoff y la caída de Nvidia · expediente cine</title>
+<!-- Estilo «expediente cine» (herramientas/cine/LEEME.md), voz grabada por Lean. ?v=ig (Instagram) o ?v=yt (YouTube). -->
+<script>
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig';
+  document.write(`<script src="tiempos-${V}.js"><\/script>`);
+</script>
+<script src="nvda.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #05070c; }
+  body { font-family: Inter, sans-serif; color: #f5f5f2; }
+  canvas { position: absolute; left: 0; top: 0; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 48%; }
+  .blq { position: absolute; inset: 0; display: none; }
+  .abs { position: absolute; }
+  [data-e] { opacity: 0; will-change: transform, opacity; }
+  .titulo { font-family: "Inter Display", Inter; font-weight: 900; font-size: 92px; line-height: .98; text-transform: uppercase; letter-spacing: -1px;
+    text-align: center; left: 40px; right: 40px; text-shadow: 0 6px 30px rgba(0,0,0,.85); }
+  .oro { color: #e2b74a; } .oro2 { color: #ffde8c; } .rojo { color: #ff5a55; } .gris { color: #9aa0aa; }
+  .tag { font: 700 26px "JetBrains Mono", monospace; letter-spacing: 3px; padding: 10px 18px; border: 3px solid currentColor; text-transform: uppercase;
+    background: rgba(5,7,12,.7); }
+  .cifra { font-family: "Inter Display", Inter; font-weight: 900; font-size: 150px; letter-spacing: -3px; text-align: center; left: 0; right: 0;
+    color: #ffde8c; text-shadow: 0 0 40px rgba(226,183,74,.55), 0 0 90px rgba(226,183,74,.3), 0 8px 24px rgba(0,0,0,.8); }
+  .sello { font: 900 58px "Inter Display", Inter; color: #ff4d4a; border: 7px double #ff4d4a; padding: 10px 28px 6px; letter-spacing: 2px;
+    text-transform: uppercase; background: rgba(40,4,6,.35); box-shadow: 0 0 40px rgba(255,60,60,.25); }
+  .sello small { display: block; font: 700 22px "JetBrains Mono"; letter-spacing: 4px; text-align: center; }
+  .polaroid { background: #efe9dc; padding: 18px 18px 64px; box-shadow: 0 30px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.2); }
+  .polaroid img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.7) contrast(1.1) sepia(.12); }
+  .polaroid .pie { position: absolute; left: 22px; right: 22px; bottom: 16px; font: 700 21px "JetBrains Mono"; color: #2a2a2a; letter-spacing: 1px; }
+  .cinta { position: absolute; width: 150px; height: 46px; background: rgba(236,220,170,.72); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .recorte { background: #ece5d6; color: #1b1b1b; padding: 26px 34px 30px; font-family: "Liberation Serif", serif; box-shadow: 0 24px 50px rgba(0,0,0,.6);
+    clip-path: polygon(0 3%, 6% 0, 14% 2%, 25% 0, 40% 2%, 52% 0, 66% 2%, 80% 0, 92% 3%, 100% 1%, 99% 96%, 90% 100%, 75% 97%, 60% 100%, 45% 97%, 30% 100%, 15% 97%, 3% 100%, 1% 60%); }
+  .recorte .sec { font: 700 18px "JetBrains Mono"; color: #b3261e; letter-spacing: 2px; border-bottom: 2px solid #1b1b1b; padding-bottom: 8px; margin-bottom: 12px; }
+  .recorte h3 { font-size: 44px; line-height: 1.08; font-weight: 700; }
+  .recorte .fte { font: 16px "JetBrains Mono"; color: #555; margin-top: 12px; }
+  .tachado { position: relative; display: inline-block; }
+  .tachado::after { content: ''; position: absolute; left: -8px; top: 12%; height: 80%; width: calc(var(--tacha, 0%) + 16px); background: #c62828; z-index: -1; transform: skewX(-8deg); }
+  .tachado { z-index: 0; isolation: isolate; }
+  .credito { font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.55); letter-spacing: .5px; }
+  .bandera { width: 230px; height: 128px; background: linear-gradient(#024fa2 0 15%, #fff 15% 19%, #ed1c27 19% 81%, #fff 81% 85%, #024fa2 85%); position: relative;
+    box-shadow: 0 16px 34px rgba(0,0,0,.6); }
+  .bandera::before { content: ''; position: absolute; left: 30px; top: 30px; width: 68px; height: 68px; border-radius: 50%; background: #fff; }
+  .bandera::after { content: '★'; position: absolute; left: 36px; top: 21px; font-size: 62px; color: #ed1c27; }
+  .url { left: 80px; right: 80px; height: 104px; background: #f3f4f6; border-radius: 52px; box-shadow: 0 20px 60px rgba(0,0,0,.6); display: flex; align-items: center;
+    padding: 0 36px; gap: 18px; font: 600 33px Inter; color: #222; }
+  .url .cand { width: 30px; height: 30px; border-radius: 6px; background: #c9302c; }
+  .cursor { width: 70px; height: 92px; background: #fff; clip-path: polygon(0 0, 0 82%, 22% 64%, 38% 100%, 52% 94%, 36% 60%, 66% 60%); filter: drop-shadow(0 4px 8px rgba(0,0,0,.7)); }
+  .anillo-pista { left: 290px; top: 710px; width: 500px; height: 500px; border-radius: 50%; border: 46px solid rgba(140,144,152,.18); }
+  .dias { display: flex; gap: 14px; justify-content: center; left: 0; right: 0; }
+  .dias div { width: 112px; height: 112px; border: 3px solid #e2b74a; color: #e2b74a; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center;
+    background: rgba(226,183,74,.08); }
+  .tarjeta { left: 70px; right: 70px; background: rgba(14,16,22,.92); border: 2px solid rgba(226,183,74,.45); border-radius: 34px; padding: 40px; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+  .tarjeta .fila { display: flex; align-items: center; gap: 30px; }
+  .tarjeta img.av { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid #e2b74a; background: #fff; }
+  .tarjeta .nom { font: 800 44px Inter; } .tarjeta .sub2 { font: 500 28px Inter; color: #9aa0aa; margin-top: 6px; }
+  .tarjeta .nums { display: flex; justify-content: space-around; margin: 34px 0 30px; text-align: center; font: 500 26px Inter; color: #9aa0aa; }
+  .tarjeta .nums b { display: block; font: 800 46px Inter; color: #f5f5f2; }
+  .boton { height: 96px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font: 800 40px Inter; position: relative; overflow: hidden; }
+  .boton .b2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  /* HUD fijo */
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  #barra { position: absolute; left: 50px; right: 50px; top: 54px; height: 4px; background: rgba(255,255,255,.12); }
+  #progreso { height: 100%; width: 0; background: #e2b74a; box-shadow: 0 0 12px #e2b74a; }
+  #marca { position: absolute; left: 50px; top: 82px; font: 800 26px Inter; letter-spacing: 6px; color: #e2b74a; }
+  #etiqueta { position: absolute; right: 50px; top: 76px; font: 700 22px "JetBrains Mono"; letter-spacing: 2px; color: #f5f5f2; border: 2px solid rgba(245,245,242,.4);
+    padding: 6px 12px; background: rgba(5,7,12,.5); }
+  #rec { position: absolute; left: 50px; top: 128px; font: 600 20px "JetBrains Mono"; letter-spacing: 3px; color: rgba(245,245,242,.6); }
+  #rec i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #ff3b3b; margin-right: 10px; box-shadow: 0 0 10px #ff3b3b; }
+  #sub { position: absolute; left: 50px; right: 50px; top: 1430px; text-align: center; font: 900 68px "Inter Display", Inter; line-height: 1.12; text-transform: uppercase;
+    letter-spacing: -.5px; }
+  #sub span { display: inline-block; margin: 0 .13em; color: rgba(245,245,242,.28); text-shadow: 0 4px 18px rgba(0,0,0,.9); transition: none; }
+  #sub span.on { color: #f5f5f2; } #sub span.k { color: #ffcf5a; text-shadow: 0 0 26px rgba(226,183,74,.6), 0 4px 18px rgba(0,0,0,.9); }
+  #pie { position: absolute; left: 50px; right: 50px; top: 1672px; text-align: center; font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.4); letter-spacing: .5px; }
+  #graf { position: absolute; left: 60px; top: 540px; width: 960px; height: 620px; }
+  .verde { color: #3dd68c; }
+  .sem { display: flex; gap: 16px; justify-content: center; left: 0; right: 0; }
+  .sem div { width: 118px; height: 96px; border: 3px solid #ff5a55; color: #ff5a55; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center; background: rgba(255,90,85,.08); }
+</style></head>
+</head>
+<body>
+<div id="cam">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <canvas id="pt" width="1080" height="1920"></canvas>
+  <canvas id="graf" width="960" height="620"></canvas>
+
+  <!-- 01 · GANCHO (portada: se ve desde el cuadro 0) -->
+  <div class="blq" data-b="01">
+    <div class="abs tag rojo" style="left:140px;top:250px" data-b="01" data-o="ya" data-e="aparece">● Expediente · 12.11.26</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-o="ya" data-e="aparece" data-hb="01" data-hw="7">¿Compraste en el <span class="oro">récord</span>?</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-w="7" data-e="sube">Nvidia perdió <span class="rojo">un tercio</span></div>
+    <div class="abs sello" style="left:300px;top:1010px;font-size:50px" data-b="01" data-o="ya" data-e="aparece" data-r="-6" data-hb="01" data-hw="16">Nvidia<small>Del récord al piso</small></div>
+    <div class="abs sem" style="top:1090px" data-b="01" data-w="17" data-e="aparece">
+      <div data-b="01" data-w="17" data-e="pop" data-s="pop">SEM 1</div><div data-b="01" data-w="17" data-o="0.12" data-e="pop">SEM 2</div><div data-b="01" data-w="17" data-o="0.24" data-e="pop">SEM 3</div>
+      <div data-b="01" data-w="17" data-o="0.36" data-e="pop">SEM 4</div><div data-b="01" data-w="17" data-o="0.48" data-e="pop" data-s="pop">SEM 5</div>
+    </div>
+    <div class="abs credito" style="left:140px;top:1360px" data-b="01" data-o="ya" data-e="aparece">FOTO: WALL STREET · WIKIMEDIA COMMONS</div>
+  </div>
+
+  <!-- 02 · WYCKOFF -->
+  <div class="blq" data-b="02">
+    <div class="abs tag" style="left:140px;top:250px;color:#9fd0ff" data-b="02" data-o="0" data-e="izq">Richard D. Wyckoff · 1873–1934</div>
+    <div class="abs titulo" style="top:330px" data-b="02" data-o="0" data-e="sube" data-hb="02" data-hw="7">El método <span class="oro">Wyckoff</span></div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="02" data-w="7" data-e="sube">Cómo vende el<br><span class="oro">dinero grande</span></div>
+    <div class="abs sello" style="left:330px;top:1130px;color:#ffde8c;border-color:#e2b74a;background:rgba(40,30,4,.55)" data-b="02" data-w="12" data-e="sello" data-r="-7" data-s="sello">De a poco</div>
+    <div class="abs credito" style="left:140px;top:1360px" data-b="02" data-o="0.3" data-e="aparece">FOTO: FRENTE A LA BOLSA DE NUEVA YORK, 1929 · DOMINIO PÚBLICO</div>
+  </div>
+
+  <!-- 03 · FASE 1 -->
+  <div class="blq" data-b="03">
+    <div class="abs tag oro" style="left:140px;top:250px" data-b="03" data-o="0" data-e="izq">Fase 1</div>
+    <div class="abs titulo" style="top:330px;font-size:100px" data-b="03" data-o="0" data-e="golpe" data-s="impacto"><span class="oro">Euforia</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="03" data-w="5" data-e="cuenta" data-v="236" data-desde="180" data-pre="US$ " data-d="0.8" data-s="tics">US$ 236</div>
+  </div>
+
+  <!-- 04 · FASE 2 -->
+  <div class="blq" data-b="04">
+    <div class="abs tag" style="left:140px;top:250px;color:#ff5a55" data-b="04" data-o="0" data-e="izq">Fase 2</div>
+    <div class="abs titulo" style="top:330px;font-size:100px" data-b="04" data-o="0" data-e="golpe" data-s="impacto">Primera <span class="rojo">caída</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="04" data-w="6" data-e="cuenta" data-v="190" data-desde="236" data-pre="US$ " data-d="0.8" data-s="tics">US$ 190</div>
+  </div>
+
+  <!-- 05 · FASE 3 -->
+  <div class="blq" data-b="05">
+    <div class="abs tag oro" style="left:140px;top:250px" data-b="05" data-o="0" data-e="izq">Fase 3</div>
+    <div class="abs titulo" style="top:330px;font-size:100px" data-b="05" data-o="0" data-e="golpe" data-s="impacto">La <span class="oro">trampa</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="05" data-w="5" data-e="cuenta" data-v="243" data-desde="190" data-pre="US$ " data-d="0.8" data-s="tics" data-hb="05" data-hw="8">US$ 243</div>
+    <div class="abs titulo" style="top:1190px;font-size:84px" data-b="05" data-w="8" data-e="sube">Volumen <span class="rojo">bajo</span></div>
+    <div class="abs sello" style="left:150px;top:960px;font-size:44px" data-b="05" data-w="1" data-o="0.2" data-e="sello" data-r="-8" data-s="sello">Trampa<small>récord sin fuerza</small></div>
+  </div>
+
+  <!-- 06 · FASE 4 -->
+  <div class="blq" data-b="06">
+    <div class="abs tag rojo" style="left:140px;top:250px" data-b="06" data-o="0" data-e="izq">Fase 4</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="06" data-o="0" data-e="golpe" data-s="impacto">Se rompe <span class="rojo">el piso</span></div>
+    <div class="abs cifra" style="top:1180px;color:#ff6b6b;text-shadow:0 0 40px rgba(255,80,80,.5),0 8px 24px rgba(0,0,0,.8)" data-b="06" data-w="9" data-e="golpe" data-s="impacto" data-hb="06" data-hw="12">−9 %</div>
+    <div class="abs titulo" style="top:1190px;font-size:90px" data-b="06" data-w="12" data-e="sube"><span class="rojo">2,6×</span> el volumen</div>
+    <div class="abs credito" style="left:140px;top:1360px" data-b="06" data-w="5" data-e="aparece">5 DE NOVIEMBRE · VOLUMEN 2,6 VECES SU PROMEDIO DE 50 DÍAS</div>
+  </div>
+
+  <!-- 07 · HOY -->
+  <div class="blq" data-b="07">
+    <div class="abs tag rojo" style="left:140px;top:250px" data-b="07" data-o="0" data-e="izq">● 12/11 · Antes de abrir</div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="07" data-w="7" data-e="sube">Debajo del<br><span class="rojo">mínimo del año</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="07" data-w="9" data-e="cuenta" data-v="154.74" data-desde="181.6" data-dec="2" data-pre="US$ " data-d="1.0" data-s="tics">US$ 154,74</div>
+    <div class="abs credito" style="left:140px;top:1360px" data-b="07" data-w="9" data-e="aparece">PRE-MERCADO 9:10 DE NUEVA YORK · MÍNIMO DEL AÑO: 163,90 (30/03)</div>
+  </div>
+
+  <!-- 08 · FASE E -->
+  <div class="blq" data-b="08">
+    <div class="abs tag" style="left:140px;top:250px;color:#9fd0ff" data-b="08" data-o="0" data-e="izq">Para Wyckoff</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="08" data-o="0" data-e="sube">La <span class="oro">última fase</span></div>
+    <div class="abs sello" style="left:240px;top:1180px;font-size:54px" data-b="08" data-w="7" data-e="sello" data-r="-5" data-s="sello">Fase E · la caída<small>estás acá</small></div>
+  </div>
+
+  <!-- 09 · ESCENARIO -->
+  <div class="blq" data-b="09">
+    <div class="abs tag oro" style="left:140px;top:250px" data-b="09" data-o="0" data-e="izq">Escenario · no es predicción</div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="09" data-w="3" data-e="sube" data-hb="09" data-hw="17">Rebote <span class="oro">flojo</span><br>hacia 190</div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="09" data-w="17" data-e="golpe" data-s="impacto">Arriba de 190:<br>el patrón <span class="rojo">falló</span></div>
+    <div class="abs sello" style="left:250px;top:1190px;font-size:46px" data-b="09" data-w="12" data-e="sello" data-r="-6" data-s="sello" data-hb="09" data-hw="17">No lo supera<small>sigue la fase E</small></div>
+    <div class="abs sello" style="left:250px;top:1190px;font-size:46px;color:#3dd68c;border-color:#3dd68c;background:rgba(4,40,20,.45)" data-b="09" data-w="21" data-e="sello" data-r="5" data-s="sello">Lo supera<small>el esquema no va más</small></div>
+  </div>
+
+  <!-- 10 · LA LECCIÓN -->
+  <div class="blq" data-b="10">
+    <div class="abs titulo" style="top:330px;font-size:100px" data-b="10" data-o="0" data-e="glitch" data-s="impacto" data-hb="10" data-hw="5"><span class="oro">Ojo</span></div>
+    <div class="abs titulo" style="top:470px;font-size:64px" data-b="10" data-w="1" data-e="sube" data-hb="10" data-hw="5">No siempre sale así</div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="10" data-w="5" data-e="sube">Ante un récord,<br>mirá el <span class="oro">volumen</span></div>
+    <div class="abs credito" style="left:240px;top:1260px;font:700 26px 'JetBrains Mono';color:#cfd3da" data-b="10" data-w="7" data-e="aparece">RÉCORD 06/10<br><span class="rojo">0,84× VOLUMEN</span></div>
+    <div class="abs credito" style="left:570px;top:1260px;font:700 26px 'JetBrains Mono';color:#cfd3da" data-b="10" data-w="9" data-e="aparece">CAÍDA 05/11<br><span class="rojo">2,6× VOLUMEN</span></div>
+    <div class="abs credito" style="left:140px;top:1360px" data-b="10" data-o="0.3" data-e="aparece">FOTO ILUSTRATIVA · CIPHR CONNECT · CC BY 2.0</div>
+  </div>
+
+  <!-- 11 · CIERRE -->
+  <div class="blq" data-b="11">
+    <div class="abs titulo" style="top:260px;font-size:84px" data-b="11" data-o="0" data-e="golpe" data-s="impacto" id="cierre-tit"></div>
+    <div class="abs tarjeta" style="top:520px" data-b="11" data-o="0.15" data-e="sube" id="tarjeta"></div>
+    <div class="abs sello" style="left:300px;top:1180px;font-size:44px" data-b="11" data-w="2" data-e="sello" data-r="-6" data-s="sello">Expediente cerrado</div>
+  </div>
+</div>
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="hud">
+  <div id="barra"><div id="progreso"></div></div>
+  <div id="marca">REAL INVESTORS CLUB</div>
+  <div id="etiqueta"></div>
+  <div id="rec"><i></i>EXP. N.º 0047 · NVDA</div>
+  <div id="sub"></div>
+  <div id="pie">Datos: Yahoo Finance (NVDA, diario, al 12/11/2026) · Fotos: Wikimedia Commons · Las fases son una lectura del método Wyckoff y el escenario no es una predicción · No es recomendación de inversión</div>
+</div>
+<script>
+  const IG = V === 'ig';
+  document.getElementById('cierre-tit').innerHTML = IG ? 'Guardalo y <span class="oro">seguime</span>' : 'Suscribite <span class="oro">al canal</span>';
+  document.getElementById('tarjeta').innerHTML = IG ? `
+    <div class="fila"><img class="av" src="../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
+      <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
+    <div class="nums"><div><b>33</b>publicaciones</div><div><b data-b="11" data-w="6" data-e="cuenta" data-v="3727" data-desde="3726" data-fijo="1" data-o="0.3" data-d="0.4">3.726</b>seguidores</div><div><b>18</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="11" data-w="6" data-o="0.2" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
+  : `
+    <div class="fila"><img class="av" src="../../marca/logo-navy.png" style="object-fit:contain;padding:14px"><div><div class="nom">Real Investors Club</div>
+      <div class="sub2">@REALinvestorsc</div></div></div>
+    <div style="height:34px"></div>
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="11" data-w="10" data-o="0.2" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
+  const P = (b, w, extra) => Object.assign({ b, w }, extra);
+  window.ESC = {
+    clave: /(récords?|nvidia|tercio|wyckoff|poco|euforia|236|caída|190|trampa|volumen|piso|9|doble|164|mínimo|fase|rebote|flojo|falló|ojo|guardalo|seguime|suscribite|club)/i,
+    grano: .05,
+    fotos: { ws: 'fotos/wallstreet.jpg', crash: 'fotos/crash-1929.jpg', sala: 'fotos/sala.jpg', ny: 'fotos/ny.jpg', lest: 'fotos/lucas-estresado.jpg' },
+    planos: [
+      { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'ws', kb: [.5, .55, 1.12, .5, .5, 1.25], look: 'rojo', oscuro: [.1, .2] },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'crash', caja: [250, 560, 580, 520], marco: 1, kb: [.5, .45, 1.0, .5, .55, 1.12], look: 'doc' },
+      { b: '03', o: 0, hasta: { b: '07', o: 0 }, foto: 'sala', kb: [.45, .5, 1.05, .55, .5, 1.2], look: 'frio', oscuro: [.5, .55] },
+      { b: '07', o: 0, hasta: { b: '10', o: 0 }, foto: 'ny', kb: [.5, .5, 1.05, .6, .5, 1.18], look: 'noche', oscuro: [.5, .55] },
+      { b: '10', o: 0, hasta: { b: '11', o: 0 }, foto: 'lest', kb: [.5, .45, 1.0, .5, .45, 1.1], look: 'frio', oscuro: [.35, .45] },
+      { b: '11', o: 0, dur: 7, foto: 'ws', kb: [.5, .5, 1.1, .5, .5, 1.18], look: 'noche', oscuro: [.45, .5], alfa: .8 },
+    ],
+    particulas: [
+      { b: '01', o: -5, forma: 'texto', txt: '−35 %', tam: 230, y: 800, color: 'rojo' },
+      P('01', 12, { forma: 'texto', txt: '−35 %', tam: 250, y: 800, color: 'oro2', son: 'sube' }),
+      { b: '02', o: 0, forma: 'nube', y: 950, r: 520, e: 1.6, alfa: .35 },
+      { b: '03', o: 0, forma: 'disperso', y: 950, alfa: .22 },
+      P('10', 7, { forma: 'barras', v: [0.84, 2.6], max: 2.6, x: 540, y: 1230, color: 'oro2' }),
+      { b: '11', o: 0, forma: 'disperso', y: 900, alfa: .55 },
+    ],
+  };
+</script>
+<script src="../../herramientas/cine/motor.js"></script>
+<script src="grafico-cine.js"></script>
+</body></html>
