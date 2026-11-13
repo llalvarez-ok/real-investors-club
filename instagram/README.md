@@ -32,6 +32,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | Resultado 2/7 · Inflación (CPI) del 10/11: +0,4 % mensual contra 0,3 % esperado, el oro bajó 0,6 % en la primera hora (portada nueva con Lean) | Entregado el 10/11/2026 a las 12:00; para publicar de 19 a 21 h | `produccion/oro-resultados/cpi-2026-11.md` |
 | Reel «¿Fue culpa del CEO? Wyckoff y la caída de Nvidia» (rehecho en estilo expediente cine a pedido de Lean: la versión en canvas y su portada no le gustaron; voz grabada por Lean + apertura con el clon de su voz; gráfico real con la vela del 12/11; 64,9 s; Short de 68 s; contenido sintético marcado) | Publicado a mano por Lean el 12/11/2026; Short de YouTube `FHCvdktPjAE` publicado por la API el mismo día | `produccion/reel-wyckoff-nvidia/subir.md` |
 | Historias «Resultado PPI 13/11» (2 láminas 1080x1920 con encuesta, `produccion/oro-resultados/historia.py`; primer resultado en formato historia) | Entregadas el 13/11/2026; falta que Lean las publique | `produccion/oro-resultados/ppi-2026-11.md` |
+| Reel «Bitcoin cayó donde se juntan dos zonas» (expediente cine, clon de voz, opinión personal de Lean; 49,7 s; Short de 50,9 s) | Entregado el 13/11/2026; falta que Lean lo publique | `produccion/reel-bitcoin-zonas/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
