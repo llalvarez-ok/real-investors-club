@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Bitcoin en dos zonas · expediente cine</title>
+<!-- Estilo «expediente cine» (herramientas/cine/LEEME.md), voz grabada por Lean. ?v=ig (Instagram) o ?v=yt (YouTube). -->
+<script>
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig';
+  document.write(`<script src="tiempos-${V}.js"><\/script>`);
+</script>
+<script src="btc.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #05070c; }
+  body { font-family: Inter, sans-serif; color: #f5f5f2; }
+  canvas { position: absolute; left: 0; top: 0; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 48%; }
+  .blq { position: absolute; inset: 0; display: none; }
+  .abs { position: absolute; }
+  [data-e] { opacity: 0; will-change: transform, opacity; }
+  .titulo { font-family: "Inter Display", Inter; font-weight: 900; font-size: 92px; line-height: .98; text-transform: uppercase; letter-spacing: -1px;
+    text-align: center; left: 40px; right: 40px; text-shadow: 0 6px 30px rgba(0,0,0,.85); }
+  .oro { color: #e2b74a; } .oro2 { color: #ffde8c; } .rojo { color: #ff5a55; } .gris { color: #9aa0aa; }
+  .tag { font: 700 26px "JetBrains Mono", monospace; letter-spacing: 3px; padding: 10px 18px; border: 3px solid currentColor; text-transform: uppercase;
+    background: rgba(5,7,12,.7); }
+  .cifra { font-family: "Inter Display", Inter; font-weight: 900; font-size: 150px; letter-spacing: -3px; text-align: center; left: 0; right: 0;
+    color: #ffde8c; text-shadow: 0 0 40px rgba(226,183,74,.55), 0 0 90px rgba(226,183,74,.3), 0 8px 24px rgba(0,0,0,.8); }
+  .sello { font: 900 58px "Inter Display", Inter; color: #ff4d4a; border: 7px double #ff4d4a; padding: 10px 28px 6px; letter-spacing: 2px;
+    text-transform: uppercase; background: rgba(40,4,6,.35); box-shadow: 0 0 40px rgba(255,60,60,.25); }
+  .sello small { display: block; font: 700 22px "JetBrains Mono"; letter-spacing: 4px; text-align: center; }
+  .polaroid { background: #efe9dc; padding: 18px 18px 64px; box-shadow: 0 30px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.2); }
+  .polaroid img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.7) contrast(1.1) sepia(.12); }
+  .polaroid .pie { position: absolute; left: 22px; right: 22px; bottom: 16px; font: 700 21px "JetBrains Mono"; color: #2a2a2a; letter-spacing: 1px; }
+  .cinta { position: absolute; width: 150px; height: 46px; background: rgba(236,220,170,.72); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .recorte { background: #ece5d6; color: #1b1b1b; padding: 26px 34px 30px; font-family: "Liberation Serif", serif; box-shadow: 0 24px 50px rgba(0,0,0,.6);
+    clip-path: polygon(0 3%, 6% 0, 14% 2%, 25% 0, 40% 2%, 52% 0, 66% 2%, 80% 0, 92% 3%, 100% 1%, 99% 96%, 90% 100%, 75% 97%, 60% 100%, 45% 97%, 30% 100%, 15% 97%, 3% 100%, 1% 60%); }
+  .recorte .sec { font: 700 18px "JetBrains Mono"; color: #b3261e; letter-spacing: 2px; border-bottom: 2px solid #1b1b1b; padding-bottom: 8px; margin-bottom: 12px; }
+  .recorte h3 { font-size: 44px; line-height: 1.08; font-weight: 700; }
+  .recorte .fte { font: 16px "JetBrains Mono"; color: #555; margin-top: 12px; }
+  .tachado { position: relative; display: inline-block; }
+  .tachado::after { content: ''; position: absolute; left: -8px; top: 12%; height: 80%; width: calc(var(--tacha, 0%) + 16px); background: #c62828; z-index: -1; transform: skewX(-8deg); }
+  .tachado { z-index: 0; isolation: isolate; }
+  .credito { font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.55); letter-spacing: .5px; }
+  .bandera { width: 230px; height: 128px; background: linear-gradient(#024fa2 0 15%, #fff 15% 19%, #ed1c27 19% 81%, #fff 81% 85%, #024fa2 85%); position: relative;
+    box-shadow: 0 16px 34px rgba(0,0,0,.6); }
+  .bandera::before { content: ''; position: absolute; left: 30px; top: 30px; width: 68px; height: 68px; border-radius: 50%; background: #fff; }
+  .bandera::after { content: '★'; position: absolute; left: 36px; top: 21px; font-size: 62px; color: #ed1c27; }
+  .url { left: 80px; right: 80px; height: 104px; background: #f3f4f6; border-radius: 52px; box-shadow: 0 20px 60px rgba(0,0,0,.6); display: flex; align-items: center;
+    padding: 0 36px; gap: 18px; font: 600 33px Inter; color: #222; }
+  .url .cand { width: 30px; height: 30px; border-radius: 6px; background: #c9302c; }
+  .cursor { width: 70px; height: 92px; background: #fff; clip-path: polygon(0 0, 0 82%, 22% 64%, 38% 100%, 52% 94%, 36% 60%, 66% 60%); filter: drop-shadow(0 4px 8px rgba(0,0,0,.7)); }
+  .anillo-pista { left: 290px; top: 710px; width: 500px; height: 500px; border-radius: 50%; border: 46px solid rgba(140,144,152,.18); }
+  .dias { display: flex; gap: 14px; justify-content: center; left: 0; right: 0; }
+  .dias div { width: 112px; height: 112px; border: 3px solid #e2b74a; color: #e2b74a; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center;
+    background: rgba(226,183,74,.08); }
+  .tarjeta { left: 70px; right: 70px; background: rgba(14,16,22,.92); border: 2px solid rgba(226,183,74,.45); border-radius: 34px; padding: 40px; box-shadow: 0 30px 80px rgba(0,0,0,.7); }
+  .tarjeta .fila { display: flex; align-items: center; gap: 30px; }
+  .tarjeta img.av { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 4px solid #e2b74a; background: #fff; }
+  .tarjeta .nom { font: 800 44px Inter; } .tarjeta .sub2 { font: 500 28px Inter; color: #9aa0aa; margin-top: 6px; }
+  .tarjeta .nums { display: flex; justify-content: space-around; margin: 34px 0 30px; text-align: center; font: 500 26px Inter; color: #9aa0aa; }
+  .tarjeta .nums b { display: block; font: 800 46px Inter; color: #f5f5f2; }
+  .boton { height: 96px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font: 800 40px Inter; position: relative; overflow: hidden; }
+  .boton .b2 { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  /* HUD fijo */
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  #barra { position: absolute; left: 50px; right: 50px; top: 54px; height: 4px; background: rgba(255,255,255,.12); }
+  #progreso { height: 100%; width: 0; background: #e2b74a; box-shadow: 0 0 12px #e2b74a; }
+  #marca { position: absolute; left: 50px; top: 82px; font: 800 26px Inter; letter-spacing: 6px; color: #e2b74a; }
+  #etiqueta { position: absolute; right: 50px; top: 76px; font: 700 22px "JetBrains Mono"; letter-spacing: 2px; color: #f5f5f2; border: 2px solid rgba(245,245,242,.4);
+    padding: 6px 12px; background: rgba(5,7,12,.5); }
+  #rec { position: absolute; left: 50px; top: 128px; font: 600 20px "JetBrains Mono"; letter-spacing: 3px; color: rgba(245,245,242,.6); }
+  #rec i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #ff3b3b; margin-right: 10px; box-shadow: 0 0 10px #ff3b3b; }
+  #sub { position: absolute; left: 50px; right: 50px; top: 1430px; text-align: center; font: 900 68px "Inter Display", Inter; line-height: 1.12; text-transform: uppercase;
+    letter-spacing: -.5px; }
+  #sub span { display: inline-block; margin: 0 .13em; color: rgba(245,245,242,.28); text-shadow: 0 4px 18px rgba(0,0,0,.9); transition: none; }
+  #sub span.on { color: #f5f5f2; } #sub span.k { color: #ffcf5a; text-shadow: 0 0 26px rgba(226,183,74,.6), 0 4px 18px rgba(0,0,0,.9); }
+  #pie { position: absolute; left: 50px; right: 50px; top: 1672px; text-align: center; font: 500 17px "JetBrains Mono"; color: rgba(245,245,242,.4); letter-spacing: .5px; }
+  #graf { position: absolute; left: 60px; top: 540px; width: 960px; height: 620px; }
+  .verde { color: #3dd68c; }
+  .fechas { left: 140px; right: 140px; display: flex; flex-direction: column; gap: 22px; }
+  .fechas div { background: rgba(10,13,20,.88); border-left: 8px solid #e2b74a; padding: 18px 26px; font: 600 34px Inter; color: #f5f5f2; }
+  .fechas div.r { border-left-color: #ff5a55; }
+  .fechas b { display: block; font: 800 26px "JetBrains Mono"; color: #ffde8c; letter-spacing: 2px; margin-bottom: 4px; }
+  .fechas div.r b { color: #ff8a85; }
+  .sem { display: flex; gap: 16px; justify-content: center; left: 0; right: 0; }
+  .sem div { width: 118px; height: 96px; border: 3px solid #ff5a55; color: #ff5a55; font: 700 22px "JetBrains Mono"; display: flex; align-items: center; justify-content: center; background: rgba(255,90,85,.08); }
+</style></head>
+</head>
+<body>
+<div id="cam">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <canvas id="pt" width="1080" height="1920"></canvas>
+  <canvas id="graf" width="960" height="620"></canvas>
+
+  <!-- 01 · GANCHO (portada desde el cuadro 0) -->
+  <div class="blq" data-b="01">
+    <div class="abs tag rojo" style="left:140px;top:250px" data-b="01" data-o="ya" data-e="aparece">● Expediente · Viernes 13.11.26</div>
+    <div class="abs titulo" style="top:330px;font-size:96px" data-b="01" data-o="ya" data-e="aparece">Bitcoin cayó donde se juntan <span class="oro">dos zonas</span></div>
+    <div class="abs cifra" style="top:1150px;color:#ff6b6b;text-shadow:0 0 40px rgba(255,80,80,.5),0 8px 24px rgba(0,0,0,.8)" data-b="01" data-o="ya" data-e="aparece">67.627</div>
+    <div class="abs credito" style="left:140px;top:1320px" data-b="01" data-o="ya" data-e="aparece">MÍNIMO DEL 13/11 · BTC-USD · YAHOO FINANCE</div>
+  </div>
+
+  <!-- 02 · LA CAÍDA -->
+  <div class="blq" data-b="02">
+    <div class="abs tag rojo" style="left:140px;top:250px" data-b="02" data-o="0" data-e="izq">En dos días</div>
+    <div class="abs cifra" style="top:330px;font-size:190px;color:#ff6b6b;text-shadow:0 0 40px rgba(255,80,80,.5),0 8px 24px rgba(0,0,0,.8)" data-b="02" data-w="6" data-e="golpe" data-s="impacto">−8,6 %</div>
+    <div class="abs titulo" style="top:600px;font-size:72px" data-b="02" data-w="11" data-e="sube">+ US$ <span class="oro">1.000 M</span><br>liquidados</div>
+    <div class="abs sello" style="left:230px;top:960px;font-size:52px" data-b="02" data-w="14" data-e="sello" data-r="-6" data-s="sello">Miedo extremo<small>índice de miedo y codicia: 20</small></div>
+    <div class="abs credito" style="left:140px;top:1320px" data-b="02" data-w="11" data-e="aparece">VOLUMEN DEL 13/11: 1,64 VECES EL PROMEDIO · CONTRATOS LIQUIDADOS EN 24 H (COINGLASS)</div>
+  </div>
+
+  <!-- 03 · ZONA 1 -->
+  <div class="blq" data-b="03">
+    <div class="abs tag oro" style="left:140px;top:250px" data-b="03" data-o="0" data-e="izq">Zona 1</div>
+    <div class="abs titulo" style="top:330px;font-size:100px" data-b="03" data-o="0" data-e="golpe" data-s="impacto"><span class="oro">Fibonacci</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="03" data-w="21" data-e="cuenta" data-v="61.8" data-dec="1" data-suf=" %" data-d="0.8" data-s="tics" data-hb="03" data-hw="33">61,8 %</div>
+    <div class="abs cifra" style="top:1180px" data-b="03" data-w="33" data-e="cuenta" data-v="69061" data-desde="87364" data-d="0.8" data-s="tics">69.061</div>
+  </div>
+
+  <!-- 04 · ZONA 2 -->
+  <div class="blq" data-b="04">
+    <div class="abs tag oro" style="left:140px;top:250px" data-b="04" data-o="0" data-e="izq">Zona 2</div>
+    <div class="abs titulo" style="top:330px;font-size:80px" data-b="04" data-o="0" data-e="sube">Promedio de<br><span class="oro">200 semanas</span></div>
+    <div class="abs cifra" style="top:1180px" data-b="04" data-w="10" data-e="cuenta" data-v="67990" data-desde="69061" data-d="0.8" data-s="tics" data-hb="04" data-hw="14">67.990</div>
+    <div class="abs sello" style="left:250px;top:1190px;font-size:48px" data-b="04" data-w="18" data-e="sello" data-r="-6" data-s="sello">Lo pasó por poco<small>mínimo 67.627 · −0,5 %</small></div>
+  </div>
+
+  <!-- 05 · QUÉ MIRAR -->
+  <div class="blq" data-b="05">
+    <div class="abs titulo" style="top:330px;font-size:80px" data-b="05" data-o="0" data-e="sube" data-hb="05" data-hw="18">Marcá las <span class="oro">dos zonas</span></div>
+    <div class="abs sello" style="left:200px;top:1180px;font-size:44px;color:#ffde8c;border-color:#e2b74a;background:rgba(40,30,4,.55)" data-b="05" data-w="7" data-e="sello" data-r="-5" data-s="sello" data-hb="05" data-hw="18">No es una promesa<small>es un lugar para mirar</small></div>
+    <div class="abs titulo" style="top:330px;font-size:76px" data-b="05" data-w="18" data-e="sube">Cierre semanal<br>bajo <span class="rojo">68.000</span></div>
+    <div class="abs sello" style="left:280px;top:1190px;font-size:54px" data-b="05" data-w="28" data-e="sello" data-r="5" data-s="sello">Se rompieron</div>
+  </div>
+
+  <!-- 06 · OPINIÓN DE LEAN -->
+  <div class="blq" data-b="06">
+    <div class="abs tag" style="left:140px;top:250px;color:#9fd0ff" data-b="06" data-o="0" data-e="izq">Opinión personal · no es recomendación</div>
+    <div class="abs titulo" style="top:330px;font-size:84px" data-b="06" data-o="0" data-e="sube"><span class="oro">62.000</span> antes<br>que 75.000</div>
+    <div class="abs sello" style="left:200px;top:1190px;font-size:44px;color:#9fd0ff;border-color:#9fd0ff;background:rgba(4,20,40,.55)" data-b="06" data-w="25" data-e="sello" data-r="-4" data-s="sello">Es mi opinión<small>no una recomendación</small></div>
+  </div>
+
+  <!-- 07 · CIERRE -->
+  <div class="blq" data-b="07">
+    <div class="abs titulo" style="top:260px;font-size:80px" data-b="07" data-o="0" data-e="golpe" data-s="impacto">Escribí <span class="verde">AGUANTA</span><br>o <span class="rojo">SE ROMPE</span></div>
+    <div class="abs tarjeta" style="top:560px" data-b="07" data-o="0.15" data-e="sube" id="tarjeta"></div>
+    <div class="abs sello" style="left:300px;top:1200px;font-size:44px" data-b="07" data-w="5" data-e="sello" data-r="-6" data-s="sello">Expediente abierto</div>
+  </div>
+</div>
+<canvas id="fx" width="1080" height="1920"></canvas>
+<div id="hud">
+  <div id="barra"><div id="progreso"></div></div>
+  <div id="marca">REAL INVESTORS CLUB</div>
+  <div id="etiqueta"></div>
+  <div id="rec"><i></i>EXP. N.º 0048 · BTC</div>
+  <div id="sub"></div>
+  <div id="pie">Datos: Yahoo Finance (BTC-USD, al 13/11/2026), CoinGlass, alternative.me · Fibonacci: suba del 01/07 al 21/09/2026 · La opinión es personal y no es recomendación de inversión · Voz generada con IA (clon de la voz de Lean)</div>
+</div>
+<script>
+  const IG = V === 'ig';
+  document.getElementById('tarjeta').innerHTML = IG ? `
+    <div class="fila"><img class="av" src="../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
+      <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
+    <div class="nums"><div><b>34</b>publicaciones</div><div><b data-b="07" data-w="6" data-e="cuenta" data-v="3727" data-desde="3726" data-fijo="1" data-o="0.3" data-d="0.4">3.726</b>seguidores</div><div><b>18</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="6" data-o="0.2" data-e="aparece" data-s="clic">Siguiendo ✓</div></div>`
+  : `
+    <div class="fila"><img class="av" src="../../marca/logo-navy.png" style="object-fit:contain;padding:14px"><div><div class="nom">Real Investors Club</div>
+      <div class="sub2">@REALinvestorsc</div></div></div>
+    <div style="height:34px"></div>
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" style="background:#262a33;color:#f5f5f2" data-b="07" data-w="6" data-o="0.2" data-e="aparece" data-s="clic">Suscripto ✓ 🔔</div></div>`;
+  const P = (b, w, extra) => Object.assign({ b, w }, extra);
+  window.ESC = {
+    clave: /(bitcoin|importa|zonas?|clave|ocho|liquidaron|fibonacci|fibonachi|julio|septiembre|61,8|69\.000|200|doscientas|semanas|poco|promesa|mirar|68\.000|rompieron|opinión|62\.000|75\.000|recomendación|aguanta|rompe|seguime|suscribite|club)/i,
+    grano: .05,
+    fotos: { ny: 'fotos/ny.jpg', lest: 'fotos/lucas-estresado.jpg', sala: 'fotos/sala.jpg' },
+    planos: [
+      { b: '01', o: -0.4, hasta: { b: '02', o: 0 }, foto: 'ny', kb: [.5, .5, 1.1, .55, .5, 1.22], look: 'noche', oscuro: [.25, .3] },
+      { b: '02', o: 0, hasta: { b: '03', o: 0 }, foto: 'lest', kb: [.5, .45, 1.0, .5, .45, 1.1], look: 'rojo', oscuro: [.35, .45] },
+      { b: '03', o: 0, hasta: { b: '07', o: 0 }, foto: 'sala', kb: [.45, .5, 1.05, .55, .5, 1.2], look: 'frio', oscuro: [.5, .55] },
+      { b: '07', o: 0, dur: 8, foto: 'ny', kb: [.5, .5, 1.1, .5, .5, 1.18], look: 'noche', oscuro: [.45, .5], alfa: .8 },
+    ],
+    particulas: [
+      { b: '01', o: -5, forma: 'btc', y: 830, s: 1.2, color: 'oro2' },
+      P('01', 9, { forma: 'btc', y: 830, s: 1.2, color: 'rojo', son: 'sube' }),
+      { b: '02', o: 0, forma: 'disperso', y: 950, alfa: .3 },
+      { b: '07', o: 0, forma: 'disperso', y: 900, alfa: .55 },
+    ],
+  };
+</script>
+<script src="../../herramientas/cine/motor.js"></script>
+<script src="grafico-btc.js"></script>
+</body></html>
