@@ -30,3 +30,4 @@ Ver `analisis/2026-11-07-carruseles-sin-alcance.md`. En el JSON: `gancho` (frase
 ## Hechos
 - 06/11 · Empleo: 165 mil (esperado ~60 mil), desempleo 4,1 %. Oro −0,53 % en la primera hora (ya venía bajando). Hizo lo que «suele». `nfp-2026-11.json` / `.md`.
 - 10/11 · Inflación (CPI): +0,4 % mensual (esperado 0,3 %), subyacente 0,3 %; sin dato anual (falta octubre de 2025). Oro −0,62 % en la primera hora. Hizo lo que «suele». `cpi-2026-11.json` / `.md`. Para el PPI del 13/11 puede pasar lo mismo con el anual: comparar con lo esperado del mes.
+- 13/11 · Precios de las empresas (PPI): +0,3 % mensual (esperado 0,4 %), 6,5 % anual (esperado 6,6 %). Oro +0,6 % en 5 minutos y en 20 minutos volvió a donde estaba (+0,3 % a la hora). Hizo lo que «suele» por unos minutos. **Primer resultado en formato historia** (`historia.py`, 2 láminas de 1080x1920 con lugar para la encuesta): `ppi-2026-11.json` / `.md`.

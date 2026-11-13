@@ -1,0 +1,34 @@
+{
+  "id": "ppi-2026-11",
+  "fecha": "2026-11-13",
+  "hora_ny": "08:30",
+  "dia": "Vie 13/11",
+  "nombre": "precios de las empresas (PPI)",
+  "formato": "historia",
+  "gancho": "Salió el dato y el oro saltó… 20 minutos después estaba igual",
+  "esperado": "0,4 %",
+  "salio": "0,3 %",
+  "anual": "6,5 % (se esperaba 6,6 %; el mes anterior, 6,3 %)",
+  "comparacion": "menos",
+  "frase_dato": "Los precios que cobran las empresas subieron 0,3 % en octubre. Se esperaba 0,4 %.",
+  "esperado_oro": "sube",
+  "porque": [
+    "Salió <b>un poco menos</b> de lo esperado: primer reflejo, <b>el oro sube</b>.",
+    "Pero en el año los precios suben <b>6,5 %</b>, lo más alto desde 2022.",
+    "Con eso, el mercado sigue esperando que la Fed <b>suba la tasa</b> en diciembre."
+  ],
+  "aprendizaje": "Un dato que sale apenas distinto de lo esperado mueve el oro unos minutos. Para que dure, tiene que <b>cambiar lo que se espera de la Fed</b>.",
+  "encuesta": "¿Qué pesa más para el oro?",
+  "opciones": [
+    "El dato del mes",
+    "La tasa de la Fed"
+  ],
+  "proxima": {
+    "fecha": "Lun 16/11",
+    "nombre": "Habla Warsh",
+    "hora": "a confirmar",
+    "regla": "Si dice que hay que <b>subir la tasa</b>, el oro suele bajar. Si dice que <b>se puede esperar</b>, suele subir."
+  },
+  "fuentes": "BLS, Investing.com, FXStreet, Kitco",
+  "despues": "Salió <b>menos</b> de lo esperado y el oro saltó a <b>3.908</b> en 5 minutos. A los 20 minutos ya estaba en <b>3.886</b>, casi donde empezó."
+}
