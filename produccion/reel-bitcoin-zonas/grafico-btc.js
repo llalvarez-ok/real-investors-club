@@ -48,7 +48,7 @@
     // banda de Fibonacci (61,8 a 65 %)
     const tb = tw('03', 18, -.1);
     if (t >= tb) { const q = eo(pr(t, tb, tb + .6)); x.save(); x.globalAlpha = q * (.28 + .08 * Math.sin(t * 4)); x.fillStyle = C.oro; x.fillRect(X0, gy(F['618']), (X1 - X0) * q, gy(F['65']) - gy(F['618'])); x.restore();
-      if (t < B['06'].ini) etiqueta('FIBONACCI 61,8 % · ' + miles(F['618']), gx(40), gy(F['618']), C.oro2, q, false); }
+      if (t < tw('05', 18, -.1)) etiqueta('FIBONACCI 61,8 % · ' + miles(F['618']), gx(40), gy(F['618']), C.oro2, q, false); }
     // velas
     const nv = Math.floor(n);
     for (let i = 0; i < Math.min(N, nv + 1); i++) {
@@ -67,7 +67,7 @@
     const tm = tw('04', 2, -.1);
     if (t >= tm) { const q = eo(pr(t, tm, tm + 1)); x.save(); x.strokeStyle = C.az; x.lineWidth = 3.5; x.shadowColor = C.az; x.shadowBlur = 10; x.beginPath();
       let ok = false; for (let i = 0; i < N * q; i++) { if (!V[i].ma200s) continue; const yy = gy(V[i].ma200s); ok ? x.lineTo(gx(i), yy) : x.moveTo(gx(i), yy); ok = true; } x.stroke(); x.restore();
-      if (t < B['06'].ini) etiqueta('PROMEDIO 200 SEMANAS · ' + miles(V[N - 1].ma200s), gx(70), gy(V[N - 1].ma200s), C.az, q, true); }
+      if (t < tw('05', 18, -.1)) etiqueta('PROMEDIO 200 SEMANAS · ' + miles(V[N - 1].ma200s), gx(70), gy(V[N - 1].ma200s), C.az, q, true); }
     // el mínimo del viernes 13
     const tl = tw('03', 31, -.2);
     if (t >= tl && t < B['06'].ini) { const q = eo(pr(t, tl, tl + .4)); punto(gx(N - 1), gy(MIN), C.r, q, t); etiqueta('13/11 · ' + miles(MIN), gx(N - 1), gy(MIN), C.r, q, true); }
@@ -75,10 +75,10 @@
     const tr = tw('05', 18, -.1);
     if (t >= tr && t < B['06'].ini) linea(68000, C.r, 'CIERRE SEMANAL ABAJO DE 68.000 = SE ROMPIERON', eo(pr(t, tr, tr + .5)), eo(pr(t, tr, tr + .8)), [14, 10], true);
     // opinión de Lean (no es un dato: va punteada y rotulada)
-    const to = tw('06', 3, -.1);
+    const to = tw('06', 4, -.1);
     if (t >= to) { const q = eo(pr(t, to, to + 2.4)), c0 = V[N - 1].c;
       camino([[N - 1, c0], [N + 6, 64500], [N + 11, 62000], [N + 14, 60500], [N + 22, 68500], [N + 31, 75000]], q, C.az, 4.5, [12, 9]);
-      const t62 = tw('06', 7, -.1), t75 = tw('06', 20, -.1);
+      const t62 = tw('06', 8, -.1), t75 = tw('06', 21, -.1);
       if (t >= t62) { punto(gx(N + 11), gy(62000), C.az, eo(pr(t, t62, t62 + .3)), t); etiqueta('62.000', gx(N + 11), gy(62000), C.az, eo(pr(t, t62, t62 + .3)), true); }
       if (t >= t75) { punto(gx(N + 31), gy(75000), C.az, eo(pr(t, t75, t75 + .3)), t); etiqueta('75.000', gx(N + 26), gy(75000), C.az, eo(pr(t, t75, t75 + .3)), false); }
       etiqueta('OPINIÓN DE LEAN · NO ES UN DATO', gx(N - 50), gy(86000), C.az, q, false); }
