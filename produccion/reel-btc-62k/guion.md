@@ -37,7 +37,10 @@ momento (o datos verificados en medios). Sin eso no se dibujan zonas.
    Siempre con: «Es mi opinión, no una recomendación.»
 5. La herramienta (al final, una sola, la que elija Lean): «Lo podés ver gratis en [CoinGlass], en el mapa de calor de
    liquidaciones. Lo amarillo es donde se juntan. Ojo: son estimaciones, no una promesa.»
-6. Cierre IG: «Contame si ya lo usabas, y seguime.» · YT: «… y suscribite a Real Investors Club.»
+6. Cierre (pedido de Lean del 14/11): «¿Ya lo conocías? Si querés que haga un video de cómo leer bien el mapa de
+   liquidaciones, comentá MAPA.» (En pantalla, grande: «Comentá MAPA».) IG: «… y seguime.» · YT: «… y suscribite a Real
+   Investors Club.» La palabra sirve para medir si hay interés en ese video: no promete nada por mensaje, así que no hace
+   falta ManyChat. Si comentan MAPA, Lean responde a mano («¡Anotado! Sale pronto») y el video tutorial entra al plan.
 
-Variante preparada (se decide después): cierre con palabra clave en vez de decir la herramienta en el video,
-«Comentá MAPA y te paso dónde verlo gratis» (requiere ManyChat u otra automatización; Lean lo decide).
+Variante preparada (se decide después): si Lean decide usar ManyChat, a quien comente MAPA se le manda un mensaje
+automático cuando salga el tutorial.
