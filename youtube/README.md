@@ -52,6 +52,7 @@ Cambiar algo en el canal requiere el OK de Lean. Esta ficha se regenera con `pyt
 | 2026-11-09 | Short | «Últimos cupos»: el FOMO que te fabrican #Shorts | `3CucxdZ-ODw` | programado | 0 | — |
 | 2026-11-10 | Short | Por qué el FOMO siempre llega tarde #Shorts | `gFUF0uoI9fY` | programado | 2 | — |
 | 2026-11-12 | Short | ¿Fue culpa del CEO? Nvidia llegó a −39 % y el gráfico avisó antes #Shorts | `FHCvdktPjAE` | public | 0 | Shorts de Real Investors Club; Noticias y conceptos de trading en 1 minuto |
+| 2026-11-14 | Short | Bitcoin cayó justo donde se juntan dos zonas: Fibonacci y la media de 200 semanas #Shorts | `91mLDzDy_Tc` | public | 0 | Shorts de Real Investors Club; Noticias y conceptos de trading en 1 minuto |
 
 ## Programados (calendario reordenado el 04/11/2026, hora de Argentina; registro en `cambios-2026-11-04.json`)
 Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora que un video largo.
