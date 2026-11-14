@@ -21,7 +21,8 @@ HISPANOS = {"AR", "CO", "MX", "PE", "VE", "ES", "EC", "CL", "UY", "PY", "BO", "D
 
 
 def get(path, **p):
-    p["access_token"] = T
+    if T and T != "proxy-injected":  # con el token guardado como secreto de red (14/11/2026), lo agrega el proxy
+        p["access_token"] = T
     try:
         return json.load(urllib.request.urlopen(G + path + "?" + urllib.parse.urlencode(p)))
     except urllib.error.HTTPError as e:

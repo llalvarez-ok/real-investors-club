@@ -14,7 +14,8 @@ TOK = os.environ.get("RIC_IG_TOKEN_IG") or os.environ.get("RIC_IG_TOKEN")
 
 
 def get(base, ruta, **p):
-    p["access_token"] = TOK
+    if TOK and TOK != "proxy-injected":  # con el token guardado como secreto de red (14/11/2026), lo agrega el proxy
+        p["access_token"] = TOK
     try:
         return json.load(urllib.request.urlopen(base + ruta + "?" + urllib.parse.urlencode(p), timeout=30))
     except urllib.error.HTTPError as e:

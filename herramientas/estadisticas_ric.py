@@ -233,7 +233,8 @@ IGB = "https://graph.instagram.com/v21.0/" if (IGT or "").startswith("IGAA") els
 
 
 def iget(path, **p):
-    p["access_token"] = IGT
+    if IGT and IGT != "proxy-injected":  # con el token guardado como secreto de red (14/11/2026), lo agrega el proxy
+        p["access_token"] = IGT
     try:
         return json.load(urllib.request.urlopen(IGB + path + "?" + urllib.parse.urlencode(p), timeout=60))
     except urllib.error.HTTPError as e:
