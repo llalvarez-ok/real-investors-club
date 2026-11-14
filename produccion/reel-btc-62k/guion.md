@@ -14,12 +14,30 @@ Vigilancia: proceso en segundo plano cada 2 min + tarea programada cada hora (`t
 - **TapeSurf**: arma el mapa con Hyperliquid, donde las posiciones se ven completas en la cadena (no es un modelo).
 - Aviso que va en pantalla y en la voz: **son estimaciones**, ningún exchange publica dónde se liquida cada posición.
 
-## Borrador del guion (se completa con los datos del momento)
-1. Gancho (cuadro 0, en pantalla «62.000»): «Hace [N] días dije que Bitcoin iba a buscar los sesenta y dos mil. Hoy llegó.»
-2. Qué pasó: de [máximo] a [mínimo] en [tiempo], [liquidaciones del día si están verificadas].
-3. Pregunta: «¿Sabés dónde ver las zonas de liquidez de Bitcoin gratis?» (en pantalla desde el segundo ~8; para la voz,
-   como afirmación: «Te muestro dónde ver las zonas de liquidez gratis.»).
-4. Tres herramientas, una por plano, con qué muestra cada una.
-5. Aviso: son estimaciones, un lugar para mirar, no una promesa.
-6. Cierre IG: «Contame en los comentarios cuál usás.» · YT: «… y suscribite a Real Investors Club.»
-Las próximas zonas del análisis solo van en el Reel si Lean lo pide (el 14/11 dijo «no compartir zonas de momento»).
+## Guion v2 (cambios de Lean del 14/11/2026)
+Estructura: gancho → qué pasó → pregunta + bucle abierto («al final te digo dónde verlas gratis») → hacia dónde puede ir
+según las liquidaciones (abajo o arriba) → la herramienta (una sola, la elige Lean; él conoce CoinGlass) → cierre.
+Regla de coherencia: si abajo no hay zonas grandes de liquidación, el Reel va hacia los 75.000, como ya anticipó Lean
+el 13/11; nunca contradecir esa opinión. Las zonas se dicen como «donde hay liquidaciones acumuladas», no como predicción.
+**Datos de liquidez:** la nube no abre CoinGlass ni las otras; hace falta una captura del mapa de calor de Lean en el
+momento (o datos verificados en medios). Sin eso no se dibujan zonas.
+
+1. Gancho (cuadro 0: «62.000» en partículas y sello «Lo dije»):
+   «Hace [dos] días dije que Bitcoin iba a buscar los sesenta y dos mil. Hoy llegó.»
+2. Qué pasó (gráfico real): «Bajó de [setenta y un mil] a [sesenta y dos mil] en [tres] días.»
+3. Pregunta y bucle abierto (en pantalla la pregunta):
+   «¿Sabés dónde ver las zonas de liquidez de Bitcoin gratis? Al final del video te digo dónde.»
+4. Hacia dónde puede ir (mapa de liquidaciones dibujado sobre el gráfico real, con la fuente en pantalla):
+   - Si hay zonas grandes abajo: «Abajo todavía quedan liquidaciones acumuladas cerca de [X]. El precio suele ir a buscar
+     esas zonas.»
+   - Arriba: «Arriba, entre [setenta y cinco] y [Y] mil, hay [mucho más] acumulado. Por eso sigo pensando que antes o después
+     va a buscar los setenta y cinco mil.»
+   - Si abajo no queda casi nada: «Abajo ya casi no quedan liquidaciones. Lo acumulado está arriba, cerca de los setenta y
+     cinco mil, como te dije.»
+   Siempre con: «Es mi opinión, no una recomendación.»
+5. La herramienta (al final, una sola, la que elija Lean): «Lo podés ver gratis en [CoinGlass], en el mapa de calor de
+   liquidaciones. Lo amarillo es donde se juntan. Ojo: son estimaciones, no una promesa.»
+6. Cierre IG: «Contame si ya lo usabas, y seguime.» · YT: «… y suscribite a Real Investors Club.»
+
+Variante preparada (se decide después): cierre con palabra clave en vez de decir la herramienta en el video,
+«Comentá MAPA y te paso dónde verlo gratis» (requiere ManyChat u otra automatización; Lean lo decide).
