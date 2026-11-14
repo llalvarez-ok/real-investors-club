@@ -222,9 +222,9 @@ qué hacer. Lean publica a mano. Hora por defecto 20:30 (sábado 21:00).
 | Día | Hora | Formato | Pieza | Gancho (0–3 s) | Duración | CTA | Notas |
 |---|---|---|---|---|---|---|---|
 | **Dom 15/11** | 10 min, cuando pueda | Perfil | Nombre, bio con «Comentá…», 3 fijadas (Corea, Bitcoin y el primer Reel de Lean a cámara cuando salga), destacadas «Empezá acá» y «Oro» | — | — | — | `analisis/2026-11-07-perfil-instagram.md`. Sin la línea de CURSO en la bio mientras siga la decisión de no promocionar el curso. |
-| Dom 15/11 | 21:30 | Historia | Cierre semanal de Bitcoin contra las dos zonas (gráfico real) | «¿Aguantaron las dos zonas?» | 1–2 láminas | Encuesta «¿Las marcaste en tu gráfico? Sí / Todavía no» | Solo muestra el dato; sin opinión nueva. |
+| Dom 15/11 | 21:30 | Historia | Una pregunta sobre el que mira (sin zonas) | «¿Cuánto tiempo hace que operás?» | 1 lámina | Encuesta «Recién empiezo / Más de un año» | Cambio del 14/11: no compartir zonas por ahora. |
 | Lun 16/11 | — | — | Sin Reel: el curso es a las 21:00 en YouTube | — | — | — | Decisión del 07/11: no se promociona. Opcional (Lean decide en la Mesa): historia con sticker de enlace al vivo a las 20:30. |
-| **Mar 17/11** | 20:30 | Reel, expediente cine | **Seguimiento de Bitcoin**: qué pasó con las dos zonas (velas reales de BTC-USD) | «Hace cuatro días te marqué dos zonas en Bitcoin. Esto pasó.» | 35–45 s | «Comentá ZONAS y te mando cómo las marco en el gráfico» (ManyChat con una lámina educativa) | Voz de Lean con el iPhone o clon. Si las zonas se rompieron, se dice igual: es lo que hace creíble a la cuenta. |
+| **Mar 17/11** | 20:30 | Reel, expediente cine | Tema cripto o de la plata del que mira, con datos verificados (sin zonas ni niveles) | «Vos + algo en juego» o cifra enorme | 35–45 s | Pregunta fácil sobre el que mira, en la primera línea del texto y en pantalla | Cambio del 14/11: sin seguimiento de zonas. |
 | Mar 17/11 | 19:00 | Historia | Resultado de Warsh (16/11) con `historia.py` | Qué hizo el oro en una frase | 1–2 láminas | Encuesta | La tarea `trig_01DfnGDGwjpqnwMwBjMHmcRA` la arma; formato historia, no carrusel. |
 | **Mié 18/11** | 20:30 | Reel, **Lean a cámara** (iPhone) | Historia personal real de Lean (él elige: su peor racha, por qué opera oro, qué hace el día que pierde) | Una frase sobre lo que le pasa al que mira («Si perdiste tres operaciones seguidas esta semana, escuchá esto») | 30–40 s | Pregunta fácil sobre el que mira («Contame en una palabra qué te frena hoy») | Sin datos ni gráficos. Lean (o Lucía con borradores) contesta todo en la primera hora. |
 | Mié 18/11 | 20:00 | Historia | Resultado de las minutas de la Fed (`trig_01GvVjQHvqQiXFCBqNez5Zqs`) | — | 1–2 láminas | Encuesta | — |
@@ -232,7 +232,7 @@ qué hacer. Lean publica a mano. Hora por defecto 20:30 (sábado 21:00).
 | Vie 20/11 | 19:00 | Historia | Caja de preguntas | «¿Qué querés que te explique?» | — | — | Las respuestas alimentan el Reel del 25/11. |
 | **Sáb 21/11** | 21:00 | Reel, expediente cine | **El expediente de la semana #1** (serie con nombre y portada fijos): un tema de cripto o de la plata de un argentino, con «¿por qué?» | «Vos + algo en juego» o cifra enorme con villano; sin siglas ni preguntas | 40–50 s | Pedido en la primera línea; palabra con regalo si la hay | Tema elegido el jueves por Pablo con datos verificados; revisión de Rocío. **Prueba**: pedido de comentario solo en pantalla en el segundo ~20 (con el OK de Lean). |
 | Dom 22/11 | — | Medición | `python herramientas/revisar_instagram.py` + descarga de «Seguidores y seguidos» | — | — | — | Mirar si Bitcoin siguió creciendo sin compartidos y cómo rindieron el seguimiento y Lean a cámara. |
-| **Lun 23/11** | 20:30 | Reel de pizarra como **«Reel de prueba»** (solo no seguidores) | Reel de P26 «¿Sabés leer esta vela?» (ya hecho, clon en voseo) | «El oro cayó 350 dólares en un día y cerró casi donde empezó» | 52 s | «Comentá VELA y te paso el video completo» (ManyChat VELA → P26 en YouTube) | Mide si la pizarra sirve en Instagram sin gastar a los seguidores. |
+| **Lun 23/11** | 20:30 | Reel de pizarra como **«Reel de prueba»** (solo no seguidores) | Reel de P26 «¿Sabés leer esta vela?» (ya hecho, clon en voseo) | «El oro cayó 350 dólares en un día y cerró casi donde empezó» | 52 s | «El video completo está en YouTube» + sticker de enlace en la historia de ese día | Mide si la pizarra sirve en Instagram sin gastar a los seguidores. |
 | **Mié 25/11** | 20:30 | Reel, **Lean a cámara** | Respuesta a una pregunta de la caja del 20/11 («Me preguntaron…») | La pregunta, tal cual la escribió el seguidor | 30–40 s | «Mandame tu pregunta y la respondo en el próximo» | — |
 | Mié 25/11 | 20:00 | Historia | Resultado de la inflación PCE (`trig_0151CATeh8sZoKPfxJYopenC`) | — | 1–2 láminas | Encuesta | Historia, no carrusel. |
 | Jue 26/11 | 20:00 | **Carrusel de prueba** educativo | «Tres velas que todo principiante confunde» (de P26, velas reales del oro), Lean en la portada | Lo que le pasa al que mira | 6–7 láminas | «Guardalo y mandáselo a alguien que esté empezando» en la primera línea | Criterio: 300 cuentas o 5 compartidos; si no, no se hacen más carruseles. |
@@ -251,12 +251,12 @@ e historias diarias.
 | Compartidos (30 días) | 39 | 60 |
 | Saldo semanal de seguidores | +8 (última semana) | positivo las dos semanas |
 | Seguidores nuevos / no seguidores alcanzados | 0,15 % | 0,4 % |
-| Mensajes por palabra clave (ZONAS, VELA, CLASE) | — | 30 |
+| Comentarios con pregunta fácil (sin automatización) | 27 en 30 días | 50 |
 
 ## 6. Qué falta de Lean (pedidos para la Mesa)
 1. Aplicar la bio, el nombre y las fijadas (10 min). **Es la acción número uno.**
 2. Grabar dos Reels a cámara con el iPhone (18/11 y 25/11) con una historia suya real.
-3. Configurar en ManyChat las palabras ZONAS y VELA (y CLASE si aprueba el recorte del curso).
+3. ~~ManyChat~~ (descartado por Lean el 14/11: nunca le funcionó). Los comentarios se piden con una pregunta fácil sobre el que mira y los responde Lean (Lucía deja borradores).
 4. Decidir sobre el curso del 16/11 en Instagram: historia con el link el mismo día (sí/no) y el recorte posterior (sí/no).
 5. Aprobar la prueba del pedido de comentario solo en pantalla en el segundo ~20 en un Reel.
 6. Hacer la primera descarga de «Seguidores y seguidos» (para saber quién se va).
@@ -267,3 +267,9 @@ e historias diarias.
 - La curva de retención segundo a segundo (solo en la app).
 - Quién se fue (falta la descarga de «Seguidores y seguidos»).
 - El alcance final de Bitcoin y Nvidia: tienen uno y dos días.
+
+## Cambio del 14/11/2026 (Lean)
+- **No compartir zonas ni niveles de precio por ahora.** Fuera el seguimiento de Bitcoin y la historia de las dos zonas.
+- **Sin ManyChat:** a Lean nunca le funcionó. Nada de «Comentá X y te mando…». El pedido de comentario es una pregunta
+  fácil sobre el que mira (no una predicción), en la primera línea del texto y en pantalla; lo responde Lean a mano
+  (Lucía prepara borradores). Para mandar a YouTube: sticker de enlace en historias y el primer link de la bio.
