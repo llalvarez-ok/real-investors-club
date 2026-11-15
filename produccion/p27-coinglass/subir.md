@@ -1,6 +1,6 @@
 # P27 «Cómo leer el mapa de liquidaciones de CoinGlass» · textos para subir (15/11/2026)
 
-Video horizontal 1920x1080, 3:52, −15 LUFS. Capturas reales de coinglass.com (15/11/2026, banner de publicidad tapado),
+Video horizontal 1920x1080, 3:46, −15 LUFS. Capturas reales de coinglass.com (15/11/2026, banner de publicidad tapado),
 láminas RIC, velas reales de BTC-USD; voz: clon de Lean (verificado con whisper; escenas 06 y 08 regeneradas).
 Miniatura: `miniatura.html` → «¿Sabes leer este mapa?». Es el tutorial prometido con «comentá MAPA».
 **Contenido sintético: sí.**
@@ -13,19 +13,19 @@ Miniatura: `miniatura.html` → «¿Sabes leer este mapa?». Es el tutorial prom
 Si operas Bitcoin, hay un mapa gratis que muestra dónde se juntan las liquidaciones antes de que pasen. En este video te enseño a leer el mapa de calor de liquidaciones de CoinGlass, paso a paso, sin cuenta y sin pagar nada.
 
 0:00 Un mapa gratis de liquidaciones
-0:19 Qué es una liquidación
-0:32 Largos y cortos
-0:46 Paso 1: abrir el mapa
-1:00 Paso 2: Par o Símbolo
-1:16 Paso 3: la temporalidad
-1:30 Paso 4: leer los colores
-1:46 Paso 5: el umbral de liquidez
-1:58 Paso 6: los modelos
-2:10 Cómo se usa
-2:34 Un caso real
-2:55 El error más común
-3:10 Tu tarea de hoy
-3:26 Resumen
+0:18 Qué es una liquidación
+0:29 Largos y cortos
+0:42 Paso 1: abrir el mapa
+0:56 Paso 2: Par o Símbolo
+1:12 Paso 3: la temporalidad
+1:26 Paso 4: leer los colores
+1:41 Paso 5: el umbral de liquidez
+1:52 Paso 6: los modelos
+2:05 Cómo se usa
+2:30 Un caso real
+2:49 El error más común
+3:04 Tu tarea de hoy
+3:20 Resumen
 
 Ejemplo real: el 11/11/2026 Glassnode estimaba el mayor grupo de liquidaciones de largos entre 59.500 y 62.600; el 14/11 Bitcoin bajó a 62.101. Es un caso, no una regla: el mapa muestra estimaciones, no órdenes reales.
 
