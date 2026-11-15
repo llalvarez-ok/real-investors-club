@@ -41,6 +41,9 @@ def revisar_texto(voz):
     for frase, motivo in es.RIESGO_PRONUNCIACION.items():
         if re.search(r"(?<![\w&])" + re.escape(frase) + r"(?![\w&])", base):
             (errores if frase in ("resumiendo", "fear", "missing") else avisos).append(f"«{frase}»: {motivo}")
+    # Regla de Lean (15/11/2026): en la voz, «video» se escribe «vidéo», que es como se pronuncia en Argentina
+    for m in re.findall(r"\bvideos?\b", voz, flags=re.I):
+        errores.append(f"«{m}»: en la voz escribir «vidéo»/«vidéos» (pronunciación argentina, regla de Lean)")
     if re.search(r"\d", voz):
         avisos.append("cifras con dígitos en la voz: escribirlas en palabras, como se pronuncian")
     return errores, avisos
