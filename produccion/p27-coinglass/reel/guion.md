@@ -35,3 +35,6 @@ Pantalla: todo texto entre x 140–870 y y 250–1440 (zonas seguras); banner de
 | 08 | Ojo: es una estimación, no una promesa. No operes por eso: anotá la franja más cercana arriba y abajo, y mirá cuál toca primero. | Sello «NO ES UNA PROMESA»; dos franjas «ARRIBA» y «ABAJO» |
 | 09 IG | Comentá ARRIBA o ABAJO, según cuál toque primero. Y seguime. | Tarjeta de Instagram + «Comentá ARRIBA o ABAJO» + aviso legal |
 | 09 YT | El vidéo completo está en el canal. Suscribite a Real Investors Club. | Tarjeta del canal con el logo oficial + aviso legal |
+
+**Cambio en la producción (15/11/2026):** en la 08, «No operes por eso» salía «No perez» en todas las semillas del clon;
+quedó «Una franja sola no alcanza para operar. Anotá la más cercana arriba y abajo, y mirá cuál toca primero.»
