@@ -1,113 +1,210 @@
-{
- "fecha": "2026-11-14",
- "video": "91mLDzDy_Tc",
- "pedido": "Lean: cargar datos y publicar",
- "antes": {
-  "snippet": {
-   "publishedAt": "2026-11-14T14:00:36Z",
-   "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
-   "title": "RIC bitcoin zonas YT",
-   "description": "",
-   "thumbnails": {
-    "default": {
-     "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/default.jpg?sqp=CODS4dcG&rs=AOn4CLCN_UwobYyxRSFyXhW0RsYT8-AUWQ",
-     "width": 120,
-     "height": 90
+[
+ {
+  "fecha": "2026-11-14",
+  "video": "91mLDzDy_Tc",
+  "pedido": "Lean: cargar datos y publicar",
+  "antes": {
+   "snippet": {
+    "publishedAt": "2026-11-14T14:00:36Z",
+    "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
+    "title": "RIC bitcoin zonas YT",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/default.jpg?sqp=CODS4dcG&rs=AOn4CLCN_UwobYyxRSFyXhW0RsYT8-AUWQ",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/mqdefault.jpg?sqp=CODS4dcG&rs=AOn4CLDQj9B5--zV9gwJsuFNX6HtTdwGfA",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/hqdefault.jpg?sqp=CODS4dcG&rs=AOn4CLBLb_6bR7pex9TvXslrdF8MCwPBYA",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/sddefault.jpg?sqp=CODS4dcG&rs=AOn4CLB3t6dPbMMKeL6LbyINtn3uJWcH9A",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/maxresdefault.jpg?sqp=CODS4dcG&rs=AOn4CLA4FIpwRwv577qBtfZtduuJYmqRaw",
+      "width": 1280,
+      "height": 720
+     }
     },
-    "medium": {
-     "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/mqdefault.jpg?sqp=CODS4dcG&rs=AOn4CLDQj9B5--zV9gwJsuFNX6HtTdwGfA",
-     "width": 320,
-     "height": 180
-    },
-    "high": {
-     "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/hqdefault.jpg?sqp=CODS4dcG&rs=AOn4CLBLb_6bR7pex9TvXslrdF8MCwPBYA",
-     "width": 480,
-     "height": 360
-    },
-    "standard": {
-     "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/sddefault.jpg?sqp=CODS4dcG&rs=AOn4CLB3t6dPbMMKeL6LbyINtn3uJWcH9A",
-     "width": 640,
-     "height": 480
-    },
-    "maxres": {
-     "url": "https://i9.ytimg.com/vi/91mLDzDy_Tc/maxresdefault.jpg?sqp=CODS4dcG&rs=AOn4CLA4FIpwRwv577qBtfZtduuJYmqRaw",
-     "width": 1280,
-     "height": 720
+    "channelTitle": "Real Investors Club",
+    "categoryId": "27",
+    "liveBroadcastContent": "none",
+    "localized": {
+     "title": "RIC bitcoin zonas YT",
+     "description": ""
     }
    },
-   "channelTitle": "Real Investors Club",
-   "categoryId": "27",
-   "liveBroadcastContent": "none",
-   "localized": {
-    "title": "RIC bitcoin zonas YT",
-    "description": ""
+   "status": {
+    "uploadStatus": "processed",
+    "privacyStatus": "private",
+    "license": "youtube",
+    "embeddable": true,
+    "publicStatsViewable": true,
+    "madeForKids": false
    }
   },
-  "status": {
-   "uploadStatus": "processed",
-   "privacyStatus": "private",
-   "license": "youtube",
-   "embeddable": true,
-   "publicStatsViewable": true,
-   "madeForKids": false
-  }
- },
- "despues": {
-  "snippet": {
-   "publishedAt": "2026-11-14T14:01:56Z",
-   "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
-   "title": "Bitcoin cayó justo donde se juntan dos zonas: Fibonacci y la media de 200 semanas #Shorts",
-   "description": "Bitcoin bajó 8,6 % en dos días (de 73.964 a 67.627) y se liquidaron más de US$ 1.000 millones. Cayó justo donde se juntan dos zonas: el 61,8 % de Fibonacci de la suba de julio a septiembre (57.748 → 87.364), en 69.061, y el promedio de las últimas 200 semanas, en ~67.990. Volumen 1,64 veces el promedio e índice de miedo y codicia en 20 (miedo extremo).\n\nQué mirar: si cierra una semana abajo de 68.000, las dos zonas se rompieron. Opinión personal de Lean: buscar los 62.000 (y quizás más abajo) antes de volver a los 75.000. Es una opinión, no una recomendación.\n\nDatos: Yahoo Finance (BTC-USD), CoinGlass, alternative.me. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #Fibonacci #trading",
-   "thumbnails": {
-    "default": {
-     "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/default.jpg",
-     "width": 120,
-     "height": 90
-    },
-    "medium": {
-     "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/mqdefault.jpg",
-     "width": 320,
-     "height": 180
-    },
-    "high": {
-     "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/hqdefault.jpg",
-     "width": 480,
-     "height": 360
-    },
-    "standard": {
-     "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/sddefault.jpg",
-     "width": 640,
-     "height": 480
-    },
-    "maxres": {
-     "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/maxresdefault.jpg",
-     "width": 1280,
-     "height": 720
-    }
-   },
-   "channelTitle": "Real Investors Club",
-   "categoryId": "27",
-   "liveBroadcastContent": "none",
-   "defaultLanguage": "es",
-   "localized": {
+  "despues": {
+   "snippet": {
+    "publishedAt": "2026-11-14T14:01:56Z",
+    "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
     "title": "Bitcoin cayó justo donde se juntan dos zonas: Fibonacci y la media de 200 semanas #Shorts",
-    "description": "Bitcoin bajó 8,6 % en dos días (de 73.964 a 67.627) y se liquidaron más de US$ 1.000 millones. Cayó justo donde se juntan dos zonas: el 61,8 % de Fibonacci de la suba de julio a septiembre (57.748 → 87.364), en 69.061, y el promedio de las últimas 200 semanas, en ~67.990. Volumen 1,64 veces el promedio e índice de miedo y codicia en 20 (miedo extremo).\n\nQué mirar: si cierra una semana abajo de 68.000, las dos zonas se rompieron. Opinión personal de Lean: buscar los 62.000 (y quizás más abajo) antes de volver a los 75.000. Es una opinión, no una recomendación.\n\nDatos: Yahoo Finance (BTC-USD), CoinGlass, alternative.me. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #Fibonacci #trading"
+    "description": "Bitcoin bajó 8,6 % en dos días (de 73.964 a 67.627) y se liquidaron más de US$ 1.000 millones. Cayó justo donde se juntan dos zonas: el 61,8 % de Fibonacci de la suba de julio a septiembre (57.748 → 87.364), en 69.061, y el promedio de las últimas 200 semanas, en ~67.990. Volumen 1,64 veces el promedio e índice de miedo y codicia en 20 (miedo extremo).\n\nQué mirar: si cierra una semana abajo de 68.000, las dos zonas se rompieron. Opinión personal de Lean: buscar los 62.000 (y quizás más abajo) antes de volver a los 75.000. Es una opinión, no una recomendación.\n\nDatos: Yahoo Finance (BTC-USD), CoinGlass, alternative.me. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #Fibonacci #trading",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/91mLDzDy_Tc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "Real Investors Club",
+    "categoryId": "27",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "es",
+    "localized": {
+     "title": "Bitcoin cayó justo donde se juntan dos zonas: Fibonacci y la media de 200 semanas #Shorts",
+     "description": "Bitcoin bajó 8,6 % en dos días (de 73.964 a 67.627) y se liquidaron más de US$ 1.000 millones. Cayó justo donde se juntan dos zonas: el 61,8 % de Fibonacci de la suba de julio a septiembre (57.748 → 87.364), en 69.061, y el promedio de las últimas 200 semanas, en ~67.990. Volumen 1,64 veces el promedio e índice de miedo y codicia en 20 (miedo extremo).\n\nQué mirar: si cierra una semana abajo de 68.000, las dos zonas se rompieron. Opinión personal de Lean: buscar los 62.000 (y quizás más abajo) antes de volver a los 75.000. Es una opinión, no una recomendación.\n\nDatos: Yahoo Finance (BTC-USD), CoinGlass, alternative.me. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #Fibonacci #trading"
+    },
+    "defaultAudioLanguage": "es"
    },
-   "defaultAudioLanguage": "es"
+   "status": {
+    "uploadStatus": "processed",
+    "privacyStatus": "public",
+    "license": "youtube",
+    "embeddable": true,
+    "publicStatsViewable": true,
+    "madeForKids": false,
+    "selfDeclaredMadeForKids": false
+   }
   },
-  "status": {
-   "uploadStatus": "processed",
-   "privacyStatus": "public",
-   "license": "youtube",
-   "embeddable": true,
-   "publicStatsViewable": true,
-   "madeForKids": false,
-   "selfDeclaredMadeForKids": false
-  }
+  "playlists": {
+   "PLIpcK30CCatM": "UExJcGNLMzBDQ2F0TS44Mjc5REFBRUE2MTdFRDU0",
+   "PLQNFhTbDHaU0": "UExRTkZoVGJESGFVMC41MzJCQjBCNDIyRkJDN0VD"
+  },
+  "comentario": "UgzGwLiBoGeMEH24Rgx4AaABAg"
  },
- "playlists": {
-  "PLIpcK30CCatM": "UExJcGNLMzBDQ2F0TS44Mjc5REFBRUE2MTdFRDU0",
-  "PLQNFhTbDHaU0": "UExRTkZoVGJESGFVMC41MzJCQjBCNDIyRkJDN0VD"
- },
- "comentario": "UgzGwLiBoGeMEH24Rgx4AaABAg"
-}
+ {
+  "fecha": "2026-11-15",
+  "video": "PfHdQZ-SpIY",
+  "pedido": "Lean: cargar datos y publicar (Bitcoin llegó a 62.000)",
+  "antes": {
+   "snippet": {
+    "publishedAt": "2026-11-15T02:27:30Z",
+    "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
+    "title": "14 de noviembre de 2026",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Real Investors Club",
+    "categoryId": "27",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "es",
+    "localized": {
+     "title": "14 de noviembre de 2026",
+     "description": ""
+    },
+    "defaultAudioLanguage": "es"
+   },
+   "status": {
+    "uploadStatus": "processed",
+    "privacyStatus": "public",
+    "license": "youtube",
+    "embeddable": true,
+    "publicStatsViewable": true,
+    "madeForKids": false
+   }
+  },
+  "despues": {
+   "snippet": {
+    "publishedAt": "2026-11-15T02:27:30Z",
+    "channelId": "UC2_-XjgJ9kpNE-RBR3wruSg",
+    "title": "Bitcoin llegó a 62.000: dónde ver las zonas de liquidez gratis #Shorts",
+    "description": "El viernes 13/11 dijimos que Bitcoin iba a buscar los 62.000. El 14/11 llegó (mínimo 62.101 en Yahoo Finance), después de bajar de 74.119 en tres días.\n\nAbajo, entre 59.500 y 62.600, está el grupo más grande de liquidaciones de compradores apalancados según el modelo de Glassnode. Arriba, las liquidaciones más grandes de los vendedores apalancados están entre 75.000 y 78.000. Opinión personal de Lean: después va a buscar los 75.000; es una opinión, no una recomendación.\n\nLas zonas de liquidez se pueden ver gratis en el mapa de calor de liquidaciones de CoinGlass. Son estimaciones, no órdenes reales. ¿Querés un video de cómo leerlo? Comentá MAPA.\n\nDatos: Yahoo Finance (BTC-USD), Glassnode. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #trading #cripto",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/PfHdQZ-SpIY/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Real Investors Club",
+    "categoryId": "27",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "es",
+    "localized": {
+     "title": "Bitcoin llegó a 62.000: dónde ver las zonas de liquidez gratis #Shorts",
+     "description": "El viernes 13/11 dijimos que Bitcoin iba a buscar los 62.000. El 14/11 llegó (mínimo 62.101 en Yahoo Finance), después de bajar de 74.119 en tres días.\n\nAbajo, entre 59.500 y 62.600, está el grupo más grande de liquidaciones de compradores apalancados según el modelo de Glassnode. Arriba, las liquidaciones más grandes de los vendedores apalancados están entre 75.000 y 78.000. Opinión personal de Lean: después va a buscar los 75.000; es una opinión, no una recomendación.\n\nLas zonas de liquidez se pueden ver gratis en el mapa de calor de liquidaciones de CoinGlass. Son estimaciones, no órdenes reales. ¿Querés un video de cómo leerlo? Comentá MAPA.\n\nDatos: Yahoo Finance (BTC-USD), Glassnode. Voz generada con IA (clon de la voz de Lean). Contenido educativo, no es recomendación de inversión. Operar cripto y CFDs conlleva alto riesgo de pérdida de dinero.\n\n#Shorts #Bitcoin #BTC #trading #cripto"
+    },
+    "defaultAudioLanguage": "es"
+   },
+   "status": {
+    "uploadStatus": "processed",
+    "privacyStatus": "public",
+    "license": "youtube",
+    "embeddable": true,
+    "publicStatsViewable": true,
+    "madeForKids": false,
+    "selfDeclaredMadeForKids": false
+   }
+  },
+  "playlists": {
+   "PLIpcK30CCatM": "UExJcGNLMzBDQ2F0TS43NDhFRTgwOTRERTU4Rjg3",
+   "PLQNFhTbDHaU0": "UExRTkZoVGJESGFVMC5DQUNERDQ2NkIzRUQxNTY1"
+  },
+  "comentario": "UgymJfyp3xQv0_lm03V4AaABAg"
+ }
+]
