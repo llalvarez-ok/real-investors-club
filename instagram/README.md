@@ -33,6 +33,7 @@ Es la cuenta **personal** de Lean: publica cosas suyas y de Real Investors Club.
 | Reel «¿Fue culpa del CEO? Wyckoff y la caída de Nvidia» (rehecho en estilo expediente cine a pedido de Lean: la versión en canvas y su portada no le gustaron; voz grabada por Lean + apertura con el clon de su voz; gráfico real con la vela del 12/11; 64,9 s; Short de 68 s; contenido sintético marcado) | Publicado a mano por Lean el 12/11/2026; Short de YouTube `FHCvdktPjAE` publicado por la API el mismo día | `produccion/reel-wyckoff-nvidia/subir.md` |
 | Historias «Resultado PPI 13/11» (2 láminas 1080x1920 con encuesta, `produccion/oro-resultados/historia.py`; primer resultado en formato historia) | Entregadas el 13/11/2026; falta que Lean las publique | `produccion/oro-resultados/ppi-2026-11.md` |
 | Reel «Bitcoin cayó donde se juntan dos zonas» (expediente cine, clon de voz, opinión personal de Lean; 49,7 s; Short de 50,9 s) | Entregado el 13/11/2026; falta que Lean lo publique | `produccion/reel-bitcoin-zonas/subir.md` |
+| Reel «Bitcoin llegó a 62.000» (seguimiento; pregunta de liquidez, CoinGlass y «comentá MAPA»; 52,2 s; Short de 54,6 s) | Entregado el 14/11/2026; falta que Lean lo publique | `produccion/reel-btc-62k/subir.md` |
 | «Perfil de volumen» (partículas) | Publicado (31/10). Retención: 45 % a los 3 s | Mismo reporte, secciones 7 y 8 |
 | Reel de Binance con gráficos HTML (30/10) | **Descartado** | — |
 
