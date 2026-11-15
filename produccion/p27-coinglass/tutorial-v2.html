@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>P27 v2 · Mapa de liquidaciones</title>
+<!-- Tutorial horizontal 1920x1080, v2 (15/11/2026, pedido de Lean: enfoque claro para gente con algo de Bitcoin y sin
+     experiencia). Base: la grabación de pantalla de Lean navegando CoinGlass con su sesión de Gmail (grab/f/NNNNN.jpg,
+     15 fps, 1908x970; fuera de git) dentro de una ventana que flota en 3D, con cámara que se acerca a una sola cosa por
+     vez, paneles de cristal, checklists que se tildan y láminas animadas (Martín y el dinero prestado, el método de
+     Lean, los cuidados). El tramo «Selecciona una cuenta» (9–16 s) NO se usa: muestra los correos de Lean.
+     window.cuadro(t) para herramientas/cine/render.js (devuelve una promesa: espera el cuadro de la grabación).
+     Tiempos: tiempos-v2.js (window.T, bloques 01–20). -->
+<script src="tiempos-v2.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+  :root { --n1:#071426; --n2:#0d2142; --o1:#e2c68c; --o2:#c7a35e; --o3:#8e7140; --t1:#ecf1f9; --t2:#a3b5d1; --v:#3dd68c; --r:#ff6b6b; --b:#274a80; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:var(--n1); font-family:'IBM Plex Sans', sans-serif; color:var(--t1); }
+  #fondo { position:absolute; inset:0; background:
+    linear-gradient(rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    linear-gradient(90deg, rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    radial-gradient(ellipse at 75% 0%, #14366a 0%, transparent 55%), linear-gradient(160deg, var(--n2), var(--n1) 70%); }
+  .oro { background:linear-gradient(180deg,var(--o1),var(--o2) 55%,var(--o3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  #tras { position:absolute; left:0; right:0; top:300px; text-align:center; font:900 190px/0.95 'Archivo'; text-shadow:0 10px 50px rgba(0,0,0,.8); text-transform:uppercase; letter-spacing:-4px; opacity:0; }
+  #logo { position:absolute; top:34px; left:70px; height:52px; z-index:9; }
+  #chip { position:absolute; top:38px; right:70px; font:700 24px 'IBM Plex Mono'; color:var(--n1); background:var(--o1); border-radius:40px; padding:8px 22px; display:none; z-index:9; }
+  #chip.rojo { background:var(--r); color:#fff; }
+  /* ventana flotante con la grabación */
+  #escena3d { position:absolute; inset:0; perspective:2200px; }
+  #ventana { position:absolute; left:130px; top:112px; width:1660px; height:812px; border-radius:20px; overflow:hidden; display:none;
+    border:2px solid #3a5f9a; box-shadow:0 40px 120px rgba(0,0,0,.65), 0 0 0 1px rgba(226,198,140,.15); background:#fff; transform-style:preserve-3d; }
+  #ventana .cromo { position:absolute; left:0; right:0; top:0; height:44px; background:#e9edf3; display:flex; align-items:center; gap:10px; padding:0 18px; z-index:3; }
+  #ventana .cromo i { width:13px; height:13px; border-radius:50%; background:#ff5f57; } #ventana .cromo i:nth-child(2) { background:#febc2e; } #ventana .cromo i:nth-child(3) { background:#28c840; }
+  #ventana .url { margin-left:16px; flex:1; height:30px; border-radius:15px; background:#fff; font:500 18px 'IBM Plex Mono'; color:#334; display:flex; align-items:center; padding:0 16px; }
+  #vista { position:absolute; left:0; right:0; top:44px; bottom:0; overflow:hidden; background:#fff; }
+  #lienzo { position:absolute; left:0; top:0; width:1908px; height:970px; transform-origin:0 0; }
+  #lienzo img { width:1908px; height:970px; display:block; }
+  .tapa { position:absolute; background:#f7f8fa; display:none; }
+  #marco { position:absolute; border:5px solid var(--o1); border-radius:12px; box-shadow:0 0 0 9999px rgba(7,20,38,.42), 0 0 34px rgba(226,198,140,.85); display:none; pointer-events:none; }
+  /* vidrio flotante */
+  .vidrio { position:absolute; background:rgba(13,33,66,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1.5px solid rgba(226,198,140,.45);
+    border-radius:22px; box-shadow:0 24px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12); padding:22px 30px; color:var(--t1); }
+  .etq { position:absolute; font:800 34px 'Archivo'; color:var(--n1); background:var(--o1); padding:10px 22px; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.45); white-space:nowrap; z-index:6; display:none; }
+  .etq:after { content:''; position:absolute; left:28px; bottom:-12px; border:12px solid transparent; border-bottom:0; border-top-color:var(--o1); }
+  .etq.abajo:after { bottom:auto; top:-12px; border-top:0; border-bottom:12px solid var(--o1); }
+  #capa { position:absolute; inset:0; z-index:5; pointer-events:none; }
+  #capa > * { display:none; }
+  .panel5 { width:330px; height:190px; font:800 34px/1.15 'Archivo'; display:flex; flex-direction:column; justify-content:center; }
+  .panel5 b { font:900 56px 'Archivo'; color:var(--o1); display:block; margin-bottom:6px; }
+  .check { font:600 36px 'IBM Plex Sans'; }
+  .check div { display:flex; align-items:center; gap:20px; margin:16px 0; opacity:.35; }
+  .check div i { width:42px; height:42px; border-radius:10px; border:3px solid var(--o2); flex:none; display:flex; align-items:center; justify-content:center; font:900 30px 'Archivo'; font-style:normal; color:var(--n1); }
+  .check div.on { opacity:1; } .check div.on i { background:var(--o1); border-color:var(--o1); }
+  .check h3 { font:900 34px 'Archivo'; color:var(--o1); text-transform:uppercase; margin-bottom:6px; letter-spacing:.5px; }
+  canvas#cv { position:absolute; left:0; top:0; z-index:4; }
+  .sello { position:absolute; font:900 70px 'Archivo'; text-transform:uppercase; color:var(--r); border:8px double var(--r); padding:10px 34px; background:rgba(40,4,6,.45); }
+  .lam { position:absolute; left:140px; right:140px; top:130px; }
+  .lam h1 { font:900 84px/1 'Archivo'; text-transform:uppercase; letter-spacing:-.5px; }
+  .lam p { font:500 38px/1.35 'IBM Plex Sans'; color:var(--t2); margin-top:26px; } .lam p b { color:var(--t1); }
+  .dato { font:900 230px/1 'Archivo'; }
+  .fuente { font:600 24px 'IBM Plex Mono'; color:var(--t2); }
+  #sub { position:absolute; left:220px; right:220px; bottom:84px; text-align:center; font:600 40px/1.25 'IBM Plex Sans'; text-shadow:0 3px 14px rgba(0,0,0,.95); z-index:8; }
+  #sub span { color:rgba(236,241,249,.45); } #sub span.on { color:var(--t1); } #sub span.k { color:var(--o1); }
+  #barra { position:absolute; left:0; right:0; bottom:0; height:58px; border-top:2px solid var(--b); background:rgba(7,20,38,.9); z-index:8;
+    display:flex; align-items:center; justify-content:space-between; padding:0 70px; font:600 21px 'IBM Plex Mono'; color:var(--t2); }
+  #barra b { font-family:'Archivo'; font-weight:800; color:var(--t1); } #barra b i { font-style:normal; color:var(--o1); }
+</style></head>
+<body>
+<div id="fondo"></div>
+<div id="tras"></div>
+<img id="logo" src="../../marca/logo-oro.png" alt="">
+<div id="chip"></div>
+<div id="escena3d"><div id="ventana"><div class="cromo"><i></i><i></i><i></i><div class="url" id="url">coinglass.com</div></div>
+  <div id="vista"><div id="lienzo"><img id="rec" src="grab/f/00001.jpg" alt="">
+    <div class="tapa" id="tapaLeg" style="left:1715px;top:812px;width:170px;height:95px"></div>
+  </div><div id="marco"></div></div></div></div>
+<canvas id="cv" width="1920" height="1080"></canvas>
+<div id="capa">
+  <!-- 01 -->
+  <!-- 02: cinco paneles -->
+  <div class="vidrio panel5" data-s="02" data-i="0"><b>1</b>Qué muestra el mapa</div>
+  <div class="vidrio panel5" data-s="02" data-i="1"><b>2</b>Entrar gratis con Gmail</div>
+  <div class="vidrio panel5" data-s="02" data-i="2"><b>3</b>Mi configuración</div>
+  <div class="vidrio panel5" data-s="02" data-i="3"><b>4</b>Cómo lo opero yo</div>
+  <div class="vidrio panel5" data-s="02" data-i="4"><b>5</b>Cuidados de riesgo</div>
+  <!-- 06: gratis -->
+  <div class="vidrio" data-s="06" id="gratis" style="left:1290px;top:560px;width:520px;font:800 36px/1.3 Archivo">✓ Gratis con tu Gmail<br><span style="font:500 28px 'IBM Plex Sans';color:var(--t2)">Sin depositar dinero.<br>Sin conectar ningún exchange.</span></div>
+  <!-- 10: configuración -->
+  <div class="vidrio check" data-s="10" id="ck10" style="left:160px;top:560px;width:560px;font-size:28px">
+    <h3>Mi configuración</h3>
+    <div><i>✓</i>Par BTC/USDT (el que viene)</div><div><i>✓</i>24 horas para el día</div><div><i>✓</i>1 semana: zonas grandes</div><div><i>✓</i>Umbral de liquidez alto</div><div><i>✓</i>Un modelo, siempre el mismo</div></div>
+  <!-- 15: ESMA -->
+  <div class="lam" data-s="15" id="l15" style="text-align:center;top:150px"><div class="dato oro">74–89 %</div>
+    <p style="font-size:44px;color:var(--t1)">de las cuentas minoristas que operaban CFD<br>con dinero prestado <b>perdían dinero</b></p>
+    <p class="fuente" style="margin-top:30px">ESMA (regulador europeo), 27/03/2018 · no es un estudio sobre Bitcoin</p></div>
+  <!-- 16 -->
+  <div class="vidrio" data-s="16" id="v16" style="left:360px;top:250px;width:1200px;text-align:center;padding:50px">
+    <div style="font:900 86px/1.05 Archivo">SIN DINERO PRESTADO<br><span class="oro">=</span> SIN LIQUIDACIÓN</div>
+    <div style="font:600 38px 'IBM Plex Sans';color:var(--t2);margin-top:34px">Si ya tienes Bitcoin: entender el movimiento<br>para <b style="color:var(--t1)">decidir con calma</b>, no por miedo.</div></div>
+  <!-- 17: cuidados -->
+  <div class="vidrio check" data-s="17" id="ck17" style="left:400px;top:150px;width:1120px;font-size:40px">
+    <h3>Si algún día operas: 5 cuidados</h3>
+    <div><i>✓</i>Es una estimación: no son órdenes reales</div><div><i>✓</i>Arriesga poco (referencia: no más del 1 %)</div>
+    <div><i>✓</i>Siempre con stop: la orden que corta la pérdida</div><div><i>✓</i>Nada de préstamos altos</div><div><i>✓</i>Practica primero en una cuenta demo</div></div>
+  <!-- 19: tarea -->
+  <div class="lam" data-s="19" id="l19"><h1>Tu <span class="oro">tarea</span></h1>
+    <div class="vidrio check" style="position:relative;margin-top:36px;width:1100px"><div><i>1</i>Entra con tu Gmail y abre el mapa</div><div><i>2</i>Anota la franja más cercana arriba y abajo</div><div><i>3</i>Mañana mira a cuál llegó primero, sin operar</div></div>
+    <div id="arribaAbajo" style="position:absolute;right:0;top:220px;font:900 96px/1.05 Archivo;text-align:right">Comenta<br><span class="oro">ARRIBA</span><br>o <span class="oro">ABAJO</span></div></div>
+  <!-- 20: cierre -->
+  <div class="lam" data-s="20" id="l20" style="text-align:center;left:0;right:0;top:150px">
+    <img src="../../marca/logo-oro.png" style="height:150px" alt="">
+    <h1 style="font-size:68px;margin-top:40px">Suscríbete a <span class="oro">Real Investors Club</span></h1>
+    <p style="margin:22px auto 0">Operar con dinero prestado puede hacerte perder todo lo que pones.</p>
+    <p class="fuente" style="margin-top:50px;font-size:26px">Contenido educativo. No constituye recomendación de inversión.<br>Voz generada con IA a partir de la voz de Lean · No tenemos relación comercial con CoinGlass ni con Binance.</p></div>
+</div>
+<div class="etq" id="etq"></div><div class="etq" id="etq2"></div><div class="etq" id="etq3"></div><div class="etq" id="etq4"></div>
+<div id="sub"></div>
+<div id="barra"><b>Real Investors <i>Club</i></b><span id="pie">Grabación real de coinglass.com · 15/11/2026 · contenido educativo</span></div>
+<script>
+(function () {
+  const B = {}; T.bloques.forEach((b, i) => { B[b.id] = b; b.fin = i + 1 < T.bloques.length ? T.bloques[i + 1].ini : T.total; });
+  const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), eo = v => 1 - Math.pow(1 - v, 3), eio = v => v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2;
+  const $ = s => document.querySelector(s), cv = $('#cv'), x = cv.getContext('2d');
+  const C = { o: '#e2c68c', o2: '#c7a35e', v: '#3dd68c', r: '#ff6b6b', t: '#ecf1f9', t2: '#a3b5d1', b: '#274a80', az: '#6aa8ff' };
+  // tiempo de la palabra k de un bloque (para atar cosas a la voz)
+  const tw = (id, k, o = 0) => { const p = B[id].palabras; return p[Math.min(k, p.length - 1)][0] + o; };
+  const tx = (id, txt, n = 1, o = 0) => { const p = B[id].palabras; for (const w of p) if (w[2].toLowerCase().replace(/[^\wáéíóúñü]/g, '').startsWith(txt) && --n === 0) return w[0] + o; return B[id].ini; };
+
+  // ---------- grabación: tramos y cámara (coordenadas de la grabación, 1908x970) ----------
+  // tramo: [inicio, fin] en segundos de la grabación; vel: velocidad; cam: [[seg de la escena, rect, etiqueta]]
+  const VW = 1660, VH = 768;
+  const R = {
+    todo: [0, 58, 1908, 912], login: [560, 150, 820, 300], google: [720, 326, 460, 54], exito: [616, 216, 676, 594],
+    menuBarra: [700, 40, 1100, 180], menu: [796, 126, 106, 30], item: [662, 352, 380, 38], pagina: [0, 58, 1908, 912],
+    mapa33: [440, 170, 1400, 760], ejeT: [440, 915, 1350, 40], ejeP: [1778, 170, 80, 760], velas33: [760, 380, 700, 380], franjas33: [453, 330, 1325, 60],
+    tooltip33: [1100, 360, 420, 180], escala33: [365, 175, 70, 745],
+    mapa92: [440, 95, 1400, 820], amarillo92: [453, 268, 1325, 34], violeta92: [470, 560, 600, 300], verde92: [453, 330, 1325, 120], escala92: [370, 100, 70, 800],
+    parSym: [362, 285, 186, 46], horas: [1585, 348, 126, 48], umbral: [1300, 410, 560, 56], modelos: [930, 152, 360, 56],
+    horas46: [1585, 98, 126, 44], umbral63: [1300, 168, 560, 50], modelos150: [930, 155, 360, 56],
+    caida33: [930, 560, 260, 220], rebote33: [990, 380, 520, 360],
+    m3: [80, 90, 1360, 760], m3amar: [95, 380, 1325, 40], m3panel: [1505, 95, 380, 610] };
+  const REC = {
+    '01': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92'], [2.2, 'amarillo92']] },
+    '02': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92']], desenfoque: 1 },
+    '05': { tramo: [33, 33.1], vel: 0, cam: [[0, 'velas33']], desenfoque: .6 },
+    '06': { tramo: [1, 8.6], vel: 1, cam: [[0, 'todo'], [2.6, 'login'], [4.4, 'google', 'Continue with Google']], luego: { desde: 'Así', tramo: [17.6, 21], vel: .8, cam: [[0, 'exito', 'Sesión iniciada']] } },
+    '07': { tramo: [22.4, 30], vel: 1, cam: [[0, 'menuBarra'], [1.4, 'menu', 'Liquidation'], [2.6, 'item', 'Liquidation Heatmap'], [5.2, 'pagina']] },
+    '08': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33'], ['abajo', 'ejeT', 'Tiempo'], ['derecha', 'ejeP', 'Precio'], ['velas', 'velas33', 'Velas = precio de Bitcoin'], ['franjas', 'franjas33', 'Franjas = liquidaciones'], ['mouse', 'tooltip33', 'Precio y dinero en juego']] },
+    '09': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92'], ['violeta', 'violeta92', 'Violeta: poco'], ['verde', 'verde92', 'Verde: un poco más'], ['amarillo', 'amarillo92', 'Amarillo: mucho'], ['escala', 'escala92', 'Escala: 201 M']] },
+    '10': { tramo: [37, 47.5], vel: 1, cam: [[0, 'parSym', 'Par / Symbol'], ['veinticuatro', 'horas46', '24 hour'], ['umbral', 'umbral63', 'Liquidity Threshold']],
+            luegos: [{ desde: 'umbral', tramo: [61, 66], vel: 1, cam: [[0, 'umbral63', 'Liquidity Threshold']] }, { desde: 'modelos', tramo: [139, 151], vel: 1.3, cam: [[0, 'modelos150', 'Model 1 · 2 · 3']] }] },
+    '11': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33']] },
+    '14': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33'], ['bajó', 'caida33'], ['rebotó', 'rebote33']] },
+  };
+  const F = n => `grab/f/${String(n).padStart(5, '0')}.jpg`;
+  function camara(r) {
+    if (!r) r = R.todo;
+    const s = Math.max(Math.min(VW / (r[2] * 1.12), VH / (r[3] * 1.25), 3.2), VW / 1908);
+    const x = cl(VW / 2 - (r[0] + r[2] / 2) * s, VW - 1908 * s, 0), y = cl(VH / 2 - (r[1] + r[3] / 2) * s, VH - 970 * s, -58 * s);
+    return { s, x, y };
+  }
+  const deriva = (c, seg, k = .02) => { const z = 1 + Math.min(.12, k * Math.max(0, seg)); const s2 = c.s * z, cx = VW / 2, cy = VH / 2;
+    return { s: s2, x: cl(cx - (cx - c.x) * z, VW - 1908 * s2, 0), y: cl(cy - (cy - c.y) * z, VH - 970 * s2, -58 * s2) }; };
+  // resuelve los tiempos de la cámara: número (s desde el inicio del bloque) o palabra de la voz
+  const tcam = (id, v) => typeof v === 'number' ? B[id].ini + v : tx(id, v.toLowerCase(), 1, -.15);
+  function grabacion(t, b) {
+    const v = $('#ventana'); let cfg = REC[b.id]; if (!cfg) { v.style.display = 'none'; return null; }
+    let t0 = B[b.id].ini;
+    const extras = [].concat(cfg.luego ? [cfg.luego] : [], cfg.luegos || []);
+    for (const e of extras) { const te = tx(b.id, e.desde.toLowerCase(), 1, -.2); if (t >= te) { cfg = e; t0 = te; } }
+    v.style.display = 'block';
+    const ts = cl(cfg.tramo[0] + (t - t0) * cfg.vel, cfg.tramo[0], cfg.tramo[1]);
+    const n = Math.min(2702, Math.floor(ts * 15) + 1);
+    const cam = cfg.cam.map(c => [c[0] === 0 ? t0 : tcam(b.id, c[0]), R[c[1]], c[2]]);
+    let k = 0; cam.forEach((c, i) => { if (t >= c[0]) k = i; });
+    const TR = .7, q = k ? eio(cl((t - cam[k][0]) / TR)) : 1;
+    const prev = deriva(camara(cam[Math.max(0, k - 1)][1]), k ? cam[k][0] - cam[k - 1][0] - TR : 0), cur = deriva(camara(cam[k][1]), t - cam[k][0] - (k ? TR : 0));
+    const c = { s: prev.s + (cur.s - prev.s) * q, x: prev.x + (cur.x - prev.x) * q, y: prev.y + (cur.y - prev.y) * q };
+    $('#lienzo').style.transform = `translate(${c.x}px,${c.y}px) scale(${c.s})`;
+    $('#lienzo').style.filter = cfg.desenfoque ? `blur(${6 * cfg.desenfoque}px) brightness(.7)` : 'none';
+    $('#url').textContent = ts < 17 ? 'coinglass.com/login' : ts < 27 ? 'coinglass.com' : ts > 150 ? 'coinglass.com/liquidation-heatmap-model3' : 'coinglass.com/pro/futures/LiquidationHeatMap';
+    $('#tapaLeg').style.display = ts > 26 ? 'block' : 'none';
+    // marco y etiqueta sobre el elemento enfocado
+    const r = cam[k][1], m = $('#marco'), e = $('#etq');
+    if (k && q > .85 && r !== R.todo && r !== R.pagina && !r.sinMarco) { const a = cl((q - .85) / .15);
+      Object.assign(m.style, { display: 'block', opacity: a, left: (r[0] * c.s + c.x - 10) + 'px', top: (r[1] * c.s + c.y - 10) + 'px', width: (r[2] * c.s + 20) + 'px', height: (r[3] * c.s + 20) + 'px' });
+      if (cam[k][2]) { e.textContent = cam[k][2]; e.style.display = 'block'; e.style.opacity = a; const ew = e.offsetWidth;
+        const gx = 130 + r[0] * c.s + c.x, gy = 156 + r[1] * c.s + c.y, ab = gy - 80 < 140;
+        e.className = 'etq' + (ab ? ' abajo' : ''); e.style.left = cl(gx, 150, 1770 - ew) + 'px'; e.style.top = (ab ? gy + r[3] * c.s + 26 : gy - 78) + 'px'; }
+      else e.style.display = 'none';
+    } else { m.style.display = 'none'; e.style.display = 'none'; }
+    return { n, c };
+  }
+  // ventana que flota en 3D (más inclinada al entrar a cada escena con grabación)
+  function flotar(t, b) {
+    const ent = eo(cl((t - b.ini) / .7)), osc = Math.sin(t * .5);
+    const giroY = (b.id === '01' ? -9 : -2.5) * (1 - ent) + osc * .8, giroX = 1.2 + Math.sin(t * .37) * .5;
+    const esc = 1;
+    $('#ventana').style.transform = `rotateY(${giroY}deg) rotateX(${giroX}deg) translateZ(${-60 * (1 - ent)}px) scale(${esc})`;
+    $('#ventana').style.opacity = b.id === '02' ? .55 : ent;
+  }
+
+  // ---------- láminas en canvas ----------
+  function texto(s, X, Y, px, col = C.t, peso = 800, al = 'left', fam = 'Archivo') { x.font = `${peso} ${px}px ${fam}`; x.fillStyle = col; x.textAlign = al; x.textBaseline = 'alphabetic'; x.fillText(s, X, Y); }
+  function caja(X, Y, w, h, col, a = 1, r = 14) { x.save(); x.globalAlpha = a; x.fillStyle = col; x.beginPath(); x.roundRect(X, Y, w, h, r); x.fill(); x.restore(); }
+  function martin(t, b) {  // 03 y 04: 100 propios + 900 prestados = 1000; baja 10 % y se va todo lo de Martín
+    const id = b.id, X0 = 260, Y0 = 250, W = 260, H = 600;
+    texto('Supón que…', 140, 170, 30, C.t2, 600, 'left', 'IBM Plex Mono');
+    texto(id === '03' ? 'Dinero prestado = apalancamiento' : 'Si Bitcoin baja un 10 %…', 140, 120, 64, C.t, 900);
+    const yb = Y0 + H; const hP = H * .9, hM = H * .1;
+    const aM = id === '03' ? eo(cl((t - tx('03', 'cien', 1, -.1)) / .5)) : 1, aP = id === '03' ? eo(cl((t - tx('03', 'novecientos', 1, -.1)) / .6)) : 1;
+    const caida = id === '04' ? eo(cl((t - tx('04', 'baja', 1, 0)) / 1.2)) : 0;  // la barra pierde 100
+    const pierde = hM * caida;
+    // barra total (Bitcoin comprado)
+    x.save(); x.strokeStyle = C.t2; x.lineWidth = 3; x.setLineDash([10, 8]); x.strokeRect(X0, Y0, W, H); x.restore();
+    caja(X0, yb - hP * aP, W, hP * aP, '#2d5fa8', .95, 0);
+    caja(X0, yb - hP - hM * aM + pierde, W, Math.max(0, hM * aM - pierde), C.o, 1, 0);
+    if (aP > .1) { texto('900 USD', X0 + W / 2, yb - hP / 2, 50, C.t, 900, 'center'); texto('PRESTADOS', X0 + W / 2, yb - hP / 2 + 46, 28, C.t2, 600, 'center', 'IBM Plex Mono'); }
+    if (aM > .1 && pierde < hM * .6) texto('100 USD de Martín', X0 + W + 30, yb - hP - hM / 2 + 12, 40, C.o, 800);
+    const total = 1000 - 100 * caida;
+    if (aP > .5) { texto(Math.round(total).toLocaleString('es-AR') + ' USD en Bitcoin', X0 + W + 30, Y0 + 80 + pierde, 46, C.t, 800);
+      if (id === '03') { const a = cl((t - tx('03', 'diez', 1, -.1)) / .4); if (a > 0) { x.globalAlpha = a; texto('10x', X0 + W + 30, Y0 + 260, 150, C.o, 900); x.globalAlpha = 1; } } }
+    if (id === '04') {
+      const a = cl((t - tx('04', 'vende', 1, -.1)) / .3); if (a > 0) { x.save(); x.globalAlpha = a; x.translate(1250, 520); x.rotate(-.12); x.scale(2 - a, 2 - a);
+        x.strokeStyle = C.r; x.lineWidth = 9; x.strokeRect(-280, -70, 560, 140); texto('LIQUIDADO', 0, 28, 84, C.r, 900, 'center'); x.restore(); }
+      const a2 = cl((t - tx('04', 'práctica', 1, -.1)) / .4); if (a2 > 0) { x.globalAlpha = a2; texto('En la práctica, el exchange cierra un poco antes', 1000, 760, 30, C.t2, 600, 'left', 'IBM Plex Sans'); x.globalAlpha = 1; }
+      const a3 = cl((t - tx('04', 'pierde', 1, -.1)) / .3); if (a3 > 0) { x.globalAlpha = a3; texto('Martín: −100 USD', 1000, 380, 54, C.r, 900); x.globalAlpha = 1; }
+    }
+  }
+  function cascada(t, b) {  // 05: muchas posiciones liquidadas juntas empujan el precio
+    const p = (t - b.ini) / (b.fin - b.ini), lin = 610;
+    x.fillStyle = 'rgba(7,20,38,.55)'; x.fillRect(0, 0, 1920, 1080);
+    texto('Miles de liquidaciones en el mismo precio', 140, 140, 60, C.t, 900);
+    x.save(); x.setLineDash([16, 12]); x.strokeStyle = C.r; x.lineWidth = 4; x.beginPath(); x.moveTo(140, lin); x.lineTo(1780, lin); x.stroke(); x.restore();
+    texto('ZONA DE LIQUIDACIONES', 150, lin + 44, 28, C.r, 700, 'left', 'IBM Plex Mono');
+    for (let i = 0; i < 46; i++) {  // fichas que caen
+      const d = ((i * 37) % 23) / 23, t0 = .18 + d * .35, q = cl((p - t0) / .18), X = 220 + (i * 131) % 1480, Y = 220 + q * (lin - 240);
+      if (q <= 0) continue; x.globalAlpha = 1 - cl((q - .85) / .15) * .6; x.fillStyle = q >= 1 ? C.r : C.o; x.beginPath(); x.arc(X, Y, 16, 0, 7); x.fill(); x.globalAlpha = 1;
+    }
+    // el precio: cae fuerte al llegar a la zona y a veces rebota
+    const n = Math.floor(80 * cl(p / .95)); x.strokeStyle = C.t; x.lineWidth = 7; x.lineJoin = 'round'; x.beginPath();
+    for (let i = 0; i <= n; i++) { const X = 140 + i * 20, f = i / 80; let Y = 320 + f * 260 + Math.sin(i * .7) * 14; if (f > .55) Y = lin + 170 * Math.sin(Math.PI * cl((f - .55) / .3)) * (f < .85 ? 1 : .2) - (f > .85 ? (f - .85) * 600 : 0); i ? x.lineTo(X, Y) : x.moveTo(X, Y); }
+    x.stroke();
+    if (p > .8) { x.globalAlpha = cl((p - .8) / .08); texto('Cae de golpe… y a veces rebota', 1060, 960, 46, C.o, 800); x.globalAlpha = 1; }
+  }
+  function metodo(t, b) {  // 12 y 13: esquema del método de Lean (franja de abajo)
+    const id = b.id, yF = 700, yA = 260, X0 = 220;
+    x.fillStyle = 'rgba(7,20,38,.25)'; x.fillRect(0, 0, 1920, 1080);
+    const banda = (y, txt, col, a) => { x.globalAlpha = a * .4; const g = x.createLinearGradient(X0, 0, 1700, 0); g.addColorStop(0, '#3b2a8c'); g.addColorStop(.6, '#1fa39a'); g.addColorStop(1, '#f5e04a'); x.fillStyle = g; x.fillRect(X0, y - 34, 1480, 68); x.globalAlpha = a; texto(txt, X0 + 10, y - 46, 30, col, 700, 'left', 'IBM Plex Mono'); x.globalAlpha = 1; };
+    banda(yF, 'FRANJA DE ABAJO', C.o, 1); if (id === '13') banda(yA, 'FRANJA DEL LADO CONTRARIO', C.o, eo(cl((t - tx('13', 'objetivo', 1, -.2)) / .5)));
+    // camino del precio: baja, atraviesa la franja, barre y gira
+    const pts = [[0, 330], [.15, 420], [.28, 480], [.4, 600], [.5, 700], [.58, 790], [.64, 760], [.7, 800], [.78, 720], [.86, 650], [1, 600]];
+    const hasta = id === '12' ? .62 * cl((t - tx('12', 'primero', 1, -.3)) / (b.fin - tx('12', 'primero', 1, -.3))) + .0 : .62 + .38 * cl((t - b.ini) / ((tx('13', 'busco', 1) - b.ini) || 1));
+    x.strokeStyle = C.t; x.lineWidth = 8; x.lineJoin = 'round'; x.beginPath();
+    let fin = null; for (let i = 0; i < pts.length; i++) { const [f, y] = pts[i]; if (f > hasta) { const [f0, y0] = pts[i - 1], k = (hasta - f0) / (f - f0); fin = [X0 + 40 + (f0 + (f - f0) * k) * 1300, y0 + (y - y0) * k]; x.lineTo(...fin); break; }
+      const P = [X0 + 40 + f * 1300, y]; i ? x.lineTo(...P) : x.moveTo(...P); fin = P; }
+    x.stroke(); if (fin) { x.fillStyle = C.t; x.beginPath(); x.arc(fin[0], fin[1], 12, 0, 7); x.fill(); }
+    const a1 = id === '12' ? cl((t - tx('12', 'entro', 1, -.1)) / .3) * (1 - cl((t - tx('12', 'espero', 1, 0)) / .3)) : 0;
+    if (a1 > 0) { x.globalAlpha = a1; texto('✋ Toca la franja: no entro', 900, 560, 46, C.r, 800); x.globalAlpha = 1; }
+    const a2 = cl((t - (id === '12' ? tx('12', 'barra', 1, -.1) : 0)) / .3); if (id === '12' && a2 > 0 && t > tx('12', 'barra', 1, -.1)) { x.globalAlpha = a2; texto('La atraviesa y barre las liquidaciones', 760, 900, 44, C.o, 800); x.globalAlpha = 1; }
+    if (id === '13') {
+      const a3 = cl((t - tx('13', 'giro', 1, -.1)) / .3); if (a3 > 0) { x.globalAlpha = a3; x.strokeStyle = C.v; x.lineWidth = 5; x.beginPath(); x.arc(X0 + 40 + .7 * 1300, 800, 60, 0, 7); x.stroke(); texto('GIRO', X0 + 40 + .7 * 1300 + 80, 880, 44, C.v, 900); x.globalAlpha = 1; }
+      const a4 = cl((t - tx('13', 'objetivo', 1, -.1)) / .6); if (a4 > 0) { x.save(); x.globalAlpha = a4; x.setLineDash([16, 12]); x.strokeStyle = C.o; x.lineWidth = 5; x.beginPath(); x.moveTo(X0 + 40 + 1300, 600); x.lineTo(X0 + 40 + 1300 - 60 + 60 * a4, 600 - (600 - yA - 40) * a4); x.stroke(); x.restore(); }
+      const a5 = cl((t - tx('13', 'garantía', 1, -.1)) / .3); if (a5 > 0) { x.globalAlpha = a5; texto('Sin garantía: muchas veces no llega', 300, 980 - 60, 44, C.r, 800); x.globalAlpha = 1; }
+    }
+  }
+  function cuchillo(t, b) {  // 18: comprar apenas toca la franja
+    const p = (t - b.ini) / (b.fin - b.ini), yF = 520;
+    x.fillStyle = 'rgba(7,20,38,.25)'; x.fillRect(0, 0, 1920, 1080);
+    texto('El error más común', 140, 150, 78, C.t, 900);
+    x.globalAlpha = .45; x.fillStyle = '#1fa39a'; x.fillRect(140, yF - 30, 1640, 60); x.globalAlpha = 1;
+    const n = Math.floor(30 * cl(p / .7)); x.strokeStyle = C.r; x.fillStyle = C.r;
+    for (let i = 0; i < n; i++) { const X = 300 + i * 46, o = 260 + i * 22, c = o + 26 + (i === 12 ? 60 : 0); x.fillRect(X, o, 26, c - o); x.fillRect(X + 12, o - 14, 3, c - o + 30); }
+    if (p > .22) { x.globalAlpha = cl((p - .22) / .08); texto('compra acá ✗', 300 + 12 * 46 - 40, yF - 50, 40, C.r, 900); x.globalAlpha = 1; }
+    if (p > .55) { x.globalAlpha = cl((p - .55) / .08); texto('Yo dejo que la atraviese y espero el giro', 600, 940, 44, C.o, 800); x.globalAlpha = 1; }
+  }
+  function zonas(t, b, c) {  // 11 y 14: marcas sobre la grabación del 14/11 (mapa de 24 h)
+    const X = gx => 130 + gx * c.s + c.x, Y = gy => 156 + gy * c.s + c.y;
+    if (b.id === '11') {
+      const a1 = eo(cl((t - tx('11', 'arriba', 1, -.1)) / .4)), a2 = eo(cl((t - tx('11', 'abajo', 1, -.1)) / .4));
+      const fr = (gy, txt, a) => { if (a <= 0) return; x.save(); x.globalAlpha = a; x.strokeStyle = C.o; x.lineWidth = 4; x.setLineDash([14, 10]); x.strokeRect(X(453), Y(gy - 12), (1325) * c.s * a, 24 * c.s); x.restore();
+        x.globalAlpha = a; caja(X(470), Y(gy) - 70, 230, 52, C.o); texto(txt, X(470) + 115, Y(gy) - 32, 34, '#071426', 900, 'center'); x.globalAlpha = 1; };
+      fr(348, 'ARRIBA', a1); fr(758, 'ABAJO', a2);
+    } else {
+      const aB = eo(cl((t - tx('14', 'bajó', 1, -.1)) / .4)), aR = eo(cl((t - tx('14', 'rebotó', 1, -.1)) / .5));
+      if (aB > 0) { x.globalAlpha = aB; x.strokeStyle = C.r; x.lineWidth = 5; x.beginPath(); x.arc(X(1030), Y(722), 46 * c.s / 1.6, 0, 7); x.stroke(); caja(X(1030) - 300, Y(722) + 30, 290, 54, C.r); texto('14/11 · ~62.000', X(1030) - 155, Y(722) + 68, 32, '#fff', 900, 'center'); x.globalAlpha = 1; }
+      if (aR > 0) { x.save(); x.globalAlpha = aR; x.strokeStyle = C.v; x.lineWidth = 6; x.setLineDash([14, 10]); x.beginPath(); x.moveTo(X(1040), Y(715)); x.lineTo(X(1040 + 60 * aR), Y(715 - 300 * aR)); x.stroke(); x.restore();
+        x.globalAlpha = aR; caja(X(1090), Y(420) - 10, 330, 54, C.v); texto('rebote a ~66.000', X(1090) + 165, Y(420) + 28, 32, '#071426', 900, 'center'); x.globalAlpha = 1; }
+    }
+  }
+  const LAM = { '03': martin, '04': martin, '05': cascada, '12': metodo, '13': metodo, '18': cuchillo };
+
+  // ---------- capa HTML (vidrios, checklists) ----------
+  function capa(t, b) {
+    const p = (t - b.ini) / (b.fin - b.ini), ent = eo(cl((t - b.ini) / .5));
+    document.querySelectorAll('#capa > *').forEach(e => { e.style.display = e.dataset.s === b.id ? 'block' : 'none'; });
+    if (b.id === '02') document.querySelectorAll('.panel5').forEach(e => { const i = +e.dataset.i, k = ['qué', 'cómo', 'configuración', 'opero', 'cuidados'][i], t0 = tx('02', k, 1, -.3), a = eo(cl((t - t0) / .5));
+      const fl = Math.sin(t * 1.3 + i) * 8; e.style.opacity = a; e.style.left = (110 + i * 345) + 'px'; e.style.top = (380 + (i % 2) * 70 + fl + (1 - a) * 80) + 'px'; e.style.transform = `rotate(${(i - 2) * 1.5}deg) scale(${.9 + .1 * a})`; });
+    const ck = (sel, claves, id) => document.querySelectorAll(sel + ' > div').forEach((d, i) => { d.className = t >= tx(id, claves[i], 1, -.1) ? 'on' : ''; });
+    if (b.id === '06') { const a = eo(cl((t - tx('06', 'gratis', 1, -.2)) / .5)); $('#gratis').style.opacity = a; $('#gratis').style.transform = `translateY(${(1 - a) * 40 + Math.sin(t * 1.2) * 6}px)`; }
+    if (b.id === '10') { ck('#ck10', ['par', 'veinticuatro', 'semana', 'umbral', 'elige'], '10'); $('#ck10').style.opacity = ent; $('#ck10').style.transform = `translateY(${Math.sin(t * 1.1) * 6}px)`; }
+    if (b.id === '15') { $('#l15').style.opacity = ent; $('#l15').style.transform = `scale(${.94 + .06 * ent})`; }
+    if (b.id === '16') { $('#v16').style.opacity = ent; $('#v16').style.transform = `translateY(${(1 - ent) * 50 + Math.sin(t) * 6}px)`; }
+    if (b.id === '17') { ck17(); $('#ck17').style.opacity = ent; }
+    if (b.id === '19') { ck('#l19 .check', ['entra', 'anota', 'mañana'], '19'); $('#l19').style.opacity = ent; $('#arribaAbajo').style.opacity = eo(cl((t - tx('19', 'escribe', 1, -.2)) / .4)); }
+    if (b.id === '20') { $('#l20').style.opacity = ent; }
+  }
+  const ck17 = () => { const k = [tx('17', 'uno'), tx('17', 'dos'), tx('17', 'tres'), tx('17', 'cuatro'), tx('17', 'cinco', 2)];
+    document.querySelectorAll('#ck17 > div').forEach((d, i) => { d.className = window._t >= k[i] - .1 ? 'on' : ''; }); };
+  const TRAS = { '01': 'El mapa que<br><span class="oro">mueve</span> a Bitcoin' };  // en la 01 va delante y se aparta
+  const CHIP = { '06': 'PASO 1 · ENTRAR', '07': 'PASO 2 · EL MAPA', '08': 'QUÉ VES', '09': 'LOS COLORES', '10': 'MI CONFIGURACIÓN', '11': 'DOS ZONAS',
+    '12': 'ASÍ LO OPERO YO · NO ES RECOMENDACIÓN', '13': 'ASÍ LO OPERO YO · NO ES RECOMENDACIÓN', '14': 'CASO PASADO · NO ES SEÑAL', '17': 'CUIDADOS' };
+  // ---------- subtítulos ----------
+  const CLAVE = /^(liquidaci|mapa|gratis|gmail|amarill|violeta|verde|prestado|apalancamiento|martín|franja|umbral|modelo|giro|garantía|caso|estimaci|stop|demo|arriba|abajo|riesgo|coinglass|calma)/i;
+  const grupos = []; T.bloques.forEach(b => { let g = []; b.subs.forEach((w, i) => { g.push(w); const s = b.subs[i + 1];
+    if (!s || /[.,:;]$/.test(w[2]) || g.length >= 7 || s[0] - w[1] > .35) { grupos.push(g); g = []; } }); });
+  window.EVENTOS = T.bloques.slice(1).map(b => ({ t: b.ini, s: 'whoosh' }));
+  const img = $('#rec'); let nAct = 1;
+  window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode().catch(() => 0))));
+  window.cuadro = function (t) {
+    window._t = t; let b = T.bloques[0]; T.bloques.forEach(q => { if (t >= q.ini - .05) b = q; });
+    x.clearRect(0, 0, 1920, 1080);
+    const g = grabacion(t, b); if (g) flotar(t, b);
+    if (LAM[b.id]) LAM[b.id](t, b);
+    if (g && (b.id === '11' || b.id === '14')) zonas(t, b, g.c);
+    capa(t, b);
+    const tr = TRAS[b.id]; $('#tras').innerHTML = tr || ''; $('#tras').style.opacity = tr ? .9 * eo(cl((t - b.ini) / .6)) : 0;
+    $('#tras').style.zIndex = b.id === '01' ? 7 : -1;
+    if (b.id === '01') { const sale = eo(cl((t - 2.0) / .8)); $('#tras').style.opacity = 1 - sale; $('#tras').style.transform = `translateY(${-sale * 60}px) scale(${1 + sale * .08})`; $('#lienzo').style.filter = `blur(${8 * (1 - sale)}px) brightness(${.55 + .45 * sale})`; }
+    const ch = CHIP[b.id]; $('#chip').style.display = ch ? 'block' : 'none'; $('#chip').textContent = ch || ''; $('#chip').className = /NO ES/.test(ch || '') ? 'rojo' : '';
+    $('#pie').textContent = g ? 'Grabación real de coinglass.com · 15/11/2026 · contenido educativo' : 'Real Investors Club · contenido educativo · no es recomendación de inversión';
+    const gr = grupos.find(q => t >= q[0][0] - .05 && t < q[q.length - 1][1] + .3);
+    $('#sub').innerHTML = gr ? gr.map(w => `<span class="${t >= w[0] - .03 ? (CLAVE.test(w[2]) ? 'on k' : 'on') : ''}">${w[2]}</span>`).join(' ') : '';
+    if (g && g.n !== nAct) { nAct = g.n; img.src = F(g.n); return img.decode().catch(() => 0); }
+    return Promise.resolve();
+  };
+})();
+</script>
+</body></html>
