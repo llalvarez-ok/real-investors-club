@@ -70,6 +70,7 @@
 <div id="chip"></div>
 <div id="escena3d"><div id="ventana"><div class="cromo"><i></i><i></i><i></i><div class="url" id="url">coinglass.com</div></div>
   <div id="vista"><div id="lienzo"><img id="rec" src="grab/f/00001.jpg" alt="">
+    <div class="tapa tapaAd" style="left:493px;top:201px;width:123px;height:115px;background:#c7c8ca"></div><div class="tapa tapaAd" style="left:1292px;top:201px;width:114px;height:115px;background:#c7c8ca"></div><div class="tapa tapaAd" style="left:616px;top:201px;width:676px;height:15px;background:#c7c8ca"></div>
     <div class="tapa" id="tapaLeg" style="left:1715px;top:812px;width:170px;height:95px"></div>
   </div><div id="marco"></div></div></div></div>
 <canvas id="cv" width="1920" height="1080"></canvas>
@@ -134,19 +135,19 @@
     tooltip33: [1100, 360, 420, 180], escala33: [365, 175, 70, 745],
     mapa92: [440, 95, 1400, 820], amarillo92: [453, 268, 1325, 34], violeta92: [470, 560, 600, 300], verde92: [453, 330, 1325, 120], escala92: [370, 100, 70, 800],
     parSym: [362, 285, 186, 46], horas: [1585, 348, 126, 48], umbral: [1300, 410, 560, 56], modelos: [930, 152, 360, 56],
-    horas46: [1585, 98, 126, 44], umbral63: [1300, 168, 560, 50], modelos150: [930, 155, 360, 56],
+    horas46: [1585, 98, 126, 44], umbral63: [1300, 168, 560, 50], modelos150: [930, 165, 360, 90],
     caida33: [930, 560, 260, 220], rebote33: [990, 380, 520, 360],
     m3: [80, 90, 1360, 760], m3amar: [95, 380, 1325, 40], m3panel: [1505, 95, 380, 610] };
   const REC = {
     '01': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92'], [2.2, 'amarillo92']] },
     '02': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92']], desenfoque: 1 },
     '05': { tramo: [33, 33.1], vel: 0, cam: [[0, 'velas33']], desenfoque: .6 },
-    '06': { tramo: [1, 8.6], vel: 1, cam: [[0, 'todo'], [2.6, 'login'], [4.4, 'google', 'Continue with Google']], luego: { desde: 'Así', tramo: [17.6, 21], vel: .8, cam: [[0, 'exito', 'Sesión iniciada']] } },
+    '06': { tramo: [1, 6.6], vel: 1, cam: [[0, 'todo'], [2.6, 'login'], [4.4, 'google', 'Continue with Google']], luego: { desde: 'Así', tramo: [18.5, 21], vel: .6, cam: [[0, 'exito', 'Sesión iniciada']] } },
     '07': { tramo: [22.4, 30], vel: 1, cam: [[0, 'menuBarra'], [1.4, 'menu', 'Liquidation'], [2.6, 'item', 'Liquidation Heatmap'], [5.2, 'pagina']] },
     '08': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33'], ['abajo', 'ejeT', 'Tiempo'], ['derecha', 'ejeP', 'Precio'], ['velas', 'velas33', 'Velas = precio de Bitcoin'], ['franjas', 'franjas33', 'Franjas = liquidaciones'], ['mouse', 'tooltip33', 'Precio y dinero en juego']] },
     '09': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapa92'], ['violeta', 'violeta92', 'Violeta: poco'], ['verde', 'verde92', 'Verde: un poco más'], ['amarillo', 'amarillo92', 'Amarillo: mucho'], ['escala', 'escala92', 'Escala: 201 M']] },
     '10': { tramo: [37, 47.5], vel: 1, cam: [[0, 'parSym', 'Par / Symbol'], ['veinticuatro', 'horas46', '24 hour'], ['umbral', 'umbral63', 'Liquidity Threshold']],
-            luegos: [{ desde: 'umbral', tramo: [61, 66], vel: 1, cam: [[0, 'umbral63', 'Liquidity Threshold']] }, { desde: 'modelos', tramo: [139, 151], vel: 1.3, cam: [[0, 'modelos150', 'Model 1 · 2 · 3']] }] },
+            luegos: [{ desde: 'umbral', tramo: [61, 66], vel: 1, cam: [[0, 'umbral63', 'Liquidity Threshold']] }, { desde: 'modelos', tramo: [148, 152], vel: .6, cam: [[0, 'modelos150', 'Model 1 · 2 · 3']] }] },
     '11': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33']] },
     '14': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33'], ['bajó', 'caida33'], ['rebotó', 'rebote33']] },
   };
@@ -178,6 +179,7 @@
     $('#lienzo').style.filter = cfg.desenfoque ? `blur(${6 * cfg.desenfoque}px) brightness(.7)` : 'none';
     $('#url').textContent = ts < 17 ? 'coinglass.com/login' : ts < 27 ? 'coinglass.com' : ts > 150 ? 'coinglass.com/liquidation-heatmap-model3' : 'coinglass.com/pro/futures/LiquidationHeatMap';
     $('#tapaLeg').style.display = ts > 26 ? 'block' : 'none';
+    document.querySelectorAll('.tapaAd').forEach(e => { e.style.display = ts >= 18 && ts < 22 ? 'block' : 'none'; });
     // marco y etiqueta sobre el elemento enfocado
     const r = cam[k][1], m = $('#marco'), e = $('#etq');
     if (k && q > .85 && r !== R.todo && r !== R.pagina && !r.sinMarco) { const a = cl((q - .85) / .15);
