@@ -70,3 +70,19 @@ Lo que sí nos señala: `CLAUDE.md` pasó los 60 KB y cada chat y tarea programa
 instalar nada) es partir la sección «Estado» en fichas por tema (`estado/voz.md`, `estado/instagram.md`, …) y dejar en
 `CLAUDE.md` un índice corto. Si se quiere probar graphify igual, hace falta el permiso de instalación (`uv tool install
 graphifyy`), que hoy frena el clasificador, como pasó con Earshot.
+
+## 7. Reel «5 conectores para Claude» (instagram.com/reel/Dfu9iDcgnuY, transcripto con Supadata `--ia`)
+Lista: Perplexity (búsqueda), Firecrawl (leer cualquier web y sacar el kit de marca), PostHog (en qué paso de la web
+se van los clientes), Playwright (manejar el navegador) y Composio (un conector para Gmail, Drive, Notion…).
+Cierre «seguime y comentá <palabra> que te mando el prompt».
+- **Ya lo tenemos:** búsqueda web (WebSearch), Playwright (capturas de CoinGlass), Gmail y Drive como conectores.
+  Composio no suma y abre acceso a todas las cuentas de golpe: descartado.
+- **Sirve: PostHog** (plan gratis de 1 M de eventos por mes). Hoy no sabemos qué pasa cuando alguien entra a
+  realinvestors.club desde YouTube o Instagram (0 toques al link en Instagram, el 75 % de las vistas de YouTube viene
+  de la web). Con PostHog se ve de dónde llega cada visita y en qué paso se va. Hace falta pegar un fragmento en la
+  web (la web no está en este repo): **pendiente de Lean**.
+- **Quizás: Firecrawl** (500 créditos gratis): lee páginas que frenan a los robots (CoinGlass cortó las capturas a las
+  pocas cargas). Necesita clave y habilitar `api.firecrawl.dev`. Probar solo si vuelve a hacer falta.
+- **Formato:** lista numerada de herramientas con una frase de «para qué te sirve» cada una y palabra para comentar.
+  Es la idea ya anotada en la sección 2: «5 herramientas gratis para traders» (CoinGlass, TradingView gratis,
+  calendario económico, mapa de calor, diario de trading). Gancho reutilizable: «Los que <logran X> tienen esto…».

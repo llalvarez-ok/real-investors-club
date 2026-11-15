@@ -21,7 +21,7 @@ que funcionaba.
     cualquiera?) y, si existe, con los casos parecidos al de hoy. Un «19 de 19» sin base de comparación exagera.
 11. **Vigencia** (sumado el 04/11/2026): nada de «anoche» u «hoy» si el video se publica uno o más días después de
     grabarse; el texto tiene que entenderse el día que sale.
-12. **Puntuación y pronunciación para la voz** (pronunciación sumada el 15/11/2026: en el texto para la voz, **«video» se escribe «vidéo»** —y «videos», «vidéos»—, que es como se dice en Argentina; en pantalla y subtítulos queda «video»).
+12. **Puntuación y pronunciación para la voz** (pronunciación sumada el 15/11/2026: en el texto para la voz, **«video» se escribe «vidéo»** —y «videos», «vidéos»—, que es como se dice en Argentina, y **«liquidación» se escribe «likidación»** —«likidaciones», «likidez»—, porque el clon dice «licuidación»; en pantalla y subtítulos queda «video»).
     **Puntuación** (sumado el 07/11/2026, Lean: «la puntuación mal puesta le cambia el sentido a las frases»).
     Las voces sintéticas y clonadas entonan según la puntuación, y los subtítulos la copian. Ejemplo real: «¿La diferencia?
     No fue la estrategia. Fue cuánto se animó a perder.» salió como «La diferencia no fue la estrategia. ¿Cuánto se animó

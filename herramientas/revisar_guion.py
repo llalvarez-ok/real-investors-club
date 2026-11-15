@@ -44,6 +44,9 @@ def revisar_texto(voz):
     # Regla de Lean (15/11/2026): en la voz, «video» se escribe «vidéo», que es como se pronuncia en Argentina
     for m in re.findall(r"\bvideos?\b", voz, flags=re.I):
         errores.append(f"«{m}»: en la voz escribir «vidéo»/«vidéos» (pronunciación argentina, regla de Lean)")
+    # Regla de Lean (15/11/2026): el clon dice «licuidación»; en la voz se escribe «likidación» («likidar», «likidez»)
+    for m in re.findall(r"\bliquid\w*", voz, flags=re.I):
+        errores.append(f"«{m}»: en la voz escribir con «k» («likidación», «likidez»): el clon dice «licuidación»")
     if re.search(r"\d", voz):
         avisos.append("cifras con dígitos en la voz: escribirlas en palabras, como se pronuncian")
     return errores, avisos

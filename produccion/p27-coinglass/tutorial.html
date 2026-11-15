@@ -100,7 +100,7 @@
 <div id="ventana"><div class="cromo"><i></i><i></i><i></i><div class="url">coinglass.com/es/pro/futures/LiquidationHeatMap</div></div>
   <div id="vista"><div id="lienzo"><img src="capturas/heatmap-es-15-11.png" alt="">
     <div class="tapa" style="left:484px;top:147px;width:728px;height:90px"></div>
-    <div class="tapa" style="left:1278px;top:812px;width:140px;height:66px"></div>
+    <div class="tapa" style="left:1278px;top:812px;width:58px;height:66px;background:#46035c"></div><div class="tapa" style="left:1336px;top:812px;width:82px;height:66px"></div>
   </div><div id="marco"></div><div id="etq"></div></div></div>
 
 <div id="sub"></div>
@@ -113,14 +113,16 @@
   // ---- capturas: recorridos por escena (rectángulos en coordenadas de la captura, 1440x900) ----
   const R = { nav: [570, 46, 92, 38, 'Menú: Liquidación'], menu: [0, 722, 256, 38, 'Mapa Calor Liquidaciones'],
     par: [300, 380, 148, 38, 'Par y Símbolo'], selector: [944, 432, 344, 38, 'Par y temporalidad'], horas: [1182, 432, 106, 38, '24 hora'],
-    mapa: [296, 590, 1048, 310, 'El mapa de calor'], escala: [296, 596, 54, 304, 'Escala: 62,74 M'],
-    umbral: [1094, 490, 302, 30, 'Umbral de liquidez'], modelos: [695, 278, 307, 40, 'Modelos 1, 2 y 3'], m1: [697, 280, 101, 36, 'Modelo 1: sin cuenta'] };
-  const REC = { '05': [[0, null], [.12, 'nav'], [.5, 'menu'], [.85, 'mapa']], '06': [[0, 'par'], [.55, 'selector']], '07': [[0, 'horas'], [.6, 'mapa']],
-    '08': [[0, 'mapa'], [.6, 'escala']], '09': [[0, 'umbral'], [.7, 'mapa']], '10': [[0, 'modelos'], [.45, 'm1']] };
+    mapa: [300, 596, 1040, 304, 'El mapa de calor', 1.04, 1.1], escala: [296, 596, 54, 304, 'Escala: 62,74 M'],
+    umbral: [1094, 490, 302, 30, 'Umbral de liquidez'],
+    fondo: [374, 598, 380, 110, 'Violeta: pocas liquidaciones'], franjas: [740, 690, 592, 80, 'Franjas fuertes: muchas juntas'],
+    precio: [1060, 770, 272, 128, 'El precio de ahora'], modelos: [695, 278, 307, 40, 'Modelos 1, 2 y 3'], m1: [697, 280, 101, 36, 'Modelo 1: sin cuenta'] };
+  const REC = { '05': [[0, null], [.12, 'nav'], [.5, 'menu'], [.85, 'mapa']], '06': [[0, 'par'], [.55, 'selector']], '07': [[0, 'horas'], [.5, 'mapa'], [.78, 'precio']],
+    '08': [[0, 'mapa'], [.1, 'fondo'], [.3, 'franjas'], [.62, 'escala']], '09': [[0, 'umbral'], [.55, 'mapa'], [.8, 'franjas']], '10': [[0, 'modelos'], [.45, 'm1']] };
   const VW = 1700, VH = 734;
   function camara(r) {  // escala y desplazamiento para centrar el rectángulo r en la vista
     if (!r) return { s: VW / 1440, x: 0, y: 0 };
-    const s = Math.min(VW / (r[2] * 1.9), VH / (r[3] * 2.6), 2.6);
+    const s = Math.min(VW / (r[2] * (r[5] || 1.9)), VH / (r[3] * (r[6] || 2.6)), 2.6);
     const s2 = Math.max(s, VW / 1440);
     let x = VW / 2 - (r[0] + r[2] / 2) * s2, y = VH / 2 - (r[1] + r[3] / 2) * s2;
     x = cl(x, VW - 1440 * s2, 0); y = cl(y, VH - 900 * s2, 0); return { s: s2, x, y };
@@ -129,7 +131,13 @@
     const rec = REC[b.id]; const v = $('#ventana'); if (!rec) { v.style.display = 'none'; return; }
     v.style.display = 'block'; const d = b.fin - b.ini, p = (t - b.ini) / d;
     let k = 0; rec.forEach((r, i) => { if (p >= r[0]) k = i; });
-    const prev = camara(R[(rec[k - 1] || rec[k])[1]]), cur = camara(R[rec[k][1]]), q = eio(cl((p - rec[k][0]) * d / .9));
+    // la cámara nunca queda quieta: después de llegar a cada parada se sigue acercando despacio (2,5 % por segundo, hasta 18 %)
+    const deriva = (cam, rr, seg) => { const zf = 1 + Math.min(.18, .025 * Math.max(0, seg)); if (zf === 1) return cam;
+      const px = (rr ? rr[0] + rr[2] / 2 : 720) * cam.s + cam.x, py = (rr ? rr[1] + rr[3] / 2 : 450) * cam.s + cam.y, s2 = cam.s * zf;
+      return { s: s2, x: cl(px - (px - cam.x) * zf, VW - 1440 * s2, 0), y: cl(py - (py - cam.y) * zf, VH - 900 * s2, 0) }; };
+    const kp = Math.max(0, k - 1), rp = R[rec[kp][1]], rc = R[rec[k][1]];
+    const prev = deriva(camara(rp), rp, k ? (rec[k][0] - rec[kp][0]) * d - .9 : 0);
+    const cur = deriva(camara(rc), rc, (p - rec[k][0]) * d - .9), q = eio(cl((p - rec[k][0]) * d / .9));
     const c = k === 0 && b.id !== '05' ? cur : { s: prev.s + (cur.s - prev.s) * q, x: prev.x + (cur.x - prev.x) * q, y: prev.y + (cur.y - prev.y) * q };
     $('#lienzo').style.transform = `translate(${c.x}px,${c.y}px) scale(${c.s})`;
     const r = R[rec[k][1]], m = $('#marco'), e = $('#etq');
