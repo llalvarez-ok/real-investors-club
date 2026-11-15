@@ -86,3 +86,19 @@ Cierre «seguime y comentá <palabra> que te mando el prompt».
 - **Formato:** lista numerada de herramientas con una frase de «para qué te sirve» cada una y palabra para comentar.
   Es la idea ya anotada en la sección 2: «5 herramientas gratis para traders» (CoinGlass, TradingView gratis,
   calendario económico, mapa de calor, diario de trading). Gancho reutilizable: «Los que <logran X> tienen esto…».
+
+## 8. Reel «3 plugins para ahorrar tokens en Claude Code» (instagram.com/reel/DfshJx5B1QV, Supadata `--ia`)
+Propone Ponytail, Graphify y OmniRoute; cierre «comentá TOKENS».
+- **Ponytail** (github.com/DietrichGebert/ponytail): instrucciones para que el asistente escriba menos código. Promete
+  hasta −45 % de tokens; pruebas independientes miden mucho menos (~8 % de tokens de salida en la de JetBrains citada
+  por MindStudio). Hay copias con otros dueños: si se instala, solo desde el repo oficial. Para RIC sirve poco: casi
+  todo nuestro trabajo es guion, voz, render y API, no código largo. **No se instala.**
+- **Graphify:** ya analizado en la sección 6. Lo que sí nos sirve de esa idea: `CLAUDE.md` pesa más de 60 KB y lo lee
+  entero cada chat y cada tarea programada. **Propuesta:** partir la sección «Estado» en fichas por tema
+  (`estado/youtube.md`, `estado/instagram.md`, `estado/voz.md`, `estado/pilares.md`…) y dejar en `CLAUDE.md` las reglas y
+  un índice de una línea por ficha. Es el ahorro de tokens real y no requiere instalar nada. Pendiente del OK de Lean
+  (cambia cómo arrancan todos los chats).
+- **OmniRoute:** cuando se llega al límite, pasa a otro modelo gratis. **No sirve:** otro modelo no conoce nuestras
+  reglas ni la voz, rinde menos, y mandar el repo y las claves a un servicio de terceros es un riesgo.
+- **Idea de contenido:** el formato «3 herramientas gratis + comentá una palabra» funciona en el nicho de IA; para
+  nosotros es el mismo Reel de «herramientas gratis para traders» ya anotado en la sección 2.
