@@ -49,3 +49,6 @@ Tres herramientas gratis:
   Instalarlo quedó **pendiente del OK de Lean** (el sistema frena instalar código de repos externos sin permiso).
 Mejora propia mientras tanto (sin instalar nada): en `mezcla.py`, variar el sonido de cada evento, no poner whoosh en
 todos los cambios de bloque, no repetir el mismo efecto seguido y bajarlos cuando habla la voz.
+**Aplicado el 15/11/2026 en `herramientas/cine/mezcla.py`:** subida y whoosh solo en uno de cada dos cambios de bloque,
+cada efecto con tono (±2,5 semitonos) y nivel distintos, el mismo efecto no se repite a menos de 1,2 s, y los efectos
+bajan 35 % cuando habla la voz. Vale para todos los Reels en estilo expediente cine desde ahora.

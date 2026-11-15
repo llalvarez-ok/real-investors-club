@@ -95,3 +95,4 @@ El fondo (fotos, partículas) puede llenar todo el cuadro. Ejemplo aplicado: `pr
 Look `limpio` en `motor.js` para gráficos de datos (sin gradación, verde y rojo tal cual).
 
 - **Voz grabada sin «baño»** (04/11/2026, Lean: «suena como dentro de un baño»): `voz_grabada.py` ya no agrega reverb y le saca la de la habitación con WPE (`pip install nara_wpe scipy`), con compuerta más rápida y menos 420 Hz. Para corregir un video ya armado sin volver a renderizar: pasar los `voz/*.wav` por la misma cadena (mismo largo), volver a mezclar con `mezcla.py` y cambiar solo el audio del MP4 (`-c:v copy`).
+- **Efectos de sonido sin «ametralladora»** (15/11/2026, crítica del Reel de @somosvla_): `mezcla.py` pone subida y whoosh solo en uno de cada dos cambios de bloque, varía tono y nivel de cada efecto, no repite el mismo a menos de 1,2 s y los baja cuando habla la voz. Earshot (MIT) para calificar la mezcla está pendiente del OK de Lean.

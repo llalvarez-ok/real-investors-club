@@ -61,14 +61,29 @@ def main():
             cama[i:i + L] += k[:max(0, n - i)]
     cama = np.tanh(cama * 1.2) * .75
     fx = np.zeros(n)
-    for b in T["bloques"][1:]:  # subida antes de cada bloque
-        r = riser(.9); i = int((b["ini"] - .9) * R)
+    # Variedad (15/11/2026, crítica «ametralladora»: el mismo whoosh en cada corte y un golpe en cada sello):
+    # subida solo en uno de cada dos cambios de bloque, cada efecto con tono y nivel distintos, y el mismo efecto
+    # no se repite a menos de 1,2 s (el segundo se saltea).
+    def variar(x, k):
+        r = np.random.default_rng(100 + k); f = 2 ** (r.uniform(-2.5, 2.5) / 12)
+        idx = np.arange(0, len(x) - 1, f); y = np.interp(idx, np.arange(len(x)), x)
+        return y * r.uniform(.7, 1.0)
+    for k, b in enumerate(T["bloques"][1:]):
+        if k % 2: continue
+        r = variar(riser(.9), k); i = int((b["ini"] - .9) * R)
         if i > 0: fx[i:i + len(r)] += r[:n - i]
-    for e in json.load(open(ev)):
-        s = boom() if e["s"] in ("impacto", "sello") else SFX.get(e["s"], whoosh)()
+    ultimo, nw = {}, 0
+    for k, e in enumerate(sorted(json.load(open(ev)), key=lambda e: e["t"])):
+        tipo = "golpe" if e["s"] in ("impacto", "sello") else e["s"]
+        if e["s"] == "whoosh":  # el motor pone un whoosh en cada cambio de bloque: queda uno de cada dos
+            nw += 1
+            if nw % 2 == 0: continue
+        if e["t"] - ultimo.get(tipo, -9) < 1.2: continue
+        ultimo[tipo] = e["t"]
+        s = variar(boom() if tipo == "golpe" else SFX.get(e["s"], whoosh)(), k)
         i = int(max(0, e["t"] - (.15 if e["s"] in ("whoosh", "cohete") else 0)) * R); fx[i:i + len(s)] += s[:n - i]
-    fx = reverb(fx, 1.6, .3)
     hab = lp(np.abs(voz), int(.25 * R)); duck = 1 - .7 * np.clip(hab / .04, 0, 1)
+    fx = reverb(fx, 1.6, .3) * (1 - .35 * np.clip(hab / .04, 0, 1))  # los efectos bajan 35 % cuando habla la voz
     mez_c = cama * .5 * duck
     vozr = voz if T.get("voz_grabada") else reverb(voz, .5, .06)  # la voz grabada ya trae su sala
     # estéreo: la cama y los efectos un poco abiertos, la voz al centro
