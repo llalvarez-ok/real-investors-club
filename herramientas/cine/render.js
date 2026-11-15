@@ -1,11 +1,12 @@
 // node herramientas/cine/render.js <escena.html?v=ig> <dir salida> <segundos> [procesos] [desde] [hasta]
+// ANCHO=1920 ALTO=1080 (variables de entorno) para videos horizontales; por defecto 1080x1920.
 // Cuadros JPEG a 30 fps con window.cuadro(t), repartidos en varias páginas; guarda eventos.json para la mezcla.
 // Con "foto" en lugar de los segundos saca solo los cuadros pedidos: render.js <url> <prefijo> foto 3 12,5 30
 const { chromium } = require('playwright'); const fs = require('fs');
 (async () => {
   const [url, out, dur, np = '4', desde = '0', hasta] = process.argv.slice(2);
   const b = await chromium.launch({ args: ['--allow-file-access-from-files', '--disable-web-security'] });
-  const abre = async () => { const p = await b.newPage({ viewport: { width: 1080, height: 1920 } }); const errs = [];
+  const abre = async () => { const p = await b.newPage({ viewport: { width: +(process.env.ANCHO || 1080), height: +(process.env.ALTO || 1920) } }); const errs = [];
     p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
     await p.goto(url.startsWith('/') ? 'file://' + url : url); await p.evaluate(() => window.listo); p.errs = errs; return p; };
   if (dur === 'foto') {

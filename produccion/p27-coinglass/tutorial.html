@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>P27 · Mapa de liquidaciones de CoinGlass</title>
+<!-- Tutorial horizontal 1920x1080. Capturas reales de CoinGlass (capturas/, 15/11/2026) con zoom y marcos; láminas RIC
+     (azul noche, oro) para los conceptos; velas reales de BTC-USD (../reel-btc-62k/btc.js) en el ejemplo.
+     window.cuadro(t) para herramientas/cine/render.js. Tiempos: tiempos-yt.js (window.T, un bloque por escena 01–16). -->
+<script src="tiempos-yt.js"></script>
+<script src="../reel-btc-62k/btc.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=block" rel="stylesheet">
+<style>
+  :root { --n1:#071426; --n2:#0d2142; --o1:#e2c68c; --o2:#c7a35e; --o3:#8e7140; --t1:#ecf1f9; --t2:#a3b5d1; --v:#3dd68c; --r:#ff6b6b; --b:#274a80; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:var(--n1); font-family:'IBM Plex Sans', sans-serif; color:var(--t1); }
+  #fondo { position:absolute; inset:0; background:
+    linear-gradient(rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    linear-gradient(90deg, rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    radial-gradient(ellipse at 80% 0%, #12305c 0%, transparent 55%), linear-gradient(160deg, var(--n2), var(--n1) 70%); }
+  .esc { position:absolute; inset:0; display:none; }
+  h1 { font-family:'Archivo'; font-weight:900; text-transform:uppercase; letter-spacing:-.5px; line-height:.98; }
+  .oro { background:linear-gradient(180deg,var(--o1),var(--o2) 55%,var(--o3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .chip { position:absolute; top:52px; right:80px; font:600 24px 'IBM Plex Mono'; color:var(--o1); border:2px solid var(--b); border-radius:40px; padding:8px 22px; background:rgba(7,20,38,.7); }
+  #logo { position:absolute; top:44px; left:80px; height:58px; }
+  #barra { position:absolute; left:0; right:0; bottom:0; height:64px; border-top:2px solid var(--b); background:rgba(7,20,38,.85);
+    display:flex; align-items:center; justify-content:space-between; padding:0 80px; font:600 22px 'IBM Plex Mono'; color:var(--t2); }
+  #barra b { font-family:'Archivo'; font-weight:800; color:var(--t1); } #barra b i { font-style:normal; color:var(--o1); }
+  #sub { position:absolute; left:200px; right:200px; bottom:92px; text-align:center; font:600 40px 'IBM Plex Sans'; line-height:1.25;
+    text-shadow:0 3px 12px rgba(0,0,0,.95); }
+  #sub span { color:rgba(236,241,249,.45); } #sub span.on { color:var(--t1); } #sub span.k { color:var(--o1); }
+  /* ventana del navegador con la captura */
+  #ventana { position:absolute; left:110px; top:130px; width:1700px; height:780px; border-radius:18px; overflow:hidden; display:none;
+    border:2px solid var(--b); box-shadow:0 30px 80px rgba(0,0,0,.6); background:#fff; }
+  #ventana .cromo { position:absolute; left:0; right:0; top:0; height:46px; background:#e9edf3; display:flex; align-items:center; gap:10px; padding:0 18px; z-index:3; }
+  #ventana .cromo i { width:13px; height:13px; border-radius:50%; background:#ff5f57; } #ventana .cromo i:nth-child(2) { background:#febc2e; } #ventana .cromo i:nth-child(3) { background:#28c840; }
+  #ventana .url { margin-left:16px; flex:1; height:30px; border-radius:15px; background:#fff; font:500 18px 'IBM Plex Mono'; color:#334; display:flex; align-items:center; padding:0 16px; }
+  #vista { position:absolute; left:0; right:0; top:46px; bottom:0; overflow:hidden; }
+  #lienzo { position:absolute; left:0; top:0; width:1440px; height:900px; transform-origin:0 0; }
+  #lienzo img { width:1440px; height:900px; display:block; }
+  .tapa { position:absolute; background:#f6f7f9; }
+  #marco { position:absolute; border:5px solid var(--o1); border-radius:12px; box-shadow:0 0 0 9999px rgba(7,20,38,.45), 0 0 30px rgba(226,198,140,.8); pointer-events:none; display:none; }
+  #etq { position:absolute; display:none; font:700 30px 'Archivo'; color:var(--n1); background:var(--o1); padding:10px 20px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.4); white-space:nowrap; }
+  /* láminas */
+  .lam { position:absolute; left:140px; right:140px; top:150px; }
+  .lam h1 { font-size:88px; } .lam p { font-size:40px; line-height:1.35; color:var(--t2); margin-top:28px; max-width:1300px; } .lam p b { color:var(--t1); }
+  .cards { display:flex; gap:30px; margin-top:50px; }
+  .card { flex:1; border:2px solid var(--b); border-radius:24px; background:rgba(7,20,38,.65); padding:34px; font-size:34px; line-height:1.3; opacity:0; }
+  .card .n { font:900 64px 'Archivo'; color:var(--o1); display:block; margin-bottom:10px; }
+  canvas.g { position:absolute; left:140px; top:360px; }
+  .sello { position:absolute; font:900 64px 'Archivo'; text-transform:uppercase; color:var(--r); border:7px double var(--r); padding:10px 34px; transform:rotate(-6deg); opacity:0; background:rgba(40,4,6,.35); }
+  .lista { margin-top:40px; } .lista div { font-size:40px; margin:22px 0; opacity:0; display:flex; gap:22px; align-items:center; }
+  .lista div:before { content:''; width:22px; height:22px; border-radius:50%; background:var(--o1); flex:none; }
+  .aviso { font:600 26px 'IBM Plex Mono'; color:var(--t2); }
+</style></head>
+<body>
+<div id="fondo"></div>
+<img id="logo" src="../../marca/logo-oro.png" alt="">
+<div class="chip" id="chip"></div>
+
+<!-- 01 gancho -->
+<div class="esc" data-b="01"><div class="lam" style="top:210px">
+  <h1 style="font-size:104px">El mapa <span class="oro">gratis</span><br>de las liquidaciones</h1>
+  <p style="max-width:820px">Dónde se juntan las liquidaciones de Bitcoin, <b>antes de que pasen</b>. Paso a paso, sin cuenta.</p></div>
+  <div style="position:absolute;left:1060px;top:300px;width:740px;height:470px;border-radius:18px;overflow:hidden;border:3px solid var(--o2);box-shadow:0 30px 80px rgba(0,0,0,.6);transform:rotate(2deg)">
+    <img src="capturas/heatmap-es-15-11.png" style="position:absolute;width:2160px;left:-560px;top:-880px;filter:saturate(1.15)" alt=""></div></div>
+<!-- 02 qué vas a aprender -->
+<div class="esc" data-b="02"><div class="lam"><h1>Qué vas a <span class="oro">aprender</span></h1>
+  <div class="cards"><div class="card" data-a=".05"><span class="n">1</span>Qué es una liquidación</div>
+  <div class="card" data-a=".3"><span class="n">2</span>Cómo abrir y configurar el mapa en 6 pasos</div>
+  <div class="card" data-a=".6"><span class="n">3</span>Cómo usarlo sin caer en el error más común</div></div></div></div>
+<!-- 03 qué es una liquidación -->
+<div class="esc" data-b="03"><div class="lam"><h1>Qué es una <span class="oro">liquidación</span></h1></div><canvas class="g" id="g03" width="1640" height="520"></canvas></div>
+<!-- 04 largos y cortos -->
+<div class="esc" data-b="04"><div class="lam"><h1><span style="color:var(--v)">Largos</span> y <span style="color:var(--r)">cortos</span></h1></div><canvas class="g" id="g04" width="1640" height="520"></canvas></div>
+<!-- 11 cómo se usa -->
+<div class="esc" data-b="11"><div class="lam"><h1>Cómo se <span class="oro">usa</span></h1><p style="font-size:34px">Ejemplo («supón que»): Martina mira Bitcoin en 65.000.</p></div><canvas class="g" id="g11" width="1640" height="520"></canvas></div>
+<!-- 12 ejemplo real -->
+<div class="esc" data-b="12"><div class="lam"><h1>Un caso <span class="oro">real</span></h1></div><canvas class="g" id="g12" width="1640" height="520"></canvas></div>
+<!-- 13 error común -->
+<div class="esc" data-b="13"><div class="lam"><h1>El error <span class="oro">más común</span></h1>
+  <p>Son <b>estimaciones de un modelo</b>, no órdenes reales. El precio puede pasar de largo, quedarse a mitad de camino o no llegar nunca.</p>
+  <p>Úsalo junto con <b>tus soportes y resistencias</b>, nunca solo.</p></div>
+  <div class="sello" id="s13" style="left:1080px;top:690px">No es una promesa</div></div>
+<!-- 14 actividad -->
+<div class="esc" data-b="14"><div class="lam"><h1>Tu <span class="oro">tarea</span> de hoy</h1>
+  <div class="lista"><div data-a=".1">En demo o solo mirando, abre el mapa en 24 horas</div><div data-a=".35">Anota la franja amarilla más cercana arriba y abajo</div>
+  <div data-a=".6">Mañana, mira a cuál llegó el precio primero</div><div data-a=".8">Repítelo una semana</div></div></div></div>
+<!-- 15 resumen -->
+<div class="esc" data-b="15"><div class="lam"><h1>Repasemos</h1>
+  <div class="cards"><div class="card" data-a=".05"><span class="n">1</span>Liquidación: un cierre forzado</div>
+  <div class="card" data-a=".25"><span class="n">2</span>Amarillo: donde se juntan muchas</div>
+  <div class="card" data-a=".5"><span class="n">3</span>Par, temporalidad y modelo: fijos</div>
+  <div class="card" data-a=".75"><span class="n">4</span>Referencia, no promesa</div></div></div></div>
+<!-- 16 cierre -->
+<div class="esc" data-b="16"><div class="lam" style="text-align:center;left:0;right:0;top:170px">
+  <img src="../../marca/logo-oro.png" style="height:150px" alt="">
+  <h1 style="font-size:70px;margin-top:40px">Comenta tus <span class="oro">dos franjas</span></h1>
+  <p style="margin:24px auto 0;max-width:none">y suscríbete a <b>Real Investors Club</b> · realinvestors.club</p>
+  <p class="aviso" style="margin:60px auto 0;max-width:none">Contenido educativo. No constituye recomendación de inversión.</p></div></div>
+
+<!-- capturas 05–10 -->
+<div id="ventana"><div class="cromo"><i></i><i></i><i></i><div class="url">coinglass.com/es/pro/futures/LiquidationHeatMap</div></div>
+  <div id="vista"><div id="lienzo"><img src="capturas/heatmap-es-15-11.png" alt="">
+    <div class="tapa" style="left:484px;top:147px;width:728px;height:90px"></div>
+    <div class="tapa" style="left:1278px;top:812px;width:140px;height:66px"></div>
+  </div><div id="marco"></div><div id="etq"></div></div></div>
+
+<div id="sub"></div>
+<div id="barra"><b>Real Investors <i>Club</i></b><span>Capturas de coinglass.com · 15/11/2026 · contenido educativo</span></div>
+<script>
+(function () {
+  const B = {}; T.bloques.forEach((b, i) => { B[b.id] = b; b.fin = i + 1 < T.bloques.length ? T.bloques[i + 1].ini : T.total; });
+  const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), eo = v => 1 - Math.pow(1 - v, 3), eio = v => v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2;
+  const $ = s => document.querySelector(s);
+  // ---- capturas: recorridos por escena (rectángulos en coordenadas de la captura, 1440x900) ----
+  const R = { nav: [570, 46, 92, 38, 'Menú: Liquidación'], menu: [0, 722, 256, 38, 'Mapa Calor Liquidaciones'],
+    par: [300, 380, 148, 38, 'Par y Símbolo'], selector: [944, 432, 344, 38, 'Par y temporalidad'], horas: [1182, 432, 106, 38, '24 hora'],
+    mapa: [296, 590, 1048, 310, 'El mapa de calor'], escala: [296, 596, 54, 304, 'Escala: 62,74 M'],
+    umbral: [1094, 490, 302, 30, 'Umbral de liquidez'], modelos: [695, 278, 307, 40, 'Modelos 1, 2 y 3'], m1: [697, 280, 101, 36, 'Modelo 1: sin cuenta'] };
+  const REC = { '05': [[0, null], [.12, 'nav'], [.5, 'menu'], [.85, 'mapa']], '06': [[0, 'par'], [.55, 'selector']], '07': [[0, 'horas'], [.6, 'mapa']],
+    '08': [[0, 'mapa'], [.6, 'escala']], '09': [[0, 'umbral'], [.7, 'mapa']], '10': [[0, 'modelos'], [.45, 'm1']] };
+  const VW = 1700, VH = 734;
+  function camara(r) {  // escala y desplazamiento para centrar el rectángulo r en la vista
+    if (!r) return { s: VW / 1440, x: 0, y: 0 };
+    const s = Math.min(VW / (r[2] * 1.9), VH / (r[3] * 2.6), 2.6);
+    const s2 = Math.max(s, VW / 1440);
+    let x = VW / 2 - (r[0] + r[2] / 2) * s2, y = VH / 2 - (r[1] + r[3] / 2) * s2;
+    x = cl(x, VW - 1440 * s2, 0); y = cl(y, VH - 900 * s2, 0); return { s: s2, x, y };
+  }
+  function capturas(t, b) {
+    const rec = REC[b.id]; const v = $('#ventana'); if (!rec) { v.style.display = 'none'; return; }
+    v.style.display = 'block'; const d = b.fin - b.ini, p = (t - b.ini) / d;
+    let k = 0; rec.forEach((r, i) => { if (p >= r[0]) k = i; });
+    const prev = camara(R[(rec[k - 1] || rec[k])[1]]), cur = camara(R[rec[k][1]]), q = eio(cl((p - rec[k][0]) * d / .9));
+    const c = k === 0 && b.id !== '05' ? cur : { s: prev.s + (cur.s - prev.s) * q, x: prev.x + (cur.x - prev.x) * q, y: prev.y + (cur.y - prev.y) * q };
+    $('#lienzo').style.transform = `translate(${c.x}px,${c.y}px) scale(${c.s})`;
+    const r = R[rec[k][1]], m = $('#marco'), e = $('#etq');
+    if (r && q > .85) { const a = cl((q - .85) / .15);
+      Object.assign(m.style, { display: 'block', opacity: a, left: (r[0] * c.s + c.x - 10) + 'px', top: (r[1] * c.s + c.y - 10) + 'px', width: (r[2] * c.s + 20) + 'px', height: (r[3] * c.s + 20) + 'px' });
+      const ey = r[1] * c.s + c.y + r[3] * c.s + 30; Object.assign(e.style, { display: 'block', opacity: a, left: cl(r[0] * c.s + c.x, 20, VW - 520) + 'px', top: (ey + 60 > VH ? r[1] * c.s + c.y - 80 : ey) + 'px' });
+      e.textContent = r[4];
+    } else { m.style.display = 'none'; e.style.display = 'none'; }
+  }
+  // ---- gráficos de las láminas (canvas) ----
+  const C = { o: '#e2c68c', v: '#3dd68c', r: '#ff6b6b', t: '#ecf1f9', t2: '#a3b5d1', b: '#274a80' };
+  function g03(t, p) {  // el precio baja hasta el límite y la operación se cierra
+    const x = $('#g03').getContext('2d'), W = 1640, H = 520; x.clearRect(0, 0, W, H);
+    const lim = 380, n = Math.floor(70 * cl(p / .7)); x.lineWidth = 6; x.strokeStyle = C.t; x.beginPath();
+    for (let i = 0; i <= n; i++) { const X = 60 + i * 18, Y = 120 + i * 3.6 + Math.sin(i * .7) * 22; i ? x.lineTo(X, Y) : x.moveTo(X, Y); } x.stroke();
+    x.setLineDash([16, 12]); x.strokeStyle = C.r; x.lineWidth = 4; x.beginPath(); x.moveTo(40, lim); x.lineTo(1500, lim); x.stroke(); x.setLineDash([]);
+    x.font = '600 32px "IBM Plex Mono"'; x.fillStyle = C.r; x.fillText('LÍMITE DEL EXCHANGE', 60, lim + 44);
+    x.fillStyle = C.t2; x.fillText('PRECIO', 60, 90);
+    if (p > .72) { const a = cl((p - .72) / .1); x.globalAlpha = a; x.font = '900 70px Archivo'; x.fillStyle = C.r; x.fillText('LIQUIDADA', 720, 470); x.globalAlpha = 1; }
+  }
+  function g04(t, p) {  // precio en el medio, liquidaciones de largos abajo y de cortos arriba
+    const x = $('#g04').getContext('2d'), W = 1640, H = 520; x.clearRect(0, 0, W, H);
+    const yP = 260; x.strokeStyle = C.t; x.lineWidth = 6; x.beginPath(); for (let i = 0; i <= 50; i++) { const X = 60 + i * 20, Y = yP + Math.sin(i * .5) * 30; i ? x.lineTo(X, Y) : x.moveTo(X, Y); } x.stroke();
+    x.font = '600 30px "IBM Plex Mono"';
+    const banda = (y, col, txt, a) => { x.globalAlpha = a * .5; x.fillStyle = col; x.fillRect(60, y, 1400, 46); x.globalAlpha = a; x.fillStyle = col; x.fillText(txt, 1080, y - 12); x.globalAlpha = 1; };
+    banda(410, C.v, 'LIQUIDACIONES DE LARGOS', cl((p - .05) / .15));
+    banda(70, C.r, 'LIQUIDACIONES DE CORTOS', cl((p - .4) / .15));
+    if (p > .75) { x.globalAlpha = cl((p - .75) / .1); x.font = '800 40px Archivo'; x.fillStyle = C.o; x.fillText('MUCHAS EN EL MISMO PRECIO = UNA ZONA', 80, 515); x.globalAlpha = 1; }
+  }
+  function escalaY(p0, p1, H) { return v => 20 + (p1 - v) / (p1 - p0) * (H - 40); }
+  function g11(t, p) {  // Martina: precio 65.000, franjas en 62.000 y 68.000
+    const x = $('#g11').getContext('2d'), W = 1640, H = 520; x.clearRect(0, 0, W, H); const y = escalaY(60000, 70000, H);
+    const fr = (v, a, txt) => { x.globalAlpha = a * .55; const g = x.createLinearGradient(0, 0, 1400, 0); g.addColorStop(0, '#3b2a8c'); g.addColorStop(.5, '#1fa39a'); g.addColorStop(.85, '#f5e04a');
+      x.fillStyle = g; x.fillRect(60, y(v) - 18, 1400, 36); x.globalAlpha = a; x.font = '700 30px "IBM Plex Mono"'; x.fillStyle = C.o; x.fillText(txt, 1480 - 300, y(v) - 26); x.globalAlpha = 1; };
+    fr(68000, cl((p - .3) / .1), '68.000'); fr(62000, cl((p - .3) / .1), '62.000');
+    x.strokeStyle = C.t; x.lineWidth = 6; x.beginPath(); for (let i = 0; i <= 40; i++) { const X = 60 + i * 20, Y = y(65000 + Math.sin(i * .6) * 600); i ? x.lineTo(X, Y) : x.moveTo(X, Y); } x.stroke();
+    x.font = '700 30px "IBM Plex Mono"'; x.fillStyle = C.t; x.fillText('65.000', 880, y(65000) + 10);
+    if (p > .75) { x.globalAlpha = cl((p - .75) / .1); x.font = '800 40px Archivo'; x.fillStyle = C.o; x.fillText('ANOTA LAS DOS · MIRA CUÁL TOCA PRIMERO', 60, 505); x.globalAlpha = 1; }
+  }
+  function g12(t, p) {  // velas reales de BTC-USD con la zona estimada de Glassnode
+    const x = $('#g12').getContext('2d'), W = 1640, H = 520; x.clearRect(0, 0, W, H);
+    const V = BTC.velas.filter(v => v.f >= '2026-10-15'), y = escalaY(56000, 90000, H), cw = 1400 / (V.length + 4), n = V.length * eio(cl(p / .5));
+    x.globalAlpha = cl((p - .1) / .15) * .45; x.fillStyle = C.r; x.fillRect(60, y(62600), 1440, y(59500) - y(62600)); x.globalAlpha = 1;
+    if (p > .1) { x.globalAlpha = cl((p - .1) / .15); x.font = '600 26px "IBM Plex Mono"'; x.fillStyle = C.r; x.fillText('ESTIMACIÓN DE GLASSNODE (11/11/2026): 59.500–62.600', 70, y(59500) + 34); x.globalAlpha = 1; }
+    for (let i = 0; i < n; i++) { const v = V[i], up = v.c >= v.o, X = 70 + i * cw; x.strokeStyle = x.fillStyle = up ? C.v : C.r; x.lineWidth = 2;
+      x.beginPath(); x.moveTo(X + cw * .4, y(v.h)); x.lineTo(X + cw * .4, y(v.l)); x.stroke(); x.fillRect(X + cw * .1, y(Math.max(v.o, v.c)), cw * .6, Math.max(2, Math.abs(y(v.o) - y(v.c)))); }
+    x.font = '600 24px "IBM Plex Mono"'; x.fillStyle = C.t2; x.fillText('BTC-USD · VELAS DIARIAS · YAHOO FINANCE', 70, 30);
+    if (p > .55) { const a = cl((p - .55) / .1), i = V.length - 1, X = 70 + i * cw + cw * .4; x.globalAlpha = a; x.fillStyle = C.o; x.beginPath(); x.arc(X, y(62101), 12, 0, 7); x.fill();
+      x.font = '800 34px Archivo'; x.fillText('14/11: 62.101', X - 300, y(62101) - 24); x.globalAlpha = 1; }
+    if (p > .8) { x.globalAlpha = cl((p - .8) / .1); x.font = '800 40px Archivo'; x.fillStyle = C.o; x.fillText('UN CASO, NO UNA REGLA', 980, 120); x.globalAlpha = 1; }
+  }
+  const G = { '03': g03, '04': g04, '11': g11, '12': g12 };
+  const PASO = { '05': 'PASO 1 DE 6', '06': 'PASO 2 DE 6', '07': 'PASO 3 DE 6', '08': 'PASO 4 DE 6', '09': 'PASO 5 DE 6', '10': 'PASO 6 DE 6' };
+  // ---- subtítulos ----
+  const CLAVE = /^(liquidaci|mapa|gratis|amarill|largos|cortos|zona|par|símbolo|temporalidad|umbral|modelo|imanes|promesa|estimaciones|coinglass|franja)/i;
+  const grupos = []; T.bloques.forEach(b => { let g = []; b.subs.forEach((w, i) => { g.push(w); const s = b.subs[i + 1];
+    if (!s || /[.,:;]$/.test(w[2]) || g.length >= 7 || s[0] - w[1] > .35) { grupos.push(g); g = []; } }); });
+  window.EVENTOS = T.bloques.slice(1).map(b => ({ t: b.ini, s: 'whoosh' }));
+  window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode().catch(() => 0))));
+  window.cuadro = function (t) {
+    let b = T.bloques[0]; T.bloques.forEach(x => { if (t >= x.ini - .05) b = x; });
+    document.querySelectorAll('.esc').forEach(e => { e.style.display = e.dataset.b === b.id ? 'block' : 'none'; });
+    const p = cl((t - b.ini) / (b.fin - b.ini)), ent = eo(cl((t - b.ini) / .45));
+    const esc = document.querySelector(`.esc[data-b="${b.id}"]`);
+    if (esc) { esc.style.opacity = ent; esc.style.transform = `translateY(${(1 - ent) * 30}px)`;
+      esc.querySelectorAll('[data-a]').forEach(el => { const a = eo(cl((p - +el.dataset.a) / .08)); el.style.opacity = a; el.style.transform = `translateY(${(1 - a) * 30}px)`; }); }
+    if (b.id === '13') { const a = cl((p - .55) / .08); $('#s13').style.opacity = a; $('#s13').style.transform = `rotate(-6deg) scale(${2 - a})`; }
+    if (G[b.id]) G[b.id](t, p);
+    capturas(t, b);
+    $('#chip').textContent = PASO[b.id] || ''; $('#chip').style.display = PASO[b.id] ? 'block' : 'none';
+    const g = grupos.find(g => t >= g[0][0] - .05 && t < g[g.length - 1][1] + .3);
+    $('#sub').innerHTML = g ? g.map(w => `<span class="${t >= w[0] - .03 ? (CLAVE.test(w[2]) ? 'on k' : 'on') : ''}">${w[2]}</span>`).join(' ') : '';
+  };
+})();
+</script>
+</body></html>
