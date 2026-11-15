@@ -52,3 +52,11 @@ todos los cambios de bloque, no repetir el mismo efecto seguido y bajarlos cuand
 **Aplicado el 15/11/2026 en `herramientas/cine/mezcla.py`:** subida y whoosh solo en uno de cada dos cambios de bloque,
 cada efecto con tono (±2,5 semitonos) y nivel distintos, el mismo efecto no se repite a menos de 1,2 s, y los efectos
 bajan 35 % cuando habla la voz. Vale para todos los Reels en estilo expediente cine desde ahora.
+
+## 5. Repo «agency-agents» (github.com/msitarzewski/agency-agents, MIT, 330 agentes)
+Colección de agentes con personalidad, proceso y métricas para Claude Code y otras herramientas. Casi todo es de
+ingeniería o de mercados ajenos (China, etc.). **Incorporados** en `.claude/agents/` (con la licencia y las reglas de
+RIC al principio de cada uno, en voseo): `ric-instagram-curator` (Camila), `ric-youtube-optimizacion` (Julián: empaque,
+capítulos y metadatos), `ric-edicion-cortos` (Bruno), `ric-carruseles` (Carla), `ric-vivos` (Elena, adaptado de
+«livestream commerce») y `ric-cumplimiento` (Marta: revisa avisos y promesas antes de publicar). Quedan para más
+adelante: growth hacker, paid media (si se pauta), sales offer/lead gen (para el club).
