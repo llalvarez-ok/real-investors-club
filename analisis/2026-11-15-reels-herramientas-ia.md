@@ -30,3 +30,22 @@ Qué nos sirve de la lista:
 2. **Detrás de escena: «Así armo mis Reels con un equipo de agentes»**, con Lean a cámara: el formato que más
    comentarios trajo en los dos Reels (389 en el primero).
 3. Lo que no copiamos: el pedido de palabra para mandar enlaces por privado (sin ManyChat no se puede cumplir a escala).
+
+## 3. «Comentá efectos» (@infomindshft.ai, DfndlIByap0, 27 s, 994 likes, 538 comentarios)
+Un comando que pone efectos sobre el video de alguien hablando a cámara: paneles de cristal, miniaturas en órbita
+alrededor de la cabeza, checklist que se tilda mientras habla, foco (fondo oscuro) y título gigante detrás.
+**Incorporado:** herramienta propia `herramientas/efectos/` (RobustVideoMatting + whisper + motor HTML) y skill
+`ric-efectos`. Falta un video real de Lean a cámara para probarla.
+
+## 4. «Tu Claude edita en 4K y suena en 144p» (@somosvla_, DfX9QOyDnUK, 106 s, 3.038 likes)
+Crítica que nos toca: un whoosh en cada corte, un golpe en cada palabra y el mismo sonido 40 veces («ametralladora»),
+puesto «a ciegas». Es lo que hace hoy `herramientas/cine/mezcla.py` (whoosh antes de cada bloque, golpe en cada sello).
+Tres herramientas gratis:
+- **Openverse** (api.openverse.org): más de 5 millones de audios con licencia y crédito. Bloqueado en la red de la nube:
+  habría que habilitar el dominio en el entorno RIC.
+- **Real SFX** (skill `Clipwing/skills`): pone sonidos grabados en el cuadro exacto y baja los efectos cuando se habla.
+- **Earshot** (`Leonxlnx/earshot`, MIT, ~4.700 estrellas, CPU): «oídos» para Claude. `critique` califica un video
+  contra lanzamientos profesionales; `sfx`/`kit` ponen efectos generados por código en los cortes con sincronía medida.
+  Instalarlo quedó **pendiente del OK de Lean** (el sistema frena instalar código de repos externos sin permiso).
+Mejora propia mientras tanto (sin instalar nada): en `mezcla.py`, variar el sonido de cada evento, no poner whoosh en
+todos los cambios de bloque, no repetir el mismo efecto seguido y bajarlos cuando habla la voz.
