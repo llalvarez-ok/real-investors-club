@@ -41,4 +41,4 @@ coinglass, mapa de liquidaciones, mapa de calor de liquidaciones, liquidaciones 
 Categoría Educación (27) · idioma español · contenido sintético: sí · playlist «Psicología del dinero y finanzas sin humo» · miniatura: `miniatura.html` (rehacer con la captura real si Lean quiere).
 
 ## Comentario para fijar
-¿A qué franja llegó primero el precio: ARRIBA o ABAJO? Contame con tu captura del mapa 👇
+¿A qué franja llegó primero el precio: ARRIBA o ABAJO? Cuéntame con tu captura del mapa 👇
