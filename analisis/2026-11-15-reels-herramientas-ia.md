@@ -60,3 +60,13 @@ RIC al principio de cada uno, en voseo): `ric-instagram-curator` (Camila), `ric-
 capítulos y metadatos), `ric-edicion-cortos` (Bruno), `ric-carruseles` (Carla), `ric-vivos` (Elena, adaptado de
 «livestream commerce») y `ric-cumplimiento` (Marta: revisa avisos y promesas antes de publicar). Quedan para más
 adelante: growth hacker, paid media (si se pauta), sales offer/lead gen (para el club).
+
+## 6. Repo «graphify» (github.com/safishamsi/graphify, Apache-2.0 + MIT)
+Comando `/graphify .` que arma un **grafo de conocimiento** de un proyecto (código con tree-sitter, local; documentos,
+PDF, imágenes y videos con el modelo del asistente) y deja `graph.html` (navegable), `GRAPH_REPORT.md` (conceptos y
+conexiones) y `graph.json` (para consultar sin releer archivos). Promete bajar el gasto de tokens de los agentes.
+Para RIC: **poco valor directo** (casi no tenemos código complejo; lo pesado son decisiones y notas en Markdown).
+Lo que sí nos señala: `CLAUDE.md` pasó los 60 KB y cada chat y tarea programada lo lee entero. La mejora útil (sin
+instalar nada) es partir la sección «Estado» en fichas por tema (`estado/voz.md`, `estado/instagram.md`, …) y dejar en
+`CLAUDE.md` un índice corto. Si se quiere probar graphify igual, hace falta el permiso de instalación (`uv tool install
+graphifyy`), que hoy frena el clasificador, como pasó con Earshot.
