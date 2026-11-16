@@ -78,6 +78,7 @@ Regla: dos Shorts por día como máximo (13:00 y 19:00) y nunca a la misma hora 
 - 13/11 19:00 · Short · S1 «¿sabés leer esta vela?» · `fKpu6kbz-FE`
 - 14/11 19:00 · Short · S2 mechas · `PlWZnjVqqb8`
 - 15/11 19:00 · Short · S3 una vela no alcanza · `24G8fldWqh8`
+- 16/11 13:45 · Short · «No inviertas esta semana sin conocer esto» (Nvidia, la Fed y lo que pasó cada vez) · `JXWLcHiTgqA` (publicado al subirlo, contenido sintético, playlists Shorts y Noticias)
 - 16/11 19:00 · Short · S4 jugada, partido y tabla · `buqMtKFxogs` (el curso en vivo es a las 21:00)
 - 17/11 19:00 · Short · S5 Sofía y los errores · `-qeRND2kGtc`
 
