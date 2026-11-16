@@ -23,7 +23,7 @@ Opciones para correrlo:
 Cuidados:
 - Marcar siempre como contenido sintético.
 - Solo con la cara de Lean y su permiso, nunca de otras personas.
-- La política de YouTube contra el «contenido no auditado» con IA en masa sigue valiendo.
+- La política de YouTube contra el «contenido no auténtico» con IA en masa sigue valiendo.
 
 Fuentes:
 - Página de Hugging Face de la versión 1.6
