@@ -28,10 +28,12 @@ for b in g["bloques"]:
     act = np.where(20 * np.log10(e + 1e-9) > -45)[0]
     ini0 = max(0, act[0] * .01 - .05) if len(act) else 0
     fin = min(len(a) / sr, max(pal[-1][1], (act[-1] + 1) * .01) + .15) if len(act) else pal[-1][1] + .18
+    # Si el modelo cortó el archivo con la voz todavía sonando, el fundido de salida es largo (0,25 s) para que no suene seco.
+    fo = .25 if len(act) and (act[-1] + 1) * .01 > len(a) / sr - .06 else .12
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{wdir}/{w}.wav", "-af",
-                    CADENA + f",atrim={ini0:.3f}:{fin:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={fin-ini0-0.12:.3f}:d=0.12",
+                    CADENA + f",atrim={ini0:.3f}:{fin:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.03,afade=t=out:st={fin-ini0-fo:.3f}:d={fo:.2f},apad=pad_dur=0.08",
                     "-ar", "48000", "-ac", "1", f"{out}/voz/{b['id']}.wav"], check=True)
-    dur = fin - ini0
+    dur = fin - ini0 + .08
     pal = [[round(t + a - ini0, 3), round(t + c - ini0, 3), s] for a, c, s in pal]
     subs = agrupar(pal, {**g.get("pantalla", {}), **b.get("pantalla", {})})
     bl.append({"id": b["id"], "nombre": b["id"], "ini": round(t, 3), "dur": round(dur, 3), "etiqueta": b.get("etiqueta", ""),

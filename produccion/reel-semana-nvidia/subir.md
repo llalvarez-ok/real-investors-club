@@ -12,18 +12,18 @@ Voz: clon de Lean (Qwen3-TTS) → **marcar contenido sintético**. Vale para pub
 No inviertas esta semana sin conocer esto 👇 (lo que pasó cada vez, con datos reales)
 
 🟢 Nvidia · martes 17 después del cierre (primera vez sin Jensen Huang)
-Se esperan US$ 109.000 M en ventas. Superó lo esperado en sus últimos 15 reportes… y al otro día subió 8 veces y bajó 7. En las últimas 8, bajó 5.
+Se esperan US$ 109.000 M en ventas. Lo lógico: si llega o supera, sube; si no, baja. Pero superó lo esperado en sus últimos 15 reportes… y al otro día subió 8 veces y bajó 7. En las últimas 8, bajó 5.
 
 🛒 Ventas minoristas · martes 17, 10:30
-Se espera +0,1 %. Por encima: la bolsa bajó 8 de 12 veces. Por debajo: 6 de 8.
+Se espera +0,1 %. Lo lógico: si la gente gasta igual o más, la bolsa sube. Pero por encima: la bolsa bajó 8 de 12 veces. Por debajo: 6 de 8.
 
 🏦 Minutas de la Fed · miércoles 18, 16:00
-La bolsa subió 15 de 23 veces y se movió 42 % más que un día cualquiera.
+Lo lógico: si anticipan bajas de tasa, sube. La bolsa subió 15 de 23 veces y se movió 42 % más que un día cualquiera.
 
 🧾 Walmart · jueves 19, antes de la apertura
-Se espera US$ 0,64 por acción. Superó 10 de 11 veces, pero la acción bajó 6. Y cayó en los últimos 3 reportes.
+Se espera US$ 0,64 por acción. Lo lógico: si llega o supera, sube. Superó 10 de 11 veces, pero la acción bajó 6. Y cayó en los últimos 3 reportes.
 
-Un buen número no garantiza que suba. Es lo que pasó, no lo que va a pasar.
+Lo lógico no siempre pasa. Es lo que pasó, no lo que va a pasar.
 Mi regla: en esas horas, achico lo que arriesgo o espero.
 
 📌 Guardalo para el martes y comentá qué fecha vas a mirar.

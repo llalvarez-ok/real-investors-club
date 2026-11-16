@@ -134,6 +134,8 @@
   .ag > div { background: rgba(10,13,20,.9); border-left: 8px solid #e2b74a; padding: 16px 24px; }
   .ag b { display: block; font: 800 25px "JetBrains Mono"; color: #ffde8c; letter-spacing: 2px; }
   .gris { color: #9aa0aa; }
+  .logico { left: 140px; width: 800px; display: flex; gap: 12px; align-items: center; justify-content: center; background: rgba(6,9,16,.92); border: 2px solid rgba(159,208,255,.55); border-radius: 12px; padding: 12px 14px; }
+  .logico span { font: 800 20px "JetBrains Mono"; color: #9fd0ff; letter-spacing: 2px; } .logico b { font: 800 27px Inter; }
 </style>
 </head>
 </head>
@@ -159,60 +161,63 @@
     <div class="abs titulo" style="top:320px;font-size:80px;left:120px;right:120px" data-b="02" data-w="4" data-e="golpe" data-s="impacto">Nvidia <span class="gris" style="font-size:.55em">sin</span> Jensen Huang</div>
     <div class="abs ficha" style="top:500px" data-b="02" data-w="9" data-e="tres"><b>VENTAS ESPERADAS DEL TRIMESTRE</b>
       <div class="big">US$ <span data-b="02" data-w="9" data-e="cuenta" data-v="109000" data-d="1.4" data-fijo="1">0</span> M</div></div>
-    <img class="abs gpu" src="fotos/gpu.png" style="left:160px;top:760px" data-b="02" data-o="0.3" data-e="tres" data-ry="-25" data-hb="02" data-hw="18" data-s="whoosh">
-    <div class="abs fila15" style="top:760px"><span data-b="02" data-w="18" data-o="0.0" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.05" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.1" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.15" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.2" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.25" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.3" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.35" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.4" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.45" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.5" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.55" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.6" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.65" data-e="pop">✓</span><span data-b="02" data-w="18" data-o="0.7" data-e="pop">✓</span></div>
-    <div class="abs rot" style="top:820px" data-b="02" data-w="18" data-e="sube" >Superó lo esperado <b class="verde">15 de 15</b></div>
-    <div class="abs rot" style="top:900px;font-size:50px" data-b="02" data-w="30" data-e="golpe" data-s="impacto">Al otro día: <b class="verde">subió 8</b> · <b class="rojo">bajó 7</b></div>
-    <div class="abs grid8" style="top:1000px"><div class="cj v" data-b="02" data-w="38" data-o="0.0" data-e="pop" data-s="tic"><b>+0,5 %</b><i>NOV 24</i></div><div class="cj r" data-b="02" data-w="38" data-o="0.12" data-e="pop" data-s=""><b>-8,5 %</b><i>FEB 25</i></div><div class="cj v" data-b="02" data-w="38" data-o="0.24" data-e="pop" data-s="tic"><b>+3,2 %</b><i>MAY 25</i></div><div class="cj r" data-b="02" data-w="38" data-o="0.36" data-e="pop" data-s=""><b>-0,8 %</b><i>AGO 25</i></div><div class="cj r" data-b="02" data-w="38" data-o="0.48" data-e="pop" data-s="tic"><b>-3,2 %</b><i>NOV 25</i></div><div class="cj r" data-b="02" data-w="38" data-o="0.6" data-e="pop" data-s=""><b>-5,5 %</b><i>FEB 26</i></div><div class="cj r" data-b="02" data-w="38" data-o="0.72" data-e="pop" data-s="tic"><b>-1,8 %</b><i>MAY 26</i></div><div class="cj v" data-b="02" data-w="38" data-o="0.84" data-e="pop" data-s=""><b>+8,7 %</b><i>AGO 26</i></div></div>
-    <div class="abs rot" style="top:1250px;font-size:56px" data-b="02" data-w="41" data-e="golpe" data-s="impacto">Últimas 8: <b class="rojo">bajó 5</b></div>
-    <div class="abs credito" style="left:140px;top:1380px" data-b="02" data-w="38" data-e="aparece" >DÍA SIGUIENTE, CIERRE A CIERRE · MAYOR CAÍDA −8,5 % (27/02/2025) · NVDA, YAHOO FINANCE</div>
+    <div class="abs logico" style="top:705px" data-b="02" data-w="23" data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Llega o supera → ▲</b><b class="rojo">No llega → ▼</b></div>
+    <img class="abs gpu" src="fotos/gpu.png" style="left:160px;top:760px" data-b="02" data-o="0.3" data-e="tres" data-ry="-25" data-hb="02" data-hw="32" data-s="whoosh">
+    <div class="abs fila15" style="top:760px"><span data-b="02" data-w="32" data-o="0.0" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.05" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.1" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.15" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.2" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.25" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.3" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.35" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.4" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.45" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.5" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.55" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.6" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.65" data-e="pop">✓</span><span data-b="02" data-w="32" data-o="0.7" data-e="pop">✓</span></div>
+    <div class="abs rot" style="top:820px" data-b="02" data-w="32" data-e="sube" >Superó lo esperado <b class="verde">15 de 15</b></div>
+    <div class="abs rot" style="top:900px;font-size:50px" data-b="02" data-w="44" data-e="golpe" data-s="impacto">Al otro día: <b class="verde">subió 8</b> · <b class="rojo">bajó 7</b></div>
+    <div class="abs grid8" style="top:1000px"><div class="cj v" data-b="02" data-w="52" data-o="0.0" data-e="pop" data-s="tic"><b>+0,5 %</b><i>NOV 24</i></div><div class="cj r" data-b="02" data-w="52" data-o="0.12" data-e="pop" data-s=""><b>-8,5 %</b><i>FEB 25</i></div><div class="cj v" data-b="02" data-w="52" data-o="0.24" data-e="pop" data-s="tic"><b>+3,2 %</b><i>MAY 25</i></div><div class="cj r" data-b="02" data-w="52" data-o="0.36" data-e="pop" data-s=""><b>-0,8 %</b><i>AGO 25</i></div><div class="cj r" data-b="02" data-w="52" data-o="0.48" data-e="pop" data-s="tic"><b>-3,2 %</b><i>NOV 25</i></div><div class="cj r" data-b="02" data-w="52" data-o="0.6" data-e="pop" data-s=""><b>-5,5 %</b><i>FEB 26</i></div><div class="cj r" data-b="02" data-w="52" data-o="0.72" data-e="pop" data-s="tic"><b>-1,8 %</b><i>MAY 26</i></div><div class="cj v" data-b="02" data-w="52" data-o="0.84" data-e="pop" data-s=""><b>+8,7 %</b><i>AGO 26</i></div></div>
+    <div class="abs rot" style="top:1250px;font-size:56px" data-b="02" data-w="55" data-e="golpe" data-s="impacto">Últimas 8: <b class="rojo">bajó 5</b></div>
+    <div class="abs credito" style="left:140px;top:1380px" data-b="02" data-w="52" data-e="aparece" >DÍA SIGUIENTE, CIERRE A CIERRE · MAYOR CAÍDA −8,5 % (27/02/2025) · NVDA, YAHOO FINANCE</div>
   </div>
   <div class="blq" data-b="03">
     <div class="abs tag oro" style="left:140px;top:250px" data-b="03" data-o="0" data-e="izq" >Martes 17 · 10:30 (Argentina)</div>
     <div class="abs titulo" style="top:330px;font-size:84px" data-b="03" data-o="0" data-e="sube" >Ventas <span class="oro">minoristas</span></div>
-    <div class="abs ficha" style="top:470px" data-b="03" data-w="9" data-e="tres"><b>¿CUÁNTO GASTÓ LA GENTE? · ESPERADO</b>
-      <div class="big"><span data-b="03" data-w="9" data-e="cuenta" data-v="0.1" data-dec="1" data-pre="+" data-suf=" %" data-fijo="1">0</span></div></div>
-    <div class="abs split" style="top:730px">
-      <div data-b="03" data-w="18" data-e="izq"><small>SALIÓ POR ENCIMA</small><b class="rojo">BAJÓ 8/12</b></div>
-      <div data-b="03" data-w="29" data-e="der"><small>SALIÓ POR DEBAJO</small><b class="rojo">BAJÓ 6/8</b></div>
+    <div class="abs ficha" style="top:470px" data-b="03" data-w="7" data-e="tres"><b>¿CUÁNTO GASTÓ LA GENTE? · ESPERADO</b>
+      <div class="big"><span data-b="03" data-w="7" data-e="cuenta" data-v="0.1" data-dec="1" data-pre="+" data-suf=" %" data-fijo="1">0</span></div></div>
+    <div class="abs logico" style="top:680px" data-b="03" data-w="21" data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Gasta igual o más → ▲</b><b class="rojo">Gasta menos → ▼</b></div>
+    <div class="abs split" style="top:770px">
+      <div data-b="03" data-w="36" data-e="izq"><small>SALIÓ POR ENCIMA</small><b class="rojo">BAJÓ 8/12</b></div>
+      <div data-b="03" data-w="46" data-e="der"><small>SALIÓ POR DEBAJO</small><b class="rojo">BAJÓ 6/8</b></div>
     </div>
-    <div class="abs pts12" style="top:930px"><i class="r" data-b="03" data-w="24" data-o="0.0" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.07" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.14" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.21" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.28" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.35" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.42" data-e="pop"></i><i class="r" data-b="03" data-w="24" data-o="0.49" data-e="pop"></i><i class="v" data-b="03" data-w="24" data-o="0.56" data-e="pop"></i><i class="v" data-b="03" data-w="24" data-o="0.63" data-e="pop"></i><i class="v" data-b="03" data-w="24" data-o="0.7" data-e="pop"></i><i class="v" data-b="03" data-w="24" data-o="0.77" data-e="pop"></i></div>
-    <div class="abs pts12" style="top:1010px"><i class="r" data-b="03" data-w="30" data-o="0.0" data-e="pop"></i><i class="r" data-b="03" data-w="30" data-o="0.07" data-e="pop"></i><i class="r" data-b="03" data-w="30" data-o="0.14" data-e="pop"></i><i class="r" data-b="03" data-w="30" data-o="0.21" data-e="pop"></i><i class="r" data-b="03" data-w="30" data-o="0.28" data-e="pop"></i><i class="r" data-b="03" data-w="30" data-o="0.35" data-e="pop"></i><i class="v" data-b="03" data-w="30" data-o="0.42" data-e="pop"></i><i class="v" data-b="03" data-w="30" data-o="0.49" data-e="pop"></i></div>
-    <div class="abs rot" style="top:1120px;font-size:52px" data-b="03" data-w="30" data-o="0.7" data-e="golpe" data-s="impacto">Salga como salga,<br>la bolsa <b class="rojo">bajó la mayoría</b></div>
-    <div class="abs credito" style="left:140px;top:1380px" data-b="03" data-w="18" data-e="aparece" >S&amp;P 500 EL DÍA DEL DATO · 11/2024 A 10/2026 · CÁLCULO PROPIO</div>
+    <div class="abs pts12" style="top:965px"><i class="r" data-b="03" data-w="40" data-o="0.0" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.07" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.14" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.21" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.28" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.35" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.42" data-e="pop"></i><i class="r" data-b="03" data-w="40" data-o="0.49" data-e="pop"></i><i class="v" data-b="03" data-w="40" data-o="0.56" data-e="pop"></i><i class="v" data-b="03" data-w="40" data-o="0.63" data-e="pop"></i><i class="v" data-b="03" data-w="40" data-o="0.7" data-e="pop"></i><i class="v" data-b="03" data-w="40" data-o="0.77" data-e="pop"></i></div>
+    <div class="abs pts12" style="top:1035px"><i class="r" data-b="03" data-w="47" data-o="0.0" data-e="pop"></i><i class="r" data-b="03" data-w="47" data-o="0.07" data-e="pop"></i><i class="r" data-b="03" data-w="47" data-o="0.14" data-e="pop"></i><i class="r" data-b="03" data-w="47" data-o="0.21" data-e="pop"></i><i class="r" data-b="03" data-w="47" data-o="0.28" data-e="pop"></i><i class="r" data-b="03" data-w="47" data-o="0.35" data-e="pop"></i><i class="v" data-b="03" data-w="47" data-o="0.42" data-e="pop"></i><i class="v" data-b="03" data-w="47" data-o="0.49" data-e="pop"></i></div>
+    <div class="abs rot" style="top:1130px;font-size:52px" data-b="03" data-w="47" data-o="0.7" data-e="golpe" data-s="impacto">Salga como salga,<br>la bolsa <b class="rojo">bajó la mayoría</b></div>
+    <div class="abs credito" style="left:140px;top:1380px" data-b="03" data-w="36" data-e="aparece" >S&amp;P 500 EL DÍA DEL DATO · 11/2024 A 10/2026 · CÁLCULO PROPIO</div>
   </div>
   <div class="blq" data-b="04">
     <div class="abs tag oro" style="left:140px;top:250px" data-b="04" data-o="0" data-e="izq" >Miércoles 18 · 16:00 (Argentina)</div>
     <div class="abs titulo" style="top:330px;font-size:88px" data-b="04" data-o="0" data-e="golpe" data-s="impacto">Minutas de la <span class="oro">Fed</span></div>
-    <div class="abs rot" style="top:450px;color:#cfd3da" data-b="04" data-w="5" data-o="0.4" data-e="sube" >El acta de su última reunión</div>
-    <div class="abs cifra" style="top:540px;font-size:120px;color:#3dd68c" data-b="04" data-w="11" data-e="golpe" data-s="impacto">15 de 23</div>
-    <div class="abs rot" style="top:700px" data-b="04" data-w="11" data-o="0.3" data-e="sube" >veces <b class="verde">subió</b> la bolsa</div>
+    <div class="abs logico" style="top:450px" data-b="04" data-w="14" data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Anticipan bajas de tasa → ▲</b><b class="rojo">Dudan en bajarla → ▼</b></div>
+    <div class="abs cifra" style="top:540px;font-size:120px;color:#3dd68c" data-b="04" data-w="26" data-e="golpe" data-s="impacto">15 de 23</div>
+    <div class="abs rot" style="top:700px" data-b="04" data-w="26" data-o="0.3" data-e="sube" >veces <b class="verde">subió</b> la bolsa</div>
     <div class="abs barras2" style="top:860px">
-      <div><small>DÍA CUALQUIERA</small><i data-b="04" data-w="20" data-e="barra" data-v="470"></i><b>±0,66 %</b></div>
-      <div><small>DÍA DE MINUTAS</small><i class="oroi" data-b="04" data-w="20" data-o="0.3" data-e="barra" data-v="670"></i><b class="oro">±0,94 %</b></div>
+      <div><small>DÍA CUALQUIERA</small><i data-b="04" data-w="35" data-e="barra" data-v="470"></i><b>±0,66 %</b></div>
+      <div><small>DÍA DE MINUTAS</small><i class="oroi" data-b="04" data-w="35" data-o="0.3" data-e="barra" data-v="670"></i><b class="oro">±0,94 %</b></div>
     </div>
-    <div class="abs cifra" style="top:1150px" data-b="04" data-w="29" data-e="golpe" data-s="impacto">+42 %</div>
-    <div class="abs credito" style="left:140px;top:1380px" data-b="04" data-w="20" data-e="aparece" >MOVIMIENTO DEL S&amp;P 500 · 23 MINUTAS DESDE 2024 · FOTO: EDIFICIO ECCLES, WIKIMEDIA COMMONS, CC BY-SA</div>
+    <div class="abs cifra" style="top:1150px" data-b="04" data-w="44" data-e="golpe" data-s="impacto">+42 %</div>
+    <div class="abs credito" style="left:140px;top:1380px" data-b="04" data-w="35" data-e="aparece" >MOVIMIENTO DEL S&amp;P 500 · 23 MINUTAS DESDE 2024 · FOTO: EDIFICIO ECCLES, WIKIMEDIA COMMONS, CC BY-SA</div>
   </div>
   <div class="blq" data-b="05">
     <div class="abs tag oro" style="left:140px;top:250px" data-b="05" data-o="0" data-e="izq" >Jueves 19 · antes de la apertura</div>
     <div class="abs polaroid" style="left:170px;top:330px;width:740px;height:500px" data-b="05" data-o="0" data-e="foto" data-r="-3" data-s="cinta"><img src="fotos/walmart.jpg"><div class="pie">WALMART · ESPERADO: US$ 0,64 POR ACCIÓN</div></div>
-    <div class="abs rot" style="top:900px" data-b="05" data-w="10" data-e="sube" >Superó lo esperado <b class="verde">10 de 11</b></div>
-    <div class="abs rot" style="top:970px;font-size:56px" data-b="05" data-w="21" data-e="golpe" data-s="impacto">pero <b class="rojo">bajó 6</b></div>
-    <div class="abs grid3" style="top:1070px"><div class="cj r" style="width:230px" data-b="05" data-w="25" data-o="0.0" data-e="golpe" data-s="impacto"><b>-1,4 %</b><i>FEB 26 · SUPERÓ</i></div><div class="cj r" style="width:230px" data-b="05" data-w="25" data-o="0.25" data-e="golpe" data-s="impacto"><b>-7,3 %</b><i>MAY 26 · SUPERÓ</i></div><div class="cj r" style="width:230px" data-b="05" data-w="25" data-o="0.5" data-e="golpe" data-s="impacto"><b>-9,2 %</b><i>AGO 26 · SUPERÓ</i></div></div>
+    <div class="abs rot" style="top:930px" data-b="05" data-w="23" data-e="sube" >Superó lo esperado <b class="verde">10 de 11</b></div>
+    <div class="abs rot" style="top:995px;font-size:56px" data-b="05" data-w="32" data-e="golpe" data-s="impacto">pero <b class="rojo">bajó 6</b></div>
+    <div class="abs grid3" style="top:1090px"><div class="cj r" style="width:230px" data-b="05" data-w="36" data-o="0.0" data-e="golpe" data-s="impacto"><b>-1,4 %</b><i>FEB 26 · SUPERÓ</i></div><div class="cj r" style="width:230px" data-b="05" data-w="36" data-o="0.25" data-e="golpe" data-s="impacto"><b>-7,3 %</b><i>MAY 26 · SUPERÓ</i></div><div class="cj r" style="width:230px" data-b="05" data-w="36" data-o="0.5" data-e="golpe" data-s="impacto"><b>-9,2 %</b><i>AGO 26 · SUPERÓ</i></div></div>
+    <div class="abs logico" style="top:845px" data-b="05" data-w="15" data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Llega o supera → ▲</b><b class="rojo">No llega → ▼</b></div>
     <div class="abs credito" style="left:140px;top:1380px" data-b="05" data-o="0.3" data-e="aparece" >DÍA DEL REPORTE · WMT, YAHOO FINANCE · FOTO: JARED C. BENEDICT, CC BY-SA</div>
   </div>
   <div class="blq" data-b="06">
-    <div class="abs titulo" style="top:280px;font-size:88px" data-b="06" data-o="0" data-e="golpe" data-s="impacto">Un buen número<br><span class="rojo">no garantiza</span><br>que suba</div>
-    <div class="abs sello" style="left:210px;top:610px;font-size:44px;color:#9fd0ff;border-color:#9fd0ff;background:rgba(4,20,40,.85)" data-b="06" data-w="11" data-e="sello" data-r="-3" data-s="sello">Es lo que pasó<small>no lo que va a pasar</small></div>
+    <div class="abs titulo" style="top:280px;font-size:88px" data-b="06" data-o="0" data-e="golpe" data-s="impacto">Lo lógico<br><span class="rojo">no siempre</span><br>pasa</div>
+    <div class="abs sello" style="left:210px;top:610px;font-size:44px;color:#9fd0ff;border-color:#9fd0ff;background:rgba(4,20,40,.85)" data-b="06" data-w="9" data-e="sello" data-r="-3" data-s="sello">Es lo que pasó<small>no lo que va a pasar</small></div>
     <div class="abs ag" style="top:800px;gap:12px">
-      <div data-b="06" data-w="19" data-o="0" data-e="izq"><b>MAR 17 · 10:30 · VENTAS MINORISTAS</b></div>
-      <div data-b="06" data-w="19" data-o="0.15" data-e="izq" style="border-left-color:#ff5a55"><b style="color:#ff8a85">MAR 17 · DESPUÉS DEL CIERRE · NVIDIA</b></div>
-      <div data-b="06" data-w="19" data-o="0.3" data-e="izq"><b>MIÉ 18 · 16:00 · MINUTAS DE LA FED</b></div>
-      <div data-b="06" data-w="19" data-o="0.45" data-e="izq"><b>JUE 19 · ANTES DE LA APERTURA · WALMART</b></div>
+      <div data-b="06" data-w="17" data-o="0" data-e="izq"><b>MAR 17 · 10:30 · VENTAS MINORISTAS</b></div>
+      <div data-b="06" data-w="17" data-o="0.15" data-e="izq" style="border-left-color:#ff5a55"><b style="color:#ff8a85">MAR 17 · DESPUÉS DEL CIERRE · NVIDIA</b></div>
+      <div data-b="06" data-w="17" data-o="0.3" data-e="izq"><b>MIÉ 18 · 16:00 · MINUTAS DE LA FED</b></div>
+      <div data-b="06" data-w="17" data-o="0.45" data-e="izq"><b>JUE 19 · ANTES DE LA APERTURA · WALMART</b></div>
     </div>
-    <div class="abs sello" style="left:200px;top:1180px;font-size:46px" data-b="06" data-w="23" data-e="sello" data-r="-4" data-s="sello">Achico el riesgo<small>o espero</small></div>
-    <div class="abs credito" style="left:140px;top:1380px" data-b="06" data-w="23" data-e="aparece" >ASÍ LO HAGO YO · NO ES RECOMENDACIÓN DE INVERSIÓN</div>
+    <div class="abs sello" style="left:200px;top:1180px;font-size:46px" data-b="06" data-w="21" data-e="sello" data-r="-4" data-s="sello">Achico el riesgo<small>o espero</small></div>
+    <div class="abs credito" style="left:140px;top:1380px" data-b="06" data-w="21" data-e="aparece" >ASÍ LO HAGO YO · NO ES RECOMENDACIÓN DE INVERSIÓN</div>
   </div>
   <div class="blq" data-b="07">
     <div class="abs titulo" style="top:250px;font-size:96px" data-b="07" data-o="0" data-e="golpe" data-s="impacto">Guardalo<br><span class="oro">para el martes</span></div>

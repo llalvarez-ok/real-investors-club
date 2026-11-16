@@ -46,6 +46,7 @@ B02 = f'''
     {el('titulo', '02', at('02', 'envidia'), 'golpe', 'Nvidia <span class="gris" style="font-size:.55em">sin</span> Jensen Huang', 'top:320px;font-size:80px;left:120px;right:120px', 'data-s="impacto"')}
     <div class="abs ficha" style="top:500px" data-b="02" {at('02', 'esperan')} data-e="tres"><b>VENTAS ESPERADAS DEL TRIMESTRE</b>
       <div class="big">US$ <span data-b="02" {at('02', 'esperan')} data-e="cuenta" data-v="109000" data-d="1.4" data-fijo="1">0</span> M</div></div>
+    <div class="abs logico" style="top:705px" data-b="02" {at('02', 'lógico')} data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Llega o supera → ▲</b><b class="rojo">No llega → ▼</b></div>
     <img class="abs gpu" src="fotos/gpu.png" style="left:160px;top:760px" data-b="02" data-o="0.3" data-e="tres" data-ry="-25" data-hb="02" {at('02', 'superó').replace('data-w', 'data-hw')} data-s="whoosh">
     <div class="abs fila15" style="top:760px">{checks15}</div>
     {el('rot', '02', at('02', 'superó'), 'sube', 'Superó lo esperado <b class="verde">15 de 15</b>', 'top:820px')}
@@ -60,20 +61,21 @@ B03 = f'''
     {el('titulo', '03', 'data-o="0"', 'sube', 'Ventas <span class="oro">minoristas</span>', 'top:330px;font-size:84px')}
     <div class="abs ficha" style="top:470px" data-b="03" {at('03', 'espera')} data-e="tres"><b>¿CUÁNTO GASTÓ LA GENTE? · ESPERADO</b>
       <div class="big"><span data-b="03" {at('03', 'espera')} data-e="cuenta" data-v="0.1" data-dec="1" data-pre="+" data-suf=" %" data-fijo="1">0</span></div></div>
-    <div class="abs split" style="top:730px">
+    <div class="abs logico" style="top:680px" data-b="03" {at('03', 'lógico')} data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Gasta igual o más → ▲</b><b class="rojo">Gasta menos → ▼</b></div>
+    <div class="abs split" style="top:770px">
       <div data-b="03" {at('03', 'encima')} data-e="izq"><small>SALIÓ POR ENCIMA</small><b class="rojo">BAJÓ 8/12</b></div>
       <div data-b="03" {at('03', 'debajo')} data-e="der"><small>SALIÓ POR DEBAJO</small><b class="rojo">BAJÓ 6/8</b></div>
     </div>
-    <div class="abs pts12" style="top:930px">{pts12}</div>
-    <div class="abs pts12" style="top:1010px">{pts8}</div>
-    {el('rot', '03', at('03', 'seis', 1, .7), 'golpe', 'Salga como salga,<br>la bolsa <b class="rojo">bajó la mayoría</b>', 'top:1120px;font-size:52px', 'data-s="impacto"')}
+    <div class="abs pts12" style="top:965px">{pts12}</div>
+    <div class="abs pts12" style="top:1035px">{pts8}</div>
+    {el('rot', '03', at('03', 'seis', 1, .7), 'golpe', 'Salga como salga,<br>la bolsa <b class="rojo">bajó la mayoría</b>', 'top:1130px;font-size:52px', 'data-s="impacto"')}
     {el('credito', '03', at('03', 'encima'), 'aparece', 'S&amp;P 500 EL DÍA DEL DATO · 11/2024 A 10/2026 · CÁLCULO PROPIO', 'left:140px;top:1380px')}
   </div>'''
 B04 = f'''
   <div class="blq" data-b="04">
     {el('tag oro', '04', 'data-o="0"', 'izq', 'Miércoles 18 · 16:00 (Argentina)', 'left:140px;top:250px')}
     {el('titulo', '04', 'data-o="0"', 'golpe', 'Minutas de la <span class="oro">Fed</span>', 'top:330px;font-size:88px', 'data-s="impacto"')}
-    {el('rot', '04', at('04', 'minutas', 1, .4), 'sube', 'El acta de su última reunión', 'top:450px;color:#cfd3da')}
+    <div class="abs logico" style="top:450px" data-b="04" {at('04', 'lógico')} data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Anticipan bajas de tasa → ▲</b><b class="rojo">Dudan en bajarla → ▼</b></div>
     {el('cifra', '04', at('04', 'subió'), 'golpe', '15 de 23', 'top:540px;font-size:120px;color:#3dd68c', 'data-s="impacto"')}
     {el('rot', '04', at('04', 'subió', 1, .3), 'sube', 'veces <b class="verde">subió</b> la bolsa', 'top:700px')}
     <div class="abs barras2" style="top:860px">
@@ -87,14 +89,15 @@ B05 = f'''
   <div class="blq" data-b="05">
     {el('tag oro', '05', 'data-o="0"', 'izq', 'Jueves 19 · antes de la apertura', 'left:140px;top:250px')}
     <div class="abs polaroid" style="left:170px;top:330px;width:740px;height:500px" data-b="05" data-o="0" data-e="foto" data-r="-3" data-s="cinta"><img src="fotos/walmart.jpg"><div class="pie">WALMART · ESPERADO: US$ 0,64 POR ACCIÓN</div></div>
-    {el('rot', '05', at('05', 'superó'), 'sube', 'Superó lo esperado <b class="verde">10 de 11</b>', 'top:900px')}
-    {el('rot', '05', at('05', 'seis'), 'golpe', 'pero <b class="rojo">bajó 6</b>', 'top:970px;font-size:56px', 'data-s="impacto"')}
-    <div class="abs grid3" style="top:1070px">{caj3}</div>
+    {el('rot', '05', at('05', 'superó'), 'sube', 'Superó lo esperado <b class="verde">10 de 11</b>', 'top:930px')}
+    {el('rot', '05', at('05', 'seis'), 'golpe', 'pero <b class="rojo">bajó 6</b>', 'top:995px;font-size:56px', 'data-s="impacto"')}
+    <div class="abs grid3" style="top:1090px">{caj3}</div>
+    <div class="abs logico" style="top:845px" data-b="05" {at('05', 'lógico')} data-e="pop" data-s="tic"><span>LO LÓGICO</span><b class="verde">Llega o supera → ▲</b><b class="rojo">No llega → ▼</b></div>
     {el('credito', '05', 'data-o="0.3"', 'aparece', 'DÍA DEL REPORTE · WMT, YAHOO FINANCE · FOTO: JARED C. BENEDICT, CC BY-SA', 'left:140px;top:1380px')}
   </div>'''
 B06 = f'''
   <div class="blq" data-b="06">
-    {el('titulo', '06', 'data-o="0"', 'golpe', 'Un buen número<br><span class="rojo">no garantiza</span><br>que suba', 'top:280px;font-size:88px', 'data-s="impacto"')}
+    {el('titulo', '06', 'data-o="0"', 'golpe', 'Lo lógico<br><span class="rojo">no siempre</span><br>pasa', 'top:280px;font-size:88px', 'data-s="impacto"')}
     {el('sello', '06', at('06', 'pasó'), 'sello', 'Es lo que pasó<small>no lo que va a pasar</small>', 'left:210px;top:610px;font-size:44px;color:#9fd0ff;border-color:#9fd0ff;background:rgba(4,20,40,.85)', 'data-r="-3" data-s="sello"')}
     <div class="abs ag" style="top:800px;gap:12px">
       <div data-b="06" {at('06', 'regla', 1, 0)} data-e="izq"><b>MAR 17 · 10:30 · VENTAS MINORISTAS</b></div>
