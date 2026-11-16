@@ -1,60 +1,71 @@
 {
- "titulo": "La semana en que Nvidia rinde examen sin su CEO",
+ "titulo": "No inviertas esta semana sin conocer esto",
  "pantalla": {
-  "Envidia": "Nvidia",
-  "Yensen Juang": "Jensen Huang",
-  "treinta y tres por ciento": "33 %",
   "ciento nueve mil millones de dólares": "US$ 109.000 M",
-  "diez y media": "10:30",
   "cero coma uno por ciento": "0,1 %",
-  "cuatro de la tarde": "16:00"
+  "cuarenta y dos por ciento": "42 %",
+  "sesenta y cuatro centavos": "0,64 US$",
+  "quince de veintitrés": "15 de 23",
+  "diez de once": "10 de 11",
+  "Yensen Juang": "Jensen Huang",
+  "Envidia": "Nvidia",
+  "quince": "15",
+  "ocho": "8",
+  "siete": "7",
+  "cinco": "5",
+  "doce": "12",
+  "seis": "6",
+  "tres": "3"
  },
  "bloques": [
   {
    "id": "01",
-   "etiqueta": "EXPEDIENTE · NVIDIA",
-   "pausa": 0.3
+   "etiqueta": "ALERTA · 16–20/11",
+   "pausa": 0.25
   },
   {
    "id": "02",
-   "etiqueta": "MARTES 17 · NVIDIA",
-   "pausa": 0.3
+   "etiqueta": "MAR 17 · NVIDIA",
+   "pausa": 0.25
   },
   {
    "id": "03",
-   "etiqueta": "MARTES 17 · 10:30",
-   "pausa": 0.3
+   "etiqueta": "MAR 17 · 10:30",
+   "pausa": 0.25
   },
   {
    "id": "04",
-   "etiqueta": "MIÉ 18 · JUE 19 · VIE 20",
-   "pausa": 0.3
+   "etiqueta": "MIÉ 18 · 16:00",
+   "pausa": 0.25
   },
   {
    "id": "05",
-   "etiqueta": "MI REGLA",
-   "pausa": 0.3
+   "etiqueta": "JUE 19 · WALMART",
+   "pausa": 0.25
   },
   {
    "id": "06",
-   "wav": "06ig",
+   "etiqueta": "MI REGLA",
+   "pausa": 0.25
+  },
+  {
+   "id": "07",
+   "wav": "07ig",
    "etiqueta": "CIERRE",
    "solo": "ig",
    "pausa": 0.2,
    "pantalla": {
-    "Envidia": "NVIDIA",
-    "Fed": "FED"
+    "Envidia": "NVIDIA"
    }
   },
   {
-   "id": "06",
-   "wav": "06yt",
+   "id": "07",
+   "wav": "07yt",
    "etiqueta": "CIERRE",
    "solo": "yt",
    "pausa": 0.2,
    "pantalla": {
-    "Envidia": "NVIDIA",
-    "Fed": "FED"
+    "Envidia": "NVIDIA"
    }
   }
  ]

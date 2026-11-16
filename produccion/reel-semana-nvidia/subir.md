@@ -1,33 +1,33 @@
-# Reel / Short · La semana de Nvidia sin su CEO (16/11/2026)
+# Reel / Short · «No inviertas esta semana sin conocer esto» (v2, 16/11/2026)
 
-Pedido de Lean (16/11): informar lo mismo que https://www.instagram.com/reel/Dfx955KE9Lr/ (agenda de la semana del 16 al
-20/11), pero con nuestro estilo: expediente cine, clon de su voz, voseo y explicar qué significa cada dato.
-Guion revisado por Rocío (`textos-voz.json`; en la voz «Envidia» y «Yensen Juang», en pantalla Nvidia y Jensen Huang).
-Voz: **clon de Lean (Qwen3-TTS) → marcar contenido sintético**.
-Vigencia: sirve para publicar **hoy lunes 16/11**; si sale el martes 17, cambiar «marcá el martes» y la agenda.
-
-Datos (verificados el 16/11/2026):
-- NVDA: récord 243,37 (06/10), mínimo 148,80 (12/11), cierre 162,85 (13/11): −33 % desde el récord (Yahoo Finance).
-- Huang renunció el 12/11; Colette Kress es CEO interina (CNBC, Infobae, La Nación).
-- Nvidia reporta el martes 17/11 después del cierre; guía US$ 108.000 M (±2 %), consenso ~US$ 108.800–109.300 M (MarketBeat, Visible Alpha).
-- Ventas minoristas de octubre: martes 17/11, 8:30 de Nueva York (10:30 ARG); consenso +0,1 % a +0,2 %; septiembre +0,8 %.
-- Minutas de la Fed: miércoles 18/11, 14:00 NY (16:00 ARG). Walmart: jueves 19/11 antes de la apertura.
-- Confianza del consumidor de la Universidad de Michigan (final): viernes 20/11, 10:00 NY (12:00 ARG).
+La v1 («Nvidia sin su CEO: la agenda de la semana») la rechazó Lean: gancho flojo, solo informaba, fotos repetidas,
+pocos efectos. v2: gancho de Lean, número esperado y frecuencia histórica de cada evento (`estadistica.md`), fotos
+nuevas, calendario 3D, ✓ 15 de 15, cajas verdes/rojas, puntos, barras y placa de video en 3D. Guion revisado por
+Rocío y estructura de Nacho (`analisis/2026-11-16-viralidad-reel-semana.md`). Escena: `hacer_escena.py` →
+`escena-cine.html` (desde `escena-plantilla.html`). v1 archivada en `escena-cine-v1.html` y `textos-voz-v1.json`.
+Voz: clon de Lean (Qwen3-TTS) → **marcar contenido sintético**. Vale para publicar hoy, 16/11.
 
 ## Instagram (Reel)
 ```
-Nvidia rinde su primer examen sin Jensen Huang 👇
+No inviertas esta semana sin conocer esto 👇 (lo que pasó cada vez, con datos reales)
 
-📉 Viene de caer 33 % desde su récord de octubre
-🗓 Martes 17, después del cierre: resultados. Se esperan ventas por ~US$ 109.000 M
-🛒 Martes 17 · 10:30: ventas minoristas de EE. UU. (¿cuánto gastó la gente?)
-🏦 Miércoles 18 · 16:00: minutas de la Fed
-🧾 Jueves 19: Walmart · Viernes 20 · 12:00: confianza del consumidor
+🟢 Nvidia · martes 17 después del cierre (primera vez sin Jensen Huang)
+Se esperan US$ 109.000 M en ventas. Superó lo esperado en sus últimos 15 reportes… y al otro día subió 8 veces y bajó 7. En las últimas 8, bajó 5.
+
+🛒 Ventas minoristas · martes 17, 10:30
+Se espera +0,1 %. Por encima: la bolsa bajó 8 de 12 veces. Por debajo: 6 de 8.
+
+🏦 Minutas de la Fed · miércoles 18, 16:00
+La bolsa subió 15 de 23 veces y se movió 42 % más que un día cualquiera.
+
+🧾 Walmart · jueves 19, antes de la apertura
+Se espera US$ 0,64 por acción. Superó 10 de 11 veces, pero la acción bajó 6. Y cayó en los últimos 3 reportes.
+
+Un buen número no garantiza que suba. Es lo que pasó, no lo que va a pasar.
+Mi regla: en esas horas, achico lo que arriesgo o espero.
+
+📌 Guardalo para el martes y comentá qué fecha vas a mirar.
 (Horarios de Argentina)
-
-Mi regla: en esas horas el precio puede saltar sin aviso. Achicá lo que arriesgás o esperá a que pase.
-
-Guardá esta agenda y comentá NVIDIA o FED: ¿cuál va a pesar más?
 
 Contenido educativo. No es recomendación de inversión. Voz generada con IA.
 
@@ -35,24 +35,24 @@ Contenido educativo. No es recomendación de inversión. Voz generada con IA.
 ```
 
 ## YouTube (Short)
-**Título:** Nvidia rinde examen sin su CEO: la agenda que puede mover la bolsa esta semana #Shorts
+**Título:** No inviertas esta semana sin conocer esto: Nvidia, la Fed y lo que pasó cada vez #Shorts
 ```
-Nvidia presenta resultados el martes 17/11, por primera vez sin Jensen Huang, y viene de caer 33 % desde su récord. Esta es la agenda de la semana, con horarios de Argentina y qué significa cada dato:
+4 fechas de esta semana y qué hizo el precio cada vez (datos reales, cálculo propio):
 
-📉 Martes 17 · después del cierre: resultados de Nvidia (guía US$ 108.000 M, el mercado espera ~US$ 109.000 M)
-🛒 Martes 17 · 10:30: ventas minoristas de EE. UU. (esperado +0,1 %; septiembre +0,8 %)
-🏦 Miércoles 18 · 16:00: minutas de la Fed
-🧾 Jueves 19: resultados de Walmart
-📊 Viernes 20 · 12:00: confianza del consumidor (Universidad de Michigan)
+📉 Nvidia · mar 17 después del cierre: se esperan US$ 109.000 M. Superó lo esperado 15 de 15 veces; al otro día subió 8 y bajó 7 (en las últimas 8, bajó 5).
+🛒 Ventas minoristas · mar 17 10:30: se espera +0,1 %. Por encima, el S&P 500 bajó 8 de 12; por debajo, 6 de 8.
+🏦 Minutas de la Fed · mié 18 16:00: el S&P 500 subió 15 de 23 y se movió 42 % más que un día cualquiera.
+🧾 Walmart · jue 19: se esperan US$ 0,64 por acción. Superó 10 de 11; la acción bajó 6 y cayó en los últimos 3.
 
-¿Cuál va a pesar más? Comentá NVIDIA o FED 👇
+Es lo que pasó, no lo que va a pasar. Horarios de Argentina.
+¿Qué fecha vas a mirar? 👇
 
-Datos: Yahoo Finance (NVDA), Nvidia, consenso de analistas (MarketBeat, Visible Alpha) y calendarios oficiales. Foto: Wall Street, Wikimedia Commons. Voz generada con IA (clon de la voz de Lean).
+Datos: Yahoo Finance (NVDA, WMT, ^GSPC) y consensos de analistas, cálculo propio al 16/11/2026. Fotos: Wikimedia Commons (sede de Nvidia, edificio Eccles de la Fed, Holyoke Mall, CC BY-SA; Walmart, Jared C. Benedict, CC BY-SA; placa GTX 1070, Evan-Amos). Voz generada con IA (clon de la voz de Lean).
 🎓 Aprendé desde cero gratis: https://realinvestors.club
 
-Contenido educativo. No constituye recomendación de inversión.
+Contenido educativo. No constituye recomendación de inversión. Rendimientos pasados no garantizan resultados futuros.
 
 #Shorts #Nvidia #Trading #Bolsa #WallStreet
 ```
 Configurar: categoría Educación (27), idioma español, contenido sintético **sí**, playlists «Shorts de Real Investors Club» y «Noticias y conceptos de trading en 1 minuto».
-**Comentario para fijar:** ¿NVIDIA o FED? 👇 ¿Cuál va a mover más el mercado esta semana?
+**Comentario para fijar:** ¿Qué fecha vas a mirar? Yo, el martes después del cierre 👇
