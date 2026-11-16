@@ -29,3 +29,15 @@ Fuentes:
 - Página de Hugging Face de la versión 1.6
 - PR del repo sobre la variante de bajo consumo
 - Tutorial de DigitalOcean
+
+## Prueba gratis (16/11/2026)
+- Se habilitó en el entorno RIC el dominio de la demo oficial de Meituan en Hugging Face, con el OK de Lean.
+  - Demo: `meituan-longcat/LongCat-Video-Avatar-1.5-Demo`.
+  - Dominio: `meituan-longcat-longcat-video-avatar-1-5-demo.hf.space`.
+  - Su API (`/generate_avatar`) recibe una imagen, un audio, un prompt, la resolución (480p), la semilla, el modo de voz y la aceleración.
+  - Hace solo 5 s de video por llamada (125 cuadros a 25 fps).
+- Resultado: «You have exceeded your ZeroGPU quota (480s requested)».
+  - Cada llamada reserva 240 s en una GPU «xlarge», que cuentan doble: 480 s.
+  - Sin cuenta, el cupo diario no alcanza ni para una llamada. Con una cuenta gratis de Hugging Face tampoco (son unos pocos minutos por día).
+  - Hace falta una cuenta PRO de Hugging Face (de pago, ~US$ 9 por mes, con ~25 min de GPU por día) o alquilar una GPU.
+- Prueba preparada en el scratchpad: `longcat/probar.py <foto> <audio> <salida.mp4>`, con la foto de perfil de Lean y 5 s de su voz clonada.

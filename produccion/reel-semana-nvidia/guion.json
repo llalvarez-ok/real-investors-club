@@ -1,0 +1,61 @@
+{
+ "titulo": "La semana en que Nvidia rinde examen sin su CEO",
+ "pantalla": {
+  "Envidia": "Nvidia",
+  "Yensen Juang": "Jensen Huang",
+  "treinta y tres por ciento": "33 %",
+  "ciento nueve mil millones de dólares": "US$ 109.000 M",
+  "diez y media": "10:30",
+  "cero coma uno por ciento": "0,1 %",
+  "cuatro de la tarde": "16:00"
+ },
+ "bloques": [
+  {
+   "id": "01",
+   "etiqueta": "EXPEDIENTE · NVIDIA",
+   "pausa": 0.3
+  },
+  {
+   "id": "02",
+   "etiqueta": "MARTES 17 · NVIDIA",
+   "pausa": 0.3
+  },
+  {
+   "id": "03",
+   "etiqueta": "MARTES 17 · 10:30",
+   "pausa": 0.3
+  },
+  {
+   "id": "04",
+   "etiqueta": "MIÉ 18 · JUE 19 · VIE 20",
+   "pausa": 0.3
+  },
+  {
+   "id": "05",
+   "etiqueta": "MI REGLA",
+   "pausa": 0.3
+  },
+  {
+   "id": "06",
+   "wav": "06ig",
+   "etiqueta": "CIERRE",
+   "solo": "ig",
+   "pausa": 0.2,
+   "pantalla": {
+    "Envidia": "NVIDIA",
+    "Fed": "FED"
+   }
+  },
+  {
+   "id": "06",
+   "wav": "06yt",
+   "etiqueta": "CIERRE",
+   "solo": "yt",
+   "pausa": 0.2,
+   "pantalla": {
+    "Envidia": "NVIDIA",
+    "Fed": "FED"
+   }
+  }
+ ]
+}
