@@ -1,7 +1,8 @@
 {
  "titulo": "No inviertas esta semana sin conocer esto",
  "pantalla": {
-  "ciento nueve mil millones de dólares": "US$ 109.000 M",
+  "sesenta y cuatro centavos de ganancia por acción": "US$ 0,64 por acción",
+  "ciento nueve mil miyones de dólares": "US$ 109.000 M",
   "cero coma uno por ciento": "0,1 %",
   "cuarenta y dos por ciento": "42 %",
   "sesenta y cuatro centavos": "0,64 US$",
@@ -21,32 +22,32 @@
   {
    "id": "01",
    "etiqueta": "ALERTA · 16–20/11",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "02",
    "etiqueta": "MAR 17 · NVIDIA",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "03",
    "etiqueta": "MAR 17 · 10:30",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "04",
    "etiqueta": "MIÉ 18 · 16:00",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "05",
    "etiqueta": "JUE 19 · WALMART",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "06",
    "etiqueta": "MI REGLA",
-   "pausa": 0.25
+   "pausa": 0.35
   },
   {
    "id": "07",

@@ -1,6 +1,6 @@
 # Voz clonada de Lean con Qwen3-TTS (Apache 2.0)
 
-**Pronunciación (regla de Lean del 15/11/2026):** en todo texto para la voz, «video» se escribe **«vidéo»** («vidéos»), como se pronuncia en Argentina. En pantalla y en los subtítulos queda «video». `herramientas/revisar_guion.py` lo marca como error. Lo mismo con **«liquidación»**: el clon dice «licuidación», así que en la voz se escribe **«likidación»** («likidaciones», «likidar», «likidez»; regla de Lean del 15/11/2026).
+**Pronunciación (regla de Lean del 15/11/2026):** en todo texto para la voz, «video» se escribe **«vidéo»** («vidéos»), como se pronuncia en Argentina. En pantalla y en los subtítulos queda «video». `herramientas/revisar_guion.py` lo marca como error. Lo mismo con **«liquidación»**: el clon dice «licuidación», así que en la voz se escribe **«likidación»** («likidaciones», «likidar», «likidez»; regla de Lean del 15/11/2026). Desde el 16/11/2026 también **«millones» → «miyones»** (acento argentino) y **«YouTube» → «Iutub»** (el clon decía «Yutube»).
 
 **Es la voz de todos los videos de RIC desde el 07/11/2026** (decisión de Lean), salvo que él grabe. Elegida entre 5 muestras (`analisis/2026-11-07-voces-abiertas.md`).
 

@@ -47,6 +47,11 @@ def revisar_texto(voz):
     # Regla de Lean (15/11/2026): el clon dice «licuidación»; en la voz se escribe «likidación» («likidar», «likidez»)
     for m in re.findall(r"\bliquid\w*", voz, flags=re.I):
         errores.append(f"«{m}»: en la voz escribir con «k» («likidación», «likidez»): el clon dice «licuidación»")
+    # Reglas de Lean (16/11/2026): «millones» → «miyones» (acento argentino) y «YouTube» → «Iutub» (el clon decía «Yutube»)
+    for m in re.findall(r"\bmill[oó]n(?:es)?\b", voz, flags=re.I):
+        errores.append(f"«{m}»: en la voz escribir «miyón»/«miyones» (acento argentino, regla de Lean)")
+    for m in re.findall(r"\byou ?tube\b", voz, flags=re.I):
+        errores.append(f"«{m}»: en la voz escribir «Iutub» (regla de Lean)")
     if re.search(r"\d", voz):
         avisos.append("cifras con dígitos en la voz: escribirlas en palabras, como se pronuncian")
     return errores, avisos
