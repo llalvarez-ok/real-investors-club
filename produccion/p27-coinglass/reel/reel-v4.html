@@ -39,7 +39,7 @@
   #nota7 { position:absolute; left:140px; right:210px; top:1120px; font:700 44px/1.25 'IBM Plex Sans'; text-align:center; display:none; z-index:6; }
   #sub { position:absolute; left:140px; right:210px; top:1286px; text-align:center; font:700 56px/1.18 'IBM Plex Sans'; text-shadow:0 4px 14px rgba(0,0,0,.95); z-index:8; }
   #sub span { color:rgba(236,241,249,.35); } #sub span.on { color:var(--t1); } #sub span.k { color:var(--o1); }
-  #cierre { position:absolute; left:70px; right:70px; top:600px; display:none; z-index:6; }
+  #cierre { position:absolute; left:70px; right:70px; top:530px; display:none; z-index:6; }
   .tarjeta { background:rgba(14,16,22,.94); border:2px solid rgba(226,183,74,.45); border-radius:34px; padding:40px; box-shadow:0 30px 80px rgba(0,0,0,.7); font-family:Inter; }
   .tarjeta .fila { display:flex; align-items:center; gap:30px; }
   .tarjeta img.av { width:170px; height:170px; border-radius:50%; object-fit:cover; border:4px solid #e2b74a; background:#111; }
@@ -52,7 +52,7 @@
   #yt i { width:96px; height:68px; border-radius:18px; background:#ff0033; flex:none; position:relative; }
   #yt i:after { content:''; position:absolute; left:38px; top:20px; border-left:28px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; }
   #yt small { display:block; font:500 26px Inter; color:#9aa0aa; margin-top:6px; }
-  #aviso { position:absolute; left:140px; right:210px; top:440px; text-align:center; font:600 24px 'IBM Plex Mono'; color:var(--t2); display:none; z-index:6; }
+  #aviso { position:absolute; left:140px; right:210px; top:410px; text-align:center; font:600 24px 'IBM Plex Mono'; color:var(--t2); display:none; z-index:6; }
 </style></head>
 <body>
 <div id="fondo"></div>
@@ -70,7 +70,7 @@
 <div id="zona7" style="position:absolute;left:140px;top:1180px;font:700 28px 'IBM Plex Mono';color:var(--t2);display:none;z-index:6">Zona estimada 59.500–62.600 (Glassnode)</div>
 <div id="nota7">Usalo para <b style="color:var(--o1)">entender</b> el precio,<br>no para apostar.</div>
 <div class="etq" id="etq"></div>
-<div id="cierre"><div class="tarjeta" id="tarjeta"></div><div id="yt"><i></i><div id="ytxt"></div></div><div id="comenta" style="margin-top:26px;text-align:center;font:900 64px/1.05 Archivo;text-transform:uppercase">o comentá <span class="oro">LINK</span><div style="font:600 30px 'IBM Plex Sans';text-transform:none;color:var(--t2);margin-top:10px">y te lo mando por privado</div></div></div>
+<div id="cierre"><div class="tarjeta" id="tarjeta"></div><div id="yt"><i></i><div id="ytxt"></div></div><div id="comenta" style="margin-top:26px;text-align:center;font:900 54px/1.05 Archivo;text-transform:uppercase">o comentá <span class="oro">LINK</span><div style="font:600 30px 'IBM Plex Sans';text-transform:none;color:var(--t2);margin-top:10px">y te lo mando por privado</div></div></div>
 <div id="aviso">Contenido educativo. No constituye recomendación de inversión. Voz generada con IA a partir de la voz de Lean.</div>
 <div id="sub"></div>
 <script>
@@ -156,7 +156,7 @@
       x.save(); x.globalAlpha = a; x.fillStyle = '#fff'; x.beginPath(); x.arc(px, py, 14, 0, 7); x.fill(); x.strokeStyle = '#fff'; x.lineWidth = 6; x.setLineDash([14, 10]);
       x.beginPath(); x.moveTo(px, py - 24); x.lineTo(px, py - 24 - (py - Y(348) - 40) * a); x.moveTo(px, py + 24); x.lineTo(px, py + 24 + (Y(758) - py - 40) * a); x.stroke(); x.restore(); }
   }
-  const TIT = { '01': '<span class="gigante oro">CoinGlass</span><br>cómo leer el mapa', '02': 'Qué estás<br><span class="oro">viendo</span>', '03': 'Los<br><span class="oro">colores</span>',
+  const TIT = { '01': '<span class="gigante oro">CoinGlass</span><br>cómo leerlo', '02': 'Qué estás<br><span class="oro">viendo</span>', '03': 'Los<br><span class="oro">colores</span>',
     '04': 'El monto<br><span class="oro">exacto</span>', '05': 'Cómo<br><span class="oro">usarlo</span>', '06': 'Referencia,<br><span class="oro">no promesa</span>', '07': 'Un caso<br><span class="oro">real</span>', '08': '' };
   const CHIP = { '07': 'CASO PASADO · NO ES SEÑAL' };
   const CLAVE = /^(cóinglas|coinglass|mapa|gratis|velas|violeta|verde|monto|historia|link|privado|referencia|amarill|liquid|franja|dinero|estimaci|promesa|entender|completo|youtube|perfil|suscribite|club|configuraci|opero)/i;
@@ -182,6 +182,7 @@
     const c8 = b.id === '08'; $('#cierre').style.display = c8 ? 'block' : 'none'; $('#aviso').style.display = c8 ? 'block' : 'none';
     if (c8) { $('#cierre').style.opacity = ent; $('#cierre').style.transform = `translateY(${(1 - ent) * 60}px)`; $('#b2').style.opacity = cl((p - .75) / .05);
       $('#yt').style.opacity = eo(cl((t - tx('08', 'link', 1, -.3)) / .4)); $('#comenta').style.opacity = IG ? eo(cl((t - tx('08', 'comentá', 1, -.3)) / .4)) : 0; $('#aviso').style.opacity = ent; }
+    $('#sub').style.top = b.id === '08' ? '1372px' : '1286px';
     const gr = grupos.find(q => t >= q[0][0] - .05 && t < q[q.length - 1][1] + .25);
     $('#sub').innerHTML = gr ? gr.map(w => `<span class="${t >= w[0] - .03 ? (CLAVE.test(w[2]) ? 'on k' : 'on') : ''}">${w[2]}</span>`).join(' ') : '';
     if (g && g.n !== nAct) { nAct = g.n; img.src = `../grab/f/${String(g.n).padStart(5, '0')}.jpg`; return img.decode().catch(() => 0); }
