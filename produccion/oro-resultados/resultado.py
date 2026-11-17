@@ -63,7 +63,7 @@ def svg(r):
                           f'font-family="IBM Plex Mono" text-anchor="middle">{t.astimezone(AR):%H:%M}</text>')
     return f'''<svg viewBox="0 0 1000 420" width="100%" height="420">
   <line x1="{x0:.1f}" y1="0" x2="{x0:.1f}" y2="385" stroke="#e2c68c" stroke-width="2" stroke-dasharray="8 8"/>
-  <text x="{x0 + 12:.1f}" y="26" fill="#e2c68c" font-size="22" font-family="IBM Plex Mono">SALE EL DATO · {r["hora_ar"]}</text>
+  <text x="{x0 + 12:.1f}" y="26" fill="#e2c68c" font-size="22" font-family="IBM Plex Mono">{r.get("marca", "SALE EL DATO")} · {r["hora_ar"]}</text>
   <path d="{linea}" fill="none" stroke="#ecf1f9" stroke-width="3" opacity=".55"/>
   <path d="{"M" + " L".join(f"{X(s):.1f},{Y(p):.1f}" for s, p, t in zip(xs, v.values, v.index) if t >= r["t0"] - timedelta(minutes=5) and t <= r["t0"] + timedelta(minutes=r["h"]))}" fill="none" stroke="{col}" stroke-width="5"/>
   <circle cx="{x0:.1f}" cy="{Y(r["p0"]):.1f}" r="8" fill="#e2c68c"/>

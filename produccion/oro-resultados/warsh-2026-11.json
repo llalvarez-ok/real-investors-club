@@ -1,0 +1,38 @@
+{
+  "id": "warsh-2026-11",
+  "fecha": "2026-11-16",
+  "hora_ny": "12:00",
+  "ventana_min": 75,
+  "dia": "Lun 16/11",
+  "nombre": "habló Warsh (Fed)",
+  "formato": "historia",
+  "gancho": "Habló el jefe de la Fed… y no dijo una palabra de tasas",
+  "esperado": "¿subir o esperar?",
+  "salio": "nada de tasas",
+  "anual": "el oro venía bajando desde la mañana (3.883 a las 10:00 de Nueva York)",
+  "comparacion": "sin pista",
+  "frase_dato": "Warsh habló de inteligencia artificial y productividad. De tasas y de diciembre, nada.",
+  "esperado_oro": "nada claro",
+  "porque": [
+    "Habló de <b>inteligencia artificial</b>: tres escenarios para el empleo y la productividad. «Ejemplos, no pronósticos».",
+    "Sin pista sobre la tasa, el oro <b>no tuvo de dónde agarrarse</b>: subió apenas 0,2 % y una hora después estaba 0,5 % abajo.",
+    "Siguió lo que ya venía haciendo: <b>bajar</b>, porque el mercado sigue esperando una suba de tasa en diciembre."
+  ],
+  "aprendizaje": "Cuando el jefe de la Fed <b>no habla de tasas</b>, el oro sigue la tendencia que traía. Lo que importa es lo que se espera de diciembre.",
+  "encuesta": "¿Qué van a mostrar las minutas?",
+  "opciones": [
+    "Ganas de subir",
+    "Dudas"
+  ],
+  "proxima": {
+    "fecha": "Mié 18/11",
+    "nombre": "Minutas de la Fed",
+    "hora": "16:00 ARG",
+    "regla": "Si muchos quieren <b>subir la tasa</b>, el oro suele bajar. Si hay <b>dudas</b>, suele subir."
+  },
+  "fuentes": "CNBC, Yahoo Finance, investingLive, Fed",
+  "despues": "Warsh arrancó a las <b>14:00</b> (hora de Argentina). El oro estaba en <b>3.867</b>, tocó <b>3.873</b> y a la hora y cuarto estaba en <b>3.848</b>: sin reacción propia.",
+  "titulo2": "¿POR QUÉ NO SE MOVIÓ?",
+  "marca": "HABLA WARSH",
+  "pie_etiqueta": "Contexto"
+}

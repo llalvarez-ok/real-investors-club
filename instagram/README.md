@@ -187,3 +187,5 @@ de la app.
 Foto nueva de Lean (retrato con velas de fondo), 37 publicaciones, 3.823 seguidores, 13 seguidos. Bio: «Trader de oro (XAUUSD) y cripto 🟡 · Te explico el mercado desde cero · 🎥 Opero en vivo en YouTube 👇 · ⚠️ CFDs: alto riesgo de pérdida de dinero» y link a youtube.com/@realinvestorsc (+2). La tarjeta de cierre de los Reels usa `herramientas/particulas/avatar.png` (actualizada con esta foto).
 
 - 15/11/2026 · Reel «CoinGlass: el mapa gratis de liquidaciones» (P27 v3, con la grabación de Lean, cierre al video completo de YouTube): entregado, falta publicar. Textos en `produccion/p27-coinglass/reel/subir-v3.md`.
+- 17/11/2026 · Historia de resultado «Habló Warsh» (16/11, nada de tasas; oro −0,5 % siguiendo la caída del día): 2 láminas con encuesta, entregadas por el chat; falta publicar (Lean). `produccion/oro-resultados/warsh-2026-11.md`.
+- 17/11/2026 · Historia «Muy pronto · CoinGlass modo básico» (anuncio del Reel y del video de YouTube): entregada por el chat. `produccion/p27-coinglass/historia/`.

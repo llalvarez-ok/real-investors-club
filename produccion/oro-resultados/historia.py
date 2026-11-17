@@ -35,9 +35,9 @@ def html(c, r):
 .h .p .n{flex:none;width:54px;height:54px;border-radius:50%;background:var(--oro1);color:var(--noche1);font-family:'Archivo';font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center}
 .h .p b,.h .lec b,.h .prox b{color:var(--oro1)}
 .h .lec{margin-top:30px;font-size:34px;line-height:1.4;color:var(--txt2)}
-.h .enc{margin-top:36px;height:300px;border:3px dashed rgba(226,198,140,.55);border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--oro1);font-family:'IBM Plex Mono';font-size:26px;text-align:center}
+.h .enc{margin-top:30px;height:250px;border:3px dashed rgba(226,198,140,.55);border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--oro1);font-family:'IBM Plex Mono';font-size:26px;text-align:center}
 .h .enc big{font-family:'Archivo';font-weight:900;font-size:46px;color:var(--txt)}
-.h .prox{position:absolute;left:90px;right:90px;top:1330px;border:2px solid var(--oro2);border-radius:22px;padding:24px 28px;background:rgba(40,30,4,.35);font-size:31px;line-height:1.35}
+.h .prox{margin-top:30px;border:2px solid var(--oro2);border-radius:22px;padding:24px 28px;background:rgba(40,30,4,.35);font-size:31px;line-height:1.35}
 .h .prox small{display:block;font-family:'IBM Plex Mono';font-size:23px;color:var(--oro1);margin-bottom:8px}
 .h .pie2{margin-top:30px;font-family:'IBM Plex Mono';font-size:19px;color:var(--txt2);line-height:1.4}
 </style>"""
@@ -47,19 +47,19 @@ def html(c, r):
   <span class="etiqueta">RESULTADO · {c["nombre"].upper()}</span>
   <h1>{c["gancho"]}</h1>
   <div class="dos"><div><small>SE ESPERABA</small><b>{c["esperado"]}</b></div><div><small>SALIÓ</small><b class="oro">{c["salio"]}</b></div></div>
-  <div class="caja"><div class="tt"><span>ORO · VELAS DE 5 MIN · HORA ARG</span><span style="color:{col}">{"+" if sube else ""}{num(r["pct_ext"], 1)} % EN 5 MIN</span></div>{svg(r)}</div>
+  <div class="caja"><div class="tt"><span>ORO · VELAS DE 5 MIN · HORA ARG</span><span style="color:{col}">{"+" if sube else ""}{num(r["pct_ext"], 1)} % EN {c.get("ventana_min", 5) if c.get("ventana_min") else 5} MIN</span></div>{svg(r)}</div>
   <div class="ver">{c.get("despues") or f'Salió <b>{c["comparacion"]}</b> de lo esperado y el oro llegó a <b>{num(r["ext"], 1)}</b>.'}</div>
-  <div class="pie2">En el año: {c["anual"]}. Fuentes: {c["fuentes"]}, Yahoo Finance (GC=F).<br>Contenido educativo. No es recomendación de inversión.</div>
+  <div class="pie2">{c.get("pie_etiqueta", "En el año")}: {c["anual"]}. Fuentes: {c["fuentes"]}, Yahoo Finance (GC=F).<br>Contenido educativo. No es recomendación de inversión.</div>
 </section>'''
     ps = "".join(f'<div class="p"><span class="n">{i + 1}</span><div>{t}</div></div>' for i, t in enumerate(c["porque"]))
     pr = c["proxima"]
     l2 = f'''<section class="h" id="l2">{top}
-  <span class="etiqueta">¿POR QUÉ NO SIGUIÓ SUBIENDO?</span>
+  <span class="etiqueta">{c.get("titulo2", "¿POR QUÉ NO SIGUIÓ SUBIENDO?")}</span>
   {ps}
   <div class="lec">{c["aprendizaje"]}</div>
   <div class="enc"><big>{c["encuesta"]}</big>{" · ".join(c["opciones"])}<br>(poné acá la encuesta)</div>
   <div class="prox"><small>PRÓXIMA · {pr["fecha"]} · {pr["nombre"].upper()}</small>{pr["regla"]}</div>
-  <div class="pie2" style="position:absolute;top:1530px;left:90px;right:90px">Lean Alvarez · Real Investors Club · @leanalvarez.ok<br>Contenido educativo. No es recomendación de inversión.</div>
+  <div class="pie2" style="margin-top:24px">Lean Alvarez · Real Investors Club · @leanalvarez.ok<br>Contenido educativo. No es recomendación de inversión.</div>
 </section>'''
     return head + css + "</head><body>" + l1 + l2 + "</body></html>"
 
@@ -68,6 +68,7 @@ def main():
     c = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     salida = Path(sys.argv[2]).resolve(); salida.mkdir(parents=True, exist_ok=True)
     r = reaccion(c)
+    if c.get("marca"): r["marca"] = c["marca"]
     tmp = AQUI / "_historia.html"; tmp.write_text(html(c, r), encoding="utf-8")
     js = """const { chromium } = require('playwright');
 (async () => { const [url, dir, id] = process.argv.slice(1); const b = await chromium.launch();
