@@ -1,0 +1,4 @@
+{"titulo":"Lección 1 · Por qué sube el precio",
+ "pantalla":{"Bitcoin":"Bitcoin","treinta de septiembre":"30/09","dos coma cuatro por ciento":"2,4 %","casi diez veces":"casi 10 veces","GÓNDOLA":"GÓNDOLA"},
+ "bloques":[{"id":"01","etiqueta":"LECCIÓN 1 · FLUJO DE ÓRDENES","pausa":0.35},{"id":"02","etiqueta":"COMPRA = VENTA","pausa":0.35},{"id":"03","etiqueta":"DOS TIPOS DE ORDEN","pausa":0.35},{"id":"04","etiqueta":"POR QUÉ SUBE","pausa":0.35},{"id":"05","etiqueta":"ABSORCIÓN","pausa":0.35},{"id":"06","etiqueta":"CASO REAL · BTC","pausa":0.35},{"id":"07","etiqueta":"OJO","pausa":0.35},
+ {"id":"08","wav":"08ig","etiqueta":"CIERRE","solo":"ig","pausa":0.2},{"id":"08","wav":"08yt","etiqueta":"CIERRE","solo":"yt","pausa":0.2}]}

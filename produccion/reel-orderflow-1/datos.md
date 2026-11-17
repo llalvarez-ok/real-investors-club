@@ -1,0 +1,4 @@
+# Datos del Reel «Lección 1 · Por qué sube el precio» (17/11/2026)
+Referencia (tema, no texto): https://www.instagram.com/reel/Df1kSHRR4C_/ (transcripción Supadata --ia, en inglés: órdenes limitadas pasivas y a mercado agresivas; el precio sube cuando se acaban las órdenes de venta de un precio; si compran y no sube, hay un vendedor grande = absorción; «lección 1 de una serie de order flow»).
+Ejemplo real (yfinance, BTC-USD 15 min, `btc-absorcion.json`): 30/09/2026 13:00 UTC (10:00 ARG). Venía de +1,79 % en 2 h; la vela: apertura 85.300, máximo 85.600, mínimo 85.065, cierre 85.367 (cuerpo 13 % del rango); volumen 9,9 veces el promedio de las 24 h anteriores. Mínimo posterior 83.328 a las 14:30 UTC (−2,39 % desde el cierre de la vela, 90 min después).
+El libro de órdenes (góndola) es ilustrativo: Yahoo no da ticks ni profundidad de mercado.
