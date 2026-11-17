@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>P27 · Reel CoinGlass v4</title>
+<!-- v4 (17/11/2026, pedido de Lean: enseñar qué ver y cómo usarlo; cierre «link en mi historia 24 h o comentá LINK»). Basado en la v3:
+     Reel/Short vertical 1080x1920 (v3, 15/11/2026, pedido de Lean: con su grabación de CoinGlass, énfasis en CoinGlass y
+     pase al video completo de YouTube). reel-v3.html?v=ig o ?v=yt. Cuadros de la grabación en ../grab/f (fuera de git;
+     sin el tramo que muestra los correos de Lean). Textos dentro de x 140–870 e y 250–1440.
+     window.cuadro(t) para herramientas/cine/render.js (devuelve una promesa). Tiempos: tiempos-v3-ig.js / tiempos-v3-yt.js. -->
+<script>const V = new URLSearchParams(location.search).get('v') || 'ig'; document.write(`<script src="tiempos-v4-${V}.js"><\/script>`);</script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@500;800&display=block" rel="stylesheet">
+<style>
+  :root { --n1:#071426; --n2:#0d2142; --o1:#e2c68c; --o2:#c7a35e; --o3:#8e7140; --t1:#ecf1f9; --t2:#a3b5d1; --v:#3dd68c; --r:#ff6b6b; --b:#274a80; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1920px; overflow:hidden; background:var(--n1); font-family:'IBM Plex Sans', sans-serif; color:var(--t1); }
+  #fondo { position:absolute; inset:0; background:
+    linear-gradient(rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    linear-gradient(90deg, rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    radial-gradient(ellipse at 70% 10%, #163a6e 0%, transparent 55%), linear-gradient(170deg, var(--n2), var(--n1) 70%); }
+  .oro { background:linear-gradient(180deg,var(--o1),var(--o2) 55%,var(--o3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  #logo { position:absolute; left:140px; top:150px; height:62px; }
+  #titulo { position:absolute; left:140px; right:210px; top:262px; font:900 78px/0.98 'Archivo'; text-transform:uppercase; letter-spacing:-.5px; }
+  #titulo .gigante { font-size:132px; letter-spacing:-2px; }
+  #chip { position:absolute; left:140px; top:462px; font:800 32px 'Archivo'; color:var(--n1); background:var(--o1); border-radius:14px; padding:8px 20px; display:none; z-index:6; }
+  #chip.rojo { background:var(--r); color:#fff; }
+  #escena3d { position:absolute; inset:0; perspective:2000px; }
+  #ventana { position:absolute; left:40px; top:540px; width:1000px; height:700px; border-radius:22px; overflow:hidden; display:none;
+    border:3px solid #3a5f9a; box-shadow:0 30px 90px rgba(0,0,0,.7); background:#fff; }
+  #ventana .cromo { position:absolute; left:0; right:0; top:0; height:48px; background:#e9edf3; display:flex; align-items:center; gap:10px; padding:0 18px; z-index:3; }
+  #ventana .cromo i { width:14px; height:14px; border-radius:50%; background:#ff5f57; } #ventana .cromo i:nth-child(2) { background:#febc2e; } #ventana .cromo i:nth-child(3) { background:#28c840; }
+  #ventana .url { margin-left:12px; flex:1; height:32px; border-radius:16px; background:#fff; font:700 22px 'IBM Plex Mono'; color:#223; display:flex; align-items:center; padding:0 16px; }
+  #vista { position:absolute; left:0; right:0; top:48px; bottom:0; overflow:hidden; background:#fff; }
+  #lienzo { position:absolute; left:0; top:0; width:1908px; height:970px; transform-origin:0 0; }
+  #lienzo img { width:1908px; height:970px; display:block; }
+  .tapa { position:absolute; background:#f7f8fa; display:none; }
+  #marco { position:absolute; border:6px solid var(--o1); border-radius:14px; box-shadow:0 0 0 9999px rgba(7,20,38,.42), 0 0 34px rgba(226,198,140,.85); display:none; }
+  #etq { position:absolute; display:none; font:800 40px 'Archivo'; color:var(--n1); background:var(--o1); padding:10px 22px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.5); white-space:nowrap; z-index:6; }
+  canvas#cv { position:absolute; left:0; top:0; z-index:4; }
+  .sello { position:absolute; left:150px; top:820px; font:900 84px/1 'Archivo'; text-transform:uppercase; color:var(--r); border:9px double var(--r); padding:18px 32px; transform:rotate(-6deg); opacity:0; background:rgba(40,4,6,.55); text-align:center; z-index:6; }
+  #nota7 { position:absolute; left:140px; right:210px; top:1120px; font:700 44px/1.25 'IBM Plex Sans'; text-align:center; display:none; z-index:6; }
+  #sub { position:absolute; left:140px; right:210px; top:1286px; text-align:center; font:700 56px/1.18 'IBM Plex Sans'; text-shadow:0 4px 14px rgba(0,0,0,.95); z-index:8; }
+  #sub span { color:rgba(236,241,249,.35); } #sub span.on { color:var(--t1); } #sub span.k { color:var(--o1); }
+  #cierre { position:absolute; left:70px; right:70px; top:600px; display:none; z-index:6; }
+  .tarjeta { background:rgba(14,16,22,.94); border:2px solid rgba(226,183,74,.45); border-radius:34px; padding:40px; box-shadow:0 30px 80px rgba(0,0,0,.7); font-family:Inter; }
+  .tarjeta .fila { display:flex; align-items:center; gap:30px; }
+  .tarjeta img.av { width:170px; height:170px; border-radius:50%; object-fit:cover; border:4px solid #e2b74a; background:#111; }
+  .tarjeta .nom { font:800 44px Inter; } .tarjeta .sub2 { font:500 28px Inter; color:#9aa0aa; margin-top:6px; }
+  .tarjeta .nums { display:flex; justify-content:space-around; margin:34px 0 30px; text-align:center; font:500 26px Inter; color:#9aa0aa; }
+  .tarjeta .nums b { display:block; font:800 46px Inter; color:#f5f5f2; }
+  .boton { position:relative; height:84px; border-radius:16px; font:800 36px Inter; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .boton .b2 { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; }
+  #yt { margin-top:30px; display:flex; align-items:center; gap:22px; background:rgba(14,16,22,.94); border:2px solid #ff3355; border-radius:26px; padding:26px 30px; font:800 36px/1.15 Inter; }
+  #yt i { width:96px; height:68px; border-radius:18px; background:#ff0033; flex:none; position:relative; }
+  #yt i:after { content:''; position:absolute; left:38px; top:20px; border-left:28px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; }
+  #yt small { display:block; font:500 26px Inter; color:#9aa0aa; margin-top:6px; }
+  #aviso { position:absolute; left:140px; right:210px; top:440px; text-align:center; font:600 24px 'IBM Plex Mono'; color:var(--t2); display:none; z-index:6; }
+</style></head>
+<body>
+<div id="fondo"></div>
+<img id="logo" src="../../../marca/logo-oro.png" alt="">
+<div id="titulo"></div>
+<div id="chip"></div>
+<div id="escena3d"><div id="ventana"><div class="cromo"><i></i><i></i><i></i><div class="url" id="url">coinglass.com</div></div>
+  <div id="vista"><div id="lienzo"><img id="rec" src="../grab/f/00001.jpg" alt="">
+    <div class="tapa tapaAd" style="left:493px;top:201px;width:123px;height:115px;background:#c7c8ca"></div><div class="tapa tapaAd" style="left:1292px;top:201px;width:114px;height:115px;background:#c7c8ca"></div><div class="tapa tapaAd" style="left:616px;top:201px;width:676px;height:15px;background:#c7c8ca"></div>
+    <div class="tapa" id="tapaLeg" style="left:1715px;top:812px;width:170px;height:95px"></div>
+  </div><div id="marco"></div></div></div></div>
+<canvas id="cv" width="1080" height="1920"></canvas>
+<div class="sello" id="sello">Estimación<br>no promesa</div>
+<div id="lam02" style="position:absolute;left:140px;right:210px;top:640px;display:none;z-index:6;text-align:center"><div style="font:900 92px/1 Archivo;color:var(--r)">CIERRE<br>FORZADO</div><div style="font:700 44px/1.3 'IBM Plex Sans';margin-top:40px">de una operación hecha<br>con <span style="color:var(--o1)">dinero prestado</span></div></div>
+<div id="zona7" style="position:absolute;left:140px;top:1180px;font:700 28px 'IBM Plex Mono';color:var(--t2);display:none;z-index:6">Zona estimada 59.500–62.600 (Glassnode)</div>
+<div id="nota7">Usalo para <b style="color:var(--o1)">entender</b> el precio,<br>no para apostar.</div>
+<div class="etq" id="etq"></div>
+<div id="cierre"><div class="tarjeta" id="tarjeta"></div><div id="yt"><i></i><div id="ytxt"></div></div><div id="comenta" style="margin-top:26px;text-align:center;font:900 64px/1.05 Archivo;text-transform:uppercase">o comentá <span class="oro">LINK</span><div style="font:600 30px 'IBM Plex Sans';text-transform:none;color:var(--t2);margin-top:10px">y te lo mando por privado</div></div></div>
+<div id="aviso">Contenido educativo. No constituye recomendación de inversión. Voz generada con IA a partir de la voz de Lean.</div>
+<div id="sub"></div>
+<script>
+(function () {
+  const IG = V === 'ig', CUENTA = { pub: 37, seg: 3823, sigue: 13 };  // perfil de Lean, 15/11/2026
+  const $ = s => document.querySelector(s);
+  $('#tarjeta').innerHTML = IG ? `
+    <div class="fila"><img class="av" src="../../../herramientas/particulas/avatar.png"><div><div class="nom">leanalvarez.ok <span style="color:#3897f0">✓</span></div>
+      <div class="sub2">Lean Alvarez | Trading & Finanzas</div></div></div>
+    <div class="nums"><div><b>${CUENTA.pub}</b>publicaciones</div><div><b>${CUENTA.seg.toLocaleString('es-AR')}</b>seguidores</div><div><b>${CUENTA.sigue}</b>seguidos</div></div>
+    <div class="boton" style="background:#0095f6;color:#fff">Seguir<div class="b2" id="b2" style="background:#262a33;color:#f5f5f2">Siguiendo ✓</div></div>`
+  : `
+    <div class="fila"><img class="av" src="../../../marca/logo-navy.png" style="object-fit:contain;padding:14px;background:#fff"><div><div class="nom">Real Investors Club</div>
+      <div class="sub2">@REALinvestorsc</div></div></div>
+    <div style="height:34px"></div>
+    <div class="boton" style="background:#ff0033;color:#fff">Suscribirme<div class="b2" id="b2" style="background:#262a33;color:#f5f5f2">Suscripto ✓ 🔔</div></div>`;
+  $('#ytxt').innerHTML = IG ? 'Link a CoinGlass en mi historia<small>Disponible 24 horas</small>' : 'Link a CoinGlass ↓<small>Y el video completo, en la descripción</small>';
+  if (IG) $('#yt i').outerHTML = '<i style="background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);border-radius:50%;width:76px;height:76px"></i>';
+  const B = {}; T.bloques.forEach((b, i) => { B[b.id] = b; b.fin = i + 1 < T.bloques.length ? T.bloques[i + 1].ini : T.total; });
+  const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), eo = v => 1 - Math.pow(1 - v, 3), eio = v => v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2;
+  const cv = $('#cv'), x = cv.getContext('2d'), C = { o: '#e2c68c', v: '#3dd68c', r: '#ff6b6b' };
+  const tx = (id, txt, n = 1, o = 0) => { const p = B[id].palabras; for (const w of p) if (w[2].toLowerCase().replace(/[^\wáéíóúñü]/g, '').startsWith(txt) && --n === 0) return w[0] + o; return B[id].ini; };
+  // ---- grabación (coordenadas 1908x970) ----
+  const VW = 1000, VH = 652;
+  const R = { todo: [0, 58, 1908, 912], amarilloV: [1080, 230, 560, 120], mapaV: [900, 100, 880, 800], tooltip: [1150, 370, 340, 160],
+    caida: [900, 520, 300, 260], rebote: [960, 360, 500, 400], velas: [880, 420, 520, 340], franjas: [1150, 320, 560, 80],
+    violeta: [520, 560, 420, 280], verde: [1100, 320, 600, 140], escala: [370, 100, 70, 800], mapa33: [760, 200, 1020, 720] };
+  const REC = {
+    '01': { tramo: [92, 92.1], vel: 0, cam: [[0, 'amarilloV'], ['juntan', 'mapaV']] },
+    '02': { tramo: [33, 33.1], vel: 0, cam: [[0, 'velas', 'Velas = precio'], ['franjas', 'franjas', 'Liquidaciones (estimadas)']] },
+    '03': { tramo: [92, 92.1], vel: 0, cam: [[0, 'mapaV'], ['violeta', 'violeta', 'Violeta: poco'], ['verde', 'verde', 'Verde: más'], ['amarillo', 'amarilloV', 'Amarillo: mucho']] },
+    '04': { tramo: [33, 33.1], vel: 0, cam: [[0, 'tooltip', 'Precio y monto exacto']] },
+    '05': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33']] },
+    '06': { tramo: [33, 33.1], vel: 0, cam: [[0, 'mapa33']] },
+    '07': { tramo: [33, 33.1], vel: 0, cam: [[0, 'rebote'], ['llegó', 'caida'], ['rebotó', 'rebote']] } };
+  function camara(r) { const s = Math.max(Math.min(VW / (r[2] * 1.1), VH / (r[3] * 1.2), 3.2), VW / 1908);
+    return { s, x: cl(VW / 2 - (r[0] + r[2] / 2) * s, VW - 1908 * s, 0), y: cl(VH / 2 - (r[1] + r[3] / 2) * s, VH - 970 * s, -58 * s) }; }
+  const deriva = (c, seg) => { const z = 1 + Math.min(.15, .035 * Math.max(0, seg)), s2 = c.s * z, cx = VW / 2, cy = VH / 2;
+    return { s: s2, x: cl(cx - (cx - c.x) * z, VW - 1908 * s2, 0), y: cl(cy - (cy - c.y) * z, VH - 970 * s2, -58 * s2) }; };
+  const tcam = (id, v) => typeof v === 'number' ? B[id].ini + v : tx(id, v, 1, -.15);
+  function grabacion(t, b) {
+    let cfg = REC[b.id]; const v = $('#ventana'); if (!cfg) { v.style.display = 'none'; return null; }
+    let t0 = b.ini; if (cfg.luego) { const te = tx(b.id, cfg.luego.desde, 1, -.2); if (t >= te) { cfg = cfg.luego; t0 = te; } }
+    v.style.display = 'block';
+    const ts = cl(cfg.tramo[0] + (t - t0) * cfg.vel, cfg.tramo[0], cfg.tramo[1]), n = Math.min(2702, Math.floor(ts * 15) + 1);
+    const cam = cfg.cam.map(c => [c[0] === 0 ? t0 : tcam(b.id, c[0]), R[c[1]], c[2]]);
+    let k = 0; cam.forEach((c, i) => { if (t >= c[0]) k = i; });
+    const TR = .55, q = k ? eio(cl((t - cam[k][0]) / TR)) : 1;
+    const prev = deriva(camara(cam[Math.max(0, k - 1)][1]), k ? cam[k][0] - cam[k - 1][0] - TR : 0), cur = deriva(camara(cam[k][1]), t - cam[k][0] - (k ? TR : 0));
+    const c = { s: prev.s + (cur.s - prev.s) * q, x: prev.x + (cur.x - prev.x) * q, y: prev.y + (cur.y - prev.y) * q };
+    $('#lienzo').style.transform = `translate(${c.x}px,${c.y}px) scale(${c.s})`;
+    $('#lienzo').style.filter = cfg.desenfoque ? 'blur(8px) brightness(.55)' : (b.id === '01' ? `brightness(${.6 + .4 * eo(cl(t / .8))})` : 'none');
+    $('#url').textContent = ts < 17 ? 'coinglass.com/login' : ts < 27 ? 'coinglass.com' : 'coinglass.com · Liquidation Heatmap';
+    $('#tapaLeg').style.display = ts > 26 ? 'block' : 'none';
+    document.querySelectorAll('.tapaAd').forEach(e => { e.style.display = ts >= 18 && ts < 22 ? 'block' : 'none'; });
+    const r = cam[k][1], m = $('#marco'), e = $('#etq'), a = cl((q - .8) / .2) * cl((t - cam[k][0] - (k ? 0 : .3)) / .3);
+    if (cam[k][2] && a > 0) {
+      Object.assign(m.style, { display: 'block', opacity: a, left: (r[0] * c.s + c.x - 10) + 'px', top: (r[1] * c.s + c.y - 10) + 'px', width: (r[2] * c.s + 20) + 'px', height: (r[3] * c.s + 20) + 'px' });
+      e.textContent = cam[k][2]; e.style.display = 'block'; e.style.opacity = a; const ew = e.offsetWidth;
+      e.style.left = cl(40 + r[0] * c.s + c.x + r[2] * c.s / 2 - ew / 2, 140, 870 - ew) + 'px'; e.style.top = cl(588 + (r[1] + r[3]) * c.s + c.y + 24, 600, 1150) + 'px';
+    } else { m.style.display = 'none'; e.style.display = 'none'; }
+    $('#ventana').style.transform = `rotateY(${Math.sin(t * .5) * 1.4}deg) rotateX(${1 + Math.sin(t * .37) * .6}deg)`;
+    return { n, c };
+  }
+  function caso(t, c) {  // 06: marcas sobre la grabación del 14/11
+    const X = gx => 40 + gx * c.s + c.x, Y = gy => 588 + gy * c.s + c.y;
+    const aB = eo(cl((t - tx('07', 'llegó', 1, -.1)) / .4)), aR = eo(cl((t - tx('07', 'rebotó', 1, -.1)) / .5));
+    const caja = (X0, Y0, w, h, col) => { x.fillStyle = col; x.beginPath(); x.roundRect(X0, Y0, w, h, 12); x.fill(); };
+    x.font = '900 38px Archivo'; x.textAlign = 'center';
+    if (aB > 0) { x.globalAlpha = aB; x.strokeStyle = C.r; x.lineWidth = 6; x.beginPath(); x.arc(X(1030), Y(722), 40, 0, 7); x.stroke();
+      caja(cl(X(1030) - 160, 150, 600), Y(722) + 50, 320, 62, C.r); x.fillStyle = '#fff'; x.fillText('14/11 · ~62.000', cl(X(1030), 310, 760), Y(722) + 94); x.globalAlpha = 1; }
+    if (aR > 0) { x.save(); x.globalAlpha = aR; x.strokeStyle = C.v; x.lineWidth = 7; x.setLineDash([16, 10]); x.beginPath(); x.moveTo(X(1040), Y(712)); x.lineTo(X(1040 + 70 * aR), Y(712 - 300 * aR)); x.stroke(); x.restore();
+      x.globalAlpha = aR; caja(cl(X(1110) - 40, 150, 560), Y(400) - 60, 320, 62, C.v); x.fillStyle = '#071426'; x.fillText('rebote ~66.000', cl(X(1110) - 40, 150, 560) + 160, Y(400) - 16); x.globalAlpha = 1; }
+  }
+  function zonas(t, b, c) {
+    const X = gx => 40 + gx * c.s + c.x, Y = gy => 588 + gy * c.s + c.y;
+    const a1 = eo(cl((t - (b.id === '05' ? tx('05', 'arriba', 1, -.1) : b.ini - 1)) / .4)), a2 = eo(cl((t - (b.id === '05' ? tx('05', 'abajo', 1, -.1) : b.ini - 1)) / .4));
+    const fr = (gy, txt, a) => { if (a <= 0) return; x.save(); x.globalAlpha = a; x.strokeStyle = C.o; x.lineWidth = 6; x.setLineDash([16, 10]);
+      x.strokeRect(40, Y(gy) - 16, 1000 * a, 32); x.setLineDash([]); x.fillStyle = C.o; x.beginPath(); x.roundRect(150, Y(gy) - 82, 250, 60, 12); x.fill();
+      x.fillStyle = '#071426'; x.font = '900 40px Archivo'; x.textAlign = 'center'; x.fillText(txt, 275, Y(gy) - 38); x.restore(); };
+    fr(348, 'ARRIBA', a1); fr(758, 'ABAJO', a2);
+    if (b.id === '06') { const a = eo(cl((t - b.ini - .2) / .6)), px = X(1700), py = Y(480);
+      x.save(); x.globalAlpha = a; x.fillStyle = '#fff'; x.beginPath(); x.arc(px, py, 14, 0, 7); x.fill(); x.strokeStyle = '#fff'; x.lineWidth = 6; x.setLineDash([14, 10]);
+      x.beginPath(); x.moveTo(px, py - 24); x.lineTo(px, py - 24 - (py - Y(348) - 40) * a); x.moveTo(px, py + 24); x.lineTo(px, py + 24 + (Y(758) - py - 40) * a); x.stroke(); x.restore(); }
+  }
+  const TIT = { '01': '<span class="gigante oro">CoinGlass</span><br>cómo leer el mapa', '02': 'Qué estás<br><span class="oro">viendo</span>', '03': 'Los<br><span class="oro">colores</span>',
+    '04': 'El monto<br><span class="oro">exacto</span>', '05': 'Cómo<br><span class="oro">usarlo</span>', '06': 'Referencia,<br><span class="oro">no promesa</span>', '07': 'Un caso<br><span class="oro">real</span>', '08': '' };
+  const CHIP = { '07': 'CASO PASADO · NO ES SEÑAL' };
+  const CLAVE = /^(cóinglas|coinglass|mapa|gratis|velas|violeta|verde|monto|historia|link|privado|referencia|amarill|liquid|franja|dinero|estimaci|promesa|entender|completo|youtube|perfil|suscribite|club|configuraci|opero)/i;
+  const grupos = []; T.bloques.forEach(b => { let g = []; b.subs.forEach((w, i) => { g.push(w); const s = b.subs[i + 1];
+    if (!s || /[.,:;]$/.test(w[2]) || g.length >= 4 || s[0] - w[1] > .3) { grupos.push(g); g = []; } }); });
+  window.EVENTOS = T.bloques.slice(1).map(b => ({ t: b.ini, s: 'whoosh' }));
+  const img = $('#rec'); let nAct = 1;
+  window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode().catch(() => 0))));
+  window.cuadro = function (t) {
+    let b = T.bloques[0]; T.bloques.forEach(q => { if (t >= q.ini - .05) b = q; });
+    const p = cl((t - b.ini) / (b.fin - b.ini)), ent = b.id === '01' ? 1 : eo(cl((t - b.ini) / .35));
+    x.clearRect(0, 0, 1080, 1920);
+    $('#titulo').innerHTML = TIT[b.id] || ''; $('#titulo').style.opacity = ent; $('#titulo').style.transform = `translateY(${(1 - ent) * 24}px)`;
+    const ch = CHIP[b.id]; $('#chip').style.display = ch ? 'block' : 'none'; $('#chip').textContent = ch || ''; $('#chip').className = /NO ES/.test(ch || '') ? 'rojo' : '';
+    if (ch) $('#chip').style.opacity = cl((t - b.ini - .3) / .3);
+    const g = grabacion(t, b); $('#ventana').style.opacity = ent;
+    if (g && b.id === '07') caso(t, g.c);
+    if (g && (b.id === '05' || b.id === '06')) zonas(t, b, g.c);
+    const s7 = false; const sa = s7 ? cl((t - b.ini - .1) / .25) : 0; $('#sello').style.opacity = sa; $('#sello').style.transform = `rotate(-6deg) scale(${2 - sa})`;
+    $('#nota7').style.display = s7 ? 'block' : 'none'; if (s7) $('#nota7').style.opacity = eo(cl((t - tx('08', 'usalo', 1, -.2)) / .4));
+    $('#lam02').style.display = false ? 'block' : 'none'; if (false) $('#lam02').style.opacity = eo(cl((t - b.ini - .2) / .4));
+    $('#zona7').style.display = b.id === '07' ? 'block' : 'none';
+    const c8 = b.id === '08'; $('#cierre').style.display = c8 ? 'block' : 'none'; $('#aviso').style.display = c8 ? 'block' : 'none';
+    if (c8) { $('#cierre').style.opacity = ent; $('#cierre').style.transform = `translateY(${(1 - ent) * 60}px)`; $('#b2').style.opacity = cl((p - .75) / .05);
+      $('#yt').style.opacity = eo(cl((t - tx('08', 'link', 1, -.3)) / .4)); $('#comenta').style.opacity = IG ? eo(cl((t - tx('08', 'comentá', 1, -.3)) / .4)) : 0; $('#aviso').style.opacity = ent; }
+    const gr = grupos.find(q => t >= q[0][0] - .05 && t < q[q.length - 1][1] + .25);
+    $('#sub').innerHTML = gr ? gr.map(w => `<span class="${t >= w[0] - .03 ? (CLAVE.test(w[2]) ? 'on k' : 'on') : ''}">${w[2]}</span>`).join(' ') : '';
+    if (g && g.n !== nAct) { nAct = g.n; img.src = `../grab/f/${String(g.n).padStart(5, '0')}.jpg`; return img.decode().catch(() => 0); }
+    return Promise.resolve();
+  };
+})();
+</script>
+</body></html>

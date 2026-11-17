@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Historia · CoinGlass modo básico</title>
+<!-- Historia de Instagram 1080x1920 (17/11/2026, pedido de Lean): anuncia «muy pronto» el Reel y el video de YouTube sobre
+     CoinGlass en modo básico. Fondo: cuadro real de la grabación de Lean (mapa de 1 semana). Textos dentro de y 250–1500
+     (arriba van el nombre y la barra; abajo, la caja para responder). Se renderiza con render.js en modo «foto». -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@600;700&display=block" rel="stylesheet">
+<style>
+  :root { --n1:#071426; --n2:#0d2142; --o1:#e2c68c; --o2:#c7a35e; --o3:#8e7140; --t1:#ecf1f9; --t2:#a3b5d1; --b:#274a80; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1920px; overflow:hidden; background:var(--n1); color:var(--t1); font-family:'IBM Plex Sans'; }
+  #fondo { position:absolute; inset:0; background:
+    linear-gradient(rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px, linear-gradient(90deg, rgba(39,74,128,.14) 1px, transparent 1px) 0 0/60px 60px,
+    radial-gradient(ellipse at 50% 30%, #163a6e 0%, transparent 60%), linear-gradient(170deg, var(--n2), var(--n1) 70%); }
+  .oro { background:linear-gradient(180deg,var(--o1),var(--o2) 55%,var(--o3)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  #logo { position:absolute; left:50%; top:270px; height:70px; transform:translateX(-50%); }
+  #pronto { position:absolute; left:0; right:0; top:385px; text-align:center; }
+  #pronto span { display:inline-block; font:700 34px 'IBM Plex Mono'; letter-spacing:6px; color:var(--n1); background:var(--o1); padding:12px 30px; border-radius:40px; }
+  #titulo { position:absolute; left:60px; right:60px; top:470px; text-align:center; font:900 150px/0.92 'Archivo'; letter-spacing:-5px; text-transform:uppercase; }
+  #modo { position:absolute; left:0; right:0; top:640px; text-align:center; font:900 72px 'Archivo'; text-transform:uppercase; letter-spacing:2px; }
+  #modo b { color:var(--n1); background:var(--o1); padding:4px 22px; border-radius:14px; }
+  #mapa { position:absolute; left:110px; top:790px; width:860px; height:420px; border-radius:26px; overflow:hidden; border:3px solid #3a5f9a;
+    box-shadow:0 40px 100px rgba(0,0,0,.7), 0 0 60px rgba(226,198,140,.25); transform:perspective(1600px) rotateX(10deg) rotateZ(-2deg); }
+  #mapa img { position:absolute; width:1100px; left:-120px; top:-170px; }
+  #mapa:after { content:''; position:absolute; left:0; right:0; top:38px; height:56px; border:4px solid var(--o1); box-shadow:0 0 40px rgba(226,198,140,.9); }
+  #sub { position:absolute; left:100px; right:100px; top:1265px; text-align:center; font:600 40px/1.3 'IBM Plex Sans'; color:var(--t1); }
+  #sub b { color:var(--o1); }
+  #chips { position:absolute; left:0; right:0; top:1400px; display:flex; justify-content:center; gap:26px; }
+  .chip { display:flex; align-items:center; gap:16px; font:800 36px 'Archivo'; padding:18px 30px; border-radius:20px; background:rgba(13,33,66,.75); border:2px solid rgba(226,198,140,.5); }
+  .chip i { width:46px; height:46px; border-radius:12px; flex:none; position:relative; }
+  .chip i.yt { background:#ff0033; } .chip i.yt:after { content:''; position:absolute; left:17px; top:13px; border-left:16px solid #fff; border-top:10px solid transparent; border-bottom:10px solid transparent; }
+  .chip i.ig { background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); border-radius:14px; }
+  .chip i.ig:after { content:''; position:absolute; left:12px; top:12px; width:16px; height:16px; border:4px solid #fff; border-radius:50%; }
+</style></head>
+<body>
+<div id="fondo"></div>
+<img id="logo" src="../../../marca/logo-oro.png" alt="">
+<div id="pronto"><span>MUY PRONTO</span></div>
+<div id="titulo" class="oro">CoinGlass</div>
+<div id="modo">modo <b>BÁSICO</b></div>
+<div id="mapa"><img src="fondo.jpg" alt=""></div>
+<div id="sub">Cómo leer el <b>mapa de liquidaciones</b>, gratis y paso a paso</div>
+<div id="avisa" style="position:absolute;left:0;right:0;top:1525px;text-align:center;font:700 30px 'IBM Plex Mono';color:var(--t2)">🔔 Activá las notificaciones para no perdértelo</div>
+<div id="chips"><div class="chip"><i class="ig"></i>Reel</div><div class="chip"><i class="yt"></i>Video en YouTube</div></div>
+<script>window.listo = document.fonts.ready.then(() => Promise.all([...document.images].map(i => i.decode().catch(() => 0)))); window.cuadro = () => 0;</script>
+</body></html>
