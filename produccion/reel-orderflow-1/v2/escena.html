@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Lección 1 · La feria</title>
+<style>
+  :root { --oro:#e2c68c; --oro2:#c7a35e; --oro3:#8e7140; --tx:#ecf1f9; --tx2:#a3b5d1; --verde:#3dd68c; --rojo:#ff6b6b; --borde:#274a80; }
+  html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:#071426; }
+  #cuadro { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:Inter, sans-serif; color:var(--tx);
+    background: radial-gradient(1200px 900px at 50% 42%, #10264b 0%, #0b1c38 45%, #071426 100%); }
+  .abs { position:absolute; }
+  #grilla { inset:0; background-image: linear-gradient(rgba(70,110,170,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(70,110,170,.10) 1px, transparent 1px);
+    background-size:60px 60px; background-position:30px 0; mask-image: radial-gradient(900px 1100px at 50% 45%, #000 30%, transparent 85%); }
+  #brillo { left:-200px; top:300px; width:1480px; height:1100px; background: radial-gradient(closest-side, rgba(226,198,140,.10), transparent); }
+  #vineta { inset:0; background: radial-gradient(1300px 1500px at 50% 45%, transparent 55%, rgba(2,6,14,.75) 100%); pointer-events:none; }
+  #grano { inset:-60px; opacity:.07; mix-blend-mode:soft-light; pointer-events:none; }
+  .marca { left:0; width:1080px; top:262px; text-align:center; font:600 22px 'JetBrains Mono'; letter-spacing:6px; color:var(--oro2); }
+  .marca b { color:var(--oro); font-weight:800; }
+  /* títulos */
+  .tit { left:140px; width:800px; top:330px; text-align:center; }
+  .tit .k { font:700 26px 'JetBrains Mono'; letter-spacing:5px; color:var(--oro2); margin-bottom:10px; }
+  .tit .m { font:900 88px/1 'Inter Display'; letter-spacing:-1.5px; color:var(--tx); text-shadow:0 6px 30px rgba(0,0,0,.55); white-space:nowrap; }
+  .tit .s { font:500 36px/1.2 Inter; color:var(--tx2); margin-top:16px; }
+  .oro { color:var(--oro); } .verde { color:var(--verde); } .rojo { color:var(--rojo); }
+  /* mundo */
+  #mundo { left:0; top:0; width:1080px; height:1920px; transform-origin:540px 900px; }
+  .img { position:absolute; display:block; will-change:transform; }
+  .cartel { position:absolute; width:176px; height:86px; margin-left:-88px; border-radius:16px; background:linear-gradient(#0f2447,#0a1a35);
+    border:3px solid var(--oro3); box-shadow:0 8px 20px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
+    font:900 62px/86px 'Inter Display'; text-align:center; color:var(--tx); letter-spacing:-1px; }
+  .chip { position:absolute; transform:translate(-50%,-50%); white-space:nowrap; font:800 26px 'JetBrains Mono'; letter-spacing:2px; padding:10px 18px;
+    border-radius:999px; background:rgba(7,20,38,.92); border:2px solid var(--oro2); color:var(--oro); box-shadow:0 8px 24px rgba(0,0,0,.45); }
+  .globo { position:absolute; transform:translate(-50%,-100%); font:900 40px 'Inter Display'; color:#071426; background:var(--tx); padding:10px 22px;
+    border-radius:22px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+  .globo:after { content:''; position:absolute; left:40px; bottom:-14px; border:10px solid transparent; border-top:14px solid var(--tx); border-bottom:0; }
+  .sello { position:absolute; transform:translate(-50%,-50%); white-space:nowrap; font:900 46px 'Inter Display'; letter-spacing:2px; padding:14px 30px;
+    border:6px solid currentColor; border-radius:14px; text-transform:uppercase; }
+  /* precio */
+  #ticker { left:270px; width:540px; top:1272px; height:150px; border-radius:28px; background:linear-gradient(#0f2447,#0a1a35);
+    border:3px solid var(--borde); box-shadow:0 18px 50px rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; gap:26px; }
+  #ticker .l { font:700 27px 'JetBrains Mono'; letter-spacing:4px; color:var(--tx2); text-align:right; line-height:1.25; }
+  #ticker .v { position:relative; width:230px; height:110px; overflow:hidden; }
+  #ticker .v div { position:absolute; left:0; width:230px; text-align:center; font:900 100px/110px 'Inter Display'; letter-spacing:-2px; }
+  #ticker .f { width:70px; font:900 64px 'Inter Display'; text-align:center; }
+  #nosube { left:540px; top:1272px; }
+  /* gráfico */
+  #graf { left:0; top:0; width:1080px; height:1920px; }
+  /* subtítulos */
+  #subs { left:150px; width:780px; top:1470px; height:130px; display:flex; align-items:center; justify-content:center; text-align:center; }
+  #subs .caja { display:inline-block; padding:12px 26px; border-radius:20px; background:rgba(4,12,26,.62); font:800 56px/1.18 Inter; letter-spacing:-.5px; }
+  #subs span { display:inline-block; margin:0 .22em; }
+  #pie { left:90px; width:900px; top:1636px; text-align:center; font:500 20px/1.45 Inter; color:#6f84a6; }
+  /* cierre */
+  .tarjeta { left:150px; width:780px; border-radius:34px; background:linear-gradient(#10264b,#0a1a35); border:2px solid rgba(226,198,140,.45);
+    box-shadow:0 30px 80px rgba(0,0,0,.7); padding:38px 40px; box-sizing:border-box; }
+  .tarjeta .fila { display:flex; align-items:center; gap:30px; }
+  .tarjeta .av { width:160px; height:160px; border-radius:50%; object-fit:cover; border:4px solid var(--oro); background:#fff; flex:none; }
+  .tarjeta .avl { width:160px; height:160px; border-radius:50%; border:4px solid var(--oro); background:#f3efe6; flex:none; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .tarjeta .avl img { width:132px; }
+  .tarjeta .nom { font:800 42px Inter; } .tarjeta .sub2 { font:500 28px Inter; color:var(--tx2); margin-top:6px; }
+  .tarjeta .nums { display:flex; justify-content:space-around; margin:30px 0 28px; text-align:center; font:500 25px Inter; color:var(--tx2); }
+  .tarjeta .nums b { display:block; font:800 44px Inter; color:var(--tx); }
+  .tarjeta .boton { position:relative; height:92px; border-radius:20px; font:800 38px/92px Inter; text-align:center; }
+  .cursor { width:70px; height:70px; }
+</style></head>
+<body><script src="velas.js"></script><div id="cuadro">
+  <div id="grilla" class="abs"></div><div id="brillo" class="abs"></div>
+  <div id="mundo" class="abs"></div>
+  <svg id="graf" class="abs" viewBox="0 0 1080 1920"></svg>
+  <div id="capa" class="abs" style="inset:0"></div>
+  <div class="abs marca">REAL INVESTORS CLUB · <b>LECCIÓN 1</b></div>
+  <div id="subs" class="abs"></div>
+  <div id="pie" class="abs"></div>
+  <canvas id="grano" class="abs" width="600" height="1100" style="width:1200px;height:2040px"></canvas>
+  <div id="vineta" class="abs"></div>
+</div>
+<script>
+(function () {
+const v = new URLSearchParams(location.search).get('v') === 'yt' ? 'yt' : 'ig';
+const s = document.createElement('script'); s.src = `tiempos-${v}.js`; s.onload = () => iniciar(v);
+s.onerror = () => console.error('no se cargó tiempos-' + v + '.js'); document.head.appendChild(s);
+window.listo = new Promise(r => window._listo = r);
+})();
+
+function iniciar(V) {
+const T = window.T, R = 'recursos/', RAIZ = '../../../';
+const $ = (h, padre = document.getElementById('capa')) => { const d = document.createElement('div'); d.innerHTML = h.trim(); const e = d.firstChild; padre.appendChild(e); return e; };
+const imgs = [];
+const img = (src, w, padre) => { const e = document.createElement('img'); e.src = src; e.className = 'img'; e.style.width = w + 'px'; (padre || document.getElementById('mundo')).appendChild(e); imgs.push(e); return e; };
+
+// ---------- utilidades de tiempo ----------
+const cl = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const eo = k => 1 - Math.pow(1 - k, 3);
+const eio = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const eb = k => { const c = 1.45; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };   // salida con rebote leve
+const pr = (t, a, d) => cl((t - a) / d);
+const B = id => T.bloques.find(b => b.id === id);
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9ñ ]/g, '');
+// Busca una palabra (o frase) de la voz en el bloque, por su texto. desde = tiempo mínimo.
+function P(id, txt, desde = -1) {
+  const b = B(id), q = norm(txt).split(' ');
+  for (let i = 0; i < b.palabras.length; i++) {
+    if (b.palabras[i][0] < desde) continue;
+    let ok = true;
+    for (let j = 0; j < q.length; j++) { const w = b.palabras[i + j]; if (!w || !norm(w[2]).startsWith(q[j])) { ok = false; break; } }
+    if (ok) return { i: b.palabras[i][0], f: b.palabras[i + q.length - 1][1] };
+  }
+  console.warn('no encontré «' + txt + '» en ' + id); return { i: b.ini + b.dur / 2, f: b.ini + b.dur / 2 + .3 };
+}
+const ini = id => B(id).ini, fin = id => B(id).ini + B(id).dur;
+const EV = []; const ev = (t, s) => EV.push({ t: +t.toFixed(3), s });
+
+// ---------- tiempos clave (todo atado a palabras) ----------
+const K = {};
+K.noSube = P('01', 'no sube').i; K.cuando = P('01', 'cuando').i; K.acaba = P('01', 'acaba').i; K.venta = P('01', 'venta').i;
+K.b2 = ini('02'); K.tres = P('02', 'tres').i; K.p100 = P('02', 'cien').i; K.p101 = P('02', 'ciento uno').i; K.p102 = P('02', 'ciento dos').i;
+K.ponen = P('02', 'ponen').i; K.esperan = P('02', 'esperan').i; K.limitada = P('02', 'orden limitada').i;
+K.b3 = ini('03'); K.llega = P('03', 'llega').i; K.ya = P('03', 'ya').i; K.mercado = P('03', 'orden a mercado').i;
+K.b4 = ini('04'); K.vacian = P('04', 'vacian').i; K.cien4 = P('04', 'cien').f; K.proximo = P('04', 'proximo').i; K.pagar = P('04', 'pagar').i;
+K.c101 = P('04', 'ciento uno').i; K.subio = P('04', 'subio').i;
+K.b5 = ini('05'); K.camion = P('05', 'camion').i; K.repone = P('05', 'repone').i; K.compran = P('05', 'compran').i;
+K.noSube5 = P('05', 'no sube').i; K.absorcion = P('05', 'absorcion').i; K.grande = P('05', 'vendedor grande').i;
+K.b6 = ini('06'); K.bitcoin = P('06', 'bitcoin').i; K.venia = P('06', 'venia').i; K.quince = P('06', 'quince').i; K.diez = P('06', 'diez').i;
+K.logico = P('06', 'logico').i; K.movio = P('06', 'casi no').i; K.camion6 = P('06', 'camion').i;
+K.b7 = ini('07'); K.hora = P('07', 'hora').i; K.abajo = P('07', 'abajo').i; K.caso = P('07', 'caso').i;
+K.b8 = ini('08'); K.uno8 = P('08', 'uno').i; K.fin = T.total;
+if (V === 'ig') { K.feria = P('08', 'feria').i; K.dos = P('08', 'dos').i; } else { K.suscribite = P('08', 'suscribite').i; K.dos = P('08', 'dos').i; }
+
+// ---------- fondo: grano determinista ----------
+const gc = document.getElementById('grano').getContext('2d'); { let sd = 7; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+  const id = gc.createImageData(600, 1100); for (let i = 0; i < id.data.length; i += 4) { const g = rnd() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = g; id.data[i + 3] = 255; } gc.putImageData(id, 0, 0); }
+
+// ---------- 01 · gancho ----------
+const gancho = $(`<div class="abs" style="left:140px;width:800px;top:560px;text-align:center">
+  <div style="font:700 30px 'JetBrains Mono';letter-spacing:6px;color:var(--oro2)">SI NUNCA OPERASTE</div>
+  <div id="g1" style="font:900 104px/1 'Inter Display';letter-spacing:-2px;margin-top:40px">MÁS<br>COMPRADORES</div>
+  <div id="gneq" style="font:900 230px/1 'Inter Display';color:var(--oro);margin:6px 0 0;text-shadow:0 0 60px rgba(226,198,140,.35)">≠</div>
+  <div id="g2" style="font:900 104px/1 'Inter Display';letter-spacing:-2px">PRECIO SUBE <span class="verde">▲</span></div></div>`);
+const tit1 = $(`<div class="abs tit"><div class="m">SUBE CUANDO</div><div class="m oro" style="margin-top:8px">SE ACABA</div></div>`);
+// pila del gancho: un cajón con 6 mandarinas que se acaban
+const caj = $(`<svg class="abs" style="left:350px;top:1010px" width="380" height="150" viewBox="0 0 380 150">
+  <defs><linearGradient id="mad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a8844c"/><stop offset="1" stop-color="#6b5330"/></linearGradient></defs>
+  <rect x="10" y="10" width="360" height="130" rx="12" fill="url(#mad)"/><rect x="10" y="10" width="360" height="16" rx="8" fill="#c39a5a"/>
+  <g stroke="#5a4426" stroke-width="3" opacity=".6"><line x1="10" y1="62" x2="370" y2="62"/><line x1="10" y1="100" x2="370" y2="100"/></g></svg>`);
+const gPila = [[0, 0], [1, 0], [2, 0], [.5, 1], [1.5, 1], [1, 2]].map(([c, r]) => ({ e: img(R + 'tangerine.svg', 104, document.getElementById('capa')), x: 540 + (c - 1) * 96, y: 960 - r * 86 }));
+const tagVenta = $(`<div class="chip" style="left:540px;top:1215px">A LA VENTA</div>`);
+const flechaSube = $(`<div class="abs" style="left:340px;width:400px;top:760px;text-align:center;font:900 120px/1 'Inter Display';color:var(--verde)">▲<div style="font:900 64px 'Inter Display';letter-spacing:2px">SUBE</div></div>`);
+
+// ---------- feria ----------
+const mundo = document.getElementById('mundo');
+const CX = [258, 540, 822], PREC = ['$100', '$101', '$102'];
+const VEND = ['woman-farmer.svg', 'man-farmer-medium-light.svg', 'farmer.svg'];
+const puesto = (cx, i) => {
+  const g = $(`<div class="abs" style="left:${cx - 135}px;top:560px;width:270px;height:520px"></div>`, mundo);
+  // fondo: parantes y sombra del puesto
+  $(`<svg class="abs" style="left:0;top:0" width="270" height="520" viewBox="0 0 270 520">
+    <rect x="22" y="110" width="10" height="250" rx="4" fill="#5d4a2d"/><rect x="238" y="110" width="10" height="250" rx="4" fill="#5d4a2d"/>
+    <rect x="30" y="118" width="210" height="220" fill="rgba(4,10,22,.35)"/></svg>`, g);
+  const vend = img(R + VEND[i], 116, g); vend.style.left = '128px'; vend.style.top = '210px';
+  $(`<svg class="abs" style="left:0;top:0" width="270" height="520" viewBox="0 0 270 520">
+    <defs><linearGradient id="md${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c7a45"/><stop offset="1" stop-color="#5f4829"/></linearGradient>
+    <linearGradient id="tl${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></linearGradient></defs>
+    ${[0,1,2,3,4,5].map(k => `<path d="M${15 + k * 40} 40 h40 v62 a20 20 0 0 1 -40 0z" fill="${k % 2 ? '#e2c68c' : '#1f4a8a'}"/>`).join('')}
+    <rect x="15" y="40" width="240" height="62" fill="url(#tl${i})"/><rect x="8" y="28" width="254" height="16" rx="8" fill="#16335f"/>
+    <rect x="12" y="335" width="246" height="18" rx="6" fill="#c39a5a"/>
+    <rect x="18" y="350" width="234" height="160" rx="8" fill="url(#md${i})"/>
+    <g stroke="#4a381f" stroke-width="3" opacity=".55"><line x1="18" y1="402" x2="252" y2="402"/><line x1="18" y1="456" x2="252" y2="456"/></g>
+    <ellipse cx="135" cy="516" rx="140" ry="10" fill="rgba(0,0,0,.35)"/></svg>`, g);
+  const cartel = $(`<div class="cartel" style="left:135px;top:385px">$ —</div>`, g);
+  const reloj = img(R + 'hourglass-not-done.svg', 60, g); reloj.style.left = '196px'; reloj.style.top = '170px';
+  return { g, cartel, reloj, vend, cx };
+};
+const calle = $(`<svg class="abs" style="left:0;top:548px" width="1080" height="90" viewBox="0 0 1080 90"><rect y="10" width="1080" height="70" fill="#0a1a33"/><rect y="8" width="1080" height="4" fill="#274a80"/><line x1="0" x2="1080" y1="46" y2="46" stroke="#3b5f96" stroke-width="4" stroke-dasharray="34 26"/></svg>`, mundo);
+const camion = img(R + 'delivery-truck.svg', 210, mundo); camion.style.transform = 'scaleX(-1)';
+const piso = $(`<div class="abs" style="left:-100px;top:1070px;width:1280px;height:260px;background:radial-gradient(640px 120px at 50% 40%, rgba(70,110,170,.22), transparent 70%);border-top:2px solid rgba(39,74,128,.55)"></div>`, mundo);
+mundo.insertBefore(piso, mundo.firstChild);
+const puestos = CX.map(puesto);
+const chipLim = CX.map(cx => $(`<div class="chip" style="left:${cx}px;top:572px">ESPERA</div>`, mundo));
+// mandarinas (6 por puesto): pirámide 3-2-1 sobre el mostrador (y del mostrador = 560+335)
+const SL = [[0, 0], [1, 0], [2, 0], [.5, 1], [1.5, 1], [1, 2]];
+const slotPos = (p, j) => ({ x: CX[p] - 52 + (SL[j][0] - 1) * 48, y: 895 - 26 - SL[j][1] * 42 });
+const mand = CX.map((_, p) => SL.map((_, j) => img(R + 'tangerine.svg', 56, mundo)));
+const vuelo = [...Array(10)].map(() => img(R + 'tangerine.svg', 50, mundo));
+// compradores
+const TIP = ['man-running-facing-right.svg', 'woman-running-facing-right-medium-light.svg', 'person-running-facing-right-medium-dark.svg', 'woman-running-facing-right.svg', 'man-running-facing-right-medium.svg'];
+const NC = 40; const comp = [...Array(NC)].map((_, k) => img(R + TIP[k % 5], 168, mundo));
+const globo = $(`<div class="globo">¡YA!</div>`, mundo);
+const chipMer = $(`<div class="chip">A MERCADO</div>`, mundo);
+const chipGrande = $(`<div class="chip">VENDEDOR GRANDE</div>`, mundo);
+const agotado = $(`<div class="sello" style="left:${CX[0]}px;top:860px;color:#a3b5d1;background:rgba(7,20,38,.85)">AGOTADO</div>`, mundo);
+
+// ---------- programa de compras y reposiciones ----------
+const compras = [];  // {t, p}
+{ const a = K.vacian + .05, b = Math.max(K.cien4 + .1, a + 1.6), d = (b - a) / 6; for (let j = 0; j < 6; j++) compras.push({ t: a + j * d, p: 0 }); }
+const tMover = K.proximo; compras.push({ t: Math.max(K.c101 - .15, tMover + .75), p: 1 });
+const repos = [{ t: K.repone + .35, p: 1 }];
+{ let t = Math.max(K.compran, K.repone + .6); const tf = fin('05') - .2; let n = 0; while (t < tf) { compras.push({ t, p: 1 }); repos.push({ t: t + .55, p: 1 }); t += .62; n++; } }
+compras.sort((a, b) => a.t - b.t);
+const ultimo100 = compras.filter(c => c.p === 0).slice(-1)[0].t;
+// intervalos de cada mandarina
+const tArmado = p => K.tres + .15 + p * .18;
+const vis = CX.map((_, p) => SL.map((_, j) => [[tArmado(p) + .25 + j * .06, 1e9]]));
+{ const evs = [...compras.map(c => ({ ...c, k: 'c' })), ...repos.map(r => ({ ...r, k: 'r' }))].sort((a, b) => a.t - b.t); const n = [6, 6, 6];
+  for (const e of evs) { if (e.k === 'c') { const j = --n[e.p]; vis[e.p][j][vis[e.p][j].length - 1][1] = e.t; } else { const j = n[e.p]++; if (j > 5) { n[e.p] = 6; continue; } vis[e.p][j].push([e.t, 1e9]); } } }
+const servido = t => compras.reduce((s, c) => s + eio(pr(t, c.t + .2, .5)), 0);
+const frenteX = t => lerp(CX[0] + 4, CX[1] + 4, eio(pr(t, tMover, .8)));
+const CAMX = CX[1] - 105, CAMY = 425;
+const camionX = t => lerp(1250, CAMX, eo(pr(t, K.camion - .75, 1.0)));
+
+// ---------- precio ----------
+const ticker = $(`<div id="ticker" class="abs"><div class="l">PRECIO<br>AHORA</div><div class="v"><div id="pa">$100</div><div id="pb" class="verde">$101</div></div><div class="f verde" id="tf">▲</div></div>`);
+const pa = ticker.querySelector('#pa'), pb = ticker.querySelector('#pb'), tf = ticker.querySelector('#tf');
+const noSube = $(`<div class="chip" style="left:540px;top:1266px;font-size:32px;border-color:#e2c68c;color:#071426;background:#e2c68c">= NO SUBE</div>`);
+
+// ---------- títulos ----------
+const TITS = [];
+const titulo = (t0, t1, html) => { const e = $(`<div class="abs tit">${html}</div>`); TITS.push({ e, t0, t1 }); };
+titulo(K.b2 + .2, K.limitada - .25, `<div class="k">EJEMPLO · UNA FERIA</div>`);
+titulo(K.limitada, K.b3 + .1, `<div class="m oro">ORDEN LIMITADA</div><div class="s">Pone su precio y espera</div>`);
+titulo(K.llega, K.mercado - .2, `<div class="k">LLEGAN LOS APURADOS</div>`);
+titulo(K.mercado, K.b4 + .1, `<div class="m oro">ORDEN A MERCADO</div><div class="s">Compra ya, al precio que haya</div>`);
+titulo(K.vacian, K.subio - .2, `<div class="m">SE ACABÓ<br>EL DE <span class="oro">$100</span></div>`);
+titulo(K.subio, K.b5 + .15, `<div class="m">EL PRECIO <span class="verde">SUBIÓ ▲</span></div>`);
+titulo(K.camion, K.absorcion - .2, `<div class="m">UN CAMIÓN</div>`);
+titulo(K.absorcion, K.b6 + .1, `<div class="m oro">ABSORCIÓN</div>`);
+titulo(K.b6 + .15, K.b7 + .05, `<div class="k">CASO REAL · 30/09/2026</div><div class="m">BITCOIN</div>`);
+titulo(K.b7 + .1, K.b8, `<div class="k">QUÉ PASÓ DESPUÉS</div><div class="m">BITCOIN</div>`);
+
+// ---------- gráfico real ----------
+const V0 = window.VELAS;
+const t0g = Date.parse('2026-09-30T09:00:00Z'), SLOT = 15 * 60e3, NS = 23;   // 09:00 a 14:30 UTC
+const velas = V0.map(v => ({ k: Math.round((Date.parse(v[0].replace(' ', 'T')) - t0g) / SLOT), o: v[1], h: v[2], l: v[3], c: v[4], vr: v[5] })).filter(v => v.k >= 0 && v.k < NS);
+const iClave = velas.findIndex(v => v.k === 16), clave = velas[iClave];           // 13:00 UTC
+const minimo = velas.find(v => v.k === 22);                                         // 14:30 UTC, mínimo 83.328
+const GX0 = 240, GX1 = 880, GY0 = 1090, GY1 = 600, PMIN = 82900, PMAX = 86300;
+const gx = k => GX0 + (k + .5) * (GX1 - GX0) / NS, gy = p => GY0 + (p - PMIN) / (PMAX - PMIN) * (GY1 - GY0);
+const graf = document.getElementById('graf');
+const capaG = $(`<div class="abs" style="inset:0"></div>`);
+const lblQuince = $(`<div class="chip">1 VELA = 15 MINUTOS</div>`, capaG);
+const lblLogico = $(`<div class="chip" style="border-color:var(--verde);color:var(--verde)">LO LÓGICO: SEGUIR SUBIENDO ▲</div>`, capaG);
+const lblMovio = $(`<div class="chip" style="border-color:#ecf1f9;color:#ecf1f9">CASI NO SE MOVIÓ</div>`, capaG);
+const lblMin = $(`<div class="abs" style="text-align:center;transform:translate(-50%,0)"><div style="font:900 96px/1 'Inter Display';color:var(--rojo);letter-spacing:-2px">−2,4 %</div><div style="font:600 28px 'JetBrains Mono';color:var(--tx2);margin-top:6px">mínimo 83.328</div></div>`, capaG);
+const lblHora = $(`<div class="chip" style="border-color:#a3b5d1;color:#ecf1f9">1 H 30 MIN DESPUÉS</div>`, capaG);
+const camionG = img(R + 'delivery-truck.svg', 150, capaG);
+const volCaja = $(`<div class="abs" style="left:175px;width:740px;top:1150px">
+  <div style="font:700 24px 'JetBrains Mono';letter-spacing:4px;color:var(--tx2);margin-bottom:12px">CUÁNTO SE NEGOCIÓ EN 15 MIN</div>
+  <div style="display:flex;align-items:center;gap:16px;height:44px"><div style="width:170px;font:600 30px Inter;color:var(--tx2)">lo normal</div><div id="vb1" style="height:30px;border-radius:8px;background:#5b7196"></div></div>
+  <div style="display:flex;align-items:center;gap:16px;height:52px;margin-top:6px"><div style="width:170px;font:700 30px Inter;color:var(--oro)">esta vela</div><div id="vb2" style="height:38px;border-radius:8px;background:linear-gradient(90deg,#8e7140,#e2c68c)"></div><div id="vbt" style="font:900 46px 'Inter Display';color:var(--oro);white-space:nowrap">casi ×10</div></div></div>`, capaG);
+const vb1 = volCaja.querySelector('#vb1'), vb2 = volCaja.querySelector('#vb2'), vbt = volCaja.querySelector('#vbt');
+const selloCaso = $(`<div class="sello" style="left:540px;top:1240px;color:var(--oro);background:rgba(7,20,38,.9)">Es un caso, no una regla</div>`);
+
+// ---------- cierre ----------
+const IG = V === 'ig';
+const cierre = $(`<div class="abs" style="inset:0"></div>`);
+const lec = $(`<div class="abs" style="left:140px;width:800px;top:330px;display:flex;justify-content:center;gap:24px">
+  <div id="l1" class="chip" style="position:relative;transform:none;font-size:34px;border-color:var(--verde);color:var(--verde)">LECCIÓN 1 ✓</div>
+  <div id="l2" class="chip" style="position:relative;transform:none;font-size:34px">LECCIÓN 2 · PRONTO</div></div>`, cierre);
+const l1 = lec.querySelector('#l1'), l2 = lec.querySelector('#l2');
+const grande = $(IG ? `<div class="abs" style="left:140px;width:800px;top:450px;text-align:center"><div style="font:800 60px Inter;color:var(--tx)">Comentá</div>
+  <div style="font:900 190px/1 'Inter Display';color:var(--oro);letter-spacing:-3px;text-shadow:0 0 70px rgba(226,198,140,.35)">FERIA</div></div>`
+  : `<div class="abs" style="left:140px;width:800px;top:470px;text-align:center"><div style="font:900 150px/1 'Inter Display';color:var(--oro);letter-spacing:-3px;text-shadow:0 0 70px rgba(226,198,140,.35)">Suscribite</div>
+  <div style="font:600 40px Inter;color:var(--tx2);margin-top:18px">y mirá la lección 2</div></div>`, cierre);
+const mandC = img(R + 'tangerine.svg', 130, cierre);
+const tarjeta = $(IG ? `<div class="abs tarjeta" style="top:840px"><div class="fila"><img class="av" src="${RAIZ}herramientas/particulas/avatar.png">
+  <div><div class="nom">leanalvarez.ok</div><div class="sub2">Lean Alvarez · Real Investors Club</div></div></div>
+  <div class="nums"><div><b>38</b>publicaciones</div><div><b>3.890</b>seguidores</div><div><b>13</b>seguidos</div></div>
+  <div class="boton" id="bt" style="background:#3b82f6;color:#fff">Seguir</div></div>`
+  : `<div class="abs tarjeta" style="top:860px"><div class="fila"><div class="avl"><img src="${RAIZ}marca/logo-navy.png"></div>
+  <div><div class="nom">Real Investors Club</div><div class="sub2">@REALinvestorsc</div></div></div>
+  <div style="height:34px"></div><div class="boton" id="bt" style="background:#ecf1f9;color:#0b1830">Suscribirme</div></div>`, cierre);
+imgs.push(...tarjeta.querySelectorAll('img'));
+const bt = tarjeta.querySelector('#bt');
+const cursor = $(`<svg class="abs cursor" viewBox="0 0 24 24"><path d="M5 2l14 11-6.2 1.1 3.7 7.2-2.6 1.3-3.7-7.3L5 19z" fill="#fff" stroke="#071426" stroke-width="1.4"/></svg>`, cierre);
+const tClic = Math.min(K.dos + .1, T.total - 1.4);
+
+// ---------- subtítulos ----------
+const CLAVES = new Set(['acaba', 'venta', 'limitada', 'mercado', 'subio', 'absorcion', 'camion', 'bitcoin', 'diez', '10', 'logico', '24', 'caso', 'regla', 'feria', '100', '101', '102', 'ya', 'suscribite']);
+const lineas = [];
+for (const b of T.bloques) {
+  let cur = [];
+  const cerrar = () => { if (cur.length) lineas.push({ ini: cur[0][0], fin: cur[cur.length - 1][1], toks: cur }); cur = []; };
+  for (const sb of b.subs) {
+    const txt = sb[2]; const largo = cur.reduce((n, x) => n + x[2].length + 1, 0);
+    if (cur.length && (largo + txt.length > 22 || sb[0] - cur[cur.length - 1][1] > .45)) cerrar();
+    cur.push(sb); if (/[.:?!]$/.test(txt) || (/,$/.test(txt) && largo > 10)) cerrar();
+  }
+  cerrar();
+}
+for (let i = 0; i < lineas.length; i++) { const nx = lineas[i + 1]; lineas[i].hasta = nx ? Math.min(nx.ini, lineas[i].fin + .5) : lineas[i].fin + .5; }
+const subs = document.getElementById('subs'); let subAct = -1;
+function pintaSubs(t) {
+  const i = lineas.findIndex(l => t >= l.ini - .05 && t < l.hasta);
+  if (i !== subAct) { subAct = i; subs.innerHTML = i < 0 ? '' : '<div class="caja">' + lineas[i].toks.map(x => `<span>${x[2].replace(/[,.:]$/, '')}</span>`).join('') + '</div>'; }
+  if (i < 0) return; const ln = lineas[i];
+  [...subs.querySelectorAll('span')].forEach((sp, j) => { const x = ln.toks[j], on = t >= x[0] - .03, ahora = on && t < x[1] + .05;
+    const clave = norm(x[2]).split(' ').some(w => CLAVES.has(w));
+    sp.style.color = clave ? (on ? '#e2c68c' : 'rgba(226,198,140,.45)') : (on ? '#ecf1f9' : 'rgba(236,241,249,.42)');
+    sp.style.transform = `scale(${ahora ? 1.05 : 1})`; });
+  subs.style.opacity = cl(pr(t, ln.ini - .1, .12));
+}
+document.getElementById('pie').innerHTML = 'Datos: Yahoo Finance (BTC-USD) · La feria es un ejemplo · Contenido educativo, no es recomendación de inversión' + (T.voz_grabada ? '' : '<br>Voz generada con IA (clon de la voz de Lean)');
+
+// ---------- sonidos ----------
+ev(K.noSube, 'impacto'); ev(K.cuando - .1, 'whoosh'); ev(K.acaba + .05, 'pop'); ev(K.venta + .1, 'sube');
+ev(K.b2 - .25, 'whoosh'); ev(K.p100, 'tic'); ev(K.p101, 'tic'); ev(K.p102, 'tic'); ev(K.esperan, 'pop'); ev(K.limitada, 'cinta');
+ev(K.llega - .1, 'whoosh'); ev(K.ya, 'pop'); ev(K.mercado, 'cinta');
+ev(compras[0].t, 'clic'); ev(ultimo100 + .1, 'sello'); ev(K.c101 - .1, 'tic'); ev(K.subio, 'sube');
+ev(K.camion - .7, 'whoosh'); ev(K.repone + .35, 'pop'); ev(K.absorcion, 'impacto'); ev(K.noSube5, 'clic');
+ev(K.b6 - .2, 'whoosh'); ev(K.quince, 'pop'); ev(K.diez, 'sube'); ev(K.logico, 'cinta'); ev(K.camion6, 'pop');
+ev(K.b7 + .1, 'whoosh'); ev(K.abajo, 'impacto'); ev(K.caso, 'sello');
+ev(K.b8 - .2, 'whoosh'); ev(K.uno8, 'pop'); ev(IG ? K.feria : K.suscribite, 'impacto'); ev(tClic, 'clic');
+EV.sort((a, b) => a.t - b.t); window.EVENTOS = EV;
+
+// ---------- helpers de dibujo ----------
+const op = (e, o) => { e.style.opacity = o; e.style.visibility = o <= .001 ? 'hidden' : 'visible'; };
+const pos = (e, x, y, w, sc = 1, rot = 0) => { e.style.left = (x - w / 2) + 'px'; e.style.top = (y - w / 2) + 'px'; e.style.transform = `scale(${sc}) rotate(${rot}deg)`; };
+const entra = (t, a, d = .45) => eb(pr(t, a, d));
+const ventana = (t, a, b, di = .35, do_ = .3) => cl(pr(t, a, di)) * (1 - cl(pr(t, b, do_)));
+const sello = (e, t, a, b, rot, x, y) => { const k = pr(t, a, .28); const o = ventana(t, a, b, .12, .3); op(e, o);
+  e.style.left = x + 'px'; e.style.top = y + 'px'; e.style.transform = `translate(-50%,-50%) rotate(${rot}deg) scale(${lerp(1.6, 1, eo(k))})`; };
+
+// =============================================================
+window.cuadro = function (t) {
+  t = +t;
+  // grano y respiración del fondo
+  const fr = Math.floor(t * 30); document.getElementById('grano').style.transform = `translate(${(fr * 37) % 60 - 30}px,${(fr * 53) % 60 - 30}px)`;
+  document.getElementById('brillo').style.transform = `translateY(${Math.sin(t * .4) * 30}px)`;
+
+  // ---- 01 gancho ----
+  const fueraG = pr(t, K.cuando - .25, .45);
+  op(gancho, 1 - fueraG); gancho.style.transform = `translateY(${-160 * eio(fueraG)}px) scale(${1 - .12 * fueraG})`;
+  const golpe = pr(t, K.noSube, .35); const gneq = document.getElementById('gneq');
+  gneq.style.transform = `scale(${1 + .35 * Math.sin(Math.PI * golpe) })`;
+  document.getElementById('g1').style.transform = `translateY(${4 * Math.sin(t * 1.6)}px)`;
+  const tSalida1 = K.b2 - .15;
+  op(tit1, ventana(t, K.cuando - .1, tSalida1, .35, .3)); tit1.style.transform = `translateY(${30 * (1 - eo(pr(t, K.cuando - .1, .4)))}px)`;
+  op(caj, ventana(t, K.cuando, tSalida1, .3, .3)); caj.style.transform = `translateY(${60 * (1 - eo(pr(t, K.cuando, .4)))}px)`;
+  op(tagVenta, ventana(t, K.cuando + .1, K.acaba + .1, .3, .2));
+  const durAcaba = Math.max(.9, K.venta - K.acaba + .1);
+  gPila.forEach((m, j) => { const a = K.cuando + .05 + j * .05, sale = K.acaba + (5 - j) * durAcaba / 6;
+    const k = entra(t, a, .4), ks = pr(t, sale, .2); op(m.e, cl(pr(t, a, .15)) * (1 - ks) * (1 - pr(t, tSalida1, .3)));
+    pos(m.e, m.x, m.y + 40 * (1 - k) - 30 * ks, 104, k * (1 + .3 * ks)); });
+  const kS = pr(t, K.venta, .45); op(flechaSube, ventana(t, K.venta, tSalida1, .2, .3));
+  flechaSube.style.transform = `translateY(${200 - 200 * eb(kS)}px) scale(${.6 + .4 * eb(kS)})`;
+
+  // ---- feria (02 a 05) ----
+  const vf = ventana(t, K.b2 - .2, K.b6 - .05, .5, .55);
+  op(mundo, vf);
+  if (vf > 0) {
+    const dolly = lerp(1.32, 1, eio(pr(t, K.b2 - .2, Math.max(1.2, K.p102 - K.b2 + .3))));
+    const zoom5 = .04 * eio(pr(t, K.camion - .5, 1.2)), salida = eio(pr(t, K.b6 - .45, .55));
+    const sc = dolly + zoom5 + .2 * salida, dx = (K.b5 < t ? -20 * eio(pr(t, K.camion - .5, 1.2)) : 0);
+    mundo.style.transform = `translate(${dx}px, ${-80 * salida}px) scale(${sc})`;
+    mundo.style.filter = salida > 0 ? `blur(${salida * 6}px)` : 'none';
+    puestos.forEach((p, i) => { const k = entra(t, tArmado(i), .55); op(p.g, cl(pr(t, tArmado(i), .2)));
+      p.g.style.transform = `translateY(${120 * (1 - k)}px)`;
+      const tp = [K.p100, K.p101, K.p102][i]; const kp = pr(t, tp - .05, .3);
+      p.cartel.textContent = t >= tp - .05 ? PREC[i] : '$ —';
+      p.cartel.style.transform = `scale(${1 + .18 * Math.sin(Math.PI * kp)})`;
+      // cartel del precio actual: brilla en oro
+      const act = (i === 0 && t >= K.vacian - .2 && t < K.c101 - .1) || (i === 1 && t >= K.c101 - .1);
+      p.cartel.style.borderColor = act ? '#e2c68c' : '#8e7140'; p.cartel.style.boxShadow = act ? '0 0 0 6px rgba(226,198,140,.18), 0 0 40px rgba(226,198,140,.45)' : '';
+      p.cartel.style.color = (i === 0 && t > ultimo100 + .2) ? '#5b7196' : '#ecf1f9';
+      const kr = entra(t, K.esperan + i * .1, .4); op(p.reloj, cl(pr(t, K.esperan + i * .1, .15)) * (1 - pr(t, K.b4, .4)));
+      p.reloj.style.transform = `scale(${kr}) rotate(${Math.sin(t * 3 + i) * 8}deg)`;
+      p.vend.style.transform = `translateY(${Math.sin(t * 2.2 + i * 1.7) * 3}px)`;
+      op(p.vend, (i === 0 && t > ultimo100 + .3) ? .55 : 1);
+    });
+    chipLim.forEach((c, i) => { const k = entra(t, K.limitada + .15 + i * .08, .4); op(c, cl(pr(t, K.limitada + .15 + i * .08, .15)) * (1 - pr(t, K.b4 - .2, .35)));
+      c.style.transform = `translate(-50%,-50%) scale(${k})`; });
+    // camión (atrás del puesto de $101)
+    const cx = camionX(t), llegando = pr(t, K.camion - .75, 1.0);
+    op(camion, t > K.camion - .8 ? 1 : 0); op(calle, cl(pr(t, K.camion - 1.1, .4)));
+    camion.style.left = cx + 'px'; camion.style.top = (CAMY + (llegando < 1 ? Math.abs(Math.sin(t * 18)) * 4 : 0)) + 'px';
+    camion.style.transform = `scaleX(-1) rotate(${llegando < 1 ? 0 : Math.sin(pr(t, K.camion + .25, .4) * Math.PI) * -2}deg)`;
+    { const k = entra(t, K.grande, .4); op(chipGrande, cl(pr(t, K.grande, .15)) * (1 - pr(t, K.b6 - .3, .3)));
+      chipGrande.style.left = '290px'; chipGrande.style.top = '505px'; chipGrande.style.transform = `translate(-50%,-50%) scale(${k})`; }
+    // mandarinas en los puestos
+    mand.forEach((pila, p) => pila.forEach((e, j) => {
+      const sp = slotPos(p, j); let o = 0, s = 0;
+      for (const [a, b] of vis[p][j]) { if (t >= a - .02 && t < b + .22) { const ka = eb(pr(t, a, .3)), kb = pr(t, b, .2); s = ka * (1 - kb); o = cl(pr(t, a, .08)) * (1 - kb); } }
+      op(e, o); pos(e, sp.x, sp.y, 56, s);
+    }));
+    // vuelos: compras (puesto → comprador) y reposiciones (camión → puesto)
+    let nv = 0; const fx = frenteX(t);
+    const volar = (x0, y0, x1, y1, k, alto) => { if (nv >= vuelo.length) return; const e = vuelo[nv++]; op(e, 1);
+      pos(e, lerp(x0, x1, k), lerp(y0, y1, k) - alto * Math.sin(Math.PI * k), 50, 1 - .25 * k, k * 300); };
+    for (const c of compras) { const k = pr(t, c.t, .38); if (k > 0 && k < 1) { const j = Math.min(5, c.p === 0 ? 5 - compras.filter(x => x.p === 0 && x.t < c.t).length : 5); const sp = slotPos(c.p, j);
+      volar(sp.x, sp.y, lerp(CX[0] + 4, CX[1] + 4, eio(pr(c.t, tMover, .8))) + 30, 1150, eio(k), 70); } }
+    for (const r of repos) { const k = pr(t, r.t - .55, .55); if (k > 0 && k < 1) { const sp = slotPos(1, 5); volar(CAMX + 125, CAMY + 120, sp.x, sp.y, eio(k), 110); } }
+    vuelo.slice(nv).forEach(e => op(e, 0));
+    // compradores
+    const sv = servido(t), kLlega = K.llega - .2;
+    comp.forEach((e, k) => {
+      const ka = eo(pr(t, kLlega + k * .09, 1.15)); if (ka <= 0) { op(e, 0); return; }
+      const d = sv - k; let x, y = 1172, o = 1, sc = 1;
+      if (d > 0) { x = fx + 40 + 150 * d; y = 1172 + 70 * d; o = 1 - cl(d / 1.1); sc = 1 + .15 * d; }
+      else { x = fx - 132 * (k - sv); }
+      x -= 1100 * (1 - ka);
+      const corre = ka < 1 || (d > -1 && d < 1.2) || pr(t, tMover, .8) % 1 > 0;
+      y -= Math.abs(Math.sin(t * 13 + k * 1.3)) * (corre ? 12 : 3);
+      if (x < -150 || x > 1250) { op(e, 0); return; }
+      op(e, o); pos(e, x, y - 84, 168, sc);
+    });
+    { const k = entra(t, K.ya - .05, .35); op(globo, cl(pr(t, K.ya - .05, .1)) * (1 - pr(t, K.ya + 1.1, .25)));
+      globo.style.left = (fx + 40) + 'px'; globo.style.top = '1060px'; globo.style.transform = `translate(-50%,-100%) scale(${k})`; }
+    { const k = entra(t, K.mercado + .15, .4); op(chipMer, cl(pr(t, K.mercado + .15, .15)) * (1 - pr(t, K.b4 + .3, .3)));
+      chipMer.style.left = (fx - 230) + 'px'; chipMer.style.top = '1040px'; chipMer.style.transform = `translate(-50%,-50%) scale(${k})`; }
+    sello(agotado, t, ultimo100 + .1, K.b5 + .2, -8, CX[0], 860);
+  }
+
+  // ---- precio ----
+  const vt = ventana(t, K.vacian - .25, K.b6 - .1, .4, .4);
+  op(ticker, vt); ticker.style.transform = `translateY(${40 * (1 - eo(pr(t, K.vacian - .25, .45)))}px)`;
+  const kf = eio(pr(t, K.c101 - .1, .45));
+  pa.style.top = (-110 * kf) + 'px'; pb.style.top = (110 - 110 * kf) + 'px';
+  pb.style.color = t > K.b5 + .3 ? '#ecf1f9' : '#3dd68c';
+  op(tf, cl(pr(t, K.c101, .2)) * (1 - pr(t, K.b5 + .2, .3))); tf.style.transform = `translateY(${-14 * Math.sin(Math.PI * pr(t, K.subio, .4))}px)`;
+  ticker.style.borderColor = t > K.noSube5 ? '#e2c68c' : (kf > 0 && t < K.b5 ? '#3dd68c' : '#274a80');
+  { const k = entra(t, K.noSube5, .4); op(noSube, cl(pr(t, K.noSube5, .12)) * (1 - pr(t, K.b6 - .1, .3)));
+    noSube.style.transform = `translate(-50%,-50%) scale(${k})`; }
+
+  // ---- títulos ----
+  TITS.forEach(x => { const k = eo(pr(t, x.t0, .4)); op(x.e, ventana(t, x.t0, x.t1, .3, .25)); x.e.style.transform = `translateY(${28 * (1 - k) - 20 * pr(t, x.t1, .25)}px)`; });
+
+  // ---- gráfico ----
+  dibujaGrafico(t);
+
+  // ---- cierre ----
+  const vc = cl(pr(t, K.b8 - .1, .45)); op(cierre, vc);
+  if (vc > 0) {
+    const k1 = entra(t, K.uno8 - .1, .4), k2 = entra(t, K.dos - .1, .4);
+    l1.style.transform = `scale(${k1})`; op(l1, cl(pr(t, K.uno8 - .1, .12)));
+    l2.style.transform = `scale(${k2})`; op(l2, cl(pr(t, K.dos - .1, .12)));
+    const tg = IG ? K.feria : K.suscribite; const kg = pr(t, tg - .05, .45);
+    op(grande, cl(pr(t, tg - .05, .12))); grande.style.transform = `scale(${lerp(1.6, 1, eb(kg))})`;
+    op(mandC, IG ? cl(pr(t, tg + .2, .15)) : 0); pos(mandC, 820, 560, 130, eb(pr(t, tg + .2, .45)), Math.sin(t * 2) * 10);
+    const kt = eo(pr(t, K.b8 + .15, .6)); op(tarjeta, cl(pr(t, K.b8 + .15, .3))); tarjeta.style.transform = `translateY(${120 * (1 - kt)}px)`;
+    // cursor que toca el botón
+    const r0 = tClic - .9, kc = eio(pr(t, r0, .8)); const bx = 540, by = IG ? 840 + 410 : 860 + 330;
+    op(cursor, cl(pr(t, r0, .15)) * (1 - pr(t, tClic + .9, .3)));
+    const pres = Math.sin(Math.PI * pr(t, tClic - .05, .2));
+    cursor.style.left = lerp(860, bx + 20, kc) + 'px'; cursor.style.top = lerp(1420, by, kc) + 'px'; cursor.style.transform = `scale(${1 - .15 * pres})`;
+    const hecho = t >= tClic;
+    bt.textContent = hecho ? (IG ? 'Siguiendo ✓' : 'Suscripto ✓') : (IG ? 'Seguir' : 'Suscribirme');
+    bt.style.background = hecho ? '#1c2f52' : (IG ? '#3b82f6' : '#ecf1f9'); bt.style.color = hecho ? '#ecf1f9' : (IG ? '#fff' : '#0b1830');
+    bt.style.transform = `scale(${1 - .05 * pres})`;
+  }
+
+  pintaSubs(t);
+};
+
+function dibujaGrafico(t) {
+  const vg = ventana(t, K.b6 - .2, K.b8 - .1, .55, .4);
+  op(graf, vg); op(capaG, vg); op(selloCaso, 0);
+  if (vg <= 0) { graf.innerHTML = ''; return; }
+  // cámara del gráfico: acerca la vela clave en «casi no se movió» y vuelve en el 07
+  const fxC = gx(clave.k), fyC = gy((clave.o + clave.c) / 2);
+  const z = 1 + 1.25 * eio(pr(t, K.movio - .1, .7)) * (1 - eio(pr(t, K.b7 - .2, .7)));
+  const ent = 1 - eo(pr(t, K.b6 - .2, .6));
+  const zk = (z - 1) / 1.25, X = x => (x - fxC) * z + fxC + (540 - fxC) * zk, Y = y => (y - fyC) * z + fyC + (840 - fyC) * zk + ent * 80;
+  let h = '';
+  // grilla de precios
+  for (const p of [83000, 84000, 85000]) { const y = Y(gy(p)); if (y < 600 || y > 1100) continue;
+    h += `<line x1="160" x2="900" y1="${y}" y2="${y}" stroke="rgba(120,150,200,.18)" stroke-width="2" stroke-dasharray="6 10"/>`;
+    h += `<text x="160" y="${y - 10}" fill="#6f84a6" font-family="JetBrains Mono" font-size="22">${p.toLocaleString('es-AR')}</text>`; }
+  // cuántas velas se ven
+  const kVenia = pr(t, K.bitcoin, Math.max(1, K.quince - K.bitcoin - .2));          // 09:00 → 12:45
+  const kDesp = pr(t, K.hora - .1, Math.max(.8, K.abajo - K.hora));               // 13:15 → 14:30
+  const ancho = (GX1 - GX0) / NS * .62 * z;
+  velas.forEach(vl => {
+    let k;
+    if (vl.k < 16) k = cl(kVenia * 16 - vl.k);
+    else if (vl.k === 16) k = eb(pr(t, K.quince - .05, .4));
+    else k = cl(kDesp * 6 - (vl.k - 17));
+    if (k <= 0) return;
+    const sube = vl.c >= vl.o, col = sube ? '#3dd68c' : '#ff6b6b', x = X(gx(vl.k));
+    const yh = Y(gy(vl.h)), yl = Y(gy(vl.l)), yo = Y(gy(vl.o)), yc = Y(gy(vl.c));
+    const ym = (yo + yc) / 2, sq = k; // crece desde el medio
+    const esClave = vl.k === 16, atenua = t > K.diez && !esClave && t < K.b7 ? .35 : 1;
+    if (esClave) h += `<rect x="${x - ancho * 1.6}" y="${Math.min(yh, yl) - 24}" width="${ancho * 3.2}" height="${Math.abs(yl - yh) + 48}" rx="12" fill="rgba(226,198,140,.10)" stroke="#e2c68c" stroke-width="3" opacity="${cl(pr(t, K.quince, .3))}"/>`;
+    h += `<g opacity="${cl(k) * atenua}"><line x1="${x}" x2="${x}" y1="${lerp(ym, yh, sq)}" y2="${lerp(ym, yl, sq)}" stroke="${esClave ? '#e2c68c' : col}" stroke-width="${2.5 * Math.min(z, 1.6)}"/>`;
+    h += `<rect x="${x - ancho / 2}" y="${lerp(ym, Math.min(yo, yc), sq)}" width="${ancho}" height="${Math.max(3, Math.abs(yc - yo) * sq)}" rx="2" fill="${esClave ? '#e2c68c' : col}"/></g>`;
+  });
+  // flecha «venía subiendo»
+  { const k = eo(pr(t, K.venia, .7)) * (1 - pr(t, K.quince, .3));
+    if (k > 0) { const x0 = X(gx(1)), y0 = Y(gy(83150)) + 40, x1 = lerp(x0, X(gx(14.5)), k), y1 = lerp(y0, Y(gy(85300)) - 30, k);
+      h += `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="#3dd68c" stroke-width="7" stroke-linecap="round" opacity=".8"/>`;
+      const a = Math.atan2(y1 - y0, x1 - x0); h += `<polygon points="${x1 + 26 * Math.cos(a)},${y1 + 26 * Math.sin(a)} ${x1 + 16 * Math.cos(a + 2.2)},${y1 + 16 * Math.sin(a + 2.2)} ${x1 + 16 * Math.cos(a - 2.2)},${y1 + 16 * Math.sin(a - 2.2)}" fill="#3dd68c" opacity=".9"/>`;
+      h += `<text x="${X(gx(0))}" y="${Y(gy(85550))}" fill="#3dd68c" font-family="Inter Display" font-weight="900" font-size="44" opacity="${k}">VENÍA SUBIENDO</text>`; } }
+  // techo (el camión): línea en el máximo de la vela clave
+  const xk = X(gx(16)), ykH = Y(gy(clave.h)), ykC = Y(gy(clave.c));
+  { const k = eo(pr(t, K.camion6 - .1, .5)) * (1 - pr(t, K.b7 + .4, .4));
+    if (k > 0) h += `<line x1="${xk - 40}" x2="${lerp(xk - 40, xk + 210, k)}" y1="${ykH}" y2="${ykH}" stroke="#e2c68c" stroke-width="5" stroke-dasharray="14 10"/>`; }
+  // «lo lógico»: flecha verde punteada hacia arriba
+  { const k = eo(pr(t, K.logico, .6)), kx = pr(t, K.movio, .4), fade = 1 - .7 * pr(t, K.b7, .4);
+    if (k > 0) { const x0 = xk + 10, y0 = ykC - 10, x1 = x0 + 120 * k, y1 = y0 - 125 * k;
+      h += `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="#3dd68c" stroke-width="6" stroke-dasharray="14 10" opacity="${fade}"/>`;
+      h += `<polygon points="${x1 + 8},${y1 - 22} ${x1 + 16},${y1 + 10} ${x1 - 16},${y1 - 4}" fill="#3dd68c" opacity="${fade}"/>`;
+      if (kx > 0) h += `<g stroke="#ecf1f9" stroke-width="7" stroke-linecap="round" opacity="${kx * fade}"><line x1="${x0 + 40}" y1="${y0 - 85}" x2="${x0 + 40 + 44 * kx}" y2="${y0 - 85 + 44 * kx}"/><line x1="${x0 + 84}" y1="${y0 - 85}" x2="${x0 + 84 - 44 * kx}" y2="${y0 - 85 + 44 * kx}"/></g>`; } }
+  // 07: caída al mínimo y tiempo
+  { const k = eo(pr(t, K.abajo - .1, .6));
+    if (k > 0) { const xm = X(gx(22)), ym = Y(gy(minimo.l));
+      h += `<line x1="${xk + 18}" y1="${ykC}" x2="${lerp(xk + 18, xm, k)}" y2="${ykC}" stroke="rgba(236,241,249,.5)" stroke-width="3" stroke-dasharray="6 8"/>`;
+      h += `<line x1="${xm}" y1="${ykC}" x2="${xm}" y2="${lerp(ykC, ym, k)}" stroke="#ff6b6b" stroke-width="6"/>`;
+      h += `<polygon points="${xm},${lerp(ykC, ym, k) + 18} ${xm - 14},${lerp(ykC, ym, k) - 6} ${xm + 14},${lerp(ykC, ym, k) - 6}" fill="#ff6b6b"/>`;
+      h += `<circle cx="${xm}" cy="${ym}" r="${12 * k}" fill="#ff6b6b"/><circle cx="${xm}" cy="${ym}" r="${12 + 26 * (t * 1.5 % 1)}" fill="none" stroke="#ff6b6b" stroke-width="3" opacity="${k * (1 - t * 1.5 % 1)}"/>`; } }
+  // eje de tiempo: 1 h 30
+  { const k = eo(pr(t, K.hora, .6)); if (k > 0) { const y = Y(gy(PMIN)) + 30, x0 = xk, x1 = lerp(xk, X(gx(22)), k);
+    h += `<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" stroke="#a3b5d1" stroke-width="4"/><line x1="${x0}" x2="${x0}" y1="${y - 12}" y2="${y + 12}" stroke="#a3b5d1" stroke-width="4"/><line x1="${x1}" x2="${x1}" y1="${y - 12}" y2="${y + 12}" stroke="#a3b5d1" stroke-width="4"/>`; } }
+  // marco
+  const altoM = lerp(780, 650, eio(pr(t, K.b7 - .3, .5)));
+  h = `<defs><clipPath id="cm"><rect x="142" y="562" width="796" height="${t < K.b7 - .3 ? 570 : altoM - 4}" rx="26"/></clipPath></defs><rect x="140" y="560" width="800" height="${altoM}" rx="28" fill="rgba(8,22,44,.55)" stroke="#274a80" stroke-width="2" opacity="${1 - ent}"/><g clip-path="url(#cm)">` + h + '</g>';
+  graf.innerHTML = h;
+  // etiquetas (DOM, sin escalar)
+  const chipEn = (e, a, b, x, y) => { const k = entra(t, a, .4); op(e, cl(pr(t, a, .12)) * (1 - pr(t, b, .3))); e.style.left = x + 'px'; e.style.top = y + 'px'; e.style.transform = `translate(-50%,-50%) scale(${k})`; };
+  chipEn(lblQuince, K.quince, K.diez, Math.min(700, xk - 60), Y(gy(clave.h)) - 70);
+  chipEn(lblLogico, K.logico, K.movio, 450, 612);
+  chipEn(lblMovio, K.movio + .45, K.camion6 - .1, 520, Y(gy(clave.l)) + 120);
+  chipEn(lblHora, K.hora + .3, K.abajo, 560, Y(gy(PMIN)) + 75);
+  { const k = entra(t, K.abajo, .5); op(lblMin, cl(pr(t, K.abajo, .15)) * (1 - pr(t, K.b8 - .2, .3)));
+    lblMin.style.left = Math.min(720, X(gx(22)) - 140) + 'px'; lblMin.style.top = (Y(gy(minimo.l)) + 40) + 'px'; lblMin.style.transform = `translate(-50%,0) scale(${k})`; }
+  { const k = entra(t, K.camion6, .5); op(camionG, cl(pr(t, K.camion6, .15)) * (1 - pr(t, K.b7 + .2, .3)));
+    pos(camionG, xk + 150 - 80 * (1 - k), ykC + 10, 150, k); camionG.style.transform += ' scaleX(-1)'; }
+  // volumen: lo normal vs. esta vela
+  { const k = eo(pr(t, K.diez - .2, .9)), o = cl(pr(t, K.quince + .2, .3)) * (1 - pr(t, K.b7 - .2, .3));
+    op(volCaja, o); vb1.style.width = (56 * cl(pr(t, K.quince + .3, .4))) + 'px'; vb2.style.width = (56 * 9.87 * k * .82) + 'px'; op(vbt, cl(pr(t, K.diez + .4, .3))); }
+  sello(selloCaso, t, K.caso, K.b8 - .15, -6, 540, 1300);
+}
+
+// ---------- listo cuando cargan las imágenes ----------
+Promise.all(imgs.map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; }))).then(() => document.fonts.ready).then(() => { window.cuadro(0); window._listo(true); });
+}
+</script>
+</body></html>
