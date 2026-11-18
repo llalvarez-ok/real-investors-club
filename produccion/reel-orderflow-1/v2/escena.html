@@ -21,7 +21,7 @@
   .tit .s { font:500 36px/1.2 Inter; color:var(--tx2); margin-top:16px; }
   .oro { color:var(--oro); } .verde { color:var(--verde); } .rojo { color:var(--rojo); }
   /* mundo */
-  #mundo { left:0; top:0; width:1080px; height:1920px; transform-origin:540px 900px; }
+  #mundo { left:0; top:0; width:1080px; height:1920px; transform-origin:0 0; }
   .img { position:absolute; display:block; will-change:transform; }
   .cartel { position:absolute; width:176px; height:86px; margin-left:-88px; border-radius:16px; background:linear-gradient(#0f2447,#0a1a35);
     border:3px solid var(--oro3); box-shadow:0 8px 20px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
@@ -31,10 +31,10 @@
   .globo { position:absolute; transform:translate(-50%,-100%); font:900 40px 'Inter Display'; color:#071426; background:var(--tx); padding:10px 22px;
     border-radius:22px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
   .globo:after { content:''; position:absolute; left:40px; bottom:-14px; border:10px solid transparent; border-top:14px solid var(--tx); border-bottom:0; }
-  .sello { position:absolute; transform:translate(-50%,-50%); white-space:nowrap; font:900 46px 'Inter Display'; letter-spacing:2px; padding:14px 30px;
+  .sello { position:absolute; transform:translate(-50%,-50%); white-space:nowrap; font:900 40px 'Inter Display'; letter-spacing:1px; padding:12px 24px;
     border:6px solid currentColor; border-radius:14px; text-transform:uppercase; }
   /* precio */
-  #ticker { left:270px; width:540px; top:1272px; height:150px; border-radius:28px; background:linear-gradient(#0f2447,#0a1a35);
+  #ticker { left:270px; width:540px; top:1296px; height:150px; border-radius:28px; background:linear-gradient(#0f2447,#0a1a35);
     border:3px solid var(--borde); box-shadow:0 18px 50px rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; gap:26px; }
   #ticker .l { font:700 27px 'JetBrains Mono'; letter-spacing:4px; color:var(--tx2); text-align:right; line-height:1.25; }
   #ticker .v { position:relative; width:230px; height:110px; overflow:hidden; }
@@ -44,8 +44,8 @@
   /* gráfico */
   #graf { left:0; top:0; width:1080px; height:1920px; }
   /* subtítulos */
-  #subs { left:150px; width:780px; top:1470px; height:130px; display:flex; align-items:center; justify-content:center; text-align:center; }
-  #subs .caja { display:inline-block; padding:12px 26px; border-radius:20px; background:rgba(4,12,26,.62); font:800 56px/1.18 Inter; letter-spacing:-.5px; }
+  #subs { left:140px; width:800px; top:1462px; height:124px; display:flex; align-items:center; justify-content:center; text-align:center; }
+  #subs .caja { display:inline-block; padding:12px 26px; border-radius:20px; background:rgba(4,12,26,.62); font:800 54px/1.15 Inter; white-space:nowrap; letter-spacing:-.5px; }
   #subs span { display:inline-block; margin:0 .22em; }
   #pie { left:90px; width:900px; top:1636px; text-align:center; font:500 20px/1.45 Inter; color:#6f84a6; }
   /* cierre */
@@ -184,8 +184,8 @@ const vuelo = [...Array(10)].map(() => img(R + 'tangerine.svg', 50, mundo));
 const TIP = ['man-running-facing-right.svg', 'woman-running-facing-right-medium-light.svg', 'person-running-facing-right-medium-dark.svg', 'woman-running-facing-right.svg', 'man-running-facing-right-medium.svg'];
 const NC = 40; const comp = [...Array(NC)].map((_, k) => img(R + TIP[k % 5], 168, mundo));
 const globo = $(`<div class="globo">¡YA!</div>`, mundo);
-const chipMer = $(`<div class="chip">A MERCADO</div>`, mundo);
-const chipGrande = $(`<div class="chip">VENDEDOR GRANDE</div>`, mundo);
+const chipMer = $(`<div class="chip">COMPRA YA</div>`, mundo);
+const chipGrande = $(`<div class="chip" style="font-size:30px">VENDEDOR GRANDE</div>`);
 const agotado = $(`<div class="sello" style="left:${CX[0]}px;top:860px;color:#a3b5d1;background:rgba(7,20,38,.85)">AGOTADO</div>`, mundo);
 
 // ---------- programa de compras y reposiciones ----------
@@ -197,7 +197,7 @@ const repos = [{ t: K.repone + .35, p: 1 }];
 compras.sort((a, b) => a.t - b.t);
 const ultimo100 = compras.filter(c => c.p === 0).slice(-1)[0].t;
 // intervalos de cada mandarina
-const tArmado = p => K.tres + .15 + p * .18;
+const tArmado = p => Math.min(K.tres + .15, K.b2 + .1) + p * .16;
 const vis = CX.map((_, p) => SL.map((_, j) => [[tArmado(p) + .25 + j * .06, 1e9]]));
 { const evs = [...compras.map(c => ({ ...c, k: 'c' })), ...repos.map(r => ({ ...r, k: 'r' }))].sort((a, b) => a.t - b.t); const n = [6, 6, 6];
   for (const e of evs) { if (e.k === 'c') { const j = --n[e.p]; vis[e.p][j][vis[e.p][j].length - 1][1] = e.t; } else { const j = n[e.p]++; if (j > 5) { n[e.p] = 6; continue; } vis[e.p][j].push([e.t, 1e9]); } } }
@@ -209,7 +209,7 @@ const camionX = t => lerp(1250, CAMX, eo(pr(t, K.camion - .75, 1.0)));
 // ---------- precio ----------
 const ticker = $(`<div id="ticker" class="abs"><div class="l">PRECIO<br>AHORA</div><div class="v"><div id="pa">$100</div><div id="pb" class="verde">$101</div></div><div class="f verde" id="tf">▲</div></div>`);
 const pa = ticker.querySelector('#pa'), pb = ticker.querySelector('#pb'), tf = ticker.querySelector('#tf');
-const noSube = $(`<div class="chip" style="left:540px;top:1266px;font-size:32px;border-color:#e2c68c;color:#071426;background:#e2c68c">= NO SUBE</div>`);
+const noSube = $(`<div class="chip" style="left:540px;top:1290px;font-size:32px;border-color:#e2c68c;color:#071426;background:#e2c68c">= NO SUBE</div>`);
 
 // ---------- títulos ----------
 const TITS = [];
@@ -217,8 +217,8 @@ const titulo = (t0, t1, html) => { const e = $(`<div class="abs tit">${html}</di
 titulo(K.b2 + .2, K.limitada - .25, `<div class="k">EJEMPLO · UNA FERIA</div>`);
 titulo(K.limitada, K.b3 + .1, `<div class="m oro">ORDEN LIMITADA</div><div class="s">Pone su precio y espera</div>`);
 titulo(K.llega, K.mercado - .2, `<div class="k">LLEGAN LOS APURADOS</div>`);
-titulo(K.mercado, K.b4 + .1, `<div class="m oro">ORDEN A MERCADO</div><div class="s">Compra ya, al precio que haya</div>`);
-titulo(K.vacian, K.subio - .2, `<div class="m">SE ACABÓ<br>EL DE <span class="oro">$100</span></div>`);
+titulo(K.mercado, K.b4 + .1, `<div class="m oro">ORDEN A MERCADO</div>`);
+titulo(K.vacian, K.subio - .2, `<div class="m">SE ACABÓ EL <span class="oro">$100</span></div>`);
 titulo(K.subio, K.b5 + .15, `<div class="m">EL PRECIO <span class="verde">SUBIÓ ▲</span></div>`);
 titulo(K.camion, K.absorcion - .2, `<div class="m">UN CAMIÓN</div>`);
 titulo(K.absorcion, K.b6 + .1, `<div class="m oro">ABSORCIÓN</div>`);
@@ -227,24 +227,26 @@ titulo(K.b7 + .1, K.b8, `<div class="k">QUÉ PASÓ DESPUÉS</div><div class="m">
 
 // ---------- gráfico real ----------
 const V0 = window.VELAS;
-const t0g = Date.parse('2026-09-30T09:00:00Z'), SLOT = 15 * 60e3, NS = 23;   // 09:00 a 14:30 UTC
+const t0g = Date.parse('2026-09-30T10:00:00Z'), SLOT = 15 * 60e3, NS = 19;   // 10:00 a 14:30 UTC
+const KC = 12, KM = 18;   // 13:00 y 14:30 UTC
 const velas = V0.map(v => ({ k: Math.round((Date.parse(v[0].replace(' ', 'T')) - t0g) / SLOT), o: v[1], h: v[2], l: v[3], c: v[4], vr: v[5] })).filter(v => v.k >= 0 && v.k < NS);
-const iClave = velas.findIndex(v => v.k === 16), clave = velas[iClave];           // 13:00 UTC
-const minimo = velas.find(v => v.k === 22);                                         // 14:30 UTC, mínimo 83.328
-const GX0 = 240, GX1 = 880, GY0 = 1090, GY1 = 600, PMIN = 82900, PMAX = 86300;
+const iClave = velas.findIndex(v => v.k === KC), clave = velas[iClave];           // 13:00 UTC
+const minimo = velas.find(v => v.k === KM);                                         // 14:30 UTC, mínimo 83.328
+const GX0 = 225, GX1 = 925, GY0 = 1135, GY1 = 590, PMIN = 82900, PMAX = 86300;
 const gx = k => GX0 + (k + .5) * (GX1 - GX0) / NS, gy = p => GY0 + (p - PMIN) / (PMAX - PMIN) * (GY1 - GY0);
 const graf = document.getElementById('graf');
 const capaG = $(`<div class="abs" style="inset:0"></div>`);
-const lblQuince = $(`<div class="chip">1 VELA = 15 MINUTOS</div>`, capaG);
-const lblLogico = $(`<div class="chip" style="border-color:var(--verde);color:var(--verde)">LO LÓGICO: SEGUIR SUBIENDO ▲</div>`, capaG);
-const lblMovio = $(`<div class="chip" style="border-color:#ecf1f9;color:#ecf1f9">CASI NO SE MOVIÓ</div>`, capaG);
+const lblQuince = $(`<div class="chip" style="font-size:30px">1 VELA = 15 MINUTOS</div>`, capaG);
+const lblLogico = $(`<div class="chip" style="font-size:30px;border-color:var(--verde);color:var(--verde)">LO LÓGICO: SEGUIR SUBIENDO ▲</div>`, capaG);
+const lblMovio = $(`<div class="chip" style="font-size:30px;border-color:#ecf1f9;color:#ecf1f9">CASI NO SE MOVIÓ</div>`, capaG);
 const lblMin = $(`<div class="abs" style="text-align:center;transform:translate(-50%,0)"><div style="font:900 96px/1 'Inter Display';color:var(--rojo);letter-spacing:-2px">−2,4 %</div><div style="font:600 28px 'JetBrains Mono';color:var(--tx2);margin-top:6px">mínimo 83.328</div></div>`, capaG);
-const lblHora = $(`<div class="chip" style="border-color:#a3b5d1;color:#ecf1f9">1 H 30 MIN DESPUÉS</div>`, capaG);
+const lblHora = $(`<div class="chip" style="font-size:30px;border-color:#a3b5d1;color:#ecf1f9">1 H 30 MIN DESPUÉS</div>`, capaG);
 const camionG = img(R + 'delivery-truck.svg', 150, capaG);
-const volCaja = $(`<div class="abs" style="left:175px;width:740px;top:1150px">
-  <div style="font:700 24px 'JetBrains Mono';letter-spacing:4px;color:var(--tx2);margin-bottom:12px">CUÁNTO SE NEGOCIÓ EN 15 MIN</div>
-  <div style="display:flex;align-items:center;gap:16px;height:44px"><div style="width:170px;font:600 30px Inter;color:var(--tx2)">lo normal</div><div id="vb1" style="height:30px;border-radius:8px;background:#5b7196"></div></div>
-  <div style="display:flex;align-items:center;gap:16px;height:52px;margin-top:6px"><div style="width:170px;font:700 30px Inter;color:var(--oro)">esta vela</div><div id="vb2" style="height:38px;border-radius:8px;background:linear-gradient(90deg,#8e7140,#e2c68c)"></div><div id="vbt" style="font:900 46px 'Inter Display';color:var(--oro);white-space:nowrap">casi ×10</div></div></div>`, capaG);
+const volCaja = $(`<div class="abs" style="left:170px;width:740px;top:1168px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:10px"><div style="font:700 26px 'JetBrains Mono';letter-spacing:3px;color:var(--tx2)">CUÁNTO SE NEGOCIÓ</div>
+  <div id="vbt" style="font:900 62px/1 'Inter Display';color:var(--oro);white-space:nowrap">casi ×10</div></div>
+  <div style="display:flex;align-items:center;gap:18px;height:50px"><div style="width:160px;font:600 32px Inter;color:var(--tx2)">lo normal</div><div id="vb1" style="height:34px;border-radius:9px;background:#5b7196"></div></div>
+  <div style="display:flex;align-items:center;gap:18px;height:62px;margin-top:4px"><div style="width:160px;font:800 32px Inter;color:var(--oro)">esta vela</div><div id="vb2" style="height:48px;border-radius:10px;background:linear-gradient(90deg,#8e7140,#e2c68c);box-shadow:0 0 30px rgba(226,198,140,.35)"></div></div></div>`, capaG);
 const vb1 = volCaja.querySelector('#vb1'), vb2 = volCaja.querySelector('#vb2'), vbt = volCaja.querySelector('#vbt');
 const selloCaso = $(`<div class="sello" style="left:540px;top:1240px;color:var(--oro);background:rgba(7,20,38,.9)">Es un caso, no una regla</div>`);
 
@@ -318,6 +320,17 @@ const ventana = (t, a, b, di = .35, do_ = .3) => cl(pr(t, a, di)) * (1 - cl(pr(t
 const sello = (e, t, a, b, rot, x, y) => { const k = pr(t, a, .28); const o = ventana(t, a, b, .12, .3); op(e, o);
   e.style.left = x + 'px'; e.style.top = y + 'px'; e.style.transform = `translate(-50%,-50%) rotate(${rot}deg) scale(${lerp(1.6, 1, eo(k))})`; };
 
+// cámara de la feria: el punto (fx, fy) del mundo queda en (540, 880) de la pantalla
+const CAMK = [
+  [K.b2 - .2, .01, { s: 1.6, fx: 540, fy: 860 }],
+  [K.b2, Math.max(1.2, K.p102 - K.b2), { s: 1.0, fx: 540, fy: 880 }],
+  [K.llega - .35, 1.0, { s: 1.42, fx: 330, fy: 905 }],
+  [tMover - .1, .9, { s: 1.42, fx: 575, fy: 905 }],
+  [K.camion - 1.0, 1.1, { s: 1.26, fx: 585, fy: 812 }],
+  [K.b6 - .45, .55, { s: 1.55, fx: 585, fy: 812 }]];
+function camara(t) { let c = { ...CAMK[0][2] };
+  for (const [a, d, k] of CAMK) { const e = eio(pr(t, a, d)); if (e <= 0) break; c = { s: lerp(c.s, k.s, e), fx: lerp(c.fx, k.fx, e), fy: lerp(c.fy, k.fy, e) }; }
+  return c; }
 // =============================================================
 window.cuadro = function (t) {
   t = +t;
@@ -346,10 +359,8 @@ window.cuadro = function (t) {
   const vf = ventana(t, K.b2 - .2, K.b6 - .05, .5, .55);
   op(mundo, vf);
   if (vf > 0) {
-    const dolly = lerp(1.32, 1, eio(pr(t, K.b2 - .2, Math.max(1.2, K.p102 - K.b2 + .3))));
-    const zoom5 = .04 * eio(pr(t, K.camion - .5, 1.2)), salida = eio(pr(t, K.b6 - .45, .55));
-    const sc = dolly + zoom5 + .2 * salida, dx = (K.b5 < t ? -20 * eio(pr(t, K.camion - .5, 1.2)) : 0);
-    mundo.style.transform = `translate(${dx}px, ${-80 * salida}px) scale(${sc})`;
+    const c = camara(t), salida = eio(pr(t, K.b6 - .45, .55));
+    mundo.style.transform = `translate(${540 - c.fx * c.s}px, ${880 - c.fy * c.s}px) scale(${c.s})`;
     mundo.style.filter = salida > 0 ? `blur(${salida * 6}px)` : 'none';
     puestos.forEach((p, i) => { const k = entra(t, tArmado(i), .55); op(p.g, cl(pr(t, tArmado(i), .2)));
       p.g.style.transform = `translateY(${120 * (1 - k)}px)`;
@@ -365,15 +376,13 @@ window.cuadro = function (t) {
       p.vend.style.transform = `translateY(${Math.sin(t * 2.2 + i * 1.7) * 3}px)`;
       op(p.vend, (i === 0 && t > ultimo100 + .3) ? .55 : 1);
     });
-    chipLim.forEach((c, i) => { const k = entra(t, K.limitada + .15 + i * .08, .4); op(c, cl(pr(t, K.limitada + .15 + i * .08, .15)) * (1 - pr(t, K.b4 - .2, .35)));
+    chipLim.forEach((c, i) => { const k = entra(t, K.limitada + .15 + i * .08, .4); op(c, cl(pr(t, K.limitada + .15 + i * .08, .15)) * (1 - pr(t, K.llega - .4, .35)));
       c.style.transform = `translate(-50%,-50%) scale(${k})`; });
     // camión (atrás del puesto de $101)
     const cx = camionX(t), llegando = pr(t, K.camion - .75, 1.0);
     op(camion, t > K.camion - .8 ? 1 : 0); op(calle, cl(pr(t, K.camion - 1.1, .4)));
     camion.style.left = cx + 'px'; camion.style.top = (CAMY + (llegando < 1 ? Math.abs(Math.sin(t * 18)) * 4 : 0)) + 'px';
     camion.style.transform = `scaleX(-1) rotate(${llegando < 1 ? 0 : Math.sin(pr(t, K.camion + .25, .4) * Math.PI) * -2}deg)`;
-    { const k = entra(t, K.grande, .4); op(chipGrande, cl(pr(t, K.grande, .15)) * (1 - pr(t, K.b6 - .3, .3)));
-      chipGrande.style.left = '290px'; chipGrande.style.top = '505px'; chipGrande.style.transform = `translate(-50%,-50%) scale(${k})`; }
     // mandarinas en los puestos
     mand.forEach((pila, p) => pila.forEach((e, j) => {
       const sp = slotPos(p, j); let o = 0, s = 0;
@@ -403,11 +412,13 @@ window.cuadro = function (t) {
     });
     { const k = entra(t, K.ya - .05, .35); op(globo, cl(pr(t, K.ya - .05, .1)) * (1 - pr(t, K.ya + 1.1, .25)));
       globo.style.left = (fx + 40) + 'px'; globo.style.top = '1060px'; globo.style.transform = `translate(-50%,-100%) scale(${k})`; }
-    { const k = entra(t, K.mercado + .15, .4); op(chipMer, cl(pr(t, K.mercado + .15, .15)) * (1 - pr(t, K.b4 + .3, .3)));
-      chipMer.style.left = (fx - 230) + 'px'; chipMer.style.top = '1040px'; chipMer.style.transform = `translate(-50%,-50%) scale(${k})`; }
+    { const k = entra(t, K.mercado + .15, .4); op(chipMer, cl(pr(t, K.mercado + .15, .15)) * (1 - pr(t, K.b4 - .2, .25)));
+      chipMer.style.left = (fx - 85) + 'px'; chipMer.style.top = '1225px'; chipMer.style.transform = `translate(-50%,-50%) scale(${k})`; }
     sello(agotado, t, ultimo100 + .1, K.b5 + .2, -8, CX[0], 860);
   }
 
+  { const k = entra(t, K.grande, .4); op(chipGrande, cl(pr(t, K.grande, .15)) * (1 - pr(t, K.b6 - .3, .3)));
+    chipGrande.style.left = '790px'; chipGrande.style.top = '520px'; chipGrande.style.transform = `translate(-50%,-50%) scale(${k})`; }
   // ---- precio ----
   const vt = ventana(t, K.vacian - .25, K.b6 - .1, .4, .4);
   op(ticker, vt); ticker.style.transform = `translateY(${40 * (1 - eo(pr(t, K.vacian - .25, .45)))}px)`;
@@ -428,13 +439,13 @@ window.cuadro = function (t) {
   // ---- cierre ----
   const vc = cl(pr(t, K.b8 - .1, .45)); op(cierre, vc);
   if (vc > 0) {
-    const k1 = entra(t, K.uno8 - .1, .4), k2 = entra(t, K.dos - .1, .4);
-    l1.style.transform = `scale(${k1})`; op(l1, cl(pr(t, K.uno8 - .1, .12)));
-    l2.style.transform = `scale(${k2})`; op(l2, cl(pr(t, K.dos - .1, .12)));
+    const k1 = entra(t, K.b8 + .05, .4);
+    l1.style.transform = `scale(${k1})`; op(l1, cl(pr(t, K.b8 + .05, .12)));
+    const k2b = entra(t, K.b8 + .45, .4); l2.style.transform = `scale(${k2b})`; op(l2, cl(pr(t, K.b8 + .45, .12)));
     const tg = IG ? K.feria : K.suscribite; const kg = pr(t, tg - .05, .45);
     op(grande, cl(pr(t, tg - .05, .12))); grande.style.transform = `scale(${lerp(1.6, 1, eb(kg))})`;
     op(mandC, IG ? cl(pr(t, tg + .2, .15)) : 0); pos(mandC, 820, 560, 130, eb(pr(t, tg + .2, .45)), Math.sin(t * 2) * 10);
-    const kt = eo(pr(t, K.b8 + .15, .6)); op(tarjeta, cl(pr(t, K.b8 + .15, .3))); tarjeta.style.transform = `translateY(${120 * (1 - kt)}px)`;
+    const kt = eo(pr(t, K.b8 + .1, .55)); op(tarjeta, cl(pr(t, K.b8 + .1, .25))); tarjeta.style.transform = `translateY(${120 * (1 - kt)}px)`;
     // cursor que toca el botón
     const r0 = tClic - .9, kc = eio(pr(t, r0, .8)); const bx = 540, by = IG ? 840 + 410 : 860 + 330;
     op(cursor, cl(pr(t, r0, .15)) * (1 - pr(t, tClic + .9, .3)));
@@ -466,29 +477,29 @@ function dibujaGrafico(t) {
   // cuántas velas se ven
   const kVenia = pr(t, K.bitcoin, Math.max(1, K.quince - K.bitcoin - .2));          // 09:00 → 12:45
   const kDesp = pr(t, K.hora - .1, Math.max(.8, K.abajo - K.hora));               // 13:15 → 14:30
-  const ancho = (GX1 - GX0) / NS * .62 * z;
+  const ancho = (GX1 - GX0) / NS * .66 * z;
   velas.forEach(vl => {
     let k;
-    if (vl.k < 16) k = cl(kVenia * 16 - vl.k);
-    else if (vl.k === 16) k = eb(pr(t, K.quince - .05, .4));
-    else k = cl(kDesp * 6 - (vl.k - 17));
+    if (vl.k < KC) k = cl(kVenia * KC - vl.k);
+    else if (vl.k === KC) k = eb(pr(t, K.quince - .05, .4));
+    else k = cl(kDesp * 6 - (vl.k - KC - 1));
     if (k <= 0) return;
     const sube = vl.c >= vl.o, col = sube ? '#3dd68c' : '#ff6b6b', x = X(gx(vl.k));
     const yh = Y(gy(vl.h)), yl = Y(gy(vl.l)), yo = Y(gy(vl.o)), yc = Y(gy(vl.c));
     const ym = (yo + yc) / 2, sq = k; // crece desde el medio
-    const esClave = vl.k === 16, atenua = t > K.diez && !esClave && t < K.b7 ? .35 : 1;
+    const esClave = vl.k === KC, atenua = t > K.diez && !esClave && t < K.b7 ? .35 : 1;
     if (esClave) h += `<rect x="${x - ancho * 1.6}" y="${Math.min(yh, yl) - 24}" width="${ancho * 3.2}" height="${Math.abs(yl - yh) + 48}" rx="12" fill="rgba(226,198,140,.10)" stroke="#e2c68c" stroke-width="3" opacity="${cl(pr(t, K.quince, .3))}"/>`;
     h += `<g opacity="${cl(k) * atenua}"><line x1="${x}" x2="${x}" y1="${lerp(ym, yh, sq)}" y2="${lerp(ym, yl, sq)}" stroke="${esClave ? '#e2c68c' : col}" stroke-width="${2.5 * Math.min(z, 1.6)}"/>`;
     h += `<rect x="${x - ancho / 2}" y="${lerp(ym, Math.min(yo, yc), sq)}" width="${ancho}" height="${Math.max(3, Math.abs(yc - yo) * sq)}" rx="2" fill="${esClave ? '#e2c68c' : col}"/></g>`;
   });
   // flecha «venía subiendo»
   { const k = eo(pr(t, K.venia, .7)) * (1 - pr(t, K.quince, .3));
-    if (k > 0) { const x0 = X(gx(1)), y0 = Y(gy(83150)) + 40, x1 = lerp(x0, X(gx(14.5)), k), y1 = lerp(y0, Y(gy(85300)) - 30, k);
+    if (k > 0) { const x0 = X(gx(0)), y0 = Y(gy(83500)) + 40, x1 = lerp(x0, X(gx(10.5)), k), y1 = lerp(y0, Y(gy(85300)) - 30, k);
       h += `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="#3dd68c" stroke-width="7" stroke-linecap="round" opacity=".8"/>`;
       const a = Math.atan2(y1 - y0, x1 - x0); h += `<polygon points="${x1 + 26 * Math.cos(a)},${y1 + 26 * Math.sin(a)} ${x1 + 16 * Math.cos(a + 2.2)},${y1 + 16 * Math.sin(a + 2.2)} ${x1 + 16 * Math.cos(a - 2.2)},${y1 + 16 * Math.sin(a - 2.2)}" fill="#3dd68c" opacity=".9"/>`;
       h += `<text x="${X(gx(0))}" y="${Y(gy(85550))}" fill="#3dd68c" font-family="Inter Display" font-weight="900" font-size="44" opacity="${k}">VENÍA SUBIENDO</text>`; } }
   // techo (el camión): línea en el máximo de la vela clave
-  const xk = X(gx(16)), ykH = Y(gy(clave.h)), ykC = Y(gy(clave.c));
+  const xk = X(gx(KC)), ykH = Y(gy(clave.h)), ykC = Y(gy(clave.c));
   { const k = eo(pr(t, K.camion6 - .1, .5)) * (1 - pr(t, K.b7 + .4, .4));
     if (k > 0) h += `<line x1="${xk - 40}" x2="${lerp(xk - 40, xk + 210, k)}" y1="${ykH}" y2="${ykH}" stroke="#e2c68c" stroke-width="5" stroke-dasharray="14 10"/>`; }
   // «lo lógico»: flecha verde punteada hacia arriba
@@ -499,17 +510,17 @@ function dibujaGrafico(t) {
       if (kx > 0) h += `<g stroke="#ecf1f9" stroke-width="7" stroke-linecap="round" opacity="${kx * fade}"><line x1="${x0 + 40}" y1="${y0 - 85}" x2="${x0 + 40 + 44 * kx}" y2="${y0 - 85 + 44 * kx}"/><line x1="${x0 + 84}" y1="${y0 - 85}" x2="${x0 + 84 - 44 * kx}" y2="${y0 - 85 + 44 * kx}"/></g>`; } }
   // 07: caída al mínimo y tiempo
   { const k = eo(pr(t, K.abajo - .1, .6));
-    if (k > 0) { const xm = X(gx(22)), ym = Y(gy(minimo.l));
+    if (k > 0) { const xm = X(gx(KM)), ym = Y(gy(minimo.l));
       h += `<line x1="${xk + 18}" y1="${ykC}" x2="${lerp(xk + 18, xm, k)}" y2="${ykC}" stroke="rgba(236,241,249,.5)" stroke-width="3" stroke-dasharray="6 8"/>`;
       h += `<line x1="${xm}" y1="${ykC}" x2="${xm}" y2="${lerp(ykC, ym, k)}" stroke="#ff6b6b" stroke-width="6"/>`;
       h += `<polygon points="${xm},${lerp(ykC, ym, k) + 18} ${xm - 14},${lerp(ykC, ym, k) - 6} ${xm + 14},${lerp(ykC, ym, k) - 6}" fill="#ff6b6b"/>`;
       h += `<circle cx="${xm}" cy="${ym}" r="${12 * k}" fill="#ff6b6b"/><circle cx="${xm}" cy="${ym}" r="${12 + 26 * (t * 1.5 % 1)}" fill="none" stroke="#ff6b6b" stroke-width="3" opacity="${k * (1 - t * 1.5 % 1)}"/>`; } }
   // eje de tiempo: 1 h 30
-  { const k = eo(pr(t, K.hora, .6)); if (k > 0) { const y = Y(gy(PMIN)) + 30, x0 = xk, x1 = lerp(xk, X(gx(22)), k);
+  { const k = eo(pr(t, K.hora, .6)); if (k > 0) { const y = Y(gy(PMIN)) + 30, x0 = xk, x1 = lerp(xk, X(gx(KM)), k);
     h += `<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" stroke="#a3b5d1" stroke-width="4"/><line x1="${x0}" x2="${x0}" y1="${y - 12}" y2="${y + 12}" stroke="#a3b5d1" stroke-width="4"/><line x1="${x1}" x2="${x1}" y1="${y - 12}" y2="${y + 12}" stroke="#a3b5d1" stroke-width="4"/>`; } }
   // marco
-  const altoM = lerp(780, 650, eio(pr(t, K.b7 - .3, .5)));
-  h = `<defs><clipPath id="cm"><rect x="142" y="562" width="796" height="${t < K.b7 - .3 ? 570 : altoM - 4}" rx="26"/></clipPath></defs><rect x="140" y="560" width="800" height="${altoM}" rx="28" fill="rgba(8,22,44,.55)" stroke="#274a80" stroke-width="2" opacity="${1 - ent}"/><g clip-path="url(#cm)">` + h + '</g>';
+  const altoM = lerp(790, 700, eio(pr(t, K.b7 - .3, .5)));
+  h = `<defs><clipPath id="cm"><rect x="142" y="562" width="796" height="${t < K.b7 - .3 ? 598 : altoM - 4}" rx="26"/></clipPath></defs><rect x="140" y="560" width="800" height="${altoM}" rx="28" fill="rgba(8,22,44,.55)" stroke="#274a80" stroke-width="2" opacity="${1 - ent}"/><g clip-path="url(#cm)">` + h + '</g>';
   graf.innerHTML = h;
   // etiquetas (DOM, sin escalar)
   const chipEn = (e, a, b, x, y) => { const k = entra(t, a, .4); op(e, cl(pr(t, a, .12)) * (1 - pr(t, b, .3))); e.style.left = x + 'px'; e.style.top = y + 'px'; e.style.transform = `translate(-50%,-50%) scale(${k})`; };
@@ -518,13 +529,13 @@ function dibujaGrafico(t) {
   chipEn(lblMovio, K.movio + .45, K.camion6 - .1, 520, Y(gy(clave.l)) + 120);
   chipEn(lblHora, K.hora + .3, K.abajo, 560, Y(gy(PMIN)) + 75);
   { const k = entra(t, K.abajo, .5); op(lblMin, cl(pr(t, K.abajo, .15)) * (1 - pr(t, K.b8 - .2, .3)));
-    lblMin.style.left = Math.min(720, X(gx(22)) - 140) + 'px'; lblMin.style.top = (Y(gy(minimo.l)) + 40) + 'px'; lblMin.style.transform = `translate(-50%,0) scale(${k})`; }
+    lblMin.style.left = Math.min(700, X(gx(KM)) - 170) + 'px'; lblMin.style.top = (Y(gy(minimo.l)) + 40) + 'px'; lblMin.style.transform = `translate(-50%,0) scale(${k})`; }
   { const k = entra(t, K.camion6, .5); op(camionG, cl(pr(t, K.camion6, .15)) * (1 - pr(t, K.b7 + .2, .3)));
     pos(camionG, xk + 150 - 80 * (1 - k), ykC + 10, 150, k); camionG.style.transform += ' scaleX(-1)'; }
   // volumen: lo normal vs. esta vela
   { const k = eo(pr(t, K.diez - .2, .9)), o = cl(pr(t, K.quince + .2, .3)) * (1 - pr(t, K.b7 - .2, .3));
-    op(volCaja, o); vb1.style.width = (56 * cl(pr(t, K.quince + .3, .4))) + 'px'; vb2.style.width = (56 * 9.87 * k * .82) + 'px'; op(vbt, cl(pr(t, K.diez + .4, .3))); }
-  sello(selloCaso, t, K.caso, K.b8 - .15, -6, 540, 1300);
+    op(volCaja, o); vb1.style.width = (56.5 * cl(pr(t, K.quince + .3, .4))) + 'px'; vb2.style.width = (56.5 * 9.87 * k) + 'px'; op(vbt, cl(pr(t, K.diez + .4, .3))); }
+  sello(selloCaso, t, K.caso, K.b8 - .15, -5, 505, 1305);
 }
 
 // ---------- listo cuando cargan las imágenes ----------
