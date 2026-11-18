@@ -1,0 +1,38 @@
+{
+  "id": "minutas-2026-11",
+  "fecha": "2026-11-18",
+  "hora_ny": "14:00",
+  "ventana_min": 60,
+  "dia": "Mié 18/11",
+  "nombre": "minutas de la Fed",
+  "formato": "historia",
+  "gancho": "La Fed dejó ver que quiere subir la tasa… y el oro bajó",
+  "esperado": "¿más ganas de subir?",
+  "salio": "casi todos",
+  "anual": "en la reunión de octubre votaron 10 a 2 por mantener la tasa (Cook y Hammack querían subirla)",
+  "pie_etiqueta": "Contexto",
+  "comparacion": "más",
+  "frase_dato": "Casi todos los miembros ven más subas de tasa; un par habló de una suba más grande en diciembre.",
+  "esperado_oro": "baja",
+  "titulo2": "¿POR QUÉ BAJÓ?",
+  "marca": "SALEN LAS MINUTAS",
+  "porque": [
+    "Las minutas dicen que <b>casi todos</b> creen que van a hacer falta <b>más subas de tasa</b> para bajar la inflación.",
+    "Un par de miembros habló de una suba <b>más grande que la normal</b> en diciembre si la inflación no ayuda.",
+    "Con tasa más alta, el oro (que no paga interés) <b>pierde atractivo</b>: bajó 0,4 % en media hora."
+  ],
+  "aprendizaje": "Las minutas no traen sorpresa en el número: traen el <b>tono</b>. Cuando la Fed suena con ganas de subir, el oro suele bajar.",
+  "encuesta": "¿La Fed sube la tasa en diciembre?",
+  "opciones": [
+    "Sí",
+    "No"
+  ],
+  "proxima": {
+    "fecha": "Mié 25/11",
+    "nombre": "Inflación PCE",
+    "hora": "10:30 ARG",
+    "regla": "10:30 ARG · Referencia <b>3,6 %</b>. Si sale más, el oro suele <b>bajar</b>. Si sale menos, suele <b>subir</b>."
+  },
+  "fuentes": "Fed, CNBC, Bloomberg, Quartz",
+  "despues": "Salieron a las <b>16:00</b> (hora de Argentina). El oro estaba en <b>3.740</b> y media hora después en <b>3.724</b>: hizo lo que suele."
+}

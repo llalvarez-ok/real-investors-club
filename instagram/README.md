@@ -189,3 +189,4 @@ Foto nueva de Lean (retrato con velas de fondo), 37 publicaciones, 3.823 seguido
 - 15/11/2026 · Reel «CoinGlass: el mapa gratis de liquidaciones» (P27 v3, con la grabación de Lean, cierre al video completo de YouTube): entregado, falta publicar. Textos en `produccion/p27-coinglass/reel/subir-v3.md`.
 - 17/11/2026 · Historia de resultado «Habló Warsh» (16/11, nada de tasas; oro −0,5 % siguiendo la caída del día): 2 láminas con encuesta, entregadas por el chat; falta publicar (Lean). `produccion/oro-resultados/warsh-2026-11.md`.
 - 17/11/2026 · Historia «Muy pronto · CoinGlass modo básico» (anuncio del Reel y del video de YouTube): entregada por el chat. `produccion/p27-coinglass/historia/`.
+- 18/11/2026 · Historia de resultado «Minutas de la Fed» (casi todos quieren más subas; oro −0,4 % en 30 min, hizo lo que suele): 2 láminas con encuesta, entregadas por el chat; falta publicar (Lean). `produccion/oro-resultados/minutas-2026-11.md`.
