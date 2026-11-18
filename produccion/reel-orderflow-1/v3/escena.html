@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Lección 1 · Flujo de órdenes</title>
+<!-- Reel/Short «Lección 1 de flujo de órdenes» v3: libro de órdenes con barras 3D en 4 pasos + caso real de BTC-USD.
+     ?v=ig | ?v=yt. Contrato: window.cuadro(t) determinista, window.EVENTOS [{t,s}], window.listo. Todo cambio va atado
+     a una palabra de la voz (W(bloque, palabra, n)), así que sirve con los tiempos provisorios o con los reales. -->
+<script>
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig';
+  document.write(`<script src="tiempos-${V}.js"><\/script><script src="velas.js"><\/script>`);
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #071426; }
+  canvas { position: absolute; left: 0; top: 0; }
+</style>
+</head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// ───────────────────────── paleta y utilidades ─────────────────────────
+const C = { f1: '#071426', f2: '#0d2142', oro: '#e2c68c', oro2: '#c7a35e', oro3: '#8e7140', txt: '#ecf1f9', txt2: '#a3b5d1',
+  verde: '#3dd68c', rojo: '#ff6b6b', borde: '#274a80', panel: '#0d2142' };
+const TIT = '"Inter Display", Inter, sans-serif', SANS = 'Inter, sans-serif', MONO = '"JetBrains Mono", monospace';
+const cv = document.getElementById('c'), X = cv.getContext('2d');
+const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const io = k => (k = cl(k), k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+const out3 = k => 1 - Math.pow(1 - cl(k), 3);
+const back = k => { k = cl(k); const s = 1.4; return 1 + (s + 1) * Math.pow(k - 1, 3) + s * Math.pow(k - 1, 2); };
+const ramp = (t, a, d = .35) => cl((t - a) / d);           // 0→1 desde a en d segundos
+const win = (t, a, b, d = .3) => Math.min(ramp(t, a, d), 1 - ramp(t, b, d)); // entra en a, sale en b
+const fmt = n => Math.round(n).toLocaleString('es-AR').replace(/,/g, '.');
+function rr(x, y, w, h, r) { X.beginPath(); X.moveTo(x + r, y); X.arcTo(x + w, y, x + w, y + h, r); X.arcTo(x + w, y + h, x, y + h, r);
+  X.arcTo(x, y + h, x, y, r); X.arcTo(x, y, x + w, y, r); X.closePath(); }
+function hex(c, a) { const n = parseInt(c.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
+function mezcla(c1, c2, k) { const a = parseInt(c1.slice(1), 16), b = parseInt(c2.slice(1), 16);
+  const f = s => Math.round(lerp((a >> s) & 255, (b >> s) & 255, k)); return `rgb(${f(16)},${f(8)},${f(0)})`; }
+
+// ───────────────────────── tiempos de la voz ─────────────────────────
+const T = window.T, B = {}; T.bloques.forEach(b => B[b.id] = b);
+const norm = s => s.toLowerCase().replace(/[¿?¡!.,:;«»"()]/g, '').trim();
+// W(bloque, 'palabra' o 'dos palabras', n-ésima aparición) → segundo en que empieza. Si no está, avisa y usa el inicio del bloque.
+function W(id, frase, n = 0, fin = false) {
+  const b = B[id], ws = frase.split(' ').map(norm), P = b.palabras;
+  for (let i = 0; i + ws.length <= P.length; i++) {
+    if (ws.every((w, j) => norm(P[i + j][2]) === w)) { if (n-- === 0) return fin ? P[i + ws.length - 1][1] : P[i][0]; }
+  }
+  console.warn('No encontré «' + frase + '» en el bloque ' + id); return b.ini;
+}
+const ini = id => B[id].ini, fin = id => B[id].ini + B[id].dur;
+
+// ───────────────────────── libro de órdenes (ejemplo) ─────────────────────────
+const AX = 270, ROW0 = 446, RH = 66, U = 14;              // eje, centro de la fila 0, alto de fila, px por unidad
+const NR = 11, PRECIO0 = 100050, PASO = 10;               // fila r → precio 100.050 − 10·r
+const rowY = r => ROW0 + r * RH;
+const precio = r => PRECIO0 - PASO * r;
+const ASK = r => r <= 5;                                  // filas 0-5 venden (rojo), 6-10 compran (verde)
+const Q0 = [10, 13, 8, 11, 14, 12, 9, 12, 8, 13, 10];
+
+// eventos de estado: cantidades y precio
+const evQ = [], evP = [], balas = [];
+function pega(tArr, r, to) { balas.push({ t: tArr, r }); evQ.push({ t: tArr, r, to }); }
+function fijaQ(t, r, to, d = .3) { evQ.push({ t, r, to, d }); }
+function fijaP(t, to) { evP.push({ t, to }); }
+
+// ─── línea de tiempo (todo atado a palabras) ───
+const t01 = { op: W('01', 'operaste'), aca: W('01', 'acá'), sube: W('01', 'sube'), acaban: W('01', 'acaban'), venden: W('01', 'venden'),
+  cuatro: W('01', 'cuatro') };
+pega(Math.max(.42, t01.op), 5, 9); pega(t01.aca, 5, 6); pega(t01.sube, 5, 3); pega(t01.acaban, 5, 0);
+pega(t01.venden, 4, 13); fijaP(t01.venden, 4);
+// rebobinar en «Cuatro pasos»
+const REB = t01.cuatro;
+Q0.forEach((q, r) => fijaQ(REB, r, q, .55)); fijaP(REB, 5);
+
+const t02 = { paso: W('02', 'paso'), pasivas: W('02', 'pasivas'), cada: W('02', 'cada'), arriba: W('02', 'arriba'),
+  abajo: W('02', 'abajo'), compran: W('02', 'compran', 0, true) };
+const t03 = { paso: W('03', 'paso'), agresivas: W('03', 'agresivas'), comprar: W('03', 'comprar'), lleva: W('03', 'lleva'),
+  venta: W('03', 'venta'), barato: W('03', 'barato') };
+pega(t03.lleva + .1, 5, 9); pega(t03.barato, 5, 7);
+const t04 = { paso: W('04', 'paso'), queda: W('04', 'queda'), nadie: W('04', 'nadie'), venda: W('04', 'venda'),
+  proximo: W('04', 'próximo'), paga: W('04', 'paga'), escalon: W('04', 'escalón'), asi: W('04', 'así'), sube: W('04', 'sube'),
+  vela: W('04', 'vela') };
+pega(t04.queda, 5, 4); pega(t04.venda, 5, 0); pega(t04.paga, 4, 13); fijaP(t04.escalon, 4);
+const t05 = { paso: W('05', 'paso'), siguen: W('05', 'siguen'), comprando: W('05', 'comprando'), precio: W('05', 'precio'),
+  no: W('05', 'no sube'), vendedor: W('05', 'vendedor'), vuelve: W('05', 'vuelve'), llenar: W('05', 'llenar'),
+  roja: W('05', 'roja'), absorcion: W('05', 'absorción') };
+fijaQ(t05.paso + .25, 4, 34, .7);
+pega(t05.siguen, 4, 30); pega(t05.comprando, 4, 26); pega(t05.precio, 4, 22); pega(t05.no + .15, 4, 19);
+fijaQ(t05.llenar, 4, 34, .6);
+evQ.sort((a, b) => a.t - b.t); evP.sort((a, b) => a.t - b.t); balas.sort((a, b) => a.t - b.t);
+
+function cantidad(r, t) {           // cantidad visible (animada) de la fila r
+  let v = Q0[r], prev = Q0[r], t0 = -9, d = .3;
+  for (const e of evQ) { if (e.r !== r) continue; if (e.t > t) break; prev = lerp(prev, v, out3((e.t - t0) / d)); v = e.to; t0 = e.t; d = e.d || .28; }
+  return lerp(prev, v, out3((t - t0) / d));
+}
+function cantidadEntera(r, t) { let v = Q0[r]; for (const e of evQ) { if (e.r !== r) continue; if (e.t > t) break; v = e.to; } return v; }
+function filaPrecio(t) {
+  let v = 5, prev = 5, t0 = -9;
+  for (const e of evP) { if (e.t > t) break; prev = lerp(prev, v, back((e.t - t0) / .45)); v = e.to; t0 = e.t; }
+  let r = lerp(prev, v, back((t - t0) / .45));
+  // «el precio no sube»: intento de subir y vuelve
+  const k = (t - (t05.no + .1)) / .7; if (k > 0 && k < 1) r -= .28 * Math.sin(Math.PI * k);
+  return r;
+}
+
+const t06 = { paso: ini('06'), bitcoin: W('06', 'bitcoin'), venia: W('06', 'venía'), subiendo: W('06', 'subiendo'),
+  quince: W('06', 'quince'), casi: W('06', 'casi'), normal: W('06', 'normal'), logico: W('06', 'lógico'),
+  casi2: W('06', 'casi', 1), movio: W('06', 'movió') };
+const t07 = { una: ini('07'), despues: W('07', 'después'), dos: W('07', 'dos'), abajo: W('07', 'abajo'), ojo: W('07', 'ojo'),
+  caso: W('07', 'caso') };
+const t08 = { ini: ini('08'), leccion: W('08', 'lección'), uno: W('08', 'uno'), dos: W('08', 'dos'),
+  cta: V === 'ig' ? W('08', 'comentá') : W('08', 'suscribite'), boton: V === 'ig' ? W('08', 'aviso') : W('08', 'ver') };
+const T_CASO = t06.paso - .15, T_CIERRE = t08.ini - .1;
+
+// ───────────────────────── eventos de sonido ─────────────────────────
+const EV = [];
+const ev = (t, s) => { if (t >= 0 && t < T.total) EV.push({ t: +t.toFixed(3), s }); };
+balas.forEach(b => ev(b.t, 'tic'));
+ev(t01.venden, 'sube'); ev(REB, 'whoosh');
+[t02.paso, t03.paso, t04.paso, t05.paso].forEach(t => ev(t, 'clic'));
+ev(t02.pasivas, 'pop'); ev(t02.cada, 'pop'); ev(t03.agresivas, 'pop'); ev(t03.barato, 'pop');
+ev(t04.venda, 'pop'); ev(t04.escalon, 'sube'); ev(t04.vela, 'pop');
+ev(t05.paso + .25, 'whoosh'); ev(t05.vendedor, 'pop'); ev(t05.llenar, 'clic'); ev(t05.absorcion, 'impacto');
+ev(T_CASO, 'whoosh'); ev(t06.quince, 'pop'); ev(t06.casi, 'pop'); ev(t06.logico, 'pop'); ev(t06.casi2, 'cinta');
+ev(t07.dos, 'impacto'); ev(t07.caso, 'sello');
+ev(T_CIERRE, 'whoosh'); ev(t08.cta, 'pop'); ev(t08.boton + .1, 'clic');
+EV.sort((a, b) => a.t - b.t); window.EVENTOS = EV;
+
+// ───────────────────────── fondo ─────────────────────────
+const fondo = document.createElement('canvas'); fondo.width = 1080; fondo.height = 1920;
+(() => { const g = fondo.getContext('2d'); const lg = g.createLinearGradient(0, 0, 0, 1920);
+  lg.addColorStop(0, C.f1); lg.addColorStop(1, C.f2); g.fillStyle = lg; g.fillRect(0, 0, 1080, 1920);
+  g.strokeStyle = 'rgba(163,181,209,.055)'; g.lineWidth = 1;
+  for (let x = 0; x <= 1080; x += 60) { g.beginPath(); g.moveTo(x + .5, 0); g.lineTo(x + .5, 1920); g.stroke(); }
+  for (let y = 0; y <= 1920; y += 60) { g.beginPath(); g.moveTo(0, y + .5); g.lineTo(1080, y + .5); g.stroke(); }
+  const rg = g.createRadialGradient(540, 760, 200, 540, 900, 1250); rg.addColorStop(0, 'rgba(7,20,38,0)'); rg.addColorStop(1, 'rgba(3,9,18,.6)');
+  g.fillStyle = rg; g.fillRect(0, 0, 1080, 1920); })();
+
+// ───────────────────────── piezas de dibujo ─────────────────────────
+function texto(s, x, y, font, color, align = 'left', a = 1) { const ga = X.globalAlpha; X.globalAlpha = ga * a; X.font = font; X.fillStyle = color; X.textAlign = align;
+  X.textBaseline = 'middle'; X.fillText(s, x, y); X.globalAlpha = ga; }
+function chip(s, x, y, color, a = 1, opt = {}) {   // chip en mono mayúsculas; x = centro salvo opt.izq
+  if (a <= 0) return 0; X.save(); X.globalAlpha *= a; X.font = `700 ${opt.fs || 24}px ${MONO}`;
+  const w = X.measureText(s).width + 40, h = (opt.fs || 24) + 26, x0 = opt.izq ? x : x - w / 2;
+  X.shadowColor = 'rgba(0,0,0,.45)'; X.shadowBlur = 18; X.shadowOffsetY = 6;
+  rr(x0, y - h / 2, w, h, 10); X.fillStyle = opt.relleno || hex(color, .16); X.fill(); X.shadowColor = 'transparent';
+  X.lineWidth = 2.5; X.strokeStyle = color; X.stroke();
+  X.fillStyle = opt.tc || color; X.textAlign = 'left'; X.textBaseline = 'middle'; X.fillText(s, x0 + 20, y + 1); X.restore(); return w; }
+function prisma(x, y, w, h, col, a = 1, brillo = 0) {   // barra horizontal 3D con sombra proyectada
+  if (w < 1) return; X.save(); X.globalAlpha *= a; const d = 9;
+  X.fillStyle = 'rgba(0,4,12,.42)'; X.beginPath();    // sombra proyectada abajo a la derecha
+  X.moveTo(x + 6, y + h); X.lineTo(x + w + 6, y + h); X.lineTo(x + w + 18, y + h + 14); X.lineTo(x + 18, y + h + 14); X.closePath(); X.fill();
+  X.fillRect(x + w, y - d + 6, 14, h + 8);
+  X.fillStyle = mezcla(col, '#ffffff', .38); X.beginPath();   // cara de arriba
+  X.moveTo(x, y); X.lineTo(x + w, y); X.lineTo(x + w + d, y - d); X.lineTo(x + d, y - d); X.closePath(); X.fill();
+  X.fillStyle = mezcla(col, '#000000', .35); X.beginPath();   // cara del extremo
+  X.moveTo(x + w, y); X.lineTo(x + w + d, y - d); X.lineTo(x + w + d, y + h - d); X.lineTo(x + w, y + h); X.closePath(); X.fill();
+  const lg = X.createLinearGradient(0, y, 0, y + h); lg.addColorStop(0, mezcla(col, '#ffffff', .1)); lg.addColorStop(1, mezcla(col, '#000000', .12));
+  X.fillStyle = lg; X.fillRect(x, y, w, h);
+  if (brillo > 0) { X.globalAlpha *= brillo; X.shadowColor = C.oro; X.shadowBlur = 40; X.strokeStyle = C.oro; X.lineWidth = 4;
+    X.strokeRect(x - 2, y - 2, w + 4, h + 4); }
+  X.restore(); }
+
+// velas del ejemplo (precio en unidades de 100.000): las anteriores y la viva
+const VEX = [[99962, 99978, 99958, 99974], [99974, 99980, 99964, 99968], [99968, 99990, 99966, 99986], [99986, 100000, 99982, 99996]];
+const CX0 = 772, CDX = 36, CW = 22;
+function yPrecio(p) { return rowY((PRECIO0 - p) / PASO); }
+function vela(x, o, h, l, c, w, a = 1, borde = 0) {
+  const sube = c >= o, col = sube ? C.verde : C.rojo, yo = yPrecio(o), yc = yPrecio(c);
+  X.save(); X.globalAlpha *= a; X.strokeStyle = col; X.lineWidth = 3; X.beginPath(); X.moveTo(x, yPrecio(h)); X.lineTo(x, yPrecio(l)); X.stroke();
+  X.fillStyle = 'rgba(0,4,12,.4)'; X.fillRect(x - w / 2 + 6, Math.min(yo, yc) + 8, w, Math.max(4, Math.abs(yc - yo)));
+  X.fillStyle = col; X.fillRect(x - w / 2, Math.min(yo, yc), w, Math.max(4, Math.abs(yc - yo)));
+  if (borde > 0) { X.globalAlpha *= borde; X.strokeStyle = C.oro; X.lineWidth = 4; X.shadowColor = C.oro; X.shadowBlur = 24;
+    X.strokeRect(x - w / 2 - 9, Math.min(yo, yc, yPrecio(h)) - 9, w + 18, Math.abs(yPrecio(l) - Math.min(yo, yc, yPrecio(h))) + 18); }
+  X.restore(); }
+
+// ───────────────────────── pestañas ─────────────────────────
+const TABS = ['1 PASIVAS', '2 AGRESIVAS', '3 UN ESCALÓN ARRIBA', '4 TRABADO'];
+const TAB_T = [t02.paso, t03.paso, t04.paso, t05.paso];
+function pestanas(t, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha = a; X.font = `700 23px ${MONO}`;
+  const ws = TABS.map(s => X.measureText(s).width), gap = (800 - ws.reduce((p, q) => p + q, 0)) / 3;
+  let x = 140; const act = TAB_T.reduce((p, q, i) => t >= q - .05 ? i : p, -1);
+  TABS.forEach((s, i) => {
+    // en «Cuatro pasos» se presentan una por una
+    const pres = ramp(t, t01.cuatro + .25 + i * .22, .18) * (1 - ramp(t, t01.cuatro + 1.3 + i * .05, .35));
+    const on = (t < T_CASO && i === act) ? 1 : 0;
+    const k = Math.max(on, pres);
+    X.fillStyle = k > 0 ? mezcla('#4a5f80', C.oro, k) : '#4a5f80'; X.fillRect(x, 262, ws[i], k > 0 ? 3 + 2 * k : 3);
+    X.fillStyle = k > 0 ? mezcla('#6d7f9c', C.oro, k) : '#6d7f9c'; X.textAlign = 'left'; X.textBaseline = 'middle'; X.fillText(s, x, 300);
+    x += ws[i] + gap; });
+  X.restore(); }
+
+// ───────────────────────── leyendas (zona y 1110-1420) ─────────────────────────
+function leyenda(t) {
+  const L = [];   // cada una: [a, b, dibujo(k)]
+  const add = (a, b, f) => L.push([a, b, f]);
+  const linea = (chipTxt, col, frase, k, y = 1222) => { const e = back(k); X.save(); X.translate(540, y + 40 * (1 - e)); X.globalAlpha *= cl(k * 1.4);
+    chip(chipTxt, 0, 0, col, 1, { fs: 28 }); texto(frase, 0, 92, `600 50px ${SANS}`, C.txt, 'center'); X.restore(); };
+  const grande = (s, col, k, y = 1290, fs = 104) => { X.save(); const e = back(k); X.translate(540, y); X.scale(.85 + .15 * e, .85 + .15 * e);
+    X.globalAlpha *= cl(k * 1.5); X.shadowColor = hex(col, .45); X.shadowBlur = 40; texto(s, 0, 0, `900 ${fs}px ${TIT}`, col, 'center'); X.restore(); };
+  // gancho
+  add(-1, t01.cuatro, k => { grande('¿POR QUÉ', C.txt, 1, 1236, 96); grande('SUBE EL PRECIO?', C.oro, 1, 1340, 96); });
+  add(t01.cuatro, t02.pasivas, k => grande('4 PASOS', C.oro, k));
+  add(t02.pasivas, t03.agresivas, k => linea('PASIVAS', C.txt2, 'las limitadas esperan', k));
+  add(t03.agresivas, t04.nadie, k => linea('AGRESIVAS', C.verde, 'las órdenes a mercado toman', k));
+  add(t04.nadie, t04.escalon, k => linea('A ESTE PRECIO', C.rojo, 'no queda nadie que venda', k));
+  add(t04.escalon, t04.vela, k => grande('+1 ESCALÓN', C.oro, k));
+  add(t04.vela, t05.paso, k => linea('ASÍ SUBE', C.verde, 'y se arma la vela verde', k));
+  add(t05.siguen, t05.vendedor, k => linea('SIGUEN COMPRANDO', C.verde, 'y el precio no sube', k));
+  add(t05.vendedor, t05.absorcion, k => linea('VENDEDOR GRANDE', C.rojo, 'vuelve a llenar la barra', k));
+  add(t05.absorcion, T_CASO, k => grande('ABSORCIÓN', C.oro, k, 1290, 124));
+  return L; }
+let LEY = null;
+
+// ───────────────────────── escena del libro ─────────────────────────
+function libro(t, a, dx) {
+  if (a <= 0) return; X.save(); X.globalAlpha = a; X.translate(dx, 0);
+  // cámara: se acerca suave a la zona del precio durante los pasos
+  const z = 1 + .035 * io(ramp(t, t02.paso, 3)) - .035 * io(ramp(t, T_CASO - .6, .6));
+  X.translate(520, 760); X.scale(z, z); X.translate(-520, -760);
+  const pr = filaPrecio(t), prEnt = Math.round(pr);
+  // atenuar: arriba / abajo según la voz (bloque 02)
+  const enAsk = win(t, t02.arriba, t02.abajo, .25), enBid = win(t, t02.abajo, t02.compran + .4, .25);
+  // escala de precios y eje
+  texto('PRECIO · EJEMPLO', 160, 372, `700 19px ${MONO}`, C.txt2, 'left', .75);
+  for (let r = 0; r < NR; r++) { if (Math.abs(r - pr) < .5) continue; texto(fmt(precio(r)), 254, rowY(r), `600 25px ${MONO}`, C.txt2, 'right', .85); }
+  X.fillStyle = '#c9d6ea'; X.fillRect(AX - 4, ROW0 - 40, 6, RH * (NR - 1) + 80);
+  // velas del ejemplo (a la derecha y abajo)
+  VEX.forEach((v, i) => vela(CX0 + i * CDX, v[0], v[1], v[2], v[3], CW, .95));
+  const pV = precio(pr), cierre = Math.max(99996, pV);
+  const bordeVela = win(t, t04.vela, t05.paso, .3);
+  vela(CX0 + 4 * CDX, 99996, Math.max(cierre, 99996 + 1), 99993, cierre, CW, 1, bordeVela);
+  { const yL = rowY(pr); X.save(); X.strokeStyle = hex(C.txt, .55); X.lineWidth = 2; X.setLineDash([10, 8]); X.beginPath(); X.moveTo(AX, yL); X.lineTo(935, yL); X.stroke(); X.restore(); }
+  // barras
+  for (let r = 0; r < NR; r++) {
+    const q = cantidad(r, t), w = q * U, ask = ASK(r), col = ask ? C.rojo : C.verde;
+    let al = 1; if (enAsk > 0) al = lerp(1, ask ? 1 : .28, enAsk); if (enBid > 0) al = lerp(al, ask ? .28 : 1, enBid);
+    if (ask && r > prEnt - 0 && r <= 5 && cantidadEntera(r, t) === 0) al *= .0;
+    let brillo = 0;
+    if (r === 4) brillo = Math.max(win(t, t05.llenar, t05.absorcion + 1.2, .25) * (.6 + .4 * Math.sin((t - t05.llenar) * 9)), 0);
+    prisma(AX + 2, rowY(r) - 20, w, 40, col, al, brillo);
+    const qe = Math.round(q);
+    if (q > .4) { const golpe = balas.some(b => b.r === r && t >= b.t && t < b.t + .25);
+      texto(String(qe), AX + w + 24, rowY(r) - 3, `800 ${golpe ? 34 : 29}px ${MONO}`, '#ffffff', 'left', al); }
+    else if (ask && r === 5 && t > t04.venda - .05 && t < T_CASO) texto('0', AX + 22, rowY(r) - 3, `800 26px ${MONO}`, C.rojo, 'left', .9);
+  }
+  // recuadro de la orden limitada (paso 1)
+  const kb = win(t, t02.cada, t02.arriba, .25);
+  if (kb > 0) { const w = cantidad(5, t) * U; X.save(); X.globalAlpha = kb; X.strokeStyle = C.oro; X.lineWidth = 3; X.setLineDash([]);
+    rr(AX - 8, rowY(5) - 33, w + 60, 62, 8); X.stroke(); X.fillStyle = C.oro; X.beginPath(); X.arc(AX + w + 52, rowY(5) - 33, 8, 0, 7); X.fill(); X.restore();
+    chip('ORDEN LIMITADA', AX + w + 76, rowY(5) - 74, C.oro, back(ramp(t, t02.cada, .4)), { izq: true, fs: 22 }); }
+  // vendedor grande (paso 4)
+  const kv = win(t, t05.vendedor, t05.absorcion, .25);
+  if (kv > 0) { const w = cantidad(4, t) * U; X.save(); X.globalAlpha = kv; X.strokeStyle = C.rojo; X.lineWidth = 3;
+    rr(AX - 8, rowY(4) - 33, w + 70, 62, 8); X.stroke(); X.restore(); }
+  // etiquetas VENDEN / COMPRAN
+  chip('VENDEN', 600, rowY(1), C.rojo, enAsk * back(ramp(t, t02.arriba, .4)), { fs: 24 });
+  chip('COMPRAN', 600, rowY(8), C.verde, enBid * back(ramp(t, t02.abajo, .4)), { fs: 24 });
+  // línea del precio actual + píldora sobre el eje
+  const yL = rowY(pr);
+  X.save(); X.shadowColor = 'rgba(0,0,0,.5)'; X.shadowBlur = 16; rr(138, yL - 25, 132, 50, 25); X.fillStyle = '#020a16'; X.fill(); X.shadowColor = 'transparent';
+  X.strokeStyle = C.oro; X.lineWidth = 2; X.stroke(); X.restore();
+  texto(fmt(precio(Math.round(pr))), 204, yL + 1, `800 24px ${MONO}`, C.oro, 'center');
+  // chip «venta más barata»
+  const kc = win(t, t03.barato, t04.paga, .3);
+  chip('VENTA MÁS BARATA', 560, yL - 58, C.oro, kc * back(ramp(t, t03.barato, .4)), { fs: 22 });
+  // pelotitas: compras a mercado que viajan en diagonal y pegan en la barra
+  for (const b of balas) {
+    const k = (t - (b.t - .5)) / .5; if (k < 0 || k > 1.6) continue;
+    const xe = AX + cantidadEntera(b.r, b.t - .01) * U + 4, ye = rowY(b.r);
+    const xs = 905, ys = 1150;
+    if (k <= 1) { const e = io(k); const x = lerp(xs, xe, e), y = lerp(ys, ye, e) - 60 * Math.sin(Math.PI * e);
+      for (let j = 4; j >= 1; j--) { const e2 = io(k - j * .05); if (k - j * .05 < 0) continue;
+        X.globalAlpha = .12 * (5 - j); X.fillStyle = C.verde; X.beginPath(); X.arc(lerp(xs, xe, e2), lerp(ys, ye, e2) - 60 * Math.sin(Math.PI * e2), 13 - j * 2, 0, 7); X.fill(); }
+      X.globalAlpha = 1; X.save(); X.shadowColor = C.verde; X.shadowBlur = 26; X.fillStyle = C.verde; X.beginPath(); X.arc(x, y, 15, 0, 7); X.fill(); X.restore();
+      X.fillStyle = 'rgba(255,255,255,.7)'; X.beginPath(); X.arc(x - 4, y - 5, 5, 0, 7); X.fill(); }
+    else { const kk = (k - 1) / .6; X.save(); X.globalAlpha = 1 - kk; X.strokeStyle = C.verde; X.lineWidth = 4; X.beginPath(); X.arc(xe, ye, 14 + 40 * out3(kk), 0, 7); X.stroke(); X.restore(); }
+  }
+  X.restore(); }
+
+// ───────────────────────── caso real de Bitcoin ─────────────────────────
+const VV = window.VELAS, I0 = 8, I13 = 22, IMIN = 28;      // de 09:00 a 14:30 UTC
+const GX0 = 280, GX1 = 920, GY0 = 430, GY1 = 1000, PMAX = 85700, PMIN = 83200;
+const gy = p => lerp(GY1, GY0, (p - PMIN) / (PMAX - PMIN));
+const gx = i => lerp(GX0 + 16, GX1 - 16, (i - I0) / (IMIN - I0));
+function caso(t, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha = a;
+  const ent = out3(ramp(t, T_CASO, .7)); X.translate(140 * (1 - ent), 0);
+  // encabezado
+  chip('CASO REAL · BITCOIN', 140, 300, C.oro, 1, { izq: true, fs: 24 });
+  texto('30/09/2026 · velas de 15 min · hora UTC', 140, 360, `500 22px ${MONO}`, C.txt2, 'left', .9);
+  // escala
+  for (let p = 83500; p <= 85500; p += 500) { const y = gy(p); X.fillStyle = 'rgba(163,181,209,.12)'; X.fillRect(GX0, y, GX1 - GX0, 1);
+    texto(fmt(p), GX0 - 14, y, `600 21px ${MONO}`, C.txt2, 'right', .8); }
+  X.fillStyle = '#c9d6ea'; X.fillRect(GX0 - 4, GY0 - 20, 5, GY1 - GY0 + 40);
+  // cuántas velas se ven
+  let n = I0 + 13 * io(ramp(t, t06.bitcoin, Math.max(.6, t06.subiendo - t06.bitcoin)));
+  if (t >= t06.subiendo) n = Math.max(n, 21); if (t >= t06.quince) n = 22;
+  n += 6 * io(ramp(t, t07.una, Math.max(.6, t07.despues - t07.una + .3)));
+  for (let i = I0; i <= Math.min(IMIN, Math.floor(n)); i++) {
+    const v = VV[i], k = i === Math.floor(n) ? cl(n - i + .35) : 1, x = gx(i), w = 18;
+    const [o, h, l, c] = [v[1], v[2], v[3], v[4]], col = c >= o ? C.verde : C.rojo;
+    const foco = i === I13 ? 1 : (t > t06.quince && t < t07.una + .3 ? .45 : 1);
+    X.save(); X.globalAlpha = a * k * foco; X.strokeStyle = col; X.lineWidth = 3; X.beginPath(); X.moveTo(x, gy(h)); X.lineTo(x, gy(l)); X.stroke();
+    X.fillStyle = 'rgba(0,4,12,.45)'; X.fillRect(x - w / 2 + 6, Math.min(gy(o), gy(c)) + 7, w, Math.max(3, Math.abs(gy(c) - gy(o))));
+    X.fillStyle = col; X.fillRect(x - w / 2, Math.min(gy(o), gy(c)), w, Math.max(3, Math.abs(gy(c) - gy(o)))); X.restore();
+  }
+  // la vela de las 13:00
+  const kq = ramp(t, t06.quince, .35);
+  if (kq > 0) { const v = VV[I13], x = gx(I13); X.save(); X.globalAlpha = a * kq; X.strokeStyle = C.oro; X.lineWidth = 4; X.shadowColor = C.oro; X.shadowBlur = 22;
+    rr(x - 22, gy(v[2]) - 16, 44, gy(v[3]) - gy(v[2]) + 32, 8); X.stroke(); X.restore();
+    chip('13:00', x, gy(v[2]) - 52, C.oro, a * back(kq), { fs: 22 }); }
+  // «lo lógico: seguir subiendo» (flecha punteada) y tachado
+  const kl = ramp(t, t06.logico, .4), kt = ramp(t, t06.casi2, .35);
+  if (kl > 0 && t < t07.una + .4) { const v = VV[I13], x = gx(I13); const al = a * (1 - ramp(t, t07.una, .4));
+    X.save(); X.globalAlpha = al * kl; X.strokeStyle = C.oro; X.lineWidth = 4; X.setLineDash([12, 10]);
+    const y0 = gy(v[4]) - 40, y1 = gy(PMAX) + 20, x1 = x + 60 * io(kl);
+    X.beginPath(); X.moveTo(x + 10, y0); X.lineTo(x1, lerp(y0, y1, io(kl))); X.stroke(); X.setLineDash([]);
+    X.restore();
+    const wch = chip('LO LÓGICO: SEGUIR SUBIENDO', 520, 530, C.oro, al * back(kl), { fs: 24 });
+    if (kt > 0) { X.save(); X.globalAlpha = al; X.strokeStyle = C.rojo; X.lineWidth = 6; X.beginPath(); X.moveTo(520 - wch / 2 - 8, 530);
+      X.lineTo(520 - wch / 2 - 8 + (wch + 16) * io(kt), 530); X.stroke(); X.restore(); } }
+  // mínimo
+  const km = ramp(t, t07.dos, .4);
+  if (km > 0) { const v = VV[IMIN], x = gx(IMIN), y = gy(v[3]); X.save(); X.globalAlpha = a * km; X.fillStyle = C.rojo; X.shadowColor = C.rojo; X.shadowBlur = 20;
+    X.beginPath(); X.arc(x, y, 11, 0, 7); X.fill(); X.restore();
+    X.save(); X.globalAlpha = a * km * .7; X.strokeStyle = C.rojo; X.lineWidth = 2; X.setLineDash([8, 8]); X.beginPath(); X.moveTo(gx(I13), gy(VV[I13][4])); X.lineTo(x, y); X.stroke(); X.restore();
+    chip('−2,4 % · MÍNIMO 83.328', 690, y + 58, C.rojo, a * back(km), { fs: 24 }); }
+  X.restore();
+  // leyendas del caso (zona de abajo)
+  const kvol = win(t, t06.casi, t06.logico, .3);
+  if (kvol > 0) { X.save(); X.globalAlpha = a * kvol; const g = out3(ramp(t, t06.casi, .9)), g2 = out3(ramp(t, t06.normal - .1, .5));
+    texto('VOLUMEN EN 15 MIN', 140, 1130, `700 22px ${MONO}`, C.txt2);
+    texto('LO NORMAL', 140, 1190, `700 24px ${MONO}`, C.txt2); prisma(340, 1173, 54 * g2, 34, '#6d7f9c', 1);
+    texto('×1', 340 + 54 * g2 + 28, 1188, `800 26px ${MONO}`, C.txt, 'left', g2);
+    texto('13:00', 140, 1270, `700 24px ${MONO}`, C.oro); prisma(340, 1253, 9.87 * 44 * g, 34, C.oro2, 1);
+    texto('casi ×10', 340 + 9.87 * 44 * g + 26, 1268, `800 30px ${MONO}`, C.oro, 'left', g); X.restore(); }
+  const kmov = win(t, t06.casi2, t07.dos - .3, .25);
+  if (kmov > 0) { X.save(); X.globalAlpha = a * kmov; const e = back(ramp(t, t06.casi2, .4));
+    texto('CASI NO SE MOVIÓ', 540, 1180, `900 76px ${TIT}`, C.txt, 'center');
+    texto('abrió 85.300 → cerró 85.367', 540, 1270, `600 40px ${MONO}`, C.txt2, 'center', e); X.restore(); }
+  const kd = win(t, t07.dos + .05, t07.caso - .25, .25);
+  if (kd > 0) { X.save(); X.globalAlpha = a * kd; const e = back(ramp(t, t07.dos, .4)); X.translate(540, 1240); X.scale(.85 + .15 * e, .85 + .15 * e);
+    X.shadowColor = hex(C.rojo, .45); X.shadowBlur = 40; texto('−2,4 %', 0, -20, `900 150px ${TIT}`, C.rojo, 'center');
+    X.shadowColor = 'transparent'; texto('una hora y media después', 0, 90, `600 40px ${SANS}`, C.txt2, 'center'); X.restore(); }
+  const ks = ramp(t, t07.caso, .3);
+  if (ks > 0 && t < T_CIERRE + .3) { X.save(); X.globalAlpha = a * cl(ks * 2) * (1 - ramp(t, T_CIERRE - .2, .3));
+    const s = lerp(1.6, 1, out3(ks)); X.translate(540, 1250); X.rotate(-.06); X.scale(s, s);
+    X.lineWidth = 7; X.strokeStyle = C.oro; rr(-370, -88, 740, 176, 14); X.stroke(); X.lineWidth = 2; rr(-356, -74, 712, 148, 10); X.stroke();
+    X.fillStyle = hex(C.oro, .08); rr(-370, -88, 740, 176, 14); X.fill();
+    texto('ES UN CASO,', 0, -28, `900 64px ${TIT}`, C.oro, 'center'); texto('NO UNA REGLA', 0, 40, `900 64px ${TIT}`, C.oro, 'center'); X.restore(); }
+}
+
+// ───────────────────────── cierre ─────────────────────────
+const IMG = {}; const carga = (k, src) => new Promise(r => { const im = new Image(); im.onload = () => { IMG[k] = im; r(); }; im.onerror = () => r(); im.src = src; });
+function cierre(t, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha = a;
+  const k = back(ramp(t, T_CIERRE + .3, .55)), sube = io(ramp(t, t08.cta, .5));
+  // tarjeta de la serie
+  X.save(); X.translate(540, lerp(690, 590, sube)); X.scale(lerp(.9, 1, k) * lerp(1, .82, sube), lerp(.9, 1, k) * lerp(1, .82, sube));
+  X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 50; X.shadowOffsetY = 24; rr(-360, -250, 720, 400, 34); X.fillStyle = C.panel; X.fill();
+  X.shadowColor = 'transparent'; X.strokeStyle = C.borde; X.lineWidth = 3; X.stroke();
+  texto('LECCIÓN', -300, -190, `700 28px ${MONO}`, C.txt2);
+  X.shadowColor = hex(C.oro, .4); X.shadowBlur = 40; texto('1', -300 + 0, -40, `900 230px ${TIT}`, C.oro); X.shadowColor = 'transparent';
+  texto('Órdenes limitadas', -300, 70, `800 46px ${SANS}`, C.txt); texto('y a mercado', -300, 124, `800 46px ${SANS}`, C.txt);
+  [[7, C.rojo], [10, C.rojo], [5, C.rojo], [8, C.verde], [11, C.verde], [6, C.verde]].forEach(([q, c], i) => prisma(70, -200 + i * 40, q * 17 * out3(ramp(t, T_CIERRE + .45 + i * .05, .4)), 24, c, 1));
+  X.restore();
+  // casilleros de la serie y progreso
+  const y0 = lerp(1010, 830, sube);
+  for (let i = 0; i < 5; i++) { const x = 140 + i * 150, ki = out3(ramp(t, T_CIERRE + .55 + i * .07, .35)); X.save(); X.globalAlpha = a * ki;
+    X.setLineDash([8, 7]); X.strokeStyle = i === 0 ? C.oro : C.borde; X.lineWidth = 2.5; rr(x, y0, 130, 96, 14); X.stroke(); X.setLineDash([]);
+    texto('LECCIÓN', x + 65, y0 + 32, `700 17px ${MONO}`, i === 0 ? C.oro : C.txt2, 'center'); texto(String(i + 2), x + 65, y0 + 66, `900 34px ${TIT}`, i === 0 ? C.oro : C.txt2, 'center'); X.restore(); }
+  X.fillStyle = hex(C.borde, .8); rr(140, y0 + 124, 730, 10, 5); X.fill();
+  X.fillStyle = C.oro; rr(140, y0 + 124, 730 / 6 * out3(ramp(t, T_CIERRE + .75, .8)), 10, 5); X.fill();
+  // tarjeta de Instagram o de YouTube
+  const kc = back(ramp(t, t08.cta, .5)); if (kc > 0) {
+    X.save(); X.globalAlpha = a * cl(kc * 1.5); X.translate(0, 80 * (1 - kc)); const ty = 1062;
+    X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 40; X.shadowOffsetY = 16; rr(140, ty, 730, 370, 30); X.fillStyle = C.panel; X.fill(); X.shadowColor = 'transparent';
+    X.strokeStyle = C.borde; X.lineWidth = 3; X.stroke();
+    const pulsa = t >= t08.boton + .1;
+    if (V === 'ig') {
+      X.save(); X.beginPath(); X.arc(240, ty + 100, 66, 0, 7); X.clip(); if (IMG.av) X.drawImage(IMG.av, 174, ty + 34, 132, 132); X.restore();
+      X.strokeStyle = C.oro; X.lineWidth = 4; X.beginPath(); X.arc(240, ty + 100, 68, 0, 7); X.stroke();
+      texto('leanalvarez.ok', 336, ty + 74, `800 38px ${SANS}`, C.txt); texto('Lean Alvarez · RIC', 336, ty + 122, `500 28px ${SANS}`, C.txt2);
+      [['38', 'publicaciones'], ['3.890', 'seguidores'], ['13', 'seguidos']].forEach(([n, s], i) => { const x = 250 + i * 255;
+        texto(n, x, ty + 208, `800 38px ${SANS}`, C.txt, 'center'); texto(s, x, ty + 246, `500 22px ${SANS}`, C.txt2, 'center'); });
+      rr(180, ty + 282, 650, 66, 16); X.fillStyle = pulsa ? '#1b2d4d' : '#2f7cf6'; X.fill();
+      texto(pulsa ? 'Siguiendo' : 'Seguir', 505, ty + 316, `800 32px ${SANS}`, C.txt, 'center');
+    } else {
+      if (IMG.logo) { X.save(); rr(180, ty + 40, 230, 126, 16); X.clip(); X.drawImage(IMG.logo, 180, ty + 40, 230, 126); X.restore(); }
+      texto('Real Investors Club', 434, ty + 80, `800 38px ${SANS}`, C.txt); texto('@REALinvestorsc', 434, ty + 128, `500 28px ${SANS}`, C.txt2);
+      texto('Lección 2 de la serie, muy pronto', 505, ty + 220, `600 30px ${SANS}`, C.txt2, 'center');
+      rr(180, ty + 272, 650, 70, 35); X.fillStyle = pulsa ? '#1b2d4d' : '#e5322d'; X.fill();
+      texto(pulsa ? 'Suscripto ✓' : 'Suscribirse', 505, ty + 308, `800 32px ${SANS}`, C.txt, 'center');
+    }
+    X.restore();
+    if (V === 'ig') chip('COMENTÁ «SERIE»', 505, 1012, C.oro, a * back(ramp(t, W('08', 'serie', 1) - .1, .4)), { fs: 30 });
+  }
+  X.restore(); }
+
+// ───────────────────────── subtítulos palabra por palabra ─────────────────────────
+const CLAVES = new Set(['venden', 'compran', 'pasivas', 'agresivas', 'escalón', 'absorción', 'serie', 'vela', 'verde', 'bitcoin', '10',
+  'lógico', 'movió', '2,4', '%', 'caso', 'regla', 'barato', 'acaban', 'grande', 'llenar', 'uno', 'dos']);
+const TROZOS = [];
+(() => { for (const b of T.bloques) { let cur = null;
+  b.subs.forEach((s, i) => { const txt = s[2]; const len = cur ? cur.p.reduce((p, q) => p + q[2].length + 1, 0) : 0;
+    if (!cur || len + txt.length > 16 || cur.corta) { cur = { p: [], corta: false }; TROZOS.push(cur); }
+    cur.p.push(s); if (/[.:;?!]$/.test(txt) || (/,$/.test(txt) && cur.p.length >= 2)) cur.corta = true; }); }
+  TROZOS.forEach((c, i) => { c.a = c.p[0][0]; c.b = i + 1 < TROZOS.length ? Math.min(TROZOS[i + 1].p[0][0], c.p[c.p.length - 1][1] + .8) : c.p[c.p.length - 1][1] + .8; }); })();
+function subtitulos(t) {
+  const c = TROZOS.find(c => t >= c.a - .05 && t < c.b); if (!c) return;
+  X.font = `900 70px ${TIT}`; const esp = 18;
+  const ws = c.p.map(s => s[2].toUpperCase()), anchos = ws.map(w => X.measureText(w).width);
+  // en una o dos líneas, ancho máx. 760
+  const lineas = [[]]; let ac = 0; ws.forEach((w, i) => { if (ac + anchos[i] > 760 && lineas[lineas.length - 1].length) { lineas.push([]); ac = 0; }
+    lineas[lineas.length - 1].push(i); ac += anchos[i] + esp; });
+  const y0 = lineas.length > 1 ? 1478 : 1520;
+  lineas.forEach((ln, li) => { const tot = ln.reduce((p, i) => p + anchos[i] + esp, -esp); let x = 505 - tot / 2;
+    ln.forEach(i => { const s = c.p[i], dicha = t >= s[0] - .03, ahora = t >= s[0] - .03 && t < s[1] + .05;
+      const clave = norm(s[2]).split(' ').some(p => CLAVES.has(p));
+      X.save(); X.textAlign = 'left'; X.textBaseline = 'middle'; X.font = `900 70px ${TIT}`;
+      X.shadowColor = 'rgba(0,0,0,.85)'; X.shadowBlur = 16; X.shadowOffsetY = 4;
+      X.fillStyle = dicha ? (clave ? C.oro : C.txt) : 'rgba(163,181,209,.38)';
+      const yy = y0 + li * 84 - (ahora ? 4 : 0);
+      X.fillText(ws[i], x, yy); X.restore(); x += anchos[i] + esp; }); }); }
+
+// ───────────────────────── cuadro ─────────────────────────
+function cuadro(t) {
+  t = +t; if (!LEY) LEY = leyenda(t);
+  X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X.drawImage(fondo, 0, 0);
+  // temblor suave en ABSORCIÓN
+  const sh = Math.max(0, 1 - (t - t05.absorcion) / .35); const shx = (t > t05.absorcion && sh > 0) ? Math.sin(t * 90) * 6 * sh : 0;
+  X.save(); X.translate(shx, 0);
+  const aLibro = 1 - ramp(t, T_CASO, .35), aCaso = ramp(t, T_CASO + .3, .45) * (1 - ramp(t, T_CIERRE, .3)), aCierre = ramp(t, T_CIERRE + .3, .35);
+  pestanas(t, aLibro);
+  libro(t, aLibro, -160 * io(ramp(t, T_CASO, .55)));
+  // leyendas del libro
+  if (aLibro > 0) for (const [a, b, f] of LEY) { if (t < a || t >= b + .3) continue; const k = a < 0 ? 1 : ramp(t, a + .18, .4), s = 1 - ramp(t, b - .02, .18);
+    if (k * s <= 0) continue; X.save(); X.globalAlpha = aLibro * s; f(k); X.restore(); }
+  caso(t, aCaso);
+  cierre(t, aCierre);
+  X.restore();
+  subtitulos(t);
+  // pie
+  X.globalAlpha = 1;
+  [ 'Datos: Yahoo Finance (BTC-USD) · El libro de órdenes es un ejemplo', 'Contenido educativo, no es recomendación de inversión',
+    'Voz generada con IA (clon de la voz de Lean)' ].forEach((s, i) => texto(s, 505, 1630 + i * 24, `500 16px ${MONO}`, C.txt2, 'center', .6));
+}
+window.cuadro = cuadro;
+window.listo = (async () => {
+  await Promise.all([`900 80px "Inter Display"`, `800 40px Inter`, `600 40px Inter`, `500 20px Inter`, `700 20px "JetBrains Mono"`,
+    `800 20px "JetBrains Mono"`, `600 20px "JetBrains Mono"`, `500 20px "JetBrains Mono"`].map(f => document.fonts.load(f)));
+  await Promise.all([carga('av', '../../../herramientas/particulas/avatar.png'), carga('logo', '../../../marca/logo-navy.png')]);
+  cuadro(0); return true; })();
+</script>
+</body></html>
