@@ -1,11 +1,11 @@
 {
- "01": "Si nunca operaste, empezá por acá: el precio no sube porque haya más compradores. Sube cuando se acaba lo que hay a la venta. Te lo muestro en cuatro pasos.",
- "02": "Paso uno, las órdenes pasivas. Cada barra es gente esperando en un precio: en rojo, los que quieren vender; en verde, los que quieren comprar. Se llaman órdenes limitadas: ponen su precio y esperan.",
- "03": "Paso dos, las órdenes agresivas. Alguien quiere comprar ya, y compra a mercado: se lleva lo que hay en el precio de venta más barato.",
- "04": "Paso tres: cuando en ese precio ya no queda nadie que venda, el próximo comprador tiene que pagar un escalón más arriba. Así se arma una vela verde. Así sube el precio.",
- "05": "Paso cuatro: si siguen comprando y el precio no sube, mirá las órdenes de venta. Probablemente hay un vendedor grande que repone y frena la suba. Eso se llama absorción.",
- "06": "Pasó con Bitcoin el treinta de septiembre. Venía subiendo, y en quince minutos se compró y vendió casi diez veces lo normal. Lo lógico sería que siguiera subiendo, pero casi no se movió.",
- "07": "Una hora y media después, llegó a estar dos coma cuatro por ciento más abajo. Ojo: es un caso, no una regla.",
- "08ig": "Es la lección uno de la serie. Comentá SERIE y te aviso cuando salga la dos.",
- "08yt": "Es la lección uno de la serie. Suscribite a Real Investors Club para ver la dos."
+ "01": "Si nunca operaste, empezá por acá: el precio sube cuando se acaban los que venden. Cuatro pasos.",
+ "02": "Paso uno: las órdenes pasivas. Cada barra es gente esperando en un precio: arriba, en rojo, los que venden; abajo, en verde, los que compran.",
+ "03": "Paso dos: las órdenes agresivas. Alguien quiere comprar ya, y se lleva lo que hay en el precio de venta más barato.",
+ "04": "Paso tres: cuando en ese precio no queda nadie que venda, el próximo comprador paga un escalón más arriba. Así sube el precio, y se arma la vela verde.",
+ "05": "Paso cuatro: si siguen comprando y el precio no sube, probablemente hay un vendedor grande que vuelve a llenar la barra roja. Eso se llama absorción.",
+ "06": "Pasó con Bitcoin el treinta de septiembre. Venía subiendo, y en quince minutos se negoció casi diez veces lo normal. Lo lógico sería que siguiera subiendo. Casi no se movió.",
+ "07": "Una hora y media después, llegó a estar dos coma cuatro por ciento más abajo. Ojo: es un caso, no una regla ni una recomendación.",
+ "08ig": "Lección uno de la serie. Comentá SERIE y te aviso cuando salga la dos.",
+ "08yt": "Lección uno de la serie. Suscribite a Real Investors Club para ver la dos."
 }
