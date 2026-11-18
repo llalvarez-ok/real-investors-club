@@ -388,11 +388,11 @@ function cierre(t, a) {
       rr(180, ty + 282, 650, 66, 16); X.fillStyle = pulsa ? '#1b2d4d' : '#2f7cf6'; X.fill();
       texto(pulsa ? 'Siguiendo' : 'Seguir', 505, ty + 316, `800 32px ${SANS}`, C.txt, 'center');
     } else {
-      if (IMG.logo) { X.save(); rr(180, ty + 40, 230, 126, 16); X.clip(); X.drawImage(IMG.logo, 180, ty + 40, 230, 126); X.restore(); }
+      rr(176, ty + 36, 238, 134, 18); X.fillStyle = C.txt; X.fill(); if (IMG.logo) X.drawImage(IMG.logo, 189, ty + 43, 212, 116);
       texto('Real Investors Club', 434, ty + 80, `800 38px ${SANS}`, C.txt); texto('@REALinvestorsc', 434, ty + 128, `500 28px ${SANS}`, C.txt2);
       texto('Lección 2 de la serie, muy pronto', 505, ty + 220, `600 30px ${SANS}`, C.txt2, 'center');
       rr(180, ty + 272, 650, 70, 35); X.fillStyle = pulsa ? '#1b2d4d' : '#e5322d'; X.fill();
-      texto(pulsa ? 'Suscripto ✓' : 'Suscribirse', 505, ty + 308, `800 32px ${SANS}`, C.txt, 'center');
+      texto(pulsa ? 'Suscrito ✓' : 'Suscribirse', 505, ty + 308, `800 32px ${SANS}`, C.txt, 'center');
     }
     X.restore();
     if (V === 'ig') chip('COMENTÁ «SERIE»', 505, 1012, C.oro, a * back(ramp(t, W('08', 'serie', 1) - .1, .4)), { fs: 30 });
