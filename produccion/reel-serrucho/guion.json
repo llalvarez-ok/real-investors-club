@@ -1,0 +1,59 @@
+{
+ "titulo": "La serpiente y el serrucho · operar por revancha",
+ "pantalla": {
+  "uno por ciento": "1 %",
+  "el uno": "el 1",
+  "el diez": "el 10",
+  "diez": "10",
+  "el tres": "el 3 %",
+  "el seis": "el 6 %",
+  "cinco minutos": "5 minutos",
+  "Uno:": "1:",
+  "Dos:": "2:",
+  "Tres:": "3:",
+  "Tres reglas.": "3 reglas.",
+  "SERRUCHO": "SERRUCHO"
+ },
+ "bloques": [
+  {
+   "id": "01",
+   "etiqueta": "PSICOTRADING"
+  },
+  {
+   "id": "02",
+   "etiqueta": "FÁBULA"
+  },
+  {
+   "id": "03",
+   "etiqueta": "FÁBULA"
+  },
+  {
+   "id": "04",
+   "etiqueta": "EJEMPLO"
+  },
+  {
+   "id": "05",
+   "etiqueta": "LA REVANCHA"
+  },
+  {
+   "id": "06",
+   "etiqueta": "EL DAÑO REAL"
+  },
+  {
+   "id": "07",
+   "etiqueta": "3 REGLAS"
+  },
+  {
+   "id": "08",
+   "wav": "08ig",
+   "etiqueta": "CIERRE",
+   "solo": "ig"
+  },
+  {
+   "id": "08",
+   "wav": "08yt",
+   "etiqueta": "CIERRE",
+   "solo": "yt"
+  }
+ ]
+}

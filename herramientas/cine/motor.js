@@ -101,7 +101,8 @@
     nube: (c, k) => { sem = 99; for (let i = 0; i < 260; i++) { const a = rnd() * 7, r = Math.sqrt(rnd()) * (k.r || 520); c.beginPath(); c.arc(k.x + Math.cos(a) * r, k.y + Math.sin(a) * r * (k.e || 1.5), 6, 0, 7); c.fill(); } },
     circulo: (c, k) => { c.beginPath(); c.arc(k.x, k.y, 260 * k.s, 0, 7); c.fill(); },
     clic: (c, k) => { c.save(); c.translate(k.x, k.y); c.scale(k.s, k.s); c.beginPath(); c.moveTo(0, 0); c.lineTo(0, 300); c.lineTo(70, 235); c.lineTo(120, 350); c.lineTo(170, 330); c.lineTo(120, 215); c.lineTo(210, 215); c.closePath(); c.fill(); c.restore(); },
-    imagen: (c, k) => { if (IMG[k.img]) c.drawImage(IMG[k.img], k.x - k.w / 2, k.y - k.h / 2, k.w, k.h); },
+    // «ancho»/«alto» para atar la forma a una palabra con w (w también es el índice de palabra del cuadro clave)
+    imagen: (c, k) => { const w = k.ancho || k.w, h = k.alto || k.h; if (IMG[k.img]) c.drawImage(IMG[k.img], k.x - w / 2, k.y - h / 2, w, h); },
   };
   const KF = (E.particulas || []).map((k, i) => ({ x: W / 2, y: 980, s: 1, color: 'oro', alfa: 1, ...k, t: tde(k) }));
   const ALL = new Float32Array(N * 8);  // por partícula: retardo, fase, frecuencia, amplitud de la curva, tamaño, brillo
