@@ -59,11 +59,11 @@ function W(id, frase, n = 0, fin = false) {
   const b = B[id], ws = frase.split(' ').map(norm), P = b.palabras;
   for (let i = 0; i + ws.length <= P.length; i++) {
     if (ws.every((w, j) => norm(P[i + j][2]) === w)) { if (n-- === 0) return fin ? P[i + ws.length - 1][1] : P[i][0]; } }
-  console.warn('No encontré «' + frase + '» en el bloque ' + id); return b.ini; }
+  console.error('No encontré «' + frase + '» en el bloque ' + id); return b.ini; }
 const ini = id => B[id].ini, fin = id => B[id].ini + B[id].dur;
 function Wq(id, frases, def) { for (const f of frases) { const b = B[id], ws = f.split(' ').map(norm), P = b.palabras;
   for (let i = 0; i + ws.length <= P.length; i++) if (ws.every((w, j) => norm(P[i + j][2]) === w)) return P[i][0]; }
-  return B[id].ini + def * B[id].dur; }
+  console.error('Falta «' + frases.join('/') + '» en el bloque ' + id + ' (uso una posición aproximada)'); return B[id].ini + def * B[id].dur; }
 
 // 01 (gancho A, 22/11): «Una serpiente se mató sola con un serrucho. Y muchos traders hacen lo mismo después de un stop.»
 const t1 = { mato: Wq('01', ['mató'], .2), sola: Wq('01', ['sola'], .3), traders: Wq('01', ['traders'], .55),
@@ -421,7 +421,7 @@ function fabula(t, a, opt = {}) {
 function fabulaTextos(t, a) {
   if (a <= 0) return; X.save(); X.globalAlpha = a;
   chip('FÁBULA', 140, 268, C.oro, back(ramp(t, S_FAB + .1, .4)), { izq: true, fs: 24 });
-  { const k = win(t, S_FAB - .15, S_FAB + 1.3, .2); if (k > 0) { X.save(); const e = back(ramp(t, S_FAB - .15, .35)); X.globalAlpha *= k; X.translate(540, 1240); X.scale(e, e);
+  { const k = win(t, S_FAB - .15, S_FAB + 1.3, .2); if (k > 0) { X.save(); const e = back(ramp(t, S_FAB - .15, .35)); X.globalAlpha *= k; X.translate(540, 1360); X.scale(e, e);
     X.shadowColor = 'rgba(0,0,0,.5)'; X.shadowBlur = 30; rr(-190, -62, 380, 124, 20); X.fillStyle = 'rgba(5,14,28,.92)'; X.fill(); X.shadowColor = 'transparent';
     X.strokeStyle = C.oro; X.lineWidth = 3; X.stroke(); X.fillStyle = C.oro;
     for (const dx of [-140, -104]) { X.beginPath(); X.moveTo(dx + 30, -24); X.lineTo(dx, 0); X.lineTo(dx + 30, 24); X.closePath(); X.fill(); }
@@ -435,7 +435,7 @@ function fabulaTextos(t, a) {
   const L = [[t2.corto, t2.atacada, [['SE CORTÓ ', C.txt], ['APENAS', C.rojo]]], [t2.atacada, t2.mordio, [['SE SINTIÓ ', C.txt], ['ATACADA', C.rojo]]],
     [t2.mordio, t2.lastimo, [['LO ', C.txt], ['MORDIÓ', C.rojo]]], [t2.lastimo, t3.furiosa, [['SE LASTIMÓ ', C.txt], ['LA BOCA', C.rojo]]],
     [t3.mas2, t3.serrucho - .05, [['MÁS ', C.txt], ['SE CORTA', C.rojo]]]];
-  for (const [a0, b0, p] of L) { if (t < a0 || t > b0 + .3) continue; titulo(p, 1330, 70, ramp(t, a0, .35), 1 - ramp(t, b0 - .05, .2)); }
+  for (const [a0, b0, p] of L) { if (t < a0 || t > b0 + .3) continue; titulo(p, 1330, 70, ramp(t, a0 + .05, .3), 1 - ramp(t, b0 - .2, .15)); }
   // sello final
   const ks = ramp(t, t3.nunca + .05, .3);
   if (ks > 0) { X.save(); const s = lerp(1.7, 1, out3(ks)); X.globalAlpha *= cl(ks * 2) * (1 - ramp(t, S_MAR, .25)); X.translate(540, 1320); X.rotate(-.05); X.scale(s, s);
@@ -467,9 +467,9 @@ function gancho(t, a) {
   g.restore();
   // el stop: −1 % → −10 %
   const k1 = back(ramp(t, t1.traders + .15, .4)), k10 = ramp(t, t1.stop, .22), sh = pulso(t, t1.stop, .3);
-  if (k1 > 0) { g.save(); g.globalAlpha *= cl(k1 * 1.6); g.translate(540 + Math.sin(t * 80) * 8 * sh, 1180 + 50 * (1 - k1));
+  if (k1 > 0) { g.save(); g.globalAlpha *= cl(k1 * 1.6); g.translate(540 + Math.sin(t * 80) * 8 * sh, 1000 + 50 * (1 - k1));
     // ficha del stop
-    g.save(); g.translate(-210, 0); g.rotate(-.04 * k10);
+    g.save(); g.rotate(-.04 * k10);
     g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowBlur = 30; g.shadowOffsetY = 12; rr(-150, -86, 300, 172, 22); g.fillStyle = 'rgba(60,10,16,.92)'; g.fill(); g.shadowColor = 'transparent';
     g.strokeStyle = C.rojo; g.lineWidth = 4; g.stroke(); texto('STOP', 0, -42, `800 30px ${MONO}`, C.rojo, 'center');
     texto('−1 %', 0, 26, `900 92px ${TIT}`, C.rojo, 'center');
@@ -477,9 +477,9 @@ function gancho(t, a) {
     g.restore();
     // flecha y −10 %
     const kf = out3(ramp(t, t1.stop - .25, .3)); g.strokeStyle = C.txt2; g.lineWidth = 6; g.lineCap = 'round';
-    if (kf > 0) { g.beginPath(); g.moveTo(-40, 0); g.lineTo(-40 + 60 * kf, 0); g.stroke(); g.beginPath(); g.moveTo(-40 + 60 * kf - 16, -16); g.lineTo(-40 + 60 * kf, 0); g.lineTo(-40 + 60 * kf - 16, 16); g.stroke(); }
-    if (k10 > 0) { g.save(); const e = back(k10); g.translate(200, 0); g.scale(lerp(1.6, 1, out3(k10)) * (1 + .1 * sh), lerp(1.6, 1, out3(k10)) * (1 + .1 * sh)); g.globalAlpha *= cl(k10 * 2);
-      g.shadowColor = hex(C.rojo, .6); g.shadowBlur = 50; texto('−10 %', 0, 6, `900 150px ${TIT}`, C.rojo, 'center'); g.restore(); }
+    if (kf > 0) { const y = 100 + 56 * kf; g.beginPath(); g.moveTo(0, 100); g.lineTo(0, y); g.stroke(); g.beginPath(); g.moveTo(-16, y - 16); g.lineTo(0, y); g.lineTo(16, y - 16); g.stroke(); }
+    if (k10 > 0) { g.save(); const e = back(k10); g.translate(0, 250); g.scale(lerp(1.6, 1, out3(k10)) * (1 + .1 * sh), lerp(1.6, 1, out3(k10)) * (1 + .1 * sh)); g.globalAlpha *= cl(k10 * 2);
+      g.shadowColor = hex(C.rojo, .6); g.shadowBlur = 50; texto('−10 %', 0, 6, `900 160px ${TIT}`, C.rojo, 'center'); g.restore(); }
     g.restore(); }
   g.restore(); }
 
@@ -504,7 +504,7 @@ function martin(t, a) {
   titulo([['MARTÍN ', C.oro], ['TOCA UN STOP', C.rojo]], 300, 74, ramp(t, t4.toca - .1, .4), 1 - ramp(t, t5.enoja - .1, .2));
   // el stop que toca (antes del −1 %): precio que baja hasta la línea punteada
   const kS = win(t, t4.toca - .15, t5.enoja, .35);
-  if (kS > 0) { g.save(); g.globalAlpha *= kS; const x0 = 440, x1 = 880, y0 = 820, y1 = 1100;
+  if (kS > 0) { g.save(); g.globalAlpha *= kS; const x0 = 430, x1 = 870, y0 = 820, y1 = 1100;
     g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowBlur = 30; g.shadowOffsetY = 12; rr(x0, y0, x1 - x0, y1 - y0, 22); g.fillStyle = C.panel; g.fill(); g.shadowColor = 'transparent';
     g.strokeStyle = C.borde; g.lineWidth = 2.5; g.stroke(); texto('OPERACIÓN DE MARTÍN · EJEMPLO', x0 + 22, y0 + 30, `700 17px ${MONO}`, C.txt2);
     const ys = 1040; g.save(); g.setLineDash([12, 8]); g.strokeStyle = C.rojo; g.lineWidth = 3.5; g.beginPath(); g.moveTo(x0 + 20, ys); g.lineTo(x1 - 20, ys); g.stroke(); g.restore();
