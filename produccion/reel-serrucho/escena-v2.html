@@ -68,7 +68,7 @@ function Wq(id, frases, def) { for (const f of frases) { const b = B[id], ws = f
 // 01 (gancho A, 22/11): «Una serpiente se mató sola con un serrucho. Y muchos traders hacen lo mismo después de un stop.»
 const t1 = { mato: Wq('01', ['mató'], .2), sola: Wq('01', ['sola'], .3), traders: Wq('01', ['traders'], .55),
   stop: Wq('01', ['stop'], .9) };
-const t2 = { ini: ini('02') - .05, serpiente: ini('02') + .1, rozo: W('02', 'rozó'), serrucho: ini('02') + .35, corto: W('02', 'cortó'),
+const t2 = { ini: ini('02') - .05, rozo: W('02', 'rozó'), corto: W('02', 'cortó'),
   apenas: W('02', 'apenas'), atacada: W('02', 'atacada'), mordio: W('02', 'mordió'), lastimo: W('02', 'lastimó'), boca: W('02', 'boca') };
 const t3 = { furiosa: W('03', 'furiosa'), enrosco: W('03', 'enroscó'), aplastarlo: W('03', 'aplastarlo'), cuanto: W('03', 'cuanto'),
   apretaba: W('03', 'apretaba'), mas2: W('03', 'más', 1), cortaba: W('03', 'cortaba'), serrucho: W('03', 'serrucho'), nunca: W('03', 'nunca'),
@@ -85,13 +85,14 @@ const t7 = { ini: ini('07') - .1, reglas: W('07', 'reglas'), uno: W('07', 'uno')
 const t8 = { ini: ini('08') - .25, proximo: W('08', 'próximo'), sangre: W('08', 'sangre'), este: W('08', 'este'), servir: W('08', 'servir'),
   cta: V === 'ig' ? W('08', 'comentá') : W('08', 'suscribite'), boton: V === 'ig' ? W('08', 'serrucho') : W('08', 'club') };
 // cortes de escena
-const T_MUERE = W('03', 'cortaba', 0, true) + .12;   // la serpiente muere: queda quieta, pierde el color y cierra los ojos
+const T_MUERE = W('03', 'cortaba', 0, true) + .12;
+const T_REB0_ = Math.max(ini('02') - .17, Wq('01', ['stop'], .9) + .6); t2.serpiente = T_REB0_ + .55; t2.serrucho = T_REB0_ + .8;   // la serpiente muere: queda quieta, pierde el color y cierra los ojos
 const S_FAB = t2.ini, S_MAR = t4.ini, S_REG = t7.ini, S_CIE = t8.ini;
 
 // ───────────────────────── eventos de sonido ─────────────────────────
 const EV = []; const ev = (t, s) => { if (t >= 0 && t < T.total) EV.push({ t: +t.toFixed(3), s }); };
 ev(t1.mato, 'impacto'); ev(t1.traders, 'whoosh'); ev(t1.stop, 'impacto');
-ev(S_FAB - .1, 'cinta'); ev(S_FAB + .6, 'pop'); ev(t2.corto, 'cinta'); ev(t2.atacada, 'whoosh'); ev(t2.mordio + .12, 'impacto');
+ev(T_REB0_, 'cinta'); ev(T_REB0_ + .7, 'pop'); ev(t2.corto, 'cinta'); ev(t2.atacada, 'whoosh'); ev(t2.mordio + .12, 'impacto');
 ev(t2.lastimo, 'pop');
 ev(t3.enrosco, 'whoosh'); ev(t3.aplastarlo, 'clic'); ev(t3.apretaba, 'impacto'); ev(t3.mas2, 'clic'); ev(t3.cortaba, 'pop');
 ev(T_MUERE + .1, 'tics'); ev(t3.serrucho, 'ding'); ev(t3.nunca + .05, 'sello');
@@ -420,8 +421,8 @@ function fabula(t, a, opt = {}) {
 // textos de la fábula (fuera de la cámara)
 function fabulaTextos(t, a) {
   if (a <= 0) return; X.save(); X.globalAlpha = a;
-  chip('FÁBULA', 140, 268, C.oro, back(ramp(t, S_FAB + .1, .4)), { izq: true, fs: 24 });
-  { const k = win(t, S_FAB - .15, S_FAB + 1.3, .2); if (k > 0) { X.save(); const e = back(ramp(t, S_FAB - .15, .35)); X.globalAlpha *= k; X.translate(540, 1360); X.scale(e, e);
+  chip('FÁBULA', 140, 268, C.oro, back(ramp(t, T_REB0_ + .2, .4)), { izq: true, fs: 24 });
+  { const k = win(t, T_REB0_, Math.min(T_REB0_ + 1.3, t2.corto - .15), .2); if (k > 0) { X.save(); const e = back(ramp(t, T_REB0_, .35)); X.globalAlpha *= k; X.translate(540, 1360); X.scale(e, e);
     X.shadowColor = 'rgba(0,0,0,.5)'; X.shadowBlur = 30; rr(-190, -62, 380, 124, 20); X.fillStyle = 'rgba(5,14,28,.92)'; X.fill(); X.shadowColor = 'transparent';
     X.strokeStyle = C.oro; X.lineWidth = 3; X.stroke(); X.fillStyle = C.oro;
     for (const dx of [-140, -104]) { X.beginPath(); X.moveTo(dx + 30, -24); X.lineTo(dx, 0); X.lineTo(dx + 30, 24); X.closePath(); X.fill(); }
@@ -448,19 +449,19 @@ function fabulaTextos(t, a) {
 // Desde el cuadro 0: la serpiente ya enroscada, con tajos y gotas, y «SE MATÓ SOLA». En «traders» la fábula se achica
 // y aparece el stop: «−1 %» que en «stop» se rompe en «−10 %». Después, rebobinado rápido al comienzo de la historia.
 const FF0 = t3.mas2 - .35, FF1 = T_MUERE + .9;                    // tramo del 03 que se ve en el gancho
-const T_REB0 = S_FAB - .12, T_REB1 = S_FAB + .5;                   // rebobinado
+const T_REB0 = Math.max(S_FAB - .12, t1.stop + .6), T_REB1 = T_REB0 + .5;   // el −10 % queda ~0,6 s                   // rebobinado
 function tiempoFabula(t) {
   if (t < T_REB0) return lerp(FF0, FF1, cl(t / Math.max(1, t1.traders + .4)));
   if (t < T_REB1) return lerp(FF1, T_REB1, io((t - T_REB0) / (T_REB1 - T_REB0)));
   return t; }
 function gancho(t, a) {
   if (a <= 0) return; const g = X; g.save(); g.globalAlpha = a;
-  const kT = io(ramp(t, t1.traders - .1, .6));
+  const kT = io(ramp(t, t1.traders - .1, .45));
   chip('PSICOTRADING', 140, 268, C.oro, 1, { izq: true, fs: 24 });
   // «UNA SERPIENTE / SE MATÓ SOLA»: abajo y grande; con «traders» sube y se achica
   g.save(); g.translate(0, lerp(0, -880, kT)); const es = lerp(1, .62, kT);
   g.translate(540, 1250); g.scale(es, es); g.translate(-540, -1250);
-  texto('UNA SERPIENTE', 540, 1140, `800 50px ${TIT}`, C.txt2, 'center', 1 - kT);
+  texto('UNA SERPIENTE', 540, 1140, `800 50px ${TIT}`, C.txt2, 'center', cl(1 - kT * 4));
   g.save(); const golpe = 1 + .12 * pulso(t, t1.mato, .3); g.translate(540, 1250); g.scale(golpe, golpe);
   g.shadowColor = 'rgba(255,107,107,.35)'; g.shadowBlur = 40; texto('SE MATÓ SOLA', 0, 0, `900 108px ${TIT}`, C.txt, 'center');
   g.shadowBlur = 0; g.fillStyle = C.rojo; g.fillRect(-300 * ramp(t, t1.sola, .35), 64, 600 * ramp(t, t1.sola, .35), 8); g.restore();
@@ -708,10 +709,10 @@ function cuadro(t) {
   // fábula: en el gancho es el final (achicado arriba desde «traders»); después rebobina y empieza la historia
   const tf = tiempoFabula(t), enGancho = t < T_REB1;
   if (aF > 0) { X.save(); const sal = io(ramp(t, S_MAR - .05, .45)); X.translate(-200 * sal, 0);
-    if (enGancho) { const kT = io(ramp(t, t1.traders - .1, .6)) * (1 - io(ramp(t, T_REB0, T_REB1 - T_REB0)));
+    if (enGancho) { const kT = io(ramp(t, t1.traders - .1, .45)) * (1 - io(ramp(t, T_REB0, T_REB1 - T_REB0)));
       X.translate(540, 760); X.scale(1 - .38 * kT, 1 - .38 * kT); X.translate(-540, -760 - 120 * kT); }
     fabula(tf, aF, { sinBrillo: t < T_REB0 });
-    if (!enGancho || t > S_FAB) fabulaTextos(t, aF * ramp(t, S_FAB - .15, .2));
+    if (t > T_REB0) fabulaTextos(t, aF * ramp(t, T_REB0, .2));
     X.restore(); }
   // rebobinado: líneas de video y velo
   { const k = win(t, T_REB0, T_REB1, .12); if (k > 0) { X.save(); X.globalAlpha = .35 * k; X.fillStyle = '#9fc3ff';
