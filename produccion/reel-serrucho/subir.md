@@ -5,15 +5,15 @@ Rocío y Nacho, aprobado por Lean. Expediente cine sin fotos (Wikimedia dio 429 
 que arman siluetas propias (`formas/`). Voz: clon de Lean, **cuerpo en una sola toma** (`clon_continuo.py`, semilla 23,
 elegida entre 3 por tono y velocidad) y cierre aparte (semilla 7 IG, 11 YT). El cierre se reescribió porque el clon decía
 «Guárdalo» con acento de «tú». **Contenido sintético: sí.**
-Archivos: `RIC-reel-serrucho-ig.mp4` (54,4 s) y `RIC-reel-serrucho-yt.mp4` (54,5 s), −14 LUFS.
+Archivos vigentes: `RIC-reel-serrucho-v2-ig.mp4` (54,0 s) y `RIC-reel-serrucho-v2-yt.mp4` (54,1 s), −14,3 LUFS: motion graphics (`escena-v2.html`) y gancho A.
 
-## Instagram (copy)
+## Instagram (copy, gancho A · 23/11/2026)
 
-Este stop te costó el 1 %. La próxima hora puede costarte el 10 % 🐍🪚
+Una serpiente se mató sola con un serrucho. Y muchos traders hacen lo mismo después de un stop 🐍🪚
 
-Una serpiente rozó un serrucho y se cortó apenas. Se sintió atacada, lo mordió y se enroscó para aplastarlo. Cuanto más apretaba, más se cortaba. El serrucho nunca se movió.
+Primero lo rozó y se cortó apenas. Se sintió atacada, lo mordió y se lastimó la boca. Furiosa, se enroscó para aplastarlo: cuanto más apretaba, más se cortaba. El serrucho nunca se movió.
 
-En el trading es igual. Supongamos que Martín pierde el 1 %. Se enoja, entra con el triple para recuperarlo y pierde el 3 %. Entra con el doble y pierde el 6 %. En una hora, el 1 % se volvió 10 %: eso es operar por revancha.
+Supongamos que Martín toca un stop y pierde el 1 %. Es parte del juego. Pero se enoja, entra con el triple para recuperarlo y pierde el 3 %. Entra con el doble y pierde el 6 %. En una hora, el 1 % se volvió 10 %. El stop fue el corte; el resto se llama operar por revancha.
 
 3 reglas:
 1️⃣ Después de una pérdida, 5 minutos sin pantalla.
@@ -27,7 +27,7 @@ Contenido educativo. No constituye recomendación de inversión. Voz generada co
 #trading #psicotrading #gestiondelriesgo #inversiones #mentalidad
 
 ## YouTube Short
-**Título:** El stop no te quiebra la cuenta: te la quiebra la revancha #Shorts
+**Título:** Una serpiente se mató sola con un serrucho (y los traders hacen lo mismo) #Shorts
 **Descripción:** Una serpiente se corta con un serrucho y, por atacarlo, se corta más. En el trading pasa igual: un stop del 1 % se vuelve 10 % cuando operás por revancha (ejemplo: 1 % + 3 % + 6 %). Tres reglas para que no te pase: 5 minutos sin pantalla después de una pérdida, el tamaño no se agranda para recuperar y dos pérdidas seguidas cierran el día.
 Fábula de dominio público; el ejemplo de Martín es ilustrativo. Voz generada con IA a partir de la voz de Lean. Contenido educativo. No constituye recomendación de inversión.
 **Etiquetas:** psicotrading, operar por revancha, revenge trading, gestión del riesgo, stop loss, psicología del trading, trading para principiantes, real investors club
