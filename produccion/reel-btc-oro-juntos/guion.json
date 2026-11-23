@@ -1,0 +1,68 @@
+{
+ "titulo": "Bitcoin y el oro cayeron juntos",
+ "pantalla": {
+  "veintisiete por ciento": "27 %",
+  "el doce": "el 12 %",
+  "doce años": "12 años",
+  "tres veces": "3 veces",
+  "Tres meses": "3 meses",
+  "tres meses": "3 meses",
+  "dos mil veinte": "2020",
+  "dos mil veintidós": "2022",
+  "dos mil veintiséis": "2026",
+  "más ochenta y uno por ciento": "+81 %",
+  "Menos veinte": "−20 %",
+  "más treinta y dos": "+32 %",
+  "Dos de tres": "2 de 3",
+  "seis de cada diez": "6 de cada 10",
+  "Tres casos": "3 casos",
+  "veinte días": "20 días",
+  "Rebota o sigue": "REBOTA o SIGUE"
+ },
+ "bloques": [
+  {
+   "id": "01",
+   "etiqueta": "BITCOIN Y ORO"
+  },
+  {
+   "id": "02",
+   "etiqueta": "LOS DATOS"
+  },
+  {
+   "id": "03",
+   "etiqueta": "LO LÓGICO"
+  },
+  {
+   "id": "04",
+   "etiqueta": "2020"
+  },
+  {
+   "id": "05",
+   "etiqueta": "2022"
+  },
+  {
+   "id": "06",
+   "etiqueta": "2026"
+  },
+  {
+   "id": "07",
+   "etiqueta": "CONTEXTO"
+  },
+  {
+   "id": "08",
+   "etiqueta": "TU PLATA"
+  },
+  {
+   "id": "09",
+   "wav": "09ig",
+   "etiqueta": "CIERRE",
+   "solo": "ig"
+  },
+  {
+   "id": "09",
+   "wav": "09yt",
+   "etiqueta": "CIERRE",
+   "solo": "yt"
+  }
+ ]
+}
