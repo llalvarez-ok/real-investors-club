@@ -96,3 +96,21 @@ Look `limpio` en `motor.js` para gráficos de datos (sin gradación, verde y roj
 
 - **Voz grabada sin «baño»** (04/11/2026, Lean: «suena como dentro de un baño»): `voz_grabada.py` ya no agrega reverb y le saca la de la habitación con WPE (`pip install nara_wpe scipy`), con compuerta más rápida y menos 420 Hz. Para corregir un video ya armado sin volver a renderizar: pasar los `voz/*.wav` por la misma cadena (mismo largo), volver a mezclar con `mezcla.py` y cambiar solo el audio del MP4 (`-c:v copy`).
 - **Efectos de sonido sin «ametralladora»** (15/11/2026, crítica del Reel de @somosvla_): `mezcla.py` pone subida y whoosh solo en uno de cada dos cambios de bloque, varía tono y nivel de cada efecto, no repite el mismo a menos de 1,2 s y los baja cuando habla la voz. Earshot (MIT) para calificar la mezcla está pendiente del OK de Lean.
+
+## Chequeos de lectura y movimiento (23/11/2026, ideas de Lemo-Opuscar, código MIT adaptado)
+- **Lectura:** `node herramientas/cine/lectura.js "<ruta absoluta>/escena.html?v=ig"`. La escena expone, después de cada
+  `cuadro(t)`, `window.TEXTOS` (textos visibles casi opacos y en su escala final, con su caja en píxeles; `pass: true` para
+  pie, rótulos de ejes y tarjetas) y `window.SUBS` (trozos de subtítulo `{a, b, texto}`). Falla si un texto dura menos de
+  `letras ÷ 15 + 1,5` s (mínimo 1,5), si su caja sale de la zona segura (x 140–870, y 250–1440) o si un trozo de subtítulo
+  dura menos de 1,8 s. Ejemplo de escena con el contrato: `produccion/reel-btc-oro-juntos/escena.html` (función `texto()`
+  que anota y subtítulos agrupados por tiempo).
+- **Movimiento:** `python3 -I herramientas/cine/movimiento.py <video.mp4>` sobre el render **sin grano**: falla si hay un
+  tramo de más de 1 s casi quieto (diferencia media entre cuadros < 0,08 en luma 270x480) o cuadros negros; imprime el
+  movimiento por segundo y el peor salto de un cuadro.
+- **Grano:** nunca dibujado en la página; si se usa, se agrega al codificar (`-vf noise=alls=N:allf=t`). Prueba del
+  23/11/2026 con el Reel de BTC y oro (47 s, CRF 17): sin grano 15,5 MB, PSNR 50,7 dB y SSIM 0,996 contra los cuadros
+  originales; con `alls=6` 471 MB (el grano por cuadro no se comprime), PSNR 40,0 y SSIM 0,914; con `alls=2` +20 % de peso
+  y SSIM 0,90. En motion graphics de fondo liso el grano no suma y Instagram lo empasta: **se entrega sin grano**.
+- **Fuentes RIC (Archivo, IBM Plex Sans y Mono):** bajarlas como TTF con `curl -A "Wget/1.0"` desde la API de Google Fonts
+  (con un User-Agent de navegador viejo devuelve WOFF, que Chromium no usa como fuente del sistema) a
+  `/usr/share/fonts/truetype/ric/` y correr `fc-cache -f`. Sin eso, el canvas cae en otra fuente sin avisar.

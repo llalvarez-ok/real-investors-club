@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Bitcoin y el oro juntos</title>
+<!-- Reel/Short «Bitcoin y el oro cayeron juntos» (23/11/2026, Tomi). Estilo dark-keynote + dataviz con la paleta RIC:
+     el gráfico real es la película, un número gigante por pantalla, un acento por pantalla. Cámara: empuje (01), alejamiento
+     mientras el eje crece (02), paneo lateral por la línea de tiempo (03), sacudida corta (05), alejamiento final (08).
+     Transiciones con el propio gráfico: el eje que crece, el gráfico que se pliega en el punto HOY, la ficha que se abre,
+     la línea de un episodio que se transforma en la del siguiente, el gráfico que se pliega en su tarjeta y vuelve.
+     Sin grano en la página (va en ffmpeg). ?v=ig | ?v=yt. Contrato: window.cuadro(t), window.EVENTOS, window.listo,
+     window.TEXTOS (textos visibles del último cuadro, para herramientas/cine/lectura.js) y window.SUBS (trozos de subtítulo). -->
+<script>
+  const Q = new URLSearchParams(location.search), V = Q.get('v') || 'ig';
+  document.write(`<script src="${Q.get('t') || 'tiempos-' + V + '.js'}"><\/script>`);
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #071426; }
+  canvas { position: absolute; left: 0; top: 0; }
+</style>
+</head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// ───────────────────────── paleta, tipografías y utilidades ─────────────────────────
+const C = { f1: '#071426', f2: '#0d2142', oro: '#e2c68c', oro2: '#c7a35e', oro3: '#8e7140', txt: '#ecf1f9', txt2: '#a3b5d1',
+  verde: '#3dd68c', rojo: '#ff6b6b', borde: '#274a80', panel: '#0d2142' };
+const TIT = 'Archivo, "Archivo Black", sans-serif', SANS = '"IBM Plex Sans", sans-serif', MONO = '"IBM Plex Mono", monospace';
+const cv = document.getElementById('c'), X = cv.getContext('2d');
+const cl = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const io = k => (k = cl(k), k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+const out3 = k => 1 - Math.pow(1 - cl(k), 3);
+const back = k => { k = cl(k); const s = 1.3; return 1 + (s + 1) * Math.pow(k - 1, 3) + s * Math.pow(k - 1, 2); };
+const ramp = (t, a, d = .35) => cl((t - a) / d);
+const win = (t, a, b, d = .3) => Math.min(ramp(t, a, d), 1 - ramp(t, b, d));
+const pulso = (t, a, d = .25) => { const k = (t - a) / d; return k < 0 || k > 1 ? 0 : Math.sin(Math.PI * k); };
+function rr(x, y, w, h, r) { X.beginPath(); X.moveTo(x + r, y); X.arcTo(x + w, y, x + w, y + h, r); X.arcTo(x + w, y + h, x, y + h, r);
+  X.arcTo(x, y + h, x, y, r); X.arcTo(x, y, x + w, y, r); X.closePath(); }
+function hex(c, a) { const n = parseInt(c.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
+const fmt = n => Math.round(n).toLocaleString('es-AR').replace(/,/g, '.');
+const pct = (v, dec = 0) => (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(dec).replace('.', ',') + ' %';
+const fecha = s => s.slice(8, 10) + '/' + s.slice(5, 7) + '/' + s.slice(0, 4);
+
+// registro de textos visibles (para el chequeo de lectura): se anota todo texto dibujado casi opaco y casi en su escala final
+let TX = [];
+function texto(s, x, y, font, color, align = 'left', a = 1, opt = {}) {
+  if (a <= 0 || !s) return; const ga = X.globalAlpha; X.globalAlpha = ga * a; X.font = font; X.fillStyle = color; X.textAlign = align;
+  X.textBaseline = 'middle'; X.fillText(s, x, y);
+  if (X.globalAlpha >= .9 && !opt.noLeer) { const w = X.measureText(s).width, fs = parseFloat(font.match(/(\d+)px/)[1]);
+    const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x, m = X.getTransform();
+    const esc = Math.hypot(m.a, m.b);
+    if (Math.abs(esc - (opt.escala || esc)) < .04 || !opt.escala) {
+      const p = [[x0, y - fs * .5], [x0 + w, y - fs * .5], [x0, y + fs * .5], [x0 + w, y + fs * .5]].map(([u, v]) => [m.a * u + m.c * v + m.e, m.b * u + m.d * v + m.f]);
+      TX.push({ id: opt.id || s, text: s, x0: Math.min(...p.map(q => q[0])), y0: Math.min(...p.map(q => q[1])), x1: Math.max(...p.map(q => q[0])),
+        y1: Math.max(...p.map(q => q[1])), pass: !!opt.pass }); } }
+  X.globalAlpha = ga; }
+function chip(s, x, y, color, a = 1, opt = {}) {
+  if (a <= 0) return 0; X.save(); X.globalAlpha *= a; X.font = `600 ${opt.fs || 24}px ${MONO}`;
+  const w = X.measureText(s).width + 40, h = (opt.fs || 24) + 26, x0 = opt.izq ? x : opt.der ? x - w : x - w / 2;
+  X.shadowColor = 'rgba(0,0,0,.45)'; X.shadowBlur = 18; X.shadowOffsetY = 6;
+  rr(x0, y - h / 2, w, h, 10); X.fillStyle = 'rgba(5,14,28,.94)'; X.fill(); X.fillStyle = hex(color, .13); X.fill(); X.shadowColor = 'transparent';
+  X.lineWidth = 2.5; X.strokeStyle = color; X.stroke();
+  texto(s, x0 + 20, y + 1, X.font, opt.tc || color, 'left', 1, opt); X.restore(); return w; }
+// título con entrada tipo keynote (sube con un rebote corto) y salida que se pliega hacia arriba
+function titulo(partes, y, fs, k, s = 1, x = 505) {
+  if (k <= 0 || s <= 0) return; X.save(); const e = back(k), sal = 1 - s;
+  X.globalAlpha *= cl(k * 2.2) * cl(s * 2.2);
+  X.translate(x, y + 30 * (1 - e) - 26 * sal); X.scale(1, 1 - .5 * sal);
+  X.font = `900 ${fs}px ${TIT}`; { const w0 = partes.reduce((a, p) => a + X.measureText(p[0]).width, 0); if (w0 > 700) fs = Math.floor(fs * 700 / w0); X.font = `900 ${fs}px ${TIT}`; }
+  const ws = partes.map(p => X.measureText(p[0]).width), tot = ws.reduce((a, b) => a + b, 0); let xx = -tot / 2;
+  X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 24; X.shadowOffsetY = 6;
+  partes.forEach((p, i) => { texto(p[0], xx, 0, `900 ${fs}px ${TIT}`, p[1] || C.txt, 'left', 1, { id: 'tit:' + partes.map(q => q[0]).join(''), noLeer: true }); xx += ws[i]; });
+  if (X.globalAlpha >= .9 && s >= 1 && k >= 1) { const m = X.getTransform(); TX.push({ id: 'tit', text: partes.map(q => q[0]).join(''),
+    x0: m.e - tot / 2, x1: m.e + tot / 2, y0: m.f - fs / 2, y1: m.f + fs / 2 }); }
+  X.restore(); }
+// número gigante: dígitos que se acomodan uno por uno (glyph noise breve) con rebote
+function numero(s, x, y, fs, color, k, opt = {}) {
+  if (k <= 0) return; X.save(); const e = back(k); X.globalAlpha *= cl(k * 2);
+  X.translate(x, y); X.scale(lerp(1.25, 1, out3(k)) * (opt.s || 1), lerp(1.25, 1, out3(k)) * (opt.s || 1));
+  let txt = s; if (k < .6) { const n = Math.floor(k / .6 * s.length); txt = s.split('').map((ch, i) => i < n || !/\d/.test(ch) ? ch : String((i * 7 + Math.floor(k * 40)) % 10)).join(''); }
+  X.shadowColor = hex(color, .45); X.shadowBlur = 50;
+  texto(txt, 0, 0, `900 ${fs}px ${TIT}`, color, opt.align || 'center', 1, { id: opt.id || 'num:' + s, noLeer: k < 1 });
+  X.restore(); }
+
+// ───────────────────────── tiempos de la voz ─────────────────────────
+const T = window.T, B = {}; T.bloques.forEach(b => B[b.id] = b);
+const norm = s => s.toLowerCase().replace(/[¿?¡!.,:;«»"()]/g, '').trim();
+const ini = id => B[id].ini, fin = id => B[id].ini + B[id].dur;
+function W(id, frases, def = 0, n = 0) { if (typeof frases === 'string') frases = [frases];
+  for (const f of frases) { const b = B[id], ws = f.split(' ').map(norm), P = b.palabras; let m = n;
+    for (let i = 0; i + ws.length <= P.length; i++) if (ws.every((w, j) => norm(P[i + j][2]) === w)) { if (m-- === 0) return P[i][0]; } }
+  console.error('Falta «' + frases.join('/') + '» en el bloque ' + id + ' (uso una posición aproximada)'); return B[id].ini + def * B[id].dur; }
+
+const t1 = { plata: W('01', 'plata', .4), importa: W('01', 'importa', .9) };
+const t2 = { veinte: W('02', 'veinte', .05), bitcoin: W('02', 'bitcoin', .15), veintisiete: W('02', 'veintisiete', .3), oro: W('02', 'oro', .45),
+  doce: W('02', 'doce', .55), anos: W('02', 'años', .7), tres: W('02', 'tres', .85), antes: W('02', 'antes', .95) };
+const t3 = { logico: W('03', 'lógico', .05), rebote: W('03', 'rebote', .25), tres: W('03', 'tres meses', .5), paso: W('03', 'pasó', .85) };
+const t4 = { ini: ini('04'), bitcoin: W('04', 'bitcoin', .4), mas: W('04', 'más', .55), ochenta: W('04', 'ochenta', .65) };
+const t5 = { ini: ini('05'), siguio: W('05', 'siguió', .5), menos: W('05', 'menos', .75) };
+const t6 = { ini: ini('06'), mas: W('06', 'más', .3), treinta: W('06', 'treinta', .4), despues: W('06', 'después', .6), caer: W('06', 'caer', .75),
+  aca: W('06', 'acá', .9) };
+const t7 = { ini: ini('07'), subieron: W('07', 'subieron', .08), dia: W('07', 'día cualquiera', .25), sube: W('07', 'sube', .45), seis: W('07', 'seis', .55),
+  diez: W('07', 'diez', .62), casos: W('07', 'tres casos', .8) };
+const t8 = { ini: ini('08'), plata: W('08', 'plata', .05), pregunta: W('08', 'pregunta', .25), rebota: W('08', 'rebota', .4),
+  aguantarias: W('08', 'aguantarías', .6), repite: W('08', 'repite', .8) };
+const t9 = V === 'ig' ? { ini: ini('09'), historia: W('09', 'historia', .1), rebota: W('09', 'rebota', .45), fin: W('09', 'comentarios', .8) }
+  : { ini: ini('09'), historia: ini('09'), rebota: W('09', 'suscribite', .2), fin: W('09', 'club', .8) };
+// cortes (transiciones hechas con el gráfico)
+const S_HOY = t3.tres - .1;            // el gráfico se pliega en el punto HOY de la línea de tiempo
+const S_EP = t4.ini - .45;             // la ficha 2020 se abre en el gráfico del episodio
+const S_CARD = t7.ini - .1;            // el gráfico del episodio se pliega en su tarjeta
+const S_VUELVE = t8.plata - .05;          // vuelve el cuadro 0
+const S_CIE = t9.ini - .25;
+
+// ───────────────────────── datos (Yahoo Finance, datos.json) ─────────────────────────
+let D = null, R = [], EP = [], N20 = 0, BTC20 = 0, ORO20 = 0, CONT = [];
+function prepara(d) {
+  D = d; R = d.reciente; N20 = R.length - 21;                     // 20 ruedas: del 23/10 al 20/11
+  BTC20 = (R[R.length - 1][1] / R[N20][1] - 1) * 100; ORO20 = (R[R.length - 1][2] / R[N20][2] - 1) * 100;
+  EP = d.episodios.slice(0, 3).map(e => ({ ...e, nb: e.serie_btc.map(v => (v / e.serie_btc[20] - 1) * 100), no: e.serie_oro.map(v => (v / e.serie_oro[20] - 1) * 100) }));
+  // 2026: después de los 60 días, la curva sigue con los cierres reales hasta el 20/11 (volvió a caer hasta acá)
+  const e3 = EP[2], ult = d.reciente.findIndex(r => Math.abs(r[1] - e3.serie_btc[80]) < .01);
+  CONT = R.slice(ult + 1).map(r => [(r[1] / e3.serie_btc[20] - 1) * 100, (r[2] / e3.serie_oro[20] - 1) * 100, r[0]]);
+}
+const BASE_RECIENTE = () => R[N20];   // base 100 = 23/10/2026 (inicio de las 20 ruedas)
+// Base de comparación del guion v1 (cálculo propio, BTC-USD 09/2014–11/2026, 3.004 ventanas de 60 ruedas): sube el 58 % de las veces.
+const UN_DIA_CUALQUIERA = 58;
+
+// ───────────────────────── eventos de sonido ─────────────────────────
+const EV = []; const ev = (t, s) => { if (t >= 0 && t < T.total) EV.push({ t: +t.toFixed(3), s }); };
+ev(.05, 'impacto'); ev(t1.plata, 'pop');
+ev(t2.veinte, 'whoosh'); ev(t2.veintisiete, 'impacto'); ev(t2.doce, 'pop'); ev(t2.tres, 'tics');
+ev(t3.logico, 'pop'); ev(S_HOY, 'whoosh'); ev(S_EP + .1, 'clic');
+ev(t4.ochenta, 'sube'); ev(t5.ini - .1, 'whoosh'); ev(t5.menos, 'impacto'); ev(t6.ini - .1, 'whoosh'); ev(t6.treinta, 'sube'); ev(t6.caer, 'pop');
+ev(S_CARD, 'whoosh'); ev(t7.subieron, 'pop'); ev(t7.dia, 'clic'); ev(t7.seis, 'tics'); ev(t7.casos, 'sello');
+ev(S_VUELVE, 'whoosh'); ev(t8.repite, 'impacto');
+ev(S_CIE, 'whoosh'); ev(t9.rebota, 'pop'); ev(t9.fin, 'clic');
+EV.sort((a, b) => a.t - b.t); window.EVENTOS = EV;
+
+// ───────────────────────── fondo: azul noche con grilla fina (fija; solo la cámara la mueve) ─────────────────────────
+const fondo = document.createElement('canvas'); fondo.width = 1080; fondo.height = 1920;
+(() => { const g = fondo.getContext('2d'); const lg = g.createLinearGradient(0, 0, 0, 1920);
+  lg.addColorStop(0, C.f1); lg.addColorStop(1, C.f2); g.fillStyle = lg; g.fillRect(0, 0, 1080, 1920);
+  const rg = g.createRadialGradient(540, 800, 100, 540, 900, 1200); rg.addColorStop(0, 'rgba(39,74,128,.16)'); rg.addColorStop(1, 'rgba(2,7,15,.55)');
+  g.fillStyle = rg; g.fillRect(0, 0, 1080, 1920); })();
+function grilla(cam) {   // grilla de mundo: se mueve con la cámara
+  X.save(); X.strokeStyle = 'rgba(163,181,209,.06)'; X.lineWidth = 1;
+  const z = cam.z, ox = (540 - cam.x * z) % (60 * z), oy = (800 - cam.y * z) % (60 * z);
+  for (let x = ox; x < 1080; x += 60 * z) { X.beginPath(); X.moveTo(x, 0); X.lineTo(x, 1920); X.stroke(); }
+  for (let y = oy; y < 1920; y += 60 * z) { X.beginPath(); X.moveTo(0, y); X.lineTo(1080, y); X.stroke(); }
+  X.restore(); }
+
+// ───────────────────────── cámara ─────────────────────────
+// mundo: el gráfico vive alrededor de (540, 800). cam = {x, y, z}: punto del mundo en el centro de la pantalla y zoom.
+function camara(t) {
+  let z = 1, x = 540, y = 800;
+  // 01: empuje lento hacia los finales de las líneas
+  z *= 1 + .07 * io(ramp(t, 0, ini('02')));  x += 60 * io(ramp(t, 0, ini('02')));
+  // 02: alejamiento mientras el eje crece a 90 días
+  z *= 1 - .1 * io(ramp(t, t2.veinte - .2, 1.6)); x -= 60 * io(ramp(t, t2.veinte - .2, 1.6));
+  z *= 1 + .03 * io(ramp(t, t2.veinte + 1.6, t3.logico - t2.veinte - 1.6));
+  // 03: paneo lateral por la línea de tiempo (en coordenadas de la línea, ver lineaTiempo)
+  // 04-06: respiración mínima para que nunca quede quieto
+  z *= 1 + .012 * Math.sin(t * .9);
+  // 08: vuelve al encuadre del cuadro 0 y se aleja despacio
+  if (t > S_VUELVE) { const k = io(ramp(t, S_VUELVE, fin('08') - S_VUELVE)); z = (1.07 - .12 * k) * (1 + .012 * Math.sin(t * .9)); x = 600 - 40 * k; y = 800 + 20 * k; }
+  // sacudida corta en 2022
+  const sh = Math.max(pulso(t, t5.siguio, .35), pulso(t, t5.menos, .4));
+  return { x: x + Math.sin(t * 70) * 9 * sh, y: y + Math.cos(t * 83) * 7 * sh, z, sh }; }
+function aplica(cam) { X.translate(540, 800); X.scale(cam.z, cam.z); X.translate(-cam.x, -cam.y); }
+
+// ───────────────────────── gráfico de líneas (caja tweenable) ─────────────────────────
+// serie: valores; caja: {x0,x1,y0,y1}; rango x [i0,i1] (puede ser fraccionario), rango y [v0,v1]; prog: hasta qué índice se dibuja
+function linea(vals, caja, i0, i1, v0, v1, hasta, col, ancho, opt = {}) {
+  const sx = i => lerp(caja.x0, caja.x1, (i - i0) / (i1 - i0)), sy = v => lerp(caja.y1, caja.y0, (v - v0) / (v1 - v0));
+  const a = Math.max(0, Math.floor(i0), opt.desde || 0), b = Math.min(vals.length - 1, hasta);
+  if (b <= a) return null; X.save(); X.lineJoin = 'round'; X.lineCap = 'round';
+  const camino = () => { X.beginPath(); for (let i = a; i <= Math.floor(b); i++) { const p = [sx(i), sy(vals[i])]; i === a ? X.moveTo(...p) : X.lineTo(...p); }
+    if (b % 1 > 0 && Math.floor(b) + 1 < vals.length) { const i = Math.floor(b), f = b - i; X.lineTo(lerp(sx(i), sx(i + 1), f), sy(lerp(vals[i], vals[i + 1], f))); } };
+  if (opt.area) { camino(); const xe = sx(b); X.lineTo(xe, caja.y1); X.lineTo(sx(a), caja.y1); X.closePath(); const g = X.createLinearGradient(0, caja.y0, 0, caja.y1);
+    g.addColorStop(0, hex(col, .16)); g.addColorStop(1, hex(col, 0)); X.fillStyle = g; X.fill(); }
+  if (opt.punteada) X.setLineDash(opt.punteada);
+  X.shadowColor = hex(col, .55); X.shadowBlur = opt.brillo ?? 18; camino(); X.strokeStyle = col; X.lineWidth = ancho; X.stroke();
+  X.restore();
+  const i = Math.floor(b), f = b - i, vx = i + 1 < vals.length ? lerp(vals[i], vals[i + 1], f) : vals[i];
+  return [lerp(sx(i), sx(Math.min(i + 1, vals.length - 1)), f), sy(vx), vx]; }
+function punta(p, col, r = 10, t = 0) { if (!p) return; X.save(); X.fillStyle = col; X.shadowColor = col; X.shadowBlur = 24; X.beginPath(); X.arc(p[0], p[1], r, 0, 7); X.fill();
+  X.globalAlpha *= .45 * (.5 + .5 * Math.sin(t * 5)); X.strokeStyle = col; X.lineWidth = 3; X.beginPath(); X.arc(p[0], p[1], r + 10 + 5 * Math.sin(t * 5), 0, 7); X.stroke(); X.restore(); }
+
+// ───────────────────────── 01–02: el presente (BTC y oro, base 100 = 23/10) ─────────────────────────
+const CAJA = { x0: 160, x1: 850, y0: 500, y1: 1110 };
+function cajaInterp(a, b, k) { return { x0: lerp(a.x0, b.x0, k), x1: lerp(a.x1, b.x1, k), y0: lerp(a.y0, b.y0, k), y1: lerp(a.y1, b.y1, k) }; }
+function presente(t, caja, op = {}) {
+  const n = R.length, b0 = BASE_RECIENTE(), vb = R.map(r => r[1] / b0[1] * 100), vo = R.map(r => r[2] / b0[2] * 100);
+  // eje: de 20 ruedas a 90 ruedas (crece hacia la izquierda en «veinte días»), y en el 08 hacia la derecha para el escenario 2022
+  const kx = io(ramp(t, t2.veinte - .2, 1.6)) * (1 - io(ramp(t, S_HOY - 1.2, .01 + 0)) * 0) * (op.volver ? 0 : 1);
+  let i0 = lerp(N20, 0, kx), i1 = n - 1 + 1.5;
+  if (op.extra) i1 = lerp(n - 1 + 1.5, n - 1 + 62, op.extra);
+  const vis = vb.slice(Math.floor(i0)).concat(vo.slice(Math.floor(i0)));
+  let v0 = Math.min(...vis) - 4, v1 = Math.max(...vis) + 3;
+  if (op.extra) { const ult = vb[n - 1], mn = Math.min(...EP[1].nb.slice(20).map(v => ult * (1 + v / 100))); v0 = lerp(v0, mn - 4, op.extra); }
+  // líneas de referencia
+  X.save(); X.strokeStyle = 'rgba(163,181,209,.18)'; X.lineWidth = 1.5; X.setLineDash([6, 8]);
+  const y100 = lerp(caja.y1, caja.y0, (100 - v0) / (v1 - v0)); X.beginPath(); X.moveTo(caja.x0, y100); X.lineTo(caja.x1, y100); X.stroke(); X.restore();
+  texto('100', caja.x0 - 6, y100 - 18, `600 20px ${MONO}`, C.txt2, 'left', .8, { pass: true });
+  // 20 ruedas: franja
+  const kf = win(t, t2.veinte, S_HOY - .3, .4) + (op.volver ? 1 : 0) * (op.extra ? 0 : 0);
+  if (kf > 0 && !op.volver) { const xa = lerp(caja.x0, caja.x1, (N20 - i0) / (i1 - i0)); X.save(); X.globalAlpha *= kf * .9; X.fillStyle = 'rgba(255,107,107,.07)';
+    X.fillRect(xa, caja.y0 - 20, caja.x1 - xa, caja.y1 - caja.y0 + 40); X.strokeStyle = hex(C.rojo, .5); X.lineWidth = 2; X.beginPath(); X.moveTo(xa, caja.y0 - 20); X.lineTo(xa, caja.y1 + 20); X.stroke();
+    X.restore(); chip('20 RUEDAS', (xa + caja.x1) / 2, caja.y0 - 44, C.rojo, kf * back(ramp(t, t2.veinte, .4)), { fs: 22 }); }
+  // dibujo: en el cuadro 0 ya casi completas; terminan de bajar en el primer segundo
+  const hasta = op.volver ? n - 1 : lerp(n - 1.8, n - 1, out3(ramp(t, 0, .9)));
+  const po = linea(vo, caja, i0, i1, v0, v1, hasta, C.oro, 6, { area: true });
+  const pb = linea(vb, caja, i0, i1, v0, v1, hasta, C.txt, 7);
+  punta(pb, C.txt, 9, t); punta(po, C.oro, 9, t + 1);
+  return { pb, po, i0, i1, v0, v1, vb, vo }; }
+
+// ───────────────────────── 03: línea de tiempo 2014–2026 con las 3 veces y HOY ─────────────────────────
+const AN0 = 2014, AN1 = 2027;
+const TL = { y: 820, x0: -600, x1: 1650 };   // la línea es más ancha que la pantalla: la cámara la recorre
+const tlx = f => { const [y, m, d] = f.split('-').map(Number); const a = y + (m - 1) / 12 + d / 365; return lerp(TL.x0, TL.x1, (a - AN0) / (AN1 - AN0)); };
+function fichaRect(e) { const x = tlx(e.fecha); return { x0: x - 150, x1: x + 150, y0: TL.y - 360, y1: TL.y - 60 }; }
+function lineaTiempo(t, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha *= a;
+  const kl = out3(ramp(t, S_HOY - .1, .6));
+  X.strokeStyle = C.borde; X.lineWidth = 4; X.beginPath(); X.moveTo(TL.x0, TL.y); X.lineTo(lerp(TL.x0, TL.x1, kl), TL.y); X.stroke();
+  for (let y = AN0; y <= 2026; y++) { const x = lerp(TL.x0, TL.x1, (y - AN0) / (AN1 - AN0)); X.fillStyle = C.borde; X.fillRect(x - 1.5, TL.y - 10, 3, 20);
+    texto(String(y), x, TL.y + 40, `600 22px ${MONO}`, C.txt2, 'center', kl * .8, { pass: true }); }
+  // HOY
+  const xh = tlx('2026-11-20'); X.save(); X.fillStyle = C.rojo; X.shadowColor = C.rojo; X.shadowBlur = 24; X.beginPath(); X.arc(xh, TL.y, 13, 0, 7); X.fill(); X.restore();
+  texto('HOY', xh, TL.y + 80, `800 30px ${TIT}`, C.rojo, 'center', 1, { pass: true });
+  // fichas: entran de a una cuando pasa la cámara
+  EP.forEach((e, i) => { const kk = back(ramp(t, S_HOY + .35 + (2 - i) * .22, .35)); if (kk <= 0) return; const r = fichaRect(e);
+    if (i === 0 && t > S_EP) return;   // la 2020 se abre en el gráfico (la dibuja episodio())
+    fichaDibujo(e, r, kk, t); });
+  X.restore(); }
+function fichaDibujo(e, r, k, t, conNum = false) {
+  X.save(); X.globalAlpha *= cl(k * 1.6); const cx = (r.x0 + r.x1) / 2, cy = (r.y0 + r.y1) / 2, s = lerp(.85, 1, k);
+  X.translate(cx, cy); X.scale(s, s); X.translate(-cx, -cy);
+  X.shadowColor = 'rgba(0,0,0,.5)'; X.shadowBlur = 30; X.shadowOffsetY = 12; rr(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0, 18); X.fillStyle = C.panel; X.fill(); X.shadowColor = 'transparent';
+  X.strokeStyle = C.borde; X.lineWidth = 2.5; X.stroke();
+  const meses = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+  texto(meses[+e.fecha.slice(5, 7) - 1] + ' ' + e.fecha.slice(0, 4), cx, r.y0 + 34, `700 26px ${MONO}`, C.oro, 'center', 1, { pass: true });
+  const caja = { x0: r.x0 + 18, x1: r.x1 - 18, y0: r.y0 + 66, y1: r.y1 - 20 }, mn = Math.min(...e.nb), mx = Math.max(...e.nb);
+  linea(e.nb, caja, 0, 80, mn - 5, mx + 5, conNum ? 80 : 20, C.txt, 4, { brillo: 8 });
+  X.restore();
+  // tallo hacia la línea de tiempo
+  X.save(); X.globalAlpha *= cl(k * 1.6) * .7; X.strokeStyle = C.borde; X.lineWidth = 2; X.beginPath(); X.moveTo(cx, r.y1); X.lineTo(cx, TL.y - 12); X.stroke();
+  X.fillStyle = C.oro; X.beginPath(); X.arc(cx, TL.y, 9, 0, 7); X.fill(); X.restore(); }
+
+// ───────────────────────── 04–06: los tres episodios (la línea se transforma en la siguiente) ─────────────────────────
+function episodioEstado(t) {
+  // índice continuo: 0 = 2020, 1 = 2022, 2 = 2026; y cuánto del «después» se ve
+  const m1 = io(ramp(t, t5.ini + .05, .6)), m2 = io(ramp(t, t6.ini + .05, .6));
+  const cur = m2 > 0 ? 1 + m2 : m1;
+  const tDesp = [t4.bitcoin - .2, t5.siguio - .25, t6.mas - .3], tNum = [t4.bitcoin - .25, t5.siguio - .35, t6.mas - .2];
+  return { cur, m1, m2, tDesp, tNum }; }
+function mezclaSerie(a, b, k) { return a.map((v, i) => lerp(v, b[i], io(cl(k * 1.6 - i / 80 * .6)))); }
+function episodio(t, caja, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha *= a;
+  const { cur, m1, m2, tDesp, tNum } = episodioEstado(t), idx = Math.min(2, Math.round(cur)), e = EP[idx];
+  const nb = cur <= 1 ? mezclaSerie(EP[0].nb, EP[1].nb, cur) : mezclaSerie(EP[1].nb, EP[2].nb, cur - 1);
+  const no = cur <= 1 ? mezclaSerie(EP[0].no, EP[1].no, cur) : mezclaSerie(EP[1].no, EP[2].no, cur - 1);
+  // 2026: la curva sigue hasta el 20/11 («volvió a caer hasta acá»): el eje x crece a la derecha
+  const kc = io(ramp(t, t6.despues - .1, Math.max(.6, t6.aca - t6.despues + .2)));
+  const nbx = nb.concat(CONT.map(c => c[0])), nox = no.concat(CONT.map(c => c[1]));
+  const i1 = lerp(80, 80 + CONT.length, kc);
+  const lim = s => [Math.min(...s), Math.max(...s)], [bmn, bmx] = lim(nb.concat(kc > 0 ? CONT.map(c => c[0]) : []));
+  const v0 = bmn - 8, v1 = bmx + 8;
+  // cuánto del «después» se dibuja (tramo 20→80) en el episodio actual
+  const kd = cl((t - tDesp[idx]) / 1.1), hasta = idx === Math.floor(cur + .001) || cur % 1 === 0 ? 20 + 60 * io(kd) + kc * CONT.length : 20;
+  const hastaM = (m1 > 0 && m1 < 1) || (m2 > 0 && m2 < 1) ? 80 : hasta;
+  // marco del gráfico
+  X.save(); X.fillStyle = 'rgba(13,33,66,.55)'; rr(caja.x0 - 20, caja.y0 - 90, caja.x1 - caja.x0 + 40, caja.y1 - caja.y0 + 130, 24); X.fill();
+  X.strokeStyle = C.borde; X.lineWidth = 2; X.stroke(); X.restore();
+  const sx = i => lerp(caja.x0, caja.x1, i / i1), sy = v => lerp(caja.y1, caja.y0, (v - v0) / (v1 - v0));
+  // fecha del episodio y línea vertical del día de la caída
+  const etiqueta = ['MARZO 2020', 'MAYO 2022', 'JUNIO 2026'][idx], ka = 1 - Math.min(win(t, t5.ini - .3, t5.ini + .1, .15), 1) * 0;
+  texto(etiqueta, caja.x0, caja.y0 - 52, `800 34px ${TIT}`, C.oro, 'left', 1, { id: 'ep-fecha' });
+  texto('BTC · día de la caída = 0 %', caja.x1, caja.y0 - 52, `600 19px ${MONO}`, C.txt2, 'right', .85, { pass: true });
+  X.save(); X.strokeStyle = 'rgba(163,181,209,.35)'; X.setLineDash([6, 8]); X.lineWidth = 2; X.beginPath(); X.moveTo(sx(20), caja.y0); X.lineTo(sx(20), caja.y1); X.stroke();
+  X.beginPath(); X.moveTo(caja.x0, sy(0)); X.lineTo(caja.x1, sy(0)); X.stroke(); X.restore();
+  texto('0 %', caja.x0 + 4, sy(0) - 18, `600 20px ${MONO}`, C.txt2, 'left', .8, { pass: true });
+  // tramo «3 meses después»
+  const k3 = ramp(t, tDesp[idx], .4) * (m1 > 0 && m1 < 1 || m2 > 0 && m2 < 1 ? 0 : 1);
+  if (k3 > 0) { X.save(); X.globalAlpha *= k3; X.strokeStyle = C.txt2; X.lineWidth = 2; const y = caja.y1 + 26;
+    X.beginPath(); X.moveTo(sx(20), y - 8); X.lineTo(sx(20), y); X.lineTo(sx(80), y); X.lineTo(sx(80), y - 8); X.stroke(); X.restore();
+    texto('3 MESES DESPUÉS', (sx(20) + sx(80)) / 2, caja.y1 + 52, `600 20px ${MONO}`, C.txt2, 'center', k3, { pass: true }); }
+  // oro (fino) y bitcoin (grueso); el «después» en verde si subió, rojo si bajó
+  const res = e.btc60, colD = res >= 0 ? C.verde : C.rojo;
+  const caja2 = { x0: caja.x0, x1: caja.x1, y0: caja.y0, y1: caja.y1 };
+  linea(nox, caja2, 0, i1, v0, v1, Math.max(20, hastaM), hex(C.oro, 1), 3.5, { brillo: 6 });
+  linea(nbx, caja2, 0, i1, v0, v1, 20, C.txt, 6);
+  const p = linea(nbx, caja2, 0, i1, v0, v1, Math.max(20.01, Math.min(80, hastaM)), colD, 7, { desde: 20 });
+  if (kc > 0) { const pc = linea(nbx, caja2, 0, i1, v0, v1, Math.max(80.01, hastaM), C.rojo, 7, { desde: 80 }); punta(pc, C.rojo, 10, t);
+    if (ramp(t, t6.caer, .3) > 0) chip(fmt(CONT[CONT.length - 1] ? R[R.length - 1][1] : 0) + ' · 20/11', Math.min(pc[0], caja.x1 - 120), pc[1] + 56, C.rojo, back(ramp(t, t6.caer, .4)), { fs: 22, pass: true }); }
+  else punta(p, colD, 10, t);
+  // número gigante del episodio
+  const enM = (m1 > 0 && m1 < 1) || (m2 > 0 && m2 < 1), idN = enM ? Math.floor(cur) : idx, kn = (enM ? 1 : ramp(t, tNum[idx], .45)) * (1 - ramp(t, S_CARD - .1, .12));
+  if (kn > 0) { const eN = EP[idN], rN = eN.btc60, cN = rN >= 0 ? C.verde : C.rojo, sal = enM ? 1 - io(Math.min(1, (cur % 1) * 3)) : 1;
+    X.save(); X.globalAlpha *= sal; numero(pct(Math.round(rN)), 505, 1250, 170, cN, kn, { id: 'ep-num-' + idN });
+    texto('oro ' + pct(Math.round(eN.oro60)), 505, 1400, `700 30px ${SANS}`, C.oro, 'center', enM ? 1 : ramp(t, tNum[idx], .3), { id: 'ep-oro-' + idN }); X.restore(); }
+  texto('BITCOIN · 3 MESES DESPUÉS', 505, 1355, `600 22px ${MONO}`, C.txt2, 'center', ramp(t, tNum[0], .3) * (1 - ramp(t, S_CARD - .1, .12)), { id: 'ep-sub' });
+  X.restore(); }
+
+// ───────────────────────── 07: 2 de 3 contra un día cualquiera ─────────────────────────
+const CARDS = [{ x0: 150, x1: 380, y0: 470, y1: 720 }, { x0: 405, x1: 635, y0: 470, y1: 720 }, { x0: 660, x1: 890, y0: 470, y1: 720 }];
+function tarjetasEp(t, a, kEntra) {
+  if (a <= 0) return; X.save(); X.globalAlpha *= a;
+  EP.forEach((e, i) => { const k = i === 2 ? 1 : back(ramp(t, S_CARD + .25 + i * .15, .4)); if (k <= 0) return; const r = CARDS[i];
+    X.save(); X.globalAlpha *= cl(k * 1.6); const cx = (r.x0 + r.x1) / 2; X.translate(0, 40 * (1 - k));
+    X.shadowColor = 'rgba(0,0,0,.5)'; X.shadowBlur = 30; X.shadowOffsetY = 12; rr(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0, 18); X.fillStyle = C.panel; X.fill(); X.shadowColor = 'transparent';
+    const col = e.btc60 >= 0 ? C.verde : C.rojo; X.strokeStyle = t > t7.subieron ? col : C.borde; X.lineWidth = t > t7.subieron ? 3.5 : 2.5; X.stroke();
+    texto(e.fecha.slice(0, 4), cx, r.y0 + 34, `700 26px ${MONO}`, C.oro, 'center', 1, { id: 'card-a' + i, pass: true });
+    const caja = { x0: r.x0 + 18, x1: r.x1 - 18, y0: r.y0 + 66, y1: r.y1 - 74 }, mn = Math.min(...e.nb), mx = Math.max(...e.nb);
+    linea(e.nb, caja, 0, 80, mn - 5, mx + 5, 20, C.txt, 3.5, { brillo: 6 }); linea(e.nb, caja, 0, 80, mn - 5, mx + 5, 80, col, 4, { brillo: 8 });
+    texto(pct(Math.round(e.btc60)), cx, r.y1 - 36, `900 44px ${TIT}`, col, 'center', 1, { id: 'card-n' + i });
+    X.restore(); });
+  X.restore(); }
+function comparacion(t, a) {
+  if (a <= 0) return; X.save(); X.globalAlpha *= a;
+  titulo([['2 DE 3 ', C.verde], ['SUBIERON', C.txt]], 340, 78, ramp(t, t7.subieron - .1, .35), 1);
+  // un día cualquiera: 10 puntos, 6 verdes
+  const kd = ramp(t, t7.dia - .05, .35);
+  if (kd > 0) { texto('UN DÍA CUALQUIERA', 505, 800, `600 26px ${MONO}`, C.txt2, 'center', kd, { id: 'dia' });
+    for (let i = 0; i < 10; i++) { const kk = back(ramp(t, t7.seis - .3 + i * .07, .3)), x = 205 + i * 67, y = 880; if (kk <= 0) continue; const v = i < 6;
+      X.save(); X.translate(x, y); X.scale(kk, kk); X.fillStyle = v ? C.verde : 'rgba(163,181,209,.28)'; if (v) { X.shadowColor = C.verde; X.shadowBlur = 16; }
+      X.beginPath(); X.arc(0, 0, 24, 0, 7); X.fill(); X.restore(); }
+    numero('6 DE 10', 505, 1010, 110, C.verde, ramp(t, t7.diez - .1, .4), { id: 'seis' });
+    texto('sube a 3 meses (' + UN_DIA_CUALQUIERA + ' % de las veces)', 505, 1090, `600 30px ${SANS}`, C.txt2, 'center', ramp(t, t7.sube, .3), { id: 'sube3' }); }
+  // sello
+  const ks = ramp(t, t7.casos - .65, .3);
+  if (ks > 0) { X.save(); const s = lerp(1.7, 1, out3(ks)); X.globalAlpha *= cl(ks * 2); X.translate(505, 1265); X.rotate(-.04); X.scale(s, s);
+    X.lineWidth = 6; X.strokeStyle = C.oro; rr(-335, -66, 670, 132, 14); X.stroke(); X.lineWidth = 2; rr(-323, -54, 646, 108, 10); X.stroke();
+    X.fillStyle = hex(C.oro, .08); rr(-335, -66, 670, 132, 14); X.fill();
+    texto('3 CASOS ≠ ESTADÍSTICA', 0, 4, `900 48px ${TIT}`, C.oro, 'center', 1, { id: 'sello', escala: 1 }); X.restore(); }
+  texto('Cálculo propio · BTC-USD 2014-2026 · ventanas de 60 ruedas', 505, 1385, `500 19px ${MONO}`, C.txt2, 'center', .8 * ramp(t, t7.dia, .3), { pass: true });
+  X.restore(); }
+
+// ───────────────────────── 08: vuelve el cuadro 0, con 2022 encima ─────────────────────────
+function escenario2022(t, st, caja) {
+  const k = io(ramp(t, t8.repite - .3, 1.3)); if (k <= 0) return;
+  // trayectoria real de 2022 (60 ruedas después de su caída) aplicada al cierre del 20/11, como escenario
+  const e = EP[1], ult = st.vb[st.vb.length - 1], n = R.length - 1;
+  const camino = e.nb.slice(20).map(v => ult * (1 + v / 100));
+  const sx = i => lerp(caja.x0, caja.x1, (i - st.i0) / (st.i1 - st.i0)), sy = v => lerp(caja.y1, caja.y0, (v - st.v0) / (st.v1 - st.v0));
+  X.save(); X.setLineDash([12, 10]); X.strokeStyle = C.rojo; X.lineWidth = 5; X.shadowColor = hex(C.rojo, .5); X.shadowBlur = 14; X.beginPath();
+  const m = Math.floor(60 * k); for (let i = 0; i <= m; i++) { const p = [sx(n + i), sy(camino[i])]; i ? X.lineTo(...p) : X.moveTo(...p); } X.stroke(); X.restore();
+  if (k > .95) { const p = [sx(n + 60), sy(camino[60])]; X.save(); X.fillStyle = C.rojo; X.beginPath(); X.arc(p[0], p[1], 10, 0, 7); X.fill(); X.restore();
+    chip('SI SE REPITE 2022: ' + pct(Math.round(e.btc60)), Math.min(p[0], caja.x1) - 4, p[1] + 52, C.rojo, back(ramp(t, t8.repite + .2, .4)), { fs: 22, der: true }); }
+  texto('Escenario con la curva real de 2022 · no es pronóstico', 505, 1150, `500 20px ${MONO}`, C.txt2, 'center', .85 * k * (1 - ramp(t, S_CIE, .2)), { pass: true }); }
+
+// ───────────────────────── cierre (09) ─────────────────────────
+const IMG = {}; const carga = (k, src) => new Promise(r => { const im = new Image(); im.onload = () => { IMG[k] = im; r(); }; im.onerror = () => r(); im.src = src; });
+function cierre(t, a) {
+  X.save(); X.globalAlpha = 1; texto('Contenido educativo. No constituye recomendación de inversión.', 505, 1405, `500 22px ${SANS}`, C.txt2, 'center', ramp(t, S_VUELVE + .2, .4) * (t > S_CIE + .45 ? 0 : 1), { id: 'aviso' }); X.restore();
+  if (a <= 0) return; X.save(); X.globalAlpha = a;
+  const kc = back(ramp(t, S_CIE + .15, .5));
+  if (V === 'ig') {
+    titulo([['¿QUÉ HISTORIA ', C.txt], ['SE REPITE?', C.oro]], 1000, 54, ramp(t, t9.historia - .1, .35), 1);
+    const kr = back(ramp(t, t9.rebota - .1, .4));
+    if (kr > 0) { X.save(); X.globalAlpha *= cl(kr * 1.6); X.translate(0, 30 * (1 - kr));
+      texto('COMENTÁ', 505, 1080, `700 26px ${MONO}`, C.txt2, 'center', 1, { id: 'comenta' });
+      chip('REBOTA', 345, 1160, C.verde, 1, { fs: 54 }); texto('o', 505, 1160, `700 40px ${SANS}`, C.txt2, 'center', 1, { pass: true }); chip('SIGUE', 655, 1160, C.rojo, 1, { fs: 54 });
+      X.restore(); }
+    if (kc > 0) { X.save(); X.globalAlpha *= cl(kc * 1.5); X.translate(0, 60 * (1 - kc)); const ty = 600;
+      X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 40; X.shadowOffsetY = 16; rr(140, ty, 730, 330, 30); X.fillStyle = C.panel; X.fill(); X.shadowColor = 'transparent';
+      X.strokeStyle = C.borde; X.lineWidth = 3; X.stroke();
+      X.save(); X.beginPath(); X.arc(240, ty + 100, 66, 0, 7); X.clip(); if (IMG.av) X.drawImage(IMG.av, 174, ty + 34, 132, 132); X.restore();
+      X.strokeStyle = C.oro; X.lineWidth = 4; X.beginPath(); X.arc(240, ty + 100, 68, 0, 7); X.stroke();
+      texto('leanalvarez.ok', 336, ty + 74, `700 38px ${SANS}`, C.txt, 'left', 1, { pass: true }); texto('Lean Alvarez · RIC', 336, ty + 122, `500 28px ${SANS}`, C.txt2, 'left', 1, { pass: true });
+      const pulsa = t >= t9.fin + .1; rr(180, ty + 220, 650, 70, 16); X.fillStyle = pulsa ? '#1b2d4d' : '#2f7cf6'; X.fill();
+      texto(pulsa ? 'Siguiendo' : 'Seguir', 505, ty + 255, `700 32px ${SANS}`, C.txt, 'center', 1, { pass: true }); X.restore(); }
+  } else {
+    if (kc > 0) { X.save(); X.globalAlpha *= cl(kc * 1.5); X.translate(0, 60 * (1 - kc)); const ty = 760;
+      X.shadowColor = 'rgba(0,0,0,.55)'; X.shadowBlur = 40; X.shadowOffsetY = 16; rr(140, ty, 730, 330, 30); X.fillStyle = C.panel; X.fill(); X.shadowColor = 'transparent';
+      X.strokeStyle = C.borde; X.lineWidth = 3; X.stroke();
+      rr(176, ty + 36, 238, 134, 18); X.fillStyle = C.txt; X.fill(); if (IMG.logo) X.drawImage(IMG.logo, 189, ty + 43, 212, 116);
+      texto('Real Investors Club', 434, ty + 80, `700 38px ${SANS}`, C.txt, 'left', 1, { pass: true }); texto('@REALinvestorsc', 434, ty + 128, `500 28px ${SANS}`, C.txt2, 'left', 1, { pass: true });
+      const pulsa = t >= t9.fin + .1; rr(180, ty + 220, 650, 70, 35); X.fillStyle = pulsa ? '#1b2d4d' : '#e5322d'; X.fill();
+      texto(pulsa ? 'Suscrito ✓' : 'Suscribirse', 505, ty + 255, `700 32px ${SANS}`, C.txt, 'center', 1, { pass: true }); X.restore(); }
+    titulo([['SUSCRIBITE A ', C.txt], ['RIC', C.oro]], 1180, 62, ramp(t, S_CIE - .25, .2), 1);
+  }
+  texto('Contenido educativo. No constituye recomendación de inversión.', 505, 1405, `500 22px ${SANS}`, C.txt2, 'center', 1, { id: 'aviso' });
+  X.restore(); }
+
+// ───────────────────────── subtítulos palabra por palabra (trozos de al menos 1,8 s) ─────────────────────────
+const CLAVES = new Set(['bitcoin', 'oro', 'plata', '27', '12', '%', '3', 'lógico', 'rebote', '81', '20', '32', '2022', 'cayendo', 'acá', '2', 'subieron',
+  '6', '10', 'estadística', 'rebota', 'sigue', 'aguantarías', 'repite', 'real', 'investors', 'club', 'suscribite']);
+const SUBS = [];
+(() => {   // trozos de al menos 1,8 s: se suman palabras hasta pasar 1,8 s y llegar a una pausa o a ~24 letras (máx. 34)
+  const P = T.bloques.flatMap(b => b.subs), largo = c => c.reduce((p, q) => p + q[2].length + 1, 0);
+  for (let i = 0; i < P.length;) { const c = [P[i]]; let j = i + 1;
+    while (j < P.length) { const ult = c[c.length - 1], dur = P[j][0] - c[0][0], len = largo(c) + P[j][2].length;
+      if (len > 30) break; if (dur >= 1.8 && (/[.:;?!,]$/.test(ult[2]) || len > 24 || P[j][0] - ult[1] > .6)) break; c.push(P[j]); j++; }
+    SUBS.push({ p: c }); i = j; }
+  // cada trozo entra hasta 0,3 s antes de su primera palabra si el anterior ya terminó de decirse (aprovecha las pausas)
+  SUBS.forEach((c, i) => { c.fin = c.p[c.p.length - 1][1]; c.a = i ? Math.min(c.p[0][0] - .03, Math.max(c.p[0][0] - .3, SUBS[i - 1].fin + .2)) : c.p[0][0]; });
+  for (let i = 1; i < SUBS.length; i++) SUBS[i].a = Math.max(SUBS[i].a, SUBS[i - 1].a + 1.8);   // si un trozo quedó corto, el siguiente espera
+  SUBS.forEach((c, i) => { c.b = i + 1 < SUBS.length ? Math.min(SUBS[i + 1].a, Math.max(c.fin + 1.2, c.a + 1.8)) : c.fin + .8; }); })();
+window.SUBS = SUBS.map(c => ({ a: c.a, b: c.b, retraso: +(c.a - c.p[0][0]).toFixed(2), texto: c.p.map(s => s[2]).join(' ') }));
+function subtitulos(t) {
+  const c = SUBS.find(c => t >= c.a - .05 && t < c.b); if (!c) return;
+  X.font = `900 58px ${TIT}`; const esp = 16;
+  const ws = c.p.map(s => s[2].toUpperCase()), anchos = ws.map(w => X.measureText(w).width);
+  const lineas = [[]]; let ac = 0; ws.forEach((w, i) => { if (ac + anchos[i] > 720 && lineas[lineas.length - 1].length) { lineas.push([]); ac = 0; }
+    lineas[lineas.length - 1].push(i); ac += anchos[i] + esp; });
+  const y0 = lineas.length > 2 ? 1470 : lineas.length > 1 ? 1492 : 1530;
+  lineas.forEach((ln, li) => { const tot = ln.reduce((p, i) => p + anchos[i] + esp, -esp); let x = 505 - tot / 2;
+    ln.forEach(i => { const s = c.p[i], dicha = t >= s[0] - .03, ahora = t >= s[0] - .03 && t < s[1] + .05;
+      const clave = norm(s[2]).split(' ').some(p => CLAVES.has(p));
+      X.save(); X.textAlign = 'left'; X.textBaseline = 'middle'; X.font = `900 58px ${TIT}`;
+      X.shadowColor = 'rgba(0,0,0,.85)'; X.shadowBlur = 16; X.shadowOffsetY = 4;
+      X.fillStyle = dicha ? (clave ? C.oro : C.txt) : 'rgba(163,181,209,.38)';
+      X.fillText(ws[i], x, y0 + li * 72 - (ahora ? 4 : 0)); X.restore(); x += anchos[i] + esp; }); }); }
+
+// ───────────────────────── cuadro ─────────────────────────
+function cuadro(t) {
+  t = +t; TX = []; X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X.drawImage(fondo, 0, 0);
+  const cam = camara(t);
+  // paneo de la línea de tiempo (03): la cámara va de HOY a 2020 y entra en la ficha
+  let camTL = null;
+  if (t > S_HOY - .1 && t < S_EP + .6) {
+    const xh = tlx('2026-11-20'), x20 = tlx(EP[0].fecha), kp = io(ramp(t, S_HOY + .25, S_EP - S_HOY - .2));
+    camTL = { x: lerp(xh - 120, x20, kp), y: lerp(TL.y - 200, TL.y - 230, kp), z: lerp(1.4, 1.25, kp) * (1 + .01 * Math.sin(t * .9)) }; }
+  grilla(camTL || cam);
+  X.save();
+  // 01–03: el presente; se pliega en HOY
+  if (t < S_HOY + .55) {
+    const kf = io(ramp(t, S_HOY, .5)), xh = tlx('2026-11-20');
+    X.save(); aplica(cam);
+    let caja = CAJA;
+    if (kf > 0) { // se pliega hacia el punto HOY (en coordenadas de pantalla de la línea de tiempo)
+      const z = camTL.z, hx = 540 + (xh - camTL.x) * z, hy = 800 + (TL.y - camTL.y) * z;
+      caja = cajaInterp(CAJA, { x0: hx - 6, x1: hx + 6, y0: hy - 6, y1: hy + 6 }, kf); X.setTransform(1, 0, 0, 1, 0, 0); }
+    X.globalAlpha = 1 - ramp(t, S_HOY + .35, .2);
+    const st = presente(t, caja);
+    if (kf === 0) etiquetasPresente(t, st, caja, cam);
+    X.restore(); }
+  // 03: línea de tiempo con las fichas
+  if (camTL) { X.save(); aplica(camTL); lineaTiempo(t, 1); X.restore(); }
+  // 04–06: episodio (se abre desde la ficha 2020) — 07: se pliega en su tarjeta
+  if (t > S_EP && t < S_CARD + .6) {
+    let caja = { x0: 175, x1: 845, y0: 560, y1: 1080 };
+    if (t < S_EP + .6) { const k = io(ramp(t, S_EP, .5)), r = fichaRect(EP[0]), z = camTL ? camTL.z : 1;
+      const rs = { x0: 540 + (r.x0 + 18 - camTL.x) * z, x1: 540 + (r.x1 - 18 - camTL.x) * z, y0: 800 + (r.y0 + 66 - camTL.y) * z, y1: 800 + (r.y1 - 20 - camTL.y) * z };
+      caja = cajaInterp(rs, caja, k); }
+    if (t > S_CARD) { const k = io(ramp(t, S_CARD, .5)), r = CARDS[2]; caja = cajaInterp(caja, { x0: r.x0 + 18, x1: r.x1 - 18, y0: r.y0 + 66, y1: r.y1 - 74 }, k); }
+    X.save(); const s = 1 + .012 * Math.sin(t * .9), sh = cam.sh; X.translate(540 + Math.sin(t * 70) * 9 * sh, 800 + Math.cos(t * 83) * 7 * sh); X.scale(s, s); X.translate(-540, -800);
+    episodio(t, caja, 1 - ramp(t, S_CARD + .3, .2)); X.restore(); }
+  // 07: tarjetas y comparación
+  if (t > S_CARD + .3 && t < S_VUELVE + .5) {
+    const sal = io(ramp(t, S_VUELVE + .1, .45));
+    X.save(); const cx = 540, s = (1 + .01 * Math.sin(t * .9)) * (1 - .9 * sal); X.translate(cx, 800); X.scale(s, s); X.translate(-cx, -800);
+    tarjetasEp(t, 1 - ramp(t, S_VUELVE + .2, .2)); comparacion(t, 1 - ramp(t, S_VUELVE + .2, .2)); X.restore(); }
+  // 08: vuelve el cuadro 0
+  if (t > S_VUELVE) {
+    X.save(); aplica(cam); const k = io(ramp(t, S_VUELVE, .5)), kx = io(ramp(t, t8.repite - .6, 1));
+    const caja = cajaInterp({ x0: 520, x1: 560, y0: 780, y1: 820 }, CAJA, k);
+    let cajaF = caja; if (t > S_CIE) { const kc = io(ramp(t, S_CIE, .55)); cajaF = cajaInterp(caja, V === 'ig' ? { x0: 230, x1: 740, y0: 420, y1: 560 } : { x0: 210, x1: 790, y0: 440, y1: 680 }, kc); }
+    const st = presente(t, cajaF, { volver: true, extra: kx });
+    etiquetasPresente(t, st, cajaF, cam, true); escenario2022(t, st, cajaF);
+    X.restore(); }
+  X.restore();
+  // títulos fijos (HUD)
+  titulo([['¿TU PLATA ', C.txt], ['ESTÁ ACÁ?', C.oro]], 330, 82, 1, 1 - ramp(t, t2.veinte - .3, .25));
+  titulo([['ESTÁ ', C.txt], ['ABAJO', C.rojo], [' JUNTOS', C.txt]], 330, 70, ramp(t, t2.veinte - .05, .35), 1 - ramp(t, t3.logico - .25, .2));
+  titulo([['LO LÓGICO: ', C.oro], ['REBOTE', C.verde]], 330, 74, ramp(t, ini('03') - .1, .3), 1 - ramp(t, S_HOY + .72, .1));
+  titulo([['3 MESES ', C.oro], ['DESPUÉS', C.txt]], 330, 74, ramp(t, S_HOY + .75, .3), 1 - ramp(t, S_CARD, .2));
+  titulo([['¿TU PLATA ', C.txt], ['ESTÁ AHÍ?', C.oro]], 330, 82, ramp(t, t8.plata - .1, .35), 1 - ramp(t, t8.repite - .25, .2));
+  titulo([['¿Y SI ES ', C.txt], ['2022', C.rojo], ['?', C.txt]], 330, 96, ramp(t, t8.repite - .05, .35), 1);
+  // 3 veces antes (02)
+  const k3 = ramp(t, t2.anos + .25, .35) * (1 - ramp(t, S_HOY, .2));
+  if (k3 > 0) { numero('3 VECES ANTES', 505, 1240, 80, C.oro, k3, { id: 'tres' }); texto('DESDE 2014', 505, 1320, `600 24px ${MONO}`, C.txt2, 'center', ramp(t, t2.anos + .35, .3) * (1 - ramp(t, S_HOY, .2)), { id: 'desde' }); }
+  cierre(t, ramp(t, S_CIE - .15, .25));
+  // destello corto en los cambios de escena
+  for (const tc of [S_HOY, S_EP, S_CARD, S_VUELVE, S_CIE]) { const k = pulso(t, tc - .02, .25); if (k > 0) { X.save(); X.globalAlpha = .06 * k; X.fillStyle = C.oro; X.fillRect(0, 0, 1080, 1920); X.restore(); } }
+  subtitulos(t);
+  X.globalAlpha = 1;
+  ['Fuente: Yahoo Finance · cierres diarios al 20/11/2026', 'Contenido educativo, no es recomendación de inversión · Voz generada con IA (clon de la voz de Lean)']
+    .forEach((s, i) => texto(s, 505, 1648 + i * 26, `500 17px ${MONO}`, C.txt2, 'center', .65, { pass: true }));
+  window.TEXTOS = TX;
+}
+// etiquetas del presente: números gigantes, nombres de las líneas
+function etiquetasPresente(t, st, caja, cam, volver = false) {
+  const { pb, po } = st; if (!pb || !po) return;
+  texto('BTC', pb[0] - 18, pb[1] - 34, `800 30px ${TIT}`, C.txt, 'right', 1, { pass: true });
+  texto('ORO', po[0] - 18, po[1] - 34, `800 30px ${TIT}`, C.oro, 'right', 1, { pass: true });
+  if (!volver) {
+    // cuadro 0: los dos porcentajes; en «veintisiete» / «doce» crecen a número gigante
+    const fin2 = 1 - ramp(t, t2.anos + .1, .2), kg = ramp(t, t2.veintisiete - .15, .45) * fin2, ko = ramp(t, t2.veintisiete + .15, .45) * fin2;
+    const inv = 1 / cam.z;   // los números se dibujan en coordenadas de pantalla
+    X.save(); X.setTransform(1, 0, 0, 1, 0, 0);
+    const a0 = 1 - ramp(t, t2.veintisiete - .2, .2);
+    if (a0 > 0) { texto('BTC ' + pct(Math.round(BTC20)), 330, 1225, `900 56px ${TIT}`, C.rojo, 'center', a0, { id: 'btc0' });
+      texto('ORO ' + pct(Math.round(ORO20)), 685, 1225, `900 56px ${TIT}`, C.rojo, 'center', a0, { id: 'oro0' });
+      texto('EN 20 RUEDAS · BASE 100 = 23/10/2026', 505, 1310, `600 21px ${MONO}`, C.txt2, 'center', a0 * .9, { pass: true }); }
+    if (kg > 0) { numero(pct(Math.round(BTC20)), 305, 1235, 100, C.rojo, kg, { id: 'g-btc' }); texto('BITCOIN', 305, 1335, `600 26px ${MONO}`, C.txt, 'center', kg, { id: 'g-btc-s' }); }
+    if (ko > 0) { numero(pct(Math.round(ORO20)), 705, 1235, 100, C.rojo, ko, { id: 'g-oro' }); texto('ORO', 705, 1335, `600 26px ${MONO}`, C.oro, 'center', ko, { id: 'g-oro-s' }); }
+    texto('EN 20 RUEDAS', 505, 1395, `600 22px ${MONO}`, C.txt2, 'center', Math.min(kg, 1) * fin2, { id: 'g-20' });
+    // lo lógico: flecha punteada hacia arriba desde la punta de BTC
+    const kl = ramp(t, t3.rebote - .1, .5) * (1 - ramp(t, S_HOY - .05, .15));
+    if (kl > 0) { const m = X.getTransform(); X.restore(); X.save(); X.globalAlpha *= kl; X.setLineDash([10, 8]); X.strokeStyle = C.verde; X.lineWidth = 4;
+      X.beginPath(); X.moveTo(pb[0], pb[1] - 16); X.lineTo(pb[0] - 10, pb[1] - 16 - 260 * out3(kl)); X.stroke(); X.setLineDash([]);
+      X.fillStyle = C.verde; const yt = pb[1] - 16 - 260 * out3(kl); X.beginPath(); X.moveTo(pb[0] - 26, yt + 18); X.lineTo(pb[0] - 10, yt - 6); X.lineTo(pb[0] + 6, yt + 18); X.fill(); }
+    X.restore();
+  } else {
+    X.save(); X.setTransform(1, 0, 0, 1, 0, 0); const k = ramp(t, S_VUELVE + .3, .4) * (1 - ramp(t, t8.repite - .3, .3));
+    texto('BTC ' + pct(Math.round(BTC20)), 330, 1225, `900 56px ${TIT}`, C.rojo, 'center', k, { id: 'btc8' });
+    texto('ORO ' + pct(Math.round(ORO20)), 685, 1225, `900 56px ${TIT}`, C.rojo, 'center', k, { id: 'oro8' }); X.restore(); }
+}
+window.cuadro = cuadro;
+window.listo = (async () => {
+  await Promise.all([`900 80px Archivo`, `800 40px Archivo`, `700 40px Archivo`, `700 40px "IBM Plex Sans"`, `600 40px "IBM Plex Sans"`, `500 20px "IBM Plex Sans"`,
+    `700 20px "IBM Plex Mono"`, `600 20px "IBM Plex Mono"`, `500 20px "IBM Plex Mono"`].map(f => document.fonts.load(f)));
+  const d = await new Promise((ok, mal) => { const x = new XMLHttpRequest(); x.open('GET', 'datos.json'); x.onload = () => ok(JSON.parse(x.responseText)); x.onerror = mal; x.send(); }); prepara(d);
+  await Promise.all([carga('av', '../../herramientas/particulas/avatar.png'), carga('logo', '../../marca/logo-navy.png')]);
+  cuadro(0); return true; })();
+</script>
+</body></html>
