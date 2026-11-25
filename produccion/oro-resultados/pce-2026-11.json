@@ -1,0 +1,39 @@
+{
+  "id": "pce-2026-11",
+  "fecha": "2026-11-25",
+  "hora_ny": "08:30",
+  "ventana_min": 60,
+  "dia": "Mié 25/11",
+  "nombre": "inflación PCE",
+  "formato": "historia",
+  "gancho": "La inflación que mira la Fed subió… y el oro se fue para abajo",
+  "esperado": "3,6 %",
+  "salio": "3,8 %",
+  "anual": "3,3 % sin comida ni energía (se esperaba 3,2 %). El 3,8 % general era lo esperado por el mercado",
+  "pie_etiqueta": "Subyacente",
+  "comparacion": "más",
+  "frase_dato": "La inflación PCE de octubre dio 3,8 % anual (en septiembre, 3,6 %). La subyacente, 3,3 %, por encima de lo esperado.",
+  "esperado_oro": "baja",
+  "titulo2": "¿POR QUÉ BAJÓ?",
+  "marca": "SALE EL DATO",
+  "porque": [
+    "El PCE es la inflación que <b>más mira la Fed</b>. Salió <b>3,8 %</b>: más que el 3,6 % de septiembre.",
+    "La subyacente (sin comida ni energía) dio <b>3,3 %</b>, más de lo esperado. Eso le da motivos a la Fed para <b>subir la tasa</b> el 9/12.",
+    "Con tasa más alta, el oro (que no paga interés) <b>pierde atractivo</b>: bajó 1,2 % en una hora."
+  ],
+  "aprendizaje": "Cuando la inflación sale <b>más alta</b>, la Fed tiene motivos para subir la tasa, y el oro suele bajar. Mañana es <b>Acción de Gracias</b> en EE. UU.: poco volumen, movimientos raros.",
+  "encuesta": "¿La Fed sube la tasa el 9/12?",
+  "opciones": [
+    "Sí",
+    "No"
+  ],
+  "proxima": {
+    "fecha": "Dom 29/11",
+    "nombre": "OPEP+",
+    "hora": "el oro reacciona el lunes 30",
+    "regla": "Si producen <b>menos</b> petróleo, el oro suele <b>bajar</b>. Si producen <b>más</b>, suele <b>subir</b>. El oro reacciona el <b>lunes 30</b>."
+  },
+  "fuentes": "BEA, Reuters (Investing.com), Morningstar, FXStreet",
+  "despues": "Salió a las <b>10:30</b> (hora de Argentina). El oro estaba en <b>3.534</b> y una hora después en <b>3.493</b> (−1,2 %): hizo lo que suele.",
+  "etiqueta_esperado": "EN SEPTIEMBRE"
+}

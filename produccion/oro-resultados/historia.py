@@ -46,7 +46,7 @@ def html(c, r):
     l1 = f'''<section class="h" id="l1">{top}
   <span class="etiqueta">RESULTADO · {c["nombre"].upper()}</span>
   <h1>{c["gancho"]}</h1>
-  <div class="dos"><div><small>SE ESPERABA</small><b>{c["esperado"]}</b></div><div><small>SALIÓ</small><b class="oro">{c["salio"]}</b></div></div>
+  <div class="dos"><div><small>{c.get("etiqueta_esperado", "SE ESPERABA")}</small><b>{c["esperado"]}</b></div><div><small>SALIÓ</small><b class="oro">{c["salio"]}</b></div></div>
   <div class="caja"><div class="tt"><span>ORO · VELAS DE 5 MIN · HORA ARG</span><span style="color:{col}">{"+" if sube else ""}{num(r["pct_ext"], 1)} % EN {c.get("ventana_min", 5) if c.get("ventana_min") else 5} MIN</span></div>{svg(r)}</div>
   <div class="ver">{c.get("despues") or f'Salió <b>{c["comparacion"]}</b> de lo esperado y el oro llegó a <b>{num(r["ext"], 1)}</b>.'}</div>
   <div class="pie2">{c.get("pie_etiqueta", "En el año")}: {c["anual"]}. Fuentes: {c["fuentes"]}, Yahoo Finance (GC=F).<br>Contenido educativo. No es recomendación de inversión.</div>
