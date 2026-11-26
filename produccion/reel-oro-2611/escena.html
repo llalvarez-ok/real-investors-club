@@ -58,7 +58,7 @@ const velas = (i0, i1, v0, v1, opt = {}) => grafico(VL, { i0, i1, v0, v1 }, { ca
 const P = [
   // 01 · cuadro 0: −35 % enorme sobre los lingotes reales
   plano(0, 'gancho', (t, k, q) => {
-    foto('lingotes', null, [.55, .55, 1.25, .5, .55, 1.36], q, 'oro', .2); velos(.75, .9);
+    foto('lingotes', null, [.5, .62, 1.02, .5, .6, 1.12], q, 'limpio', .08); velos(.7, .9);
     const g = X.createLinearGradient(0, 560, 0, 1060); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.5, 'rgba(3,8,15,.62)'); g.addColorStop(1, 'rgba(3,8,15,0)');
     X.fillStyle = g; X.fillRect(0, 560, 1080, 500);
     chip('ORO · GC=F', ZX0, 296, ORO, 1, { izq: true, fs: 26 });
