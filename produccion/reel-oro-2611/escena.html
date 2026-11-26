@@ -65,6 +65,7 @@ const P = [
     titulo([['EL ORO PERDIÓ', C.txt]], 420, 92, 1);
     numero('−35 %', ZC, 810, 330, ROJO, 1, { mezcla: false, id: 'menos35' });
     const kd = ramp(t, t01.diez, .4);
+    if (kd < 1) texto('¿TENÉS ORO?', ZC, 1080, `900 96px ${TIT}`, C.txt, 'center', 1 - kd, { id: 'tenes' });   // cuadro 0: lo que está en juego para el que mira (Valeria, 26/11)
     if (kd > 0) { chip('EN 10 MESES', ZC, 1010, C.txt, kd, { fs: 30 }); texto(`${fmt(REC.v)} → ${fmt(REF)}`, ZC, 1110, `900 84px ${TIT}`, C.txt, 'center', kd, { id: 'de-a' }); }
   }),
   plano(t01.si, 'si-tenes', (t, k, q) => {
