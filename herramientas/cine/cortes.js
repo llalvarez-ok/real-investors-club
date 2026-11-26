@@ -76,7 +76,7 @@ function chip(s, x, y, color, a = 1, opt = {}) {
 // título de una idea: líneas [[texto, color], ...] (una por renglón), entra con un rebote corto; registra el título completo
 function titulo(lineas, y, fs, k, opt = {}) {
   if (k <= 0) return; X.save(); const e = back(k); X.globalAlpha *= cl(k * 2.5) * (opt.a ?? 1);
-  const x = opt.x ?? ZC, ancho = opt.ancho || 720, lh = fs * (opt.lh || 1.0);
+  const x = opt.x ?? ZC, ancho = opt.ancho || 660, lh = fs * (opt.lh || 1.0);
   const L = lineas.map(l => Array.isArray(l[0]) ? l : [l]);
   let f = fs; for (const l of L) f = Math.min(f, ajusta(l.map(p => p[0]).join(''), 900, fs, ancho));
   X.translate(x, y + 34 * (1 - e)); X.scale(.92 + .08 * e, .92 + .08 * e);
@@ -93,7 +93,7 @@ function numero(s, x, y, fs, color, k, opt = {}) {
   if (k <= 0) return; X.save(); X.globalAlpha *= cl(k * 2.5);
   const z = lerp(1.35, 1, out3(k)) * (opt.s || 1); X.translate(x, y); X.scale(z, z);
   let txt = s; if (k < .5 && opt.mezcla !== false) { const n = Math.floor(k / .5 * s.length); txt = s.split('').map((ch, i) => i < n || !/\d/.test(ch) ? ch : String((i * 7 + Math.floor(k * 50)) % 10)).join(''); }
-  const f = ajusta(s, 900, fs, (opt.ancho || 740) / (opt.s || 1));
+  const f = ajusta(s, 900, fs, (opt.ancho || 660) / (opt.s || 1));
   X.font = `900 ${f}px ${TIT}`; X.textAlign = opt.align || 'center'; X.textBaseline = 'middle';
   X.shadowColor = hex(color, .5); X.shadowBlur = 60; X.fillStyle = color; X.fillText(txt, 0, 0);
   X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 22; X.shadowOffsetY = 8; X.fillText(txt, 0, 0);
@@ -103,7 +103,7 @@ function numero(s, x, y, fs, color, k, opt = {}) {
 function sello(lineas, x, y, color, k, opt = {}) {
   if (k <= 0) return; X.save(); const e = out3(k); X.globalAlpha *= cl(k * 4) * (opt.a ?? 1);
   X.translate(x, y); X.rotate((opt.rot ?? -6) * Math.PI / 180); X.scale(lerp(2.6, 1, e), lerp(2.6, 1, e));
-  const fs = opt.fs || 64, f = ajusta(lineas[0], 900, fs, opt.ancho || 640);
+  const fs = opt.fs || 64, f = ajusta(lineas[0], 900, fs, opt.ancho || 560);
   X.font = `900 ${f}px ${TIT}`; const w1 = X.measureText(lineas[0]).width;
   X.font = `600 ${Math.round(f * .36)}px ${MONO}`; const w2 = lineas[1] ? X.measureText(lineas[1]).width : 0;
   const w = Math.max(w1, w2) + 70, h = f * 1.05 + (lineas[1] ? f * .5 : 0) + 34;
@@ -287,7 +287,7 @@ function armarSubs(maxL = 30) {
   // trozos muy cortos (menos de 1,8 s): se juntan con el siguiente si entran en dos renglones y no cruzan un punto
   for (let i = 0; i < SUBS.length - 1; i++) { const c = SUBS[i], d = SUBS[i + 1], txt = c.p.concat(d.p).map(w => w[2]).join(' ');
     const ult = c.p[c.p.length - 1];
-    if (d.p[d.p.length - 1][1] - c.p[0][0] < 1.8 + 1.4 && (c.p[c.p.length - 1][1] - c.p[0][0] < 1.8) && txt.length <= 34 && !/[.?!…]$/.test(ult[2]) && d.p[0][0] - ult[1] < .6) {
+    if (d.p[d.p.length - 1][1] - c.p[0][0] < 1.8 + 1.4 && (c.p[c.p.length - 1][1] - c.p[0][0] < 1.8) && txt.length <= 40 && !/[.?!…]$/.test(ult[2]) && d.p[0][0] - ult[1] < .6) {
       c.p = c.p.concat(d.p); SUBS.splice(i + 1, 1); i--; } }
   // la puntuación de pantalla: sin punto y coma (queda raro en mayúsculas)
   SUBS.forEach(c => c.p = c.p.map(w => [w[0], w[1], w[2].replace(/;$/, ',')]));
@@ -297,16 +297,18 @@ function armarSubs(maxL = 30) {
 let CLAVES = new Set();
 function subtitulos(t) {
   const c = SUBS.find(c => t >= c.a && t < c.b); if (!c) return;
-  const fs = 66; X.font = `900 ${fs}px ${TIT}`; const esp = 18;
-  const ws = c.p.map(s => s[2].toUpperCase()), an = ws.map(w => X.measureText(w).width);
-  const lin = [[]]; let ac = 0; ws.forEach((w, i) => { if (ac + an[i] > 700 && lin[lin.length - 1].length) { lin.push([]); ac = 0; } lin[lin.length - 1].push(i); ac += an[i] + esp; });
+  // dos renglones como máximo: si no entra, baja el tamaño
+  let fs = 66, ws, an, lin, esp;
+  for (; fs >= 46; fs -= 4) { X.font = `900 ${fs}px ${TIT}`; esp = fs * .27; ws = c.p.map(s => s[2].toUpperCase()); an = ws.map(w => X.measureText(w).width);
+    lin = [[]]; let ac = 0; ws.forEach((w, i) => { if (ac + an[i] > 700 && lin[lin.length - 1].length) { lin.push([]); ac = 0; } lin[lin.length - 1].push(i); ac += an[i] + esp; });
+    if (lin.length <= 2) break; }
   const y0 = lin.length > 1 ? 1286 : 1318;
   X.save(); const g = X.createLinearGradient(0, y0 - 70, 0, y0 + 70 + (lin.length - 1) * 78); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.3, 'rgba(3,8,15,.55)'); g.addColorStop(.7, 'rgba(3,8,15,.55)'); g.addColorStop(1, 'rgba(3,8,15,0)');
   X.fillStyle = g; X.fillRect(0, y0 - 70, 1080, 140 + (lin.length - 1) * 78); X.restore();
   lin.forEach((ln, li) => { const tot = ln.reduce((p, i) => p + an[i] + esp, -esp); let x = ZC - tot / 2;
     ln.forEach(i => { const s = c.p[i], dicha = t >= s[0] - .03, ahora = dicha && t < s[1] + .05, clave = norm(s[2]).split(' ').some(p => CLAVES.has(p)) || CLAVES.has(norm(s[2]));
       X.save(); X.textAlign = 'left'; X.textBaseline = 'middle'; X.font = `900 ${fs}px ${TIT}`; X.shadowColor = 'rgba(0,0,0,.9)'; X.shadowBlur = 16; X.shadowOffsetY = 4;
-      X.fillStyle = dicha ? (clave ? C.oro : C.txt) : 'rgba(163,181,209,.4)'; X.fillText(ws[i], x, y0 + li * 78 - (ahora ? 5 : 0)); X.restore(); x += an[i] + esp; }); }); }
+      X.fillStyle = dicha ? (clave ? C.oro : C.txt) : 'rgba(163,181,209,.4)'; X.fillText(ws[i], x, y0 + li * fs * 1.16 - (ahora ? 5 : 0)); X.restore(); x += an[i] + esp; }); }); }
 
 // ───────────────────────── planos y cortes ─────────────────────────
 const EV = []; const ev = (t, s) => { if (t >= 0 && t < T.total) EV.push({ t: +t.toFixed(3), s }); };
@@ -316,7 +318,7 @@ function arrancar(cfg) {
   CFG = cfg; CLAVES = new Set((cfg.claves || []).map(norm));
   const P = cfg.planos.filter(Boolean).sort((a, b) => a.t0 - b.t0);
   P.forEach((p, i) => { p.t1 = i + 1 < P.length ? P[i + 1].t0 : T.total; if (i && p.son !== false) ev(p.t0 - .08, i % 2 ? 'whoosh' : 'cinta'); });
-  CFG.P = P; armarSubs(cfg.maxSub || 24);
+  CFG.P = P; armarSubs(cfg.maxSub || 34);
   EV.sort((a, b) => a.t - b.t); window.EVENTOS = EV;
   window.PLANOS = P.map(p => ({ t0: +p.t0.toFixed(2), t1: +p.t1.toFixed(2), nombre: p.nombre }));
   window.FALTAN = FALTAN; if (FALTAN.length) console.warn('palabras no encontradas: ' + FALTAN.join(' | '));
@@ -333,8 +335,8 @@ function cuadro(t) {
   const p = P[i], k = t - p.t0, q = cl(k / Math.max(.1, p.t1 - p.t0));
   fondo(t);
   // golpe de zoom al entrar y empuje lento todo el plano (la cámara nunca queda quieta)
-  X.save(); const z = 1 + .045 * (1 - out3(k / .32)) * (i ? 1 : 0) + .035 * io(q) * (p.empuje ?? 1);
-  X.translate(540, 820); X.scale(z, z); X.rotate((p.giro ?? 0) * io(q) * Math.PI / 180); X.translate(-540, -820);
+  X.save(); const z = 1 + .035 * (1 - out3(k / .32)) * (i ? 1 : 0) + .025 * io(q) * (p.empuje ?? 1);
+  X.translate(ZC, 845); X.scale(z, z); X.rotate((p.giro ?? 0) * io(q) * Math.PI / 180); X.translate(-ZC, -845);
   p.dibuja(t, k, q, p); X.restore();
   polvo(t, .7); vineta();
   // destello del corte
