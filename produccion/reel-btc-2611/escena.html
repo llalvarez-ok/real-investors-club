@@ -99,7 +99,7 @@ const P = [
   plano(t03.seis, 'seis-meses', (t, k, q) => {
     fondo(t); titulo([['6 MESES ', C.txt], ['DESPUÉS', ORO]], 385, 88, ramp(t, t03.seis, .35));
     const orden = { 2015: t03.subio, 2021: t03.subio + .35, 2018: t03.siguio, 2022: t03.siguio + .35 };
-    EP.forEach((e, j) => { const cx = 150 + (j % 2) * 375, cy = 450 + Math.floor(j / 2) * 410, w = 345, h = 380, y = +e.f.slice(0, 4), kk = ramp(t, orden[y], .4), up = e.r6 >= 0, col = up ? VERDE : ROJO;
+    EP.forEach((e, j) => { const cx = 150 + (j % 2) * 375, cy = 490 + Math.floor(j / 2) * 395, w = 345, h = 370, y = +e.f.slice(0, 4), kk = ramp(t, orden[y], .4), up = e.r6 >= 0, col = up ? VERDE : ROJO;
       X.save(); X.globalAlpha = .35 + .65 * cl(kk * 2); X.translate(cx + w / 2, cy + h / 2); X.scale(.9 + .1 * back(kk), .9 + .1 * back(kk)); X.translate(-cx - w / 2, -cy - h / 2);
       rr(cx, cy, w, h, 18); X.fillStyle = 'rgba(3,8,15,.82)'; X.fill(); X.lineWidth = 3; X.strokeStyle = kk > 0 ? col : C.borde; X.stroke();
       const cam = e.camino, n = cam.length, mn = Math.min(...cam, -.45), mx = Math.max(...cam, .8), px = i => cx + 24 + i / (n - 1) * (w - 48), py = v => cy + h - 40 - (v - mn) / (mx - mn) * (h - 150);
@@ -194,8 +194,8 @@ const P = [
   plano(Wq('07', ['estar'], .1), 'op-pausa', (t, k, q) => {
     fondo(t); retrato('lean', 540, 760, 900, q, { sy: -.03, z0: 1.04, z1: 1.12 });
     const g = X.createLinearGradient(0, 900, 0, 1300); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.6, 'rgba(3,8,15,.9)'); X.fillStyle = g; X.fillRect(0, 900, 1080, 1020);
-    const kp = ramp(t, t07.pausa - .1, .4); X.save(); X.globalAlpha = cl(kp * 3); X.fillStyle = ORO; rr(410, 1000, 48, 150, 10); X.fill(); rr(490, 1000, 48, 150, 10); X.fill(); X.restore();
-    titulo([['UNA PAUSA', ORO]], 1130, 110, ramp(t, t07.ini + .3, .3));
+    const kp = ramp(t, t07.pausa - .1, .4); X.save(); X.globalAlpha = cl(kp * 3); X.fillStyle = ORO; rr(450, 900, 40, 120, 10); X.fill(); rr(520, 900, 40, 120, 10); X.fill(); X.restore();
+    titulo([['UNA PAUSA', ORO]], 1140, 110, ramp(t, t07.ini + .3, .3));
   }),
   plano(t07.personal, 'op-largo', (t, k, q) => {
     fondo(t); const e = io(cl(k / 2.6));
@@ -249,7 +249,7 @@ if (V === 'ig') P.push(
     chip('@leanalvarez.ok', ZC, 1220, ORO, ramp(t, t08.rojo + .3, .3), { fs: 26 });
   }));
 else P.push(
-  plano(t08.ini, 'yt-cierre', (t, k, q) => { fondo(t); tarjetaYT(560, ramp(t, t08.ini + .1, .45), t, t08.club); }));
+  plano(t08.ini, 'yt-cierre', (t, k, q) => { fondo(t); tarjetaYT(660, ramp(t, t08.ini + .1, .45), t, t08.club); }));
 
 // tarjeta de Instagram con la foto real de Lean y los números del día
 function tarjetaIG(y, k, t, tboton) {
@@ -282,7 +282,7 @@ function fantasma(t) { X.save(); X.globalAlpha = .5; const o = (t * 6) % 60;
     color: '#274a80', grosor: 3 }); X.restore(); }
 arrancar({
   planos: P, fantasma,
-  fotos: { lean: 'fotos/lean.png', atm: 'fotos/btc-atm.jpg', logo: '../../marca/logo-navy.png' },
+  fotos: { lean: 'fotos/lean.png', atm: 'fotos/btc-atm.jpg', logo: '../../marca/logo-blanco.png' },
   claves: ['62.000', '55.000', 'Llegó', 'siguió', 'largo', 'mitad', 'récord', '2014', '4', 'subió', 'cayendo', '2', 'moneda', '3.000', 'millones', 'fondos', 'Fed',
     '9', 'diciembre', 'suba', 'lógico', 'bajar', 'rebotar', 'siempre', '72.000', 'promedio', 'pausa', 'semanas', 'largo', 'plazo', 'rompe', 'mínimo', 'bueno',
     'opinión', 'recomendación', 'emoji', 'verde', 'amarillo', 'rojo', 'sumé', 'espero', 'vendí', 'Suscribite', 'Club'],
