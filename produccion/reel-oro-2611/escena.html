@@ -40,20 +40,20 @@ const t04 = { ini: INI('04'), bono: W('04', 'bono', 0, false, .25), cinco: W('04
   plata: W('04', 'Y la plata', 0, false, .75), muda: W('04', 'muda', 0, false, .9) };
 const t05 = { ini: INI('05'), sola: W('05', 'una sola vez', 0, false, .25), trece: W('05', 'dos mil trece', 0, false, .4), ano: W('05', 'un año después', 0, false, .55),
   igual: W('05', 'igual', 0, false, .7), caso: W('05', 'Un solo caso', 0, false, .8), regla: W('05', 'regla', 0, false, .95) };
-const t06 = { ini: INI('06'), suba: W('06', 'suba', 0, false, .3), logico: W('06', 'Lo lógico', 0, false, .35), sube: W('06', 'si sube', 0, false, .45),
+const t06 = { ini: W('05', 'Para el nueve', 0, false, .7), suba: W('05', 'otra suba', 0, false, .9), logico: W('06', 'Lo lógico', 0, false, .35), sube: W('06', 'si sube', 0, false, .45),
   bajar: W('06', 'bajar', 0, false, .55), sino: W('06', 'si no', 0, false, .62), rebotar: W('06', 'rebotar', 0, false, .7), logico2: W('06', 'Lo lógico', 1, false, .78),
   siempre: W('06', 'siempre', 0, false, .92) };
 const t07 = { ini: INI('07'), cuatro: W('07', 'cuatro mil', 0, false, .25), veintisiete: W('07', 'veintisiete', 0, false, .5), bajo: W('07', 'Y ya', 0, false, .6),
   dos: W('07', 'dos veces', 0, false, .75), noviembre: W('07', 'noviembre', 0, false, .9) };
-const t08 = { ini: INI('08'), salvo: W('08', 'salvo', 0, false, .2), fuerte: W('08', 'fuerte', 0, false, .35), oro: W('08', 'el oro podría', 0, false, .45),
+const t08 = { ini: INI('08'), op0: INI('08'), salvo: W('08', 'salvo', 0, false, .2), fuerte: W('08', 'fuerte', 0, false, .35), oro: W('08', 'el oro podría', 0, false, .45),
   subir: W('08', 'subir', 0, false, .55), opinion: W('08', 'Es mi opinión', 0, false, .75) };
 const t09 = { ini: INI('09'), onza: W('09', 'cada dólar', 0, false, .12), vos: W('09', 'para vos', 0, false, .25), contra: W('09', 'en tu contra', 0, false, .3),
   precio: W('09', 'Del precio', 0, false, .37), dosmil: W('09', 'dos mil', 0, false, .5), piso: W('09', 'Hasta el piso', 0, false, .58), ciento: W('09', 'ciento', 0, false, .66),
-  poreso: W('09', 'Por eso', 0, false, .72), capital: W('09', 'capital', 0, false, .97) };
-const t10 = V === 'ig' ? { ini: INI('10'), emoji: W('10', 'emoji', 0, false, .35), verde: W('10', 'Verde', 0, false, .45), amarillo: W('10', 'amarillo', 0, false, .65),
-  rojo: W('10', 'rojo', 0, false, .85) } : { ini: INI('10'), club: W('10', 'Club', 0, false, .8) };
+  poreso: W('09', 'Por eso', 0, false, .72), fin: W('09', 'diez', 0, true, .7) - .2, capital: W('09', 'capital', 0, false, .97) };
+const t10 = V === 'ig' ? { ini: W('10', 'con tu oro', 0, false, .1), emoji: W('10', 'emoji', 0, false, .35), verde: W('10', 'Verde', 0, false, .45), amarillo: W('10', 'amarillo', 0, false, .65),
+  rojo: W('10', 'rojo', 0, false, .85) } : { ini: W('10', 'Suscribite', 0, false, .2), club: W('10', 'Club', 0, false, .8) };
 
-const velas = (i0, i1, v0, v1, opt = {}) => grafico(VL, { i0, i1, v0, v1 }, { caja: [150, 440, 720, 710], ...opt });
+const velas = (i0, i1, v0, v1, opt = {}) => grafico(VL, { i0, i1, v0, v1 }, { caja: [150, 530, 720, 620], ...opt });
 
 const P = [
   // 01 · cuadro 0: −35 % enorme sobre los lingotes reales
@@ -78,7 +78,7 @@ const P = [
     const G = velas(lerp(0, 0, e), lerp(IREC + 40, N + 3, e), lerp(4200, 3300, e), lerp(5750, 5800, e), { fechas: fechasMes(0, N - 1, 2) });
     punto(G.x(IREC), G.y(REC.v), ORO, ramp(t, t02.ini + .2, .3), 12);
     chip(`RÉCORD ${fmt(REC.v)} · 29/01`, G.x(IREC) + 26, G.y(REC.v) + 8, ORO, ramp(t, t02.ini + .3, .3), { izq: true, fs: 26 });
-    chip('US$ POR ONZA', 860, 1120, C.txt2, ramp(t, t02.ini + .5, .3), { der: true, fs: 22 });
+    chip('US$ POR ONZA', 860, 1196, C.txt2, ramp(t, t02.ini + .5, .3), { der: true, fs: 22 });
     titulo([['EN ENERO: ', C.txt], [fmt(REC.v), ORO]], 385, 96, ramp(t, t02.ini, .35));
   }),
   plano(t02.ahora, 'ahora', (t, k, q) => {
@@ -92,7 +92,7 @@ const P = [
   plano(t03.ini, 'fed-sube', (t, k, q) => {
     foto('lingotes', null, [.8, .3, 1.6, .75, .32, 1.7], q, 'frio', .72);
     const kf = ramp(t, t03.ini + .1, .7); flecha(330, 1160, 330, 500, ORO, kf, 80);
-    texto('TASA', 440, 720, `900 150px ${TIT}`, C.txt, 'left', cl(kf * 2), { id: 'tasa' });
+    texto('TASA', 430, 720, `900 136px ${TIT}`, C.txt, 'left', cl(kf * 2), { id: 'tasa' });
     const ki = ramp(t, t03.inflacion - .1, .45); numero('3,8 %', 660, 1000, 150, ROJO, ki, { align: 'center', ancho: 360 });
     chip('INFLACIÓN · PCE 25/11', 660, 1110, C.txt2, ki, { fs: 22 });
     titulo([['¿POR QUÉ?', ORO], ['LA FED SUBE LA TASA', C.txt]], 390, 84, ramp(t, t03.ini, .3));
@@ -117,7 +117,7 @@ const P = [
       if (s === 'ORO') foto('lingotes', [x + 3, 473, 344, 380], [.4, .55, 1.2, .45, .55, 1.3], q, 'oro', .05);
       else { X.fillStyle = '#e9edf3'; rr(x + 60, 520, 230, 300, 10); X.fill(); X.fillStyle = '#0d2142'; for (let j = 0; j < 7; j++) X.fillRect(x + 90, 570 + j * 34, j ? 170 - (j % 3) * 30 : 120, 10);
         X.fillStyle = '#c7a35e'; X.beginPath(); X.arc(x + 230, 770, 26, 0, 7); X.fill(); }
-      texto(s, x + 175, 920, `800 34px ${TIT}`, C.txt, 'center', 1, { id: 'c' + s }); texto(n, x + 175, 1040, `900 120px ${TIT}`, col, 'center', 1, { id: 'n' + s });
+      texto(s, x + 175, 920, `800 34px ${TIT}`, C.txt, 'center', 1, { id: 'c' + s }); texto(n, x + 175, 1040, `900 104px ${TIT}`, col, 'center', 1, { id: 'n' + s });
       texto('POR AÑO', x + 175, 1120, `600 24px ${MONO}`, C.txt2, 'center', 1, { id: 'p' + s }); X.restore(); });
     // la plata se muda: monedas que saltan del oro al bono
     for (let j = 0; j < 10; j++) { const p = cl((t - t04.plata - j * .16) / 1.0); if (p <= 0 || p >= 1) continue;
@@ -129,20 +129,20 @@ const P = [
     const G = grafico(MEN, { i0: -3, i1: NM + 4, v0: 220, v1: 7000 }, { caja: [150, 470, 720, 680], tipo: 'linea', log: true, area: true, hasta: lerp(0, NM - 1, cl(k / 1.3)),
       niveles: [300, 1000, 3000], fechas: [[0, '2000'], [midx('2008-01'), '2008'], [midx('2013-01'), '2013'], [midx('2020-01'), '2020'], [NM - 1, '2026']] });
     punto(G.x(i13), G.y(CASO.precio), ROJO, ramp(t, t05.ini + .4, .3), 13);
-    chip('2013 · −30 % DESDE EL RÉCORD', G.x(i13) + 20, G.y(CASO.precio) + 70, ROJO, ramp(t, t05.ini + .5, .3), { izq: true, fs: 22 });
+    chip('2013 · −30 % DESDE EL RÉCORD', ZC, G.y(CASO.precio) + 70, ROJO, ramp(t, t05.ini + .5, .3), { fs: 22 });
     punto(G.x(NM - 1), G.y(REF), ORO, ramp(t, t05.ini + 1.2, .3), 12);
     titulo([['DESDE 2000: ', C.txt], ['1 SOLA VEZ', ORO]], 385, 84, ramp(t, t05.ini, .35));
   }),
   plano(t05.ano, 'caso-2013', (t, k, q) => {
     fondo(t); const a = tidx(CASO.f), b = tidx(CASO.f1);
-    const G = grafico(TRAMO, { i0: -2, i1: NT + 2, v0: 1100, v1: 1950 }, { caja: [150, 470, 720, 680], tipo: 'linea', area: true, color: ORO, niveles: [1200, 1400, 1600, 1800],
+    const G = grafico(TRAMO, { i0: -2, i1: NT + 2, v0: 1100, v1: 1950 }, { caja: [150, 655, 720, 500], tipo: 'linea', area: true, color: ORO, niveles: [1200, 1400, 1600, 1800],
       fechas: [[tidx('2012-01-01'), '2012'], [tidx('2013-01-01'), '2013'], [tidx('2014-01-01'), '2014']] });
     punto(G.x(a), G.y(CASO.precio), ROJO, 1, 12); chip(`20/06/2013 · ${fmt(CASO.precio, 1)}`, G.x(a) - 20, G.y(CASO.precio) + 64, ROJO, 1, { der: true, fs: 22 });
     const kb = ramp(t, t05.ano + .3, .5); punto(G.x(b), G.y(CASO.precio1), VERDE, kb, 12);
     if (kb > 0) { X.save(); X.setLineDash([12, 10]); X.strokeStyle = hex(VERDE, .8); X.lineWidth = 4; X.beginPath(); X.moveTo(G.x(a), G.y(CASO.precio)); X.lineTo(lerp(G.x(a), G.x(b), out3(kb)), lerp(G.y(CASO.precio), G.y(CASO.precio1), out3(kb))); X.stroke(); X.restore(); }
     chip(`UN AÑO DESPUÉS ${pct(CASO.r1)}`, G.x(b) + 20, G.y(CASO.precio1) - 64, VERDE, ramp(t, t05.ano + .5, .3), { der: true, fs: 24 });
     titulo([['UN AÑO DESPUÉS: ', C.txt], ['CASI IGUAL', ORO]], 385, 80, ramp(t, t05.ano, .3));
-    sello(['1 SOLO CASO', 'no es regla'], 540, 1060, ROJO, ramp(t, t05.caso, .4), { fs: 84, rot: -6 });
+    sello(['1 SOLO CASO', 'no es regla'], 540, 560, ROJO, ramp(t, t05.igual, .4), { fs: 54, rot: -4 });
   }),
   // 06 · la Fed del 9/12 y lo lógico
   plano(t06.ini, 'fed-9', (t, k, q) => {
@@ -164,36 +164,38 @@ const P = [
   plano(t06.logico2, 'no-siempre', (t, k, q) => {
     foto('lingotes', null, [.75, .75, 1.9, .7, .72, 2.0], q, 'rojo', .45);
     chip('SI SUBE LA TASA → DEBERÍA BAJAR', 860, 1150, ROJO, 1, { der: true, fs: 23 }); chip('SI NO LA SUBE → DEBERÍA REBOTAR', 860, 610, VERDE, 1, { der: true, fs: 23 });
-    sello(['NO SIEMPRE', 'lo lógico no siempre pasa'], 540, 880, ROJO, ramp(t, t06.siempre - .15, .4), { fs: 110, rot: -8 });
+    sello(['NO SIEMPRE', 'lo lógico no siempre pasa'], 515, 880, ROJO, ramp(t, t06.siempre - .15, .4), { fs: 80, rot: -8 });
     titulo([['LO LÓGICO…', C.txt]], 385, 110, ramp(t, t06.logico2, .3));
   }),
   // 07 · el pronóstico de un banco
   plano(t07.ini, 'goldman', (t, k, q) => {
     fondo(t); const i0 = idx('2026-06-01'), ifin = N - 1 + 270;   // fin de 2027 ≈ 270 ruedas después
-    const e = io(cl((t - t07.cuatro + .3) / 1.4)); const G = grafico(VL, { i0: lerp(i0, N - 90, e), i1: lerp(N + 30, ifin + 25, e), v0: 3200, v1: 5800 }, { caja: [150, 470, 720, 680], fechas: [[idx('2026-07-01'), 'JUL 26'], [N - 1, 'HOY'], [ifin, 'FIN 2027']] });
-    const kp = ramp(t, t07.cuatro - .2, .9); if (kp > 0) { X.save(); X.setLineDash([14, 12]); X.strokeStyle = hex(ORO, .9); X.lineWidth = 5; X.beginPath(); X.moveTo(G.x(N - 1), G.y(REF));
+    const e = io(cl((t - t07.cuatro + .3) / 1.4)); const G = grafico(VL, { i0: lerp(i0, N - 90, e), i1: lerp(N + 30, ifin + 25, e), v0: 3200, v1: 5800 }, { caja: [150, 470, 720, 630], fechas: [[idx('2026-07-01'), 'JUL 26'], [N - 1, 'HOY'], [ifin, 'FIN 2027']] });
+    const kp = ramp(t, t07.cuatro - .2, .9); if (kp > 0) { X.save(); X.beginPath(); X.rect(150, 470, 720, 680); X.clip(); X.setLineDash([14, 12]); X.strokeStyle = hex(ORO, .9); X.lineWidth = 5; X.beginPath(); X.moveTo(G.x(N - 1), G.y(REF));
       X.lineTo(lerp(G.x(N - 1), G.x(ifin), out3(kp)), lerp(G.y(REF), G.y(4650), out3(kp))); X.stroke(); X.restore(); }
     punto(G.x(ifin), G.y(4650), ORO, ramp(t, t07.cuatro + .5, .3), 13);
-    chip('4.650 · FIN DE 2027', G.x(ifin) - 20, G.y(4650) - 60, ORO, ramp(t, t07.veintisiete - .1, .3), { der: true, fs: 26 });
+    chip('4.650 · FIN DE 2027', Math.min(G.x(ifin) - 20, 840), G.y(4650) - 60, ORO, ramp(t, t07.cuatro + .3, .3), { der: true, fs: 26 });
     titulo([['GOLDMAN SACHS ', C.txt], ['ESPERA 4.650', ORO]], 385, 80, ramp(t, t07.ini, .35));
-    chip('PRONÓSTICO DE UN BANCO · NO ES CERTEZA', ZC, 1226, C.txt2, 1, { fs: 20 });
+    chip('PRONÓSTICO DE UN BANCO · NO ES CERTEZA', ZC, 1186, C.txt2, 1, { fs: 20 });
   }),
   plano(t07.bajo, 'recortes', (t, k, q) => {
-    fondo(t); titulo([['YA LO BAJÓ ', C.txt], ['2 VECES', ROJO]], 385, 96, ramp(t, t07.bajo, .35));
-    [['5.400', 'ANTES', t07.bajo + .2], ['4.800', '13/11', t07.dos], ['4.650', 'AHORA', t07.noviembre - .1]].forEach(([n, s, tt], j) => {
-      const y = 560 + j * 250, kk = ramp(t, tt, .35), ult = j === 2; if (kk <= 0) return;
-      X.save(); X.globalAlpha = cl(kk * 3); rr(170, y - 100, 690, 200, 24); X.fillStyle = 'rgba(3,8,15,.85)'; X.fill(); X.lineWidth = 3; X.strokeStyle = ult ? ORO : C.borde; X.stroke(); X.restore();
-      texto(s, 210, y, `600 28px ${MONO}`, C.txt2, 'left', cl(kk * 3), { id: 'rs' + j }); texto(n, 820, y, `900 120px ${TIT}`, ult ? ORO : C.txt, 'right', cl(kk * 3), { id: 'rn' + j });
-      if (!ult) tacha(440, 830, y, ramp(t, [t07.dos, t07.noviembre - .1][j], .35)); });
-    chip('GOLDMAN SACHS · ORO A FIN DE 2027', ZC, 1226, C.txt2, 1, { fs: 20 });
+    fondo(t); titulo([['YA LO BAJÓ ', C.txt], ['2 VECES', ROJO]], 385, 96, ramp(t, t07.bajo, .25));
+    [['5.400', 'ANTES', t07.bajo], ['4.800', '13/11', t07.bajo + .15], ['4.650', 'AHORA', t07.bajo + .3]].forEach(([n, s, tt], j) => {
+      const y = 590 + j * 225, kk = ramp(t, tt, .25), ult = j === 2, kh = ult ? ramp(t, t07.dos + .1, .3) : 0; if (kk <= 0) return;
+      X.save(); X.globalAlpha = cl(kk * 3); X.translate(0, 30 * (1 - out3(kk))); rr(170, y - 95, 690, 190, 24); X.fillStyle = '#060f1e'; X.fill();
+      X.lineWidth = ult ? 3 + 2 * kh : 3; X.strokeStyle = ult ? ORO : C.borde; X.stroke(); X.restore();
+      texto(s, 210, y, `600 28px ${MONO}`, C.txt2, 'left', 1, { id: 'rs' + j });
+      texto(n, 820, y, `900 120px ${TIT}`, ult ? ORO : C.txt, 'right', 1, { id: 'rn' + j });
+      if (!ult) tacha(440, 830, y, ramp(t, [t07.bajo + .4, t07.dos + .1][j], .35)); });
+    chip('PRONÓSTICO DE UN BANCO · NO ES CERTEZA', ZC, 1186, C.txt2, 1, { fs: 20 });
   }),
   // 08 · la opinión de Lean (rotulada todo el bloque)
-  plano(t08.ini, 'op-salvo', (t, k, q) => {
+  plano(t08.op0, 'op-salvo', (t, k, q) => {
     // sin la cara de Lean (pedido del 26/11): el gráfico real del oro y la condición de la Fed como un techo rojo encima del precio
     fondo(t); const i0 = idx('2026-09-01');
     const G = grafico(VL, { i0, i1: N + 14, v0: 3300, v1: 5000 }, { caja: [150, 590, 720, 560], fechas: fechasMes(i0, N - 1) });
     punto(G.x(N - 1), G.y(REF), ORO, 1, 11);
-    const kf = ramp(t, t08.salvo, .4); if (kf > 0) { X.save(); X.globalAlpha = cl(kf * 2); const x0 = G.x(N - 1) + 20, y0 = G.y(REF) - 70;
+    const kf = ramp(t, t08.salvo, .4); if (kf > 0) { X.save(); X.globalAlpha = cl(kf * 2); const x0 = Math.min(G.x(N - 1) + 20, 670), y0 = G.y(REF) - 70;
       rr(x0 - 10, y0 - 90, 190, 70, 14); X.fillStyle = hex(ROJO, .16); X.fill(); X.lineWidth = 3; X.strokeStyle = ROJO; X.stroke(); X.restore();
       texto('FED', x0 + 85, y0 - 55, `900 40px ${TIT}`, ROJO, 'center', cl(kf * 2), { id: 'fedtecho' }); }
     chip('SI SUBE FUERTE LA TASA', 860, 1100, ROJO, ramp(t, t08.fuerte - .2, .3), { der: true, fs: 24 });
@@ -210,7 +212,7 @@ const P = [
   }),
   plano(t08.opinion, 'op-sello', (t, k, q) => {
     fondo(t); X.save(); X.globalAlpha = .3; grafico(VL, { i0: 0, i1: N + 8, v0: 3000, v1: 6000 }, { caja: [150, 500, 720, 660], panel: false, ejes: false }); X.restore();
-    sello(['ES MI OPINIÓN', 'no una recomendación'], 540, 820, ORO, ramp(t, t08.opinion, .4), { fs: 96, rot: -5 });
+    sello(['ES MI OPINIÓN', 'no una recomendación'], 525, 820, ORO, ramp(t, t08.opinion, .4), { fs: 76, rot: -5 });
   }),
   // 09 · lote y capital
   plano(t09.ini, 'lote', (t, k, q) => {
@@ -221,12 +223,14 @@ const P = [
   }),
   plano(t09.onza, 'cada-dolar', (t, k, q) => {
     fondo(t); titulo([['CADA DÓLAR ', C.txt], ['QUE SE MUEVE', ORO]], 385, 84, ramp(t, t09.onza, .35));
-    const kv = ramp(t, t09.vos - .1, .35), kc = ramp(t, t09.contra - .1, .35);
-    [[560, REF + 1, '+1 US$', 'PARA VOS', VERDE, kv], [900, REF - 1, '−1 US$', 'EN TU CONTRA', ROJO, kc]].forEach(([y, v, s, s2, col, kk]) => {
-      X.save(); X.globalAlpha = .35 + .65 * cl(kk * 2); rr(150, y - 140, 720, 280, 28); X.fillStyle = 'rgba(3,8,15,.85)'; X.fill(); X.lineWidth = 4; X.strokeStyle = kk > 0 ? col : C.borde; X.stroke(); X.restore();
-      texto(`${fmt(REF)} → ${fmt(kk > .3 ? v : REF)}`, 190, y - 70, `700 46px ${MONO}`, C.txt, 'left', 1, { id: 'pr' + s });
-      if (kk > 0) { numero(s, 190, y + 45, 120, col, kk, { align: 'left', ancho: 400 }); texto(s2, 840, y + 50, `800 40px ${TIT}`, col, 'right', cl(kk * 2), { id: 'pa' + s }); } });
-    chip('CON 0,01 LOTE', ZC, 1170, ORO, 1, { fs: 26 });
+    const kv = ramp(t, t09.vos - .1, .35), kc = ramp(t, t09.contra - .1, .35), ke = ramp(t, t09.onza, .3);
+    [[680, REF + 1, '+1 US$', 'PARA VOS', VERDE, kv, 0], [1010, REF - 1, '−1 US$', 'EN TU CONTRA', ROJO, kc, .15]].forEach(([y, v, s, s2, col, kk, d], j) => {
+      const ka = ramp(t, t09.onza + d, .3); if (ka <= 0) return; X.save(); X.globalAlpha = cl(ka * 3); X.translate(540, y); const z = 1 + .04 * Math.sin(Math.PI * kk); X.scale(z, z); X.translate(-540, -y);
+      rr(150, y - 150, 720, 300, 28); X.fillStyle = '#060f1e'; X.fill(); X.lineWidth = 3 + 3 * kk; X.strokeStyle = kk > 0 ? col : hex(col, .5); X.stroke();
+      texto(`${fmt(REF)} → ${fmt(v)}`, 190, y - 90, `700 46px ${MONO}`, C.txt, 'left', 1, { id: 'pr' + s });
+      numero(s, 190, y + 10, 120, col, 1, { align: 'left', ancho: 400 });
+      texto(s2, 190, y + 100, `800 40px ${TIT}`, col, 'left', 1, { id: 'pa' + s }); X.restore(); });
+    chip('CON 0,01 LOTE', ZC, 1216, ORO, 1, { fs: 26 });
   }),
   plano(t09.precio, 'hasta-record', (t, k, q) => {
     fondo(t);
@@ -235,9 +239,8 @@ const P = [
     nivel(G, REC.v, ORO, 1, `RÉCORD ${fmt(REC.v)}`, { izq: true, punteada: true, fs: 24 });
     if (ka > 0) { X.save(); X.strokeStyle = VERDE; X.lineWidth = 6; X.beginPath(); X.moveTo(x, y0); X.lineTo(x, lerp(y0, y1, out3(ka))); X.stroke();
       [y0, lerp(y0, y1, out3(ka))].forEach(y => { X.beginPath(); X.moveTo(x - 18, y); X.lineTo(x + 18, y); X.stroke(); }); X.restore(); }
-    chip(`+${fmt(D.hasta_record)} HASTA EL RÉCORD`, 860, 520, VERDE, ramp(t, t09.precio + .3, .3), { der: true, fs: 24 });
-    chip('EL RÉCORD PUEDE TARDAR AÑOS', 860, 586, C.txt2, ramp(t, t09.precio + .5, .3), { der: true, fs: 22 });
-    titulo([['HASTA EL ', C.txt], ['RÉCORD', VERDE]], 385, 100, ramp(t, t09.precio, .35));
+    chip(`+${fmt(D.hasta_record)} HASTA EL RÉCORD`, ZC, 1196, VERDE, ramp(t, t09.precio + .3, .3), { fs: 24 });
+    titulo([['HASTA EL ', C.txt], ['RÉCORD', VERDE]], 392, 100, ramp(t, t09.precio, .35));
   }),
   plano(t09.piso, 'hasta-piso', (t, k, q) => {
     fondo(t); const i0 = idx('2026-10-20');
@@ -246,14 +249,14 @@ const P = [
     nivel(G, MIN.v, ROJO, 1, `PISO ${fmt(MIN.v)} · 20/11`, { izq: true, abajo: true, fs: 24 });
     if (ka > 0) { X.save(); X.strokeStyle = ROJO; X.lineWidth = 6; X.beginPath(); X.moveTo(x, y0); X.lineTo(x, lerp(y0, y1, out3(ka))); X.stroke(); X.restore(); }
     chip('−110 HASTA EL PISO', x - 30, lerp(y0, y1, .5), ROJO, ramp(t, t09.piso + .3, .3), { der: true, fs: 30 });
-    chip(`+${fmt(D.hasta_record)} HASTA EL RÉCORD`, 860, 520, VERDE, 1, { der: true, fs: 24 }); chip('EL RÉCORD PUEDE TARDAR AÑOS', 860, 586, C.txt2, 1, { der: true, fs: 22 });
-    titulo([['HASTA EL ', C.txt], ['PISO', ROJO]], 385, 100, ramp(t, t09.piso, .35));
+    chip(`+${fmt(D.hasta_record)} HASTA EL RÉCORD`, ZC, 1196, VERDE, 1, { fs: 24 });
+    titulo([['HASTA EL ', C.txt], ['PISO', ROJO]], 392, 100, ramp(t, t09.piso, .35));
   }),
-  plano(t09.poreso, 'capital', (t, k, q) => {
+  plano(t09.fin, 'capital', (t, k, q) => {
     foto('lingotes', null, [.5, .4, 1.5, .45, .45, 1.62], q, 'oro', .6);
-    ['0,01 LOTE = 1 ONZA', `+${fmt(D.hasta_record)} HASTA EL RÉCORD`, '−110 HASTA EL PISO', 'EL RÉCORD PUEDE TARDAR AÑOS'].forEach((s, j) =>
+    ['0,01 LOTE = 1 ONZA', `+${fmt(D.hasta_record)} HASTA EL RÉCORD`, '−110 HASTA EL PISO · PUEDE ROMPERSE', 'EL RÉCORD PUEDE TARDAR AÑOS'].forEach((s, j) =>
       chip(s, ZC, 470 + j * 74, [ORO, VERDE, ROJO, C.txt2][j], 1, { fs: 26 }));
-    const kf = ramp(t, t09.poreso + .6, .4);
+    const kf = ramp(t, t09.fin + .1, .35);
     titulo([['«SI INVERTÍS,', C.txt], ['GESTIONÁ BIEN', ORO], ['TU CAPITAL.»', ORO]], 880, 104, kf);
     texto('— Lean', 840, 1130, `600 34px ${SANS}`, C.txt2, 'right', kf, { id: 'firma' });
   }),
@@ -266,8 +269,9 @@ if (V === 'ig') P.push(
   plano(t10.verde, 'ig-encuesta', (t, k, q) => {
     fondo(t); titulo([['DEJALO CON UN ', C.txt], ['EMOJI', ORO]], 385, 84, 1);
     [['🟢', 'SUMO', VERDE, t10.verde], ['🟡', 'ESPERO', ORO, t10.amarillo], ['🔴', 'SALGO', ROJO, t10.rojo]].forEach(([em, s, col, tt], j) => {
-      const y = 610 + j * 215, kk = ramp(t, tt - .05, .4); if (kk <= 0) return; X.save(); X.globalAlpha = cl(kk * 3); X.translate(ZC, y); X.scale(.85 + .15 * back(kk), .85 + .15 * back(kk));
-      rr(-360, -95, 720, 190, 30); X.fillStyle = 'rgba(3,8,15,.85)'; X.fill(); X.lineWidth = 4; X.strokeStyle = col; X.stroke();
+      const y = 610 + j * 215, kk = ramp(t, t10.verde - .05 + j * .18, .35), kh = ramp(t, tt - .05, .3); if (kk <= 0) return;
+      const z = (.85 + .15 * back(kk)) * (1 + .05 * Math.sin(Math.PI * kh)); X.save(); X.globalAlpha = cl(kk * 3); X.translate(ZC, y); X.scale(z, z);
+      rr(-360, -95, 720, 190, 30); X.fillStyle = kh > 0 ? hex(col, .14) : 'rgba(3,8,15,.85)'; X.fill(); X.fillStyle = 'rgba(3,8,15,.7)'; X.fill(); X.lineWidth = 3 + 3 * kh; X.strokeStyle = col; X.stroke();
       X.font = '120px "Noto Color Emoji"'; X.textBaseline = 'middle'; X.textAlign = 'center'; X.fillText(em, -240, 8);
       texto(s, -120, 0, `900 92px ${TIT}`, C.txt, 'left', 1, { id: 'enc' + j }); X.restore(); });
     chip('@leanalvarez.ok', ZC, 1220, ORO, ramp(t, t10.rojo + .3, .3), { fs: 26 });
@@ -296,7 +300,7 @@ function tarjetaYT(y, k, t, tboton) {
 ev(.02, 'impacto'); ev(t01.diez, 'tics'); ev(t02.cinco, 'pop'); ev(t03.tasa, 'sube'); ev(t03.tres, 'impacto'); ev(t03.maximo, 'pop'); ev(t04.bono, 'pop'); ev(t04.cero, 'pop');
 ev(t04.plata + .1, 'moneda'); ev(t05.trece, 'pop'); ev(t05.caso, 'sello'); ev(t06.sube, 'clic'); ev(t06.sino, 'clic'); ev(t06.siempre, 'sello');
 ev(t07.cuatro, 'pop'); ev(t07.dos, 'clic'); ev(t07.noviembre, 'clic'); ev(t08.subir, 'pop'); ev(t08.opinion, 'sello'); ev(t09.vos, 'moneda'); ev(t09.contra, 'clic');
-ev(t09.dosmil, 'tics'); ev(t09.ciento, 'pop'); ev(t09.poreso + .6, 'impacto');
+ev(t09.dosmil, 'tics'); ev(t09.ciento, 'pop'); ev(t09.fin + .1, 'impacto');
 if (V === 'ig') { ev(t10.verde, 'pop'); ev(t10.amarillo, 'pop'); ev(t10.rojo, 'pop'); ev(t10.emoji, 'clic'); } else ev(t10.club, 'clic');
 
 function fantasma(t) { X.save(); X.globalAlpha = .5;
@@ -309,7 +313,7 @@ arrancar({
     'sola', '2013', 'igual', 'caso', 'regla', 'suba', 'lógico', 'bajar', 'rebotar', 'siempre', 'Goldman', '4.650', '2027', 'bajó', 'veces', 'fuerte', 'subir', 'opinión',
     'recomendación', '0,01', 'lote', 'vos', 'contra', '2.000', 'piso', '110', 'capital', 'gestión', 'emoji', 'verde', 'amarillo', 'rojo', 'sumo', 'espero', 'salgo',
     'Suscribite', 'Club'],
-  etiqueta: t => t >= INI('08') - .02 && t < INI('09') - .02 ? { txt: 'MI OPINIÓN · LEAN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
+  etiqueta: t => t >= t08.op0 - .02 && t < INI('09') - .02 ? { txt: 'MI OPINIÓN · LEAN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
   pie: ['Contenido educativo. No constituye recomendación de inversión.', 'Voz generada con IA (clon de la voz de Lean)'],
   creditos: t => /gancho|si-tenes|fed-sube|bono-oro|se-muda|fed-9|no-siempre|capital/.test(window.PLANO || 'gancho') ? 'Foto: Andrzej Barabasz · CC BY-SA · Wikimedia Commons' : 'Datos: Yahoo Finance (GC=F, DX-Y.NYB, ^TNX) · BEA · Kitco',
 });
