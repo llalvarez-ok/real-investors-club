@@ -1,0 +1,58 @@
+{
+ "titulo": "Bitcoin: dije 62.000 y siguió hasta 55.000",
+ "pantalla": {
+  "sesenta y dos mil": "62.000",
+  "cincuenta y cinco mil": "55.000",
+  "sesenta mil": "60.000",
+  "dos mil catorce": "2014",
+  "cuatro veces": "4 veces",
+  "Dos de cuatro": "2 de 4",
+  "tres mil miyones": "3.000 millones",
+  "nueve de diciembre": "9 de diciembre",
+  "setenta y dos mil": "72.000",
+  "doscientos días": "200 días",
+  "trece de noviembre": "13 de noviembre"
+ },
+ "bloques": [
+  {
+   "id": "01",
+   "etiqueta": "BITCOIN"
+  },
+  {
+   "id": "02",
+   "etiqueta": "HOY"
+  },
+  {
+   "id": "03",
+   "etiqueta": "LA HISTORIA"
+  },
+  {
+   "id": "04",
+   "etiqueta": "QUÉ LO EMPUJA"
+  },
+  {
+   "id": "05",
+   "etiqueta": "LO LÓGICO"
+  },
+  {
+   "id": "06",
+   "etiqueta": "LAS LÍNEAS"
+  },
+  {
+   "id": "07",
+   "etiqueta": "MI OPINIÓN"
+  },
+  {
+   "id": "08",
+   "wav": "08ig",
+   "etiqueta": "CIERRE",
+   "solo": "ig"
+  },
+  {
+   "id": "08",
+   "wav": "08yt",
+   "etiqueta": "CIERRE",
+   "solo": "yt"
+  }
+ ]
+}

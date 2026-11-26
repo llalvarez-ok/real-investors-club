@@ -82,3 +82,12 @@ clon de voz.
 Duración: ~170 palabras con la opinión (máximo 15 palabras) ≈ 54–56 s a 3,1 palabras/s.
 
 Aviso en pantalla todo el video: «Contenido educativo. No constituye recomendación de inversión». Opinión rotulada. Contenido sintético marcado si va con el clon.
+
+## v2 · aprobada por Lean (26/11/2026)
+
+Lean aprobó la v1 con su opinión personal en el bloque 07 (en voz, tal cual la escribió, con «Es mi opinión, no una
+recomendación» al final):
+«Considero que podemos estar ante una pausa de quizás algunos días o semanas. En lo personal, mis compras a largo plazo ya
+las comienzo a hacer, aun pensando que incluso pueda caer un poco más si rompe el mínimo de los 55.000. El precio actual de
+Bitcoin, de cara al futuro, es muy bueno.»
+Pantalla del 07: «MI OPINIÓN · no es recomendación», rotulado todo el bloque. Textos finales en `textos-voz.json`.
