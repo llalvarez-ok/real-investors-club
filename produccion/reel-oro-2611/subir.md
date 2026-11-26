@@ -4,7 +4,7 @@
 - **Voz:** clon de Lean, de corrido. Cuerpo: semilla 7. Cierres: semilla 11. **Contenido sintético: sí.**
 - **Animación:** Renata. Puerta de Valeria en `analisis/calidad/2026-11-26-reel-oro.md`.
 - **Cara de Lean:** solo en la tarjeta de Instagram del cierre (pedido de Lean).
-- **Archivos:** `RIC-reel-oro-2611-ig.mp4` (68,4 s) y `-yt.mp4` (63,8 s), −14 LUFS.
+- **Archivos:** `RIC-reel-oro-2611-ig.mp4` (70,4 s) y `-yt.mp4` (65,7 s), −14 LUFS.
 - **Medidor:** 20 cortes por minuto y 0 % de segundos quietos.
 - **Datos:**
   - Yahoo Finance (GC=F, `DX-Y.NYB`, `^TNX`): récord de 5.586 (29/01/2026), 3.597 el 26/11 (en curso) y mínimo de la semana de 3.454 (25/11, vela horaria).
