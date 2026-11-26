@@ -82,3 +82,18 @@ cámara; si no, clon de voz.
 Duración: ~170 palabras con la opinión (máximo 15 palabras) ≈ 54–56 s a 3,1 palabras/s.
 
 Aviso en pantalla todo el video: «Contenido educativo. No constituye recomendación de inversión». Opinión rotulada. Contenido sintético marcado si va con el clon.
+
+## v2 · aprobada por Lean (26/11/2026, opción A)
+
+- **08 · opinión de Lean:** «En mi opinión personal, salvo que la Fed suba fuerte, el oro podría empezar a subir desde
+  acá. Es mi opinión, no una recomendación.» Lean había escrito «la estadística se inclina hacia comenzar con compras»,
+  pero los datos no lo sostienen (1 solo caso), así que va como opinión.
+- **09 · lote y capital** (reemplaza «$2.000 de beneficio con 0,01 lotes», que era una promesa de ganancia):
+  - Voz: «Con 0,01 lote, cada dólar que se mueve el oro es un dólar para vos, o en tu contra. Del precio de hoy al récord
+    hay casi 2.000 dólares. Hasta el piso de este mes, 110. Por eso, antes de invertir, lo primero es la gestión de tu
+    capital.»
+  - Pantalla: «0,01 lote = 1 onza · +1.975 hasta el récord · −110 hasta el piso · el récord puede tardar años», y al final
+    la frase de Lean tal cual: **«Si invertís, gestioná bien tu capital.»** En la voz va reformulada, porque el clon
+    acentúa mal «invertís» y «gestioná».
+- **Cuentas:** 0,01 lote = 1 onza; 3.611 → 5.586 = +1.975; 3.611 → 3.503 = −108.
+- Textos finales en `textos-voz.json`; dura unos 70 s.

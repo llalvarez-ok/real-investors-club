@@ -1,0 +1,67 @@
+{
+ "titulo": "El oro perdió un tercio en diez meses",
+ "pantalla": {
+  "cinco mil quinientos ochenta y seis dólares": "5.586 dólares",
+  "tres mil seiscientos": "3.600",
+  "tres coma ocho por ciento": "3,8 %",
+  "cinco por ciento": "5 %",
+  "dos mil trece": "2013",
+  "el dos mil": "el 2000",
+  "nueve de diciembre": "9 de diciembre",
+  "cuatro mil seiscientos cincuenta": "4.650",
+  "dos mil veintisiete": "2027",
+  "cero coma cero uno lote": "0,01 lote",
+  "dos mil dólares": "2.000 dólares",
+  "ciento diez": "110"
+ },
+ "bloques": [
+  {
+   "id": "01",
+   "etiqueta": "ORO"
+  },
+  {
+   "id": "02",
+   "etiqueta": "EL RÉCORD"
+  },
+  {
+   "id": "03",
+   "etiqueta": "POR QUÉ"
+  },
+  {
+   "id": "04",
+   "etiqueta": "TASA CONTRA ORO"
+  },
+  {
+   "id": "05",
+   "etiqueta": "LA HISTORIA"
+  },
+  {
+   "id": "06",
+   "etiqueta": "LO LÓGICO"
+  },
+  {
+   "id": "07",
+   "etiqueta": "PROYECCIÓN"
+  },
+  {
+   "id": "08",
+   "etiqueta": "MI OPINIÓN"
+  },
+  {
+   "id": "09",
+   "etiqueta": "TU CAPITAL"
+  },
+  {
+   "id": "10",
+   "wav": "10ig",
+   "etiqueta": "CIERRE",
+   "solo": "ig"
+  },
+  {
+   "id": "10",
+   "wav": "10yt",
+   "etiqueta": "CIERRE",
+   "solo": "yt"
+  }
+ ]
+}
