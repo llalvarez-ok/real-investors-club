@@ -63,7 +63,7 @@ clon de voz.
 | Cierre | 8 | 8 | Encuesta de emojis (IG) y suscripción (YT); aviso en pantalla |
 | Cumplimiento (Laura) | 6 | 8 | «Peor mes de salidas» no lo dicen las fuentes citadas (una es «peor día», otra «peor semana desde junio»): pasa a «más de tres mil miyones». «Suele sufrir» sin estadística: pasa a «lo lógico sería… debería» + «lo lógico no siempre pasa». «Tiene que recuperar» (afirmación técnica) pasa a «la línea a mirar» |
 
-**Cambios:** salidas de ETF ajustadas a la fuente y en «miyones»; «lo lógico sería» con «debería» y su aviso; «hoy» → «ahora está cerca de» (vigencia); 2 de 4 traducido a «moneda al aire»; sub-tiempos de pantalla; dos opciones de opinión.
+**Cambios:** salidas de ETF ajustadas a la fuente y en «miyones»; «lo lógico sería» con «debería» y su aviso; «hoy» → «ahora ronda» (vigencia); 2 de 4 traducido a «moneda al aire»; sub-tiempos de pantalla; dos opciones de opinión.
 
 **Condiciones antes de grabar:** (1) poner fuente de «el mercado espera una suba el 9/12» (CME FedWatch o similar) en la descripción; si no se consigue, decir «muchos esperan». (2) Actualizar el precio del día de grabación. (3) La proyección de CoinDCX no va: vence el 30/11.
 

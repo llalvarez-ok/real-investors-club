@@ -56,11 +56,11 @@ cámara; si no, clon de voz.
 | Gancho del cuadro 0 | 8 | 8 | «−35 %» enorme + lingote real + «Si tenés oro». Ojo: los carruseles del oro no circularon; el tema rinde menos que Bitcoin |
 | Persona o plata en juego | 7 | 8 | v0: datos macro sin nadie. v1: «la plata se muda» (bono contra lingote) y encuesta «y vos, con tu oro» |
 | Progresión (algo cada 3–5 s) | 6 | 8 | Sub-tiempos: fichas de a una, plata que pasa del lingote al bono, pronósticos que se tachan uno por uno |
-| Claridad para principiantes | 7 | 8 | «la onza»; «bono paga casi cinco, el oro paga cero»; «un solo caso: no es regla» |
-| Cierre | 7 | 8 | «¿Qué hacés con tu oro?» tenía «hacés» (voseo con acento final en el medio, el clon lo dice como «tú»): pasa a «Y vos, con tu oro: dejalo con un emoji» |
-| Cumplimiento (Laura) | 6 | 8 | «Suele bajar / suele subir» sin estadística: pasa a «lo lógico sería… debería» + «lo lógico no siempre pasa». «Este mes» y «año que viene» → «en noviembre» y «dos mil veintisiete» (vigencia). Goldman atribuido con fecha |
+| Claridad para principiantes | 7 | 8 | «bono paga casi cinco, el oro paga cero»; «un solo caso: no es regla» |
+| Cierre | 7 | 8 | «¿Qué hacés con tu oro?» tenía «hacés» (voseo con acento final en el medio, el clon lo dice como «tú»): pasa a «¿Y vos? Dejalo con un emoji» |
+| Cumplimiento (Laura) | 6 | 8 | «Suele bajar / suele subir» sin estadística: pasa a «lo lógico sería… debería» + «lo lógico no siempre pasa». «Este mes» y «año que viene» → «en noviembre» y «dos mil veintisiete» (vigencia). Goldman atribuido con fecha (mes en pantalla) |
 
-**Cambios:** «lo lógico sería» con «debería» y su aviso; «hoy» → «ahora está cerca de»; balanza bono/oro con plata que se muda; caso 2013 rotulado como único; cierre sin «hacés»; Goldman con año y mes; dos opciones de opinión.
+**Cambios:** «lo lógico sería» con «debería» y su aviso; «hoy» → «ahora ronda»; balanza bono/oro con plata que se muda; caso 2013 rotulado como único; cierre sin «hacés»; Goldman con año (y el mes en pantalla); dos opciones de opinión.
 
 **Verificado por Valeria (yfinance GC=F, 26/11):** el primer cierre 30 % abajo del récord desde 2000 fue el 20/06/2013 (1.285,9) y un año después cerraba 1.316,2 (+2,4 %): coincide. En 2008 la caída llegó a −29,7 % (13/11/2008): queda justo afuera del 30 %, «una sola vez» es correcto pero por poco; no decir «nunca cayó tanto».
 
@@ -69,14 +69,14 @@ cámara; si no, clon de voz.
 | # | Voz | Pantalla |
 |---|---|---|
 | 01 | El oro perdió un tercio en diez meses. Si tenés oro, esto te importa. | Cuadro 0: lingote real + «−35 %» enorme en rojo; en «diez meses», «5.586 → 3.611» |
-| 02 | En enero tocó cinco mil quinientos ochenta y seis dólares la onza. Ahora ronda los tres mil seiscientos. | Gráfico real ene–nov 2026: la cámara baja del récord al precio |
+| 02 | En enero tocó cinco mil quinientos ochenta y seis. Ahora ronda los tres mil seiscientos. | Gráfico real ene–nov 2026: la cámara baja del récord al precio |
 | 03 | ¿Por qué? La Fed sube la tasa contra una inflación de tres coma ocho por ciento, y el dólar está en su máximo del año. | Tres fichas que entran de a una: «Inflación 3,8 %» · «Tasa ↑» · «Dólar en máximo del año» |
 | 04 | Con la tasa alta, un bono paga casi cinco por ciento; el oro, cero. Y la plata se muda. | Balanza: bono 4,8 % contra lingote 0 %; monedas que pasan del lingote al bono |
 | 05 | Desde el dos mil, cayó así una sola vez, en dos mil trece, y un año después estaba casi igual. Un solo caso: no es regla. | Ficha «2013 · +2 % a un año» · sello «1 SOLO CASO» |
-| 06 | Para el nueve de diciembre, el mercado espera otra suba. Lo lógico sería: si sube, el oro debería bajar; si no, rebotar. Lo lógico no siempre pasa. | Calendario «9/12 FED» → cartel «LO LÓGICO» con dos caminos → sello «NO SIEMPRE» |
-| 07 | Goldman Sachs espera cuatro mil seiscientos cincuenta a fines de dos mil veintisiete. Y ya lo bajó dos veces en noviembre. | «GOLDMAN · fin de 2027»: 5.400 se tacha, 4.800 se tacha, queda 4.650 · «pronóstico de un banco, no certeza» |
+| 06 | El mercado espera otra suba el nueve de diciembre. Lo lógico sería: si sube, el oro debería bajar; si no, rebotar. Lo lógico no siempre pasa. | Calendario «9/12 FED» → cartel «LO LÓGICO» con dos caminos → sello «NO SIEMPRE» |
+| 07 | Goldman Sachs espera cuatro mil seiscientos cincuenta a fines de dos mil veintisiete. Y ya lo bajó dos veces. | «GOLDMAN · fin de 2027»: 5.400 se tacha, 4.800 se tacha, queda 4.650 · «2 recortes en noviembre» · «pronóstico de un banco, no certeza» |
 | 08 | **[OPINIÓN DE LEAN: completar.]** Dos opciones que no son recomendación: (a) «En mi opinión personal, mientras la Fed siga subiendo la tasa, al oro le va a costar volver arriba.» (b) «En mi opinión personal, los tres mil quinientos son la zona a mirar: es el piso de esta caída.» | «MI OPINIÓN · no es recomendación» |
-| 09 IG | Y vos, con tu oro: dejalo con un emoji. Verde, sumo; amarillo, espero; rojo, salgo. | Encuesta 🟢 sumo · 🟡 espero · 🔴 salgo · aviso educativo |
+| 09 IG | ¿Y vos? Dejalo con un emoji: verde, sumo; amarillo, espero; rojo, salgo. | Encuesta 🟢 sumo · 🟡 espero · 🔴 salgo · aviso educativo |
 | 09 YT | Suscribite a Real Investors Club. | Tarjeta del canal · aviso educativo |
 
 Duración: ~170 palabras con la opinión (máximo 15 palabras) ≈ 54–56 s a 3,1 palabras/s.
