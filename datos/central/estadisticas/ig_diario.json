@@ -1,100 +1,5 @@
 [
  {
-  "dia": "2026-10-09",
-  "alcance": 116,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-10",
-  "alcance": 130,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-11",
-  "alcance": 34,
-  "seguidores_ganados": 1
- },
- {
-  "dia": "2026-10-12",
-  "alcance": 6,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-13",
-  "alcance": 109,
-  "seguidores_ganados": 1
- },
- {
-  "dia": "2026-10-14",
-  "alcance": 8,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-15",
-  "alcance": 3,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-16",
-  "alcance": 7,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-17",
-  "alcance": 2,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-18",
-  "alcance": 114,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-19",
-  "alcance": 122,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-20",
-  "alcance": 145,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-21",
-  "alcance": 241,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-22",
-  "alcance": 202,
-  "seguidores_ganados": 1
- },
- {
-  "dia": "2026-10-23",
-  "alcance": 58,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-24",
-  "alcance": 134,
-  "seguidores_ganados": 1
- },
- {
-  "dia": "2026-10-25",
-  "alcance": 224,
-  "seguidores_ganados": 0
- },
- {
-  "dia": "2026-10-26",
-  "alcance": 671,
-  "seguidores_ganados": 1
- },
- {
-  "dia": "2026-10-27",
-  "alcance": 167,
-  "seguidores_ganados": 2
- },
- {
   "dia": "2026-10-28",
   "alcance": 231,
   "seguidores_ganados": 1
@@ -137,6 +42,101 @@
  {
   "dia": "2026-11-05",
   "alcance": 93,
+  "seguidores_ganados": 2
+ },
+ {
+  "dia": "2026-11-06",
+  "alcance": 133,
+  "seguidores_ganados": 1
+ },
+ {
+  "dia": "2026-11-07",
+  "alcance": 42,
+  "seguidores_ganados": 0
+ },
+ {
+  "dia": "2026-11-08",
+  "alcance": 37,
+  "seguidores_ganados": 1
+ },
+ {
+  "dia": "2026-11-09",
+  "alcance": 222,
+  "seguidores_ganados": 2
+ },
+ {
+  "dia": "2026-11-10",
+  "alcance": 163,
+  "seguidores_ganados": 1
+ },
+ {
+  "dia": "2026-11-11",
+  "alcance": 293,
+  "seguidores_ganados": 0
+ },
+ {
+  "dia": "2026-11-12",
+  "alcance": 2689,
+  "seguidores_ganados": 5
+ },
+ {
+  "dia": "2026-11-13",
+  "alcance": 8561,
+  "seguidores_ganados": 49
+ },
+ {
+  "dia": "2026-11-14",
+  "alcance": 9841,
+  "seguidores_ganados": 111
+ },
+ {
+  "dia": "2026-11-15",
+  "alcance": 2447,
+  "seguidores_ganados": 8
+ },
+ {
+  "dia": "2026-11-16",
+  "alcance": 426,
+  "seguidores_ganados": 5
+ },
+ {
+  "dia": "2026-11-17",
+  "alcance": 232,
+  "seguidores_ganados": 2
+ },
+ {
+  "dia": "2026-11-18",
+  "alcance": 302,
+  "seguidores_ganados": 1
+ },
+ {
+  "dia": "2026-11-19",
+  "alcance": 299,
+  "seguidores_ganados": 0
+ },
+ {
+  "dia": "2026-11-20",
+  "alcance": 146,
+  "seguidores_ganados": 0
+ },
+ {
+  "dia": "2026-11-21",
+  "alcance": 285,
+  "seguidores_ganados": 4
+ },
+ {
+  "dia": "2026-11-22",
+  "alcance": 69,
+  "seguidores_ganados": 2
+ },
+ {
+  "dia": "2026-11-23",
+  "alcance": 155,
+  "seguidores_ganados": 1
+ },
+ {
+  "dia": "2026-11-24",
+  "alcance": 198,
   "seguidores_ganados": 0
  }
 ]

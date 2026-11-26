@@ -5,7 +5,7 @@
   "duracion_s": 368,
   "x": 0.01,
   "segundo": 4,
-  "retencion": 94.8,
+  "retencion": 95.1,
   "relativa": 0.36
  },
  {
@@ -14,7 +14,7 @@
   "duracion_s": 368,
   "x": 0.02,
   "segundo": 7,
-  "retencion": 82.8,
+  "retencion": 83.6,
   "relativa": 0.39
  },
  {
@@ -23,7 +23,7 @@
   "duracion_s": 368,
   "x": 0.03,
   "segundo": 11,
-  "retencion": 84.5,
+  "retencion": 85.2,
   "relativa": 0.4
  },
  {
@@ -32,7 +32,7 @@
   "duracion_s": 368,
   "x": 0.04,
   "segundo": 15,
-  "retencion": 81.0,
+  "retencion": 82.0,
   "relativa": 0.4
  },
  {
@@ -41,7 +41,7 @@
   "duracion_s": 368,
   "x": 0.05,
   "segundo": 18,
-  "retencion": 70.7,
+  "retencion": 72.1,
   "relativa": 0.4
  },
  {
@@ -50,7 +50,7 @@
   "duracion_s": 368,
   "x": 0.06,
   "segundo": 22,
-  "retencion": 67.2,
+  "retencion": 68.8,
   "relativa": 0.39
  },
  {
@@ -59,7 +59,7 @@
   "duracion_s": 368,
   "x": 0.07,
   "segundo": 26,
-  "retencion": 63.8,
+  "retencion": 65.6,
   "relativa": 0.39
  },
  {
@@ -68,7 +68,7 @@
   "duracion_s": 368,
   "x": 0.08,
   "segundo": 29,
-  "retencion": 63.8,
+  "retencion": 63.9,
   "relativa": 0.39
  },
  {
@@ -77,7 +77,7 @@
   "duracion_s": 368,
   "x": 0.09,
   "segundo": 33,
-  "retencion": 62.1,
+  "retencion": 62.3,
   "relativa": 0.39
  },
  {
@@ -86,7 +86,7 @@
   "duracion_s": 368,
   "x": 0.1,
   "segundo": 37,
-  "retencion": 60.3,
+  "retencion": 60.7,
   "relativa": 0.39
  },
  {
@@ -95,7 +95,7 @@
   "duracion_s": 368,
   "x": 0.11,
   "segundo": 40,
-  "retencion": 56.9,
+  "retencion": 57.4,
   "relativa": 0.4
  },
  {
@@ -104,7 +104,7 @@
   "duracion_s": 368,
   "x": 0.12,
   "segundo": 44,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.4
  },
  {
@@ -113,8 +113,8 @@
   "duracion_s": 368,
   "x": 0.13,
   "segundo": 48,
-  "retencion": 56.9,
-  "relativa": 0.41
+  "retencion": 57.4,
+  "relativa": 0.4
  },
  {
   "video": "rODfDcopBEo",
@@ -122,7 +122,7 @@
   "duracion_s": 368,
   "x": 0.14,
   "segundo": 52,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.41
  },
  {
@@ -131,7 +131,7 @@
   "duracion_s": 368,
   "x": 0.15,
   "segundo": 55,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.42
  },
  {
@@ -140,7 +140,7 @@
   "duracion_s": 368,
   "x": 0.16,
   "segundo": 59,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.43
  },
  {
@@ -149,7 +149,7 @@
   "duracion_s": 368,
   "x": 0.17,
   "segundo": 63,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.44
  },
  {
@@ -158,7 +158,7 @@
   "duracion_s": 368,
   "x": 0.18,
   "segundo": 66,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.46
  },
  {
@@ -167,7 +167,7 @@
   "duracion_s": 368,
   "x": 0.19,
   "segundo": 70,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.48
  },
  {
@@ -176,7 +176,7 @@
   "duracion_s": 368,
   "x": 0.2,
   "segundo": 74,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.49
  },
  {
@@ -185,7 +185,7 @@
   "duracion_s": 368,
   "x": 0.21,
   "segundo": 77,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.51
  },
  {
@@ -194,7 +194,7 @@
   "duracion_s": 368,
   "x": 0.22,
   "segundo": 81,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.52
  },
  {
@@ -203,7 +203,7 @@
   "duracion_s": 368,
   "x": 0.23,
   "segundo": 85,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.53
  },
  {
@@ -212,7 +212,7 @@
   "duracion_s": 368,
   "x": 0.24,
   "segundo": 88,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.54
  },
  {
@@ -221,8 +221,8 @@
   "duracion_s": 368,
   "x": 0.25,
   "segundo": 92,
-  "retencion": 55.2,
-  "relativa": 0.54
+  "retencion": 55.7,
+  "relativa": 0.55
  },
  {
   "video": "rODfDcopBEo",
@@ -230,7 +230,7 @@
   "duracion_s": 368,
   "x": 0.26,
   "segundo": 96,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.56
  },
  {
@@ -239,7 +239,7 @@
   "duracion_s": 368,
   "x": 0.27,
   "segundo": 99,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.57
  },
  {
@@ -248,7 +248,7 @@
   "duracion_s": 368,
   "x": 0.28,
   "segundo": 103,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.58
  },
  {
@@ -257,7 +257,7 @@
   "duracion_s": 368,
   "x": 0.29,
   "segundo": 107,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.59
  },
  {
@@ -266,7 +266,7 @@
   "duracion_s": 368,
   "x": 0.3,
   "segundo": 110,
-  "retencion": 56.9,
+  "retencion": 57.4,
   "relativa": 0.61
  },
  {
@@ -275,7 +275,7 @@
   "duracion_s": 368,
   "x": 0.31,
   "segundo": 114,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.62
  },
  {
@@ -284,8 +284,8 @@
   "duracion_s": 368,
   "x": 0.32,
   "segundo": 118,
-  "retencion": 55.2,
-  "relativa": 0.63
+  "retencion": 55.7,
+  "relativa": 0.62
  },
  {
   "video": "rODfDcopBEo",
@@ -293,7 +293,7 @@
   "duracion_s": 368,
   "x": 0.33,
   "segundo": 121,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.63
  },
  {
@@ -302,7 +302,7 @@
   "duracion_s": 368,
   "x": 0.34,
   "segundo": 125,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.64
  },
  {
@@ -311,7 +311,7 @@
   "duracion_s": 368,
   "x": 0.35,
   "segundo": 129,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.66
  },
  {
@@ -320,8 +320,8 @@
   "duracion_s": 368,
   "x": 0.36,
   "segundo": 132,
-  "retencion": 55.2,
-  "relativa": 0.69
+  "retencion": 55.7,
+  "relativa": 0.68
  },
  {
   "video": "rODfDcopBEo",
@@ -329,8 +329,8 @@
   "duracion_s": 368,
   "x": 0.37,
   "segundo": 136,
-  "retencion": 56.9,
-  "relativa": 0.72
+  "retencion": 57.4,
+  "relativa": 0.71
  },
  {
   "video": "rODfDcopBEo",
@@ -338,8 +338,8 @@
   "duracion_s": 368,
   "x": 0.38,
   "segundo": 140,
-  "retencion": 58.6,
-  "relativa": 0.73
+  "retencion": 59.0,
+  "relativa": 0.72
  },
  {
   "video": "rODfDcopBEo",
@@ -347,8 +347,8 @@
   "duracion_s": 368,
   "x": 0.39,
   "segundo": 144,
-  "retencion": 56.9,
-  "relativa": 0.73
+  "retencion": 57.4,
+  "relativa": 0.72
  },
  {
   "video": "rODfDcopBEo",
@@ -356,8 +356,8 @@
   "duracion_s": 368,
   "x": 0.4,
   "segundo": 147,
-  "retencion": 56.9,
-  "relativa": 0.72
+  "retencion": 57.4,
+  "relativa": 0.71
  },
  {
   "video": "rODfDcopBEo",
@@ -365,7 +365,7 @@
   "duracion_s": 368,
   "x": 0.41,
   "segundo": 151,
-  "retencion": 56.9,
+  "retencion": 57.4,
   "relativa": 0.69
  },
  {
@@ -374,8 +374,8 @@
   "duracion_s": 368,
   "x": 0.42,
   "segundo": 155,
-  "retencion": 55.2,
-  "relativa": 0.67
+  "retencion": 55.7,
+  "relativa": 0.66
  },
  {
   "video": "rODfDcopBEo",
@@ -383,7 +383,7 @@
   "duracion_s": 368,
   "x": 0.43,
   "segundo": 158,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.63
  },
  {
@@ -392,7 +392,7 @@
   "duracion_s": 368,
   "x": 0.44,
   "segundo": 162,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.6
  },
  {
@@ -401,7 +401,7 @@
   "duracion_s": 368,
   "x": 0.45,
   "segundo": 166,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.57
  },
  {
@@ -410,7 +410,7 @@
   "duracion_s": 368,
   "x": 0.46,
   "segundo": 169,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.55
  },
  {
@@ -419,7 +419,7 @@
   "duracion_s": 368,
   "x": 0.47,
   "segundo": 173,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.54
  },
  {
@@ -428,7 +428,7 @@
   "duracion_s": 368,
   "x": 0.48,
   "segundo": 177,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.53
  },
  {
@@ -437,7 +437,7 @@
   "duracion_s": 368,
   "x": 0.49,
   "segundo": 180,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.53
  },
  {
@@ -446,8 +446,8 @@
   "duracion_s": 368,
   "x": 0.5,
   "segundo": 184,
-  "retencion": 51.7,
-  "relativa": 0.53
+  "retencion": 52.5,
+  "relativa": 0.54
  },
  {
   "video": "rODfDcopBEo",
@@ -455,7 +455,7 @@
   "duracion_s": 368,
   "x": 0.51,
   "segundo": 188,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.54
  },
  {
@@ -464,7 +464,7 @@
   "duracion_s": 368,
   "x": 0.52,
   "segundo": 191,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.55
  },
  {
@@ -473,7 +473,7 @@
   "duracion_s": 368,
   "x": 0.53,
   "segundo": 195,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.57
  },
  {
@@ -482,7 +482,7 @@
   "duracion_s": 368,
   "x": 0.54,
   "segundo": 199,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.61
  },
  {
@@ -491,7 +491,7 @@
   "duracion_s": 368,
   "x": 0.55,
   "segundo": 202,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.65
  },
  {
@@ -500,8 +500,8 @@
   "duracion_s": 368,
   "x": 0.56,
   "segundo": 206,
-  "retencion": 53.4,
-  "relativa": 0.7
+  "retencion": 54.1,
+  "relativa": 0.69
  },
  {
   "video": "rODfDcopBEo",
@@ -509,7 +509,7 @@
   "duracion_s": 368,
   "x": 0.57,
   "segundo": 210,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.73
  },
  {
@@ -518,8 +518,8 @@
   "duracion_s": 368,
   "x": 0.58,
   "segundo": 213,
-  "retencion": 53.4,
-  "relativa": 0.76
+  "retencion": 54.1,
+  "relativa": 0.75
  },
  {
   "video": "rODfDcopBEo",
@@ -527,8 +527,8 @@
   "duracion_s": 368,
   "x": 0.59,
   "segundo": 217,
-  "retencion": 56.9,
-  "relativa": 0.78
+  "retencion": 57.4,
+  "relativa": 0.77
  },
  {
   "video": "rODfDcopBEo",
@@ -536,8 +536,8 @@
   "duracion_s": 368,
   "x": 0.6,
   "segundo": 221,
-  "retencion": 58.6,
-  "relativa": 0.8
+  "retencion": 59.0,
+  "relativa": 0.79
  },
  {
   "video": "rODfDcopBEo",
@@ -545,8 +545,8 @@
   "duracion_s": 368,
   "x": 0.61,
   "segundo": 224,
-  "retencion": 60.3,
-  "relativa": 0.81
+  "retencion": 60.7,
+  "relativa": 0.8
  },
  {
   "video": "rODfDcopBEo",
@@ -554,8 +554,8 @@
   "duracion_s": 368,
   "x": 0.62,
   "segundo": 228,
-  "retencion": 58.6,
-  "relativa": 0.83
+  "retencion": 59.0,
+  "relativa": 0.82
  },
  {
   "video": "rODfDcopBEo",
@@ -563,8 +563,8 @@
   "duracion_s": 368,
   "x": 0.63,
   "segundo": 232,
-  "retencion": 60.3,
-  "relativa": 0.84
+  "retencion": 60.7,
+  "relativa": 0.83
  },
  {
   "video": "rODfDcopBEo",
@@ -572,8 +572,8 @@
   "duracion_s": 368,
   "x": 0.64,
   "segundo": 236,
-  "retencion": 60.3,
-  "relativa": 0.84
+  "retencion": 60.7,
+  "relativa": 0.83
  },
  {
   "video": "rODfDcopBEo",
@@ -581,8 +581,8 @@
   "duracion_s": 368,
   "x": 0.65,
   "segundo": 239,
-  "retencion": 58.6,
-  "relativa": 0.84
+  "retencion": 59.0,
+  "relativa": 0.83
  },
  {
   "video": "rODfDcopBEo",
@@ -590,8 +590,8 @@
   "duracion_s": 368,
   "x": 0.66,
   "segundo": 243,
-  "retencion": 56.9,
-  "relativa": 0.82
+  "retencion": 57.4,
+  "relativa": 0.81
  },
  {
   "video": "rODfDcopBEo",
@@ -599,8 +599,8 @@
   "duracion_s": 368,
   "x": 0.67,
   "segundo": 247,
-  "retencion": 56.9,
-  "relativa": 0.8
+  "retencion": 57.4,
+  "relativa": 0.79
  },
  {
   "video": "rODfDcopBEo",
@@ -608,8 +608,8 @@
   "duracion_s": 368,
   "x": 0.68,
   "segundo": 250,
-  "retencion": 56.9,
-  "relativa": 0.77
+  "retencion": 57.4,
+  "relativa": 0.76
  },
  {
   "video": "rODfDcopBEo",
@@ -617,8 +617,8 @@
   "duracion_s": 368,
   "x": 0.69,
   "segundo": 254,
-  "retencion": 56.9,
-  "relativa": 0.73
+  "retencion": 57.4,
+  "relativa": 0.72
  },
  {
   "video": "rODfDcopBEo",
@@ -626,8 +626,8 @@
   "duracion_s": 368,
   "x": 0.7,
   "segundo": 258,
-  "retencion": 55.2,
-  "relativa": 0.69
+  "retencion": 55.7,
+  "relativa": 0.68
  },
  {
   "video": "rODfDcopBEo",
@@ -635,7 +635,7 @@
   "duracion_s": 368,
   "x": 0.71,
   "segundo": 261,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.65
  },
  {
@@ -644,8 +644,8 @@
   "duracion_s": 368,
   "x": 0.72,
   "segundo": 265,
-  "retencion": 55.2,
-  "relativa": 0.63
+  "retencion": 55.7,
+  "relativa": 0.62
  },
  {
   "video": "rODfDcopBEo",
@@ -653,8 +653,8 @@
   "duracion_s": 368,
   "x": 0.73,
   "segundo": 269,
-  "retencion": 55.2,
-  "relativa": 0.61
+  "retencion": 55.7,
+  "relativa": 0.6
  },
  {
   "video": "rODfDcopBEo",
@@ -662,7 +662,7 @@
   "duracion_s": 368,
   "x": 0.74,
   "segundo": 272,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.59
  },
  {
@@ -671,7 +671,7 @@
   "duracion_s": 368,
   "x": 0.75,
   "segundo": 276,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.58
  },
  {
@@ -680,7 +680,7 @@
   "duracion_s": 368,
   "x": 0.76,
   "segundo": 280,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.57
  },
  {
@@ -689,7 +689,7 @@
   "duracion_s": 368,
   "x": 0.77,
   "segundo": 283,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.56
  },
  {
@@ -698,8 +698,8 @@
   "duracion_s": 368,
   "x": 0.78,
   "segundo": 287,
-  "retencion": 51.7,
-  "relativa": 0.55
+  "retencion": 52.5,
+  "relativa": 0.56
  },
  {
   "video": "rODfDcopBEo",
@@ -707,7 +707,7 @@
   "duracion_s": 368,
   "x": 0.79,
   "segundo": 291,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.55
  },
  {
@@ -716,7 +716,7 @@
   "duracion_s": 368,
   "x": 0.8,
   "segundo": 294,
-  "retencion": 50.0,
+  "retencion": 50.8,
   "relativa": 0.55
  },
  {
@@ -725,8 +725,8 @@
   "duracion_s": 368,
   "x": 0.81,
   "segundo": 298,
-  "retencion": 50.0,
-  "relativa": 0.55
+  "retencion": 50.8,
+  "relativa": 0.56
  },
  {
   "video": "rODfDcopBEo",
@@ -734,7 +734,7 @@
   "duracion_s": 368,
   "x": 0.82,
   "segundo": 302,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.56
  },
  {
@@ -743,8 +743,8 @@
   "duracion_s": 368,
   "x": 0.83,
   "segundo": 305,
-  "retencion": 51.7,
-  "relativa": 0.56
+  "retencion": 52.5,
+  "relativa": 0.57
  },
  {
   "video": "rODfDcopBEo",
@@ -752,7 +752,7 @@
   "duracion_s": 368,
   "x": 0.84,
   "segundo": 309,
-  "retencion": 50.0,
+  "retencion": 50.8,
   "relativa": 0.58
  },
  {
@@ -761,7 +761,7 @@
   "duracion_s": 368,
   "x": 0.85,
   "segundo": 313,
-  "retencion": 50.0,
+  "retencion": 50.8,
   "relativa": 0.6
  },
  {
@@ -770,7 +770,7 @@
   "duracion_s": 368,
   "x": 0.86,
   "segundo": 316,
-  "retencion": 50.0,
+  "retencion": 50.8,
   "relativa": 0.63
  },
  {
@@ -779,7 +779,7 @@
   "duracion_s": 368,
   "x": 0.87,
   "segundo": 320,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.66
  },
  {
@@ -788,7 +788,7 @@
   "duracion_s": 368,
   "x": 0.88,
   "segundo": 324,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.69
  },
  {
@@ -797,7 +797,7 @@
   "duracion_s": 368,
   "x": 0.89,
   "segundo": 328,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.71
  },
  {
@@ -806,7 +806,7 @@
   "duracion_s": 368,
   "x": 0.9,
   "segundo": 331,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.73
  },
  {
@@ -815,7 +815,7 @@
   "duracion_s": 368,
   "x": 0.91,
   "segundo": 335,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.74
  },
  {
@@ -824,7 +824,7 @@
   "duracion_s": 368,
   "x": 0.92,
   "segundo": 339,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.75
  },
  {
@@ -833,7 +833,7 @@
   "duracion_s": 368,
   "x": 0.93,
   "segundo": 342,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.76
  },
  {
@@ -842,7 +842,7 @@
   "duracion_s": 368,
   "x": 0.94,
   "segundo": 346,
-  "retencion": 53.4,
+  "retencion": 54.1,
   "relativa": 0.77
  },
  {
@@ -851,7 +851,7 @@
   "duracion_s": 368,
   "x": 0.95,
   "segundo": 350,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.78
  },
  {
@@ -860,7 +860,7 @@
   "duracion_s": 368,
   "x": 0.96,
   "segundo": 353,
-  "retencion": 55.2,
+  "retencion": 55.7,
   "relativa": 0.78
  },
  {
@@ -869,8 +869,8 @@
   "duracion_s": 368,
   "x": 0.97,
   "segundo": 357,
-  "retencion": 53.4,
-  "relativa": 0.77
+  "retencion": 54.1,
+  "relativa": 0.78
  },
  {
   "video": "rODfDcopBEo",
@@ -878,7 +878,7 @@
   "duracion_s": 368,
   "x": 0.98,
   "segundo": 361,
-  "retencion": 51.7,
+  "retencion": 52.5,
   "relativa": 0.76
  },
  {
@@ -887,7 +887,7 @@
   "duracion_s": 368,
   "x": 0.99,
   "segundo": 364,
-  "retencion": 50.0,
+  "retencion": 50.8,
   "relativa": 0.75
  },
  {
@@ -896,8 +896,908 @@
   "duracion_s": 368,
   "x": 1,
   "segundo": 368,
-  "retencion": 44.8,
+  "retencion": 45.9,
+  "relativa": 0.74
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.01,
+  "segundo": 9,
+  "retencion": 108.6,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.02,
+  "segundo": 18,
+  "retencion": 97.1,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.03,
+  "segundo": 27,
+  "retencion": 74.3,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.04,
+  "segundo": 36,
+  "retencion": 68.6,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.05,
+  "segundo": 46,
+  "retencion": 65.7,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.06,
+  "segundo": 55,
+  "retencion": 62.9,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.07,
+  "segundo": 64,
+  "retencion": 60.0,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.08,
+  "segundo": 73,
+  "retencion": 51.4,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.09,
+  "segundo": 82,
+  "retencion": 51.4,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.1,
+  "segundo": 91,
+  "retencion": 48.6,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.11,
+  "segundo": 100,
+  "retencion": 42.9,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.12,
+  "segundo": 109,
+  "retencion": 42.9,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.13,
+  "segundo": 119,
+  "retencion": 42.9,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.14,
+  "segundo": 128,
+  "retencion": 42.9,
+  "relativa": 0.66
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.15,
+  "segundo": 137,
+  "retencion": 42.9,
+  "relativa": 0.66
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.16,
+  "segundo": 146,
+  "retencion": 42.9,
+  "relativa": 0.67
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.17,
+  "segundo": 155,
+  "retencion": 42.9,
+  "relativa": 0.67
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.18,
+  "segundo": 164,
+  "retencion": 42.9,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.19,
+  "segundo": 173,
+  "retencion": 42.9,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.2,
+  "segundo": 182,
+  "retencion": 45.7,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.21,
+  "segundo": 192,
+  "retencion": 40.0,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.22,
+  "segundo": 201,
+  "retencion": 40.0,
+  "relativa": 0.67
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.23,
+  "segundo": 210,
+  "retencion": 40.0,
+  "relativa": 0.66
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.24,
+  "segundo": 219,
+  "retencion": 40.0,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.25,
+  "segundo": 228,
+  "retencion": 45.7,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.26,
+  "segundo": 237,
+  "retencion": 45.7,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.27,
+  "segundo": 246,
+  "retencion": 42.9,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.28,
+  "segundo": 255,
+  "retencion": 37.1,
+  "relativa": 0.62
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.29,
+  "segundo": 264,
+  "retencion": 34.3,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.3,
+  "segundo": 274,
+  "retencion": 34.3,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.31,
+  "segundo": 283,
+  "retencion": 34.3,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.32,
+  "segundo": 292,
+  "retencion": 34.3,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.33,
+  "segundo": 301,
+  "retencion": 34.3,
+  "relativa": 0.62
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.34,
+  "segundo": 310,
+  "retencion": 34.3,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.35,
+  "segundo": 319,
+  "retencion": 34.3,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.36,
+  "segundo": 328,
+  "retencion": 34.3,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.37,
+  "segundo": 337,
+  "retencion": 34.3,
+  "relativa": 0.66
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.38,
+  "segundo": 347,
+  "retencion": 34.3,
+  "relativa": 0.67
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.39,
+  "segundo": 356,
+  "retencion": 34.3,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.4,
+  "segundo": 365,
+  "retencion": 34.3,
+  "relativa": 0.69
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.41,
+  "segundo": 374,
+  "retencion": 34.3,
+  "relativa": 0.69
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.42,
+  "segundo": 383,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.43,
+  "segundo": 392,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.44,
+  "segundo": 401,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.45,
+  "segundo": 410,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.46,
+  "segundo": 420,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.47,
+  "segundo": 429,
+  "retencion": 34.3,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.48,
+  "segundo": 438,
+  "retencion": 31.4,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.49,
+  "segundo": 447,
+  "retencion": 31.4,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.5,
+  "segundo": 456,
+  "retencion": 28.6,
+  "relativa": 0.7
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.51,
+  "segundo": 465,
+  "retencion": 28.6,
+  "relativa": 0.71
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.52,
+  "segundo": 474,
+  "retencion": 28.6,
+  "relativa": 0.72
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.53,
+  "segundo": 483,
+  "retencion": 28.6,
+  "relativa": 0.72
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.54,
+  "segundo": 492,
+  "retencion": 28.6,
   "relativa": 0.73
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.55,
+  "segundo": 502,
+  "retencion": 28.6,
+  "relativa": 0.74
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.56,
+  "segundo": 511,
+  "retencion": 31.4,
+  "relativa": 0.75
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.57,
+  "segundo": 520,
+  "retencion": 28.6,
+  "relativa": 0.75
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.58,
+  "segundo": 529,
+  "retencion": 28.6,
+  "relativa": 0.76
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.59,
+  "segundo": 538,
+  "retencion": 28.6,
+  "relativa": 0.76
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.6,
+  "segundo": 547,
+  "retencion": 28.6,
+  "relativa": 0.75
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.61,
+  "segundo": 556,
+  "retencion": 28.6,
+  "relativa": 0.75
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.62,
+  "segundo": 565,
+  "retencion": 28.6,
+  "relativa": 0.74
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.63,
+  "segundo": 575,
+  "retencion": 28.6,
+  "relativa": 0.72
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.64,
+  "segundo": 584,
+  "retencion": 28.6,
+  "relativa": 0.71
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.65,
+  "segundo": 593,
+  "retencion": 28.6,
+  "relativa": 0.69
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.66,
+  "segundo": 602,
+  "retencion": 28.6,
+  "relativa": 0.68
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.67,
+  "segundo": 611,
+  "retencion": 28.6,
+  "relativa": 0.66
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.68,
+  "segundo": 620,
+  "retencion": 28.6,
+  "relativa": 0.65
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.69,
+  "segundo": 629,
+  "retencion": 28.6,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.7,
+  "segundo": 638,
+  "retencion": 28.6,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.71,
+  "segundo": 648,
+  "retencion": 28.6,
+  "relativa": 0.62
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.72,
+  "segundo": 657,
+  "retencion": 25.7,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.73,
+  "segundo": 666,
+  "retencion": 25.7,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.74,
+  "segundo": 675,
+  "retencion": 25.7,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.75,
+  "segundo": 684,
+  "retencion": 28.6,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.76,
+  "segundo": 693,
+  "retencion": 31.4,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.77,
+  "segundo": 702,
+  "retencion": 31.4,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.78,
+  "segundo": 711,
+  "retencion": 28.6,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.79,
+  "segundo": 720,
+  "retencion": 28.6,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.8,
+  "segundo": 730,
+  "retencion": 25.7,
+  "relativa": 0.59
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.81,
+  "segundo": 739,
+  "retencion": 25.7,
+  "relativa": 0.59
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.82,
+  "segundo": 748,
+  "retencion": 25.7,
+  "relativa": 0.59
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.83,
+  "segundo": 757,
+  "retencion": 25.7,
+  "relativa": 0.59
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.84,
+  "segundo": 766,
+  "retencion": 25.7,
+  "relativa": 0.59
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.85,
+  "segundo": 775,
+  "retencion": 25.7,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.86,
+  "segundo": 784,
+  "retencion": 20.0,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.87,
+  "segundo": 793,
+  "retencion": 20.0,
+  "relativa": 0.6
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.88,
+  "segundo": 803,
+  "retencion": 20.0,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.89,
+  "segundo": 812,
+  "retencion": 20.0,
+  "relativa": 0.61
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.9,
+  "segundo": 821,
+  "retencion": 20.0,
+  "relativa": 0.62
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.91,
+  "segundo": 830,
+  "retencion": 20.0,
+  "relativa": 0.62
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.92,
+  "segundo": 839,
+  "retencion": 20.0,
+  "relativa": 0.63
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.93,
+  "segundo": 848,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.94,
+  "segundo": 857,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.95,
+  "segundo": 866,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.96,
+  "segundo": 876,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.97,
+  "segundo": 885,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.98,
+  "segundo": 894,
+  "retencion": 20.0,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 0.99,
+  "segundo": 903,
+  "retencion": 17.1,
+  "relativa": 0.64
+ },
+ {
+  "video": "VEL2WF_pp_I",
+  "titulo": "Por qué un trader puede perder 8 veces seguidas y ganar el mes",
+  "duracion_s": 912,
+  "x": 1,
+  "segundo": 912,
+  "retencion": 17.1,
+  "relativa": 0.64
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -915,7 +1815,7 @@
   "x": 0.02,
   "segundo": 8,
   "retencion": 97.5,
-  "relativa": 0.45
+  "relativa": 0.46
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -923,7 +1823,7 @@
   "duracion_s": 382,
   "x": 0.03,
   "segundo": 11,
-  "retencion": 92.5,
+  "retencion": 92.6,
   "relativa": 0.48
  },
  {
@@ -932,8 +1832,8 @@
   "duracion_s": 382,
   "x": 0.04,
   "segundo": 15,
-  "retencion": 82.5,
-  "relativa": 0.48
+  "retencion": 82.7,
+  "relativa": 0.49
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -941,7 +1841,7 @@
   "duracion_s": 382,
   "x": 0.05,
   "segundo": 19,
-  "retencion": 80.0,
+  "retencion": 80.2,
   "relativa": 0.48
  },
  {
@@ -950,8 +1850,8 @@
   "duracion_s": 382,
   "x": 0.06,
   "segundo": 23,
-  "retencion": 73.8,
-  "relativa": 0.48
+  "retencion": 74.1,
+  "relativa": 0.49
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -959,8 +1859,8 @@
   "duracion_s": 382,
   "x": 0.07,
   "segundo": 27,
-  "retencion": 72.5,
-  "relativa": 0.49
+  "retencion": 72.8,
+  "relativa": 0.5
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -968,8 +1868,8 @@
   "duracion_s": 382,
   "x": 0.08,
   "segundo": 31,
-  "retencion": 71.2,
-  "relativa": 0.52
+  "retencion": 71.6,
+  "relativa": 0.53
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -977,7 +1877,7 @@
   "duracion_s": 382,
   "x": 0.09,
   "segundo": 34,
-  "retencion": 73.8,
+  "retencion": 74.1,
   "relativa": 0.56
  },
  {
@@ -986,7 +1886,7 @@
   "duracion_s": 382,
   "x": 0.1,
   "segundo": 38,
-  "retencion": 73.8,
+  "retencion": 74.1,
   "relativa": 0.6
  },
  {
@@ -995,7 +1895,7 @@
   "duracion_s": 382,
   "x": 0.11,
   "segundo": 42,
-  "retencion": 71.2,
+  "retencion": 71.6,
   "relativa": 0.62
  },
  {
@@ -1004,7 +1904,7 @@
   "duracion_s": 382,
   "x": 0.12,
   "segundo": 46,
-  "retencion": 71.2,
+  "retencion": 71.6,
   "relativa": 0.63
  },
  {
@@ -1013,7 +1913,7 @@
   "duracion_s": 382,
   "x": 0.13,
   "segundo": 50,
-  "retencion": 67.5,
+  "retencion": 67.9,
   "relativa": 0.62
  },
  {
@@ -1022,7 +1922,7 @@
   "duracion_s": 382,
   "x": 0.14,
   "segundo": 53,
-  "retencion": 67.5,
+  "retencion": 67.9,
   "relativa": 0.6
  },
  {
@@ -1031,7 +1931,7 @@
   "duracion_s": 382,
   "x": 0.15,
   "segundo": 57,
-  "retencion": 63.7,
+  "retencion": 64.2,
   "relativa": 0.57
  },
  {
@@ -1040,8 +1940,8 @@
   "duracion_s": 382,
   "x": 0.16,
   "segundo": 61,
-  "retencion": 63.7,
-  "relativa": 0.54
+  "retencion": 64.2,
+  "relativa": 0.55
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1049,7 +1949,7 @@
   "duracion_s": 382,
   "x": 0.17,
   "segundo": 65,
-  "retencion": 62.5,
+  "retencion": 63.0,
   "relativa": 0.52
  },
  {
@@ -1058,7 +1958,7 @@
   "duracion_s": 382,
   "x": 0.18,
   "segundo": 69,
-  "retencion": 62.5,
+  "retencion": 63.0,
   "relativa": 0.51
  },
  {
@@ -1067,8 +1967,8 @@
   "duracion_s": 382,
   "x": 0.19,
   "segundo": 73,
-  "retencion": 61.3,
-  "relativa": 0.5
+  "retencion": 61.7,
+  "relativa": 0.51
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1076,8 +1976,8 @@
   "duracion_s": 382,
   "x": 0.2,
   "segundo": 76,
-  "retencion": 61.3,
-  "relativa": 0.5
+  "retencion": 61.7,
+  "relativa": 0.51
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1085,7 +1985,7 @@
   "duracion_s": 382,
   "x": 0.21,
   "segundo": 80,
-  "retencion": 60.0,
+  "retencion": 60.5,
   "relativa": 0.51
  },
  {
@@ -1094,8 +1994,8 @@
   "duracion_s": 382,
   "x": 0.22,
   "segundo": 84,
-  "retencion": 60.0,
-  "relativa": 0.51
+  "retencion": 60.5,
+  "relativa": 0.52
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1103,7 +2003,7 @@
   "duracion_s": 382,
   "x": 0.23,
   "segundo": 88,
-  "retencion": 61.3,
+  "retencion": 61.7,
   "relativa": 0.53
  },
  {
@@ -1112,7 +2012,7 @@
   "duracion_s": 382,
   "x": 0.24,
   "segundo": 92,
-  "retencion": 62.5,
+  "retencion": 63.0,
   "relativa": 0.54
  },
  {
@@ -1121,7 +2021,7 @@
   "duracion_s": 382,
   "x": 0.25,
   "segundo": 96,
-  "retencion": 61.3,
+  "retencion": 61.7,
   "relativa": 0.56
  },
  {
@@ -1130,7 +2030,7 @@
   "duracion_s": 382,
   "x": 0.26,
   "segundo": 99,
-  "retencion": 58.8,
+  "retencion": 59.3,
   "relativa": 0.58
  },
  {
@@ -1139,7 +2039,7 @@
   "duracion_s": 382,
   "x": 0.27,
   "segundo": 103,
-  "retencion": 60.0,
+  "retencion": 60.5,
   "relativa": 0.61
  },
  {
@@ -1148,7 +2048,7 @@
   "duracion_s": 382,
   "x": 0.28,
   "segundo": 107,
-  "retencion": 60.0,
+  "retencion": 60.5,
   "relativa": 0.63
  },
  {
@@ -1157,7 +2057,7 @@
   "duracion_s": 382,
   "x": 0.29,
   "segundo": 111,
-  "retencion": 61.3,
+  "retencion": 61.7,
   "relativa": 0.65
  },
  {
@@ -1166,7 +2066,7 @@
   "duracion_s": 382,
   "x": 0.3,
   "segundo": 115,
-  "retencion": 60.0,
+  "retencion": 60.5,
   "relativa": 0.65
  },
  {
@@ -1175,7 +2075,7 @@
   "duracion_s": 382,
   "x": 0.31,
   "segundo": 118,
-  "retencion": 58.8,
+  "retencion": 59.3,
   "relativa": 0.65
  },
  {
@@ -1184,7 +2084,7 @@
   "duracion_s": 382,
   "x": 0.32,
   "segundo": 122,
-  "retencion": 57.5,
+  "retencion": 58.0,
   "relativa": 0.64
  },
  {
@@ -1193,7 +2093,7 @@
   "duracion_s": 382,
   "x": 0.33,
   "segundo": 126,
-  "retencion": 57.5,
+  "retencion": 58.0,
   "relativa": 0.63
  },
  {
@@ -1202,7 +2102,7 @@
   "duracion_s": 382,
   "x": 0.34,
   "segundo": 130,
-  "retencion": 57.5,
+  "retencion": 58.0,
   "relativa": 0.63
  },
  {
@@ -1211,7 +2111,7 @@
   "duracion_s": 382,
   "x": 0.35,
   "segundo": 134,
-  "retencion": 57.5,
+  "retencion": 58.0,
   "relativa": 0.61
  },
  {
@@ -1220,7 +2120,7 @@
   "duracion_s": 382,
   "x": 0.36,
   "segundo": 138,
-  "retencion": 57.5,
+  "retencion": 58.0,
   "relativa": 0.59
  },
  {
@@ -1229,7 +2129,7 @@
   "duracion_s": 382,
   "x": 0.37,
   "segundo": 141,
-  "retencion": 56.2,
+  "retencion": 56.8,
   "relativa": 0.57
  },
  {
@@ -1238,7 +2138,7 @@
   "duracion_s": 382,
   "x": 0.38,
   "segundo": 145,
-  "retencion": 55.0,
+  "retencion": 55.6,
   "relativa": 0.54
  },
  {
@@ -1247,7 +2147,7 @@
   "duracion_s": 382,
   "x": 0.39,
   "segundo": 149,
-  "retencion": 55.0,
+  "retencion": 55.6,
   "relativa": 0.52
  },
  {
@@ -1256,7 +2156,7 @@
   "duracion_s": 382,
   "x": 0.4,
   "segundo": 153,
-  "retencion": 53.8,
+  "retencion": 54.3,
   "relativa": 0.51
  },
  {
@@ -1265,7 +2165,7 @@
   "duracion_s": 382,
   "x": 0.41,
   "segundo": 157,
-  "retencion": 53.8,
+  "retencion": 54.3,
   "relativa": 0.5
  },
  {
@@ -1274,7 +2174,7 @@
   "duracion_s": 382,
   "x": 0.42,
   "segundo": 160,
-  "retencion": 53.8,
+  "retencion": 54.3,
   "relativa": 0.49
  },
  {
@@ -1283,7 +2183,7 @@
   "duracion_s": 382,
   "x": 0.43,
   "segundo": 164,
-  "retencion": 53.8,
+  "retencion": 54.3,
   "relativa": 0.48
  },
  {
@@ -1292,7 +2192,7 @@
   "duracion_s": 382,
   "x": 0.44,
   "segundo": 168,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.48
  },
  {
@@ -1301,8 +2201,8 @@
   "duracion_s": 382,
   "x": 0.45,
   "segundo": 172,
-  "retencion": 52.5,
-  "relativa": 0.47
+  "retencion": 53.1,
+  "relativa": 0.48
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1310,7 +2210,7 @@
   "duracion_s": 382,
   "x": 0.46,
   "segundo": 176,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.48
  },
  {
@@ -1319,8 +2219,8 @@
   "duracion_s": 382,
   "x": 0.47,
   "segundo": 180,
-  "retencion": 52.5,
-  "relativa": 0.47
+  "retencion": 53.1,
+  "relativa": 0.48
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1328,7 +2228,7 @@
   "duracion_s": 382,
   "x": 0.48,
   "segundo": 183,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.47
  },
  {
@@ -1337,7 +2237,7 @@
   "duracion_s": 382,
   "x": 0.49,
   "segundo": 187,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.46
  },
  {
@@ -1346,7 +2246,7 @@
   "duracion_s": 382,
   "x": 0.5,
   "segundo": 191,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.44
  },
  {
@@ -1355,7 +2255,7 @@
   "duracion_s": 382,
   "x": 0.51,
   "segundo": 195,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1364,7 +2264,7 @@
   "duracion_s": 382,
   "x": 0.52,
   "segundo": 199,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1373,7 +2273,7 @@
   "duracion_s": 382,
   "x": 0.53,
   "segundo": 202,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1382,7 +2282,7 @@
   "duracion_s": 382,
   "x": 0.54,
   "segundo": 206,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1391,7 +2291,7 @@
   "duracion_s": 382,
   "x": 0.55,
   "segundo": 210,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1400,7 +2300,7 @@
   "duracion_s": 382,
   "x": 0.56,
   "segundo": 214,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1409,7 +2309,7 @@
   "duracion_s": 382,
   "x": 0.57,
   "segundo": 218,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.43
  },
  {
@@ -1418,7 +2318,7 @@
   "duracion_s": 382,
   "x": 0.58,
   "segundo": 222,
-  "retencion": 52.5,
+  "retencion": 53.1,
   "relativa": 0.43
  },
  {
@@ -1427,7 +2327,7 @@
   "duracion_s": 382,
   "x": 0.59,
   "segundo": 225,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.43
  },
  {
@@ -1436,8 +2336,8 @@
   "duracion_s": 382,
   "x": 0.6,
   "segundo": 229,
-  "retencion": 51.2,
-  "relativa": 0.42
+  "retencion": 51.8,
+  "relativa": 0.43
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1445,7 +2345,7 @@
   "duracion_s": 382,
   "x": 0.61,
   "segundo": 233,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.42
  },
  {
@@ -1454,7 +2354,7 @@
   "duracion_s": 382,
   "x": 0.62,
   "segundo": 237,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.42
  },
  {
@@ -1463,7 +2363,7 @@
   "duracion_s": 382,
   "x": 0.63,
   "segundo": 241,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.42
  },
  {
@@ -1472,7 +2372,7 @@
   "duracion_s": 382,
   "x": 0.64,
   "segundo": 244,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.43
  },
  {
@@ -1481,7 +2381,7 @@
   "duracion_s": 382,
   "x": 0.65,
   "segundo": 248,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.44
  },
  {
@@ -1490,8 +2390,8 @@
   "duracion_s": 382,
   "x": 0.66,
   "segundo": 252,
-  "retencion": 48.8,
-  "relativa": 0.46
+  "retencion": 49.4,
+  "relativa": 0.47
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1499,7 +2399,7 @@
   "duracion_s": 382,
   "x": 0.67,
   "segundo": 256,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.48
  },
  {
@@ -1508,7 +2408,7 @@
   "duracion_s": 382,
   "x": 0.68,
   "segundo": 260,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.49
  },
  {
@@ -1517,7 +2417,7 @@
   "duracion_s": 382,
   "x": 0.69,
   "segundo": 264,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.5
  },
  {
@@ -1526,7 +2426,7 @@
   "duracion_s": 382,
   "x": 0.7,
   "segundo": 267,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.5
  },
  {
@@ -1535,7 +2435,7 @@
   "duracion_s": 382,
   "x": 0.71,
   "segundo": 271,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.51
  },
  {
@@ -1544,7 +2444,7 @@
   "duracion_s": 382,
   "x": 0.72,
   "segundo": 275,
-  "retencion": 47.5,
+  "retencion": 48.1,
   "relativa": 0.53
  },
  {
@@ -1553,7 +2453,7 @@
   "duracion_s": 382,
   "x": 0.73,
   "segundo": 279,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.54
  },
  {
@@ -1562,7 +2462,7 @@
   "duracion_s": 382,
   "x": 0.74,
   "segundo": 283,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.55
  },
  {
@@ -1571,7 +2471,7 @@
   "duracion_s": 382,
   "x": 0.75,
   "segundo": 286,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.56
  },
  {
@@ -1580,7 +2480,7 @@
   "duracion_s": 382,
   "x": 0.76,
   "segundo": 290,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.57
  },
  {
@@ -1589,7 +2489,7 @@
   "duracion_s": 382,
   "x": 0.77,
   "segundo": 294,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.59
  },
  {
@@ -1598,8 +2498,8 @@
   "duracion_s": 382,
   "x": 0.78,
   "segundo": 298,
-  "retencion": 51.2,
-  "relativa": 0.6
+  "retencion": 51.8,
+  "relativa": 0.59
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1607,7 +2507,7 @@
   "duracion_s": 382,
   "x": 0.79,
   "segundo": 302,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.6
  },
  {
@@ -1616,7 +2516,7 @@
   "duracion_s": 382,
   "x": 0.8,
   "segundo": 306,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.6
  },
  {
@@ -1625,7 +2525,7 @@
   "duracion_s": 382,
   "x": 0.81,
   "segundo": 309,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.6
  },
  {
@@ -1634,7 +2534,7 @@
   "duracion_s": 382,
   "x": 0.82,
   "segundo": 313,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.6
  },
  {
@@ -1643,7 +2543,7 @@
   "duracion_s": 382,
   "x": 0.83,
   "segundo": 317,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.59
  },
  {
@@ -1652,7 +2552,7 @@
   "duracion_s": 382,
   "x": 0.84,
   "segundo": 321,
-  "retencion": 51.2,
+  "retencion": 51.8,
   "relativa": 0.57
  },
  {
@@ -1661,8 +2561,8 @@
   "duracion_s": 382,
   "x": 0.85,
   "segundo": 325,
-  "retencion": 50.0,
-  "relativa": 0.54
+  "retencion": 50.6,
+  "relativa": 0.55
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1670,7 +2570,7 @@
   "duracion_s": 382,
   "x": 0.86,
   "segundo": 329,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.52
  },
  {
@@ -1679,7 +2579,7 @@
   "duracion_s": 382,
   "x": 0.87,
   "segundo": 332,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.49
  },
  {
@@ -1688,7 +2588,7 @@
   "duracion_s": 382,
   "x": 0.88,
   "segundo": 336,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.47
  },
  {
@@ -1697,7 +2597,7 @@
   "duracion_s": 382,
   "x": 0.89,
   "segundo": 340,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.46
  },
  {
@@ -1706,7 +2606,7 @@
   "duracion_s": 382,
   "x": 0.9,
   "segundo": 344,
-  "retencion": 50.0,
+  "retencion": 50.6,
   "relativa": 0.45
  },
  {
@@ -1715,7 +2615,7 @@
   "duracion_s": 382,
   "x": 0.91,
   "segundo": 348,
-  "retencion": 48.8,
+  "retencion": 49.4,
   "relativa": 0.45
  },
  {
@@ -1724,7 +2624,7 @@
   "duracion_s": 382,
   "x": 0.92,
   "segundo": 351,
-  "retencion": 46.2,
+  "retencion": 46.9,
   "relativa": 0.45
  },
  {
@@ -1733,8 +2633,8 @@
   "duracion_s": 382,
   "x": 0.93,
   "segundo": 355,
-  "retencion": 47.5,
-  "relativa": 0.44
+  "retencion": 48.1,
+  "relativa": 0.45
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1742,8 +2642,8 @@
   "duracion_s": 382,
   "x": 0.94,
   "segundo": 359,
-  "retencion": 47.5,
-  "relativa": 0.43
+  "retencion": 48.1,
+  "relativa": 0.44
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1751,7 +2651,7 @@
   "duracion_s": 382,
   "x": 0.95,
   "segundo": 363,
-  "retencion": 46.2,
+  "retencion": 46.9,
   "relativa": 0.42
  },
  {
@@ -1760,7 +2660,7 @@
   "duracion_s": 382,
   "x": 0.96,
   "segundo": 367,
-  "retencion": 46.2,
+  "retencion": 46.9,
   "relativa": 0.41
  },
  {
@@ -1769,8 +2669,8 @@
   "duracion_s": 382,
   "x": 0.97,
   "segundo": 371,
-  "retencion": 46.2,
-  "relativa": 0.41
+  "retencion": 46.9,
+  "relativa": 0.42
  },
  {
   "video": "ri9Zf_k7KlA",
@@ -1778,7 +2678,7 @@
   "duracion_s": 382,
   "x": 0.98,
   "segundo": 374,
-  "retencion": 45.0,
+  "retencion": 45.7,
   "relativa": 0.43
  },
  {
@@ -1787,7 +2687,7 @@
   "duracion_s": 382,
   "x": 0.99,
   "segundo": 378,
-  "retencion": 41.2,
+  "retencion": 42.0,
   "relativa": 0.45
  },
  {
@@ -1796,8 +2696,8 @@
   "duracion_s": 382,
   "x": 1,
   "segundo": 382,
-  "retencion": 38.8,
-  "relativa": 0.46
+  "retencion": 39.5,
+  "relativa": 0.47
  },
  {
   "video": "Qc76vzNLWVE",
@@ -2705,8 +3605,8 @@
   "duracion_s": 301,
   "x": 0.01,
   "segundo": 3,
-  "retencion": 103.6,
-  "relativa": 0.48
+  "retencion": 103.3,
+  "relativa": 0.46
  },
  {
   "video": "5FsbseLanto",
@@ -2714,8 +3614,8 @@
   "duracion_s": 301,
   "x": 0.02,
   "segundo": 6,
-  "retencion": 92.9,
-  "relativa": 0.47
+  "retencion": 93.3,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2723,8 +3623,8 @@
   "duracion_s": 301,
   "x": 0.03,
   "segundo": 9,
-  "retencion": 82.1,
-  "relativa": 0.46
+  "retencion": 80.0,
+  "relativa": 0.44
  },
  {
   "video": "5FsbseLanto",
@@ -2732,8 +3632,8 @@
   "duracion_s": 301,
   "x": 0.04,
   "segundo": 12,
-  "retencion": 75.0,
-  "relativa": 0.46
+  "retencion": 73.3,
+  "relativa": 0.44
  },
  {
   "video": "5FsbseLanto",
@@ -2741,8 +3641,8 @@
   "duracion_s": 301,
   "x": 0.05,
   "segundo": 15,
-  "retencion": 67.9,
-  "relativa": 0.46
+  "retencion": 66.7,
+  "relativa": 0.44
  },
  {
   "video": "5FsbseLanto",
@@ -2750,8 +3650,8 @@
   "duracion_s": 301,
   "x": 0.06,
   "segundo": 18,
-  "retencion": 64.3,
-  "relativa": 0.46
+  "retencion": 63.3,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2759,8 +3659,8 @@
   "duracion_s": 301,
   "x": 0.07,
   "segundo": 21,
-  "retencion": 64.3,
-  "relativa": 0.46
+  "retencion": 63.3,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2768,8 +3668,8 @@
   "duracion_s": 301,
   "x": 0.08,
   "segundo": 24,
-  "retencion": 60.7,
-  "relativa": 0.46
+  "retencion": 60.0,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2777,7 +3677,7 @@
   "duracion_s": 301,
   "x": 0.09,
   "segundo": 27,
-  "retencion": 60.7,
+  "retencion": 60.0,
   "relativa": 0.44
  },
  {
@@ -2786,8 +3686,8 @@
   "duracion_s": 301,
   "x": 0.1,
   "segundo": 30,
-  "retencion": 57.1,
-  "relativa": 0.43
+  "retencion": 56.7,
+  "relativa": 0.42
  },
  {
   "video": "5FsbseLanto",
@@ -2795,7 +3695,7 @@
   "duracion_s": 301,
   "x": 0.11,
   "segundo": 33,
-  "retencion": 60.7,
+  "retencion": 60.0,
   "relativa": 0.42
  },
  {
@@ -2804,7 +3704,7 @@
   "duracion_s": 301,
   "x": 0.12,
   "segundo": 36,
-  "retencion": 57.1,
+  "retencion": 56.7,
   "relativa": 0.41
  },
  {
@@ -2813,7 +3713,7 @@
   "duracion_s": 301,
   "x": 0.13,
   "segundo": 39,
-  "retencion": 57.1,
+  "retencion": 56.7,
   "relativa": 0.41
  },
  {
@@ -2822,8 +3722,8 @@
   "duracion_s": 301,
   "x": 0.14,
   "segundo": 42,
-  "retencion": 57.1,
-  "relativa": 0.41
+  "retencion": 56.7,
+  "relativa": 0.42
  },
  {
   "video": "5FsbseLanto",
@@ -2831,8 +3731,8 @@
   "duracion_s": 301,
   "x": 0.15,
   "segundo": 45,
-  "retencion": 57.1,
-  "relativa": 0.4
+  "retencion": 56.7,
+  "relativa": 0.43
  },
  {
   "video": "5FsbseLanto",
@@ -2840,8 +3740,8 @@
   "duracion_s": 301,
   "x": 0.16,
   "segundo": 48,
-  "retencion": 57.1,
-  "relativa": 0.39
+  "retencion": 56.7,
+  "relativa": 0.44
  },
  {
   "video": "5FsbseLanto",
@@ -2849,8 +3749,8 @@
   "duracion_s": 301,
   "x": 0.17,
   "segundo": 51,
-  "retencion": 57.1,
-  "relativa": 0.39
+  "retencion": 56.7,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2858,8 +3758,8 @@
   "duracion_s": 301,
   "x": 0.18,
   "segundo": 54,
-  "retencion": 57.1,
-  "relativa": 0.38
+  "retencion": 56.7,
+  "relativa": 0.46
  },
  {
   "video": "5FsbseLanto",
@@ -2867,8 +3767,8 @@
   "duracion_s": 301,
   "x": 0.19,
   "segundo": 57,
-  "retencion": 53.6,
-  "relativa": 0.37
+  "retencion": 56.7,
+  "relativa": 0.46
  },
  {
   "video": "5FsbseLanto",
@@ -2876,8 +3776,8 @@
   "duracion_s": 301,
   "x": 0.2,
   "segundo": 60,
-  "retencion": 53.6,
-  "relativa": 0.36
+  "retencion": 53.3,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -2885,8 +3785,8 @@
   "duracion_s": 301,
   "x": 0.21,
   "segundo": 63,
-  "retencion": 53.6,
-  "relativa": 0.35
+  "retencion": 53.3,
+  "relativa": 0.44
  },
  {
   "video": "5FsbseLanto",
@@ -2895,7 +3795,7 @@
   "x": 0.22,
   "segundo": 66,
   "retencion": 50.0,
-  "relativa": 0.34
+  "relativa": 0.42
  },
  {
   "video": "5FsbseLanto",
@@ -2903,8 +3803,8 @@
   "duracion_s": 301,
   "x": 0.23,
   "segundo": 69,
-  "retencion": 46.4,
-  "relativa": 0.32
+  "retencion": 46.7,
+  "relativa": 0.41
  },
  {
   "video": "5FsbseLanto",
@@ -2913,7 +3813,7 @@
   "x": 0.24,
   "segundo": 72,
   "retencion": 50.0,
-  "relativa": 0.32
+  "relativa": 0.39
  },
  {
   "video": "5FsbseLanto",
@@ -2922,7 +3822,7 @@
   "x": 0.25,
   "segundo": 75,
   "retencion": 50.0,
-  "relativa": 0.31
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -2930,8 +3830,8 @@
   "duracion_s": 301,
   "x": 0.26,
   "segundo": 78,
-  "retencion": 42.9,
-  "relativa": 0.31
+  "retencion": 43.3,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -2939,8 +3839,8 @@
   "duracion_s": 301,
   "x": 0.27,
   "segundo": 81,
-  "retencion": 46.4,
-  "relativa": 0.31
+  "retencion": 46.7,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -2948,8 +3848,8 @@
   "duracion_s": 301,
   "x": 0.28,
   "segundo": 84,
-  "retencion": 46.4,
-  "relativa": 0.31
+  "retencion": 46.7,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -2957,8 +3857,8 @@
   "duracion_s": 301,
   "x": 0.29,
   "segundo": 87,
-  "retencion": 42.9,
-  "relativa": 0.31
+  "retencion": 43.3,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -2966,8 +3866,8 @@
   "duracion_s": 301,
   "x": 0.3,
   "segundo": 90,
-  "retencion": 42.9,
-  "relativa": 0.32
+  "retencion": 43.3,
+  "relativa": 0.37
  },
  {
   "video": "5FsbseLanto",
@@ -2975,8 +3875,8 @@
   "duracion_s": 301,
   "x": 0.31,
   "segundo": 93,
-  "retencion": 46.4,
-  "relativa": 0.32
+  "retencion": 46.7,
+  "relativa": 0.36
  },
  {
   "video": "5FsbseLanto",
@@ -2984,8 +3884,8 @@
   "duracion_s": 301,
   "x": 0.32,
   "segundo": 96,
-  "retencion": 46.4,
-  "relativa": 0.33
+  "retencion": 46.7,
+  "relativa": 0.36
  },
  {
   "video": "5FsbseLanto",
@@ -2993,8 +3893,8 @@
   "duracion_s": 301,
   "x": 0.33,
   "segundo": 99,
-  "retencion": 46.4,
-  "relativa": 0.34
+  "retencion": 46.7,
+  "relativa": 0.36
  },
  {
   "video": "5FsbseLanto",
@@ -3002,8 +3902,8 @@
   "duracion_s": 301,
   "x": 0.34,
   "segundo": 102,
-  "retencion": 42.9,
-  "relativa": 0.35
+  "retencion": 43.3,
+  "relativa": 0.37
  },
  {
   "video": "5FsbseLanto",
@@ -3011,8 +3911,8 @@
   "duracion_s": 301,
   "x": 0.35,
   "segundo": 105,
-  "retencion": 39.3,
-  "relativa": 0.36
+  "retencion": 40.0,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -3020,8 +3920,8 @@
   "duracion_s": 301,
   "x": 0.36,
   "segundo": 108,
-  "retencion": 39.3,
-  "relativa": 0.38
+  "retencion": 40.0,
+  "relativa": 0.39
  },
  {
   "video": "5FsbseLanto",
@@ -3029,8 +3929,8 @@
   "duracion_s": 301,
   "x": 0.37,
   "segundo": 111,
-  "retencion": 42.9,
-  "relativa": 0.39
+  "retencion": 43.3,
+  "relativa": 0.4
  },
  {
   "video": "5FsbseLanto",
@@ -3038,8 +3938,8 @@
   "duracion_s": 301,
   "x": 0.38,
   "segundo": 114,
-  "retencion": 42.9,
-  "relativa": 0.4
+  "retencion": 43.3,
+  "relativa": 0.41
  },
  {
   "video": "5FsbseLanto",
@@ -3047,8 +3947,8 @@
   "duracion_s": 301,
   "x": 0.39,
   "segundo": 117,
-  "retencion": 39.3,
-  "relativa": 0.42
+  "retencion": 40.0,
+  "relativa": 0.43
  },
  {
   "video": "5FsbseLanto",
@@ -3056,7 +3956,7 @@
   "duracion_s": 301,
   "x": 0.4,
   "segundo": 120,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.44
  },
  {
@@ -3065,8 +3965,8 @@
   "duracion_s": 301,
   "x": 0.41,
   "segundo": 123,
-  "retencion": 42.9,
-  "relativa": 0.45
+  "retencion": 43.3,
+  "relativa": 0.46
  },
  {
   "video": "5FsbseLanto",
@@ -3074,7 +3974,7 @@
   "duracion_s": 301,
   "x": 0.42,
   "segundo": 126,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.47
  },
  {
@@ -3083,7 +3983,7 @@
   "duracion_s": 301,
   "x": 0.43,
   "segundo": 129,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.48
  },
  {
@@ -3092,7 +3992,7 @@
   "duracion_s": 301,
   "x": 0.44,
   "segundo": 132,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.49
  },
  {
@@ -3101,7 +4001,7 @@
   "duracion_s": 301,
   "x": 0.45,
   "segundo": 135,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.5
  },
  {
@@ -3110,7 +4010,7 @@
   "duracion_s": 301,
   "x": 0.46,
   "segundo": 138,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.5
  },
  {
@@ -3119,7 +4019,7 @@
   "duracion_s": 301,
   "x": 0.47,
   "segundo": 141,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.5
  },
  {
@@ -3128,7 +4028,7 @@
   "duracion_s": 301,
   "x": 0.48,
   "segundo": 144,
-  "retencion": 39.3,
+  "retencion": 40.0,
   "relativa": 0.5
  },
  {
@@ -3137,7 +4037,7 @@
   "duracion_s": 301,
   "x": 0.49,
   "segundo": 147,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.5
  },
  {
@@ -3146,7 +4046,7 @@
   "duracion_s": 301,
   "x": 0.5,
   "segundo": 150,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3155,7 +4055,7 @@
   "duracion_s": 301,
   "x": 0.51,
   "segundo": 154,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3164,7 +4064,7 @@
   "duracion_s": 301,
   "x": 0.52,
   "segundo": 157,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3173,7 +4073,7 @@
   "duracion_s": 301,
   "x": 0.53,
   "segundo": 160,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3182,7 +4082,7 @@
   "duracion_s": 301,
   "x": 0.54,
   "segundo": 163,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3191,7 +4091,7 @@
   "duracion_s": 301,
   "x": 0.55,
   "segundo": 166,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.51
  },
  {
@@ -3200,7 +4100,7 @@
   "duracion_s": 301,
   "x": 0.56,
   "segundo": 169,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.5
  },
  {
@@ -3209,7 +4109,7 @@
   "duracion_s": 301,
   "x": 0.57,
   "segundo": 172,
-  "retencion": 42.9,
+  "retencion": 43.3,
   "relativa": 0.48
  },
  {
@@ -3218,8 +4118,8 @@
   "duracion_s": 301,
   "x": 0.58,
   "segundo": 175,
-  "retencion": 46.4,
-  "relativa": 0.45
+  "retencion": 46.7,
+  "relativa": 0.46
  },
  {
   "video": "5FsbseLanto",
@@ -3227,8 +4127,8 @@
   "duracion_s": 301,
   "x": 0.59,
   "segundo": 178,
-  "retencion": 46.4,
-  "relativa": 0.42
+  "retencion": 46.7,
+  "relativa": 0.43
  },
  {
   "video": "5FsbseLanto",
@@ -3236,8 +4136,8 @@
   "duracion_s": 301,
   "x": 0.6,
   "segundo": 181,
-  "retencion": 46.4,
-  "relativa": 0.38
+  "retencion": 46.7,
+  "relativa": 0.39
  },
  {
   "video": "5FsbseLanto",
@@ -3245,8 +4145,8 @@
   "duracion_s": 301,
   "x": 0.61,
   "segundo": 184,
-  "retencion": 42.9,
-  "relativa": 0.33
+  "retencion": 43.3,
+  "relativa": 0.35
  },
  {
   "video": "5FsbseLanto",
@@ -3254,8 +4154,8 @@
   "duracion_s": 301,
   "x": 0.62,
   "segundo": 187,
-  "retencion": 42.9,
-  "relativa": 0.29
+  "retencion": 43.3,
+  "relativa": 0.31
  },
  {
   "video": "5FsbseLanto",
@@ -3263,8 +4163,8 @@
   "duracion_s": 301,
   "x": 0.63,
   "segundo": 190,
-  "retencion": 42.9,
-  "relativa": 0.25
+  "retencion": 43.3,
+  "relativa": 0.27
  },
  {
   "video": "5FsbseLanto",
@@ -3272,8 +4172,8 @@
   "duracion_s": 301,
   "x": 0.64,
   "segundo": 193,
-  "retencion": 42.9,
-  "relativa": 0.22
+  "retencion": 43.3,
+  "relativa": 0.24
  },
  {
   "video": "5FsbseLanto",
@@ -3281,8 +4181,8 @@
   "duracion_s": 301,
   "x": 0.65,
   "segundo": 196,
-  "retencion": 42.9,
-  "relativa": 0.2
+  "retencion": 43.3,
+  "relativa": 0.22
  },
  {
   "video": "5FsbseLanto",
@@ -3290,8 +4190,8 @@
   "duracion_s": 301,
   "x": 0.66,
   "segundo": 199,
-  "retencion": 42.9,
-  "relativa": 0.19
+  "retencion": 43.3,
+  "relativa": 0.21
  },
  {
   "video": "5FsbseLanto",
@@ -3299,8 +4199,8 @@
   "duracion_s": 301,
   "x": 0.67,
   "segundo": 202,
-  "retencion": 39.3,
-  "relativa": 0.18
+  "retencion": 40.0,
+  "relativa": 0.2
  },
  {
   "video": "5FsbseLanto",
@@ -3308,8 +4208,8 @@
   "duracion_s": 301,
   "x": 0.68,
   "segundo": 205,
-  "retencion": 35.7,
-  "relativa": 0.19
+  "retencion": 36.7,
+  "relativa": 0.21
  },
  {
   "video": "5FsbseLanto",
@@ -3317,8 +4217,8 @@
   "duracion_s": 301,
   "x": 0.69,
   "segundo": 208,
-  "retencion": 35.7,
-  "relativa": 0.22
+  "retencion": 36.7,
+  "relativa": 0.24
  },
  {
   "video": "5FsbseLanto",
@@ -3326,8 +4226,8 @@
   "duracion_s": 301,
   "x": 0.7,
   "segundo": 211,
-  "retencion": 35.7,
-  "relativa": 0.24
+  "retencion": 36.7,
+  "relativa": 0.26
  },
  {
   "video": "5FsbseLanto",
@@ -3335,8 +4235,8 @@
   "duracion_s": 301,
   "x": 0.71,
   "segundo": 214,
-  "retencion": 32.1,
-  "relativa": 0.26
+  "retencion": 33.3,
+  "relativa": 0.28
  },
  {
   "video": "5FsbseLanto",
@@ -3344,8 +4244,8 @@
   "duracion_s": 301,
   "x": 0.72,
   "segundo": 217,
-  "retencion": 32.1,
-  "relativa": 0.29
+  "retencion": 33.3,
+  "relativa": 0.31
  },
  {
   "video": "5FsbseLanto",
@@ -3353,8 +4253,8 @@
   "duracion_s": 301,
   "x": 0.73,
   "segundo": 220,
-  "retencion": 32.1,
-  "relativa": 0.32
+  "retencion": 33.3,
+  "relativa": 0.34
  },
  {
   "video": "5FsbseLanto",
@@ -3362,8 +4262,8 @@
   "duracion_s": 301,
   "x": 0.74,
   "segundo": 223,
-  "retencion": 32.1,
-  "relativa": 0.36
+  "retencion": 33.3,
+  "relativa": 0.38
  },
  {
   "video": "5FsbseLanto",
@@ -3371,8 +4271,8 @@
   "duracion_s": 301,
   "x": 0.75,
   "segundo": 226,
-  "retencion": 39.3,
-  "relativa": 0.41
+  "retencion": 40.0,
+  "relativa": 0.42
  },
  {
   "video": "5FsbseLanto",
@@ -3380,8 +4280,8 @@
   "duracion_s": 301,
   "x": 0.76,
   "segundo": 229,
-  "retencion": 35.7,
-  "relativa": 0.44
+  "retencion": 36.7,
+  "relativa": 0.45
  },
  {
   "video": "5FsbseLanto",
@@ -3389,8 +4289,8 @@
   "duracion_s": 301,
   "x": 0.77,
   "segundo": 232,
-  "retencion": 35.7,
-  "relativa": 0.47
+  "retencion": 36.7,
+  "relativa": 0.48
  },
  {
   "video": "5FsbseLanto",
@@ -3398,8 +4298,8 @@
   "duracion_s": 301,
   "x": 0.78,
   "segundo": 235,
-  "retencion": 35.7,
-  "relativa": 0.51
+  "retencion": 36.7,
+  "relativa": 0.5
  },
  {
   "video": "5FsbseLanto",
@@ -3407,8 +4307,8 @@
   "duracion_s": 301,
   "x": 0.79,
   "segundo": 238,
-  "retencion": 35.7,
-  "relativa": 0.55
+  "retencion": 36.7,
+  "relativa": 0.54
  },
  {
   "video": "5FsbseLanto",
@@ -3416,8 +4316,8 @@
   "duracion_s": 301,
   "x": 0.8,
   "segundo": 241,
-  "retencion": 39.3,
-  "relativa": 0.6
+  "retencion": 40.0,
+  "relativa": 0.59
  },
  {
   "video": "5FsbseLanto",
@@ -3425,8 +4325,8 @@
   "duracion_s": 301,
   "x": 0.81,
   "segundo": 244,
-  "retencion": 39.3,
-  "relativa": 0.65
+  "retencion": 40.0,
+  "relativa": 0.63
  },
  {
   "video": "5FsbseLanto",
@@ -3434,8 +4334,8 @@
   "duracion_s": 301,
   "x": 0.82,
   "segundo": 247,
-  "retencion": 39.3,
-  "relativa": 0.69
+  "retencion": 40.0,
+  "relativa": 0.66
  },
  {
   "video": "5FsbseLanto",
@@ -3443,8 +4343,8 @@
   "duracion_s": 301,
   "x": 0.83,
   "segundo": 250,
-  "retencion": 42.9,
-  "relativa": 0.71
+  "retencion": 43.3,
+  "relativa": 0.68
  },
  {
   "video": "5FsbseLanto",
@@ -3452,8 +4352,8 @@
   "duracion_s": 301,
   "x": 0.84,
   "segundo": 253,
-  "retencion": 42.9,
-  "relativa": 0.73
+  "retencion": 43.3,
+  "relativa": 0.69
  },
  {
   "video": "5FsbseLanto",
@@ -3461,8 +4361,8 @@
   "duracion_s": 301,
   "x": 0.85,
   "segundo": 256,
-  "retencion": 35.7,
-  "relativa": 0.75
+  "retencion": 36.7,
+  "relativa": 0.7
  },
  {
   "video": "5FsbseLanto",
@@ -3470,8 +4370,8 @@
   "duracion_s": 301,
   "x": 0.86,
   "segundo": 259,
-  "retencion": 39.3,
-  "relativa": 0.77
+  "retencion": 40.0,
+  "relativa": 0.71
  },
  {
   "video": "5FsbseLanto",
@@ -3479,8 +4379,8 @@
   "duracion_s": 301,
   "x": 0.87,
   "segundo": 262,
-  "retencion": 39.3,
-  "relativa": 0.79
+  "retencion": 40.0,
+  "relativa": 0.72
  },
  {
   "video": "5FsbseLanto",
@@ -3488,8 +4388,8 @@
   "duracion_s": 301,
   "x": 0.88,
   "segundo": 265,
-  "retencion": 42.9,
-  "relativa": 0.79
+  "retencion": 43.3,
+  "relativa": 0.72
  },
  {
   "video": "5FsbseLanto",
@@ -3497,8 +4397,8 @@
   "duracion_s": 301,
   "x": 0.89,
   "segundo": 268,
-  "retencion": 39.3,
-  "relativa": 0.79
+  "retencion": 40.0,
+  "relativa": 0.71
  },
  {
   "video": "5FsbseLanto",
@@ -3506,8 +4406,8 @@
   "duracion_s": 301,
   "x": 0.9,
   "segundo": 271,
-  "retencion": 39.3,
-  "relativa": 0.79
+  "retencion": 40.0,
+  "relativa": 0.69
  },
  {
   "video": "5FsbseLanto",
@@ -3515,8 +4415,8 @@
   "duracion_s": 301,
   "x": 0.91,
   "segundo": 274,
-  "retencion": 39.3,
-  "relativa": 0.77
+  "retencion": 40.0,
+  "relativa": 0.67
  },
  {
   "video": "5FsbseLanto",
@@ -3524,8 +4424,8 @@
   "duracion_s": 301,
   "x": 0.92,
   "segundo": 277,
-  "retencion": 42.9,
-  "relativa": 0.74
+  "retencion": 43.3,
+  "relativa": 0.63
  },
  {
   "video": "5FsbseLanto",
@@ -3533,8 +4433,8 @@
   "duracion_s": 301,
   "x": 0.93,
   "segundo": 280,
-  "retencion": 39.3,
-  "relativa": 0.68
+  "retencion": 40.0,
+  "relativa": 0.57
  },
  {
   "video": "5FsbseLanto",
@@ -3542,8 +4442,8 @@
   "duracion_s": 301,
   "x": 0.94,
   "segundo": 283,
-  "retencion": 35.7,
-  "relativa": 0.6
+  "retencion": 36.7,
+  "relativa": 0.49
  },
  {
   "video": "5FsbseLanto",
@@ -3551,8 +4451,8 @@
   "duracion_s": 301,
   "x": 0.95,
   "segundo": 286,
-  "retencion": 35.7,
-  "relativa": 0.53
+  "retencion": 33.3,
+  "relativa": 0.42
  },
  {
   "video": "5FsbseLanto",
@@ -3560,8 +4460,8 @@
   "duracion_s": 301,
   "x": 0.96,
   "segundo": 289,
-  "retencion": 32.1,
-  "relativa": 0.48
+  "retencion": 30.0,
+  "relativa": 0.37
  },
  {
   "video": "5FsbseLanto",
@@ -3569,8 +4469,8 @@
   "duracion_s": 301,
   "x": 0.97,
   "segundo": 292,
-  "retencion": 32.1,
-  "relativa": 0.45
+  "retencion": 30.0,
+  "relativa": 0.34
  },
  {
   "video": "5FsbseLanto",
@@ -3578,8 +4478,8 @@
   "duracion_s": 301,
   "x": 0.98,
   "segundo": 295,
-  "retencion": 32.1,
-  "relativa": 0.43
+  "retencion": 30.0,
+  "relativa": 0.33
  },
  {
   "video": "5FsbseLanto",
@@ -3587,8 +4487,8 @@
   "duracion_s": 301,
   "x": 0.99,
   "segundo": 298,
-  "retencion": 28.6,
-  "relativa": 0.42
+  "retencion": 26.7,
+  "relativa": 0.32
  },
  {
   "video": "5FsbseLanto",
@@ -3596,8 +4496,8 @@
   "duracion_s": 301,
   "x": 1,
   "segundo": 301,
-  "retencion": 28.6,
-  "relativa": 0.41
+  "retencion": 26.7,
+  "relativa": 0.32
  },
  {
   "video": "wtRwaYQskpA",
@@ -3605,7 +4505,7 @@
   "duracion_s": 313,
   "x": 0.01,
   "segundo": 3,
-  "retencion": 102.8,
+  "retencion": 102.6,
   "relativa": 0.4
  },
  {
@@ -3614,8 +4514,8 @@
   "duracion_s": 313,
   "x": 0.02,
   "segundo": 6,
-  "retencion": 91.7,
-  "relativa": 0.47
+  "retencion": 92.1,
+  "relativa": 0.48
  },
  {
   "video": "wtRwaYQskpA",
@@ -3623,8 +4523,8 @@
   "duracion_s": 313,
   "x": 0.03,
   "segundo": 9,
-  "retencion": 80.6,
-  "relativa": 0.52
+  "retencion": 81.6,
+  "relativa": 0.53
  },
  {
   "video": "wtRwaYQskpA",
@@ -3632,7 +4532,7 @@
   "duracion_s": 313,
   "x": 0.04,
   "segundo": 13,
-  "retencion": 80.6,
+  "retencion": 81.6,
   "relativa": 0.54
  },
  {
@@ -3641,8 +4541,8 @@
   "duracion_s": 313,
   "x": 0.05,
   "segundo": 16,
-  "retencion": 86.1,
-  "relativa": 0.54
+  "retencion": 86.8,
+  "relativa": 0.55
  },
  {
   "video": "wtRwaYQskpA",
@@ -3650,8 +4550,8 @@
   "duracion_s": 313,
   "x": 0.06,
   "segundo": 19,
-  "retencion": 77.8,
-  "relativa": 0.55
+  "retencion": 79.0,
+  "relativa": 0.56
  },
  {
   "video": "wtRwaYQskpA",
@@ -3659,7 +4559,7 @@
   "duracion_s": 313,
   "x": 0.07,
   "segundo": 22,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.57
  },
  {
@@ -3668,8 +4568,8 @@
   "duracion_s": 313,
   "x": 0.08,
   "segundo": 25,
-  "retencion": 83.3,
-  "relativa": 0.59
+  "retencion": 84.2,
+  "relativa": 0.58
  },
  {
   "video": "wtRwaYQskpA",
@@ -3677,8 +4577,8 @@
   "duracion_s": 313,
   "x": 0.09,
   "segundo": 28,
-  "retencion": 80.6,
-  "relativa": 0.61
+  "retencion": 81.6,
+  "relativa": 0.6
  },
  {
   "video": "wtRwaYQskpA",
@@ -3686,8 +4586,8 @@
   "duracion_s": 313,
   "x": 0.1,
   "segundo": 31,
-  "retencion": 80.6,
-  "relativa": 0.64
+  "retencion": 81.6,
+  "relativa": 0.63
  },
  {
   "video": "wtRwaYQskpA",
@@ -3695,8 +4595,8 @@
   "duracion_s": 313,
   "x": 0.11,
   "segundo": 34,
-  "retencion": 77.8,
-  "relativa": 0.66
+  "retencion": 79.0,
+  "relativa": 0.65
  },
  {
   "video": "wtRwaYQskpA",
@@ -3704,8 +4604,8 @@
   "duracion_s": 313,
   "x": 0.12,
   "segundo": 38,
-  "retencion": 80.6,
-  "relativa": 0.68
+  "retencion": 81.6,
+  "relativa": 0.67
  },
  {
   "video": "wtRwaYQskpA",
@@ -3713,8 +4613,8 @@
   "duracion_s": 313,
   "x": 0.13,
   "segundo": 41,
-  "retencion": 80.6,
-  "relativa": 0.69
+  "retencion": 81.6,
+  "relativa": 0.68
  },
  {
   "video": "wtRwaYQskpA",
@@ -3722,8 +4622,8 @@
   "duracion_s": 313,
   "x": 0.14,
   "segundo": 44,
-  "retencion": 80.6,
-  "relativa": 0.7
+  "retencion": 81.6,
+  "relativa": 0.69
  },
  {
   "video": "wtRwaYQskpA",
@@ -3731,8 +4631,8 @@
   "duracion_s": 313,
   "x": 0.15,
   "segundo": 47,
-  "retencion": 80.6,
-  "relativa": 0.7
+  "retencion": 81.6,
+  "relativa": 0.69
  },
  {
   "video": "wtRwaYQskpA",
@@ -3740,8 +4640,8 @@
   "duracion_s": 313,
   "x": 0.16,
   "segundo": 50,
-  "retencion": 86.1,
-  "relativa": 0.7
+  "retencion": 86.8,
+  "relativa": 0.69
  },
  {
   "video": "wtRwaYQskpA",
@@ -3749,8 +4649,8 @@
   "duracion_s": 313,
   "x": 0.17,
   "segundo": 53,
-  "retencion": 86.1,
-  "relativa": 0.7
+  "retencion": 86.8,
+  "relativa": 0.69
  },
  {
   "video": "wtRwaYQskpA",
@@ -3758,8 +4658,8 @@
   "duracion_s": 313,
   "x": 0.18,
   "segundo": 56,
-  "retencion": 83.3,
-  "relativa": 0.69
+  "retencion": 84.2,
+  "relativa": 0.68
  },
  {
   "video": "wtRwaYQskpA",
@@ -3767,8 +4667,8 @@
   "duracion_s": 313,
   "x": 0.19,
   "segundo": 59,
-  "retencion": 83.3,
-  "relativa": 0.68
+  "retencion": 84.2,
+  "relativa": 0.67
  },
  {
   "video": "wtRwaYQskpA",
@@ -3776,7 +4676,7 @@
   "duracion_s": 313,
   "x": 0.2,
   "segundo": 63,
-  "retencion": 83.3,
+  "retencion": 84.2,
   "relativa": 0.68
  },
  {
@@ -3785,7 +4685,7 @@
   "duracion_s": 313,
   "x": 0.21,
   "segundo": 66,
-  "retencion": 86.1,
+  "retencion": 86.8,
   "relativa": 0.69
  },
  {
@@ -3794,8 +4694,8 @@
   "duracion_s": 313,
   "x": 0.22,
   "segundo": 69,
-  "retencion": 88.9,
-  "relativa": 0.71
+  "retencion": 89.5,
+  "relativa": 0.7
  },
  {
   "video": "wtRwaYQskpA",
@@ -3803,8 +4703,8 @@
   "duracion_s": 313,
   "x": 0.23,
   "segundo": 72,
-  "retencion": 86.1,
-  "relativa": 0.72
+  "retencion": 86.8,
+  "relativa": 0.71
  },
  {
   "video": "wtRwaYQskpA",
@@ -3812,8 +4712,8 @@
   "duracion_s": 313,
   "x": 0.24,
   "segundo": 75,
-  "retencion": 80.6,
-  "relativa": 0.73
+  "retencion": 81.6,
+  "relativa": 0.72
  },
  {
   "video": "wtRwaYQskpA",
@@ -3821,8 +4721,8 @@
   "duracion_s": 313,
   "x": 0.25,
   "segundo": 78,
-  "retencion": 83.3,
-  "relativa": 0.74
+  "retencion": 84.2,
+  "relativa": 0.73
  },
  {
   "video": "wtRwaYQskpA",
@@ -3830,8 +4730,8 @@
   "duracion_s": 313,
   "x": 0.26,
   "segundo": 81,
-  "retencion": 86.1,
-  "relativa": 0.74
+  "retencion": 86.8,
+  "relativa": 0.73
  },
  {
   "video": "wtRwaYQskpA",
@@ -3839,8 +4739,8 @@
   "duracion_s": 313,
   "x": 0.27,
   "segundo": 85,
-  "retencion": 83.3,
-  "relativa": 0.74
+  "retencion": 84.2,
+  "relativa": 0.73
  },
  {
   "video": "wtRwaYQskpA",
@@ -3848,8 +4748,8 @@
   "duracion_s": 313,
   "x": 0.28,
   "segundo": 88,
-  "retencion": 80.6,
-  "relativa": 0.73
+  "retencion": 81.6,
+  "relativa": 0.72
  },
  {
   "video": "wtRwaYQskpA",
@@ -3857,7 +4757,7 @@
   "duracion_s": 313,
   "x": 0.29,
   "segundo": 91,
-  "retencion": 80.6,
+  "retencion": 81.6,
   "relativa": 0.72
  },
  {
@@ -3866,7 +4766,7 @@
   "duracion_s": 313,
   "x": 0.3,
   "segundo": 94,
-  "retencion": 83.3,
+  "retencion": 84.2,
   "relativa": 0.71
  },
  {
@@ -3875,8 +4775,8 @@
   "duracion_s": 313,
   "x": 0.31,
   "segundo": 97,
-  "retencion": 80.6,
-  "relativa": 0.7
+  "retencion": 81.6,
+  "relativa": 0.69
  },
  {
   "video": "wtRwaYQskpA",
@@ -3884,8 +4784,8 @@
   "duracion_s": 313,
   "x": 0.32,
   "segundo": 100,
-  "retencion": 83.3,
-  "relativa": 0.67
+  "retencion": 84.2,
+  "relativa": 0.66
  },
  {
   "video": "wtRwaYQskpA",
@@ -3893,8 +4793,8 @@
   "duracion_s": 313,
   "x": 0.33,
   "segundo": 103,
-  "retencion": 80.6,
-  "relativa": 0.64
+  "retencion": 81.6,
+  "relativa": 0.63
  },
  {
   "video": "wtRwaYQskpA",
@@ -3902,7 +4802,7 @@
   "duracion_s": 313,
   "x": 0.34,
   "segundo": 106,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.61
  },
  {
@@ -3911,7 +4811,7 @@
   "duracion_s": 313,
   "x": 0.35,
   "segundo": 110,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.6
  },
  {
@@ -3920,7 +4820,7 @@
   "duracion_s": 313,
   "x": 0.36,
   "segundo": 113,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.6
  },
  {
@@ -3929,7 +4829,7 @@
   "duracion_s": 313,
   "x": 0.37,
   "segundo": 116,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.62
  },
  {
@@ -3938,7 +4838,7 @@
   "duracion_s": 313,
   "x": 0.38,
   "segundo": 119,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.63
  },
  {
@@ -3947,8 +4847,8 @@
   "duracion_s": 313,
   "x": 0.39,
   "segundo": 122,
-  "retencion": 75.0,
-  "relativa": 0.64
+  "retencion": 76.3,
+  "relativa": 0.63
  },
  {
   "video": "wtRwaYQskpA",
@@ -3956,8 +4856,8 @@
   "duracion_s": 313,
   "x": 0.4,
   "segundo": 125,
-  "retencion": 77.8,
-  "relativa": 0.64
+  "retencion": 79.0,
+  "relativa": 0.63
  },
  {
   "video": "wtRwaYQskpA",
@@ -3965,8 +4865,8 @@
   "duracion_s": 313,
   "x": 0.41,
   "segundo": 128,
-  "retencion": 77.8,
-  "relativa": 0.63
+  "retencion": 79.0,
+  "relativa": 0.62
  },
  {
   "video": "wtRwaYQskpA",
@@ -3974,7 +4874,7 @@
   "duracion_s": 313,
   "x": 0.42,
   "segundo": 131,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.61
  },
  {
@@ -3983,7 +4883,7 @@
   "duracion_s": 313,
   "x": 0.43,
   "segundo": 135,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.59
  },
  {
@@ -3992,7 +4892,7 @@
   "duracion_s": 313,
   "x": 0.44,
   "segundo": 138,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.58
  },
  {
@@ -4001,7 +4901,7 @@
   "duracion_s": 313,
   "x": 0.45,
   "segundo": 141,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.57
  },
  {
@@ -4010,7 +4910,7 @@
   "duracion_s": 313,
   "x": 0.46,
   "segundo": 144,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.56
  },
  {
@@ -4019,7 +4919,7 @@
   "duracion_s": 313,
   "x": 0.47,
   "segundo": 147,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.56
  },
  {
@@ -4028,7 +4928,7 @@
   "duracion_s": 313,
   "x": 0.48,
   "segundo": 150,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.55
  },
  {
@@ -4037,7 +4937,7 @@
   "duracion_s": 313,
   "x": 0.49,
   "segundo": 153,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.54
  },
  {
@@ -4046,7 +4946,7 @@
   "duracion_s": 313,
   "x": 0.5,
   "segundo": 156,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.54
  },
  {
@@ -4055,7 +4955,7 @@
   "duracion_s": 313,
   "x": 0.51,
   "segundo": 160,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.54
  },
  {
@@ -4064,7 +4964,7 @@
   "duracion_s": 313,
   "x": 0.52,
   "segundo": 163,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.55
  },
  {
@@ -4073,7 +4973,7 @@
   "duracion_s": 313,
   "x": 0.53,
   "segundo": 166,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.56
  },
  {
@@ -4082,7 +4982,7 @@
   "duracion_s": 313,
   "x": 0.54,
   "segundo": 169,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.56
  },
  {
@@ -4091,7 +4991,7 @@
   "duracion_s": 313,
   "x": 0.55,
   "segundo": 172,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.56
  },
  {
@@ -4100,7 +5000,7 @@
   "duracion_s": 313,
   "x": 0.56,
   "segundo": 175,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.57
  },
  {
@@ -4109,7 +5009,7 @@
   "duracion_s": 313,
   "x": 0.57,
   "segundo": 178,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.58
  },
  {
@@ -4118,8 +5018,8 @@
   "duracion_s": 313,
   "x": 0.58,
   "segundo": 182,
-  "retencion": 75.0,
-  "relativa": 0.6
+  "retencion": 76.3,
+  "relativa": 0.59
  },
  {
   "video": "wtRwaYQskpA",
@@ -4127,8 +5027,8 @@
   "duracion_s": 313,
   "x": 0.59,
   "segundo": 185,
-  "retencion": 75.0,
-  "relativa": 0.61
+  "retencion": 76.3,
+  "relativa": 0.6
  },
  {
   "video": "wtRwaYQskpA",
@@ -4136,7 +5036,7 @@
   "duracion_s": 313,
   "x": 0.6,
   "segundo": 188,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.61
  },
  {
@@ -4145,8 +5045,8 @@
   "duracion_s": 313,
   "x": 0.61,
   "segundo": 191,
-  "retencion": 75.0,
-  "relativa": 0.61
+  "retencion": 76.3,
+  "relativa": 0.6
  },
  {
   "video": "wtRwaYQskpA",
@@ -4154,7 +5054,7 @@
   "duracion_s": 313,
   "x": 0.62,
   "segundo": 194,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.6
  },
  {
@@ -4163,7 +5063,7 @@
   "duracion_s": 313,
   "x": 0.63,
   "segundo": 197,
-  "retencion": 75.0,
+  "retencion": 76.3,
   "relativa": 0.58
  },
  {
@@ -4172,7 +5072,7 @@
   "duracion_s": 313,
   "x": 0.64,
   "segundo": 200,
-  "retencion": 77.8,
+  "retencion": 79.0,
   "relativa": 0.57
  },
  {
@@ -4181,8 +5081,8 @@
   "duracion_s": 313,
   "x": 0.65,
   "segundo": 203,
-  "retencion": 77.8,
-  "relativa": 0.54
+  "retencion": 79.0,
+  "relativa": 0.55
  },
  {
   "video": "wtRwaYQskpA",
@@ -4190,8 +5090,8 @@
   "duracion_s": 313,
   "x": 0.66,
   "segundo": 207,
-  "retencion": 72.2,
-  "relativa": 0.52
+  "retencion": 73.7,
+  "relativa": 0.53
  },
  {
   "video": "wtRwaYQskpA",
@@ -4199,8 +5099,8 @@
   "duracion_s": 313,
   "x": 0.67,
   "segundo": 210,
-  "retencion": 69.4,
-  "relativa": 0.51
+  "retencion": 71.0,
+  "relativa": 0.52
  },
  {
   "video": "wtRwaYQskpA",
@@ -4208,8 +5108,8 @@
   "duracion_s": 313,
   "x": 0.68,
   "segundo": 213,
-  "retencion": 72.2,
-  "relativa": 0.5
+  "retencion": 73.7,
+  "relativa": 0.51
  },
  {
   "video": "wtRwaYQskpA",
@@ -4217,8 +5117,8 @@
   "duracion_s": 313,
   "x": 0.69,
   "segundo": 216,
-  "retencion": 69.4,
-  "relativa": 0.49
+  "retencion": 71.0,
+  "relativa": 0.5
  },
  {
   "video": "wtRwaYQskpA",
@@ -4226,8 +5126,8 @@
   "duracion_s": 313,
   "x": 0.7,
   "segundo": 219,
-  "retencion": 69.4,
-  "relativa": 0.48
+  "retencion": 71.0,
+  "relativa": 0.49
  },
  {
   "video": "wtRwaYQskpA",
@@ -4235,8 +5135,8 @@
   "duracion_s": 313,
   "x": 0.71,
   "segundo": 222,
-  "retencion": 69.4,
-  "relativa": 0.48
+  "retencion": 71.0,
+  "relativa": 0.49
  },
  {
   "video": "wtRwaYQskpA",
@@ -4244,8 +5144,8 @@
   "duracion_s": 313,
   "x": 0.72,
   "segundo": 225,
-  "retencion": 66.7,
-  "relativa": 0.48
+  "retencion": 68.4,
+  "relativa": 0.49
  },
  {
   "video": "wtRwaYQskpA",
@@ -4253,7 +5153,7 @@
   "duracion_s": 313,
   "x": 0.73,
   "segundo": 228,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.49
  },
  {
@@ -4262,7 +5162,7 @@
   "duracion_s": 313,
   "x": 0.74,
   "segundo": 232,
-  "retencion": 69.4,
+  "retencion": 71.0,
   "relativa": 0.5
  },
  {
@@ -4271,7 +5171,7 @@
   "duracion_s": 313,
   "x": 0.75,
   "segundo": 235,
-  "retencion": 69.4,
+  "retencion": 71.0,
   "relativa": 0.52
  },
  {
@@ -4280,7 +5180,7 @@
   "duracion_s": 313,
   "x": 0.76,
   "segundo": 238,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.55
  },
  {
@@ -4289,7 +5189,7 @@
   "duracion_s": 313,
   "x": 0.77,
   "segundo": 241,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.57
  },
  {
@@ -4298,7 +5198,7 @@
   "duracion_s": 313,
   "x": 0.78,
   "segundo": 244,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.58
  },
  {
@@ -4307,7 +5207,7 @@
   "duracion_s": 313,
   "x": 0.79,
   "segundo": 247,
-  "retencion": 72.2,
+  "retencion": 73.7,
   "relativa": 0.58
  },
  {
@@ -4316,7 +5216,7 @@
   "duracion_s": 313,
   "x": 0.8,
   "segundo": 250,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.57
  },
  {
@@ -4325,7 +5225,7 @@
   "duracion_s": 313,
   "x": 0.81,
   "segundo": 254,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.55
  },
  {
@@ -4334,7 +5234,7 @@
   "duracion_s": 313,
   "x": 0.82,
   "segundo": 257,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.54
  },
  {
@@ -4343,7 +5243,7 @@
   "duracion_s": 313,
   "x": 0.83,
   "segundo": 260,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.53
  },
  {
@@ -4352,7 +5252,7 @@
   "duracion_s": 313,
   "x": 0.84,
   "segundo": 263,
-  "retencion": 69.4,
+  "retencion": 71.0,
   "relativa": 0.52
  },
  {
@@ -4361,7 +5261,7 @@
   "duracion_s": 313,
   "x": 0.85,
   "segundo": 266,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.51
  },
  {
@@ -4370,7 +5270,7 @@
   "duracion_s": 313,
   "x": 0.86,
   "segundo": 269,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.5
  },
  {
@@ -4379,7 +5279,7 @@
   "duracion_s": 313,
   "x": 0.87,
   "segundo": 272,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.48
  },
  {
@@ -4388,8 +5288,8 @@
   "duracion_s": 313,
   "x": 0.88,
   "segundo": 275,
-  "retencion": 66.7,
-  "relativa": 0.47
+  "retencion": 68.4,
+  "relativa": 0.46
  },
  {
   "video": "wtRwaYQskpA",
@@ -4397,7 +5297,7 @@
   "duracion_s": 313,
   "x": 0.89,
   "segundo": 279,
-  "retencion": 66.7,
+  "retencion": 68.4,
   "relativa": 0.45
  },
  {
@@ -4406,7 +5306,7 @@
   "duracion_s": 313,
   "x": 0.9,
   "segundo": 282,
-  "retencion": 69.4,
+  "retencion": 71.0,
   "relativa": 0.43
  },
  {
@@ -4415,8 +5315,8 @@
   "duracion_s": 313,
   "x": 0.91,
   "segundo": 285,
-  "retencion": 69.4,
-  "relativa": 0.4
+  "retencion": 71.0,
+  "relativa": 0.39
  },
  {
   "video": "wtRwaYQskpA",
@@ -4424,8 +5324,8 @@
   "duracion_s": 313,
   "x": 0.92,
   "segundo": 288,
-  "retencion": 66.7,
-  "relativa": 0.37
+  "retencion": 68.4,
+  "relativa": 0.36
  },
  {
   "video": "wtRwaYQskpA",
@@ -4433,8 +5333,8 @@
   "duracion_s": 313,
   "x": 0.93,
   "segundo": 291,
-  "retencion": 66.7,
-  "relativa": 0.33
+  "retencion": 68.4,
+  "relativa": 0.32
  },
  {
   "video": "wtRwaYQskpA",
@@ -4442,8 +5342,8 @@
   "duracion_s": 313,
   "x": 0.94,
   "segundo": 294,
-  "retencion": 63.9,
-  "relativa": 0.31
+  "retencion": 65.8,
+  "relativa": 0.3
  },
  {
   "video": "wtRwaYQskpA",
@@ -4451,8 +5351,8 @@
   "duracion_s": 313,
   "x": 0.95,
   "segundo": 297,
-  "retencion": 69.4,
-  "relativa": 0.29
+  "retencion": 71.0,
+  "relativa": 0.28
  },
  {
   "video": "wtRwaYQskpA",
@@ -4460,8 +5360,8 @@
   "duracion_s": 313,
   "x": 0.96,
   "segundo": 300,
-  "retencion": 66.7,
-  "relativa": 0.27
+  "retencion": 68.4,
+  "relativa": 0.26
  },
  {
   "video": "wtRwaYQskpA",
@@ -4469,8 +5369,8 @@
   "duracion_s": 313,
   "x": 0.97,
   "segundo": 304,
-  "retencion": 63.9,
-  "relativa": 0.26
+  "retencion": 65.8,
+  "relativa": 0.24
  },
  {
   "video": "wtRwaYQskpA",
@@ -4478,8 +5378,8 @@
   "duracion_s": 313,
   "x": 0.98,
   "segundo": 307,
-  "retencion": 55.6,
-  "relativa": 0.25
+  "retencion": 57.9,
+  "relativa": 0.23
  },
  {
   "video": "wtRwaYQskpA",
@@ -4487,8 +5387,8 @@
   "duracion_s": 313,
   "x": 0.99,
   "segundo": 310,
-  "retencion": 50.0,
-  "relativa": 0.23
+  "retencion": 52.6,
+  "relativa": 0.22
  },
  {
   "video": "wtRwaYQskpA",
@@ -4497,7 +5397,7 @@
   "x": 1,
   "segundo": 313,
   "retencion": 50.0,
-  "relativa": 0.23
+  "relativa": 0.21
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4505,7 +5405,7 @@
   "duracion_s": 375,
   "x": 0.01,
   "segundo": 4,
-  "retencion": 78.3,
+  "retencion": 80.0,
   "relativa": 0.32
  },
  {
@@ -4514,7 +5414,7 @@
   "duracion_s": 375,
   "x": 0.02,
   "segundo": 8,
-  "retencion": 69.6,
+  "retencion": 72.0,
   "relativa": 0.38
  },
  {
@@ -4523,8 +5423,8 @@
   "duracion_s": 375,
   "x": 0.03,
   "segundo": 11,
-  "retencion": 65.2,
-  "relativa": 0.42
+  "retencion": 68.0,
+  "relativa": 0.41
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4532,7 +5432,7 @@
   "duracion_s": 375,
   "x": 0.04,
   "segundo": 15,
-  "retencion": 65.2,
+  "retencion": 68.0,
   "relativa": 0.42
  },
  {
@@ -4541,8 +5441,8 @@
   "duracion_s": 375,
   "x": 0.05,
   "segundo": 19,
-  "retencion": 65.2,
-  "relativa": 0.42
+  "retencion": 68.0,
+  "relativa": 0.41
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4550,7 +5450,7 @@
   "duracion_s": 375,
   "x": 0.06,
   "segundo": 22,
-  "retencion": 60.9,
+  "retencion": 64.0,
   "relativa": 0.41
  },
  {
@@ -4559,8 +5459,8 @@
   "duracion_s": 375,
   "x": 0.07,
   "segundo": 26,
-  "retencion": 56.5,
-  "relativa": 0.41
+  "retencion": 60.0,
+  "relativa": 0.4
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4568,8 +5468,8 @@
   "duracion_s": 375,
   "x": 0.08,
   "segundo": 30,
-  "retencion": 52.2,
-  "relativa": 0.41
+  "retencion": 56.0,
+  "relativa": 0.4
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4577,8 +5477,8 @@
   "duracion_s": 375,
   "x": 0.09,
   "segundo": 34,
-  "retencion": 52.2,
-  "relativa": 0.41
+  "retencion": 56.0,
+  "relativa": 0.4
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4586,8 +5486,8 @@
   "duracion_s": 375,
   "x": 0.1,
   "segundo": 38,
-  "retencion": 56.5,
-  "relativa": 0.41
+  "retencion": 60.0,
+  "relativa": 0.39
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4595,8 +5495,8 @@
   "duracion_s": 375,
   "x": 0.11,
   "segundo": 41,
-  "retencion": 56.5,
-  "relativa": 0.41
+  "retencion": 60.0,
+  "relativa": 0.38
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4604,8 +5504,8 @@
   "duracion_s": 375,
   "x": 0.12,
   "segundo": 45,
-  "retencion": 56.5,
-  "relativa": 0.4
+  "retencion": 60.0,
+  "relativa": 0.38
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4613,8 +5513,8 @@
   "duracion_s": 375,
   "x": 0.13,
   "segundo": 49,
-  "retencion": 56.5,
-  "relativa": 0.4
+  "retencion": 56.0,
+  "relativa": 0.37
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4622,8 +5522,8 @@
   "duracion_s": 375,
   "x": 0.14,
   "segundo": 53,
-  "retencion": 56.5,
-  "relativa": 0.39
+  "retencion": 56.0,
+  "relativa": 0.36
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4631,8 +5531,8 @@
   "duracion_s": 375,
   "x": 0.15,
   "segundo": 56,
-  "retencion": 56.5,
-  "relativa": 0.38
+  "retencion": 56.0,
+  "relativa": 0.35
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4640,8 +5540,8 @@
   "duracion_s": 375,
   "x": 0.16,
   "segundo": 60,
-  "retencion": 56.5,
-  "relativa": 0.37
+  "retencion": 56.0,
+  "relativa": 0.34
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4649,8 +5549,8 @@
   "duracion_s": 375,
   "x": 0.17,
   "segundo": 64,
-  "retencion": 52.2,
-  "relativa": 0.35
+  "retencion": 52.0,
+  "relativa": 0.33
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4658,8 +5558,8 @@
   "duracion_s": 375,
   "x": 0.18,
   "segundo": 68,
-  "retencion": 52.2,
-  "relativa": 0.34
+  "retencion": 52.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4667,8 +5567,8 @@
   "duracion_s": 375,
   "x": 0.19,
   "segundo": 71,
-  "retencion": 47.8,
-  "relativa": 0.33
+  "retencion": 48.0,
+  "relativa": 0.31
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4676,8 +5576,8 @@
   "duracion_s": 375,
   "x": 0.2,
   "segundo": 75,
-  "retencion": 47.8,
-  "relativa": 0.32
+  "retencion": 48.0,
+  "relativa": 0.31
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4685,8 +5585,8 @@
   "duracion_s": 375,
   "x": 0.21,
   "segundo": 79,
-  "retencion": 47.8,
-  "relativa": 0.31
+  "retencion": 48.0,
+  "relativa": 0.3
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4694,8 +5594,8 @@
   "duracion_s": 375,
   "x": 0.22,
   "segundo": 82,
-  "retencion": 47.8,
-  "relativa": 0.31
+  "retencion": 48.0,
+  "relativa": 0.3
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4703,7 +5603,7 @@
   "duracion_s": 375,
   "x": 0.23,
   "segundo": 86,
-  "retencion": 47.8,
+  "retencion": 48.0,
   "relativa": 0.3
  },
  {
@@ -4712,7 +5612,7 @@
   "duracion_s": 375,
   "x": 0.24,
   "segundo": 90,
-  "retencion": 43.5,
+  "retencion": 44.0,
   "relativa": 0.3
  },
  {
@@ -4721,8 +5621,8 @@
   "duracion_s": 375,
   "x": 0.25,
   "segundo": 94,
-  "retencion": 43.5,
-  "relativa": 0.29
+  "retencion": 44.0,
+  "relativa": 0.3
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4730,8 +5630,8 @@
   "duracion_s": 375,
   "x": 0.26,
   "segundo": 98,
-  "retencion": 43.5,
-  "relativa": 0.29
+  "retencion": 44.0,
+  "relativa": 0.3
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4739,8 +5639,8 @@
   "duracion_s": 375,
   "x": 0.27,
   "segundo": 101,
-  "retencion": 43.5,
-  "relativa": 0.3
+  "retencion": 44.0,
+  "relativa": 0.31
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4748,8 +5648,8 @@
   "duracion_s": 375,
   "x": 0.28,
   "segundo": 105,
-  "retencion": 43.5,
-  "relativa": 0.3
+  "retencion": 44.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4757,8 +5657,8 @@
   "duracion_s": 375,
   "x": 0.29,
   "segundo": 109,
-  "retencion": 43.5,
-  "relativa": 0.31
+  "retencion": 44.0,
+  "relativa": 0.33
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4766,8 +5666,8 @@
   "duracion_s": 375,
   "x": 0.3,
   "segundo": 112,
-  "retencion": 39.1,
-  "relativa": 0.33
+  "retencion": 40.0,
+  "relativa": 0.34
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4775,8 +5675,8 @@
   "duracion_s": 375,
   "x": 0.31,
   "segundo": 116,
-  "retencion": 39.1,
-  "relativa": 0.34
+  "retencion": 40.0,
+  "relativa": 0.35
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4784,8 +5684,8 @@
   "duracion_s": 375,
   "x": 0.32,
   "segundo": 120,
-  "retencion": 39.1,
-  "relativa": 0.36
+  "retencion": 40.0,
+  "relativa": 0.37
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4793,8 +5693,8 @@
   "duracion_s": 375,
   "x": 0.33,
   "segundo": 124,
-  "retencion": 39.1,
-  "relativa": 0.37
+  "retencion": 40.0,
+  "relativa": 0.39
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4802,8 +5702,8 @@
   "duracion_s": 375,
   "x": 0.34,
   "segundo": 128,
-  "retencion": 39.1,
-  "relativa": 0.39
+  "retencion": 40.0,
+  "relativa": 0.4
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4811,8 +5711,8 @@
   "duracion_s": 375,
   "x": 0.35,
   "segundo": 131,
-  "retencion": 39.1,
-  "relativa": 0.41
+  "retencion": 40.0,
+  "relativa": 0.42
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4820,7 +5720,7 @@
   "duracion_s": 375,
   "x": 0.36,
   "segundo": 135,
-  "retencion": 39.1,
+  "retencion": 40.0,
   "relativa": 0.43
  },
  {
@@ -4829,8 +5729,8 @@
   "duracion_s": 375,
   "x": 0.37,
   "segundo": 139,
-  "retencion": 39.1,
-  "relativa": 0.44
+  "retencion": 40.0,
+  "relativa": 0.45
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4838,8 +5738,8 @@
   "duracion_s": 375,
   "x": 0.38,
   "segundo": 142,
-  "retencion": 39.1,
-  "relativa": 0.45
+  "retencion": 40.0,
+  "relativa": 0.46
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4847,7 +5747,7 @@
   "duracion_s": 375,
   "x": 0.39,
   "segundo": 146,
-  "retencion": 39.1,
+  "retencion": 40.0,
   "relativa": 0.46
  },
  {
@@ -4856,8 +5756,8 @@
   "duracion_s": 375,
   "x": 0.4,
   "segundo": 150,
-  "retencion": 39.1,
-  "relativa": 0.46
+  "retencion": 40.0,
+  "relativa": 0.47
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4865,8 +5765,8 @@
   "duracion_s": 375,
   "x": 0.41,
   "segundo": 154,
-  "retencion": 39.1,
-  "relativa": 0.46
+  "retencion": 40.0,
+  "relativa": 0.47
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4874,8 +5774,8 @@
   "duracion_s": 375,
   "x": 0.42,
   "segundo": 158,
-  "retencion": 39.1,
-  "relativa": 0.46
+  "retencion": 40.0,
+  "relativa": 0.47
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4883,7 +5783,7 @@
   "duracion_s": 375,
   "x": 0.43,
   "segundo": 161,
-  "retencion": 39.1,
+  "retencion": 40.0,
   "relativa": 0.46
  },
  {
@@ -4892,7 +5792,7 @@
   "duracion_s": 375,
   "x": 0.44,
   "segundo": 165,
-  "retencion": 43.5,
+  "retencion": 44.0,
   "relativa": 0.45
  },
  {
@@ -4901,7 +5801,7 @@
   "duracion_s": 375,
   "x": 0.45,
   "segundo": 169,
-  "retencion": 43.5,
+  "retencion": 44.0,
   "relativa": 0.44
  },
  {
@@ -4910,8 +5810,8 @@
   "duracion_s": 375,
   "x": 0.46,
   "segundo": 172,
-  "retencion": 39.1,
-  "relativa": 0.42
+  "retencion": 40.0,
+  "relativa": 0.43
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4919,8 +5819,8 @@
   "duracion_s": 375,
   "x": 0.47,
   "segundo": 176,
-  "retencion": 39.1,
-  "relativa": 0.4
+  "retencion": 40.0,
+  "relativa": 0.41
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4928,8 +5828,8 @@
   "duracion_s": 375,
   "x": 0.48,
   "segundo": 180,
-  "retencion": 39.1,
-  "relativa": 0.38
+  "retencion": 40.0,
+  "relativa": 0.39
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4937,8 +5837,8 @@
   "duracion_s": 375,
   "x": 0.49,
   "segundo": 184,
-  "retencion": 43.5,
-  "relativa": 0.36
+  "retencion": 44.0,
+  "relativa": 0.37
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4946,8 +5846,8 @@
   "duracion_s": 375,
   "x": 0.5,
   "segundo": 188,
-  "retencion": 43.5,
-  "relativa": 0.34
+  "retencion": 44.0,
+  "relativa": 0.35
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4955,8 +5855,8 @@
   "duracion_s": 375,
   "x": 0.51,
   "segundo": 191,
-  "retencion": 39.1,
-  "relativa": 0.32
+  "retencion": 40.0,
+  "relativa": 0.34
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4964,8 +5864,8 @@
   "duracion_s": 375,
   "x": 0.52,
   "segundo": 195,
-  "retencion": 39.1,
-  "relativa": 0.3
+  "retencion": 40.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4973,8 +5873,8 @@
   "duracion_s": 375,
   "x": 0.53,
   "segundo": 199,
-  "retencion": 34.8,
-  "relativa": 0.29
+  "retencion": 36.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4982,8 +5882,8 @@
   "duracion_s": 375,
   "x": 0.54,
   "segundo": 202,
-  "retencion": 34.8,
-  "relativa": 0.29
+  "retencion": 36.0,
+  "relativa": 0.31
  },
  {
   "video": "5sWw1BRWDCk",
@@ -4991,8 +5891,8 @@
   "duracion_s": 375,
   "x": 0.55,
   "segundo": 206,
-  "retencion": 34.8,
-  "relativa": 0.29
+  "retencion": 36.0,
+  "relativa": 0.31
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5000,8 +5900,8 @@
   "duracion_s": 375,
   "x": 0.56,
   "segundo": 210,
-  "retencion": 34.8,
-  "relativa": 0.29
+  "retencion": 36.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5009,8 +5909,8 @@
   "duracion_s": 375,
   "x": 0.57,
   "segundo": 214,
-  "retencion": 34.8,
-  "relativa": 0.3
+  "retencion": 36.0,
+  "relativa": 0.32
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5018,8 +5918,8 @@
   "duracion_s": 375,
   "x": 0.58,
   "segundo": 217,
-  "retencion": 34.8,
-  "relativa": 0.32
+  "retencion": 36.0,
+  "relativa": 0.34
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5027,8 +5927,8 @@
   "duracion_s": 375,
   "x": 0.59,
   "segundo": 221,
-  "retencion": 34.8,
-  "relativa": 0.33
+  "retencion": 36.0,
+  "relativa": 0.35
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5036,8 +5936,8 @@
   "duracion_s": 375,
   "x": 0.6,
   "segundo": 225,
-  "retencion": 34.8,
-  "relativa": 0.35
+  "retencion": 36.0,
+  "relativa": 0.37
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5045,8 +5945,8 @@
   "duracion_s": 375,
   "x": 0.61,
   "segundo": 229,
-  "retencion": 34.8,
-  "relativa": 0.37
+  "retencion": 36.0,
+  "relativa": 0.38
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5054,8 +5954,8 @@
   "duracion_s": 375,
   "x": 0.62,
   "segundo": 232,
-  "retencion": 34.8,
-  "relativa": 0.39
+  "retencion": 36.0,
+  "relativa": 0.4
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5063,8 +5963,8 @@
   "duracion_s": 375,
   "x": 0.63,
   "segundo": 236,
-  "retencion": 34.8,
-  "relativa": 0.4
+  "retencion": 36.0,
+  "relativa": 0.41
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5072,8 +5972,8 @@
   "duracion_s": 375,
   "x": 0.64,
   "segundo": 240,
-  "retencion": 34.8,
-  "relativa": 0.42
+  "retencion": 36.0,
+  "relativa": 0.43
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5081,8 +5981,8 @@
   "duracion_s": 375,
   "x": 0.65,
   "segundo": 244,
-  "retencion": 34.8,
-  "relativa": 0.43
+  "retencion": 36.0,
+  "relativa": 0.44
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5090,8 +5990,8 @@
   "duracion_s": 375,
   "x": 0.66,
   "segundo": 248,
-  "retencion": 34.8,
-  "relativa": 0.44
+  "retencion": 36.0,
+  "relativa": 0.45
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5099,8 +5999,8 @@
   "duracion_s": 375,
   "x": 0.67,
   "segundo": 251,
-  "retencion": 34.8,
-  "relativa": 0.46
+  "retencion": 36.0,
+  "relativa": 0.47
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5108,7 +6008,7 @@
   "duracion_s": 375,
   "x": 0.68,
   "segundo": 255,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.49
  },
  {
@@ -5117,7 +6017,7 @@
   "duracion_s": 375,
   "x": 0.69,
   "segundo": 259,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.51
  },
  {
@@ -5126,7 +6026,7 @@
   "duracion_s": 375,
   "x": 0.7,
   "segundo": 262,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.51
  },
  {
@@ -5135,8 +6035,8 @@
   "duracion_s": 375,
   "x": 0.71,
   "segundo": 266,
-  "retencion": 34.8,
-  "relativa": 0.52
+  "retencion": 36.0,
+  "relativa": 0.51
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5144,7 +6044,7 @@
   "duracion_s": 375,
   "x": 0.72,
   "segundo": 270,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.52
  },
  {
@@ -5153,7 +6053,7 @@
   "duracion_s": 375,
   "x": 0.73,
   "segundo": 274,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.52
  },
  {
@@ -5162,7 +6062,7 @@
   "duracion_s": 375,
   "x": 0.74,
   "segundo": 278,
-  "retencion": 34.8,
+  "retencion": 36.0,
   "relativa": 0.53
  },
  {
@@ -5171,8 +6071,8 @@
   "duracion_s": 375,
   "x": 0.75,
   "segundo": 281,
-  "retencion": 34.8,
-  "relativa": 0.54
+  "retencion": 36.0,
+  "relativa": 0.53
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5180,8 +6080,8 @@
   "duracion_s": 375,
   "x": 0.76,
   "segundo": 285,
-  "retencion": 34.8,
-  "relativa": 0.55
+  "retencion": 36.0,
+  "relativa": 0.54
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5189,8 +6089,8 @@
   "duracion_s": 375,
   "x": 0.77,
   "segundo": 289,
-  "retencion": 34.8,
-  "relativa": 0.56
+  "retencion": 36.0,
+  "relativa": 0.55
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5198,8 +6098,8 @@
   "duracion_s": 375,
   "x": 0.78,
   "segundo": 292,
-  "retencion": 34.8,
-  "relativa": 0.6
+  "retencion": 36.0,
+  "relativa": 0.57
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5207,8 +6107,8 @@
   "duracion_s": 375,
   "x": 0.79,
   "segundo": 296,
-  "retencion": 34.8,
-  "relativa": 0.65
+  "retencion": 36.0,
+  "relativa": 0.61
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5216,8 +6116,8 @@
   "duracion_s": 375,
   "x": 0.8,
   "segundo": 300,
-  "retencion": 39.1,
-  "relativa": 0.7
+  "retencion": 40.0,
+  "relativa": 0.65
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5225,8 +6125,8 @@
   "duracion_s": 375,
   "x": 0.81,
   "segundo": 304,
-  "retencion": 39.1,
-  "relativa": 0.71
+  "retencion": 40.0,
+  "relativa": 0.66
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5234,8 +6134,8 @@
   "duracion_s": 375,
   "x": 0.82,
   "segundo": 308,
-  "retencion": 39.1,
-  "relativa": 0.69
+  "retencion": 40.0,
+  "relativa": 0.62
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5243,8 +6143,8 @@
   "duracion_s": 375,
   "x": 0.83,
   "segundo": 311,
-  "retencion": 39.1,
-  "relativa": 0.64
+  "retencion": 40.0,
+  "relativa": 0.56
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5252,8 +6152,8 @@
   "duracion_s": 375,
   "x": 0.84,
   "segundo": 315,
-  "retencion": 34.8,
-  "relativa": 0.55
+  "retencion": 36.0,
+  "relativa": 0.46
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5261,8 +6161,8 @@
   "duracion_s": 375,
   "x": 0.85,
   "segundo": 319,
-  "retencion": 34.8,
-  "relativa": 0.46
+  "retencion": 36.0,
+  "relativa": 0.37
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5270,8 +6170,8 @@
   "duracion_s": 375,
   "x": 0.86,
   "segundo": 322,
-  "retencion": 34.8,
-  "relativa": 0.39
+  "retencion": 36.0,
+  "relativa": 0.3
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5279,8 +6179,8 @@
   "duracion_s": 375,
   "x": 0.87,
   "segundo": 326,
-  "retencion": 34.8,
-  "relativa": 0.34
+  "retencion": 36.0,
+  "relativa": 0.26
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5288,8 +6188,8 @@
   "duracion_s": 375,
   "x": 0.88,
   "segundo": 330,
-  "retencion": 34.8,
-  "relativa": 0.3
+  "retencion": 36.0,
+  "relativa": 0.23
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5297,8 +6197,8 @@
   "duracion_s": 375,
   "x": 0.89,
   "segundo": 334,
-  "retencion": 34.8,
-  "relativa": 0.27
+  "retencion": 36.0,
+  "relativa": 0.2
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5306,8 +6206,8 @@
   "duracion_s": 375,
   "x": 0.9,
   "segundo": 338,
-  "retencion": 34.8,
-  "relativa": 0.25
+  "retencion": 36.0,
+  "relativa": 0.19
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5315,8 +6215,8 @@
   "duracion_s": 375,
   "x": 0.91,
   "segundo": 341,
-  "retencion": 34.8,
-  "relativa": 0.23
+  "retencion": 36.0,
+  "relativa": 0.17
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5324,8 +6224,8 @@
   "duracion_s": 375,
   "x": 0.92,
   "segundo": 345,
-  "retencion": 30.4,
-  "relativa": 0.21
+  "retencion": 28.0,
+  "relativa": 0.16
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5333,8 +6233,8 @@
   "duracion_s": 375,
   "x": 0.93,
   "segundo": 349,
-  "retencion": 30.4,
-  "relativa": 0.21
+  "retencion": 28.0,
+  "relativa": 0.16
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5342,8 +6242,8 @@
   "duracion_s": 375,
   "x": 0.94,
   "segundo": 352,
-  "retencion": 30.4,
-  "relativa": 0.2
+  "retencion": 28.0,
+  "relativa": 0.15
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5351,8 +6251,8 @@
   "duracion_s": 375,
   "x": 0.95,
   "segundo": 356,
-  "retencion": 26.1,
-  "relativa": 0.19
+  "retencion": 24.0,
+  "relativa": 0.14
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5360,8 +6260,8 @@
   "duracion_s": 375,
   "x": 0.96,
   "segundo": 360,
-  "retencion": 26.1,
-  "relativa": 0.17
+  "retencion": 24.0,
+  "relativa": 0.13
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5369,8 +6269,8 @@
   "duracion_s": 375,
   "x": 0.97,
   "segundo": 364,
-  "retencion": 26.1,
-  "relativa": 0.16
+  "retencion": 24.0,
+  "relativa": 0.12
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5378,8 +6278,8 @@
   "duracion_s": 375,
   "x": 0.98,
   "segundo": 368,
-  "retencion": 21.7,
-  "relativa": 0.16
+  "retencion": 20.0,
+  "relativa": 0.12
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5387,8 +6287,8 @@
   "duracion_s": 375,
   "x": 0.99,
   "segundo": 371,
-  "retencion": 21.7,
-  "relativa": 0.16
+  "retencion": 20.0,
+  "relativa": 0.13
  },
  {
   "video": "5sWw1BRWDCk",
@@ -5396,8 +6296,8 @@
   "duracion_s": 375,
   "x": 1,
   "segundo": 375,
-  "retencion": 21.7,
-  "relativa": 0.16
+  "retencion": 20.0,
+  "relativa": 0.13
  },
  {
   "video": "plDmm1R46YA",
@@ -5405,8 +6305,8 @@
   "duracion_s": 335,
   "x": 0.01,
   "segundo": 3,
-  "retencion": 105.3,
-  "relativa": 0.43
+  "retencion": 104.9,
+  "relativa": 0.42
  },
  {
   "video": "plDmm1R46YA",
@@ -5414,8 +6314,8 @@
   "duracion_s": 335,
   "x": 0.02,
   "segundo": 7,
-  "retencion": 97.4,
-  "relativa": 0.5
+  "retencion": 97.6,
+  "relativa": 0.49
  },
  {
   "video": "plDmm1R46YA",
@@ -5423,8 +6323,8 @@
   "duracion_s": 335,
   "x": 0.03,
   "segundo": 10,
-  "retencion": 84.2,
-  "relativa": 0.56
+  "retencion": 85.4,
+  "relativa": 0.54
  },
  {
   "video": "plDmm1R46YA",
@@ -5432,8 +6332,8 @@
   "duracion_s": 335,
   "x": 0.04,
   "segundo": 13,
-  "retencion": 81.6,
-  "relativa": 0.6
+  "retencion": 82.9,
+  "relativa": 0.59
  },
  {
   "video": "plDmm1R46YA",
@@ -5441,8 +6341,8 @@
   "duracion_s": 335,
   "x": 0.05,
   "segundo": 17,
-  "retencion": 81.6,
-  "relativa": 0.65
+  "retencion": 82.9,
+  "relativa": 0.63
  },
  {
   "video": "plDmm1R46YA",
@@ -5450,8 +6350,8 @@
   "duracion_s": 335,
   "x": 0.06,
   "segundo": 20,
-  "retencion": 84.2,
-  "relativa": 0.68
+  "retencion": 85.4,
+  "relativa": 0.67
  },
  {
   "video": "plDmm1R46YA",
@@ -5459,8 +6359,8 @@
   "duracion_s": 335,
   "x": 0.07,
   "segundo": 23,
-  "retencion": 79.0,
-  "relativa": 0.69
+  "retencion": 80.5,
+  "relativa": 0.67
  },
  {
   "video": "plDmm1R46YA",
@@ -5468,8 +6368,8 @@
   "duracion_s": 335,
   "x": 0.08,
   "segundo": 27,
-  "retencion": 79.0,
-  "relativa": 0.69
+  "retencion": 80.5,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5477,8 +6377,8 @@
   "duracion_s": 335,
   "x": 0.09,
   "segundo": 30,
-  "retencion": 73.7,
-  "relativa": 0.67
+  "retencion": 75.6,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -5486,8 +6386,8 @@
   "duracion_s": 335,
   "x": 0.1,
   "segundo": 34,
-  "retencion": 71.0,
-  "relativa": 0.65
+  "retencion": 73.2,
+  "relativa": 0.63
  },
  {
   "video": "plDmm1R46YA",
@@ -5495,8 +6395,8 @@
   "duracion_s": 335,
   "x": 0.11,
   "segundo": 37,
-  "retencion": 71.0,
-  "relativa": 0.64
+  "retencion": 73.2,
+  "relativa": 0.62
  },
  {
   "video": "plDmm1R46YA",
@@ -5504,8 +6404,8 @@
   "duracion_s": 335,
   "x": 0.12,
   "segundo": 40,
-  "retencion": 71.0,
-  "relativa": 0.62
+  "retencion": 70.7,
+  "relativa": 0.61
  },
  {
   "video": "plDmm1R46YA",
@@ -5513,8 +6413,8 @@
   "duracion_s": 335,
   "x": 0.13,
   "segundo": 44,
-  "retencion": 71.0,
-  "relativa": 0.61
+  "retencion": 70.7,
+  "relativa": 0.59
  },
  {
   "video": "plDmm1R46YA",
@@ -5522,8 +6422,8 @@
   "duracion_s": 335,
   "x": 0.14,
   "segundo": 47,
-  "retencion": 68.4,
-  "relativa": 0.59
+  "retencion": 68.3,
+  "relativa": 0.58
  },
  {
   "video": "plDmm1R46YA",
@@ -5531,8 +6431,8 @@
   "duracion_s": 335,
   "x": 0.15,
   "segundo": 50,
-  "retencion": 68.4,
-  "relativa": 0.58
+  "retencion": 68.3,
+  "relativa": 0.57
  },
  {
   "video": "plDmm1R46YA",
@@ -5540,8 +6440,8 @@
   "duracion_s": 335,
   "x": 0.16,
   "segundo": 54,
-  "retencion": 68.4,
-  "relativa": 0.57
+  "retencion": 68.3,
+  "relativa": 0.56
  },
  {
   "video": "plDmm1R46YA",
@@ -5549,7 +6449,7 @@
   "duracion_s": 335,
   "x": 0.17,
   "segundo": 57,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.56
  },
  {
@@ -5558,7 +6458,7 @@
   "duracion_s": 335,
   "x": 0.18,
   "segundo": 60,
-  "retencion": 73.7,
+  "retencion": 73.2,
   "relativa": 0.55
  },
  {
@@ -5567,7 +6467,7 @@
   "duracion_s": 335,
   "x": 0.19,
   "segundo": 64,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.55
  },
  {
@@ -5576,7 +6476,7 @@
   "duracion_s": 335,
   "x": 0.2,
   "segundo": 67,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.55
  },
  {
@@ -5585,7 +6485,7 @@
   "duracion_s": 335,
   "x": 0.21,
   "segundo": 70,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.56
  },
  {
@@ -5594,7 +6494,7 @@
   "duracion_s": 335,
   "x": 0.22,
   "segundo": 74,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.57
  },
  {
@@ -5603,7 +6503,7 @@
   "duracion_s": 335,
   "x": 0.23,
   "segundo": 77,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.58
  },
  {
@@ -5612,7 +6512,7 @@
   "duracion_s": 335,
   "x": 0.24,
   "segundo": 80,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.59
  },
  {
@@ -5621,7 +6521,7 @@
   "duracion_s": 335,
   "x": 0.25,
   "segundo": 84,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.61
  },
  {
@@ -5630,8 +6530,8 @@
   "duracion_s": 335,
   "x": 0.26,
   "segundo": 87,
-  "retencion": 71.0,
-  "relativa": 0.64
+  "retencion": 70.7,
+  "relativa": 0.63
  },
  {
   "video": "plDmm1R46YA",
@@ -5639,7 +6539,7 @@
   "duracion_s": 335,
   "x": 0.27,
   "segundo": 90,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5648,8 +6548,8 @@
   "duracion_s": 335,
   "x": 0.28,
   "segundo": 94,
-  "retencion": 68.4,
-  "relativa": 0.69
+  "retencion": 68.3,
+  "relativa": 0.68
  },
  {
   "video": "plDmm1R46YA",
@@ -5657,8 +6557,8 @@
   "duracion_s": 335,
   "x": 0.29,
   "segundo": 97,
-  "retencion": 68.4,
-  "relativa": 0.72
+  "retencion": 68.3,
+  "relativa": 0.71
  },
  {
   "video": "plDmm1R46YA",
@@ -5666,8 +6566,8 @@
   "duracion_s": 335,
   "x": 0.3,
   "segundo": 100,
-  "retencion": 71.0,
-  "relativa": 0.75
+  "retencion": 70.7,
+  "relativa": 0.74
  },
  {
   "video": "plDmm1R46YA",
@@ -5675,8 +6575,8 @@
   "duracion_s": 335,
   "x": 0.31,
   "segundo": 104,
-  "retencion": 73.7,
-  "relativa": 0.78
+  "retencion": 73.2,
+  "relativa": 0.77
  },
  {
   "video": "plDmm1R46YA",
@@ -5684,8 +6584,8 @@
   "duracion_s": 335,
   "x": 0.32,
   "segundo": 107,
-  "retencion": 73.7,
-  "relativa": 0.81
+  "retencion": 73.2,
+  "relativa": 0.8
  },
  {
   "video": "plDmm1R46YA",
@@ -5693,8 +6593,8 @@
   "duracion_s": 335,
   "x": 0.33,
   "segundo": 111,
-  "retencion": 76.3,
-  "relativa": 0.83
+  "retencion": 75.6,
+  "relativa": 0.82
  },
  {
   "video": "plDmm1R46YA",
@@ -5702,8 +6602,8 @@
   "duracion_s": 335,
   "x": 0.34,
   "segundo": 114,
-  "retencion": 79.0,
-  "relativa": 0.84
+  "retencion": 78.0,
+  "relativa": 0.83
  },
  {
   "video": "plDmm1R46YA",
@@ -5711,8 +6611,8 @@
   "duracion_s": 335,
   "x": 0.35,
   "segundo": 117,
-  "retencion": 79.0,
-  "relativa": 0.85
+  "retencion": 78.0,
+  "relativa": 0.84
  },
  {
   "video": "plDmm1R46YA",
@@ -5720,8 +6620,8 @@
   "duracion_s": 335,
   "x": 0.36,
   "segundo": 121,
-  "retencion": 81.6,
-  "relativa": 0.86
+  "retencion": 80.5,
+  "relativa": 0.85
  },
  {
   "video": "plDmm1R46YA",
@@ -5729,7 +6629,7 @@
   "duracion_s": 335,
   "x": 0.37,
   "segundo": 124,
-  "retencion": 81.6,
+  "retencion": 80.5,
   "relativa": 0.86
  },
  {
@@ -5738,8 +6638,8 @@
   "duracion_s": 335,
   "x": 0.38,
   "segundo": 127,
-  "retencion": 81.6,
-  "relativa": 0.86
+  "retencion": 80.5,
+  "relativa": 0.85
  },
  {
   "video": "plDmm1R46YA",
@@ -5747,8 +6647,8 @@
   "duracion_s": 335,
   "x": 0.39,
   "segundo": 131,
-  "retencion": 76.3,
-  "relativa": 0.85
+  "retencion": 75.6,
+  "relativa": 0.84
  },
  {
   "video": "plDmm1R46YA",
@@ -5756,8 +6656,8 @@
   "duracion_s": 335,
   "x": 0.4,
   "segundo": 134,
-  "retencion": 76.3,
-  "relativa": 0.84
+  "retencion": 75.6,
+  "relativa": 0.83
  },
  {
   "video": "plDmm1R46YA",
@@ -5765,8 +6665,8 @@
   "duracion_s": 335,
   "x": 0.41,
   "segundo": 137,
-  "retencion": 76.3,
-  "relativa": 0.81
+  "retencion": 75.6,
+  "relativa": 0.8
  },
  {
   "video": "plDmm1R46YA",
@@ -5774,8 +6674,8 @@
   "duracion_s": 335,
   "x": 0.42,
   "segundo": 141,
-  "retencion": 71.0,
-  "relativa": 0.77
+  "retencion": 70.7,
+  "relativa": 0.76
  },
  {
   "video": "plDmm1R46YA",
@@ -5783,8 +6683,8 @@
   "duracion_s": 335,
   "x": 0.43,
   "segundo": 144,
-  "retencion": 68.4,
-  "relativa": 0.73
+  "retencion": 68.3,
+  "relativa": 0.72
  },
  {
   "video": "plDmm1R46YA",
@@ -5792,7 +6692,7 @@
   "duracion_s": 335,
   "x": 0.44,
   "segundo": 147,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.69
  },
  {
@@ -5801,7 +6701,7 @@
   "duracion_s": 335,
   "x": 0.45,
   "segundo": 151,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.67
  },
  {
@@ -5810,8 +6710,8 @@
   "duracion_s": 335,
   "x": 0.46,
   "segundo": 154,
-  "retencion": 71.0,
-  "relativa": 0.67
+  "retencion": 70.7,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5819,8 +6719,8 @@
   "duracion_s": 335,
   "x": 0.47,
   "segundo": 157,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5828,8 +6728,8 @@
   "duracion_s": 335,
   "x": 0.48,
   "segundo": 161,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5837,8 +6737,8 @@
   "duracion_s": 335,
   "x": 0.49,
   "segundo": 164,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5846,8 +6746,8 @@
   "duracion_s": 335,
   "x": 0.5,
   "segundo": 168,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5855,8 +6755,8 @@
   "duracion_s": 335,
   "x": 0.51,
   "segundo": 171,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5864,8 +6764,8 @@
   "duracion_s": 335,
   "x": 0.52,
   "segundo": 174,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5873,8 +6773,8 @@
   "duracion_s": 335,
   "x": 0.53,
   "segundo": 178,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5882,8 +6782,8 @@
   "duracion_s": 335,
   "x": 0.54,
   "segundo": 181,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5891,8 +6791,8 @@
   "duracion_s": 335,
   "x": 0.55,
   "segundo": 184,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5900,8 +6800,8 @@
   "duracion_s": 335,
   "x": 0.56,
   "segundo": 188,
-  "retencion": 71.0,
-  "relativa": 0.67
+  "retencion": 70.7,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5909,8 +6809,8 @@
   "duracion_s": 335,
   "x": 0.57,
   "segundo": 191,
-  "retencion": 71.0,
-  "relativa": 0.67
+  "retencion": 70.7,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5918,8 +6818,8 @@
   "duracion_s": 335,
   "x": 0.58,
   "segundo": 194,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5927,8 +6827,8 @@
   "duracion_s": 335,
   "x": 0.59,
   "segundo": 198,
-  "retencion": 68.4,
-  "relativa": 0.67
+  "retencion": 68.3,
+  "relativa": 0.66
  },
  {
   "video": "plDmm1R46YA",
@@ -5936,7 +6836,7 @@
   "duracion_s": 335,
   "x": 0.6,
   "segundo": 201,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5945,7 +6845,7 @@
   "duracion_s": 335,
   "x": 0.61,
   "segundo": 204,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5954,7 +6854,7 @@
   "duracion_s": 335,
   "x": 0.62,
   "segundo": 208,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5963,7 +6863,7 @@
   "duracion_s": 335,
   "x": 0.63,
   "segundo": 211,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5972,7 +6872,7 @@
   "duracion_s": 335,
   "x": 0.64,
   "segundo": 214,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5981,7 +6881,7 @@
   "duracion_s": 335,
   "x": 0.65,
   "segundo": 218,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5990,7 +6890,7 @@
   "duracion_s": 335,
   "x": 0.66,
   "segundo": 221,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -5999,7 +6899,7 @@
   "duracion_s": 335,
   "x": 0.67,
   "segundo": 224,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -6008,7 +6908,7 @@
   "duracion_s": 335,
   "x": 0.68,
   "segundo": 228,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -6017,7 +6917,7 @@
   "duracion_s": 335,
   "x": 0.69,
   "segundo": 231,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.66
  },
  {
@@ -6026,7 +6926,7 @@
   "duracion_s": 335,
   "x": 0.7,
   "segundo": 234,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.66
  },
  {
@@ -6035,7 +6935,7 @@
   "duracion_s": 335,
   "x": 0.71,
   "segundo": 238,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.66
  },
  {
@@ -6044,8 +6944,8 @@
   "duracion_s": 335,
   "x": 0.72,
   "segundo": 241,
-  "retencion": 68.4,
-  "relativa": 0.66
+  "retencion": 68.3,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -6053,8 +6953,8 @@
   "duracion_s": 335,
   "x": 0.73,
   "segundo": 245,
-  "retencion": 68.4,
-  "relativa": 0.66
+  "retencion": 68.3,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -6062,8 +6962,8 @@
   "duracion_s": 335,
   "x": 0.74,
   "segundo": 248,
-  "retencion": 68.4,
-  "relativa": 0.66
+  "retencion": 68.3,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -6071,8 +6971,8 @@
   "duracion_s": 335,
   "x": 0.75,
   "segundo": 251,
-  "retencion": 68.4,
-  "relativa": 0.66
+  "retencion": 68.3,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -6080,8 +6980,8 @@
   "duracion_s": 335,
   "x": 0.76,
   "segundo": 255,
-  "retencion": 68.4,
-  "relativa": 0.66
+  "retencion": 68.3,
+  "relativa": 0.65
  },
  {
   "video": "plDmm1R46YA",
@@ -6089,7 +6989,7 @@
   "duracion_s": 335,
   "x": 0.77,
   "segundo": 258,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.65
  },
  {
@@ -6098,7 +6998,7 @@
   "duracion_s": 335,
   "x": 0.78,
   "segundo": 261,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.65
  },
  {
@@ -6107,8 +7007,8 @@
   "duracion_s": 335,
   "x": 0.79,
   "segundo": 265,
-  "retencion": 68.4,
-  "relativa": 0.65
+  "retencion": 68.3,
+  "relativa": 0.64
  },
  {
   "video": "plDmm1R46YA",
@@ -6116,8 +7016,8 @@
   "duracion_s": 335,
   "x": 0.8,
   "segundo": 268,
-  "retencion": 68.4,
-  "relativa": 0.65
+  "retencion": 68.3,
+  "relativa": 0.64
  },
  {
   "video": "plDmm1R46YA",
@@ -6125,7 +7025,7 @@
   "duracion_s": 335,
   "x": 0.81,
   "segundo": 271,
-  "retencion": 71.0,
+  "retencion": 70.7,
   "relativa": 0.64
  },
  {
@@ -6134,8 +7034,8 @@
   "duracion_s": 335,
   "x": 0.82,
   "segundo": 275,
-  "retencion": 71.0,
-  "relativa": 0.64
+  "retencion": 70.7,
+  "relativa": 0.63
  },
  {
   "video": "plDmm1R46YA",
@@ -6143,7 +7043,7 @@
   "duracion_s": 335,
   "x": 0.83,
   "segundo": 278,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.62
  },
  {
@@ -6152,7 +7052,7 @@
   "duracion_s": 335,
   "x": 0.84,
   "segundo": 281,
-  "retencion": 68.4,
+  "retencion": 68.3,
   "relativa": 0.6
  },
  {
@@ -6171,7 +7071,7 @@
   "x": 0.86,
   "segundo": 288,
   "retencion": 65.8,
-  "relativa": 0.55
+  "relativa": 0.56
  },
  {
   "video": "plDmm1R46YA",
@@ -6179,7 +7079,7 @@
   "duracion_s": 335,
   "x": 0.87,
   "segundo": 291,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.54
  },
  {
@@ -6188,7 +7088,7 @@
   "duracion_s": 335,
   "x": 0.88,
   "segundo": 295,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.53
  },
  {
@@ -6197,8 +7097,8 @@
   "duracion_s": 335,
   "x": 0.89,
   "segundo": 298,
-  "retencion": 63.2,
-  "relativa": 0.52
+  "retencion": 63.4,
+  "relativa": 0.53
  },
  {
   "video": "plDmm1R46YA",
@@ -6206,7 +7106,7 @@
   "duracion_s": 335,
   "x": 0.9,
   "segundo": 302,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.52
  },
  {
@@ -6215,7 +7115,7 @@
   "duracion_s": 335,
   "x": 0.91,
   "segundo": 305,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.51
  },
  {
@@ -6224,7 +7124,7 @@
   "duracion_s": 335,
   "x": 0.92,
   "segundo": 308,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.5
  },
  {
@@ -6233,7 +7133,7 @@
   "duracion_s": 335,
   "x": 0.93,
   "segundo": 312,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.5
  },
  {
@@ -6242,8 +7142,8 @@
   "duracion_s": 335,
   "x": 0.94,
   "segundo": 315,
-  "retencion": 63.2,
-  "relativa": 0.49
+  "retencion": 63.4,
+  "relativa": 0.5
  },
  {
   "video": "plDmm1R46YA",
@@ -6251,8 +7151,8 @@
   "duracion_s": 335,
   "x": 0.95,
   "segundo": 318,
-  "retencion": 63.2,
-  "relativa": 0.49
+  "retencion": 63.4,
+  "relativa": 0.5
  },
  {
   "video": "plDmm1R46YA",
@@ -6260,7 +7160,7 @@
   "duracion_s": 335,
   "x": 0.96,
   "segundo": 322,
-  "retencion": 63.2,
+  "retencion": 63.4,
   "relativa": 0.48
  },
  {
@@ -6269,8 +7169,8 @@
   "duracion_s": 335,
   "x": 0.97,
   "segundo": 325,
-  "retencion": 63.2,
-  "relativa": 0.46
+  "retencion": 63.4,
+  "relativa": 0.47
  },
  {
   "video": "plDmm1R46YA",
@@ -6278,8 +7178,8 @@
   "duracion_s": 335,
   "x": 0.98,
   "segundo": 328,
-  "retencion": 60.5,
-  "relativa": 0.45
+  "retencion": 61.0,
+  "relativa": 0.46
  },
  {
   "video": "plDmm1R46YA",
@@ -6287,8 +7187,8 @@
   "duracion_s": 335,
   "x": 0.99,
   "segundo": 332,
-  "retencion": 57.9,
-  "relativa": 0.44
+  "retencion": 58.5,
+  "relativa": 0.45
  },
  {
   "video": "plDmm1R46YA",
@@ -6296,7 +7196,7 @@
   "duracion_s": 335,
   "x": 1,
   "segundo": 335,
-  "retencion": 57.9,
-  "relativa": 0.44
+  "retencion": 58.5,
+  "relativa": 0.45
  }
 ]

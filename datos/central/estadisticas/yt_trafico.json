@@ -2,140 +2,158 @@
  {
   "tipo": "Short",
   "fuente": "Feed de Shorts",
-  "vistas": 5295,
-  "minutos": 1788
+  "vistas": 6843,
+  "minutos": 2250
  },
  {
   "tipo": "Short",
   "fuente": "Otras páginas de YouTube",
-  "vistas": 115,
-  "minutos": 59
+  "vistas": 176,
+  "minutos": 160
+ },
+ {
+  "tipo": "Largo",
+  "fuente": "Suscriptores",
+  "vistas": 176,
+  "minutos": 196
  },
  {
   "tipo": "Short",
   "fuente": "Búsqueda de YouTube",
-  "vistas": 101,
-  "minutos": 29
+  "vistas": 122,
+  "minutos": 32
  },
  {
   "tipo": "Short",
   "fuente": "Página del canal",
-  "vistas": 83,
-  "minutos": 38
- },
- {
-  "tipo": "Largo",
-  "fuente": "Suscriptores",
-  "vistas": 70,
-  "minutos": 55
- },
- {
-  "tipo": "Largo",
-  "fuente": "Links externos",
-  "vistas": 53,
-  "minutos": 199
+  "vistas": 114,
+  "minutos": 43
  },
  {
   "tipo": "Short",
   "fuente": "Suscriptores",
-  "vistas": 42,
-  "minutos": 20
+  "vistas": 62,
+  "minutos": 33
  },
  {
   "tipo": "Vivo",
   "fuente": "Suscriptores",
-  "vistas": 23,
-  "minutos": 125
- },
- {
-  "tipo": "Largo",
-  "fuente": "Videos sugeridos",
-  "vistas": 14,
-  "minutos": 16
+  "vistas": 50,
+  "minutos": 127
  },
  {
   "tipo": "Short",
   "fuente": "Notificaciones",
-  "vistas": 12,
-  "minutos": 9
+  "vistas": 26,
+  "minutos": 16
+ },
+ {
+  "tipo": "Largo",
+  "fuente": "Links externos",
+  "vistas": 20,
+  "minutos": 89
  },
  {
   "tipo": "Largo",
   "fuente": "Página del canal",
-  "vistas": 11,
-  "minutos": 24
+  "vistas": 18,
+  "minutos": 40
+ },
+ {
+  "tipo": "Largo",
+  "fuente": "Videos sugeridos",
+  "vistas": 18,
+  "minutos": 76
  },
  {
   "tipo": "Vivo",
   "fuente": "Videos sugeridos",
-  "vistas": 10,
-  "minutos": 24
+  "vistas": 12,
+  "minutos": 38
  },
  {
   "tipo": "Short",
   "fuente": "Links externos",
-  "vistas": 9,
-  "minutos": 10
+  "vistas": 12,
+  "minutos": 12
  },
  {
-  "tipo": "Short",
-  "fuente": "Directo o desconocido",
-  "vistas": 7,
-  "minutos": 3
+  "tipo": "Vivo",
+  "fuente": "Búsqueda de YouTube",
+  "vistas": 11,
+  "minutos": 1
  },
  {
   "tipo": "Largo",
   "fuente": "Búsqueda de YouTube",
-  "vistas": 5,
-  "minutos": 9
- },
- {
-  "tipo": "Vivo",
-  "fuente": "Links externos",
-  "vistas": 4,
-  "minutos": 102
- },
- {
-  "tipo": "Largo",
-  "fuente": "Playlists",
-  "vistas": 4,
-  "minutos": 4
+  "vistas": 10,
+  "minutos": 0
  },
  {
   "tipo": "Vivo",
   "fuente": "Directo o desconocido",
-  "vistas": 3,
-  "minutos": 13
+  "vistas": 7,
+  "minutos": 60
  },
  {
   "tipo": "Vivo",
   "fuente": "Página del canal",
-  "vistas": 3,
-  "minutos": 86
+  "vistas": 7,
+  "minutos": 110
+ },
+ {
+  "tipo": "Vivo",
+  "fuente": "Links externos",
+  "vistas": 6,
+  "minutos": 180
  },
  {
   "tipo": "Short",
   "fuente": "Playlists",
+  "vistas": 3,
+  "minutos": 1
+ },
+ {
+  "tipo": "Largo",
+  "fuente": "Directo o desconocido",
   "vistas": 3,
   "minutos": 0
  },
  {
   "tipo": "Largo",
-  "fuente": "Directo o desconocido",
+  "fuente": "Otras páginas de YouTube",
+  "vistas": 3,
+  "minutos": 0
+ },
+ {
+  "tipo": "Vivo",
+  "fuente": "Otras páginas de YouTube",
   "vistas": 2,
   "minutos": 0
  },
  {
   "tipo": "Vivo",
-  "fuente": "Búsqueda de YouTube",
+  "fuente": "Notificaciones",
+  "vistas": 2,
+  "minutos": 26
+ },
+ {
+  "tipo": "Short",
+  "fuente": "Directo o desconocido",
+  "vistas": 2,
+  "minutos": 1
+ },
+ {
+  "tipo": "Vivo",
+  "fuente": "Playlists",
   "vistas": 1,
   "minutos": 0
  },
  {
-  "tipo": "Vivo",
-  "fuente": "Notificaciones",
+  "tipo": "Short",
+  "fuente": "Videos sugeridos",
   "vistas": 1,
-  "minutos": 24
+  "minutos": 0
  },
  {
   "tipo": "Short",
@@ -145,20 +163,8 @@
  },
  {
   "tipo": "Largo",
-  "fuente": "Otras páginas de YouTube",
+  "fuente": "Playlists",
   "vistas": 1,
-  "minutos": 0
- },
- {
-  "tipo": "Largo",
-  "fuente": "Notificaciones",
-  "vistas": 1,
-  "minutos": 3
- },
- {
-  "tipo": "Largo",
-  "fuente": "Links desde Shorts",
-  "vistas": 1,
-  "minutos": 0
+  "minutos": 1
  }
 ]
