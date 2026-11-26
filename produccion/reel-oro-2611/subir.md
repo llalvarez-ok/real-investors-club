@@ -7,7 +7,7 @@
 - **Archivos:** `RIC-reel-oro-2611-ig.mp4` (68,4 s) y `-yt.mp4` (63,8 s), −14 LUFS.
 - **Medidor:** 20 cortes por minuto y 0 % de segundos quietos.
 - **Datos:**
-  - Yahoo Finance (GC=F, `DX-Y.NYB`, `^TNX`): récord de 5.586 (29/01/2026), 3.611 el 25/11 y piso de 3.503 (20/11).
+  - Yahoo Finance (GC=F, `DX-Y.NYB`, `^TNX`): récord de 5.586 (29/01/2026), 3.597 el 26/11 (en curso) y mínimo de la semana de 3.454 (25/11, vela horaria).
   - 2013 como único caso de −30 % desde el récord desde 2000: +2,4 % un año después.
   - Inflación PCE 3,8 %: BEA, 25/11.
   - Pronóstico de Goldman Sachs: Kitco e investingLive, noviembre de 2026.
@@ -16,7 +16,7 @@
 
 El oro perdió un tercio en diez meses. Si tenés oro, esto te importa 👇
 
-En enero tocó 5.586 dólares la onza. Ahora ronda los 3.600 (−35 %).
+En enero tocó 5.586 dólares la onza. Ahora ronda los 3.600 (−36 %).
 
 ¿Por qué? La Fed sube la tasa contra una inflación de 3,8 %, y el dólar está en su máximo del año. Con la tasa alta, un bono paga casi 5 % y el oro, 0 %: la plata se muda.
 
@@ -28,7 +28,7 @@ Goldman Sachs espera 4.650 a fines de 2027, y ya bajó ese pronóstico dos veces
 
 Mi opinión personal: salvo que la Fed suba fuerte, el oro podría empezar a subir desde acá. Es mi opinión, no una recomendación.
 
-Con 0,01 lote (1 onza), cada dólar que se mueve el oro es un dólar para vos, o en tu contra. Hasta el récord hay casi 2.000 dólares, que pueden tardar años; hasta el piso de este mes, 110. Si invertís, gestioná bien tu capital.
+Con 0,01 lote (1 onza), cada dólar que se mueve el oro es un dólar para vos, o en tu contra. Hasta el récord hay casi 2.000 dólares, que pueden tardar años; hasta el mínimo de esta semana, unos 140. Si invertís, gestioná bien tu capital.
 
 Y vos, con tu oro: ¿qué hacés? Dejalo con un emoji 👇
 🟢 sumo · 🟡 espero · 🔴 salgo
@@ -43,7 +43,7 @@ Datos: Yahoo Finance (GC=F), cálculo propio; BEA; Goldman Sachs según Kitco e 
 
 **Descripción:**
 
-El oro tocó 5.586 dólares en enero y ahora ronda los 3.600: −35 % en diez meses. Lo empujan la tasa de la Fed contra una inflación de 3,8 % y el dólar en su máximo del año. Desde 2000 cayó así una sola vez (2013) y un año después estaba casi igual: un solo caso, no es regla. El 9/12 decide la Fed. Goldman Sachs espera 4.650 a fines de 2027, después de bajar su pronóstico dos veces en noviembre. Con 0,01 lote, cada dólar que se mueve el oro es un dólar a favor o en contra: gestioná bien tu capital. Opinión personal de Lean, no es recomendación.
+El oro tocó 5.586 dólares en enero y ahora ronda los 3.600: −36 % en diez meses. Lo empujan la tasa de la Fed contra una inflación de 3,8 % y el dólar en su máximo del año. Desde 2000 cayó así una sola vez (2013) y un año después estaba casi igual: un solo caso, no es regla. El 9/12 decide la Fed. Goldman Sachs espera 4.650 a fines de 2027, después de bajar su pronóstico dos veces en noviembre. Con 0,01 lote, cada dólar que se mueve el oro es un dólar a favor o en contra: gestioná bien tu capital. Opinión personal de Lean, no es recomendación.
 
 Datos: Yahoo Finance (GC=F, DX-Y.NYB, ^TNX), cálculo propio; PCE de BEA (25/11); Goldman Sachs según Kitco e investingLive. Voz generada con IA a partir de la voz de Lean. Contenido educativo. No constituye recomendación de inversión.
 

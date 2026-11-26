@@ -47,23 +47,26 @@ const t07 = { ini: INI('07'), cuatro: W('07', 'cuatro mil', 0, false, .25), vein
   dos: W('07', 'dos veces', 0, false, .75), noviembre: W('07', 'noviembre', 0, false, .9) };
 const t08 = { ini: INI('08'), op0: INI('08'), salvo: W('08', 'salvo', 0, false, .2), fuerte: W('08', 'fuerte', 0, false, .35), oro: W('08', 'el oro podría', 0, false, .45),
   subir: W('08', 'subir', 0, false, .55), opinion: W('08', 'Es mi opinión', 0, false, .75) };
+// fin de la primera palabra que aparezca (la voz nueva dice «ciento cuarenta»; la anterior, «ciento diez»)
+function Wfin(id, fs, def) { for (const f of fs) { const ln = FALTAN.length, t = W(id, f, 0, true, def); if (FALTAN.length === ln) return t; FALTAN.pop(); }
+  FALTAN.push(`${id}: «${fs.join(' / ')}» (aprox.)`); return B[id] ? B[id].ini + def * (B[id].fin - B[id].ini) : 0; }
 const t09 = { ini: INI('09'), onza: W('09', 'cada dólar', 0, false, .12), vos: W('09', 'para vos', 0, false, .25), contra: W('09', 'en tu contra', 0, false, .3),
-  precio: W('09', 'Del precio', 0, false, .37), dosmil: W('09', 'dos mil', 0, false, .5), piso: W('09', 'Hasta el piso', 0, false, .58), ciento: W('09', 'ciento', 0, false, .66),
-  poreso: W('09', 'Por eso', 0, false, .72), fin: W('09', 'diez', 0, true, .7) - .2, capital: W('09', 'capital', 0, false, .97) };
+  precio: W('09', 'Del precio', 0, false, .37), dosmil: W('09', 'dos mil', 0, false, .5), piso: Wq('09', ['Hasta el mínimo', 'mínimo', 'Hasta el piso'], .58), ciento: W('09', 'ciento', 0, false, .66),
+  poreso: W('09', 'Por eso', 0, false, .72), fin: Wfin('09', ['cuarenta', 'diez'], .7) - .2, capital: W('09', 'capital', 0, false, .97) };
 const t10 = V === 'ig' ? { ini: W('10', 'con tu oro', 0, false, .1), emoji: W('10', 'emoji', 0, false, .35), verde: W('10', 'Verde', 0, false, .45), amarillo: W('10', 'amarillo', 0, false, .65),
   rojo: W('10', 'rojo', 0, false, .85) } : { ini: W('10', 'Suscribite', 0, false, .2), club: W('10', 'Club', 0, false, .8) };
 
 const velas = (i0, i1, v0, v1, opt = {}) => grafico(VL, { i0, i1, v0, v1 }, { caja: [150, 530, 720, 620], ...opt });
 
 const P = [
-  // 01 · cuadro 0: −35 % enorme sobre los lingotes reales
+  // 01 · cuadro 0: −36 % (5.586 → 3.597 = −35,6 %) enorme sobre los lingotes reales
   plano(0, 'gancho', (t, k, q) => {
     foto('lingotes', null, [.5, .62, 1.02, .5, .6, 1.12], q, 'limpio', .08); velos(.7, .9);
     const g = X.createLinearGradient(0, 560, 0, 1060); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.5, 'rgba(3,8,15,.62)'); g.addColorStop(1, 'rgba(3,8,15,0)');
     X.fillStyle = g; X.fillRect(0, 560, 1080, 500);
     chip('ORO · GC=F', ZX0 + 20, 312, ORO, 1, { izq: true, fs: 26 });
     titulo([['EL ORO PERDIÓ', C.txt]], 420, 92, 1);
-    numero('−35 %', ZC, 810, 330, ROJO, 1, { mezcla: false, id: 'menos35' });
+    numero('−36 %', ZC, 810, 330, ROJO, 1, { mezcla: false, id: 'menos36' });
     const kd = ramp(t, t01.diez, .4);
     if (kd < 1) texto('¿TENÉS ORO?', ZC, 1080, `900 96px ${TIT}`, C.txt, 'center', 1 - kd, { id: 'tenes' });   // cuadro 0: lo que está en juego para el que mira (Valeria, 26/11)
     if (kd > 0) { chip('EN 10 MESES', ZC, 1010, C.txt, kd, { fs: 30 }); texto(`${fmt(REC.v)} → ${fmt(REF)}`, ZC, 1110, `900 84px ${TIT}`, C.txt, 'center', kd, { id: 'de-a' }); }
@@ -71,7 +74,7 @@ const P = [
   plano(t01.si, 'si-tenes', (t, k, q) => {
     foto('lingotes', null, [.3, .62, 2.0, .36, .6, 2.15], q, 'oro', .15); velos(.7, .92);
     chip('EN 10 MESES', ZC, 1010, C.txt, 1, { fs: 30 }); texto(`${fmt(REC.v)} → ${fmt(REF)}`, ZC, 1110, `900 84px ${TIT}`, C.txt, 'center', 1, { id: 'de-a' });
-    numero('−35 %', ZC, 560, 210, ROJO, 1, { mezcla: false, id: 'menos35' });
+    numero('−36 %', ZC, 560, 210, ROJO, 1, { mezcla: false, id: 'menos36' });
   }),
   // 02 · el récord de enero
   plano(t02.ini, 'record', (t, k, q) => {
@@ -244,18 +247,19 @@ const P = [
     titulo([['HASTA EL ', C.txt], ['RÉCORD', VERDE]], 392, 100, ramp(t, t09.precio, .35));
   }),
   plano(t09.piso, 'hasta-piso', (t, k, q) => {
-    fondo(t); const i0 = idx('2026-10-20');
-    const G = velas(i0, N + 6, 3420, 3900, { fechas: [[idx('2026-11-02'), '2/11'], [IMIN, '20/11'], [N - 1, 'HOY']] });
-    const x = G.x(N - 1) + 40, ka = ramp(t, t09.piso + .1, .6), y0 = G.y(REF), y1 = G.y(MIN.v);
-    nivel(G, MIN.v, ROJO, 1, `PISO ${fmt(MIN.v)} · 20/11`, { izq: true, abajo: true, fs: 24 });
-    if (ka > 0) { X.save(); X.strokeStyle = ROJO; X.lineWidth = 6; X.beginPath(); X.moveTo(x, y0); X.lineTo(x, lerp(y0, y1, out3(ka))); X.stroke(); X.restore(); }
-    chip('−110 HASTA EL PISO', x - 30, lerp(y0, y1, .5), ROJO, ramp(t, t09.piso + .3, .3), { der: true, fs: 30 });
-    chip(`+${fmt(D.hasta_record)} HASTA EL RÉCORD`, ZC, 1196, VERDE, 1, { fs: 24 });
-    titulo([['HASTA EL ', C.txt], ['PISO', ROJO]], 392, 100, ramp(t, t09.piso, .35));
+    fondo(t); const i0 = idx('2026-11-17');   // de cerca: esta semana, con el mínimo del 25/11 (horaria) y el 26/11 en curso
+    const G = velas(i0 - 1.1, N + 3.5, 3300, 3920, { fechas: [[i0, '17/11'], [idx('2026-11-23'), '23/11'], [N - 1, 'HOY']] });
+    const x = G.x(N - 1) + 70, ka = ramp(t, t09.piso + .1, .6), y0 = G.y(REF), y1 = G.y(MIN.v);
+    nivel(G, MIN.v, ROJO, 1, `MÍNIMO ${fmt(MIN.v)} · 25/11`, { izq: true, abajo: true, fs: 24 });
+    if (ka > 0) { X.save(); X.strokeStyle = ROJO; X.lineWidth = 6; X.beginPath(); X.moveTo(x, y0); X.lineTo(x, lerp(y0, y1, out3(ka)));
+      [y0, lerp(y0, y1, out3(ka))].forEach(y => { X.moveTo(x - 18, y); X.lineTo(x + 18, y); }); X.stroke(); X.restore(); }
+    punto(G.x(IMIN), y1, ROJO, ramp(t, t09.piso, .5), 10);
+    chip(`−${fmt(D.hasta_piso)} HASTA EL MÍNIMO`, 860, G.y(3810), ROJO, ramp(t, t09.piso + .3, .3), { der: true, fs: 30 });
+    titulo([['HASTA EL ', C.txt], ['MÍNIMO', ROJO]], 392, 100, ramp(t, t09.piso, .35));
   }),
   plano(t09.fin, 'capital', (t, k, q) => {
     foto('lingotes', null, [.5, .4, 1.5, .45, .45, 1.62], q, 'oro', .6);
-    ['0,01 LOTE = 1 ONZA', `+${fmt(D.hasta_record)} HASTA EL RÉCORD`, '−110 HASTA EL PISO · PUEDE ROMPERSE', 'EL RÉCORD PUEDE TARDAR AÑOS'].forEach((s, j) =>
+    ['0,01 LOTE = 1 ONZA', `+${fmt(D.hasta_record)} HASTA EL RÉCORD`, `−${fmt(D.hasta_piso)} HASTA EL MÍNIMO · PUEDE ROMPERSE`, 'EL RÉCORD PUEDE TARDAR AÑOS'].forEach((s, j) =>
       chip(s, ZC, 470 + j * 74, [ORO, VERDE, ROJO, C.txt2][j], 1, { fs: 26 }));
     const kf = ramp(t, t09.fin + .1, .35);
     titulo([['«SI INVERTÍS,', C.txt], ['GESTIONÁ BIEN', ORO], ['TU CAPITAL.»', ORO]], 880, 104, kf);
@@ -312,7 +316,7 @@ arrancar({
   fotos: { lean: 'fotos/lean.png', lingotes: 'fotos/lingotes.jpg', logo: '../../marca/logo-blanco.png' },
   claves: ['oro', 'tercio', '10', 'meses', 'importa', '5.586', 'récord', '3.600', 'Fed', 'tasa', 'inflación', '3,8', 'dólar', 'máximo', 'bono', '5', 'cero', 'plata', 'muda',
     'sola', '2013', 'igual', 'caso', 'regla', 'suba', 'lógico', 'bajar', 'rebotar', 'siempre', 'Goldman', '4.650', '2027', 'bajó', 'veces', 'fuerte', 'subir', 'opinión',
-    'recomendación', '0,01', 'lote', 'vos', 'contra', '2.000', 'piso', '110', 'capital', 'gestión', 'emoji', 'verde', 'amarillo', 'rojo', 'sumo', 'espero', 'salgo',
+    'recomendación', '0,01', 'lote', 'vos', 'contra', '2.000', 'mínimo', 'semana', '140', 'capital', 'gestión', 'emoji', 'verde', 'amarillo', 'rojo', 'sumo', 'espero', 'salgo',
     'Suscribite', 'Club'],
   etiqueta: t => t >= t08.op0 - .02 && t < INI('09') - .02 ? { txt: 'MI OPINIÓN · LEAN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
   pie: ['Contenido educativo. No constituye recomendación de inversión.', 'Voz generada con IA (clon de la voz de Lean)'],
