@@ -66,11 +66,16 @@ const P = [
   }),
   // la promesa se cumple (✓) y después se tacha y cae
   plano(t01.llego, 'llego', (t, k, q) => {
-    fondo(t); retrato('lean', 290, 1060, 470, q, { sz: .62, sy: -.06, z0: 1, z1: 1.08 });
-    const tacha0 = t01.siguio, caida = ramp(t, tacha0 + .1, .6);
+    fondo(t); const tacha0 = t01.siguio, caida = ramp(t, tacha0 + .1, .6);
+    // gráfico real (diario) del 05/11 a hoy: toca 62.000 el 19/11 y sigue hasta el mínimo del 21/11
+    const Gl = grafico(VL, { i0: I13 - 6, i1: N + 1, v0: 52000, v1: 72000 }, { caja: [150, 930, 720, 300], hasta: lerp(I13 - 6, N - 1, ramp(t, t01.llego, 1.6)),
+      fechas: [[I13, '13/11'], [I62, '19/11'], [IMIN, '21/11']] });
+    nivel(Gl, 62000, VERDE, ramp(t, t01.llego, .4), null, { punteada: true, grosor: 3 });
+    punto(Gl.x(I62), Gl.y(62000), VERDE, ramp(t, t01.llego + .3, .3), 10);
+    nivel(Gl, MIN.v, ROJO, caida, null, { grosor: 3 }); punto(Gl.x(IMIN), Gl.y(MIN.v), ROJO, caida, 11);
     numero('62.000', 440, 600 - 30 * out3(caida), 190, ORO, 1, { mezcla: false, ancho: 520 });
     tilde(790, 590, 80, ramp(t, t01.llego + .05, .45));
-    chip(`TOCÓ 62.000 · ${D.toco_62000.slice(8)}/${D.toco_62000.slice(5, 7)}`, 540, 1040, VERDE, ramp(t, t01.llego + .05, .25), { izq: true, fs: 24 });
+    chip(`TOCÓ 62.000 · ${D.toco_62000.slice(8)}/${D.toco_62000.slice(5, 7)}`, 620, 470, VERDE, ramp(t, t01.llego - .1, .2), { fs: 24 });
     titulo([['LLEGÓ… Y SIGUIÓ', C.txt]], 385, 88, ramp(t, t01.llego, .3));
     tacha(190, 700, 600, ramp(t, tacha0, .35));
     if (caida > 0) { flecha(790, 690, 790, 860, ROJO, caida, 16); numero(fmt(MIN.v), 450, lerp(660, 810, out3(caida)), 170, ROJO, caida, { mezcla: false, ancho: 560 }); }
@@ -100,13 +105,13 @@ const P = [
     fondo(t); titulo([['6 MESES ', C.txt], ['DESPUÉS', ORO]], 385, 88, ramp(t, t03.seis, .35));
     const orden = { 2015: t03.subio, 2021: t03.subio + .35, 2018: t03.siguio, 2022: t03.siguio + .35 };
     EP.forEach((e, j) => { const cx = 150 + (j % 2) * 375, cy = 490 + Math.floor(j / 2) * 395, w = 345, h = 370, y = +e.f.slice(0, 4), kk = ramp(t, orden[y], .4), up = e.r6 >= 0, col = up ? VERDE : ROJO;
-      X.save(); X.globalAlpha = .35 + .65 * cl(kk * 2); X.translate(cx + w / 2, cy + h / 2); X.scale(.9 + .1 * back(kk), .9 + .1 * back(kk)); X.translate(-cx - w / 2, -cy - h / 2);
+      X.save(); X.globalAlpha = .7 + .3 * cl(kk * 2); X.translate(cx + w / 2, cy + h / 2); X.scale(.9 + .1 * back(kk), .9 + .1 * back(kk)); X.translate(-cx - w / 2, -cy - h / 2);
       rr(cx, cy, w, h, 18); X.fillStyle = 'rgba(3,8,15,.82)'; X.fill(); X.lineWidth = 3; X.strokeStyle = kk > 0 ? col : C.borde; X.stroke();
       const cam = e.camino, n = cam.length, mn = Math.min(...cam, -.45), mx = Math.max(...cam, .8), px = i => cx + 24 + i / (n - 1) * (w - 48), py = v => cy + h - 40 - (v - mn) / (mx - mn) * (h - 150);
       X.strokeStyle = 'rgba(163,181,209,.25)'; X.setLineDash([8, 8]); X.beginPath(); X.moveTo(cx + 20, py(0)); X.lineTo(cx + w - 20, py(0)); X.stroke(); X.setLineDash([]);
       const hasta = Math.max(1, Math.floor((n - 1) * cl(kk * 1.3)));
-      const hasta2 = Math.max(1, Math.floor((n - 1) * cl((t - t03.seis) / 1.2)));
-      X.beginPath(); for (let i = 0; i <= hasta2; i++) i ? X.lineTo(px(i), py(cam[i])) : X.moveTo(px(i), py(cam[i])); X.strokeStyle = 'rgba(163,181,209,.55)'; X.lineWidth = 4; X.stroke();
+      const hasta2 = Math.max(1, Math.floor((n - 1) * cl((t - t03.seis + .15) / .6)));
+      X.beginPath(); for (let i = 0; i <= hasta2; i++) i ? X.lineTo(px(i), py(cam[i])) : X.moveTo(px(i), py(cam[i])); X.strokeStyle = 'rgba(163,181,209,.8)'; X.lineWidth = 4; X.stroke();
       if (kk > 0) { X.beginPath(); for (let i = 0; i <= hasta; i++) i ? X.lineTo(px(i), py(cam[i])) : X.moveTo(px(i), py(cam[i])); X.strokeStyle = col; X.lineWidth = 6; X.shadowColor = hex(col, .6); X.shadowBlur = 14; X.stroke(); X.shadowBlur = 0; }
       texto(String(y), cx + 24, cy + 40, `800 36px ${TIT}`, C.txt, 'left', 1, { id: 'a' + y });
       if (kk > 0) texto(pct(e.r6), cx + w - 20, cy + 82, `900 64px ${TIT}`, col, 'right', cl(kk * 2), { id: 'r' + y }); X.restore(); });
@@ -130,7 +135,7 @@ const P = [
     for (let j = 0; j < 22; j++) { const x = 180 + azar(j, 9) * 680, v = 380 + azar(j, 8) * 300, y = 520 + ((k * v + azar(j, 7) * 700) % 700);
       X.save(); X.globalAlpha = .55 * (1 - (y - 520) / 700); X.strokeStyle = ROJO; X.lineWidth = 7; X.lineCap = 'round'; X.beginPath(); X.moveTo(x - 22, y - 18); X.lineTo(x, y); X.lineTo(x + 22, y - 18); X.stroke(); X.restore(); }
     titulo([['SALIERON DE LOS ', C.txt], ['FONDOS', ORO]], 385, 84, ramp(t, t04.salieron, .3));
-    const kc = ramp(t, t04.salieron + .1, 1.1);
+    const kc = ramp(t, t04.salieron + .1, Math.max(.4, t04.tres - t04.salieron - .1));
     numero('−US$ ' + fmt(Math.round(3000 * out3(kc))) + ' M', ZC, 820, 150, ROJO, cl(kc * 3), { mezcla: false, noLeer: kc < 1 });
     chip('MÁS DE 3.000 M · ETF DE BITCOIN', ZC, 980, C.txt, ramp(t, t04.salieron + .1, .3), { fs: 26 });
     chip('NOVIEMBRE 2026 · FUENTE: COINTELEGRAPH Y THE BLOCK', ZC, 1060, C.txt2, ramp(t, t04.salieron + .3, .3), { fs: 20, pass: true });
@@ -168,9 +173,10 @@ const P = [
     const G = grafico(VL, { i0, i1: N + 16, v0: 46000, v1: 76000 }, { caja: [150, 470, 720, 680], fechas: [[idx('2026-11-01'), '1/11'], [IMIN, '21/11']] });
     const x0 = G.x(N - 1), y0 = G.y(PRECIO);
     flecha(x0, y0, x0 + 170, G.y(51000), hex(ROJO, .8), 1, 16); flecha(x0, y0, x0 + 170, G.y(70000), VERDE, ramp(t, t05.nosube, .5), 18);
+    chip('SI SUBE LA TASA → DEBERÍA BAJAR', 860, 1150, ROJO, 1, { der: true, fs: 23 });
     chip('SI NO LA SUBE → DEBERÍA REBOTAR', 860, 560, VERDE, ramp(t, t05.nosube + .1, .3), { der: true, fs: 23 });
     punto(x0, y0, ORO, 1, 11);
-    sello(['NO SIEMPRE', 'lo lógico no siempre pasa'], 520, 880, ROJO, ramp(t, t05.siempre - .15, .4), { fs: 104, rot: -8 });
+    sello(['NO SIEMPRE', 'lo lógico no siempre pasa'], 520, 880, ROJO, ramp(t, t05.pero, .4), { fs: 104, rot: -8 });
     titulo([['SI NO LA SUBE…', VERDE]], 385, 96, ramp(t, t05.nosube, .3));
   }),
   // 06 · las dos líneas a mirar
@@ -191,11 +197,18 @@ const P = [
     titulo([['ABAJO: ', C.txt], [fmt(MIN.v), ROJO]], 385, 100, ramp(t, t06.abajo, .35));
   }),
   // 07 · la opinión de Lean (rotulada todo el bloque)
-  plano(Wq('07', ['estar'], .1), 'op-pausa', (t, k, q) => {
-    fondo(t); retrato('lean', 540, 760, 900, q, { sy: -.03, z0: 1.04, z1: 1.12 });
-    const g = X.createLinearGradient(0, 900, 0, 1300); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.6, 'rgba(3,8,15,.9)'); X.fillStyle = g; X.fillRect(0, 900, 1080, 1020);
-    const kp = ramp(t, t07.pausa - .1, .4); X.save(); X.globalAlpha = cl(kp * 3); X.fillStyle = ORO; rr(450, 900, 40, 120, 10); X.fill(); rr(520, 900, 40, 120, 10); X.fill(); X.restore();
-    titulo([['UNA PAUSA', ORO]], 1140, 110, ramp(t, t07.ini + .3, .3));
+  plano(t07.ini + .5, 'op-pausa', (t, k, q) => {
+    // gráfico real de las últimas semanas y, a la derecha del precio de hoy, la zona de pausa (ilustrativa) que se estira
+    fondo(t); const i0 = idx('2026-10-15');
+    const G = grafico(VL, { i0, i1: N + 26, v0: 50000, v1: 80000 }, { caja: [150, 590, 720, 560], fechas: [[idx('2026-11-01'), '1/11'], [IMIN, '21/11']] });
+    const x0 = G.x(N - 1) + 8, kz = ramp(t, t07.pausa - .1, .5), kw = ramp(t, t07.semanas - .3, .8), x1 = lerp(x0 + 90, G.x(N + 24), out3(kw));
+    if (kz > 0) { X.save(); X.globalAlpha = cl(kz * 2); rr(x0, G.y(64500), (x1 - x0), G.y(MIN.v) - G.y(64500), 12); X.fillStyle = hex(ORO, .14); X.fill();
+      X.setLineDash([12, 10]); X.strokeStyle = hex(ORO, .8); X.lineWidth = 3; X.stroke(); X.setLineDash([]);
+      const cx = (x0 + x1) / 2, cy = (G.y(64500) + G.y(MIN.v)) / 2; X.fillStyle = ORO; rr(cx - 34, cy - 45, 24, 90, 7); X.fill(); rr(cx + 10, cy - 45, 24, 90, 7); X.fill(); X.restore(); }
+    punto(G.x(N - 1), G.y(PRECIO), ORO, 1, 11);
+    chip('¿DÍAS O SEMANAS?', 860, 1100, ORO, ramp(t, t07.pausa + .2, .3), { der: true, fs: 26 });
+    chip('ZONA ILUSTRATIVA · NO ES PRONÓSTICO', 150, 1100, C.txt2, ramp(t, t07.pausa, .3), { izq: true, fs: 18, pass: true });
+    titulo([['¿UNA ', C.txt], ['PAUSA?', ORO]], 430, 100, ramp(t, t07.ini + .5, .3));
   }),
   plano(t07.personal, 'op-largo', (t, k, q) => {
     fondo(t); const e = io(cl(k / 2.6));
@@ -222,15 +235,17 @@ const P = [
     titulo([['SI ROMPE ', C.txt], [fmt(MIN.v), ROJO]], 430, 96, ramp(t, t07.rompe - .5, .3));
   }),
   plano(t07.precio, 'op-futuro', (t, k, q) => {
-    fondo(t); retrato('lean', 330, 700, 860, q, { sz: .72, sy: -.05, z0: 1, z1: 1.07 });
-    const g = X.createLinearGradient(380, 0, 900, 0); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.5, 'rgba(3,8,15,.7)'); X.fillStyle = g; X.fillRect(380, 300, 700, 800);
-    titulo([['«DE CARA', C.txt], ['AL FUTURO,', C.txt]], 520, 66, ramp(t, t07.precio - .1, .3), { x: 690, ancho: 300 });
-    titulo([['ES MUY', ORO], ['BUENO»', ORO]], 750, 80, ramp(t, t07.precio, .3), { x: 690, ancho: 300 });
+    // el precio de hoy sobre toda la historia de Bitcoin (semanal, escala log), sin la cara de Lean
+    fondo(t); const e = io(cl(k / 2.4));
+    const G = grafico(SEM, { i0: lerp(NS - 160, -5, e), i1: NS + 12, v0: lerp(15000, 150, e), v1: 200000 }, { caja: [150, 560, 720, 400], tipo: 'linea', log: true, area: true,
+      niveles: [1000, 10000, 100000], fechas: anios });
+    punto(G.x(NS - 1), G.y(PRECIO), ORO, 1, 13);
+    titulo([['«DE CARA AL FUTURO, ', C.txt], ['ES MUY BUENO»', ORO]], 430, 70, ramp(t, t07.precio - .1, .3));
     numero(fmt(PRECIO), ZC, 1110, 160, ORO, ramp(t, t07.precio + .1, .5));
-    chip('PRECIO DE HOY · BTC-USD', 700, 960, C.txt2, ramp(t, t07.precio + .3, .3), { fs: 20 });
+    chip('PRECIO DE HOY · BTC-USD · 26/11', ZC, 1225, C.txt2, ramp(t, t07.precio + .3, .3), { fs: 20 });
   }),
   plano(t07.opinion, 'op-sello', (t, k, q) => {
-    fondo(t); retrato('lean', 540, 800, 1000, q, { a: .35, z0: 1.12, z1: 1.18 });
+    fondo(t); X.save(); X.globalAlpha = .3; grafico(SEM, { i0: -5, i1: NS + 12, v0: 150, v1: 200000 }, { caja: [150, 500, 720, 660], tipo: 'linea', log: true, area: true, panel: false, ejes: false }); X.restore();
     sello(['ES MI OPINIÓN', 'no una recomendación'], ZC, 820, ORO, ramp(t, t07.opinion - .1, .3), { fs: 90, rot: -5 });
   }),
 ];
@@ -246,7 +261,7 @@ if (V === 'ig') P.push(
       rr(-360, -95, 720, 190, 30); X.fillStyle = 'rgba(3,8,15,.85)'; X.fill(); X.lineWidth = 4; X.strokeStyle = col; X.stroke();
       X.font = '120px "Noto Color Emoji"'; X.textBaseline = 'middle'; X.textAlign = 'center'; X.fillText(em, -240, 8);
       texto(s, -120, 0, `900 92px ${TIT}`, C.txt, 'left', 1, { id: 'enc' + j }); X.restore(); });
-    chip('@leanalvarez.ok', ZC, 1220, ORO, ramp(t, t08.rojo + .3, .3), { fs: 26 });
+    chip('@leanalvarez.ok', ZC, 1220, ORO, ramp(t, t08.verde, .3), { fs: 26 });
   }));
 else P.push(
   plano(t08.ini, 'yt-cierre', (t, k, q) => { fondo(t); tarjetaYT(660, ramp(t, t08.ini + .1, .45), t, t08.club); }));
@@ -281,12 +296,12 @@ function fantasma(t) { X.save(); X.globalAlpha = .5; const o = (t * 6) % 60;
   grafico(SEM, { i0: -10 + t * .8, i1: NS * .75 + t * .8, v0: 120, v1: 400000 }, { caja: [-40, 260, 1160, 1640], tipo: 'linea', log: true, area: true, panel: false, ejes: false,
     color: '#274a80', grosor: 3 }); X.restore(); }
 arrancar({
-  planos: P, fantasma,
+  planos: P, fantasma, maxSub: 40,
   fotos: { lean: 'fotos/lean.png', atm: 'fotos/btc-atm.jpg', logo: '../../marca/logo-blanco.png' },
   claves: ['62.000', '55.000', 'Llegó', 'siguió', 'largo', 'mitad', 'récord', '2014', '4', 'subió', 'cayendo', '2', 'moneda', '3.000', 'millones', 'fondos', 'Fed',
     '9', 'diciembre', 'suba', 'lógico', 'bajar', 'rebotar', 'siempre', '72.000', 'promedio', 'pausa', 'semanas', 'largo', 'plazo', 'rompe', 'mínimo', 'bueno',
     'opinión', 'recomendación', 'emoji', 'verde', 'amarillo', 'rojo', 'sumé', 'espero', 'vendí', 'Suscribite', 'Club'],
-  etiqueta: t => t >= INI('07') - .02 && t < INI('08') - .02 ? { txt: 'MI OPINIÓN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
+  etiqueta: t => t >= INI('07') + .48 && t < INI('08') - .02 ? { txt: 'MI OPINIÓN · LEAN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
   pie: ['Contenido educativo. No constituye recomendación de inversión.', 'Voz generada con IA (clon de la voz de Lean)'],
   creditos: t => (t >= t04.ini && t < t06.ini ? 'Foto: Matti Blume · CC BY-SA 4.0 · Wikimedia Commons · ' : '') + 'Datos: Yahoo Finance (BTC-USD, al 26/11/2026)',
 });

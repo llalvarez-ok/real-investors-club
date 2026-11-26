@@ -189,9 +189,15 @@ const P = [
   }),
   // 08 · la opinión de Lean (rotulada todo el bloque)
   plano(t08.ini, 'op-salvo', (t, k, q) => {
-    fondo(t); retrato('lean', 540, 740, 920, q, { sy: -.03, z0: 1.04, z1: 1.12 });
-    const g = X.createLinearGradient(0, 880, 0, 1300); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.6, 'rgba(3,8,15,.9)'); X.fillStyle = g; X.fillRect(0, 880, 1080, 1040);
-    titulo([['SALVO QUE LA FED', C.txt], ['SUBA FUERTE', ORO]], 1110, 74, ramp(t, t08.salvo, .35));
+    // sin la cara de Lean (pedido del 26/11): el gráfico real del oro y la condición de la Fed como un techo rojo encima del precio
+    fondo(t); const i0 = idx('2026-09-01');
+    const G = grafico(VL, { i0, i1: N + 14, v0: 3300, v1: 5000 }, { caja: [150, 590, 720, 560], fechas: fechasMes(i0, N - 1) });
+    punto(G.x(N - 1), G.y(REF), ORO, 1, 11);
+    const kf = ramp(t, t08.salvo, .4); if (kf > 0) { X.save(); X.globalAlpha = cl(kf * 2); const x0 = G.x(N - 1) + 20, y0 = G.y(REF) - 70;
+      rr(x0 - 10, y0 - 90, 190, 70, 14); X.fillStyle = hex(ROJO, .16); X.fill(); X.lineWidth = 3; X.strokeStyle = ROJO; X.stroke(); X.restore();
+      texto('FED', x0 + 85, y0 - 55, `900 40px ${TIT}`, ROJO, 'center', cl(kf * 2), { id: 'fedtecho' }); }
+    chip('SI SUBE FUERTE LA TASA', 860, 1100, ROJO, ramp(t, t08.fuerte - .2, .3), { der: true, fs: 24 });
+    titulo([['SALVO QUE LA FED ', C.txt], ['SUBA FUERTE', ROJO]], 430, 80, ramp(t, t08.ini, .3));
   }),
   plano(t08.oro, 'op-subir', (t, k, q) => {
     fondo(t); const i0 = idx('2026-10-01');
@@ -203,7 +209,7 @@ const P = [
     titulo([['PODRÍA EMPEZAR ', C.txt], ['A SUBIR', VERDE]], 430, 80, ramp(t, t08.oro, .35));
   }),
   plano(t08.opinion, 'op-sello', (t, k, q) => {
-    fondo(t); retrato('lean', 540, 800, 1000, q, { a: .35, z0: 1.12, z1: 1.18 });
+    fondo(t); X.save(); X.globalAlpha = .3; grafico(VL, { i0: 0, i1: N + 8, v0: 3000, v1: 6000 }, { caja: [150, 500, 720, 660], panel: false, ejes: false }); X.restore();
     sello(['ES MI OPINIÓN', 'no una recomendación'], 540, 820, ORO, ramp(t, t08.opinion, .4), { fs: 96, rot: -5 });
   }),
   // 09 · lote y capital
@@ -303,7 +309,7 @@ arrancar({
     'sola', '2013', 'igual', 'caso', 'regla', 'suba', 'lógico', 'bajar', 'rebotar', 'siempre', 'Goldman', '4.650', '2027', 'bajó', 'veces', 'fuerte', 'subir', 'opinión',
     'recomendación', '0,01', 'lote', 'vos', 'contra', '2.000', 'piso', '110', 'capital', 'gestión', 'emoji', 'verde', 'amarillo', 'rojo', 'sumo', 'espero', 'salgo',
     'Suscribite', 'Club'],
-  etiqueta: t => t >= INI('08') - .02 && t < INI('09') - .02 ? { txt: 'MI OPINIÓN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
+  etiqueta: t => t >= INI('08') - .02 && t < INI('09') - .02 ? { txt: 'MI OPINIÓN · LEAN · NO ES RECOMENDACIÓN', color: ORO, fs: 24 } : null,
   pie: ['Contenido educativo. No constituye recomendación de inversión.', 'Voz generada con IA (clon de la voz de Lean)'],
   creditos: t => /gancho|si-tenes|fed-sube|bono-oro|se-muda|fed-9|no-siempre|capital/.test(window.PLANO || 'gancho') ? 'Foto: Andrzej Barabasz · CC BY-SA · Wikimedia Commons' : 'Datos: Yahoo Finance (GC=F, DX-Y.NYB, ^TNX) · BEA · Kitco',
 });
