@@ -335,8 +335,8 @@ function cuadro(t) {
   const p = P[i], k = t - p.t0, q = cl(k / Math.max(.1, p.t1 - p.t0));
   fondo(t);
   // golpe de zoom al entrar y empuje lento todo el plano (la cámara nunca queda quieta)
-  X.save(); const z = 1 + .035 * (1 - out3(k / .32)) * (i ? 1 : 0) + .025 * io(q) * (p.empuje ?? 1);
-  X.translate(ZC, 845); X.scale(z, z); X.rotate((p.giro ?? 0) * io(q) * Math.PI / 180); X.translate(-ZC, -845);
+  X.save(); const z = 1 + .035 * (1 - out3(k / .32)) * (i ? 1 : 0) + .05 * q * (p.empuje ?? 1);
+  X.translate(ZC + 10 * Math.sin(t * .9), 845 + 8 * Math.cos(t * .7)); X.scale(z, z); X.rotate((p.giro ?? 0) * io(q) * Math.PI / 180); X.translate(-ZC, -845);
   p.dibuja(t, k, q, p); X.restore();
   polvo(t, .7); vineta();
   // destello del corte
@@ -349,7 +349,7 @@ function hud(t) {
   X.fillStyle = 'rgba(255,255,255,.12)'; X.fillRect(0, 0, 1080, 8); X.fillStyle = C.oro; X.fillRect(0, 0, 1080 * cl(t / T.total), 8);
   texto('REAL INVESTORS CLUB', 60, 150, `800 24px ${TIT}`, C.oro, 'left', .9, { pass: true, noLeer: true });
   const et = CFG.etiqueta ? CFG.etiqueta(t) : null;
-  if (et) chip(et.txt, et.x ?? ZX0, et.y ?? 296, et.color || C.oro, 1, { izq: true, fs: et.fs || 24 });
+  if (et) chip(et.txt, et.x ?? ZX0 + 10, et.y ?? 300, et.color || C.oro, 1, { izq: true, fs: et.fs || 24 });
   const pie = CFG.pie || ['Contenido educativo. No constituye recomendación de inversión.'];
   pie.forEach((s, i) => texto(s, ZC, 1406 + i * 24, `500 20px ${SANS}`, C.txt2, 'center', .85, { id: 'pie' + i, sombra: false, pass: false, noLeer: i > 0 }));
   const cr = CFG.creditos ? CFG.creditos(t) : ''; if (cr) texto(cr, ZC, 1470, `500 16px ${MONO}`, 'rgba(163,181,209,.6)', 'center', 1, { pass: true, sombra: false });

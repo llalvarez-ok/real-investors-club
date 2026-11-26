@@ -61,7 +61,7 @@ const P = [
     foto('lingotes', null, [.5, .62, 1.02, .5, .6, 1.12], q, 'limpio', .08); velos(.7, .9);
     const g = X.createLinearGradient(0, 560, 0, 1060); g.addColorStop(0, 'rgba(3,8,15,0)'); g.addColorStop(.5, 'rgba(3,8,15,.62)'); g.addColorStop(1, 'rgba(3,8,15,0)');
     X.fillStyle = g; X.fillRect(0, 560, 1080, 500);
-    chip('ORO · GC=F', ZX0, 296, ORO, 1, { izq: true, fs: 26 });
+    chip('ORO · GC=F', ZX0 + 20, 312, ORO, 1, { izq: true, fs: 26 });
     titulo([['EL ORO PERDIÓ', C.txt]], 420, 92, 1);
     numero('−35 %', ZC, 810, 330, ROJO, 1, { mezcla: false, id: 'menos35' });
     const kd = ramp(t, t01.diez, .4);
